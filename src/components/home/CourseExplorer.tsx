@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { 
+import {
   X,
   FlaskConical,
   Dna,
@@ -16,7 +16,8 @@ import {
   Languages,
   Variable,
   Sigma,
-  Sparkles
+  Sparkles,
+  ArrowRight
 } from "lucide-react";
 import { useState, useMemo, useRef, useEffect } from "react";
 
@@ -106,13 +107,13 @@ const CATEGORIES = [
 
 export function CourseExplorer() {
   const [selectedCourseId, setSelectedCourseId] = useState<string>(CATEGORIES[0].id);
-  const activeCategory = useMemo(() => 
+  const activeCategory = useMemo(() =>
     CATEGORIES.find(c => c.id === selectedCourseId) || CATEGORIES[0]
-  , [selectedCourseId]);
+    , [selectedCourseId]);
 
   return (
     <section className="pt-16 pb-6 px-4 bg-background overflow-hidden" id="curriculum">
-      <div className="container mx-auto max-w-7xl px-0 sm:px-4">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-8 text-left">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -126,7 +127,7 @@ export function CourseExplorer() {
             Explore IB <span className="text-primary italic">Global Standards</span>
           </h2>
           <p className="text-muted-foreground font-medium max-w-2xl text-base md:text-lg leading-relaxed">
-            A comprehensive guide to the world's most rigorous academic pathways. 
+            A comprehensive guide to the world's most rigorous academic pathways.
             Select a program or course to discover focused subjects.
           </p>
         </div>
@@ -139,19 +140,19 @@ export function CourseExplorer() {
             </h3>
             <div className="grid gap-3">
               {PROGRAMS.map((program) => (
-                <div 
+                <div
                   key={program.id}
-                  className="p-4 rounded-xl bg-card border border-border/40 hover:border-primary/30 transition-all duration-300 group"
+                  className="p-5 rounded-2xl bg-muted/10 border border-border/60 hover:bg-muted/20 hover:border-primary/40 transition-all duration-300 group backdrop-blur-sm"
                 >
                   <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-1">
-                    <h4 className="text-sm font-black text-foreground group-hover:text-primary transition-colors break-words">
+                    <h4 className="text-sm md:text-base font-black text-foreground group-hover:text-primary transition-colors break-words">
                       {program.title}
                     </h4>
-                    <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
+                    <span className="text-[10px] font-black px-2.5 py-1 rounded-full bg-muted/50 text-muted-foreground border border-border/40 whitespace-nowrap">
                       {program.age}
                     </span>
                   </div>
-                  <p className="text-[13px] text-muted-foreground leading-relaxed font-medium">
+                  <p className="text-[13px] md:text-sm text-muted-foreground leading-relaxed font-medium">
                     {program.description}
                   </p>
                 </div>
@@ -164,7 +165,7 @@ export function CourseExplorer() {
             <h3 className="text-xl font-black text-foreground mb-6 flex items-center gap-2">
               Core IB Courses
             </h3>
-            
+
             <div className="flex flex-col md:flex-row gap-6">
               {/* Category Selector */}
               <div className="w-full md:w-56 space-y-2">
@@ -172,11 +173,10 @@ export function CourseExplorer() {
                   <button
                     key={cat.id}
                     onClick={() => setSelectedCourseId(cat.id)}
-                    className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl text-left transition-all font-bold text-sm ${
-                      selectedCourseId === cat.id 
-                        ? "bg-primary text-black" 
-                        : "bg-muted/30 text-muted-foreground hover:bg-muted/50 hover:text-foreground border border-transparent"
-                    }`}
+                    className={`w-full flex items-center gap-3 px-4 py-4 rounded-2xl text-left transition-all font-black text-sm border-2 ${selectedCourseId === cat.id
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-muted/10 text-muted-foreground hover:bg-muted/20 hover:text-foreground border-transparent"
+                      }`}
                   >
                     <cat.icon className="size-4 shrink-0" />
                     <span className="truncate">{cat.title}</span>
@@ -185,7 +185,7 @@ export function CourseExplorer() {
               </div>
 
               {/* Subject Detail View */}
-              <div className="flex-1 p-4 rounded-xl bg-card border border-border/40">
+              <div className="flex-1 p-5 md:p-6 rounded-3xl bg-muted/5 border border-border/50 backdrop-blur-md">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={selectedCourseId}
@@ -194,22 +194,25 @@ export function CourseExplorer() {
                     exit={{ opacity: 0, y: -10 }}
                     className="space-y-6"
                   >
-                    <div className="pb-4 border-b border-border/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-                      <h4 className="text-base md:text-lg font-black text-foreground flex items-center gap-2 break-words">
-                        <activeCategory.icon className="size-4 md:size-5 text-primary" strokeWidth={2} />
+                    <div className="pb-4 border-b border-border/40 flex items-center justify-between gap-4">
+                      <h4 className="text-lg md:text-xl font-black text-foreground break-words tracking-tight">
                         {activeCategory.title} Subjects
                       </h4>
+                      <button className="flex items-center gap-1 text-[10px] md:text-[11px] font-black text-primary hover:gap-1.5 transition-all group/link">
+                        Full curriculum
+                        <ArrowRight className="size-3 transition-transform group-hover/link:translate-x-0.5" />
+                      </button>
                     </div>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {activeCategory.courses.map((course, i) => (
-                        <div key={i} className="p-4 rounded-xl bg-muted/20 border border-border/20 group hover:border-primary/40 transition-colors">
-                          <p className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                        <div key={i} className="p-3.5 rounded-xl bg-muted/30 border border-border/50 group hover:bg-muted/50 hover:border-primary/40 transition-all duration-300">
+                          <p className="text-sm md:text-base font-black text-foreground mb-1 group-hover:text-primary transition-colors">
                             {course.name}
                           </p>
                           <div className="flex gap-2">
                             {course.levels.map(level => (
-                              <span key={level} className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                              <span key={level} className="text-[10px] font-black px-2 py-0.5 rounded-md bg-muted/50 text-muted-foreground border border-border/40 group-hover:bg-primary/20 group-hover:text-primary group-hover:border-primary/30 transition-all">
                                 {level}
                               </span>
                             ))}
@@ -218,11 +221,6 @@ export function CourseExplorer() {
                       ))}
                     </div>
 
-                    <div className="pt-2 mt-4">
-                      <button className="w-full py-2.5 rounded-lg bg-secondary text-secondary-foreground font-bold text-sm hover:opacity-90 transition-opacity">
-                        View Detailed Curriculum
-                      </button>
-                    </div>
                   </motion.div>
                 </AnimatePresence>
               </div>

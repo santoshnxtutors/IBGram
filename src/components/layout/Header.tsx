@@ -171,6 +171,9 @@ export function Header() {
           <Link href="/tutors" aria-label="Tutors" className="hover:text-primary transition-colors">
             Tutors
           </Link>
+          <Link href="/admissions" aria-label="Admissions" className="hover:text-primary transition-colors">
+            Admissions
+          </Link>
           <Link href="/ai-tools" aria-label="AI Tools" className="hover:text-primary transition-colors">
             AI Tools
           </Link>
@@ -307,6 +310,13 @@ export function Header() {
               className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary bg-muted/10 rounded-xl"
             >
               AI Tools
+            </Link>
+            <Link 
+              href="/admissions" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary bg-muted/10 rounded-xl shadow-sm"
+            >
+              Admissions
             </Link>
           </nav>
 
