@@ -94,7 +94,7 @@ export default function TutorsPage() {
           className="max-w-3xl mx-auto flex flex-col md:flex-row gap-4 items-center relative z-20"
         >
           <div className="flex-1 w-full relative">
-            <Select onValueChange={(val) => setSubjectFilter(val)} defaultValue="all">
+            <Select onValueChange={(val: string) => setSubjectFilter(val)} defaultValue="all">
               <SelectTrigger className="w-full h-12 bg-card border border-border rounded-xl text-foreground text-sm font-semibold hover:border-primary/50 transition-colors px-5 focus:ring-0 focus:border-primary focus:ring-offset-0">
                 <SelectValue placeholder="Subject" />
               </SelectTrigger>
@@ -109,7 +109,7 @@ export default function TutorsPage() {
           </div>
 
           <div className="flex-1 w-full relative">
-            <Select onValueChange={(val) => setGradeFilter(val)} defaultValue="all">
+            <Select onValueChange={(val: string) => setGradeFilter(val)} defaultValue="all">
               <SelectTrigger className="w-full h-12 bg-card border border-border rounded-xl text-foreground text-sm font-semibold hover:border-primary/50 transition-colors px-5 focus:ring-0 focus:border-primary focus:ring-offset-0">
                 <SelectValue placeholder="Grade" />
               </SelectTrigger>
@@ -226,7 +226,7 @@ export default function TutorsPage() {
           <div className="text-center py-24 glassmorphism-heavy rounded-[3rem] border-2 border-dashed border-border/50">
             <h3 className="text-3xl font-black text-muted-foreground mb-4">No tutors represent this search.</h3>
             <p className="text-muted-foreground/60 mb-8 max-w-md mx-auto font-medium">Try broadening your subject choice or curriculum grade to find more elite educators.</p>
-            <Button variant="outline" size="lg" onClick={() => { setSubjectFilter("Subject"); setGradeFilter(""); }} className="h-14 rounded-2xl border-2 font-bold px-8">
+            <Button variant="outline" size="lg" onClick={() => { setSubjectFilter("all"); setGradeFilter("all"); }} className="h-14 rounded-2xl border-2 font-bold px-8">
               Reset Filters
             </Button>
           </div>
