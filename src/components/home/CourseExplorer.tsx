@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import {
   X,
   FlaskConical,
@@ -198,10 +199,13 @@ export function CourseExplorer() {
                       <h4 className="text-lg md:text-xl font-black text-foreground break-words tracking-tight">
                         {activeCategory.title} Subjects
                       </h4>
-                      <button className="flex items-center gap-1 text-[10px] md:text-[11px] font-black text-primary hover:gap-1.5 transition-all group/link">
+                      <Link 
+                        href={`/courses/ib/${activeCategory.id}`}
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs md:text-sm font-bold text-primary hover:bg-primary/20 transition-all group/link whitespace-nowrap shrink-0"
+                      >
                         Full curriculum
-                        <ArrowRight className="size-3 transition-transform group-hover/link:translate-x-0.5" />
-                      </button>
+                        <ArrowRight className="size-3.5 transition-transform group-hover/link:translate-x-0.5" />
+                      </Link>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
