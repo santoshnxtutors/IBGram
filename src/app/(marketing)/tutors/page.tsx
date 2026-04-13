@@ -94,7 +94,7 @@ export default function TutorsPage() {
           className="max-w-3xl mx-auto flex flex-col md:flex-row gap-4 items-center relative z-20"
         >
           <div className="flex-1 w-full relative">
-            <Select onValueChange={(val: string) => setSubjectFilter(val)} defaultValue="all">
+            <Select onValueChange={(val) => { if (val) setSubjectFilter(val); }} defaultValue="all">
               <SelectTrigger className="w-full h-12 bg-card border border-border rounded-xl text-foreground text-sm font-semibold hover:border-primary/50 transition-colors px-5 focus:ring-0 focus:border-primary focus:ring-offset-0">
                 <SelectValue placeholder="Subject" />
               </SelectTrigger>
@@ -109,7 +109,7 @@ export default function TutorsPage() {
           </div>
 
           <div className="flex-1 w-full relative">
-            <Select onValueChange={(val: string) => setGradeFilter(val)} defaultValue="all">
+            <Select onValueChange={(val) => { if (val) setGradeFilter(val); }} defaultValue="all">
               <SelectTrigger className="w-full h-12 bg-card border border-border rounded-xl text-foreground text-sm font-semibold hover:border-primary/50 transition-colors px-5 focus:ring-0 focus:border-primary focus:ring-offset-0">
                 <SelectValue placeholder="Grade" />
               </SelectTrigger>
