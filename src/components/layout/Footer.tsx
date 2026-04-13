@@ -54,9 +54,9 @@ export function Footer() {
             <h4 className="font-bold text-foreground mb-6 drop-shadow-sm">Platform</h4>
             <ul className="space-y-4 text-sm font-medium text-muted-foreground">
               <li><Link href="/about-us" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Find a Tutor</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">AI Test Generator</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">Smart Planner</Link></li>
+              <li><Link href="/subscription" className="hover:text-primary transition-colors">Membership</Link></li>
               <li><Link href="/blog" className="hover:text-primary transition-colors">Blogs</Link></li>
             </ul>
           </div>

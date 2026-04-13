@@ -141,7 +141,14 @@ export function SuccessStories() {
                       <div className="flex items-center gap-4 w-full md:w-auto">
                         <div className="relative flex-shrink-0">
                           <div className="size-16 md:size-32 rounded-2xl md:rounded-[2rem] overflow-hidden border border-white/10 shadow-xl relative">
-                            <Image src={story.image} alt={story.name} fill sizes="(max-width: 768px) 64px, 128px" className="object-cover" />
+                            <Image 
+                              src={story.image} 
+                              alt={story.name} 
+                              fill 
+                              sizes="(max-width: 768px) 64px, 128px" 
+                              className="object-cover"
+                              priority
+                            />
                           </div>
                           <div className="absolute -bottom-2 -right-2 bg-secondary p-1.5 rounded-lg shadow-lg">
                             <Trophy className="size-3 md:size-5 text-secondary-foreground" />

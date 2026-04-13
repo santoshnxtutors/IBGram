@@ -9,6 +9,9 @@ import { FAQSection } from "@/components/home/FAQSection";
 import { CourseExplorer } from "@/components/home/CourseExplorer";
 import { BlogInsights } from "@/components/home/BlogInsights";
 
+export const dynamic = "force-static";
+export const revalidate = 3600; // revalidate every 1 hour
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">

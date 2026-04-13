@@ -48,6 +48,10 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
+      <head>
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://randomuser.me" crossOrigin="anonymous" />
+      </head>
       <body className="font-sans text-foreground bg-background">
         <a href="#main-content" className="sr-only focus:not-sr-only">
           Skip to main content

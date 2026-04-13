@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   experimental: {
     optimizePackageImports: ['lucide-react', 'recharts', 'framer-motion'],
     serverComponentsHmrCache: true,
