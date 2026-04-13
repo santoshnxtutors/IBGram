@@ -40,12 +40,13 @@ export function Footer() {
 
           {/* Links Column 1 */}
           <div>
-            <h4 className="font-bold text-foreground mb-6 drop-shadow-sm">Programs</h4>
+            <h4 className="font-bold text-foreground mb-6 drop-shadow-sm">Programmes</h4>
             <ul className="space-y-4 text-sm font-medium text-muted-foreground">
-              <li><Link href="#" className="hover:text-primary transition-colors">IB Diploma (DP)</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">IB Middle Years (MYP)</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Cambridge IGCSE</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">SAT / ACT Prep</Link></li>
+              <li><Link href="/programmes/pyp" className="hover:text-primary transition-colors">Primary Years (PYP)</Link></li>
+              <li><Link href="/programmes/myp" className="hover:text-primary transition-colors">Middle Years (MYP)</Link></li>
+              <li><Link href="/programmes/dp" className="hover:text-primary transition-colors">Diploma (DP)</Link></li>
+              <li><Link href="/programmes/cp" className="hover:text-primary transition-colors">Career-related (CP)</Link></li>
+              <li><Link href="/igcse" className="hover:text-primary transition-colors italic">Cambridge IGCSE</Link></li>
             </ul>
           </div>
 

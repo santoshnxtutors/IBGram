@@ -12,7 +12,7 @@ export interface SEOPlatformProps {
 
 export function SEOPlatformInfo({ location = { country: "India" } }: SEOPlatformProps) {
   return (
-    <section id="how-it-works" className="py-24 md:py-32 relative overflow-hidden bg-background min-h-[85vh] flex flex-col justify-center scroll-mt-24">
+    <section id="how-it-works" className="py-20 md:py-28 relative overflow-hidden bg-background scroll-mt-24">
       {/* Background glow */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
@@ -34,7 +34,7 @@ export function SEOPlatformInfo({ location = { country: "India" } }: SEOPlatform
                   AI-Based Tutor Matching Across {location.country}
                 </h2>
               </div>
-              <div className="space-y-4 text-muted-foreground text-sm leading-normal">
+              <div className="space-y-4 text-muted-foreground text-base/relaxed font-medium">
                 <p>
                   IB Gram is an AI-powered tutor and education matching platform connecting parents and students with verified educators across {location.country}. We provide home tutors, online tutors, institute mentors and hybrid academic support for Classes 6–12 across CBSE, ICSE, IB, ISC and IGCSE boards.
                 </p>
@@ -74,7 +74,7 @@ export function SEOPlatformInfo({ location = { country: "India" } }: SEOPlatform
                 </h2>
               </div>
               
-              <p className="text-muted-foreground text-sm leading-normal mb-6">
+              <p className="text-muted-foreground text-base/relaxed font-medium mb-6">
                 Our AI engine processes structured compatibility parameters to recommend educators who fit your child's academic goals — whether it's school support, foundation building or competitive exam preparation.
               </p>
 

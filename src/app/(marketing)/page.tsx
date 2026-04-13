@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Hero />
-      <CourseExplorer />
       <TrustIndicators />
+      <CourseExplorer />
       <TutorDiscovery />
       <AIToolsShowcase />
       <ReviewsSection />

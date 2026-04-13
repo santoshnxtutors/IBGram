@@ -54,194 +54,134 @@ const stories = [
 
 export function SuccessStories() {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [itemsToShow, setItemsToShow] = useState(3);
+  const total = stories.length;
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    const handleResize = () => {
+      if (window.innerWidth < 768) setItemsToShow(1);
+      else if (window.innerWidth < 1024) setItemsToShow(2);
+      else setItemsToShow(3);
+    };
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const total = stories.length;
+  // Handle dot navigation bounds
+  const maxIdx = total - itemsToShow;
+  const safeActiveIdx = Math.min(activeIdx, maxIdx >= 0 ? maxIdx : 0);
 
   return (
-    <section className="pt-8 pb-24 md:pt-16 md:pb-32 relative overflow-hidden bg-background" aria-labelledby="success-heading">
-
-
+    <section className="py-12 md:py-16 relative overflow-hidden bg-background" aria-labelledby="success-heading">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-6 md:mb-10">
+        <div className="text-left mb-10 max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black uppercase tracking-[0.2em] mb-3"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black uppercase tracking-[0.2em] mb-4"
           >
             <Sparkles className="size-3" /> Result Focused Mentorship
           </motion.div>
           <motion.h2
             id="success-heading"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-6xl lg:text-7xl font-black tracking-tight text-foreground mb-4 leading-none"
+            className="text-2xl md:text-5xl font-black tracking-tight text-foreground mb-4 leading-none"
           >
             Proof is in the <span className="text-secondary">Progress</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-sm md:text-xl font-medium leading-tight max-w-xl mx-auto"
+            className="text-muted-foreground text-sm md:text-base font-medium max-w-xl"
           >
             Real results from students who redefined their academic potential.
           </motion.p>
         </div>
 
-        {/* Improved Stack Layout - Highly Responsive */}
-        <div className="relative h-[480px] sm:h-[540px] md:h-[450px] w-full max-w-5xl mx-auto">
-          {stories.map((story, i) => {
-            const diff = (i - activeIdx + total) % total;
-            const isActive = diff === 0;
-
-            // Responsive variables
-            const zIndex = total - diff;
-            const tilt = isActive ? 0 : diff * (isMobile ? 1 : 1.5);
-            const xOffset = isMobile ? (diff * 6) : (diff * 25);
-            const scale = isActive ? 1 : 1 - (diff * (isMobile ? 0.03 : 0.04));
-            const opacity = isActive ? 1 : 1 - (diff * 0.4);
-
-            return (
-              <motion.div
-                key={story.id}
-                className="absolute inset-0 flex items-start md:items-center justify-center pointer-events-none"
-                animate={{
-                  x: xOffset,
-                  rotate: tilt,
-                  scale,
-                  opacity,
-                  zIndex,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 120,
-                  damping: 18,
-                }}
-              >
-                <figure
-                  onClick={() => setActiveIdx(i)}
-                  className={`relative w-full max-w-[95vw] md:max-w-[850px] p-6 md:p-14 rounded-[2rem] md:rounded-[2.5rem] bg-[#0A0E17]/95 backdrop-blur-xl border border-white/10 shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer pointer-events-auto ${!isActive && 'hover:border-primary/40'}`}
+        {/* Carousel Container */}
+        <div className="relative max-w-full group/carousel">
+          <div className="overflow-hidden cursor-grab active:cursor-grabbing">
+            <motion.div 
+              className="flex gap-4 md:gap-6"
+              drag="x"
+              dragConstraints={{ right: 0, left: -((total - itemsToShow) * (100 / itemsToShow)) * (total / itemsToShow) }} // approximate
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipeThreshold = 50;
+                if (offset.x < -swipeThreshold && activeIdx < total - itemsToShow) {
+                  setActiveIdx(prev => prev + 1);
+                } else if (offset.x > swipeThreshold && activeIdx > 0) {
+                  setActiveIdx(prev => prev - 1);
+                }
+              }}
+              animate={{ x: `-${safeActiveIdx * (100 / itemsToShow)}%` }}
+              transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            >
+              {stories.map((story) => (
+                <motion.div 
+                  key={story.id}
+                  className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 select-none"
                 >
-                  <div className="relative z-10">
-                    <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center mb-6 md:mb-10">
-
-                      {/* Image & Header Container for Mobile */}
-                      <div className="flex items-center gap-4 w-full md:w-auto">
-                        <div className="relative flex-shrink-0">
-                          <div className="size-16 md:size-32 rounded-2xl md:rounded-[2rem] overflow-hidden border border-white/10 shadow-xl relative">
-                            <Image 
-                              src={story.image} 
-                              alt={story.name} 
-                              fill 
-                              sizes="(max-width: 768px) 64px, 128px" 
-                              className="object-cover"
-                              priority
-                            />
-                          </div>
-                          <div className="absolute -bottom-2 -right-2 bg-secondary p-1.5 rounded-lg shadow-lg">
-                            <Trophy className="size-3 md:size-5 text-secondary-foreground" />
-                          </div>
+                  <div className="h-full p-8 rounded-[2rem] bg-card/40 border border-border/40 hover:border-primary/30 transition-all duration-300 relative group pointer-events-none sm:pointer-events-auto">
+                    {/* Minimal Score Progress Pill */}
+                    <div className="mb-6 flex items-center justify-between">
+                      <div className="flex items-center bg-muted/20 border border-border/50 p-1.5 rounded-xl">
+                        <div className="px-2.5 py-1 rounded-lg bg-white/5 text-muted-foreground text-[10px] font-bold line-through opacity-40">
+                          {story.prevScore}
                         </div>
-
-                        {/* Visible only on Mobile inside the flex row */}
-                        <div className="md:hidden flex-1 overflow-hidden">
-                          <figcaption className="text-xl font-black text-foreground truncate">
-                            {story.name}
-                          </figcaption>
-                          <p className="text-[10px] text-primary font-black uppercase tracking-widest mt-1">
-                            {story.subject}
-                          </p>
+                        <div className="px-2">
+                          <TrendingUp className="size-3.5 text-secondary" />
+                        </div>
+                        <div className="px-2.5 py-1 rounded-lg bg-secondary text-secondary-foreground text-[10px] font-black">
+                          {story.finalScore}
                         </div>
                       </div>
-
-                      {/* Info Panel */}
-                      <div className="flex-1 w-full">
-                        <div className="hidden md:flex items-center justify-between gap-4 mb-4">
-                          <figcaption className="text-5xl font-black text-foreground tracking-tight">
-                            {story.name}
-                          </figcaption>
-                          <span className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-widest">
-                            {story.subject}
-                          </span>
-                        </div>
-
-                        {/* Progress Pill Container */}
-                        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                          <div className="flex items-center bg-black/40 border border-white/5 p-1 rounded-xl md:rounded-2xl">
-                            <div className="px-3 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-white/5 text-muted-foreground text-xs md:text-sm font-black line-through opacity-50">
-                              Score: {story.prevScore}
-                            </div>
-                            <div className="px-2 md:px-3">
-                              <TrendingUp className="size-3 md:size-4 text-secondary" />
-                            </div>
-                            <div className="px-4 md:px-5 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-secondary text-secondary-foreground text-xs md:text-lg font-black">
-                              Score: {story.finalScore}
-                            </div>
-                          </div>
-                          <div className="flex items-center gap-2 bg-black/40 border border-white/5 py-2 px-4 md:py-3 md:px-5 rounded-xl md:rounded-2xl text-[10px] md:text-sm font-bold text-foreground/80">
-                            <GraduationCap className="size-3 md:size-4 text-primary" />
-                            {story.university}
-                          </div>
-                        </div>
+                      <div className="size-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                        <Trophy className="size-5" />
                       </div>
                     </div>
 
-                    {/* Testimonial Quote */}
-                    <div className="relative">
-                      <Quote className="absolute -top-3 -left-3 md:-top-6 md:-left-6 size-6 md:size-12 text-primary opacity-20" />
-                      <blockquote className="text-sm md:text-2xl font-medium text-foreground/90 italic leading-relaxed md:leading-relaxed border-l-2 md:border-l-4 border-primary/20 pl-4 md:pl-8">
-                        "{story.quote}"
-                      </blockquote>
-                      <cite className="not-italic text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] text-primary/60 mt-4 md:mt-6 block text-right">
-                        Verified IB Outcome
-                      </cite>
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="size-16 rounded-2xl overflow-hidden border border-border/30 relative shrink-0">
+                        <Image src={story.image} alt={story.name} fill className="object-cover pointer-events-none" sizes="64px" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-foreground leading-tight">{story.name}</h3>
+                        <p className="text-xs text-primary font-black uppercase tracking-widest mt-1">{story.subject}</p>
+                      </div>
+                    </div>
+
+                    <blockquote className="text-sm font-medium text-muted-foreground italic leading-relaxed mb-6">
+                      "{story.quote}"
+                    </blockquote>
+
+                    <div className="flex items-center gap-2 text-xs font-bold text-foreground/70 pt-5 border-t border-border/20">
+                      <GraduationCap className="size-4 text-primary" />
+                      <span className="tracking-tight">{story.university}</span>
                     </div>
                   </div>
-
-                  {/* Progressive Darkening Overlay */}
-                  {!isActive && (
-                    <div
-                      className="absolute inset-0 rounded-[2rem] md:rounded-[2.5rem] z-20 pointer-events-none transition-opacity duration-300"
-                      style={{ backgroundColor: `rgba(0,0,0, ${diff * 0.5})` }}
-                    />
-                  )}
-                </figure>
-              </motion.div>
-            );
-          })}
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
-        {/* Pagination & Verification Link */}
-        <div className="flex flex-col items-center mt-1">
-          <div className="flex gap-3 mb-1">
-            {stories.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveIdx(i)}
-                className={`h-1 rounded-full transition-all duration-500 ${activeIdx === i ? "w-10 bg-secondary" : "w-2 bg-secondary/20 hover:bg-secondary/40"}`}
-                aria-label={`Student story ${i + 1}`}
-              />
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-center px-6"
-          >
-          </motion.div>
+        {/* Pagination Dots - Left Aligned */}
+        <div className="flex justify-start gap-2 mt-8">
+          {Array.from({ length: total - itemsToShow + 1 }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIdx(i)}
+              className={`h-1 rounded-full transition-all duration-500 ${safeActiveIdx === i ? "w-8 bg-secondary" : "w-1.5 bg-border hover:bg-secondary/40"}`}
+              aria-label={`Student story ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

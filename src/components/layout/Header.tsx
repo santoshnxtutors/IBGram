@@ -15,13 +15,19 @@ import { LocalizationModal } from "./LocalizationModal";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { useEffect, useState } from "react";
 
-const courses = [
-  { name: "Mathematics", slug: "mathematics" },
-  { name: "Physics", slug: "physics" },
-  { name: "Chemistry", slug: "chemistry" },
-  { name: "Biology", slug: "biology" },
-  { name: "Economics", slug: "economics" },
-  { name: "English Literature", slug: "english-literature" },
+const PROGRAMS = [
+  { name: "Primary Years (PYP)", slug: "pyp" },
+  { name: "Middle Years (MYP)", slug: "myp" },
+  { name: "Diploma (DP)", slug: "dp" },
+  { name: "Career-related (CP)", slug: "cp" },
+];
+
+const COURSE_GROUPS = [
+  { name: "IB Mathematics", slug: "mathematics" },
+  { name: "IB Sciences", slug: "sciences" },
+  { name: "IB Individuals & Societies", slug: "individuals" },
+  { name: "IB English", slug: "english" },
+  { name: "IB Language", slug: "language" },
 ];
 
 export function Header() {
@@ -93,8 +99,6 @@ export function Header() {
             </DropdownMenu>
           </div>
 
-
-
           <div className="hidden md:flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer ml-6">
             <MapPin className="size-4 text-primary" />
             <LocalizationModal>
@@ -115,7 +119,7 @@ export function Header() {
         </div>
 
         {/* Center: Main Nav */}
-        <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-8 text-sm font-medium">
+        <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-6 text-sm font-medium">
           {/* Curriculum Switcher Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger aria-label="Switch Curriculum" className="flex items-center gap-1 text-sm font-bold text-foreground focus:outline-none bg-muted/20 px-3 py-1.5 rounded-full hover:bg-muted/40 transition-colors">
@@ -134,28 +138,41 @@ export function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link href="/ai-tools" aria-label="AI Tools" className="hover:text-primary transition-colors">
-            AI Tools
-          </Link>
-          <Link href="/tutors" aria-label="Tutors" className="hover:text-primary transition-colors">
-            Tutors
-          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger aria-label="Programmes" className="flex items-center gap-1 hover:text-primary transition-colors focus:outline-none">
+              Programmes <ChevronDown className="size-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center" className="w-56 border-white/10 bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-2xl shadow-2xl">
+              {PROGRAMS.map(prog => (
+                <Link href={`/programmes/${prog.slug}`} key={prog.slug} className="w-full">
+                  <DropdownMenuItem className="cursor-pointer rounded-xl py-2 px-4 font-bold text-foreground hover:bg-primary/10 hover:text-primary transition-all">
+                    {prog.name}
+                  </DropdownMenuItem>
+                </Link>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <DropdownMenu>
             <DropdownMenuTrigger aria-label="Courses" className="flex items-center gap-1 hover:text-primary transition-colors focus:outline-none">
-              {isIgcse ? "IGCSE Courses" : "IB Courses"} <ChevronDown className="size-4" />
+              Courses <ChevronDown className="size-4" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="center" className="w-48 border-border bg-background mt-2">
-              {courses.map(course => (
+            <DropdownMenuContent align="center" className="w-56 border-white/10 bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-2xl shadow-2xl">
+              {COURSE_GROUPS.map(course => (
                 <Link href={`/courses/${isIgcse ? 'igcse' : 'ib'}/${course.slug}`} key={course.slug} className="w-full">
-                  <DropdownMenuItem className="cursor-pointer hover:bg-muted text-foreground">
+                  <DropdownMenuItem className="cursor-pointer rounded-xl py-2 px-4 font-bold text-foreground hover:bg-primary/10 hover:text-primary transition-all">
                     {course.name}
                   </DropdownMenuItem>
                 </Link>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Link href="/admissions" aria-label="Admissions" className="hover:text-primary transition-colors">
-            Admissions
+
+          <Link href="/tutors" aria-label="Tutors" className="hover:text-primary transition-colors">
+            Tutors
+          </Link>
+          <Link href="/ai-tools" aria-label="AI Tools" className="hover:text-primary transition-colors">
+            AI Tools
           </Link>
         </nav>
 
@@ -238,45 +255,58 @@ export function Header() {
             </LocalizationModal>
           </div>
 
-          <nav className="flex flex-col gap-6 text-xl font-bold">
-            <Link 
-              href="/ai-tools" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="px-4 py-2 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary"
-            >
-              AI Tools
-            </Link>
-            <Link 
-              href="/tutors" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="px-4 py-2 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary"
-            >
-              Tutors
-            </Link>
+          <nav className="flex flex-col gap-4 text-lg font-bold">
             <details className="group">
-              <summary className="px-4 py-2 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary cursor-pointer list-none flex items-center justify-between">
-                {isIgcse ? "IGCSE Courses" : "IB Courses"}
+              <summary className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary cursor-pointer list-none flex items-center justify-between bg-muted/10 rounded-xl">
+                Programmes
                 <ChevronDown className="size-5 transition-transform group-open:rotate-180" />
               </summary>
-              <div className="pl-8 pt-4 pb-2 flex flex-col gap-4 border-l-4 border-transparent">
-                {courses.map(course => (
+              <div className="pl-6 pt-3 pb-1 flex flex-col gap-3">
+                {PROGRAMS.map(prog => (
+                  <Link 
+                    key={prog.slug}
+                    href={`/programmes/${prog.slug}`} 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-[15px] font-medium text-muted-foreground hover:text-primary transition-colors block py-1"
+                  >
+                    {prog.name}
+                  </Link>
+                ))}
+              </div>
+            </details>
+
+            <details className="group">
+              <summary className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary cursor-pointer list-none flex items-center justify-between bg-muted/10 rounded-xl">
+                Courses
+                <ChevronDown className="size-5 transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="pl-6 pt-3 pb-1 flex flex-col gap-3">
+                {COURSE_GROUPS.map(course => (
                   <Link 
                     key={course.slug}
                     href={`/courses/${isIgcse ? 'igcse' : 'ib'}/${course.slug}`} 
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-[17px] font-medium text-muted-foreground hover:text-primary transition-colors block"
+                    className="text-[15px] font-medium text-muted-foreground hover:text-primary transition-colors block py-1"
                   >
                     {course.name}
                   </Link>
                 ))}
               </div>
             </details>
+
             <Link 
-              href="/admissions" 
+              href="/tutors" 
               onClick={() => setIsMobileMenuOpen(false)}
-              className="px-4 py-2 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary"
+              className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary bg-muted/10 rounded-xl"
             >
-              Admissions
+              Tutors
+            </Link>
+            <Link 
+              href="/ai-tools" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary bg-muted/10 rounded-xl"
+            >
+              AI Tools
             </Link>
           </nav>
 

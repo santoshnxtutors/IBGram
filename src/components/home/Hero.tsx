@@ -9,7 +9,7 @@ export function Hero() {
   const router = useRouter();
 
   return (
-    <section className="relative overflow-hidden pt-20 pb-32 lg:pt-32 lg:pb-40 bg-background">
+    <section className="relative overflow-hidden pt-8 pb-12 lg:pt-12 lg:pb-16 bg-background">
 
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -41,13 +41,14 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">
-              <Button
+              <Button 
                 onClick={() => router.push('/subscription')}
-                size="lg"
-                className="h-14 px-8 text-lg rounded-xl shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95 bg-primary text-primary-foreground font-bold"
+                size="lg" 
+                variant="outline"
+                className="h-14 px-8 text-lg rounded-xl glassmorphism-heavy group hover:border-primary transition-all font-bold"
               >
                 Join Member
-                <ArrowRight className="ml-2 size-5" />
+                <ArrowRight className="ml-2 size-5 text-primary group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-xl glassmorphism-heavy group hover:border-secondary transition-all">
                 <Bot className="mr-2 size-5 text-secondary group-hover:animate-bounce" />
