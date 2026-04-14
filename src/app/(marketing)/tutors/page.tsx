@@ -43,9 +43,7 @@ export default function TutorsPage() {
     setFilteredTutors(result);
   };
 
-  useEffect(() => {
-    handleSearch();
-  }, [subjectFilter, gradeFilter]);
+
 
   // Prevent scrolling when expanded view is open
   useEffect(() => {
@@ -74,7 +72,7 @@ export default function TutorsPage() {
     <div className="min-h-screen pt-24 pb-32 bg-background space-y-24">
       {/* Search Header Section */}
       <section className="container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <div className="max-w-4xl mx-auto text-center mb-8">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,48 +85,55 @@ export default function TutorsPage() {
           </p>
         </div>
 
-        {/* Modern Filter Pill */}
+        {/* Ultra-Premium Responsive Search Pill */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl mx-auto flex flex-col md:flex-row gap-4 items-center relative z-20"
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="max-w-4xl mx-auto relative z-20 flex flex-row items-center gap-2 p-1 sm:p-1.5 bg-card/30 border border-border/40 rounded-full shadow-2xl backdrop-blur-3xl"
         >
-          <div className="flex-1 w-full relative">
-            <Select onValueChange={(val) => { if (val) setSubjectFilter(val); }} defaultValue="all">
-              <SelectTrigger className="w-full h-12 bg-card border border-border rounded-xl text-foreground text-sm font-semibold hover:border-primary/50 transition-colors px-5 focus:ring-0 focus:border-primary focus:ring-offset-0">
-                <SelectValue placeholder="Subject" />
-              </SelectTrigger>
-              <SelectContent className="rounded-xl border-border bg-card shadow-xl text-foreground font-semibold p-2">
-                <SelectItem value="all" className="rounded-lg focus:bg-primary/10">All Subjects</SelectItem>
-                <SelectItem value="Mathematics" className="rounded-lg focus:bg-primary/10">Mathematics</SelectItem>
-                <SelectItem value="Physics" className="rounded-lg focus:bg-primary/10">Physics</SelectItem>
-                <SelectItem value="Economics" className="rounded-lg focus:bg-primary/10">Economics</SelectItem>
-                <SelectItem value="English Literature" className="rounded-lg focus:bg-primary/10">English Literature</SelectItem>
-              </SelectContent>
-            </Select>
+          {/* Symmetrical Grid Filters */}
+          <div className="flex-1 grid grid-cols-2 h-12 sm:h-14 items-stretch">
+            {/* Subject Select */}
+            <div className="relative h-full flex items-center justify-center border-r border-border/20">
+              <Select onValueChange={(val) => { if (val) setSubjectFilter(val); }}>
+                <SelectTrigger className="w-full h-full bg-transparent dark:bg-transparent border-none rounded-none text-foreground text-xs sm:text-base font-black px-2 sm:px-10 focus:ring-0 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:border-none outline-none transition-all flex items-center justify-between">
+                  <div className="size-3 sm:size-4 opacity-0 shrink-0" aria-hidden="true" /> {/* Symmetry Spacer */}
+                  <SelectValue placeholder="Subject" className="text-center flex-1" />
+                </SelectTrigger>
+                <SelectContent className="rounded-3xl border-border bg-card/95 backdrop-blur-2xl shadow-2xl text-foreground font-bold p-2 min-w-[220px]">
+                  <SelectItem value="all" className="rounded-2xl focus:bg-primary/10 font-bold">All Subjects</SelectItem>
+                  <SelectItem value="Mathematics" className="rounded-2xl focus:bg-primary/10 font-bold">Mathematics</SelectItem>
+                  <SelectItem value="Physics" className="rounded-2xl focus:bg-primary/10 font-bold">Physics</SelectItem>
+                  <SelectItem value="Economics" className="rounded-2xl focus:bg-primary/10 font-bold">Economics</SelectItem>
+                  <SelectItem value="English Literature" className="rounded-2xl focus:bg-primary/10 font-bold">English Literature</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Grade Select */}
+            <div className="relative h-full flex items-center justify-center">
+              <Select onValueChange={(val) => { if (val) setGradeFilter(val); }}>
+                <SelectTrigger className="w-full h-full bg-transparent dark:bg-transparent border-none rounded-none text-foreground text-xs sm:text-base font-black px-2 sm:px-10 focus:ring-0 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:border-none outline-none transition-all flex items-center justify-between">
+                  <div className="size-3 sm:size-4 opacity-0 shrink-0" aria-hidden="true" /> {/* Symmetry Spacer */}
+                  <SelectValue placeholder="Grade" className="text-center flex-1" />
+                </SelectTrigger>
+                <SelectContent className="rounded-3xl border-border bg-card/95 backdrop-blur-2xl shadow-2xl text-foreground font-bold p-2 min-w-[220px]">
+                  <SelectItem value="all" className="rounded-xl focus:bg-primary/10 font-bold">All Grades</SelectItem>
+                  <SelectItem value="Year 12-13 (IB DP)" className="rounded-xl focus:bg-primary/10 font-bold">Year 12-13 (IB DP)</SelectItem>
+                  <SelectItem value="Year 10-11 (IGCSE)" className="rounded-xl focus:bg-primary/10 font-bold">Year 10-11 (IGCSE)</SelectItem>
+                  <SelectItem value="Year 7-9 (MYP)" className="rounded-xl focus:bg-primary/10 font-bold">Year 7-9 (MYP)</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
-          <div className="flex-1 w-full relative">
-            <Select onValueChange={(val) => { if (val) setGradeFilter(val); }} defaultValue="all">
-              <SelectTrigger className="w-full h-12 bg-card border border-border rounded-xl text-foreground text-sm font-semibold hover:border-primary/50 transition-colors px-5 focus:ring-0 focus:border-primary focus:ring-offset-0">
-                <SelectValue placeholder="Grade" />
-              </SelectTrigger>
-              <SelectContent className="rounded-xl border-border bg-card shadow-xl text-foreground font-semibold p-2">
-                <SelectItem value="all" className="rounded-lg focus:bg-primary/10">All Grades</SelectItem>
-                <SelectItem value="Year 12-13 (IB DP)" className="rounded-lg focus:bg-primary/10">Year 12-13 (IB DP)</SelectItem>
-                <SelectItem value="Year 10-11 (IGCSE)" className="rounded-lg focus:bg-primary/10">Year 10-11 (IGCSE)</SelectItem>
-                <SelectItem value="Year 7-9 (MYP)" className="rounded-lg focus:bg-primary/10">Year 7-9 (MYP)</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <Button
+          {/* Symmetrical Search Action */}
+          <button
             onClick={handleSearch}
-            className="w-full md:w-auto h-12 px-8 rounded-xl bg-card border border-border text-foreground font-semibold text-sm hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shrink-0"
+            className="h-12 w-12 sm:h-14 sm:w-14 shrink-0 flex items-center justify-center bg-green-500 hover:bg-green-600 text-white rounded-full transition-all group shadow-lg hover:shadow-green-500/25"
           >
-            <Search className="mr-2 size-5" />
-            Search Tutors
-          </Button>
+            <Search className="size-5 sm:size-6 group-hover:scale-110 transition-transform" strokeWidth={2.5} />
+          </button>
         </motion.div>
       </section>
 
