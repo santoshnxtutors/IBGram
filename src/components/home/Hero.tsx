@@ -50,9 +50,13 @@ export function Hero() {
                 Join Member
                 <ArrowRight className="ml-2 size-5 text-primary group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-xl glassmorphism-heavy group hover:border-secondary transition-all">
-                <Bot className="mr-2 size-5 text-secondary group-hover:animate-bounce" />
-                Generate Free AI Test
+              <Button 
+                onClick={() => router.push('/tutors')}
+                size="lg" 
+                variant="outline" 
+                className="h-14 px-8 text-lg rounded-xl glassmorphism-heavy group hover:border-secondary transition-all font-bold"
+              >
+                Find Perfect Tutor
               </Button>
             </div>
 

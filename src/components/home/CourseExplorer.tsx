@@ -141,9 +141,10 @@ export function CourseExplorer() {
             </h3>
             <div className="grid gap-3">
               {PROGRAMS.map((program) => (
-                <div
+                <Link
+                  href={`/programmes/${program.id}`}
                   key={program.id}
-                  className="p-5 rounded-2xl bg-muted/10 border border-border/60 hover:bg-muted/20 hover:border-primary/40 transition-all duration-300 group backdrop-blur-sm"
+                  className="block p-5 rounded-2xl bg-muted/10 border border-border/60 hover:bg-muted/20 hover:border-primary/40 transition-all duration-300 group backdrop-blur-sm"
                 >
                   <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-1">
                     <h4 className="text-sm md:text-base font-black text-foreground group-hover:text-primary transition-colors break-words">
@@ -156,7 +157,7 @@ export function CourseExplorer() {
                   <p className="text-[13px] md:text-sm text-muted-foreground leading-relaxed font-medium">
                     {program.description}
                   </p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

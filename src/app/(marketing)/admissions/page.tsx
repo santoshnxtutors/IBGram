@@ -29,15 +29,15 @@ export default function AdmissionsPage() {
                 <Trophy className="size-4" />
                 <span>Global Excellence in IB Admissions</span>
               </div>
-              
+
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
                 Your Direct Path to <span className="text-gradient">Elite Institutions</span>
               </h1>
-              
+
               <p className="text-xl text-slate-400 md:text-2xl leading-relaxed max-w-xl">
                 Securing placement in the world&apos;s most prestigious IB schools requires more than just grades. It requires an Elite Strategy.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button size="lg" className="h-14 px-8 text-lg bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 rounded-full">
                   Start Your Journey <ArrowRight className="ml-2 size-5" />
@@ -56,22 +56,22 @@ export default function AdmissionsPage() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-[2rem] blur-[50px] animate-pulse" />
               <div className="relative glassmorphism-heavy rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] w-full max-h-[600px]">
-                <Image 
-                  src="/assets/images/elite_institution_hall.png" 
-                  alt="Elite Institution" 
-                  fill 
+                <Image
+                  src="/assets/images/elite_institution_hall.png"
+                  alt="Elite Institution"
+                  fill
                   className="object-cover opacity-80"
                 />
                 <div className="absolute inset-x-0 bottom-0 p-10 bg-gradient-to-t from-[#0a0a0a] to-transparent">
-                   <div className="flex items-center gap-4 mb-4">
-                      <div className="size-12 rounded-2xl bg-primary flex items-center justify-center">
-                        <Building2 className="text-white size-6" />
-                      </div>
-                      <div>
-                        <p className="text-white font-bold text-lg">Top Institutional Network</p>
-                        <p className="text-slate-400 text-sm">Harrow, Eton, Sevenoaks & and more</p>
-                      </div>
-                   </div>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="size-12 rounded-2xl bg-primary flex items-center justify-center">
+                      <Building2 className="text-white size-6" />
+                    </div>
+                    <div>
+                      <p className="text-white font-bold text-lg">Top Institutional Network</p>
+                      <p className="text-slate-400 text-sm">Harrow, Eton, Sevenoaks & and more</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -89,23 +89,23 @@ export default function AdmissionsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { 
-                title: "UK Boarding Elite", 
+              {
+                title: "UK Boarding Elite",
                 desc: "Sevenoaks, Harrow, and Westminster. Specialist preparation for entrance exams and interview panels.",
                 icon: <Building2 />,
-                color: "bg-blue-500" 
+                color: "bg-blue-500"
               },
-              { 
-                title: "US IVY Pre-Collegiate", 
+              {
+                title: "US IVY Pre-Collegiate",
                 desc: "Top-tier boarding schools and high schools that feed directly into the Ivy League network.",
                 icon: <GraduationCap />,
-                color: "bg-red-500" 
+                color: "bg-red-500"
               },
-              { 
-                title: "SG & Middle East Elite", 
+              {
+                title: "SG & Middle East Elite",
                 desc: "ACSI, UWC South East Asia, and Dubai&apos;s leading IB institutions. Localized expertise.",
                 icon: <Globe />,
-                color: "bg-amber-500" 
+                color: "bg-amber-500"
               }
             ].map((item, i) => (
               <motion.div
@@ -142,7 +142,7 @@ export default function AdmissionsPage() {
               <p className="text-slate-400 text-xl leading-relaxed">
                 We follow a rigorous Standard Operating Procedure (SOP) that has secured thousands of placements in top-tier institutions. Consistent, data-driven, and elite.
               </p>
-              
+
               <div className="space-y-6">
                 {[
                   { step: "01", title: "Strategic Profiling", desc: "We analyze the student's academic and extra-curricular trajectory to identify 'Target' and 'Reach' institutions." },
@@ -162,51 +162,51 @@ export default function AdmissionsPage() {
             </div>
 
             <div className="relative">
-               <div className="absolute inset-0 bg-secondary/10 rounded-[3rem] blur-[50px]" />
-               <Card className="glassmorphism-heavy border-white/10 p-10 rounded-[3rem] relative z-10">
-                  <h3 className="text-3xl font-bold text-white mb-8">Admission Success Rate</h3>
-                  <div className="space-y-8">
-                    <div>
-                      <div className="flex justify-between mb-4">
-                        <span className="text-slate-300 font-medium">Top 5 Choice Schools</span>
-                        <span className="text-secondary font-bold">96.4%</span>
-                      </div>
-                      <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden p-1 border border-white/10">
-                        <motion.div 
-                          initial={{ width: 0 }}
-                          whileInView={{ width: '96.4%' }}
-                          transition={{ duration: 1.5, ease: "easeOut" }}
-                          className="h-full bg-secondary rounded-full shadow-[0_0_20px_rgba(34,197,94,0.3)]" 
-                        />
-                      </div>
+              <div className="absolute inset-0 bg-secondary/10 rounded-[3rem] blur-[50px]" />
+              <Card className="glassmorphism-heavy border-white/10 p-10 rounded-[3rem] relative z-10">
+                <h3 className="text-3xl font-bold text-white mb-8">Admission Success Rate</h3>
+                <div className="space-y-8">
+                  <div>
+                    <div className="flex justify-between mb-4">
+                      <span className="text-slate-300 font-medium">Top 5 Choice Schools</span>
+                      <span className="text-secondary font-bold">96.4%</span>
                     </div>
-                    <div>
-                      <div className="flex justify-between mb-4">
-                        <span className="text-slate-300 font-medium">Global Scholarships Secured</span>
-                        <span className="text-primary font-bold">84%</span>
-                      </div>
-                      <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden p-1 border border-white/10">
-                        <motion.div 
-                          initial={{ width: 0 }}
-                          whileInView={{ width: '84%' }}
-                          transition={{ duration: 1.5, ease: "easeOut" }}
-                          className="h-full bg-primary rounded-full shadow-[0_0_20px_rgba(59,130,246,0.3)]" 
-                        />
-                      </div>
+                    <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden p-1 border border-white/10">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '96.4%' }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        className="h-full bg-secondary rounded-full shadow-[0_0_20px_rgba(34,197,94,0.3)]"
+                      />
                     </div>
                   </div>
+                  <div>
+                    <div className="flex justify-between mb-4">
+                      <span className="text-slate-300 font-medium">Global Scholarships Secured</span>
+                      <span className="text-primary font-bold">84%</span>
+                    </div>
+                    <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden p-1 border border-white/10">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '84%' }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        className="h-full bg-primary rounded-full shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                      />
+                    </div>
+                  </div>
+                </div>
 
-                  <div className="mt-12 p-6 rounded-2xl bg-white/5 border border-white/10">
-                     <div className="flex gap-4">
-                        <div className="size-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
-                          <ShieldCheck />
-                        </div>
-                        <p className="text-slate-400 text-sm leading-relaxed">
-                          Verified placement data for the academic years 2022-2024 across 42 global jurisdictions.
-                        </p>
-                     </div>
+                <div className="mt-12 p-6 rounded-2xl bg-white/5 border border-white/10">
+                  <div className="flex gap-4">
+                    <div className="size-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+                      <ShieldCheck />
+                    </div>
+                    <p className="text-slate-400 text-sm leading-relaxed">
+                      Verified placement data for the academic years 2022-2024 across 42 global jurisdictions.
+                    </p>
                   </div>
-               </Card>
+                </div>
+              </Card>
             </div>
           </div>
         </div>
@@ -216,16 +216,16 @@ export default function AdmissionsPage() {
       <section className="py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <Card className="relative overflow-hidden border-none bg-gradient-to-r from-primary/80 to-secondary/80 p-12 md:p-20 text-center rounded-[3rem] shadow-2xl shadow-primary/20">
-             <div className="relative z-10 max-w-2xl mx-auto space-y-8">
-                <h2 className="text-4xl md:text-6xl font-bold text-white">Join the Elite Class of 2025</h2>
-                <p className="text-white/80 text-xl">Our specialists are currently accepting consultation requests for international admissions. Secure your slot now.</p>
-                <Button size="lg" className="h-16 px-12 text-xl bg-white text-slate-900 hover:bg-slate-100 shadow-xl rounded-full font-bold">
-                   Book Your Consultation <Sparkles className="ml-2 size-6 text-primary" />
-                </Button>
-             </div>
-             <div className="absolute top-0 right-0 p-8 text-white/10 -rotate-12 translate-x-1/4 -translate-y-1/4">
-                <Globe className="size-[400px]" />
-             </div>
+            <div className="relative z-10 max-w-2xl mx-auto space-y-8">
+              <h2 className="text-4xl md:text-6xl font-bold text-white">Join the Elite Class of 2025</h2>
+              <p className="text-white/80 text-xl">Our specialists are currently accepting consultation requests for international admissions. Secure your slot now.</p>
+              <Button size="lg" className="h-16 px-12 text-xl bg-white text-slate-900 hover:bg-slate-100 shadow-xl rounded-full font-bold">
+                Book Your Consultation <Sparkles className="ml-2 size-6 text-primary" />
+              </Button>
+            </div>
+            <div className="absolute top-0 right-0 p-8 text-white/10 -rotate-12 translate-x-1/4 -translate-y-1/4">
+              <Globe className="size-[400px]" />
+            </div>
           </Card>
         </div>
       </section>
