@@ -1,59 +1,92 @@
 "use client";
 
 import { ReactNode, useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
 
 export function LenisProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    let frameId = 0;
-    let isActive = true;
-
-    function raf(time: number) {
-      if (!isActive) {
-        frameId = 0;
-        return;
-      }
-
-      lenis.raf(time);
-      frameId = requestAnimationFrame(raf);
+    if (typeof window === "undefined") {
+      return;
     }
 
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === "visible") {
-        isActive = true;
-        if (frameId === 0) {
-          frameId = requestAnimationFrame(raf);
-        }
-        return;
-      }
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const coarsePointer = window.matchMedia("(pointer: coarse)");
 
-      isActive = false;
+    if (prefersReducedMotion.matches || coarsePointer.matches) {
+      return;
+    }
+
+    let lenis: { raf: (time: number) => void; destroy: () => void } | null = null;
+    let frameId = 0;
+    let isActive = true;
+    let isDestroyed = false;
+
+    const stop = () => {
       if (frameId) {
         cancelAnimationFrame(frameId);
         frameId = 0;
       }
     };
 
-    frameId = requestAnimationFrame(raf);
+    const raf = (time: number) => {
+      if (!isActive || !lenis) {
+        frameId = 0;
+        return;
+      }
+
+      lenis.raf(time);
+      frameId = requestAnimationFrame(raf);
+    };
+
+    const start = () => {
+      if (!isActive || !lenis || frameId !== 0) {
+        return;
+      }
+
+      frameId = requestAnimationFrame(raf);
+    };
+
+    const handleVisibilityChange = () => {
+      isActive = document.visibilityState === "visible";
+
+      if (isActive) {
+        start();
+        return;
+      }
+
+      stop();
+    };
+
+    const handlePageHide = () => {
+      stop();
+    };
+
     document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("pagehide", handlePageHide);
+
+    void import("@studio-freight/lenis").then(({ default: Lenis }) => {
+      if (isDestroyed || prefersReducedMotion.matches || coarsePointer.matches) {
+        return;
+      }
+
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+        wheelMultiplier: 1,
+      });
+
+      start();
+    });
 
     return () => {
+      isDestroyed = true;
       isActive = false;
-      if (frameId) {
-        cancelAnimationFrame(frameId);
-      }
+      stop();
       document.removeEventListener("visibilitychange", handleVisibilityChange);
-      lenis.destroy();
+      window.removeEventListener("pagehide", handlePageHide);
+      lenis?.destroy();
     };
   }, []);
 

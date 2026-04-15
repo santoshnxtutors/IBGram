@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
+import { ClientChart } from "@/components/dashboard/ClientChart";
 import { ArrowRight, Users, Clock, Calendar as CalendarIcon, Wallet, Star, AlertCircle, Video } from "lucide-react";
 import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
@@ -30,8 +30,6 @@ const revenueData = [
 export default function TutorDashboard() {
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      
-      {/* Header & Quick Actions */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold text-foreground">Welcome back, Dr. Alex! 👨‍🏫</h1>
@@ -47,7 +45,6 @@ export default function TutorDashboard() {
         </div>
       </div>
 
-      {/* KPI Tiles */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="bg-background/60 backdrop-blur-md shadow-sm border-border/50 transition-all hover:bg-muted/20">
           <CardContent className="p-6">
@@ -111,10 +108,7 @@ export default function TutorDashboard() {
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
-        
-        {/* Left Col (2 spans): Charts */}
         <div className="lg:col-span-2 space-y-8">
-          
           <Card className="shadow-sm border-border/50 bg-background/50 backdrop-blur-sm">
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
@@ -123,7 +117,7 @@ export default function TutorDashboard() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="h-[300px] w-full">
+              <ClientChart>
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={revenueData} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
                     <defs>
@@ -142,7 +136,7 @@ export default function TutorDashboard() {
                     <Area type="monotone" dataKey="revenue" stroke="hsl(var(--primary))" strokeWidth={3} fillOpacity={1} fill="url(#colorRevenue)" />
                   </AreaChart>
                 </ResponsiveContainer>
-              </div>
+              </ClientChart>
             </CardContent>
           </Card>
 
@@ -155,7 +149,7 @@ export default function TutorDashboard() {
               <Button variant="outline" size="sm">Generate Remedial Material</Button>
             </CardHeader>
             <CardContent>
-              <div className="h-[300px] w-full">
+              <ClientChart>
                 <ResponsiveContainer width="100%" height="100%">
                   <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
                     <PolarGrid stroke="hsl(var(--muted-foreground)/0.2)" />
@@ -167,21 +161,17 @@ export default function TutorDashboard() {
                     />
                   </RadarChart>
                 </ResponsiveContainer>
-              </div>
+              </ClientChart>
             </CardContent>
           </Card>
-
         </div>
 
-        {/* Right Col (1 span): Schedule & Alerts */}
         <div className="space-y-8">
-          
           <Card className="shadow-sm border-border/50 border-t-4 border-t-secondary overflow-hidden bg-background/50 backdrop-blur-sm">
             <CardHeader>
               <CardTitle>Today's Schedule</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              
               <div className="p-4 rounded-xl border border-secondary/30 bg-secondary/10 cursor-pointer transition-all hover:scale-[1.02]">
                 <div className="flex justify-between items-start mb-2">
                   <span className="text-xs font-bold px-2 py-1 bg-secondary/20 text-secondary-foreground rounded-full flex items-center">
@@ -244,7 +234,6 @@ export default function TutorDashboard() {
               </div>
             </CardContent>
           </Card>
-
         </div>
       </div>
     </div>

@@ -3,10 +3,11 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { ClientChart } from "@/components/dashboard/ClientChart";
 import { ArrowRight, BookOpen, Clock, Calendar as CalendarIcon, Target, Trophy, Flame } from "lucide-react";
 import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip
 } from 'recharts';
 
 const radarData = [
@@ -29,8 +30,6 @@ const lineData = [
 export default function StudentDashboard() {
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      
-      {/* Header & Quick Stats */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold text-foreground">Welcome back, Sarah! 👋</h1>
@@ -46,7 +45,6 @@ export default function StudentDashboard() {
         </div>
       </div>
 
-      {/* KPI Tiles */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="bg-background/60 backdrop-blur-md shadow-sm border-border/50">
           <CardContent className="p-6">
@@ -93,17 +91,14 @@ export default function StudentDashboard() {
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
-        
-        {/* Left Col (2 spans): Charts */}
         <div className="lg:col-span-2 space-y-8">
-          
           <Card className="shadow-sm border-border/50">
             <CardHeader>
               <CardTitle>IB Score Trajectory</CardTitle>
               <CardDescription>Your mock test performance against target baseline</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="h-[300px] w-full">
+              <ClientChart>
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={lineData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--muted-foreground)/0.2)" />
@@ -116,7 +111,7 @@ export default function StudentDashboard() {
                     <Line type="monotone" dataKey="score" stroke="hsl(var(--primary))" strokeWidth={3} dot={{r: 6, fill: 'hsl(var(--background))', strokeWidth: 2}} activeDot={{r: 8}} />
                   </LineChart>
                 </ResponsiveContainer>
-              </div>
+              </ClientChart>
             </CardContent>
           </Card>
 
@@ -129,7 +124,7 @@ export default function StudentDashboard() {
               <Button variant="outline" size="sm">Retake AI Diagnostic</Button>
             </CardHeader>
             <CardContent>
-              <div className="h-[300px] w-full">
+              <ClientChart>
                 <ResponsiveContainer width="100%" height="100%">
                   <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
                     <PolarGrid stroke="hsl(var(--muted-foreground)/0.3)" />
@@ -141,22 +136,18 @@ export default function StudentDashboard() {
                     />
                   </RadarChart>
                 </ResponsiveContainer>
-              </div>
+              </ClientChart>
             </CardContent>
           </Card>
-
         </div>
 
-        {/* Right Col (1 span): Planner & Actions */}
         <div className="space-y-8">
-          
           <Card className="shadow-sm border-border/50 overflow-hidden">
             <div className="h-2 w-full bg-primary" />
             <CardHeader>
               <CardTitle>Today's Plan</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              
               <div className="p-4 rounded-xl border border-primary/20 bg-primary/5 cursor-pointer hover:bg-primary/10 transition-colors">
                 <div className="flex justify-between items-start mb-2">
                   <span className="text-xs font-bold px-2 py-1 bg-primary/20 text-primary rounded-full">1:1 Session</span>
@@ -198,7 +189,6 @@ export default function StudentDashboard() {
               </div>
             </CardContent>
           </Card>
-
         </div>
       </div>
     </div>

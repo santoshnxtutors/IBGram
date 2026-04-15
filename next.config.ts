@@ -7,19 +7,21 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   experimental: {
-    optimizePackageImports: ['lucide-react', 'recharts', 'framer-motion'],
+    optimizePackageImports: ["lucide-react", "recharts", "framer-motion"],
     serverComponentsHmrCache: true,
   },
   images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
+        protocol: "https",
+        hostname: "images.unsplash.com",
       },
       {
-        protocol: 'https',
-        hostname: 'randomuser.me',
-      }
+        protocol: "https",
+        hostname: "randomuser.me",
+      },
     ],
   },
   async headers() {
