@@ -59,7 +59,6 @@ export function ReviewsSection() {
   return (
     <section className="py-24 relative overflow-hidden bg-background">
       {/* Background Decorative Element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 mb-16 relative">
         <div className="max-w-2xl mx-auto text-center">
@@ -87,17 +86,7 @@ export function ReviewsSection() {
 
       {/* Infinity Marquee */}
       <div className="relative flex overflow-hidden group">
-        <motion.div
-          animate={{
-            x: ["0%", "-50%"],
-          }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="flex gap-8 whitespace-nowrap py-10 px-4"
-        >
+        <div className="reviews-marquee flex gap-8 whitespace-nowrap py-10 px-4 will-change-transform">
           {marqueeReviews.map((review, idx) => (
             <div
               key={`${review.id}-${idx}`}
@@ -131,7 +120,7 @@ export function ReviewsSection() {
               </div>
 
               <p className="text-lg md:text-xl font-medium text-foreground/90 italic leading-relaxed whitespace-normal tracking-tight">
-                "{review.text}"
+                &ldquo;{review.text}&rdquo;
               </p>
 
               <div className="mt-8 flex items-center gap-2 text-secondary/80 group-hover/card:text-secondary transition-colors duration-500">
@@ -140,7 +129,7 @@ export function ReviewsSection() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Gradient Overlays for smooth edges */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />

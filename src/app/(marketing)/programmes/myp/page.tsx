@@ -1,19 +1,42 @@
 import React from "react";
 import { ProgrammeHero } from "@/components/programmes/ProgrammeHero";
 import { ProgrammeSection } from "@/components/programmes/ProgrammeSection";
-import { GraduationCap, BookOpen, ScrollText, Award, Layers } from "lucide-react";
+import { GraduationCap, BookOpen, ScrollText, Award, Layers, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function MYPPage() {
   return (
     <div className="min-h-screen bg-background pb-4">
-      <ProgrammeHero
-        badge="Ages 11–16"
-        title="Middle Years Programme (MYP)"
-        subtitle="Connecting classroom learning to the real world."
-        description="The MYP is an academically challenging framework with eight subject groups and interdisciplinary learning, encouraging students to make practical connections between their studies and the ever-changing global environment."
-      />
+      <section className="relative w-full pt-12 pb-12 flex flex-col items-center justify-center text-center px-4">
+        <div className="max-w-4xl mx-auto flex flex-col items-center space-y-4 md:space-y-6">
+          <span className="inline-flex items-center px-4 py-1.5 text-xs font-bold text-primary bg-primary/10 rounded-full">
+            Ages 11–16
+          </span>
+          <h1 className="text-4xl md:text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-foreground">
+            Middle Years Programme (MYP)
+          </h1>
+          <h2 className="text-xl md:text-2xl font-medium text-muted-foreground max-w-2xl">
+            Specialized MYP Tutoring for Academic Growth
+          </h2>
+          <p className="text-lg text-muted-foreground/80 max-w-3xl leading-relaxed">
+            The MYP connects classroom learning to the real world. Our expert tutors guide students through all eight subject groups and the Personal Project to build a solid foundation.
+          </p>
+          
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <Link href="/tutors">
+              <Button variant="outline" className="rounded-full px-8 h-12 text-[15px] font-bold border-primary/20 text-primary hover:bg-primary/5 flex items-center gap-2">
+                Find Your MYP Tutor <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+            <Link href="https://wa.me/919876543210" target="_blank">
+              <Button variant="outline" className="rounded-full px-6 h-12 text-[15px] font-bold border-primary/20 text-primary hover:bg-primary/5">
+                Contact via WhatsApp 💬
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <ProgrammeSection 
         title="Curriculum Structure" 

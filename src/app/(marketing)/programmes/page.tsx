@@ -1,19 +1,39 @@
 import React from "react";
 import { ProgrammeHero } from "@/components/programmes/ProgrammeHero";
-import { ProgrammeCard } from "@/components/programmes/ProgrammeCard";
 import { ProgrammeSection } from "@/components/programmes/ProgrammeSection";
-import { BookOpen, GraduationCap, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { BookOpen, GraduationCap, ArrowUpRight, CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function ProgrammesHubPage() {
   return (
     <div className="min-h-screen bg-background pb-4">
-      <ProgrammeHero
-        title="IB Programmes Continuum"
-        subtitle="A holistic, inquiry-based approach to education from ages 3 to 19."
-        description="The International Baccalaureate (IB) continuum is designed to develop well-rounded, inquiring, and knowledgeable young people who help to create a better and more peaceful world."
-      />
+      <section className="relative w-full pt-12 pb-12 flex flex-col items-center justify-center text-center px-4">
+        <div className="max-w-4xl mx-auto flex flex-col items-center space-y-4 md:space-y-6">
+          <h1 className="text-4xl md:text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-foreground">
+            IB Programmes Continuum
+          </h1>
+          <h2 className="text-xl md:text-2xl font-medium text-muted-foreground max-w-2xl">
+            Expertly Curated Tutoring for Every Stage of the IB Journey
+          </h2>
+          <p className="text-lg text-muted-foreground/80 max-w-3xl leading-relaxed">
+            The International Baccalaureate (IB) continuum develops well-rounded, inquiring learners. Our mission is to connect you with the perfect tutors to excel at every level.
+          </p>
+          
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <Link href="/tutors">
+              <Button variant="outline" className="rounded-full px-8 h-12 text-[15px] font-bold border-primary/20 text-primary hover:bg-primary/5 flex items-center gap-2">
+                Find the Perfect Tutors <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+            <Link href="https://wa.me/919876543210" target="_blank">
+              <Button variant="outline" className="rounded-full px-6 h-12 text-[15px] font-bold border-primary/20 text-primary hover:bg-primary/5">
+                Contact on WhatsApp 💬
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <ProgrammeSection 
         title="What is an IB Education?" 
@@ -85,62 +105,64 @@ export default function ProgrammesHubPage() {
         <div className="max-w-5xl mx-auto">
           <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-foreground">Programme Options</h2>
-              <p className="text-muted-foreground mt-2 font-medium">Explore the four official programmes in the IB Continuum.</p>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground">Select Your Programme</h2>
+              <p className="text-muted-foreground mt-1 text-sm">Find specialized tutors for each IB framework.</p>
             </div>
             <Link 
               href="/tutors" 
-              className="text-sm font-bold text-primary hover:text-primary/80 flex items-center transition-colors"
+              className="text-sm font-bold text-primary hover:text-primary/80 flex items-center transition-colors px-4 py-2 bg-primary/5 rounded-full"
             >
-              Find Your Tutors <ArrowUpRight className="ml-1 w-4 h-4" />
+              Find More Tutors <ArrowUpRight className="ml-1 w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <ProgrammeCard
-              title="Primary Years (PYP)"
-              age="Ages 3–12"
-              description="An inquiry-based, transdisciplinary framework organized through six transdisciplinary themes."
-              href="/programmes/pyp"
-              features={[
-                "Student-centered learning",
-                "Integrates subject areas",
-                "Culminates in the PYP exhibition"
-              ]}
-            />
-            <ProgrammeCard
-              title="Middle Years (MYP)"
-              age="Ages 11–16"
-              description="A challenging framework that encourages students to make practical connections between their studies and the real world."
-              href="/programmes/myp"
-              features={[
-                "Eight subject groups",
-                "Personal project in final year",
-                "Criterion-related assessment"
-              ]}
-            />
-            <ProgrammeCard
-              title="Diploma Programme (DP)"
-              age="Ages 16–19"
-              description="An academically challenging and balanced programme with final examinations that prepares students for success at university."
-              href="/programmes/dp"
-              features={[
-                "Six subject groups",
-                "DP Core: TOK, EE, CAS",
-                "Internationally recognized diploma"
-              ]}
-            />
-            <ProgrammeCard
-              title="Career-related (CP)"
-              age="Ages 16–19"
-              description="A framework incorporating IB values into a unique programme addressing the needs of students engaged in career-related education."
-              href="/programmes/cp"
-              features={[
-                "At least two DP courses",
-                "Career-related study",
-                "Reflective project"
-              ]}
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+            {[
+              {
+                title: "Primary (PYP)",
+                age: "Ages 3–12",
+                description: "Nurturing independent, inquiring learners from an early age.",
+                href: "/programmes/pyp"
+              },
+              {
+                title: "Middle (MYP)",
+                age: "Ages 11–16",
+                description: "Building practical real-world connections and strong conceptual foundations.",
+                href: "/programmes/myp"
+              },
+              {
+                title: "Diploma (DP)",
+                age: "Ages 16–19",
+                description: "Elite academic preparation for success at world-leading universities.",
+                href: "/programmes/dp"
+              },
+              {
+                title: "Career (CP)",
+                age: "Ages 16–19",
+                description: "A professional framework blending DP courses with career studies.",
+                href: "/programmes/cp"
+              }
+            ].map((p) => (
+              <Link 
+                key={p.title}
+                href={p.href}
+                className="group p-6 rounded-[2rem] border border-border/50 bg-card/40 backdrop-blur-sm hover:bg-primary/5 hover:border-primary/20 transition-all duration-300"
+              >
+                <div className="flex items-center justify-between mb-3 gap-2">
+                  <h3 className="text-lg font-bold tracking-tight text-foreground">{p.title}</h3>
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20 whitespace-nowrap">
+                    {p.age}
+                  </span>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-2">
+                  {p.description}
+                </p>
+                <div className="flex items-center gap-2 text-primary font-bold text-[13px]">
+                  <span>Explore Programme</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

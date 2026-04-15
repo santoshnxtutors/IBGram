@@ -40,9 +40,29 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    let frameId = 0;
+
+    const updateScrolledState = () => {
+      frameId = 0;
+      const nextScrolled = window.scrollY > 20;
+      setScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled));
+    };
+
+    const onScroll = () => {
+      if (frameId === 0) {
+        frameId = requestAnimationFrame(updateScrolledState);
+      }
+    };
+
+    updateScrolledState();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -138,9 +158,26 @@ export function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link href="/programmes" aria-label="Programmes" className="hover:text-primary transition-colors">
-            Programmes
-          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger aria-label="Programmes" className="flex items-center gap-1 hover:text-primary transition-colors focus:outline-none">
+              Programmes <ChevronDown className="size-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center" className="w-52 border-white/10 bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-2xl shadow-2xl">
+              <Link href="/programmes" className="w-full">
+                <DropdownMenuItem className="cursor-pointer rounded-xl py-1.5 px-4 font-bold text-primary hover:bg-primary/10 transition-all mb-1">
+                  All Programmes Hub
+                </DropdownMenuItem>
+              </Link>
+              <div className="h-px bg-border/40 my-1 mx-2" />
+              {PROGRAMS.map(prog => (
+                <Link href={`/programmes/${prog.slug}`} key={prog.slug} className="w-full">
+                  <DropdownMenuItem className="cursor-pointer rounded-xl py-2 px-4 font-bold text-foreground hover:bg-primary/10 hover:text-primary transition-all">
+                    {prog.name}
+                  </DropdownMenuItem>
+                </Link>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           <DropdownMenu>
             <DropdownMenuTrigger aria-label="Courses" className="flex items-center gap-1 hover:text-primary transition-colors focus:outline-none">
@@ -248,13 +285,31 @@ export function Header() {
           </div>
 
           <nav className="flex flex-col gap-4 text-lg font-bold">
-            <Link 
-              href="/programmes" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary bg-muted/10 rounded-xl"
-            >
-              Programmes
-            </Link>
+            <details className="group">
+              <summary className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary cursor-pointer list-none flex items-center justify-between bg-muted/10 rounded-xl">
+                Programmes
+                <ChevronDown className="size-5 transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="pl-6 pt-3 pb-1 flex flex-col gap-3">
+                <Link 
+                  href="/programmes" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-[15px] font-bold text-primary hover:text-primary transition-colors block py-1"
+                >
+                  All Programmes Hub
+                </Link>
+                {PROGRAMS.map(prog => (
+                  <Link 
+                    key={prog.slug}
+                    href={`/programmes/${prog.slug}`} 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-[15px] font-medium text-muted-foreground hover:text-primary transition-colors block py-1"
+                  >
+                    {prog.name}
+                  </Link>
+                ))}
+              </div>
+            </details>
 
             <details className="group">
               <summary className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary cursor-pointer list-none flex items-center justify-between bg-muted/10 rounded-xl">

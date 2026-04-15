@@ -1,19 +1,42 @@
 import React from "react";
 import { ProgrammeHero } from "@/components/programmes/ProgrammeHero";
 import { ProgrammeSection } from "@/components/programmes/ProgrammeSection";
-import { GraduationCap, BookOpen, Globe, Library, Award } from "lucide-react";
+import { GraduationCap, BookOpen, Globe, Library, Award, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function DPPage() {
   return (
     <div className="min-h-screen bg-background pb-4">
-      <ProgrammeHero
-        badge="Ages 16–19"
-        title="Diploma Programme (DP)"
-        subtitle="Rigorous academic preparation for university and beyond."
-        description="The DP is a globally recognized, two-year curriculum requiring six subjects plus the DP core. It aims to develop students who have excellent breadth and depth of knowledge and who flourish physically, intellectually, emotionally, and ethically."
-      />
+      <section className="relative w-full pt-12 pb-12 flex flex-col items-center justify-center text-center px-4">
+        <div className="max-w-4xl mx-auto flex flex-col items-center space-y-4 md:space-y-6">
+          <span className="inline-flex items-center px-4 py-1.5 text-xs font-bold text-primary bg-primary/10 rounded-full">
+            Ages 16–19
+          </span>
+          <h1 className="text-4xl md:text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-foreground">
+            Diploma Programme (DP)
+          </h1>
+          <h2 className="text-xl md:text-2xl font-medium text-muted-foreground max-w-2xl">
+            Elite DP Tutoring for IB Excellence
+          </h2>
+          <p className="text-lg text-muted-foreground/80 max-w-3xl leading-relaxed">
+            The DP is a globally recognized curriculum. Our specialized tutors help you master all six subject groups and the DP Core to secure your dream score.
+          </p>
+          
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <Link href="/tutors">
+              <Button variant="outline" className="rounded-full px-8 h-12 text-[15px] font-bold border-primary/20 text-primary hover:bg-primary/5 flex items-center gap-2">
+                Find Your DP Tutor <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+            <Link href="https://wa.me/919876543210" target="_blank">
+              <Button variant="outline" className="rounded-full px-6 h-12 text-[15px] font-bold border-primary/20 text-primary hover:bg-primary/5">
+                Contact via WhatsApp 💬
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <ProgrammeSection 
         title="Curriculum Structure" 

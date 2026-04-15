@@ -197,6 +197,25 @@
     100% { background-position: 100% 100%; }
   }
 
+  @keyframes reviews-marquee {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+
+  .reviews-marquee {
+    animation: reviews-marquee 40s linear infinite;
+  }
+
+  @keyframes ai-widget-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .ai-widget-ring {
+    animation: ai-widget-spin 4s linear infinite;
+    will-change: transform;
+  }
+
   /* Noise / Grain Overlay */
   .noise-overlay::after {
     content: "";

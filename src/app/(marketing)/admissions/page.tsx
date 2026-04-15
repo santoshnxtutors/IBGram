@@ -1,234 +1,496 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ArrowRight, Building2, GraduationCap, Gavel, Globe, Microscope, ShieldCheck, Sparkles, Trophy } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import Link from "next/link";
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  CheckCircle2,
+  FileText,
+  Globe2,
+  LineChart,
+  Medal,
+  MessageCircle,
+  MessageSquare,
+  ShieldCheck,
+  Sparkles,
+  Target,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import collabPhoto from "./collab/photo.jpg";
+
+export const metadata: Metadata = {
+  title: "Admissions Consulting | IB Gram",
+  description:
+    "Strategic admissions guidance for students applying to leading universities worldwide. Build a stronger profile, sharper applications, and a clearer admissions plan with IB Gram.",
+  keywords: [
+    "admissions consulting",
+    "university admissions",
+    "college counseling",
+    "IB admissions support",
+    "application strategy",
+    "essay support",
+  ],
+  alternates: {
+    canonical: "/admissions",
+  },
+  openGraph: {
+    title: "Admissions Consulting | IB Gram",
+    description:
+      "A performance-first admissions page built for students aiming at ambitious global outcomes.",
+    url: "/admissions",
+    type: "website",
+  },
+};
+
+const trustStats = [
+  {
+    value: "1:1",
+    label: "Strategic attention for every student",
+  },
+  {
+    value: "Top 5",
+    label: "Application planning built around best-fit choices",
+  },
+  {
+    value: "SOP",
+    label: "A structured admissions workflow from start to submit",
+  },
+  {
+    value: "Global",
+    label: "Support across US, UK, Europe, Singapore, UAE and beyond",
+  },
+];
+
+const pillars = [
+  {
+    title: "Admissions Strategy",
+    description:
+      "We map university goals, timeline risk, profile gaps, and action priorities into a single plan that is easy to follow.",
+    icon: Target,
+  },
+  {
+    title: "Profile Building",
+    description:
+      "Academic positioning, activity selection, summer planning, and achievement storytelling designed to improve application strength.",
+    icon: Medal,
+  },
+  {
+    title: "Essays And Applications",
+    description:
+      "Focused support on personal statements, supplements, activity lists, recommendations, and submission readiness.",
+    icon: FileText,
+  },
+  {
+    title: "Interview Preparation",
+    description:
+      "Clear, practical interview practice that sharpens communication, confidence, and decision-making under pressure.",
+    icon: MessageSquare,
+  },
+];
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Assess",
+    description:
+      "Audit academic record, goals, intended major, extracurricular depth, and competitive positioning.",
+  },
+  {
+    step: "02",
+    title: "Prioritize",
+    description:
+      "Build a realistic application list across reach, target, and likely-fit options with timeline discipline.",
+  },
+  {
+    step: "03",
+    title: "Build",
+    description:
+      "Strengthen profile quality through projects, competitions, leadership, research, and stronger narrative alignment.",
+  },
+  {
+    step: "04",
+    title: "Submit",
+    description:
+      "Review applications end-to-end with quality control on essays, forms, deadlines, and final checks.",
+  },
+];
+
+const destinations = [
+  {
+    region: "United States",
+    items: ["Ivy League", "Top 20 universities", "Liberal arts colleges", "STEM-focused programmes"],
+  },
+  {
+    region: "United Kingdom",
+    items: ["Oxbridge", "Russell Group", "Medicine pathways", "Competitive personal statements"],
+  },
+  {
+    region: "Europe And Asia",
+    items: ["Selective English-taught programmes", "Scholarship-focused strategy", "Country-specific application guidance"],
+  },
+];
+
+const differentiators = [
+  "Mobile-first, structured planning that is easy for students and parents to follow.",
+  "Clear admissions SOP instead of ad-hoc consulting.",
+  "Profile and application support aligned with rigorous academic pathways like IB.",
+  "Minimal friction, fast page performance, and accessible content architecture.",
+];
+
+const faqs = [
+  {
+    question: "Who is this admissions support for?",
+    answer:
+      "Students applying to ambitious undergraduate pathways who need stronger strategy, execution discipline, and application quality.",
+  },
+  {
+    question: "Do you support only one country?",
+    answer:
+      "No. The process is designed for multi-country applications with tailored planning for each admissions system.",
+  },
+  {
+    question: "Can this work alongside tutoring?",
+    answer:
+      "Yes. Admissions planning works best when academic mentoring and application strategy are aligned from the start.",
+  },
+];
+
+const collaborationPoints = [
+  "10+ years of mentoring experience across global admissions pathways.",
+  "Guided 5000+ students into top universities with scholarships and tailored planning.",
+  "Counselling presence across 50+ top schools and students from 10+ countries.",
+  "Admits across NUS, NTU, Cornell, Stanford, UPenn, Columbia and more.",
+];
+
+function SectionHeading({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description?: string;
+}) {
+  return (
+    <div className="max-w-3xl space-y-4">
+      <p className="text-xs font-black uppercase tracking-[0.28em] text-primary">{eyebrow}</p>
+      <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">{title}</h2>
+      {description ? <p className="text-base leading-7 text-muted-foreground sm:text-lg">{description}</p> : null}
+    </div>
+  );
+}
 
 export default function AdmissionsPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#0a0a0a]">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-40 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px]" />
-          <div className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[100px]" />
-        </div>
+    <>
+      <style>{`
+        body:has(main[data-page="admissions"]) footer {
+          display: none !important;
+        }
 
-        <div className="container px-4 md:px-6 relative z-10 mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
-                <Trophy className="size-4" />
-                <span>Global Excellence in IB Admissions</span>
+        body:has(main[data-page="admissions"]) main.flex-1 {
+          flex: 0 0 auto !important;
+        }
+
+        body:has(main[data-page="admissions"]) div.fixed:has(.ai-widget-ring) {
+          display: none !important;
+        }
+      `}</style>
+
+      <main data-page="admissions" className="bg-background pb-4 text-foreground sm:pb-4">
+        <div className="h-8 sm:h-10" />
+
+        <section className="border-b border-border/50">
+          <div className="mx-auto grid max-w-7xl gap-12 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8 lg:py-12">
+            <div className="space-y-8">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
+                <Sparkles className="size-3.5" />
+                Admissions Consulting
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
-                Your Direct Path to <span className="text-gradient">Elite Institutions</span>
-              </h1>
-
-              <p className="text-xl text-slate-400 md:text-2xl leading-relaxed max-w-xl">
-                Securing placement in the world&apos;s most prestigious IB schools requires more than just grades. It requires an Elite Strategy.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button size="lg" className="h-14 px-8 text-lg bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 rounded-full">
-                  Start Your Journey <ArrowRight className="ml-2 size-5" />
-                </Button>
-                <Button size="lg" variant="outline" className="h-14 px-8 text-lg bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 rounded-full">
-                  Explore Global Network
-                </Button>
+              <div className="space-y-5">
+                <h1 className="max-w-4xl text-4xl font-black tracking-tight text-foreground sm:text-5xl lg:text-6xl lg:leading-[1.02]">
+                  Strategic Admissions Support For Students Targeting Strong Global Outcomes
+                </h1>
+                <p className="max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+                  Built for families who want a clear application roadmap, stronger positioning, and disciplined execution across every part of the admissions process.
+                </p>
               </div>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="relative hidden lg:block justify-self-center lg:justify-self-end w-full max-w-md xl:max-w-lg"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-[2rem] blur-[50px] animate-pulse" />
-              <div className="relative glassmorphism-heavy rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] w-full max-h-[600px]">
-                <Image
-                  src="/assets/images/elite_institution_hall.png"
-                  alt="Elite Institution"
-                  fill
-                  className="object-cover opacity-80"
-                />
-                <div className="absolute inset-x-0 bottom-0 p-10 bg-gradient-to-t from-[#0a0a0a] to-transparent">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="size-12 rounded-2xl bg-primary flex items-center justify-center">
-                      <Building2 className="text-white size-6" />
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Link href="/contact-us">
+                  <Button size="lg" className="h-12 rounded-full px-6 text-sm font-black sm:h-14 sm:px-8 sm:text-base">
+                    Book A Consultation
+                    <ArrowRight className="ml-2 size-4" />
+                  </Button>
+                </Link>
+                <Link href="/tutors">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="h-12 rounded-full border-border/60 px-6 text-sm font-black hover:bg-muted/20 sm:h-14 sm:px-8 sm:text-base"
+                  >
+                    Explore Mentors
+                  </Button>
+                </Link>
+              </div>
+
+              <ul className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
+                <li className="flex items-start gap-3 rounded-2xl border border-border/50 px-4 py-4">
+                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+                  University list building and positioning
+                </li>
+                <li className="flex items-start gap-3 rounded-2xl border border-border/50 px-4 py-4">
+                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+                  Essays, activities, and application review
+                </li>
+                <li className="flex items-start gap-3 rounded-2xl border border-border/50 px-4 py-4">
+                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+                  Interview preparation and submission discipline
+                </li>
+                <li className="flex items-start gap-3 rounded-2xl border border-border/50 px-4 py-4">
+                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+                  Structured guidance for students and parents
+                </li>
+              </ul>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-[2rem] border border-border/60 bg-card p-4 sm:p-5 lg:p-6">
+              <div className="space-y-5">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-border/60 bg-muted/10">
+                  <video
+                    className="h-full w-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                  >
+                    <source src="/admissions/media/home" type="video/mp4" />
+                  </video>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  {trustStats.map((stat) => (
+                    <div key={stat.label} className="rounded-2xl border border-border/50 px-4 py-4">
+                      <div className="text-xl font-black tracking-tight text-foreground sm:text-2xl">{stat.value}</div>
+                      <p className="mt-2 text-xs leading-5 text-muted-foreground sm:text-sm">{stat.label}</p>
                     </div>
-                    <div>
-                      <p className="text-white font-bold text-lg">Top Institutional Network</p>
-                      <p className="text-slate-400 text-sm">Harrow, Eton, Sevenoaks & and more</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Global Reach Section */}
-      <section className="py-24 border-y border-white/5 bg-black/40">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-white">The Global Elite Network</h2>
-            <p className="text-slate-400 text-lg">We provide direct access and preparation for the world&apos;s most selective IB-continuum schools.</p>
+        <section className="border-b border-border/50">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+            <SectionHeading
+              eyebrow="What We Build"
+              title="A focused admissions page with clear hierarchy and strong conversion flow"
+              description="The structure takes inspiration from high-performing admissions pages while staying aligned with your current visual language: darker palette, strong typography, restrained accents, and minimal decoration."
+            />
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {pillars.map((pillar) => (
+                <article key={pillar.title} className="rounded-[1.75rem] border border-border/50 bg-card px-5 py-6 sm:px-6">
+                  <pillar.icon className="size-5 text-primary" />
+                  <h3 className="mt-5 text-xl font-black tracking-tight text-foreground">{pillar.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{pillar.description}</p>
+                </article>
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "UK Boarding Elite",
-                desc: "Sevenoaks, Harrow, and Westminster. Specialist preparation for entrance exams and interview panels.",
-                icon: <Building2 />,
-                color: "bg-blue-500"
-              },
-              {
-                title: "US IVY Pre-Collegiate",
-                desc: "Top-tier boarding schools and high schools that feed directly into the Ivy League network.",
-                icon: <GraduationCap />,
-                color: "bg-red-500"
-              },
-              {
-                title: "SG & Middle East Elite",
-                desc: "ACSI, UWC South East Asia, and Dubai&apos;s leading IB institutions. Localized expertise.",
-                icon: <Globe />,
-                color: "bg-amber-500"
-              }
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Card className="bg-white/5 border-white/10 hover:border-primary/50 transition-all group p-8 rounded-[2rem] h-full flex flex-col">
-                  <div className={`size-14 rounded-2xl ${item.color}/10 ${item.color.replace('bg-', 'text-')} flex items-center justify-center mb-8`}>
-                    {item.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                  <p className="text-slate-400 leading-relaxed flex-1">{item.desc}</p>
-                  <Button variant="ghost" className="mt-8 p-0 h-auto text-primary hover:text-white group-hover:translate-x-2 transition-all">
-                    Explore Partners <ArrowRight className="ml-2 size-4" />
-                  </Button>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+        <section className="border-b border-border/50">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+              <SectionHeading
+                eyebrow="Admissions SOP"
+                title="A simple, repeatable process designed for speed, clarity, and lower application risk"
+                description="This section is intentionally structured for readability on mobile first, then scales cleanly to larger screens."
+              />
 
-      {/* The Admissions SOP */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="container px-4 md:px-6 mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8">
-              <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-                Our Elite <span className="text-secondary italic">Admissions SOP</span>
-              </h2>
-              <p className="text-slate-400 text-xl leading-relaxed">
-                We follow a rigorous Standard Operating Procedure (SOP) that has secured thousands of placements in top-tier institutions. Consistent, data-driven, and elite.
-              </p>
-
-              <div className="space-y-6">
-                {[
-                  { step: "01", title: "Strategic Profiling", desc: "We analyze the student's academic and extra-curricular trajectory to identify 'Target' and 'Reach' institutions." },
-                  { step: "02", title: "Institutional Alignment", desc: "Direct matching with institutional values and entrance criteria for maximum impact." },
-                  { step: "03", title: "Entrance Mastery", desc: "Specialist coaching for school-specific assessments, interviews, and internal selection processes." },
-                  { step: "04", title: "Placement & Transition", desc: "Handling all logistics from application filing to successful onboarding." }
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-6 group">
-                    <span className="text-primary font-black text-2xl group-hover:scale-125 transition-transform">{item.step}</span>
-                    <div>
-                      <h4 className="text-white font-bold text-xl mb-1">{item.title}</h4>
-                      <p className="text-slate-400 text-sm">{item.desc}</p>
+              <div className="grid gap-4">
+                {processSteps.map((step) => (
+                  <div key={step.step} className="rounded-[1.5rem] border border-border/50 px-5 py-5 sm:px-6 sm:py-6">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-5">
+                      <div className="text-sm font-black uppercase tracking-[0.28em] text-primary">{step.step}</div>
+                      <div>
+                        <h3 className="text-xl font-black tracking-tight text-foreground">{step.title}</h3>
+                        <p className="mt-2 text-sm leading-7 text-muted-foreground sm:text-base">{step.description}</p>
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
+          </div>
+        </section>
 
-            <div className="relative">
-              <div className="absolute inset-0 bg-secondary/10 rounded-[3rem] blur-[50px]" />
-              <Card className="glassmorphism-heavy border-white/10 p-10 rounded-[3rem] relative z-10">
-                <h3 className="text-3xl font-bold text-white mb-8">Admission Success Rate</h3>
-                <div className="space-y-8">
-                  <div>
-                    <div className="flex justify-between mb-4">
-                      <span className="text-slate-300 font-medium">Top 5 Choice Schools</span>
-                      <span className="text-secondary font-bold">96.4%</span>
-                    </div>
-                    <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden p-1 border border-white/10">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '96.4%' }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="h-full bg-secondary rounded-full shadow-[0_0_20px_rgba(34,197,94,0.3)]"
-                      />
-                    </div>
+        <section className="border-b border-border/50">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+            <SectionHeading
+              eyebrow="Destinations"
+              title="Built for ambitious applications across major admissions systems"
+              description="You mentioned admissions as the long-term direction of the brand. This structure supports that positioning without overloading the page with heavy visuals or marketing noise."
+            />
+
+            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+              {destinations.map((destination) => (
+                <article key={destination.region} className="rounded-[1.75rem] border border-border/50 bg-card px-5 py-6 sm:px-6">
+                  <div className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.22em] text-primary">
+                    <Globe2 className="size-4" />
+                    {destination.region}
                   </div>
-                  <div>
-                    <div className="flex justify-between mb-4">
-                      <span className="text-slate-300 font-medium">Global Scholarships Secured</span>
-                      <span className="text-primary font-bold">84%</span>
-                    </div>
-                    <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden p-1 border border-white/10">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '84%' }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="h-full bg-primary rounded-full shadow-[0_0_20px_rgba(59,130,246,0.3)]"
-                      />
-                    </div>
+                  <ul className="mt-5 space-y-3 text-sm leading-7 text-muted-foreground">
+                    {destination.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-border/50">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+            <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:gap-16">
+              <div>
+                <SectionHeading
+                  eyebrow="Why This Works"
+                  title="Performance-first design choices built into the page from the start"
+                />
+                <ul className="mt-8 space-y-4">
+                  {differentiators.map((item) => (
+                    <li key={item} className="flex items-start gap-3 rounded-2xl border border-border/50 px-4 py-4 text-sm leading-7 text-muted-foreground sm:text-base">
+                      <ShieldCheck className="mt-1 size-4 shrink-0 text-primary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <aside className="rounded-[2rem] border border-border/50 bg-card p-6 sm:p-8">
+                <div className="space-y-5">
+                  <div className="flex items-center gap-3 text-sm font-black uppercase tracking-[0.22em] text-primary">
+                    <LineChart className="size-4" />
+                    Page Principles
+                  </div>
+                  <div className="space-y-4 text-sm leading-7 text-muted-foreground">
+                    <p>
+                      Server-rendered page with minimal client-side logic for faster first load and better reliability.
+                    </p>
+                    <p>
+                      Semantic heading order, descriptive metadata, and readable copy blocks to support SEO and accessibility.
+                    </p>
+                    <p>
+                      Lightweight visual system using borders, spacing, and typography instead of shadows, glows, or heavy assets.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-border/50 px-4 py-4 text-sm leading-7 text-muted-foreground">
+                    Media placeholders are intentionally blank for now so your team can add final images, partner proof, and outcome details later without reworking the layout.
                   </div>
                 </div>
+              </aside>
+            </div>
+          </div>
+        </section>
 
-                <div className="mt-12 p-6 rounded-2xl bg-white/5 border border-white/10">
-                  <div className="flex gap-4">
-                    <div className="size-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
-                      <ShieldCheck />
+        <section className="border-b border-border/50">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+            <SectionHeading
+              eyebrow="FAQs"
+              title="Important questions answered early"
+              description="A compact FAQ block helps with trust, comprehension, and search relevance without adding unnecessary interaction cost."
+            />
+
+            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+              {faqs.map((faq) => (
+                <article key={faq.question} className="rounded-[1.5rem] border border-border/50 px-5 py-5 sm:px-6">
+                  <h3 className="text-lg font-black tracking-tight text-foreground">{faq.question}</h3>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground sm:text-base">{faq.answer}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+            <div className="rounded-[1.75rem] border border-border/50 bg-[linear-gradient(135deg,rgba(10,20,30,0.98),rgba(10,24,22,0.94))] p-4 sm:p-5 lg:p-6">
+              <div className="grid items-start gap-5 lg:grid-cols-[0.56fr_1.44fr] lg:gap-7">
+                <div className="order-2 space-y-4 lg:order-1">
+                  <div className="overflow-hidden rounded-[1.35rem] border border-white/8 bg-card/30">
+                    <div className="relative aspect-[4/4.4] sm:aspect-[4/4.1] lg:aspect-[4/4.45]">
+                      <Image src={collabPhoto} alt="Admissions collaboration partner" fill className="object-cover" priority={false} />
                     </div>
-                    <p className="text-slate-400 text-sm leading-relaxed">
-                      Verified placement data for the academic years 2022-2024 across 42 global jurisdictions.
+                  </div>
+                  <div className="border-t border-white/8 pt-4">
+                    <p className="max-w-sm text-[13px] leading-8 text-muted-foreground">
+                      Partner profile highlights include My League alumni from Cornell University, USA, 5000+ students served, counselling across 50+ top schools, and admits across institutions such as NUS, NTU, Cornell, Stanford, UPenn, and Columbia.
                     </p>
                   </div>
                 </div>
-              </Card>
+
+                <div className="order-1 flex flex-col justify-center lg:order-2">
+                  <p className="text-xs font-black uppercase tracking-[0.28em] text-primary">Admissions Collaboration</p>
+                  <h2 className="mt-3 max-w-3xl text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-[2.85rem] lg:leading-[1.04]">
+                    In partnership with Ethos Education for global admissions guidance
+                  </h2>
+                  <p className="mt-4 max-w-2xl text-[15px] leading-7 text-muted-foreground sm:text-base">
+                    For admissions-focused counselling, profile strategy, scholarship planning, and university applications, we collaborate with Ethos Education to extend specialist support for ambitious students.
+                  </p>
+
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {collaborationPoints.map((point) => (
+                      <div key={point} className="rounded-[1.2rem] border border-white/8 bg-black/8 px-4 py-3 text-sm leading-7 text-muted-foreground">
+                        <div className="flex gap-3">
+                          <CheckCircle2 className="mt-1 size-4 shrink-0 text-primary" />
+                          <span>{point}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-5 border-t border-white/8 pt-4">
+                    <Link
+                      href="https://www.ethoseducation.world/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                    >
+                      Explore Ethos Education
+                      <ArrowRight className="size-4" />
+                    </Link>
+                  </div>
+
+
+              </div>
             </div>
           </div>
         </div>
-      </section>
+        </section>
 
-      {/* Hero CTA */}
-      <section className="py-24">
-        <div className="container px-4 md:px-6 mx-auto">
-          <Card className="relative overflow-hidden border-none bg-gradient-to-r from-primary/80 to-secondary/80 p-12 md:p-20 text-center rounded-[3rem] shadow-2xl shadow-primary/20">
-            <div className="relative z-10 max-w-2xl mx-auto space-y-8">
-              <h2 className="text-4xl md:text-6xl font-bold text-white">Join the Elite Class of 2025</h2>
-              <p className="text-white/80 text-xl">Our specialists are currently accepting consultation requests for international admissions. Secure your slot now.</p>
-              <Button size="lg" className="h-16 px-12 text-xl bg-white text-slate-900 hover:bg-slate-100 shadow-xl rounded-full font-bold">
-                Book Your Consultation <Sparkles className="ml-2 size-6 text-primary" />
-              </Button>
-            </div>
-            <div className="absolute top-0 right-0 p-8 text-white/10 -rotate-12 translate-x-1/4 -translate-y-1/4">
-              <Globe className="size-[400px]" />
-            </div>
-          </Card>
-        </div>
-      </section>
-    </div>
+        <Link
+          href="https://wa.me/919876543210"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Chat with us on WhatsApp"
+          className="fixed bottom-4 right-4 z-[110] flex items-center gap-2 sm:bottom-5 sm:right-5"
+        >
+          <span className="hidden rounded-full border border-white/10 bg-[#111823] px-5 py-2.5 text-sm font-semibold tracking-[-0.01em] text-white transition-colors duration-200 hover:bg-[#16202d] sm:block">
+            Chat with us
+          </span>
+          <span className="flex size-11 items-center justify-center rounded-full bg-[#25D366] text-white sm:size-12">
+            <MessageCircle className="size-5 stroke-[2.2] sm:size-5" />
+          </span>
+        </Link>
+      </main>
+    </>
   );
 }

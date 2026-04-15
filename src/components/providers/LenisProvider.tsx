@@ -15,14 +15,44 @@ export function LenisProvider({ children }: { children: ReactNode }) {
       touchMultiplier: 2,
     });
 
+    let frameId = 0;
+    let isActive = true;
+
     function raf(time: number) {
+      if (!isActive) {
+        frameId = 0;
+        return;
+      }
+
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      frameId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        isActive = true;
+        if (frameId === 0) {
+          frameId = requestAnimationFrame(raf);
+        }
+        return;
+      }
+
+      isActive = false;
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+        frameId = 0;
+      }
+    };
+
+    frameId = requestAnimationFrame(raf);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
+      isActive = false;
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       lenis.destroy();
     };
   }, []);

@@ -10,10 +10,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { allTutors } from "@/lib/tutor-data";
 
-export function TutorDiscovery() {
+export function IGCSETutors() {
   const router = useRouter();
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [compareIds, setCompareIds] = useState<number[]>([]);
+
+  const igcseTutors = allTutors.filter(t => t.curriculum === "IGCSE" || t.curriculum === "Both");
 
   const toggleCompare = (id: number) => {
     setCompareIds(prev => {
@@ -42,7 +44,9 @@ export function TutorDiscovery() {
       document.body.style.position = "";
       document.body.style.width = "";
       document.body.style.top = "";
-      window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      }
     }
     return () => {
       document.body.style.overflow = "unset";
@@ -52,16 +56,18 @@ export function TutorDiscovery() {
     };
   }, [selectedId]);
 
+  if (igcseTutors.length === 0) return null;
+
   return (
-    <section className="py-16 relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-16 relative overflow-hidden bg-background border-t border-border/50">
+      <div className="container px-4 mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-foreground">
-              Learn from the <span className="text-primary">Top 1%</span>
+              Elite <span className="text-primary">IGCSE</span> Tutors
             </h2>
             <p className="text-lg text-muted-foreground">
-              Rigorous vetting. Proven results. Connect with tutors who have mastered the exact syllabus your school follows.
+              Master the Cambridge and Pearson Edexcel syllabuses with tutors who have achieved exceptional results.
             </p>
           </div>
           <Link
@@ -73,7 +79,7 @@ export function TutorDiscovery() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allTutors.slice(0, 3).map((tutor) => (
+          {igcseTutors.slice(0, 3).map((tutor) => (
             <motion.div
               layoutId={`card-${tutor.id}`}
               key={tutor.id}
@@ -103,15 +109,21 @@ export function TutorDiscovery() {
                     <div className="flex gap-3 md:gap-4 items-center">
                       <motion.div
                         layoutId={`avatar-${tutor.id}`}
-                        className="size-14 md:size-16 rounded-2xl bg-muted flex items-center justify-center relative overflow-hidden ring-4 ring-background shadow-lg"
+                        className="size-14 md:size-16 rounded-2xl bg-muted/80 flex items-center justify-center relative overflow-hidden ring-4 ring-background shadow-lg"
                       >
-                        <Image
-                          src={tutor.image}
-                          alt={tutor.name}
-                          fill
-                          sizes="(max-width: 768px) 56px, 64px"
-                          className="object-cover"
-                        />
+                        {tutor.image ? (
+                          <Image
+                            src={tutor.image}
+                            alt={tutor.name}
+                            fill
+                            sizes="(max-width: 768px) 56px, 64px"
+                            className="object-cover"
+                          />
+                        ) : (
+                          <span className="text-xl font-bold text-muted-foreground">
+                            {tutor.name.charAt(0)}
+                          </span>
+                        )}
                         <div className="absolute bottom-0 right-0 size-3 md:size-4 bg-green-500 border-2 border-background rounded-full animate-pulse z-10" />
                       </motion.div>
                       <div>
@@ -169,8 +181,12 @@ export function TutorDiscovery() {
                 {compareIds.map((id, i) => {
                   const t = allTutors.find(t => t.id === id);
                   return t ? (
-                    <div key={i} className="size-8 rounded-full border-2 border-background overflow-hidden relative shadow-sm">
-                      <Image src={t.image} alt={t.name} fill sizes="32px" className="object-cover" />
+                    <div key={i} className="size-8 rounded-full border-2 border-background overflow-hidden relative shadow-sm flex items-center justify-center bg-muted">
+                      {t.image ? (
+                        <Image src={t.image} alt={t.name} fill sizes="32px" className="object-cover" />
+                      ) : (
+                        <span className="text-xs font-bold text-muted-foreground">{t.name.charAt(0)}</span>
+                      )}
                     </div>
                   ) : null;
                 })}
@@ -227,21 +243,27 @@ export function TutorDiscovery() {
                 </button>
 
                 {/* Profile Pic Side */}
-                <div className="w-full md:w-2/5 relative h-64 md:h-auto min-h-[300px]">
-                  <motion.div layoutId={`avatar-${tutor.id}`} className="absolute inset-0">
-                    <Image
-                      src={tutor.image}
-                      alt={tutor.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 40vw"
-                      className="object-cover"
-                    />
+                <div className="w-full md:w-2/5 relative h-64 md:h-auto min-h-[300px] flex items-center justify-center bg-muted/20">
+                  <motion.div layoutId={`avatar-${tutor.id}`} className="absolute inset-0 flex items-center justify-center bg-muted">
+                    {tutor.image ? (
+                        <Image
+                          src={tutor.image}
+                          alt={tutor.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 40vw"
+                          className="object-cover"
+                        />
+                    ) : (
+                      <span className="text-6xl font-bold text-muted-foreground">
+                        {tutor.name.charAt(0)}
+                      </span>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-r" />
                   </motion.div>
                 </div>
 
                 {/* Content Side */}
-                <div className="flex-1 p-8 md:p-12">
+                <div className="flex-1 p-8 md:p-12 z-10 bg-card rounded-[2.5rem]">
                   <div className="mb-8">
                     <motion.h3 layoutId={`name-${tutor.id}`} className="text-3xl font-black text-foreground mb-1 flex items-center gap-2 tracking-tight">
                       {tutor.name} <ShieldCheck className="size-6 text-primary" />
@@ -287,11 +309,15 @@ export function TutorDiscovery() {
                     </div>
 
                     <div className="flex items-center gap-6 pt-4">
-                      <Button variant="outline" className="h-14 flex-1 rounded-2xl font-black border-2 border-border text-lg hover:bg-muted">
-                        Message
-                      </Button>
+                      <Button variant="outline" className="h-14 flex-1 rounded-2xl font-black border-2 border-border text-lg hover:bg-muted">Message</Button>
                       <button
-                        onClick={() => router.push(`/tutor-profile/${tutor.id}`)}
+                        onClick={() => {
+                          document.body.style.overflow = "unset";
+                          document.body.style.position = "";
+                          document.body.style.width = "";
+                          document.body.style.top = "";
+                          router.push(`/tutor-profile/${tutor.id}`);
+                        }}
                         className="flex-1 flex justify-end items-center font-bold text-primary hover:text-primary/80 transition-colors group text-lg"
                       >
                         Full Profile <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
@@ -307,4 +333,3 @@ export function TutorDiscovery() {
     </section>
   );
 }
-

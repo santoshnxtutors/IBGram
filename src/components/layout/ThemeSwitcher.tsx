@@ -22,11 +22,6 @@ const themes = [
 export function ThemeSwitcher() {
   const [activeTheme, setActiveTheme] = useState("default");
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("ibgram_theme") || "default";
-    applyTheme(savedTheme);
-  }, []);
-
   const applyTheme = (themeId: string) => {
     setActiveTheme(themeId);
     document.documentElement.setAttribute("data-theme", themeId);
@@ -34,6 +29,11 @@ export function ThemeSwitcher() {
     // Dispatch event for other components if needed
     window.dispatchEvent(new Event("ibgram_theme_changed"));
   };
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("ibgram_theme") || "default";
+    applyTheme(savedTheme);
+  }, []);
 
   const currentTheme = themes.find((t) => t.id === activeTheme) || themes[0];
 

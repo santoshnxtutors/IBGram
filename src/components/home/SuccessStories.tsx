@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Trophy, TrendingUp, GraduationCap, Quote, ArrowRight, Star, Sparkles, CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { Trophy, TrendingUp, GraduationCap, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 const stories = [
@@ -58,14 +58,31 @@ export function SuccessStories() {
   const total = stories.length;
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) setItemsToShow(1);
-      else if (window.innerWidth < 1024) setItemsToShow(2);
-      else setItemsToShow(3);
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+    const tabletQuery = window.matchMedia("(max-width: 1023px)");
+
+    const syncItemsToShow = () => {
+      if (mobileQuery.matches) {
+        setItemsToShow(1);
+        return;
+      }
+
+      if (tabletQuery.matches) {
+        setItemsToShow(2);
+        return;
+      }
+
+      setItemsToShow(3);
     };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+    syncItemsToShow();
+    mobileQuery.addEventListener("change", syncItemsToShow);
+    tabletQuery.addEventListener("change", syncItemsToShow);
+
+    return () => {
+      mobileQuery.removeEventListener("change", syncItemsToShow);
+      tabletQuery.removeEventListener("change", syncItemsToShow);
+    };
   }, []);
 
   // Handle dot navigation bounds
@@ -112,11 +129,11 @@ export function SuccessStories() {
               className="flex gap-4 md:gap-6"
               drag="x"
               dragConstraints={{ right: 0, left: -((total - itemsToShow) * (100 / itemsToShow)) * (total / itemsToShow) }} // approximate
-              onDragEnd={(e, { offset, velocity }) => {
+              onDragEnd={(_, { offset }) => {
                 const swipeThreshold = 50;
-                if (offset.x < -swipeThreshold && activeIdx < total - itemsToShow) {
+                if (offset.x < -swipeThreshold && safeActiveIdx < total - itemsToShow) {
                   setActiveIdx(prev => prev + 1);
-                } else if (offset.x > swipeThreshold && activeIdx > 0) {
+                } else if (offset.x > swipeThreshold && safeActiveIdx > 0) {
                   setActiveIdx(prev => prev - 1);
                 }
               }}
@@ -158,7 +175,7 @@ export function SuccessStories() {
                     </div>
 
                     <blockquote className="text-sm font-medium text-muted-foreground italic leading-relaxed mb-6">
-                      "{story.quote}"
+                      &ldquo;{story.quote}&rdquo;
                     </blockquote>
 
                     <div className="flex items-center gap-2 text-xs font-bold text-foreground/70 pt-5 border-t border-border/20">

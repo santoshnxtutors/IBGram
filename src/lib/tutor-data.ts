@@ -16,6 +16,7 @@ export interface Tutor {
   availability: string;
   responseTime: string;
   methodology: string;
+  curriculum: "IB" | "IGCSE" | "Both";
 }
 
 export const allTutors: Tutor[] = [
@@ -37,6 +38,7 @@ export const allTutors: Tutor[] = [
     availability: "Limited (4 slots left)",
     responseTime: "< 5 mins",
     methodology: "Rigorous exam-centric preparation combined with intuitive concept visualization.",
+    curriculum: "IB",
   },
   {
     id: 2,
@@ -56,6 +58,7 @@ export const allTutors: Tutor[] = [
     availability: "Flexible (10+ slots)",
     responseTime: "< 15 mins",
     methodology: "Kinesthetic learning and interactive simulations for deep conceptual understanding.",
+    curriculum: "IGCSE",
   },
   {
     id: 3,
@@ -75,6 +78,7 @@ export const allTutors: Tutor[] = [
     availability: "Very Limited (2 slots)",
     responseTime: "< 2 mins",
     methodology: "Structured essay planning and real-world case study analysis to master IB criteria.",
+    curriculum: "IB",
   },
   {
     id: 4,
@@ -94,6 +98,7 @@ export const allTutors: Tutor[] = [
     availability: "Moderate (6 slots)",
     responseTime: "< 30 mins",
     methodology: "Gamified learning techniques to make foundational math foundations engaging and accessible.",
+    curriculum: "IB",
   },
   {
     id: 5,
@@ -113,5 +118,46 @@ export const allTutors: Tutor[] = [
     availability: "Moderate (5 slots)",
     responseTime: "< 10 mins",
     methodology: "Critical thinking and textual analysis focused on articulation and essay structuring.",
+    curriculum: "IB",
+  },
+  {
+    id: 6,
+    name: "Aditya S.",
+    subject: "Physics",
+    grade: "Year 10-11 (IGCSE)",
+    rating: 4.9,
+    reviews: 89,
+    experience: "5 Yrs",
+    bio: "Former lead physics teacher at a top international school. Aditya focuses on kinesthetic learning and interactive simulations. Expert in IGCSE/A-Level mechanics and thermodynamics.",
+    rate: "$65/hr",
+    image: "",
+    tags: ["Interactive", "Fast Replies", "Lead Teacher"],
+    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    education: "M.Sc. in Physics, Imperial College London",
+    successRate: "96%",
+    availability: "Flexible (10+ slots)",
+    responseTime: "< 15 mins",
+    methodology: "Kinesthetic learning and interactive simulations for deep conceptual understanding.",
+    curriculum: "IGCSE"
+  },
+  {
+    id: 7,
+    name: "Ram K.",
+    subject: "Physics",
+    grade: "Year 10-11 (IGCSE)",
+    rating: 4.9,
+    reviews: 89,
+    experience: "5 Yrs",
+    bio: "Former lead physics teacher at a top international school. Ram focuses on kinesthetic learning and interactive simulations. Expert in IGCSE/A-Level mechanics and thermodynamics.",
+    rate: "$65/hr",
+    image: "",
+    tags: ["Interactive", "Fast Replies", "Lead Teacher"],
+    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    education: "M.Sc. in Physics, Imperial College London",
+    successRate: "96%",
+    availability: "Flexible (10+ slots)",
+    responseTime: "< 15 mins",
+    methodology: "Kinesthetic learning and interactive simulations for deep conceptual understanding.",
+    curriculum: "IGCSE"
   }
 ];
