@@ -49,8 +49,14 @@ export function ComparisonView({ tutors, onClose }: ComparisonViewProps) {
       <div className="grid grid-cols-[1fr_auto_1fr] gap-4 md:gap-12 py-10 items-center sticky top-0 z-10 bg-background mb-8 rounded-b-[3.5rem] shadow-2xl shadow-black/5 border-b border-border/5">
         {/* Tutor 1 */}
         <div className="flex flex-col items-center text-center">
-          <div className="size-24 md:size-32 rounded-[2.5rem] relative overflow-hidden mb-6 border-4 border-card shadow-2xl">
-            <Image src={tutors[0].image} alt={tutors[0].name} fill className="object-cover" />
+          <div className="size-24 md:size-32 rounded-[2.5rem] relative overflow-hidden mb-6 border-4 border-card shadow-2xl bg-muted">
+            {tutors[0].image ? (
+              <Image src={tutors[0].image} alt={tutors[0].name} fill className="object-cover" />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center">
+                <span className="text-3xl font-bold text-muted-foreground">{tutors[0].name.charAt(0)}</span>
+              </div>
+            )}
           </div>
           <h4 className="font-extrabold text-xl md:text-3xl tracking-tighter mb-2">{tutors[0].name}</h4>
           <span className="text-[10px] md:text-xs uppercase tracking-[0.15em] font-bold text-muted-foreground py-1.5 px-4 rounded-full bg-muted/50 border border-border/50">
@@ -69,8 +75,14 @@ export function ComparisonView({ tutors, onClose }: ComparisonViewProps) {
 
         {/* Tutor 2 */}
         <div className="flex flex-col items-center text-center">
-          <div className="size-24 md:size-32 rounded-[2.5rem] relative overflow-hidden mb-6 border-4 border-card shadow-2xl">
-            <Image src={tutors[1].image} alt={tutors[1].name} fill className="object-cover" />
+          <div className="size-24 md:size-32 rounded-[2.5rem] relative overflow-hidden mb-6 border-4 border-card shadow-2xl bg-muted">
+            {tutors[1].image ? (
+              <Image src={tutors[1].image} alt={tutors[1].name} fill className="object-cover" />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center">
+                <span className="text-3xl font-bold text-muted-foreground">{tutors[1].name.charAt(0)}</span>
+              </div>
+            )}
           </div>
           <h4 className="font-extrabold text-xl md:text-3xl tracking-tighter mb-2">{tutors[1].name}</h4>
           <span className="text-[10px] md:text-xs uppercase tracking-[0.15em] font-bold text-muted-foreground py-1.5 px-4 rounded-full bg-muted/50 border border-border/50">
@@ -147,3 +159,4 @@ export function ComparisonView({ tutors, onClose }: ComparisonViewProps) {
     </div>
   );
 }
+

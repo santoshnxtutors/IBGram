@@ -119,10 +119,13 @@ export function Header() {
             </DropdownMenu>
           </div>
 
-          <div className="hidden md:flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer ml-6">
+          <div className="hidden md:flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors ml-6">
             <MapPin className="size-4 text-primary" />
             <LocalizationModal>
-              <div className="flex items-center gap-1 focus:outline-none hover:text-foreground">
+              <button
+                type="button"
+                className="flex items-center gap-1 focus:outline-none hover:text-foreground"
+              >
                 {locationLabel ? (
                   <>
                     <span className="text-foreground font-semibold">{locationLabel.country}</span>
@@ -133,7 +136,7 @@ export function Header() {
                   <>Select Country <span className="opacity-50">|</span> Select City</>
                 )}
                 <ChevronDown className="size-3" />
-              </div>
+              </button>
             </LocalizationModal>
           </div>
         </div>
@@ -266,10 +269,13 @@ export function Header() {
             </Button>
           </div>
 
-          <div className="mb-8 px-4 flex items-center gap-2 text-base font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+          <div className="mb-8 px-4 flex items-center gap-2 text-base font-medium text-muted-foreground hover:text-foreground transition-colors">
             <MapPin className="size-5 text-primary" />
             <LocalizationModal>
-              <div className="flex items-center gap-1 focus:outline-none">
+              <button
+                type="button"
+                className="flex w-full items-center gap-1 text-left focus:outline-none"
+              >
                 {locationLabel ? (
                   <>
                     <span className="text-foreground font-bold">{locationLabel.country}</span>
@@ -280,7 +286,7 @@ export function Header() {
                   <>Select Country <span className="opacity-50">|</span> Select City</>
                 )}
                 <ChevronDown className="size-4" />
-              </div>
+              </button>
             </LocalizationModal>
           </div>
 
@@ -371,3 +377,4 @@ export function Header() {
     </>
   );
 }
+

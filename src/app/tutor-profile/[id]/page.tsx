@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -13,8 +13,7 @@ export default function TutorProfilePage() {
    const router = useRouter();
    const tutorId = parseInt(params.id as string);
    const tutor = allTutors.find((t) => t.id === tutorId);
-   
-   // Safety: Ensure the body is scrollable on mount (fix leaked scroll locks)
+
    useEffect(() => {
       document.body.style.overflow = "unset";
       document.body.style.position = "";
@@ -36,7 +35,6 @@ export default function TutorProfilePage() {
    }
 
    const handleWhatsApp = () => {
-      // Placeholder WhatsApp link
       window.open("https://wa.me/1234567890?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20session!", "_blank");
    };
 
@@ -46,14 +44,10 @@ export default function TutorProfilePage() {
 
    return (
       <div className="min-h-screen bg-background text-foreground">
-         {/* Navbar / Header Spacer */}
          <div className="h-24 md:h-32" />
 
          <div className="container max-w-6xl mx-auto px-4 md:px-6">
-            {/* Profile Layout */}
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
-
-               {/* Left Column: Image & Quick Stats (Sticky) */}
                <div className="w-full lg:w-1/3 lg:sticky lg:top-28 lg:h-[max-content] self-start pt-2 z-10">
                   <motion.div
                      initial={{ opacity: 0, x: -30 }}
@@ -61,7 +55,6 @@ export default function TutorProfilePage() {
                      transition={{ duration: 0.6 }}
                      className="flex flex-col gap-6"
                   >
-                     {/* Back Navigation */}
                      <button
                         onClick={() => router.back()}
                         className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-2 group w-fit"
@@ -69,19 +62,24 @@ export default function TutorProfilePage() {
                         <ArrowLeft className="size-4 md:size-5 transition-transform group-hover:-translate-x-1" />
                         <span className="font-medium text-sm md:text-base">Back to Tutors</span>
                      </button>
-                     {/* Elegant Image Container */}
-                     <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-2xl glassmorphism border border-white/5">
-                        <Image
-                           src={tutor.image}
-                           alt={tutor.name}
-                           fill
-                           priority
-                           className="object-cover"
-                        />
+
+                     <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-2xl glassmorphism border border-white/5 bg-muted">
+                        {tutor.image ? (
+                           <Image
+                              src={tutor.image}
+                              alt={tutor.name}
+                              fill
+                              priority
+                              className="object-cover"
+                           />
+                        ) : (
+                           <div className="absolute inset-0 flex items-center justify-center bg-muted">
+                              <span className="text-7xl font-black text-muted-foreground">{tutor.name.charAt(0)}</span>
+                           </div>
+                        )}
                         <div className="absolute inset-0 border-4 border-background/20 rounded-3xl pointer-events-none mix-blend-overlay" />
                      </div>
 
-                     {/* Quick Badges */}
                      <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                         {tutor.tags.map((tag) => (
                            <span
@@ -93,7 +91,6 @@ export default function TutorProfilePage() {
                         ))}
                      </div>
 
-                     {/* Price Details */}
                      <div className="bg-card glassmorphism border border-border p-6 rounded-3xl text-center flex gap-6 justify-between items-center px-8 shadow-lg">
                         <div className="text-center">
                            <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Hourly Rate</p>
@@ -110,14 +107,12 @@ export default function TutorProfilePage() {
                   </motion.div>
                </div>
 
-               {/* Right Column: Deep Details & Actions */}
                <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="w-full lg:w-2/3 flex flex-col pb-32"
                >
-                  {/* Subject/Area Header */}
                   <div className="mb-4 flex items-center gap-3">
                      <div className="bg-primary/10 text-primary uppercase text-xs font-black tracking-widest px-4 py-1.5 rounded-full border border-primary/20">
                         {tutor.subject}
@@ -127,20 +122,17 @@ export default function TutorProfilePage() {
                      </div>
                   </div>
 
-                  {/* Main Title Name */}
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-foreground mb-4 flex flex-wrap items-center gap-3">
                      {tutor.name}
                      <ShieldCheck className="size-8 text-primary shrink-0" />
                   </h1>
 
-                  {/* Verified Stats row */}
                   <div className="flex items-center gap-4 text-muted-foreground mb-8 text-sm md:text-base font-medium">
                      <span className="flex items-center gap-2"><CheckCircle2 className="size-5 text-primary" /> Verified Indentity</span>
                      <span>•</span>
                      <span className="flex items-center gap-2"><MessageCircle className="size-4" /> {tutor.reviews} Student Reviews</span>
                   </div>
 
-                  {/* Action Buttons (MOVED UNDER NAME) */}
                   <div className="flex flex-col sm:flex-row gap-4 pb-12 pt-2 border-b border-border/50">
                      <Button
                         onClick={handleBookDemo}
@@ -163,10 +155,7 @@ export default function TutorProfilePage() {
                      </Button>
                   </div>
 
-                  {/* CONTENT SECTIONS */}
                   <div className="flex flex-col gap-14 lg:gap-16 pt-12">
-
-                     {/* About Section */}
                      <section>
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
                            <GraduationCap className="size-6 text-primary" /> About {tutor.name.split(" ")[0]}
@@ -178,7 +167,6 @@ export default function TutorProfilePage() {
                         </div>
                      </section>
 
-                     {/* Qualifications & Background */}
                      <section>
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
                            <Award className="size-6 text-primary" /> Qualifications & Background
@@ -198,7 +186,6 @@ export default function TutorProfilePage() {
                         </div>
                      </section>
 
-                     {/* Subjects & Syllabus Covered */}
                      <section>
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
                            <BookOpen className="size-6 text-primary" /> Subjects & Syllabus Covered
@@ -212,7 +199,6 @@ export default function TutorProfilePage() {
                         </div>
                      </section>
 
-                     {/* Teaching Expertise & Methodology */}
                      <section>
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
                            <Star className="size-6 text-primary" /> Teaching Expertise & Methodology
@@ -232,13 +218,11 @@ export default function TutorProfilePage() {
                         </div>
                      </section>
 
-                     {/* Home vs Online Comparison */}
                      <section>
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
                            <Laptop className="size-6 text-primary" /> Home Tutor vs Online Tutor by {tutor.name.split(" ")[0]}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                           {/* Home Card */}
                            <div className="p-8 rounded-[2rem] bg-card border border-border shadow-xl">
                               <div className="size-14 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
                                  <HomeIcon className="size-6 text-secondary" />
@@ -248,7 +232,6 @@ export default function TutorProfilePage() {
                                  Recommended for students who struggle with focus or prefer a highly observed disciplinary environment. I provide complete oversight of written work in real-time, enforcing study habits directly.
                               </p>
                            </div>
-                           {/* Online Card */}
                            <div className="p-8 rounded-[2rem] bg-card border border-border shadow-xl">
                               <div className="size-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                                  <Laptop className="size-6 text-primary" />
@@ -261,7 +244,6 @@ export default function TutorProfilePage() {
                         </div>
                      </section>
 
-                     {/* What to Choose */}
                      <section className="text-center mt-10 md:mt-16 pb-10 border-t border-border pt-16">
                         <h3 className="text-3xl md:text-4xl font-black mb-6 text-foreground">Not sure what to choose?</h3>
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
@@ -273,7 +255,6 @@ export default function TutorProfilePage() {
                            </Button>
                         </div>
                      </section>
-
                   </div>
                </motion.div>
             </div>

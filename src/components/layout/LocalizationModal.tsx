@@ -166,7 +166,7 @@ export function LocalizationModal({ children }: { children: React.ReactNode }) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>{children}</DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[480px]">
         <DialogHeader>
           <div className="mx-auto size-12 bg-primary/10 text-primary flex items-center justify-center rounded-full mb-4">
@@ -218,3 +218,4 @@ export function LocalizationModal({ children }: { children: React.ReactNode }) {
     </Dialog>
   );
 }
+
