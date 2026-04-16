@@ -197,7 +197,25 @@ export default function AdmissionsPage() {
       `}</style>
 
       <main data-page="admissions" className="bg-background pb-4 text-foreground sm:pb-4">
-        <div className="h-8 sm:h-10" />
+        <div className="h-6 sm:h-8" />
+        
+        {/* Minimal Sub-Navigation Switcher */}
+        <div className="flex justify-center mb-8 px-4">
+          <div className="inline-flex items-center p-1 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl">
+            <Link 
+              href="/admissions" 
+              className="px-8 py-2.5 text-xs font-black uppercase tracking-[0.2em] rounded-full bg-primary text-primary-foreground shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all"
+            >
+              Consulting
+            </Link>
+            <Link 
+              href="/admissions/test-prep" 
+              className="px-8 py-2.5 text-xs font-black uppercase tracking-[0.2em] rounded-full text-white/50 hover:text-white transition-all"
+            >
+              Test Prep
+            </Link>
+          </div>
+        </div>
 
         <section className="border-b border-border/50">
           <div className="mx-auto grid max-w-7xl gap-12 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8 lg:py-12">
@@ -420,61 +438,7 @@ export default function AdmissionsPage() {
           </div>
         </section>
 
-        <section>
-          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-            <div className="rounded-[1.75rem] border border-border/50 bg-[linear-gradient(135deg,rgba(10,20,30,0.98),rgba(10,24,22,0.94))] p-4 sm:p-5 lg:p-6">
-              <div className="grid items-start gap-5 lg:grid-cols-[0.56fr_1.44fr] lg:gap-7">
-                <div className="order-2 space-y-4 lg:order-1">
-                  <div className="overflow-hidden rounded-[1.35rem] border border-white/8 bg-card/30">
-                    <div className="relative aspect-[4/4.4] sm:aspect-[4/4.1] lg:aspect-[4/4.45]">
-                      <Image src={collabPhoto} alt="Admissions collaboration partner" fill className="object-cover" priority={false} />
-                    </div>
-                  </div>
-                  <div className="border-t border-white/8 pt-4">
-                    <p className="max-w-sm text-[13px] leading-8 text-muted-foreground">
-                      Partner profile highlights include My League alumni from Cornell University, USA, 5000+ students served, counselling across 50+ top schools, and admits across institutions such as NUS, NTU, Cornell, Stanford, UPenn, and Columbia.
-                    </p>
-                  </div>
-                </div>
 
-                <div className="order-1 flex flex-col justify-center lg:order-2">
-                  <p className="text-xs font-black uppercase tracking-[0.28em] text-primary">Admissions Collaboration</p>
-                  <h2 className="mt-3 max-w-3xl text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-[2.85rem] lg:leading-[1.04]">
-                    In partnership with Ethos Education for global admissions guidance
-                  </h2>
-                  <p className="mt-4 max-w-2xl text-[15px] leading-7 text-muted-foreground sm:text-base">
-                    For admissions-focused counselling, profile strategy, scholarship planning, and university applications, we collaborate with Ethos Education to extend specialist support for ambitious students.
-                  </p>
-
-                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                    {collaborationPoints.map((point) => (
-                      <div key={point} className="rounded-[1.2rem] border border-white/8 bg-black/8 px-4 py-3 text-sm leading-7 text-muted-foreground">
-                        <div className="flex gap-3">
-                          <CheckCircle2 className="mt-1 size-4 shrink-0 text-primary" />
-                          <span>{point}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-5 border-t border-white/8 pt-4">
-                    <Link
-                      href="https://www.ethoseducation.world/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
-                    >
-                      Explore Ethos Education
-                      <ArrowRight className="size-4" />
-                    </Link>
-                  </div>
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-        </section>
 
         <Link
           href="https://wa.me/919876543210"

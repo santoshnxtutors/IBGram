@@ -123,15 +123,9 @@ export function Header() {
             <MapPin className="size-4 text-primary" />
             <LocalizationModal>
               <div className="flex items-center gap-1 focus:outline-none hover:text-foreground">
-                {locationLabel ? (
-                  <>
-                    <span className="text-foreground font-semibold">{locationLabel.country}</span>
-                    <span className="opacity-50">|</span>
-                    <span className="text-primary font-semibold">{locationLabel.city}</span>
-                  </>
-                ) : (
-                  <>Select Country <span className="opacity-50">|</span> Select City</>
-                )}
+                <span className="font-semibold text-foreground/80">
+                  {locationLabel ? locationLabel.city : "Select Location"}
+                </span>
                 <ChevronDown className="size-3" />
               </div>
             </LocalizationModal>
@@ -197,11 +191,8 @@ export function Header() {
           <Link href="/tutors" aria-label="Tutors" className="hover:text-primary transition-colors">
             Tutors
           </Link>
-          <Link href="/admissions" aria-label="Admissions" className="hover:text-primary transition-colors">
-            Admissions
-          </Link>
-          <Link href="/ai-tools" aria-label="AI Tools" className="hover:text-primary transition-colors">
-            AI Tools
+          <Link href="/admissions" aria-label="Admissions & Test Prep" className="hover:text-primary transition-colors">
+            Admissions & Test Prep
           </Link>
         </nav>
 
@@ -270,15 +261,9 @@ export function Header() {
             <MapPin className="size-5 text-primary" />
             <LocalizationModal>
               <div className="flex items-center gap-1 focus:outline-none">
-                {locationLabel ? (
-                  <>
-                    <span className="text-foreground font-bold">{locationLabel.country}</span>
-                    <span className="opacity-50">|</span>
-                    <span className="text-primary font-bold">{locationLabel.city}</span>
-                  </>
-                ) : (
-                  <>Select Country <span className="opacity-50">|</span> Select City</>
-                )}
+                <span className="font-bold text-foreground/80">
+                  {locationLabel ? locationLabel.city : "Select Location"}
+                </span>
                 <ChevronDown className="size-4" />
               </div>
             </LocalizationModal>
@@ -338,18 +323,11 @@ export function Header() {
               Tutors
             </Link>
             <Link 
-              href="/ai-tools" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary bg-muted/10 rounded-xl"
-            >
-              AI Tools
-            </Link>
-            <Link 
               href="/admissions" 
               onClick={() => setIsMobileMenuOpen(false)}
               className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary bg-muted/10 rounded-xl shadow-sm"
             >
-              Admissions
+              Admissions & Test Prep
             </Link>
           </nav>
 

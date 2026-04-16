@@ -44,12 +44,14 @@ function SearchableSelect({
   value,
   onChange,
   disabled = false,
+  icon,
 }: {
   placeholder: string;
   options: { value: string; label: string }[];
   value: string;
   onChange: (val: string) => void;
   disabled?: boolean;
+  icon?: React.ReactNode;
 }) {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
@@ -81,10 +83,14 @@ function SearchableSelect({
         aria-expanded={open}
         aria-haspopup="listbox"
         onClick={() => !disabled && setOpen((v) => !v)}
-        className={`flex items-center justify-between h-12 px-3 rounded-xl border border-input bg-muted/20 cursor-pointer transition-colors ${
-          disabled ? "opacity-40 cursor-not-allowed" : "hover:border-primary/50"
-        } ${open ? "border-primary ring-2 ring-primary/20" : ""}`}
+        className={`flex items-center gap-3 h-12 px-4 rounded-xl border border-border/50 bg-muted/10 cursor-pointer transition-all ${
+          disabled ? "opacity-30 cursor-not-allowed" : "hover:border-primary/50 hover:bg-muted/20"
+        } ${open ? "border-primary ring-2 ring-primary/10" : ""}`}
       >
+        <div className="flex-shrink-0 text-muted-foreground group-hover:text-primary transition-colors">
+          {icon}
+        </div>
+        
         {open ? (
           <input
             autoFocus
@@ -92,20 +98,20 @@ function SearchableSelect({
             onChange={(e) => setQuery(e.target.value)}
             onClick={(e) => e.stopPropagation()}
             placeholder={`Search ${placeholder.toLowerCase()}...`}
-            className="flex-1 bg-transparent outline-none text-sm text-foreground placeholder:text-muted-foreground"
+            className="flex-1 bg-transparent outline-none text-sm font-medium text-foreground placeholder:text-muted-foreground"
           />
         ) : (
-          <span className={`text-sm flex-1 ${selected ? "text-foreground" : "text-muted-foreground"}`}>
+          <span className={`text-sm font-medium flex-1 ${selected ? "text-foreground" : "text-muted-foreground"}`}>
             {selected ? selected.label : placeholder}
           </span>
         )}
-        <div className="flex items-center gap-1 ml-2">
+        <div className="flex items-center gap-1">
           {selected && !open && (
-            <button onClick={handleClear} className="text-muted-foreground hover:text-foreground">
+            <button onClick={handleClear} className="text-muted-foreground hover:text-foreground p-1">
               <X className="size-3.5" />
             </button>
           )}
-          <Search className="size-4 text-muted-foreground shrink-0" />
+          <Search className="size-4 text-muted-foreground/50 shrink-0" />
         </div>
       </div>
 
@@ -167,44 +173,27 @@ export function LocalizationModal({ children }: { children: React.ReactNode }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[480px]">
+      <DialogContent className="sm:max-w-[360px] bg-background/95 backdrop-blur-2xl border-white/5 shadow-[0_0_50px_rgba(0,0,0,0.5)] p-6 gap-4">
         <DialogHeader>
-          <div className="mx-auto size-12 bg-primary/10 text-primary flex items-center justify-center rounded-full mb-4">
-            <Globe2 className="size-6" />
-          </div>
-          <DialogTitle className="text-center text-2xl font-bold">Select Region</DialogTitle>
-          <DialogDescription className="text-center">
-            Choose your location to view region-specific tutors, curricula schedules, and in-person class availability.
-          </DialogDescription>
+          <DialogTitle className="text-xl font-black italic tracking-tighter text-[#f8f9fa]">select location</DialogTitle>
         </DialogHeader>
 
-        <div className="grid gap-5 py-4">
-          {/* Country */}
-          <div className="space-y-2">
-            <label className="text-sm font-semibold flex items-center gap-2">
-              <Globe2 className="size-4 text-muted-foreground" /> Country
-            </label>
-            <SearchableSelect
-              placeholder="Search & select country"
-              options={countryOptions}
-              value={country}
-              onChange={handleCountryChange}
-            />
-          </div>
-
-          {/* City */}
-          <div className="space-y-2">
-            <label className="text-sm font-semibold flex items-center gap-2">
-              <MapPin className="size-4 text-muted-foreground" /> City
-            </label>
-            <SearchableSelect
-              placeholder={country ? "Search & select city" : "Select country first"}
-              options={cityOptions}
-              value={city}
-              onChange={setCity}
-              disabled={!country}
-            />
-          </div>
+        <div className="flex flex-col gap-3">
+          <SearchableSelect
+            placeholder="Search country..."
+            options={countryOptions}
+            value={country}
+            onChange={handleCountryChange}
+            icon={<Globe2 className="size-4" />}
+          />
+          <SearchableSelect
+            placeholder={country ? "Search city..." : "Select country first"}
+            options={cityOptions}
+            value={city}
+            onChange={setCity}
+            disabled={!country}
+            icon={<MapPin className="size-4" />}
+          />
         </div>
 
         <Button
