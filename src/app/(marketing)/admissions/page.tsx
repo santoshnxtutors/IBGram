@@ -197,10 +197,10 @@ export default function AdmissionsPage() {
       `}</style>
 
       <main data-page="admissions" className="bg-background pb-4 text-foreground sm:pb-4">
-        <div className="h-8 sm:h-10" />
+        <div className="h-2 sm:h-3" />
 
         <section className="border-b border-border/50">
-          <div className="mx-auto grid max-w-7xl gap-12 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8 lg:py-12">
+          <div className="mx-auto grid max-w-7xl gap-12 px-4 py-6 sm:px-6 sm:py-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8 lg:py-10">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
                 <Sparkles className="size-3.5" />
@@ -254,9 +254,9 @@ export default function AdmissionsPage() {
               </ul>
             </div>
 
-            <div className="flex flex-col justify-between rounded-[2rem] border border-border/60 bg-card p-4 sm:p-5 lg:p-6">
+            <div className="flex flex-col justify-between rounded-[2rem] border border-border/60 bg-background p-4 sm:p-5 lg:p-6">
               <div className="space-y-5">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-border/60 bg-muted/10">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-border/60 bg-background">
                   <video
                     className="h-full w-full object-cover"
                     autoPlay
@@ -292,7 +292,7 @@ export default function AdmissionsPage() {
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {pillars.map((pillar) => (
-                <article key={pillar.title} className="rounded-[1.75rem] border border-border/50 bg-card px-5 py-6 sm:px-6">
+                <article key={pillar.title} className="rounded-[1.75rem] border border-border/50 bg-background px-5 py-6 sm:px-6">
                   <pillar.icon className="size-5 text-primary" />
                   <h3 className="mt-5 text-xl font-black tracking-tight text-foreground">{pillar.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">{pillar.description}</p>
@@ -338,7 +338,7 @@ export default function AdmissionsPage() {
 
             <div className="mt-10 grid gap-4 lg:grid-cols-3">
               {destinations.map((destination) => (
-                <article key={destination.region} className="rounded-[1.75rem] border border-border/50 bg-card px-5 py-6 sm:px-6">
+                <article key={destination.region} className="rounded-[1.75rem] border border-border/50 bg-background px-5 py-6 sm:px-6">
                   <div className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.22em] text-primary">
                     <Globe2 className="size-4" />
                     {destination.region}
@@ -375,7 +375,7 @@ export default function AdmissionsPage() {
                 </ul>
               </div>
 
-              <aside className="rounded-[2rem] border border-border/50 bg-card p-6 sm:p-8">
+              <aside className="rounded-[2rem] border border-border/50 bg-background p-6 sm:p-8">
                 <div className="space-y-5">
                   <div className="flex items-center gap-3 text-sm font-black uppercase tracking-[0.22em] text-primary">
                     <LineChart className="size-4" />
@@ -422,15 +422,15 @@ export default function AdmissionsPage() {
 
         <section>
           <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-            <div className="rounded-[1.75rem] border border-border/50 bg-[linear-gradient(135deg,rgba(10,20,30,0.98),rgba(10,24,22,0.94))] p-4 sm:p-5 lg:p-6">
+            <div className="rounded-[1.75rem] border border-border/50 bg-background p-4 sm:p-5 lg:p-6">
               <div className="grid items-start gap-5 lg:grid-cols-[0.56fr_1.44fr] lg:gap-7">
                 <div className="order-2 space-y-4 lg:order-1">
-                  <div className="overflow-hidden rounded-[1.35rem] border border-white/8 bg-card/30">
+                  <div className="overflow-hidden rounded-[1.35rem] border border-border/50 bg-background">
                     <div className="relative aspect-[4/4.4] sm:aspect-[4/4.1] lg:aspect-[4/4.45]">
                       <Image src={collabPhoto} alt="Admissions collaboration partner" fill className="object-cover" priority={false} />
                     </div>
                   </div>
-                  <div className="border-t border-white/8 pt-4">
+                  <div className="border-t border-border/50 pt-4">
                     <p className="max-w-sm text-[13px] leading-8 text-muted-foreground">
                       Partner profile highlights include My League alumni from Cornell University, USA, 5000+ students served, counselling across 50+ top schools, and admits across institutions such as NUS, NTU, Cornell, Stanford, UPenn, and Columbia.
                     </p>
@@ -448,7 +448,7 @@ export default function AdmissionsPage() {
 
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
                     {collaborationPoints.map((point) => (
-                      <div key={point} className="rounded-[1.2rem] border border-white/8 bg-black/8 px-4 py-3 text-sm leading-7 text-muted-foreground">
+                      <div key={point} className="rounded-[1.2rem] border border-border/50 bg-background px-4 py-3 text-sm leading-7 text-muted-foreground">
                         <div className="flex gap-3">
                           <CheckCircle2 className="mt-1 size-4 shrink-0 text-primary" />
                           <span>{point}</span>
@@ -457,7 +457,7 @@ export default function AdmissionsPage() {
                     ))}
                   </div>
 
-                  <div className="mt-5 border-t border-white/8 pt-4">
+                  <div className="mt-5 border-t border-border/50 pt-4">
                     <Link
                       href="https://www.ethoseducation.world/"
                       target="_blank"

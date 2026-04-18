@@ -1,0 +1,394 @@
+﻿generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  ADMIN
+  EDITOR
+  TUTOR
+  STUDENT
+}
+
+enum RecordStatus {
+  ACTIVE
+  INACTIVE
+  DRAFT
+  ARCHIVED
+}
+
+enum BlogStatus {
+  DRAFT
+  REVIEW
+  PUBLISHED
+  ARCHIVED
+}
+
+enum LocationLevel {
+  COUNTRY
+  CITY
+  LOCALITY
+  SOCIETY
+}
+
+enum PageType {
+  GLOBAL
+  COUNTRY
+  CITY
+  LOCALITY
+  SOCIETY
+  SUBJECT
+  CURRICULUM
+  SERVICE
+  BLOG
+}
+
+enum PageStatus {
+  DRAFT
+  REVIEW
+  READY
+  PUBLISHED
+  ARCHIVED
+}
+
+enum Indexability {
+  INDEX_FOLLOW
+  NOINDEX_FOLLOW
+  NOINDEX_NOFOLLOW
+}
+
+enum GenerationStatus {
+  PENDING
+  RUNNING
+  FAILED
+  COMPLETED
+  PUBLISHED
+  REJECTED
+}
+
+enum LinkType {
+  RELATED
+  SIBLING
+  PARENT
+  CHILD
+  MANUAL
+}
+
+enum FactType {
+  TUTOR
+  BLOG
+  SCHOOL
+  LOCATION
+  SEO
+}
+
+enum SourceType {
+  INTERNAL
+  GOOGLE_MAPS
+  CMS
+  MANUAL
+  AI
+}
+
+model User {
+  id              String           @id @default(cuid())
+  name            String
+  email           String           @unique
+  passwordHash    String
+  role            UserRole
+  status          RecordStatus     @default(ACTIVE)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  refreshSessions RefreshSession[]
+  createdPages    Page[]           @relation("PageCreatedBy")
+  updatedPages    Page[]           @relation("PageUpdatedBy")
+  generationRuns  GenerationRun[]
+  auditLogs       AuditLog[]
+  mediaAssets     MediaAsset[]
+}
+
+model RefreshSession {
+  id               String   @id @default(cuid())
+  userId           String
+  refreshTokenHash String
+  userAgent        String?
+  ipAddress        String?
+  expiresAt        DateTime
+  createdAt        DateTime @default(now())
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, expiresAt])
+}
+
+model Tutor {
+  id             String             @id @default(cuid())
+  slug           String             @unique
+  name           String
+  subject        String
+  grade          String
+  rating         Decimal            @default(0) @db.Decimal(3, 2)
+  reviews        Int                @default(0)
+  experience     String
+  bio            String
+  rate           String
+  image          String?
+  accent         String
+  education      String
+  successRate    String
+  availability   String
+  responseTime   String
+  methodology    String
+  curriculum     String
+  headline       String?
+  isFeatured     Boolean            @default(false)
+  status         RecordStatus       @default(ACTIVE)
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+  tutorSubjects  TutorSubject[]
+  tutorTags      TutorTag[]
+  tutorLocations TutorLocation[]
+
+  @@index([status, curriculum, subject])
+}
+
+model TutorSubject {
+  id        String @id @default(cuid())
+  tutorId   String
+  subject   String
+  tutor     Tutor  @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+
+  @@unique([tutorId, subject])
+}
+
+model TutorTag {
+  id      String @id @default(cuid())
+  tutorId String
+  tag     String
+  tutor   Tutor  @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+
+  @@unique([tutorId, tag])
+}
+
+model TutorLocation {
+  id         String   @id @default(cuid())
+  tutorId     String
+  locationId  String
+  createdAt   DateTime @default(now())
+  tutor       Tutor     @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+  location    Location  @relation(fields: [locationId], references: [id], onDelete: Cascade)
+
+  @@unique([tutorId, locationId])
+}
+
+model Blog {
+  id              String       @id @default(cuid())
+  slug            String       @unique
+  title           String
+  excerpt         String
+  contentMarkdown String
+  coverImage      String?
+  authorName      String
+  status          BlogStatus   @default(DRAFT)
+  publishedAt     DateTime?
+  seoTitle        String?
+  metaDescription String?
+  tagsJson        Json?
+  subject         String?
+  curriculum      String?
+  locationId      String?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  location        Location?    @relation(fields: [locationId], references: [id], onDelete: SetNull)
+
+  @@index([status, publishedAt, subject, curriculum])
+}
+
+model Location {
+  id            String         @id @default(cuid())
+  name          String
+  slug          String
+  level         LocationLevel
+  parentId      String?
+  countryCode   String?
+  lat           Decimal?       @db.Decimal(10, 7)
+  lng           Decimal?       @db.Decimal(10, 7)
+  googlePlaceId String?
+  aliases       Json?
+  isActive      Boolean        @default(true)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  parent        Location?      @relation("LocationTree", fields: [parentId], references: [id], onDelete: SetNull)
+  children      Location[]     @relation("LocationTree")
+  schools       School[]
+  pages         Page[]
+  blogs         Blog[]
+  tutorLinks    TutorLocation[]
+
+  @@unique([parentId, slug])
+  @@index([level, isActive])
+}
+
+model School {
+  id            String       @id @default(cuid())
+  name          String
+  slug          String       @unique
+  board         String
+  locationId    String?
+  address       String?
+  lat           Decimal?     @db.Decimal(10, 7)
+  lng           Decimal?     @db.Decimal(10, 7)
+  googlePlaceId String?
+  website       String?
+  status        RecordStatus @default(ACTIVE)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  location      Location?    @relation(fields: [locationId], references: [id], onDelete: SetNull)
+
+  @@index([status, board, locationId])
+}
+
+model Page {
+  id                String          @id @default(cuid())
+  slug              String          @unique
+  canonicalUrl      String          @unique
+  pageType          PageType
+  title             String
+  h1                String
+  seoTitle          String?
+  metaDescription   String?
+  status            PageStatus      @default(DRAFT)
+  indexability      Indexability    @default(INDEX_FOLLOW)
+  bodyMarkdown      String?
+  wordCount         Int             @default(0)
+  qualityScore      Decimal?        @db.Decimal(5, 2)
+  duplicationScore  Decimal?        @db.Decimal(5, 2)
+  locationId        String?
+  curriculum        String?
+  subject           String?
+  serviceType       String?
+  heroSummary       String?
+  needsRegeneration Boolean         @default(false)
+  publishedAt       DateTime?
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  createdById       String?
+  updatedById       String?
+  location          Location?       @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  createdBy         User?           @relation("PageCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  updatedBy         User?           @relation("PageUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
+  sections          PageSection[]
+  incomingLinks     PageLink[]      @relation("ToPage")
+  outgoingLinks     PageLink[]      @relation("FromPage")
+  facts             PageFact[]
+  generationRuns    GenerationRun[]
+
+  @@index([status, publishedAt, pageType, locationId, subject, curriculum])
+}
+
+model PageSection {
+  id         String   @id @default(cuid())
+  pageId     String
+  sectionKey String
+  heading    String
+  body       String
+  order      Int
+  page       Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  @@unique([pageId, sectionKey])
+  @@index([pageId, order])
+}
+
+model PageLink {
+  id         String   @id @default(cuid())
+  fromPageId String
+  toPageId   String
+  anchorText String
+  linkType   LinkType
+  score      Decimal  @default(0) @db.Decimal(5, 2)
+  fromPage   Page     @relation("FromPage", fields: [fromPageId], references: [id], onDelete: Cascade)
+  toPage     Page     @relation("ToPage", fields: [toPageId], references: [id], onDelete: Cascade)
+
+  @@unique([fromPageId, toPageId, anchorText])
+  @@index([fromPageId, linkType])
+}
+
+model PageFact {
+  id         String     @id @default(cuid())
+  pageId     String
+  factType   FactType
+  sourceType SourceType
+  sourceRef  String?
+  payloadJson Json
+  page       Page       @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  @@index([pageId, factType])
+}
+
+model GenerationRun {
+  id           String           @id @default(cuid())
+  pageId       String?
+  status       GenerationStatus @default(PENDING)
+  inputJson    Json
+  blueprintJson Json?
+  qaJson       Json?
+  provider     String?
+  model        String?
+  startedAt    DateTime?
+  finishedAt   DateTime?
+  errorMessage String?
+  createdById  String?
+  createdAt    DateTime         @default(now())
+  page         Page?            @relation(fields: [pageId], references: [id], onDelete: SetNull)
+  createdBy    User?            @relation(fields: [createdById], references: [id], onDelete: SetNull)
+
+  @@index([status, createdAt])
+}
+
+model MediaAsset {
+  id           String   @id @default(cuid())
+  fileName     String
+  mimeType     String
+  size         Int
+  storageKey   String   @unique
+  publicUrl    String?
+  uploadedById String?
+  createdAt    DateTime @default(now())
+  uploadedBy   User?    @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+}
+
+model Setting {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  valueJson   Json
+  description String?
+  updatedAt   DateTime @updatedAt
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  actorUserId String?
+  action      String
+  entityType  String
+  entityId    String
+  beforeJson  Json?
+  afterJson   Json?
+  createdAt   DateTime @default(now())
+  actorUser   User?    @relation(fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([entityType, entityId, createdAt])
+}
+
+model MapPlaceCache {
+  id            String   @id @default(cuid())
+  query         String   @unique
+  googlePlaceId String?
+  payloadJson   Json
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
