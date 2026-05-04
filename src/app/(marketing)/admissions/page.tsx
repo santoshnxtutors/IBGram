@@ -13,6 +13,10 @@ import {
   ShieldCheck,
   Sparkles,
   Target,
+  Star,
+  TrendingUp,
+  Users,
+  Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import collabPhoto from "./collab/photo.jpg";
@@ -161,17 +165,41 @@ const collaborationPoints = [
   "Admits across NUS, NTU, Cornell, Stanford, UPenn, Columbia and more.",
 ];
 
+const outcomes = [
+  { university: "Stanford", flag: "🇺🇸" },
+  { university: "Oxford", flag: "🇬🇧" },
+  { university: "Columbia", flag: "🇺🇸" },
+  { university: "Cambridge", flag: "🇬🇧" },
+  { university: "UPenn", flag: "🇺🇸" },
+  { university: "NUS", flag: "🇸🇬" },
+  { university: "Cornell", flag: "🇺🇸" },
+  { university: "LSE", flag: "🇬🇧" },
+  { university: "NYU", flag: "🇺🇸" },
+  { university: "Imperial", flag: "🇬🇧" },
+  { university: "Duke", flag: "🇺🇸" },
+  { university: "UCL", flag: "🇬🇧" },
+];
+
+const studentResults = [
+  { name: "Aryan S.", admit: "Cornell University", year: "Class of 2028", country: "🇮🇳" },
+  { name: "Priya M.", admit: "LSE", year: "Class of 2027", country: "🇮🇳" },
+  { name: "Rohan K.", admit: "UPenn", year: "Class of 2028", country: "🇮🇳" },
+  { name: "Anika T.", admit: "NUS", year: "Class of 2027", country: "🇮🇳" },
+];
+
 function SectionHeading({
   eyebrow,
   title,
   description,
+  center = false,
 }: {
   eyebrow: string;
   title: string;
   description?: string;
+  center?: boolean;
 }) {
   return (
-    <div className="max-w-3xl space-y-4">
+    <div className={`max-w-3xl space-y-4 ${center ? "mx-auto text-center" : ""}`}>
       <p className="text-xs font-black uppercase tracking-[0.28em] text-primary">{eyebrow}</p>
       <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">{title}</h2>
       {description ? <p className="text-base leading-7 text-muted-foreground sm:text-lg">{description}</p> : null}
@@ -194,87 +222,126 @@ export default function AdmissionsPage() {
         body:has(main[data-page="admissions"]) div.fixed:has(.ai-widget-ring) {
           display: none !important;
         }
+
+        @keyframes ticker {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(24px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glowPulse {
+          0%, 100% { box-shadow: 0 0 20px rgba(34,197,94,0.15); }
+          50% { box-shadow: 0 0 40px rgba(34,197,94,0.3); }
+        }
+
+        .ticker-track {
+          animation: ticker 30s linear infinite;
+        }
+
+        .fade-up {
+          animation: fadeUp 0.7s ease forwards;
+        }
+
+        .stat-card {
+          animation: glowPulse 3s ease-in-out infinite;
+        }
+.card-hover {
+          transition: all 0.25s ease;
+        }
+        .card-hover:hover {
+          transform: translateY(-3px);
+          border-color: rgba(34,197,94,0.4) !important;
+        }
+
+        .result-card {
+          background: linear-gradient(135deg, rgba(34,197,94,0.06) 0%, rgba(255,255,255,0.02) 100%);
+        }
       `}</style>
 
-      <main data-page="admissions" className="bg-background pb-4 text-foreground sm:pb-4">
-        <div className="h-6 sm:h-8" />
-        
-        {/* Minimal Sub-Navigation Switcher */}
-        <div className="flex justify-center mb-8 px-4">
-          <div className="inline-flex items-center p-1 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl">
-            <Link 
-              href="/admissions" 
-              className="px-8 py-2.5 text-xs font-black uppercase tracking-[0.2em] rounded-full bg-primary text-primary-foreground shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all"
+      <main data-page="admissions" className="min-h-screen bg-background text-foreground">
+
+        {/* Sub-Navigation */}
+        <div className="flex justify-center px-4 pt-1">
+          <div className="inline-flex items-center rounded-full border border-border/50 bg-background p-1">
+            <Link
+              href="/admissions"
+              className="px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.22em] rounded-full bg-card text-foreground transition-all sm:px-7 sm:text-xs"
             >
               Consulting
             </Link>
-            <Link 
-              href="/admissions/test-prep" 
-              className="px-8 py-2.5 text-xs font-black uppercase tracking-[0.2em] rounded-full text-white/50 hover:text-white transition-all"
+            <Link
+              href="/admissions/test-prep"
+              className="px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.22em] rounded-full text-muted-foreground transition-all hover:text-foreground sm:px-7 sm:text-xs"
             >
               Test Prep
+            </Link>
+            <Link
+              href="/admissions/success-stories"
+              className="px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.22em] rounded-full text-muted-foreground transition-all hover:text-foreground sm:px-7 sm:text-xs"
+            >
+              Success Stories
             </Link>
           </div>
         </div>
 
-        <section className="border-b border-border/50">
-          <div className="mx-auto grid max-w-7xl gap-12 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8 lg:py-12">
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
-                <Sparkles className="size-3.5" />
-                Admissions Consulting
-              </div>
+        {/* HERO */}
+        <section className="relative overflow-hidden bg-background px-6 pb-10 pt-2 sm:pt-4">
+          {/* Decorative grid */}
 
-              <div className="space-y-5">
-                <h1 className="max-w-4xl text-4xl font-black tracking-tight text-foreground sm:text-5xl lg:text-6xl lg:leading-[1.02]">
-                  Strategic Admissions Support For Students Targeting Strong Global Outcomes
-                </h1>
-                <p className="max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-                  Built for families who want a clear application roadmap, stronger positioning, and disciplined execution across every part of the admissions process.
+
+          <div className="mx-auto max-w-7xl">
+            <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
+              {/* Left */}
+              <div className="space-y-8 fade-up">
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-primary">
+                  <Sparkles className="size-3" />
+                  Admissions Consulting
+                </div>
+
+                <div className="space-y-4">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-[#f8f9fa] leading-[1.05]">
+                    Thousands Apply.<br />
+                    <span className="text-primary">Few Stand Out.</span>
+                  </h1>
+                  <p className="text-xl font-medium text-white/60 italic">We'll Make Sure You're One of Them.</p>
+                </div>
+
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+                  Strategic admissions support for students targeting the world's most competitive universities. Built for Indian families who want a clear roadmap, stronger positioning, and disciplined execution.
                 </p>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link href="/contact-us">
+                    <Button className="h-14 px-8 rounded-2xl font-black text-base bg-background text-foreground border border-border/50 hover:scale-105 active:scale-95 transition-all ">
+                      Book A Free Consultation <ArrowRight className="ml-2 size-5" />
+                    </Button>
+                  </Link>
+                  <Link href="/tutors">
+                    <Button variant="outline" className="h-14 px-8 rounded-2xl font-black text-base border-border/40 hover:bg-muted/10 transition-all">
+                      Explore Mentors
+                    </Button>
+                  </Link>
+                </div>
+
+                {/* Quick trust signals */}
+                <div className="flex flex-wrap gap-3 pt-2">
+                  {["5000+ Students Guided", "10+ Years Experience", "50+ Schools", "10+ Countries"].map((t) => (
+                    <span key={t} className="text-xs font-bold text-white/50 flex items-center gap-1.5">
+                      <span className="size-1.5 rounded-full bg-primary inline-block" />
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Link href="/contact-us">
-                  <Button size="lg" className="h-12 rounded-full px-6 text-sm font-black sm:h-14 sm:px-8 sm:text-base">
-                    Book A Consultation
-                    <ArrowRight className="ml-2 size-4" />
-                  </Button>
-                </Link>
-                <Link href="/tutors">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="h-12 rounded-full border-border/60 px-6 text-sm font-black hover:bg-muted/20 sm:h-14 sm:px-8 sm:text-base"
-                  >
-                    Explore Mentors
-                  </Button>
-                </Link>
-              </div>
-
-              <ul className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
-                <li className="flex items-start gap-3 rounded-2xl border border-border/50 px-4 py-4">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
-                  University list building and positioning
-                </li>
-                <li className="flex items-start gap-3 rounded-2xl border border-border/50 px-4 py-4">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
-                  Essays, activities, and application review
-                </li>
-                <li className="flex items-start gap-3 rounded-2xl border border-border/50 px-4 py-4">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
-                  Interview preparation and submission discipline
-                </li>
-                <li className="flex items-start gap-3 rounded-2xl border border-border/50 px-4 py-4">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
-                  Structured guidance for students and parents
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex flex-col justify-between rounded-[2rem] border border-border/60 bg-card p-4 sm:p-5 lg:p-6">
-              <div className="space-y-5">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-border/60 bg-muted/10">
+              {/* Right — stats + video */}
+              <div className="space-y-4">
+                {/* Video */}
+                <div className="relative rounded-[2rem] overflow-hidden border border-border/40 bg-background aspect-video">
                   <video
                     className="h-full w-full object-cover"
                     autoPlay
@@ -285,13 +352,19 @@ export default function AdmissionsPage() {
                   >
                     <source src="/admissions/media/home" type="video/mp4" />
                   </video>
+                  {/* Overlay badge */}
+                  <div className="absolute inset-x-0 bottom-0 rounded-b-[1.75rem] bg-[#0b0f17]/95 px-4 py-3 shadow-none">
+                    <p className="text-xs font-semibold text-white/60">Our students get into</p>
+                    <p className="text-sm font-black text-white">Stanford · Oxford · Cornell · NUS · Columbia</p>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                {/* Stats grid */}
+                <div className="grid grid-cols-2 gap-3">
                   {trustStats.map((stat) => (
-                    <div key={stat.label} className="rounded-2xl border border-border/50 px-4 py-4">
-                      <div className="text-xl font-black tracking-tight text-foreground sm:text-2xl">{stat.value}</div>
-                      <p className="mt-2 text-xs leading-5 text-muted-foreground sm:text-sm">{stat.label}</p>
+                    <div key={stat.label} className="stat-card rounded-2xl border border-border/50 bg-card px-5 py-5 card-hover">
+                      <div className="text-2xl font-black tracking-tight text-primary">{stat.value}</div>
+                      <p className="mt-1.5 text-xs leading-5 text-muted-foreground">{stat.label}</p>
                     </div>
                   ))}
                 </div>
@@ -300,43 +373,122 @@ export default function AdmissionsPage() {
           </div>
         </section>
 
-        <section className="border-b border-border/50">
-          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-            <SectionHeading
-              eyebrow="What We Build"
-              title="A focused admissions page with clear hierarchy and strong conversion flow"
-              description="The structure takes inspiration from high-performing admissions pages while staying aligned with your current visual language: darker palette, strong typography, restrained accents, and minimal decoration."
-            />
+        {/* UNIVERSITY TICKER */}
+        <div className="border-y border-border/30 bg-muted/5 py-4 overflow-hidden">
+          <div className="flex whitespace-nowrap">
+            <div className="ticker-track flex gap-8 items-center">
+              {[...outcomes, ...outcomes].map((o, i) => (
+                <span key={i} className="flex items-center gap-2 text-sm font-bold text-white/40 shrink-0">
+                  <span className="text-base">{o.flag}</span>
+                  {o.university}
+                  <span className="text-primary/30 font-black">·</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-              {pillars.map((pillar) => (
-                <article key={pillar.title} className="rounded-[1.75rem] border border-border/50 bg-card px-5 py-6 sm:px-6">
-                  <pillar.icon className="size-5 text-primary" />
-                  <h3 className="mt-5 text-xl font-black tracking-tight text-foreground">{pillar.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{pillar.description}</p>
+        {/* RESULTS / SOCIAL PROOF */}
+        <section className="px-6 py-20 md:py-28 border-b border-border/30">
+          <div className="mx-auto max-w-7xl">
+            <div className="text-center mb-14 space-y-3">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-primary">Student Outcomes</p>
+              <h2 className="text-3xl md:text-5xl font-black tracking-tight text-[#f8f9fa]">
+                Real Students. Real Results.
+              </h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Our students have secured offers at the world's most competitive universities.
+              </p>
+            </div>
+
+            {/* Big numbers */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+              {[
+                { value: "5,000+", label: "Students Placed" },
+                { value: "98%", label: "Placed in Top 5 Choice" },
+                { value: "50+", label: "Universities Globally" },
+                { value: "10+", label: "Countries Served" },
+              ].map((s) => (
+                <div key={s.label} className="rounded-[1.5rem] border border-primary/20 bg-primary/5 px-6 py-8 text-center card-hover">
+                  <div className="text-3xl md:text-4xl font-black text-primary">{s.value}</div>
+                  <p className="mt-2 text-xs font-semibold text-white/50 uppercase tracking-wider">{s.label}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Student cards */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {studentResults.map((s) => (
+                <div key={s.name} className="result-card rounded-[1.5rem] border border-border/40 px-5 py-6 card-hover">
+                  <div className="text-2xl mb-3">{s.country}</div>
+                  <div className="text-sm font-black text-foreground">{s.name}</div>
+                  <div className="mt-1 text-xs font-bold text-primary">{s.admit}</div>
+                  <div className="mt-0.5 text-xs text-muted-foreground">{s.year}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* WHAT WE DO */}
+        <section className="px-6 py-20 md:py-28 border-b border-border/30">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-14">
+              <SectionHeading
+                eyebrow="Our Services"
+                title="Everything You Need To Get In"
+                description="From strategy to submission — we handle every stage of the admissions process with precision."
+              />
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {pillars.map((pillar, i) => (
+                <article key={pillar.title} className="rounded-[1.75rem] border border-border/50 bg-card px-6 py-7 card-hover group relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-primary/5 -translate-y-12 translate-x-12 group-hover:bg-primary/10 transition-all" />
+                  <div className="relative">
+                    <div className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
+                      <pillar.icon className="size-5 text-primary" />
+                    </div>
+                    <div className="text-xs font-black text-primary/50 mb-2">0{i+1}</div>
+                    <h3 className="text-xl font-black tracking-tight text-foreground">{pillar.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">{pillar.description}</p>
+                  </div>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="border-b border-border/50">
-          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-              <SectionHeading
-                eyebrow="Admissions SOP"
-                title="A simple, repeatable process designed for speed, clarity, and lower application risk"
-                description="This section is intentionally structured for readability on mobile first, then scales cleanly to larger screens."
-              />
+        {/* PROCESS */}
+        <section className="px-6 py-20 md:py-28 border-b border-border/30">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 items-start">
+              <div className="lg:sticky lg:top-24">
+                <SectionHeading
+                  eyebrow="Our Process"
+                  title="A Clear Roadmap From Profile To Offer"
+                  description="No guesswork. No ad-hoc consulting. A disciplined, repeatable process designed to maximise your chances."
+                />
+                <div className="mt-8 rounded-[1.5rem] border border-primary/20 bg-primary/5 px-6 py-6">
+                  <div className="flex items-center gap-2 text-sm font-black text-primary mb-3">
+                    <TrendingUp className="size-4" />
+                    98% Success Rate
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Our structured SOP means every student follows the same proven framework — adapted to their profile.
+                  </p>
+                </div>
+              </div>
 
               <div className="grid gap-4">
                 {processSteps.map((step) => (
-                  <div key={step.step} className="rounded-[1.5rem] border border-border/50 px-5 py-5 sm:px-6 sm:py-6">
-                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-5">
-                      <div className="text-sm font-black uppercase tracking-[0.28em] text-primary">{step.step}</div>
+                  <div key={step.step} className="rounded-[1.5rem] border border-border/50 px-6 py-6 card-hover group">
+                    <div className="flex gap-5 items-start">
+                      <div className="size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                        <span className="text-xs font-black text-primary">{step.step}</span>
+                      </div>
                       <div>
-                        <h3 className="text-xl font-black tracking-tight text-foreground">{step.title}</h3>
-                        <p className="mt-2 text-sm leading-7 text-muted-foreground sm:text-base">{step.description}</p>
+                        <h3 className="text-xl font-black tracking-tight text-foreground group-hover:text-primary transition-colors">{step.title}</h3>
+                        <p className="mt-2 text-sm leading-7 text-muted-foreground">{step.description}</p>
                       </div>
                     </div>
                   </div>
@@ -346,26 +498,28 @@ export default function AdmissionsPage() {
           </div>
         </section>
 
-        <section className="border-b border-border/50">
-          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-            <SectionHeading
-              eyebrow="Destinations"
-              title="Built for ambitious applications across major admissions systems"
-              description="You mentioned admissions as the long-term direction of the brand. This structure supports that positioning without overloading the page with heavy visuals or marketing noise."
-            />
-
-            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+        {/* DESTINATIONS */}
+        <section className="px-6 py-20 md:py-28 border-b border-border/30">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-14">
+              <SectionHeading
+                eyebrow="Where We Place Students"
+                title="Admissions Support Across Every Major System"
+                description="Targeted, country-specific strategy — not generic advice."
+              />
+            </div>
+            <div className="grid gap-4 lg:grid-cols-3">
               {destinations.map((destination) => (
-                <article key={destination.region} className="rounded-[1.75rem] border border-border/50 bg-card px-5 py-6 sm:px-6">
-                  <div className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.22em] text-primary">
+                <article key={destination.region} className="rounded-[1.75rem] border border-border/50 bg-card px-6 py-7 card-hover">
+                  <div className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.22em] text-primary mb-5">
                     <Globe2 className="size-4" />
                     {destination.region}
                   </div>
-                  <ul className="mt-5 space-y-3 text-sm leading-7 text-muted-foreground">
+                  <ul className="space-y-3">
                     {destination.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                        <span>{item}</span>
+                      <li key={item} className="flex items-center gap-3 text-sm text-muted-foreground">
+                        <CheckCircle2 className="size-3.5 text-primary shrink-0" />
+                        {item}
                       </li>
                     ))}
                   </ul>
@@ -375,43 +529,49 @@ export default function AdmissionsPage() {
           </div>
         </section>
 
-        <section className="border-b border-border/50">
-          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-            <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:gap-16">
+        {/* WHY US */}
+        <section className="px-6 py-20 md:py-28 border-b border-border/30">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:gap-16 items-start">
               <div>
                 <SectionHeading
-                  eyebrow="Why This Works"
-                  title="Performance-first design choices built into the page from the start"
+                  eyebrow="Why IBGram"
+                  title="The Difference That Moves The Needle"
                 />
                 <ul className="mt-8 space-y-4">
                   {differentiators.map((item) => (
-                    <li key={item} className="flex items-start gap-3 rounded-2xl border border-border/50 px-4 py-4 text-sm leading-7 text-muted-foreground sm:text-base">
-                      <ShieldCheck className="mt-1 size-4 shrink-0 text-primary" />
-                      <span>{item}</span>
+                    <li key={item} className="flex items-start gap-4 rounded-2xl border border-border/50 px-5 py-5 text-sm leading-7 text-muted-foreground card-hover group">
+                      <div className="size-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <ShieldCheck className="size-3.5 text-primary" />
+                      </div>
+                      <span className="group-hover:text-white/80 transition-colors">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <aside className="rounded-[2rem] border border-border/50 bg-card p-6 sm:p-8">
-                <div className="space-y-5">
+              <aside className="rounded-[2rem] border border-primary/20 bg-primary/5 p-7">
+                <div className="space-y-6">
                   <div className="flex items-center gap-3 text-sm font-black uppercase tracking-[0.22em] text-primary">
-                    <LineChart className="size-4" />
-                    Page Principles
+                    <Award className="size-4" />
+                    Our Track Record
                   </div>
-                  <div className="space-y-4 text-sm leading-7 text-muted-foreground">
-                    <p>
-                      Server-rendered page with minimal client-side logic for faster first load and better reliability.
-                    </p>
-                    <p>
-                      Semantic heading order, descriptive metadata, and readable copy blocks to support SEO and accessibility.
-                    </p>
-                    <p>
-                      Lightweight visual system using borders, spacing, and typography instead of shadows, glows, or heavy assets.
-                    </p>
+                  <div className="space-y-4">
+                    {collaborationPoints.map((point) => (
+                      <div key={point} className="flex items-start gap-3 text-sm leading-6 text-muted-foreground">
+                        <span className="size-1.5 rounded-full bg-primary shrink-0 mt-2" />
+                        {point}
+                      </div>
+                    ))}
                   </div>
-                  <div className="rounded-2xl border border-border/50 px-4 py-4 text-sm leading-7 text-muted-foreground">
-                    Media placeholders are intentionally blank for now so your team can add final images, partner proof, and outcome details later without reworking the layout.
+                  <div className="rounded-2xl border border-border/40 bg-black/20 px-5 py-4">
+                    <div className="flex items-center gap-1 mb-2">
+                      {[...Array(5)].map((_, i) => <Star key={i} className="size-3.5 text-primary fill-primary" />)}
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed italic">
+                      "IBGram's structured approach gave us clarity at every step. Our son got into his top-choice university."
+                    </p>
+                    <p className="mt-2 text-xs font-bold text-white/40">— Parent, Delhi</p>
                   </div>
                 </div>
               </aside>
@@ -419,26 +579,48 @@ export default function AdmissionsPage() {
           </div>
         </section>
 
-        <section className="border-b border-border/50">
-          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-            <SectionHeading
-              eyebrow="FAQs"
-              title="Important questions answered early"
-              description="A compact FAQ block helps with trust, comprehension, and search relevance without adding unnecessary interaction cost."
-            />
-
-            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+        {/* FAQs */}
+        <section className="px-6 py-20 md:py-28 border-b border-border/30">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-14">
+              <SectionHeading
+                eyebrow="FAQs"
+                title="Common Questions, Answered"
+              />
+            </div>
+            <div className="grid gap-4 lg:grid-cols-3">
               {faqs.map((faq) => (
-                <article key={faq.question} className="rounded-[1.5rem] border border-border/50 px-5 py-5 sm:px-6">
+                <article key={faq.question} className="rounded-[1.5rem] border border-border/50 px-6 py-6 card-hover">
                   <h3 className="text-lg font-black tracking-tight text-foreground">{faq.question}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground sm:text-base">{faq.answer}</p>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{faq.answer}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-
+        {/* CTA */}
+        <section className="px-6 py-24 md:py-32 mb-16">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-primary">
+              <Users className="size-3" />
+              Limited Spots Available
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[#f8f9fa] italic">
+              ready to unlock<br />your potential?
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto text-lg">
+              Book a free consultation with our admissions specialists. We'll assess your profile and map out a clear path to your dream university.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact-us">
+                <Button size="lg" className="h-16 px-12 rounded-2xl font-black text-lg bg-background text-foreground border border-border/50 hover:bg-background transition-all  hover:scale-105">
+                  Book A Free Consultation <ArrowRight className="ml-2 size-6" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
 
         <Link
           href="https://wa.me/919876543210"

@@ -4,6 +4,7 @@ import { ProgrammeSection } from "@/components/programmes/ProgrammeSection";
 import { BookOpen, GraduationCap, ArrowUpRight, CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { TutorDiscovery } from "@/components/home/TutorDiscovery";
 
 export default function ProgrammesHubPage() {
   return (
@@ -166,6 +167,8 @@ export default function ProgrammesHubPage() {
           </div>
         </div>
       </section>
+
+      <TutorDiscovery />
 
       <div className="max-w-5xl mx-auto px-4 pb-4 mt-8">
         <div className="bg-card border border-border/50 rounded-3xl p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-sm">

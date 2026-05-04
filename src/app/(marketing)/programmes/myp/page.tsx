@@ -4,6 +4,7 @@ import { ProgrammeSection } from "@/components/programmes/ProgrammeSection";
 import { GraduationCap, BookOpen, ScrollText, Award, Layers, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { TutorDiscovery } from "@/components/home/TutorDiscovery";
 
 export default function MYPPage() {
   return (
@@ -125,6 +126,8 @@ export default function MYPPage() {
           </div>
         </div>
       </ProgrammeSection>
+
+      <TutorDiscovery />
 
       <div className="max-w-5xl mx-auto px-4 mt-16 mb-8">
         <div className="bg-card border border-border/50 rounded-3xl p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-sm">

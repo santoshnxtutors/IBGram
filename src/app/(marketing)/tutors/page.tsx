@@ -22,31 +22,31 @@ import { useRouter } from "next/navigation";
 import { allTutors } from "@/lib/tutor-data";
 
 const IB_SUBJECTS = [
-  "Mathematics",
-  "Physics",
-  "Chemistry",
-  "Biology",
-  "Economics",
-  "English",
-  "Psychology",
-  "History",
-  "Business Management",
-  "Theory of Knowledge",
+  "IB Mathematics",
+  "IB Physics",
+  "IB Chemistry",
+  "IB Biology",
+  "IB Economics",
+  "IB English",
+  "IB Psychology",
+  "IB History",
+  "IB Business Management",
+  "IB Theory of Knowledge",
 ];
 const IB_GRADES = ["IB DP (Year 12-13)", "IB MYP (Year 7-11)", "IB PYP (Year 1-6)"];
 
 const IGCSE_SUBJECTS = [
-  "Mathematics (0580/4MA1)",
-  "Physics",
-  "Chemistry",
-  "Biology",
-  "Economics",
-  "English (First/Second)",
-  "Business Studies",
-  "Computer Science",
-  "History",
-  "Geography",
-  "ICT",
+  "IGCSE Mathematics",
+  "IGCSE Physics",
+  "IGCSE Chemistry",
+  "IGCSE Biology",
+  "IGCSE Economics",
+  "IGCSE English",
+  "IGCSE Business Studies",
+  "IGCSE Computer Science",
+  "IGCSE History",
+  "IGCSE Geography",
+  "IGCSE ICT",
 ];
 const IGCSE_GRADES = ["IGCSE Grade 10 (Final)", "IGCSE Grade 9 (Foundation)"];
 const INITIAL_VISIBLE_TUTORS = 8;
@@ -81,19 +81,20 @@ export default function TutorsPage() {
     }
   };
 
-  const handleSearch = () => {
+  const handleSearch = (curr = curriculumFilter, subj = subjectFilter, grd = gradeFilter) => {
     let result = allTutors;
 
-    if (curriculumFilter !== "Curriculum") {
-      result = result.filter((tutor) => tutor.curriculum === curriculumFilter || tutor.curriculum === "Both");
+    if (curr !== "Curriculum") {
+      result = result.filter((tutor) => tutor.curriculum === curr || tutor.curriculum === "Both");
     }
 
-    if (subjectFilter !== "Subject") {
-      result = result.filter((tutor) => tutor.subject.includes(subjectFilter) || subjectFilter.includes(tutor.subject));
+    if (subj !== "Subject") {
+      const baseFilter = subj.replace("IB ", "").replace("IGCSE ", "").split(" (")[0];
+      result = result.filter((tutor) => tutor.subject.includes(baseFilter) || baseFilter.includes(tutor.subject));
     }
 
-    if (gradeFilter !== "Grade") {
-      result = result.filter((tutor) => tutor.grade.includes(gradeFilter) || gradeFilter.includes(tutor.grade));
+    if (grd !== "Grade") {
+      result = result.filter((tutor) => tutor.grade.includes(grd) || grd.includes(tutor.grade));
     }
 
     setFilteredTutors(result);
@@ -104,7 +105,8 @@ export default function TutorsPage() {
     setSubjectFilter("Subject");
     setGradeFilter("Grade");
     setVisibleTutorCount(INITIAL_VISIBLE_TUTORS);
-    handleSearch();
+    handleSearch(curriculumFilter, "Subject", "Grade");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curriculumFilter]);
 
   useEffect(() => {
@@ -149,31 +151,31 @@ export default function TutorsPage() {
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="relative z-20 mx-auto flex max-w-5xl items-center gap-2 rounded-2xl border border-border/40 bg-card/30 p-1.5 shadow-2xl backdrop-blur-3xl"
+          className="relative z-20 mx-auto flex w-full max-w-5xl flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-2 rounded-[2rem] lg:rounded-full border border-border/40 bg-card/30 p-3 lg:p-2 shadow-2xl backdrop-blur-3xl"
         >
-          <div className="flex h-10 w-full flex-1 items-stretch sm:h-14">
-            <div className="relative flex h-full flex-1 items-center justify-center border-r border-border/20">
+          <div className="flex w-full flex-col md:flex-row flex-1 items-stretch gap-3 md:gap-0 lg:h-14">
+            <div className="relative flex h-12 lg:h-full flex-1 items-center justify-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent md:border-r border-border/20">
               <Select value={curriculumFilter} onValueChange={(value) => value && setCurriculumFilter(value)}>
-                <SelectTrigger className="flex h-full w-full items-center justify-center rounded-none border-none bg-transparent px-1 text-[10px] font-black text-primary outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent sm:px-6 sm:text-base">
+                <SelectTrigger className="flex h-full w-full items-center justify-between md:justify-center rounded-2xl md:rounded-none border-none bg-transparent px-5 text-sm font-black text-primary outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent md:px-6 md:text-base">
                   <SelectValue placeholder="Curriculum" />
                 </SelectTrigger>
                 <SelectContent className="min-w-[160px] rounded-2xl border-border bg-card/95 p-2 shadow-2xl backdrop-blur-2xl">
-                  <SelectItem value="Curriculum" className="rounded-xl text-center font-bold focus:bg-primary/10">
+                  <SelectItem value="Curriculum" className="rounded-xl text-center md:text-left font-bold focus:bg-primary/10">
                     Curriculum
                   </SelectItem>
-                  <SelectItem value="IB" className="rounded-xl text-center font-bold focus:bg-primary/10">
+                  <SelectItem value="IB" className="rounded-xl text-center md:text-left font-bold focus:bg-primary/10">
                     IB
                   </SelectItem>
-                  <SelectItem value="IGCSE" className="rounded-xl text-center font-bold focus:bg-primary/10">
+                  <SelectItem value="IGCSE" className="rounded-xl text-center md:text-left font-bold focus:bg-primary/10">
                     IGCSE
                   </SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
-            <div className="relative flex h-full flex-1 items-center justify-center border-r border-border/20">
+            <div className="relative flex h-12 lg:h-full flex-1 items-center justify-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent md:border-r border-border/20">
               <Select value={subjectFilter} onValueChange={(value) => value && setSubjectFilter(value)}>
-                <SelectTrigger className="flex h-full w-full items-center justify-center rounded-none border-none bg-transparent px-1 text-center text-[10px] font-black text-foreground outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent sm:px-6 sm:text-base">
+                <SelectTrigger className="flex h-full w-full items-center justify-between md:justify-center rounded-2xl md:rounded-none border-none bg-transparent px-5 text-sm font-black text-foreground outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent md:px-6 md:text-base">
                   <SelectValue placeholder="Subject" />
                 </SelectTrigger>
                 <SelectContent className="min-w-[200px] rounded-2xl border-border bg-card/95 p-2 shadow-2xl backdrop-blur-2xl">
@@ -194,9 +196,9 @@ export default function TutorsPage() {
               </Select>
             </div>
 
-            <div className="relative flex h-full flex-1 items-center justify-center">
+            <div className="relative flex h-12 lg:h-full flex-1 items-center justify-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent">
               <Select value={gradeFilter} onValueChange={(value) => value && setGradeFilter(value)}>
-                <SelectTrigger className="flex h-full w-full items-center justify-center rounded-none border-none bg-transparent px-1 text-center text-[10px] font-black text-foreground outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent sm:px-6 sm:text-base">
+                <SelectTrigger className="flex h-full w-full items-center justify-between md:justify-center rounded-2xl md:rounded-none border-none bg-transparent px-5 text-sm font-black text-foreground outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent md:px-6 md:text-base">
                   <SelectValue placeholder="Grade" />
                 </SelectTrigger>
                 <SelectContent className="min-w-[200px] rounded-2xl border-border bg-card/95 p-2 shadow-2xl backdrop-blur-2xl">
@@ -218,12 +220,13 @@ export default function TutorsPage() {
             </div>
           </div>
 
-          <div className="hidden h-8 w-px self-center bg-border/20 sm:block" />
+          <div className="hidden h-8 w-px self-center bg-border/20 lg:block" />
           <button
             onClick={handleSearch}
-            className="group flex h-10 w-10 shrink-0 items-center justify-center bg-transparent text-primary transition-all sm:h-14 sm:w-14"
+            className="group flex h-12 w-full lg:h-14 lg:w-14 shrink-0 items-center justify-center rounded-2xl lg:rounded-full bg-primary/10 lg:bg-transparent text-primary transition-all hover:bg-primary/20 lg:hover:bg-transparent"
           >
-            <Search className="size-4 transition-transform group-hover:scale-110 sm:size-6" strokeWidth={2.5} />
+            <Search className="size-5 transition-transform group-hover:scale-110 lg:size-6" strokeWidth={2.5} />
+            <span className="ml-2 font-bold text-sm lg:hidden">Search</span>
           </button>
         </motion.div>
       </section>
