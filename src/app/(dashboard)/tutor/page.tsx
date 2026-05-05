@@ -169,7 +169,7 @@ export default function TutorDashboard() {
         <div className="space-y-8">
           <Card className="shadow-sm border-border/50 border-t-4 border-t-secondary overflow-hidden bg-background/50 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle>Today's Schedule</CardTitle>
+              <CardTitle>Today&apos;s Schedule</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="p-4 rounded-xl border border-secondary/30 bg-secondary/10 cursor-pointer transition-all hover:scale-[1.02]">

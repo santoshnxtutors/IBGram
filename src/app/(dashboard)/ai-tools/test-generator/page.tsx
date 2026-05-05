@@ -218,7 +218,7 @@ export default function AITestGenerator() {
              <div className="size-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <BookOpen className="size-10" />
              </div>
-             <h2 className="text-3xl font-bold mb-4">You're Ready to Begin</h2>
+              <h2 className="text-3xl font-bold mb-4">You&apos;re Ready to Begin</h2>
              <p className="text-muted-foreground max-w-md mx-auto mb-8">
                Once you click start, the timer will begin. You cannot pause an active mock test. Ensure you have a quiet environment.
              </p>

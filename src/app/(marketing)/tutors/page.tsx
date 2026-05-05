@@ -222,7 +222,7 @@ export default function TutorsPage() {
 
           <div className="hidden h-8 w-px self-center bg-border/20 lg:block" />
           <button
-            onClick={handleSearch}
+            onClick={() => handleSearch()}
             className="group flex h-12 w-full lg:h-14 lg:w-14 shrink-0 items-center justify-center rounded-2xl lg:rounded-full bg-primary/10 lg:bg-transparent text-primary transition-all hover:bg-primary/20 lg:hover:bg-transparent"
           >
             <Search className="size-5 transition-transform group-hover:scale-110 lg:size-6" strokeWidth={2.5} />

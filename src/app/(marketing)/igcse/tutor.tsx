@@ -59,7 +59,7 @@ export function IGCSETutors() {
   if (igcseTutors.length === 0) return null;
 
   return (
-    <section className="py-16 relative overflow-hidden bg-background border-t border-border/50">
+    <section className="py-16 relative overflow-hidden bg-background border-t border-border/50" id="igcse-tutors">
       <div className="container px-4 mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-2xl">

@@ -45,7 +45,7 @@ export default function ProgrammesHubPage() {
           <div>
             <h4 className="text-lg font-bold text-foreground mb-2">Holistic Development</h4>
             <p className="text-muted-foreground/90 text-sm leading-relaxed">
-              Fostering students' academic, social, and emotional wellbeing while focusing on international-mindedness and strong personal values.
+              Fostering students&apos; academic, social, and emotional wellbeing while focusing on international-mindedness and strong personal values.
             </p>
           </div>
           <div>
@@ -178,7 +178,7 @@ export default function ProgrammesHubPage() {
               Our Primary Aim: Expert Tutoring
             </h3>
             <p className="text-muted-foreground font-medium max-w-xl text-[15px] leading-relaxed">
-              While we provide a comprehensive understanding of the IB continuum, our ultimate goal is to connect you with world-class, certified tutors. Whether it's the PYP exhibition or the DP core, our elite educators ensure your academic success.
+              While we provide a comprehensive understanding of the IB continuum, our ultimate goal is to connect you with world-class, certified tutors. Whether it&apos;s the PYP exhibition or the DP core, our elite educators ensure your academic success.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 w-full lg:w-auto shrink-0">

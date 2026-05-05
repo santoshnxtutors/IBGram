@@ -128,7 +128,7 @@ export function CourseExplorer() {
             Explore IB <span className="text-primary italic">Global Standards</span>
           </h2>
           <p className="text-muted-foreground font-medium max-w-2xl text-base md:text-lg leading-relaxed">
-            A comprehensive guide to the world's most rigorous academic pathways.
+            A comprehensive guide to the world&apos;s most rigorous academic pathways.
             Select a program or course to discover focused subjects.
           </p>
         </div>

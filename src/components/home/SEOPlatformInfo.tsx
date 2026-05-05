@@ -75,7 +75,7 @@ export function SEOPlatformInfo({ location = { country: "India" } }: SEOPlatform
               </div>
               
               <p className="text-muted-foreground text-base/relaxed font-medium mb-6">
-                Our AI engine processes structured compatibility parameters to recommend educators who fit your child's academic goals — whether it's school support, foundation building or competitive exam preparation.
+                Our AI engine processes structured compatibility parameters to recommend educators who fit your child&apos;s academic goals — whether it&apos;s school support, foundation building or competitive exam preparation.
               </p>
 
               <div className="space-y-3 mb-8">

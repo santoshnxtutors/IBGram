@@ -307,11 +307,11 @@ export default function AdmissionsPage() {
                     Thousands Apply.<br />
                     <span className="text-primary">Few Stand Out.</span>
                   </h1>
-                  <p className="text-xl font-medium text-white/60 italic">We'll Make Sure You're One of Them.</p>
+                  <p className="text-xl font-medium text-white/60 italic">We&apos;ll Make Sure You&apos;re One of Them.</p>
                 </div>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Strategic admissions support for students targeting the world's most competitive universities. Built for Indian families who want a clear roadmap, stronger positioning, and disciplined execution.
+                  Strategic admissions support for students targeting the world&apos;s most competitive universities. Built for Indian families who want a clear roadmap, stronger positioning, and disciplined execution.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -397,7 +397,7 @@ export default function AdmissionsPage() {
                 Real Students. Real Results.
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
-                Our students have secured offers at the world's most competitive universities.
+                Our students have secured offers at the world&apos;s most competitive universities.
               </p>
             </div>
 
@@ -569,7 +569,7 @@ export default function AdmissionsPage() {
                       {[...Array(5)].map((_, i) => <Star key={i} className="size-3.5 text-primary fill-primary" />)}
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed italic">
-                      "IBGram's structured approach gave us clarity at every step. Our son got into his top-choice university."
+                      &ldquo;IBGram&apos;s structured approach gave us clarity at every step. Our son got into his top-choice university.&rdquo;
                     </p>
                     <p className="mt-2 text-xs font-bold text-white/40">— Parent, Delhi</p>
                   </div>
@@ -610,7 +610,7 @@ export default function AdmissionsPage() {
               ready to unlock<br />your potential?
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto text-lg">
-              Book a free consultation with our admissions specialists. We'll assess your profile and map out a clear path to your dream university.
+              Book a free consultation with our admissions specialists. We&apos;ll assess your profile and map out a clear path to your dream university.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact-us">

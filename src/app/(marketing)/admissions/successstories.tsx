@@ -35,9 +35,11 @@ const schoolsData = [
   }
 ];
 
+type SchoolData = (typeof schoolsData)[number];
 
 
-function SchoolSection({ school, index, total, progress, reduceMotion }: { school: any; index: number; total: number; progress: MotionValue<number>; reduceMotion: boolean }) {
+
+function SchoolSection({ school, index, total, progress, reduceMotion }: { school: SchoolData; index: number; total: number; progress: MotionValue<number>; reduceMotion: boolean }) {
   const start = index / total;
   const end = (index + 1) / total;
   

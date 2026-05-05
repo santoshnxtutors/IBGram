@@ -75,7 +75,7 @@ export default function MYPPage() {
       >
         <div className="bg-muted/5 border border-border/50 rounded-2xl p-6 md:p-8">
           <p className="text-muted-foreground leading-relaxed mb-4">
-            In the final year of the programme, each MYP student completes an independent "Personal Project". This project allows students to:
+            In the final year of the programme, each MYP student completes an independent &ldquo;Personal Project&rdquo;. This project allows students to:
           </p>
           <ul className="space-y-3 text-[15px] font-medium text-foreground">
             <li className="flex items-start"><span className="text-primary mr-2 mt-0.5">•</span> Demonstrate the skills they have learned</li>

@@ -84,7 +84,7 @@ export default function StudentDashboard() {
             </div>
             <Progress value={68} className="h-2 mb-2 bg-muted/60" />
             <p className="text-xs text-muted-foreground">
-              You've completed 5 out of 8 modules scheduled for this week.
+              You&apos;ve completed 5 out of 8 modules scheduled for this week.
             </p>
           </CardContent>
         </Card>
@@ -145,7 +145,7 @@ export default function StudentDashboard() {
           <Card className="shadow-sm border-border/50 overflow-hidden">
             <div className="h-2 w-full bg-primary" />
             <CardHeader>
-              <CardTitle>Today's Plan</CardTitle>
+              <CardTitle>Today&apos;s Plan</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="p-4 rounded-xl border border-primary/20 bg-primary/5 cursor-pointer hover:bg-primary/10 transition-colors">

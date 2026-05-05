@@ -88,7 +88,7 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
                       <div className="size-20 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                         <GraduationCap className="size-10 text-primary" />
                       </div>
-                      <h3 className="text-2xl font-bold text-foreground">I'm a Student</h3>
+                      <h3 className="text-2xl font-bold text-foreground">I&apos;m a Student</h3>
                     </div>
                   </button>
                 </motion.div>
@@ -103,7 +103,7 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
                       <div className="size-20 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
                         <BookOpen className="size-10 text-secondary" />
                       </div>
-                      <h3 className="text-2xl font-bold text-foreground">I'm a Tutor</h3>
+                      <h3 className="text-2xl font-bold text-foreground">I&apos;m a Tutor</h3>
                     </div>
                   </button>
                 </motion.div>

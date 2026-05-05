@@ -34,6 +34,9 @@ export function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const isIgcse = pathname?.startsWith('/igcse');
+  const pageLink = isIgcse
+    ? { label: "IGCSE Pages", href: "/igcse-pages/" }
+    : { label: "IB Pages", href: "/ib-tutors/" };
 
   const [locationLabel, setLocationLabel] = useState<{ country: string; city: string } | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -194,6 +197,9 @@ export function Header() {
           <Link href="/admissions" aria-label="Admissions & Test Prep" className="hover:text-primary transition-colors">
             Admissions & Test Prep
           </Link>
+          <Link href={pageLink.href} aria-label={pageLink.label} className="hover:text-primary transition-colors">
+            {pageLink.label}
+          </Link>
         </nav>
 
         {/* Right: Auth Dropdown */}
@@ -328,6 +334,13 @@ export function Header() {
               className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary bg-muted/10 rounded-xl shadow-sm"
             >
               Admissions & Test Prep
+            </Link>
+            <Link
+              href={pageLink.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary bg-muted/10 rounded-xl shadow-sm"
+            >
+              {pageLink.label}
             </Link>
           </nav>
 

@@ -1,62 +1,64 @@
 import { MetadataRoute } from 'next';
+import { getSeoSitemapEntries } from '@/lib/seo/sitemap';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://ibgram.com';
   
   return [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: `${baseUrl}/igcse`,
+      url: `${baseUrl}/igcse/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/tutors`,
+      url: `${baseUrl}/tutors/`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/admissions`,
+      url: `${baseUrl}/admissions/`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/about-us`,
+      url: `${baseUrl}/about-us/`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/blog/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/jobs`,
+      url: `${baseUrl}/jobs/`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/login`,
+      url: `${baseUrl}/login/`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/signup`,
+      url: `${baseUrl}/signup/`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,
     },
+    ...getSeoSitemapEntries(),
   ];
 }

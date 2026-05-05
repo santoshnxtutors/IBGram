@@ -92,7 +92,7 @@ export default function SubscriptionPage() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-medium"
           >
-            Access the world's most sophisticated education platform. Built for students who demand excellence and tutors who deliver it.
+            Access the world&apos;s most sophisticated education platform. Built for students who demand excellence and tutors who deliver it.
           </motion.p>
         </div>
       </section>
@@ -203,7 +203,7 @@ export default function SubscriptionPage() {
           className="max-w-4xl mx-auto rounded-[3rem] p-12 bg-[#0B0F19]/60 border border-white/5 relative overflow-hidden text-center"
         >
           <h2 className="text-2xl md:text-3xl font-black mb-4">Need help choosing a plan?</h2>
-          <p className="text-muted-foreground mb-8 font-medium">Speak with our academic advisors to find the perfect fit for your child's goals.</p>
+          <p className="text-muted-foreground mb-8 font-medium">Speak with our academic advisors to find the perfect fit for your child&apos;s goals.</p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" className="h-14 px-8 rounded-2xl bg-green-600 hover:bg-green-700 text-white font-bold flex items-center gap-2">

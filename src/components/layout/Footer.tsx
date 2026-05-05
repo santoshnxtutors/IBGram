@@ -46,10 +46,10 @@ export function Footer() {
             <ul className="space-y-4 text-sm font-medium text-muted-foreground">
               {isIgcsePage ? (
                 <>
-                  <li><Link href="#subjects" className="hover:text-primary transition-colors">Cambridge Subjects</Link></li>
-                  <li><Link href="#subjects" className="hover:text-primary transition-colors">Edexcel Specifications</Link></li>
-                  <li><Link href="/tutors" className="hover:text-primary transition-colors">IGCSE Tutors</Link></li>
-                  <li><Link href="#" className="hover:text-primary transition-colors">Syllabus Updates</Link></li>
+                  <li><Link href="/igcse/#subjects" className="hover:text-primary transition-colors">Cambridge Subjects</Link></li>
+                  <li><Link href="/igcse/#subjects" className="hover:text-primary transition-colors">Edexcel Specifications</Link></li>
+                  <li><Link href="/igcse/#igcse-tutors" className="hover:text-primary transition-colors">IGCSE Tutors</Link></li>
+                  <li><Link href="/igcse/#assessment" className="hover:text-primary transition-colors">Assessment Guide</Link></li>
                 </>
               ) : (
                 <>
@@ -68,6 +68,11 @@ export function Footer() {
             <h4 className="font-bold text-foreground mb-6 drop-shadow-sm">Platform</h4>
             <ul className="space-y-4 text-sm font-medium text-muted-foreground">
               <li><Link href="/about-us" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li>
+                <Link href={isIgcsePage ? "/igcse-pages/" : "/ib-tutors/"} className="hover:text-primary transition-colors">
+                  {isIgcsePage ? "IGCSE Pages" : "IB Tutor Pages"}
+                </Link>
+              </li>
               <li><Link href="#" className="hover:text-primary transition-colors">AI Test Generator</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">{isIgcsePage ? "IGCSE Study Planner" : "Smart Planner"}</Link></li>
               <li><Link href="/subscription" className="hover:text-primary transition-colors">Membership</Link></li>

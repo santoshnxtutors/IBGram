@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { Check, ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
@@ -20,10 +20,9 @@ const themes = [
 ];
 
 export function ThemeSwitcher() {
-  const [activeTheme, setActiveTheme] = useState("default");
+  const activeTheme = useSyncExternalStore(subscribeToThemeChanges, getThemeSnapshot, getServerThemeSnapshot);
 
   const applyTheme = (themeId: string) => {
-    setActiveTheme(themeId);
     document.documentElement.setAttribute("data-theme", themeId);
     localStorage.setItem("ibgram_theme", themeId);
     // Dispatch event for other components if needed
@@ -32,7 +31,7 @@ export function ThemeSwitcher() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("ibgram_theme") || "default";
-    applyTheme(savedTheme);
+    document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);
 
   const currentTheme = themes.find((t) => t.id === activeTheme) || themes[0];
@@ -73,4 +72,22 @@ export function ThemeSwitcher() {
       </DropdownMenuContent>
     </DropdownMenu>
   );
+}
+
+function subscribeToThemeChanges(onStoreChange: () => void) {
+  window.addEventListener("ibgram_theme_changed", onStoreChange);
+  window.addEventListener("storage", onStoreChange);
+
+  return () => {
+    window.removeEventListener("ibgram_theme_changed", onStoreChange);
+    window.removeEventListener("storage", onStoreChange);
+  };
+}
+
+function getThemeSnapshot() {
+  return localStorage.getItem("ibgram_theme") || "default";
+}
+
+function getServerThemeSnapshot() {
+  return "default";
 }

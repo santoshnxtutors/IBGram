@@ -114,7 +114,7 @@ export function WhyIBGram() {
                     Why Choose <span className="text-primary text-gradient bg-300% animate-gradient">IB Gram?</span>
                   </h2>
                   <p className="text-sm md:text-base text-muted-foreground font-medium leading-relaxed max-w-lg mx-auto">
-                    We don't just teach. We engineer your success with data-driven methodology, elite tutoring, and uncompromising academic standards.
+                    We don&apos;t just teach. We engineer your success with data-driven methodology, elite tutoring, and uncompromising academic standards.
                   </p>
                 </header>
 

@@ -84,7 +84,7 @@ export default function JobsPage() {
               Careers at <span className="text-gradient">IB Gram</span>
            </h1>
            <p className="text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-              Building the world's most intelligent EdTech platform. We're looking for thinkers, educators, and creators.
+               Building the world&apos;s most intelligent EdTech platform. We&apos;re looking for thinkers, educators, and creators.
            </p>
         </div>
 
@@ -166,9 +166,9 @@ export default function JobsPage() {
 
         {/* Bottom CTA - Truly Minimal (No white grid) */}
         <section className="text-center mt-20 py-24 border-t border-border/60">
-           <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-foreground">Don't see a perfect fit?</h2>
+            <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-foreground">Don&apos;t see a perfect fit?</h2>
            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10 font-bold">
-              We're always looking for geniuses, disruptors, and educators. Send us a general application and we'll be in touch.
+               We&apos;re always looking for geniuses, disruptors, and educators. Send us a general application and we&apos;ll be in touch.
            </p>
            <div className="flex justify-center">
               <Button variant="outline" className="h-14 px-12 rounded-2xl border-2 border-primary/20 text-foreground font-black text-lg hover:border-primary hover:bg-primary/5 transition-all">

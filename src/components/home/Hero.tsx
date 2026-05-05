@@ -37,7 +37,7 @@ export function Hero() {
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-[600px] leading-relaxed">
               Personalized 1:1 tutoring combined with AI-driven study plans.
-              Boost your grades dramatically with the world's gold standard in EdTech.
+              Boost your grades dramatically with the world&apos;s gold standard in EdTech.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">

@@ -4,10 +4,50 @@ import { ArrowRight, GraduationCap, ShieldCheck, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { IGCSETutors } from "./tutor";
 import { IGCSESubjectExplorer } from "./subject-explorer";
+import { absoluteUrl } from "@/lib/seo/slug-utils";
 
 export const metadata: Metadata = {
-  title: "IGCSE Programmes & Subjects | IB Gram",
-  description: "Explore comprehensive IGCSE pathways for Cambridge and Pearson Edexcel. Get expert tutoring and official curriculum resources.",
+  title: "IGCSE Programmes, Subjects & Tutors",
+  description:
+    "Explore Cambridge IGCSE and Pearson Edexcel International GCSE subjects, assessment guidance, online tutoring and exam preparation support with IB Gram.",
+  keywords: [
+    "IGCSE programmes",
+    "IGCSE subjects",
+    "Cambridge IGCSE tutors",
+    "Pearson Edexcel International GCSE",
+    "IGCSE online tutoring",
+    "IGCSE maths tutor",
+    "IGCSE science tutor",
+    "IGCSE exam preparation",
+  ],
+  alternates: {
+    canonical: absoluteUrl("/igcse/"),
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    url: absoluteUrl("/igcse/"),
+    title: "IGCSE Programmes, Subjects & Tutors | IB Gram",
+    description:
+      "Browse Cambridge and Pearson Edexcel IGCSE subject support, tutor discovery, assessment guidance and exam preparation resources.",
+    siteName: "IB Gram",
+    images: [
+      {
+        url: absoluteUrl("/images/ib-gram-city-og.svg"),
+        alt: "IB Gram IGCSE programme and subject support",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IGCSE Programmes, Subjects & Tutors | IB Gram",
+    description:
+      "Cambridge IGCSE and Pearson Edexcel subject support, tutor discovery and exam preparation guidance.",
+    images: [absoluteUrl("/images/ib-gram-city-og.svg")],
+  },
 };
 
 export default function IGCSEPage() {
@@ -113,7 +153,7 @@ export default function IGCSEPage() {
 
       <IGCSETutors />
 
-      <section className="bg-muted/10 py-20">
+      <section className="bg-muted/10 py-20" id="assessment">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-16 text-center">
             <h2 className="text-3xl font-bold">Understanding Assessment & Grading</h2>

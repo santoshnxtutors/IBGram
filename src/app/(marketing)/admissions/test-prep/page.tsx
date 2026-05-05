@@ -146,7 +146,7 @@ export default function TestPrepPage() {
                 </div>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Expert 1:1 test prep for SAT, GRE, IELTS, GMAT, TOEFL and more. Our tutors know exactly what it takes to hit your target score — and they'll get you there.
+                  Expert 1:1 test prep for SAT, GRE, IELTS, GMAT, TOEFL and more. Our tutors know exactly what it takes to hit your target score — and they&apos;ll get you there.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -365,7 +365,7 @@ export default function TestPrepPage() {
               ready to hit your<br />target score?
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto text-lg">
-              Book a session with our test prep experts today. We'll assess your starting point and build a plan to get you where you need to be.
+              Book a session with our test prep experts today. We&apos;ll assess your starting point and build a plan to get you where you need to be.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact-us">
