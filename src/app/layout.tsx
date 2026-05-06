@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   description: "The world's gold standard for IB and IGCSE preparation.",
   keywords: ["IB", "IGCSE", "Education", "AI Tutor", "EdTech"],
   icons: {
-    icon: [{ url: "ibgramlogo.png", type: "image/png" }],
-    shortcut: ["ibgramlogo.png"],
-    apple: [{ url: "ibgramlogo.png", type: "image/png" }],
+    icon: [{ url: "/ibgramlogo.png", type: "image/png" }],
+    shortcut: ["/ibgramlogo.png"],
+    apple: [{ url: "/ibgramlogo.png", type: "image/png" }],
   },
   openGraph: {
     type: "website",
@@ -54,7 +54,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="icon" href="ibgramlogo.png" type="image/png" />
+        <link rel="icon" href="/ibgramlogo.png" type="image/png" />
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://randomuser.me" crossOrigin="anonymous" />
       </head>
