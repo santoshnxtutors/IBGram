@@ -1,6 +1,7 @@
 import { buildCityInternalLinks } from "./internal-links";
 import type { CitySeoPage, CitySeoPageBase } from "./city-page-types";
 import { absoluteUrl, buildCityPath, normalizeSlug } from "./slug-utils";
+import { additionalIndianIbCityPages } from "./city-pages-data/ib";
 
 const SCHOOL_DISCLAIMER =
   "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.";
@@ -110,6 +111,11 @@ export const citySeoPageBaseData = [
         cityName: "Noida",
         citySlug: "noida",
         description: "Noida is a useful nearby option for NCR IB families comparing tutor availability.",
+      },
+      {
+        cityName: "Faridabad",
+        citySlug: "faridabad",
+        description: "Faridabad families often compare Gurugram, Delhi and online NCR IB tutor availability.",
       },
     ],
     serviceAreaText:
@@ -491,6 +497,11 @@ export const citySeoPageBaseData = [
         citySlug: "noida",
         description: "Noida is relevant for families comparing NCR tutor availability and online specialist support.",
       },
+      {
+        cityName: "Ghaziabad",
+        citySlug: "ghaziabad",
+        description: "Ghaziabad is useful for Delhi NCR families reviewing nearby and online IB support.",
+      },
     ],
     serviceAreaText:
       "Home tutoring may be possible in select South Delhi, central Delhi and nearby residential pockets. Online tutoring is available across Delhi for all supported IB programmes and subjects, including short revision cycles before school mocks and longer weekly plans for students rebuilding foundations.",
@@ -849,6 +860,16 @@ export const citySeoPageBaseData = [
         citySlug: "gurugram",
         description: "Gurugram has a dense IB tutoring ecosystem and useful specialist overlap for NCR families.",
       },
+      {
+        cityName: "Ghaziabad",
+        citySlug: "ghaziabad",
+        description: "Ghaziabad is relevant for families comparing Noida-side NCR tutoring options.",
+      },
+      {
+        cityName: "Greater Noida",
+        citySlug: "greater-noida",
+        description: "Greater Noida is useful for expressway families reviewing IB tutor availability.",
+      },
     ],
     serviceAreaText:
       "Home tutoring may be available in Noida sectors and expressway communities depending on tutor schedules. Online tutoring is available across Noida and nearby NCR areas, which is often useful when the strongest IB Math AA HL tutor, IB Math AI HL tutor or sciences mentor is not close enough for weekly travel.",
@@ -1190,14 +1211,19 @@ export const citySeoPageBaseData = [
     nearbyAreas: ["Worli", "Lower Parel", "Andheri", "Santacruz", "Malabar Hill", "Thane"],
     nearbyCities: [
       {
-        cityName: "Bangalore",
-        citySlug: "bangalore",
-        description: "Bangalore is another high-demand IB city for online and specialist tutor matching.",
+        cityName: "Pune",
+        citySlug: "pune",
+        description: "Pune is a priority Maharashtra city for IB home, online and hybrid tutoring.",
       },
       {
-        cityName: "Delhi",
-        citySlug: "delhi",
-        description: "Delhi families often compare online specialist support across large-city IB networks.",
+        cityName: "Thane",
+        citySlug: "thane",
+        description: "Thane is relevant for Mumbai-region families comparing local and online IB support.",
+      },
+      {
+        cityName: "Navi Mumbai",
+        citySlug: "navi-mumbai",
+        description: "Navi Mumbai families often compare Mumbai specialists with node-wise home tutoring options.",
       },
     ],
     serviceAreaText:
@@ -1549,14 +1575,19 @@ export const citySeoPageBaseData = [
     nearbyAreas: ["Koramangala", "HSR Layout", "Hebbal", "Yelahanka", "Electronic City", "Marathahalli"],
     nearbyCities: [
       {
-        cityName: "Mumbai",
-        citySlug: "mumbai",
-        description: "Mumbai is another high-demand IB city with strong online and hybrid support patterns.",
+        cityName: "Hyderabad",
+        citySlug: "hyderabad",
+        description: "Hyderabad is another high-demand South India city for DP subject specialist support.",
       },
       {
-        cityName: "Delhi",
-        citySlug: "delhi",
-        description: "Delhi is useful for families comparing large-city IB tutoring options and online specialists.",
+        cityName: "Chennai",
+        citySlug: "chennai",
+        description: "Chennai is useful for South India families comparing online and hybrid IB tutoring.",
+      },
+      {
+        cityName: "Mysuru",
+        citySlug: "mysuru",
+        description: "Mysuru families often compare Bangalore specialist availability with local support.",
       },
     ],
     serviceAreaText:
@@ -1826,6 +1857,7 @@ export const citySeoPageBaseData = [
       schemaFaqJson: true,
     },
   },
+  ...additionalIndianIbCityPages,
 ] satisfies CitySeoPageBase[];
 
 const pagesWithOutgoingLinks = citySeoPageBaseData.map((page) => ({

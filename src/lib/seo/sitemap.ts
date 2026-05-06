@@ -1,11 +1,20 @@
 import type { MetadataRoute } from "next";
 import { getIndexingDecision } from "./indexing";
 import { getLiveCitySeoPages } from "./city-pages";
+import { getLiveIgcseCityPages } from "./igcse-city-pages";
 import { IGCSE_PAGES_HUB } from "./igcse-pages";
 import { absoluteUrl } from "./slug-utils";
+import { getSitemapGeneratedPages } from "@/lib/generated-pages/store";
+import { generatedPageToSitemapEntry } from "./sitemap-utils";
 
 export function getSeoSitemapEntries(): MetadataRoute.Sitemap {
-  return [getIbTutorsHubSitemapEntry(), getIgcsePagesHubSitemapEntry(), ...getIndexableCitySitemapEntries()];
+  return [
+    getIbTutorsHubSitemapEntry(),
+    getIgcsePagesHubSitemapEntry(),
+    ...getIndexableCitySitemapEntries(),
+    ...getIndexableIgcseCitySitemapEntries(),
+    ...getIndexableGeneratedSitemapEntries(),
+  ];
 }
 
 export function getIbTutorsHubSitemapEntry(): MetadataRoute.Sitemap[number] {
@@ -35,4 +44,19 @@ export function getIndexableCitySitemapEntries(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: Number((page.priorityScore / 10).toFixed(2)),
     }));
+}
+
+export function getIndexableIgcseCitySitemapEntries(): MetadataRoute.Sitemap {
+  return getLiveIgcseCityPages()
+    .filter((page) => page.indexFlag === "index")
+    .map((page) => ({
+      url: page.canonicalUrl,
+      lastModified: page.lastUpdated,
+      changeFrequency: "weekly",
+      priority: page.priorityScore,
+    }));
+}
+
+export function getIndexableGeneratedSitemapEntries(): MetadataRoute.Sitemap {
+  return getSitemapGeneratedPages().map(generatedPageToSitemapEntry);
 }

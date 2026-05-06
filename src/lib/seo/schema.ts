@@ -1,4 +1,5 @@
 import type { CitySeoPage } from "./city-page-types";
+import type { IgcseCitySeoPage } from "./igcse-city-pages";
 import type { IgcsePagesHubData } from "./igcse-pages";
 import { buildCityPath, SITE_URL } from "./slug-utils";
 
@@ -271,6 +272,119 @@ export function buildIgcsePagesHubSchema(page: IgcsePagesHubData): JsonLdObject 
               name: link.title,
               description: link.description,
               url: link.href.startsWith("http") ? link.href : `${SITE_URL}${link.href}`,
+            },
+          })),
+        },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": faqId,
+        mainEntity: page.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  }) as JsonLdObject;
+}
+
+export function buildIgcseCityPageSchema(page: IgcseCitySeoPage): JsonLdObject {
+  const organizationId = `${SITE_URL}/#organization`;
+  const webpageId = `${page.canonicalUrl}#webpage`;
+  const serviceId = `${page.canonicalUrl}#service`;
+  const breadcrumbId = `${page.canonicalUrl}#breadcrumb`;
+  const faqId = `${page.canonicalUrl}#faq`;
+
+  return stripUndefinedFromJsonLd({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": webpageId,
+        url: page.canonicalUrl,
+        name: page.ogTitle,
+        description: page.metaDescription,
+        inLanguage: "en",
+        dateModified: page.lastUpdated,
+        breadcrumb: {
+          "@id": breadcrumbId,
+        },
+        mainEntity: [
+          {
+            "@id": serviceId,
+          },
+          {
+            "@id": faqId,
+          },
+        ],
+        about: page.keywords.map((keyword) => ({
+          "@type": "Thing",
+          name: keyword,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "IGCSE Pages",
+            item: `${SITE_URL}/igcse-pages/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: page.cityName,
+            item: page.canonicalUrl,
+          },
+        ],
+      },
+      {
+        "@type": "EducationalOrganization",
+        "@id": organizationId,
+        name: "IB Gram",
+        url: SITE_URL,
+        logo: `${SITE_URL}/globe.svg`,
+        email: "ibgram24@gmail.com",
+      },
+      {
+        "@type": "Service",
+        "@id": serviceId,
+        name: `IGCSE tutoring in ${page.cityName}`,
+        serviceType: "IGCSE tutoring",
+        provider: {
+          "@id": organizationId,
+        },
+        areaServed: page.areaNotes.map((area) => ({
+          "@type": "Place",
+          name: area.name,
+        })),
+        audience: {
+          "@type": "EducationalAudience",
+          educationalRole: "student",
+        },
+        educationalLevel: "IGCSE, International GCSE, Grades 9-10",
+        description: page.metaDescription,
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "IGCSE tutoring subjects",
+          itemListElement: page.subjects.map((subject) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Course",
+              name: subject.name,
+              description: subject.description,
             },
           })),
         },

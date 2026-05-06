@@ -6,27 +6,36 @@ import { getCitySeoPageBySlug, getLiveCitySeoPages, getSchoolPageBySlug } from "
 import { getNoindexSubpageDecision } from "@/lib/seo/indexing";
 import { buildNoindexMetadata } from "@/lib/seo/metadata";
 import { buildCityPath } from "@/lib/seo/slug-utils";
+import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
+import { getGeneratedPageForRoute, getGeneratedStaticParamsForTypes } from "@/lib/generated-pages/routes";
+import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 
 type SchoolPageProps = {
   params: Promise<{ citySlug: string; schoolSlug: string }>;
 };
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 export const revalidate = 86400;
 
 export function generateStaticParams() {
-  return getLiveCitySeoPages().flatMap((page) =>
+  return [
+    ...getLiveCitySeoPages().flatMap((page) =>
     page.ibSchoolsCity
       .filter((school) => school.pageEnabled)
       .map((school) => ({
         citySlug: page.citySlug,
         schoolSlug: school.slug,
       })),
-  );
+    ),
+    ...getGeneratedStaticParamsForTypes(["school"]).map(({ citySlug, schoolSlug }) => ({ citySlug, schoolSlug })),
+  ];
 }
 
 export async function generateMetadata({ params }: SchoolPageProps): Promise<Metadata> {
   const { citySlug, schoolSlug } = await params;
+  const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/schools/${schoolSlug}/`, ["school"]);
+  if (generatedPage) return buildGeneratedMetadata(generatedPage);
+
   const page = getCitySeoPageBySlug(citySlug);
   const school = getSchoolPageBySlug(citySlug, schoolSlug);
 
@@ -46,6 +55,9 @@ export async function generateMetadata({ params }: SchoolPageProps): Promise<Met
 
 export default async function CitySchoolPage({ params }: SchoolPageProps) {
   const { citySlug, schoolSlug } = await params;
+  const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/schools/${schoolSlug}/`, ["school"]);
+  if (generatedPage) return <GeneratedPageRenderer page={generatedPage} />;
+
   const page = getCitySeoPageBySlug(citySlug);
   const school = getSchoolPageBySlug(citySlug, schoolSlug);
 

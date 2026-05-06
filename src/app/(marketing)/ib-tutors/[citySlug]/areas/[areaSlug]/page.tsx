@@ -6,27 +6,36 @@ import { getAreaPageBySlug, getCitySeoPageBySlug, getLiveCitySeoPages } from "@/
 import { getNoindexSubpageDecision } from "@/lib/seo/indexing";
 import { buildNoindexMetadata } from "@/lib/seo/metadata";
 import { buildCityPath } from "@/lib/seo/slug-utils";
+import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
+import { getGeneratedPageForRoute, getGeneratedStaticParamsForTypes } from "@/lib/generated-pages/routes";
+import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 
 type AreaPageProps = {
   params: Promise<{ citySlug: string; areaSlug: string }>;
 };
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 export const revalidate = 86400;
 
 export function generateStaticParams() {
-  return getLiveCitySeoPages().flatMap((page) =>
+  return [
+    ...getLiveCitySeoPages().flatMap((page) =>
     page.premiumAreas
       .filter((area) => area.pageEnabled)
       .map((area) => ({
         citySlug: page.citySlug,
         areaSlug: area.slug,
       })),
-  );
+    ),
+    ...getGeneratedStaticParamsForTypes(["area"]).map(({ citySlug, areaSlug }) => ({ citySlug, areaSlug })),
+  ];
 }
 
 export async function generateMetadata({ params }: AreaPageProps): Promise<Metadata> {
   const { citySlug, areaSlug } = await params;
+  const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/areas/${areaSlug}/`, ["area"]);
+  if (generatedPage) return buildGeneratedMetadata(generatedPage);
+
   const page = getCitySeoPageBySlug(citySlug);
   const area = getAreaPageBySlug(citySlug, areaSlug);
 
@@ -46,6 +55,9 @@ export async function generateMetadata({ params }: AreaPageProps): Promise<Metad
 
 export default async function CityAreaPage({ params }: AreaPageProps) {
   const { citySlug, areaSlug } = await params;
+  const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/areas/${areaSlug}/`, ["area"]);
+  if (generatedPage) return <GeneratedPageRenderer page={generatedPage} />;
+
   const page = getCitySeoPageBySlug(citySlug);
   const area = getAreaPageBySlug(citySlug, areaSlug);
 

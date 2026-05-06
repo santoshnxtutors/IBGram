@@ -1,3 +1,4 @@
+import type { GeneratedSeoPage } from "@/lib/page-generator/types";
 import type { CitySeoPage, IndexingConfig, InternalLink } from "./city-page-types";
 
 export interface IndexingDecision {
@@ -64,6 +65,29 @@ export function getIndexingDecision(
   };
 }
 
+export function getGeneratedIndexingDecision(page: GeneratedSeoPage): IndexingDecision {
+  if (page.status !== "published") {
+    return generatedNoindex(page, "Generated page is not published.");
+  }
+  if (page.indexFlag === "noindex") {
+    return generatedNoindex(page, "Generated page is intentionally noindex.");
+  }
+  if (page.quality.recommendedIndexFlag === "noindex") {
+    return generatedNoindex(page, "Generated page quality checker recommends noindex.");
+  }
+  if (page.quality.seoScore < 70 || page.quality.duplicateRisk === "high") {
+    return generatedNoindex(page, "Generated page is too weak or duplicate-risky to index.");
+  }
+
+  return {
+    index: true,
+    follow: true,
+    robotsTag: "index, follow",
+    canonicalUrl: page.canonicalTarget ?? page.canonicalUrl,
+    reason: "Generated page is published, useful, unique enough and internally linked.",
+  };
+}
+
 export function getNoindexSubpageDecision(canonicalUrl: string, reason = "Subpage is future-ready but not yet unique enough to index."): IndexingDecision {
   return {
     index: false,
@@ -83,6 +107,16 @@ function noindex(
     follow: true,
     robotsTag: "noindex, follow",
     canonicalUrl: pageData.canonicalTarget ?? pageData.canonicalUrl,
+    reason,
+  };
+}
+
+function generatedNoindex(page: GeneratedSeoPage, reason: string): IndexingDecision {
+  return {
+    index: false,
+    follow: true,
+    robotsTag: "noindex, follow",
+    canonicalUrl: page.canonicalTarget ?? page.canonicalUrl,
     reason,
   };
 }

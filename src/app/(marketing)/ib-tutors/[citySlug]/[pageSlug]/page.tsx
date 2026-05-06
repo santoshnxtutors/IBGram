@@ -7,25 +7,34 @@ import { CITY_CONTENT_PAGE_SLUGS, isCityContentPageSlug } from "@/lib/seo/intern
 import { getNoindexSubpageDecision } from "@/lib/seo/indexing";
 import { buildNoindexMetadata } from "@/lib/seo/metadata";
 import { buildCityPath } from "@/lib/seo/slug-utils";
+import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
+import { getGeneratedPageForRoute, getGeneratedStaticParamsForTypes } from "@/lib/generated-pages/routes";
+import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 
 type CitySubpageProps = {
   params: Promise<{ citySlug: string; pageSlug: string }>;
 };
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 export const revalidate = 86400;
 
 export function generateStaticParams() {
-  return getLiveCitySeoPages().flatMap((page) =>
+  return [
+    ...getLiveCitySeoPages().flatMap((page) =>
     CITY_CONTENT_PAGE_SLUGS.map((pageSlug) => ({
       citySlug: page.citySlug,
       pageSlug,
     })),
-  );
+    ),
+    ...getGeneratedStaticParamsForTypes(["subject", "programme"]).map(({ citySlug, pageSlug }) => ({ citySlug, pageSlug })),
+  ];
 }
 
 export async function generateMetadata({ params }: CitySubpageProps): Promise<Metadata> {
   const { citySlug, pageSlug } = await params;
+  const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/${pageSlug}/`, ["subject", "programme"]);
+  if (generatedPage) return buildGeneratedMetadata(generatedPage);
+
   const page = getCitySeoPageBySlug(citySlug);
 
   if (!page || page.status !== "live" || !isCityContentPageSlug(pageSlug)) {
@@ -47,6 +56,9 @@ export async function generateMetadata({ params }: CitySubpageProps): Promise<Me
 
 export default async function CityContentSubpage({ params }: CitySubpageProps) {
   const { citySlug, pageSlug } = await params;
+  const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/${pageSlug}/`, ["subject", "programme"]);
+  if (generatedPage) return <GeneratedPageRenderer page={generatedPage} />;
+
   const page = getCitySeoPageBySlug(citySlug);
 
   if (!page || page.status !== "live" || !isCityContentPageSlug(pageSlug)) {

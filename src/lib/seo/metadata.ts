@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { CitySeoPage } from "./city-page-types";
+import type { IgcseCitySeoPage } from "./igcse-city-pages";
 import type { IndexingDecision } from "./indexing";
 
 export function buildCityMetadata(page: CitySeoPage, indexing: IndexingDecision): Metadata {
@@ -70,6 +71,40 @@ export function buildNoindexMetadata(args: {
       title: args.title,
       description: args.description,
       images: [args.ogImage],
+    },
+  };
+}
+
+export function buildIgcseCityMetadata(page: IgcseCitySeoPage): Metadata {
+  return {
+    title: page.metaTitle,
+    description: page.metaDescription,
+    keywords: page.keywords,
+    alternates: {
+      canonical: page.canonicalUrl,
+    },
+    robots: {
+      index: page.indexFlag === "index",
+      follow: true,
+    },
+    openGraph: {
+      type: "website",
+      url: page.canonicalUrl,
+      title: page.ogTitle,
+      description: page.ogDescription,
+      siteName: "IB Gram",
+      images: [
+        {
+          url: page.ogImage,
+          alt: page.breadcrumbTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.twitterTitle,
+      description: page.twitterDescription,
+      images: [page.ogImage],
     },
   };
 }

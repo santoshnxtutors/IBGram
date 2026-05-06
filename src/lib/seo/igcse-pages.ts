@@ -38,11 +38,11 @@ export const IGCSE_PAGES_HUB: IgcsePagesHubData = {
   pageId: "igcse-pages-hub",
   canonicalPath: "/igcse-pages/",
   canonicalUrl: absoluteUrl("/igcse-pages/"),
-  metaTitle: "IGCSE Pages for Cambridge & Edexcel Tutors",
+  metaTitle: "IGCSE Tutor Pages by City for Cambridge & Edexcel",
   metaDescription:
-    "Explore IGCSE pages for Cambridge and Pearson Edexcel support, subject tutors, exam prep, assessment guidance, maths, sciences, English and humanities.",
+    "Explore city-wise IGCSE tutor pages for Cambridge and Pearson Edexcel Maths, Physics, Chemistry, Biology, English, Economics and exam prep.",
   keywords: [
-    "IGCSE Pages",
+    "IGCSE tutor pages by city",
     "IGCSE tutors",
     "Cambridge IGCSE tutors",
     "Pearson Edexcel IGCSE tutors",
@@ -50,17 +50,21 @@ export const IGCSE_PAGES_HUB: IgcsePagesHubData = {
     "IGCSE maths tutor",
     "IGCSE physics tutor",
     "IGCSE chemistry tutor",
+    "IGCSE biology tutor",
     "IGCSE English tutor",
+    "IGCSE economics tutor",
     "IGCSE exam preparation",
+    "IGCSE home tutors India",
+    "IGCSE online tutors India",
   ],
-  ogTitle: "IGCSE Pages for Cambridge & Edexcel Support | IB Gram",
+  ogTitle: "IGCSE Tutor Pages by City | IB Gram",
   ogDescription:
-    "A parent-friendly IGCSE page hub for Cambridge and Pearson Edexcel subject support, tutoring options, assessment guidance and next-step planning.",
+    "Browse city-wise IGCSE tutor pages for Cambridge and Pearson Edexcel subject support, tutoring modes, local areas and exam planning.",
   ogImage: absoluteUrl("/images/ib-gram-city-og.svg"),
-  h1: "IGCSE Pages for Cambridge & Edexcel Support",
+  h1: "IGCSE Tutor Pages by City",
   heroSummary:
-    "Use this hub to move quickly between IB Gram's IGCSE curriculum guide, subject directory, tutor discovery, assessment notes and contact routes. The page is built for families comparing Cambridge IGCSE and Pearson Edexcel International GCSE support without keyword-stuffed doorway content.",
-  lastUpdated: "2026-05-04",
+    "Explore city-wise IGCSE tutoring pages for families comparing Cambridge IGCSE and Pearson Edexcel support. Each city page covers local areas, home and online tutoring practicality, subjects, school ecosystem context, FAQs and safe parent-facing guidance.",
+  lastUpdated: "2026-05-06",
   links: [
     {
       linkId: "igcse-curriculum-hub",
@@ -89,6 +93,36 @@ export const IGCSE_PAGES_HUB: IgcsePagesHubData = {
         "Review available tutor profiles and compare support for Cambridge IGCSE and Edexcel International GCSE learners.",
       href: "/igcse/#igcse-tutors",
       anchorText: "Find an IGCSE tutor",
+      linkType: "tutor",
+      priority: 3,
+    },
+    {
+      linkId: "igcse-city-pune",
+      title: "IGCSE tutors in Pune",
+      description:
+        "Open the Pune IGCSE city page for Cambridge, Pearson Edexcel, subject tutoring, area context and exam preparation support.",
+      href: "/igcse-pages/pune/",
+      anchorText: "Find IGCSE tutors in Pune",
+      linkType: "tutor",
+      priority: 3,
+    },
+    {
+      linkId: "igcse-city-hyderabad",
+      title: "IGCSE tutors in Hyderabad",
+      description:
+        "Use the Hyderabad IGCSE city page for board-aware tutoring across maths, sciences, English and exam revision.",
+      href: "/igcse-pages/hyderabad/",
+      anchorText: "Find IGCSE tutors in Hyderabad",
+      linkType: "tutor",
+      priority: 3,
+    },
+    {
+      linkId: "igcse-city-chennai",
+      title: "IGCSE tutors in Chennai",
+      description:
+        "Review Chennai IGCSE tutoring options for Cambridge and Edexcel students across priority subjects and learning modes.",
+      href: "/igcse-pages/chennai/",
+      anchorText: "Find IGCSE tutors in Chennai",
       linkType: "tutor",
       priority: 3,
     },
