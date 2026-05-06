@@ -10,6 +10,8 @@ import { buildCityPath } from "@/lib/seo/slug-utils";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getGeneratedPageForRoute, getGeneratedStaticParamsForTypes } from "@/lib/generated-pages/routes";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
+import { TutorAvailabilitySection } from "@/components/tutors/TutorAvailabilitySection";
+import { buildTutorAvailabilityIntro, getTutorsForGeneratedPage, type TutorPageContext } from "@/lib/tutors/tutor-location-matching";
 
 type CitySubpageProps = {
   params: Promise<{ citySlug: string; pageSlug: string }>;
@@ -67,6 +69,15 @@ export default async function CityContentSubpage({ params }: CitySubpageProps) {
 
   const focus = getFocusContent(pageSlug, page);
   if (!focus) notFound();
+  const pageType = page.ibProgramsAvailable.some((program) => program.slug === pageSlug) ? "programme" : "subject";
+  const context: TutorPageContext = {
+    curriculum: "IB",
+    pageType,
+    citySlug: page.citySlug,
+    subjectSlug: pageType === "subject" ? pageSlug : undefined,
+    programmeSlug: pageType === "programme" ? pageSlug : undefined,
+  };
+  const result = getTutorsForGeneratedPage(context, { limit: 6 });
 
   return (
     <div className="min-h-screen bg-background py-12 md:py-20">
@@ -111,6 +122,19 @@ export default async function CityContentSubpage({ params }: CitySubpageProps) {
             </div>
           ))}
         </section>
+
+        <TutorAvailabilitySection
+          title={`${focus.title} tutors available in ${page.cityName}`}
+          description={buildTutorAvailabilityIntro({
+            curriculum: "IB",
+            cityName: page.cityName,
+            pageType,
+            areas: page.premiumAreas.map((area) => area.name),
+            matchSummary: result.matchSummary,
+          })}
+          result={result}
+          context={context}
+        />
 
         <section className="mt-12 rounded-[2rem] border border-border/50 bg-[#0B0F19]/60 p-6 md:p-8">
           <h2 className="text-2xl font-black tracking-tight text-foreground">Use the main {page.cityName} page for now</h2>

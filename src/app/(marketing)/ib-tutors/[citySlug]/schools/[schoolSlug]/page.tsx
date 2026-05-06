@@ -9,6 +9,8 @@ import { buildCityPath } from "@/lib/seo/slug-utils";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getGeneratedPageForRoute, getGeneratedStaticParamsForTypes } from "@/lib/generated-pages/routes";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
+import { TutorAvailabilitySection } from "@/components/tutors/TutorAvailabilitySection";
+import { buildTutorAvailabilityIntro, getTutorsForSchool } from "@/lib/tutors/tutor-location-matching";
 
 type SchoolPageProps = {
   params: Promise<{ citySlug: string; schoolSlug: string }>;
@@ -65,6 +67,9 @@ export default async function CitySchoolPage({ params }: SchoolPageProps) {
     notFound();
   }
 
+  const context = { curriculum: "IB" as const, pageType: "school" as const, citySlug: page.citySlug, schoolSlug: school.slug };
+  const result = getTutorsForSchool(page.citySlug, school.slug, { curriculum: "IB", limit: 6 });
+
   return (
     <div className="min-h-screen bg-background py-12 md:py-20">
       <div className="container mx-auto px-4 md:px-6">
@@ -107,6 +112,19 @@ export default async function CitySchoolPage({ params }: SchoolPageProps) {
             </div>
           ))}
         </section>
+
+        <TutorAvailabilitySection
+          title={`IB tutor support near ${school.name}`}
+          description={buildTutorAvailabilityIntro({
+            curriculum: "IB",
+            cityName: page.cityName,
+            placeName: school.name,
+            pageType: "school",
+            matchSummary: result.matchSummary,
+          })}
+          result={result}
+          context={context}
+        />
 
         <div className="mt-10 rounded-2xl border border-border/50 bg-[#0B0F19]/60 p-6">
           <h2 className="text-2xl font-black tracking-tight text-foreground">Why this page is noindex today</h2>

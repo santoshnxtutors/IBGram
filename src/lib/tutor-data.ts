@@ -19,7 +19,535 @@
   curriculum: "IB" | "IGCSE" | "Both";
 }
 
-export const allTutors: Tutor[] = [
+export type TutorCurriculum = "IB" | "IGCSE";
+export type TutorLocationPriority = "primary" | "secondary" | "online_only";
+
+export interface TutorLocation {
+  cityName: string;
+  citySlug: string;
+  stateName?: string;
+  countryName?: string;
+  areaName?: string;
+  areaSlug?: string;
+  sectorName?: string;
+  sectorSlug?: string;
+  societyName?: string;
+  societySlug?: string;
+  nearbySchoolName?: string;
+  nearbySchoolSlug?: string;
+  areas?: string[];
+  areaSlugs?: string[];
+  sectors?: string[];
+  sectorSlugs?: string[];
+  societies?: string[];
+  societySlugs?: string[];
+  nearbySchools?: string[];
+  schoolSlugs?: string[];
+  homeTutoringAvailable: boolean;
+  onlineTutoringAvailable: boolean;
+  hybridTutoringAvailable: boolean;
+  serviceRadiusKm?: number;
+  priority?: TutorLocationPriority;
+  isActive?: boolean;
+  notes?: string;
+}
+
+export interface Tutor {
+  isActive: boolean;
+  verified: boolean;
+  approved: boolean;
+  recentlyActive?: string;
+  curriculums: TutorCurriculum[];
+  ibProgrammes: Array<"PYP" | "MYP" | "DP">;
+  igcseSubjects: string[];
+  ibSubjects: string[];
+  subjectLevels: string[];
+  examBoards?: string[];
+  primaryCity: string;
+  primaryCitySlug: string;
+  stateName: string;
+  countryName: string;
+  availableCities: string[];
+  availableCitySlugs: string[];
+  availableAreas: string[];
+  availableAreaSlugs: string[];
+  availableSectors: string[];
+  availableSectorSlugs: string[];
+  availableSocieties: string[];
+  availableSocietySlugs: string[];
+  nearbySchools: string[];
+  nearbySchoolSlugs: string[];
+  serviceRadiusKm?: number;
+  homeTutoringAvailable: boolean;
+  onlineTutoringAvailable: boolean;
+  hybridTutoringAvailable: boolean;
+  travelNotes: string;
+  locationAvailabilityNotes: string;
+  locations: TutorLocation[];
+}
+
+type TutorSeed = Omit<
+  Tutor,
+  | "isActive"
+  | "verified"
+  | "approved"
+  | "recentlyActive"
+  | "curriculums"
+  | "ibProgrammes"
+  | "igcseSubjects"
+  | "ibSubjects"
+  | "subjectLevels"
+  | "examBoards"
+  | "primaryCity"
+  | "primaryCitySlug"
+  | "stateName"
+  | "countryName"
+  | "availableCities"
+  | "availableCitySlugs"
+  | "availableAreas"
+  | "availableAreaSlugs"
+  | "availableSectors"
+  | "availableSectorSlugs"
+  | "availableSocieties"
+  | "availableSocietySlugs"
+  | "nearbySchools"
+  | "nearbySchoolSlugs"
+  | "serviceRadiusKm"
+  | "homeTutoringAvailable"
+  | "onlineTutoringAvailable"
+  | "hybridTutoringAvailable"
+  | "travelNotes"
+  | "locationAvailabilityNotes"
+  | "locations"
+>;
+
+type TutorEnrichment = Partial<
+  Pick<
+    Tutor,
+    | "isActive"
+    | "verified"
+    | "approved"
+    | "recentlyActive"
+    | "curriculums"
+    | "ibProgrammes"
+    | "igcseSubjects"
+    | "ibSubjects"
+    | "subjectLevels"
+    | "examBoards"
+    | "travelNotes"
+    | "locationAvailabilityNotes"
+    | "serviceRadiusKm"
+  >
+> & {
+  locations?: TutorLocation[];
+};
+
+function slugify(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-{2,}/g, "-");
+}
+
+function buildLocation(input: {
+  cityName: string;
+  stateName: string;
+  countryName?: string;
+  areas?: string[];
+  sectors?: string[];
+  societies?: string[];
+  nearbySchools?: string[];
+  homeTutoringAvailable?: boolean;
+  onlineTutoringAvailable?: boolean;
+  hybridTutoringAvailable?: boolean;
+  serviceRadiusKm?: number;
+  priority?: TutorLocationPriority;
+  notes?: string;
+}): TutorLocation {
+  const areaName = input.areas?.[0];
+  const sectorName = input.sectors?.[0];
+  const societyName = input.societies?.[0];
+  const nearbySchoolName = input.nearbySchools?.[0];
+
+  return {
+    cityName: input.cityName,
+    citySlug: slugify(input.cityName),
+    stateName: input.stateName,
+    countryName: input.countryName ?? "India",
+    areaName,
+    areaSlug: areaName ? slugify(areaName) : undefined,
+    sectorName,
+    sectorSlug: sectorName ? slugify(sectorName) : undefined,
+    societyName,
+    societySlug: societyName ? slugify(societyName) : undefined,
+    nearbySchoolName,
+    nearbySchoolSlug: nearbySchoolName ? slugify(nearbySchoolName) : undefined,
+    areas: input.areas ?? [],
+    areaSlugs: (input.areas ?? []).map(slugify),
+    sectors: input.sectors ?? [],
+    sectorSlugs: (input.sectors ?? []).map(slugify),
+    societies: input.societies ?? [],
+    societySlugs: (input.societies ?? []).map(slugify),
+    nearbySchools: input.nearbySchools ?? [],
+    schoolSlugs: (input.nearbySchools ?? []).map(slugify),
+    homeTutoringAvailable: input.homeTutoringAvailable ?? true,
+    onlineTutoringAvailable: input.onlineTutoringAvailable ?? true,
+    hybridTutoringAvailable: input.hybridTutoringAvailable ?? true,
+    serviceRadiusKm: input.serviceRadiusKm,
+    priority: input.priority ?? "primary",
+    isActive: true,
+    notes: input.notes,
+  };
+}
+
+const locationProfiles = {
+  gurugramCore: buildLocation({
+    cityName: "Gurugram",
+    stateName: "Haryana",
+    areas: ["Golf Course Road", "DLF Phase 5"],
+    sectors: ["Sector 56", "Sector 57"],
+    societies: ["Sushant Lok", "DLF Park Place"],
+    nearbySchools: ["Lancers International School", "Scottish High International School", "Pathways World School"],
+    serviceRadiusKm: 8,
+    notes: "Home tutoring reviewed around Golf Course Road, DLF Phase 5, Sector 56, Sushant Lok and nearby Gurugram areas.",
+  }),
+  gurugramCity: buildLocation({
+    cityName: "Gurugram",
+    stateName: "Haryana",
+    areas: ["Sushant Lok", "Sohna Road"],
+    sectors: ["Sector 57", "Sector 50"],
+    societies: ["Nirvana Country"],
+    nearbySchools: ["Scottish High International School", "GD Goenka World School"],
+    serviceRadiusKm: 10,
+    notes: "City-level Gurugram availability with home tutoring reviewed by travel window and online backup available.",
+  }),
+  gurugramIgcse: buildLocation({
+    cityName: "Gurugram",
+    stateName: "Haryana",
+    areas: ["Golf Course Road", "Sohna Road"],
+    sectors: ["Sector 56", "Sector 49"],
+    societies: ["Sushant Lok"],
+    nearbySchools: ["Lancers International School", "Scottish High International School"],
+    serviceRadiusKm: 9,
+    notes: "IGCSE home and hybrid tutoring reviewed around central Gurugram, with online lessons available city-wide.",
+  }),
+  delhiOnline: buildLocation({
+    cityName: "Delhi",
+    stateName: "Delhi",
+    areas: ["South Delhi", "Vasant Vihar"],
+    nearbySchools: ["The British School New Delhi"],
+    homeTutoringAvailable: false,
+    onlineTutoringAvailable: true,
+    hybridTutoringAvailable: false,
+    serviceRadiusKm: 0,
+    priority: "online_only",
+    notes: "Online-only support outside Delhi unless a separate home tutoring route is confirmed.",
+  }),
+  noida: buildLocation({
+    cityName: "Noida",
+    stateName: "Uttar Pradesh",
+    areas: ["Sector 44", "Expressway"],
+    sectors: ["Sector 44", "Sector 128"],
+    societies: ["Jaypee Greens Wish Town"],
+    nearbySchools: ["Pathways School Noida"],
+    serviceRadiusKm: 8,
+    notes: "Home tutoring reviewed in central Noida and Expressway pockets, with online support available across NCR.",
+  }),
+  bangalore: buildLocation({
+    cityName: "Bangalore",
+    stateName: "Karnataka",
+    areas: ["Whitefield", "Sarjapur Road"],
+    societies: ["Prestige Lakeside Habitat"],
+    nearbySchools: ["Indus International School Bangalore", "The International School Bangalore"],
+    serviceRadiusKm: 12,
+    notes: "Hybrid and online support for Bangalore school corridors, with home tutoring reviewed by commute feasibility.",
+  }),
+  pune: buildLocation({
+    cityName: "Pune",
+    stateName: "Maharashtra",
+    areas: ["Kalyani Nagar", "Hinjewadi"],
+    societies: ["Amanora Park Town"],
+    nearbySchools: ["Mercedes-Benz International School"],
+    serviceRadiusKm: 10,
+    notes: "Home and hybrid support reviewed in Pune's international school corridors.",
+  }),
+  mumbaiOnline: buildLocation({
+    cityName: "Mumbai",
+    stateName: "Maharashtra",
+    areas: ["Bandra", "Powai"],
+    societies: ["Hiranandani Gardens"],
+    nearbySchools: ["Oberoi International School"],
+    homeTutoringAvailable: false,
+    onlineTutoringAvailable: true,
+    hybridTutoringAvailable: false,
+    serviceRadiusKm: 0,
+    priority: "online_only",
+    notes: "Online subject-specialist support available outside local Mumbai travel routes.",
+  }),
+} satisfies Record<string, TutorLocation>;
+
+const tutorEnrichmentById: Record<number, TutorEnrichment> = {
+  1: {
+    locations: [locationProfiles.gurugramCore],
+    curriculums: ["IB"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["Mathematics", "Math AA", "Math AI", "Math AA HL", "Math AI HL"],
+    subjectLevels: ["HL", "SL", "Year 12", "Year 13"],
+  },
+  2: {
+    locations: [locationProfiles.gurugramIgcse],
+    curriculums: ["IGCSE"],
+    igcseSubjects: ["Physics", "Mechanics", "Thermodynamics"],
+    subjectLevels: ["Grade 9", "Grade 10", "Year 10", "Year 11"],
+    examBoards: ["Cambridge IGCSE", "Pearson Edexcel International GCSE"],
+  },
+  3: {
+    locations: [locationProfiles.delhiOnline],
+    curriculums: ["IB"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["Economics", "Business Management"],
+    subjectLevels: ["HL", "SL"],
+  },
+  4: {
+    locations: [locationProfiles.gurugramCity],
+    curriculums: ["IB"],
+    ibProgrammes: ["MYP"],
+    ibSubjects: ["Mathematics", "MYP Mathematics"],
+    subjectLevels: ["MYP", "Year 7", "Year 8", "Year 9"],
+  },
+  5: {
+    locations: [locationProfiles.gurugramCore],
+    curriculums: ["IB", "IGCSE"],
+    ibProgrammes: ["MYP", "DP"],
+    ibSubjects: ["English", "English A", "English Literature"],
+    igcseSubjects: ["English", "English Literature", "English Language"],
+    subjectLevels: ["HL", "SL", "Grade 9", "Grade 10"],
+    examBoards: ["Cambridge IGCSE", "Pearson Edexcel International GCSE"],
+  },
+  6: {
+    locations: [locationProfiles.delhiOnline],
+    curriculums: ["IGCSE"],
+    igcseSubjects: ["Physics", "Mechanics", "Thermodynamics"],
+    subjectLevels: ["Grade 9", "Grade 10", "Year 10", "Year 11"],
+    examBoards: ["Cambridge IGCSE"],
+  },
+  7: {
+    locations: [locationProfiles.gurugramIgcse],
+    curriculums: ["IGCSE"],
+    igcseSubjects: ["Physics", "Mechanics", "Thermodynamics"],
+    subjectLevels: ["Grade 9", "Grade 10", "Year 10", "Year 11"],
+    examBoards: ["Cambridge IGCSE", "Pearson Edexcel International GCSE"],
+  },
+  8101: {
+    locations: [locationProfiles.gurugramCore],
+    curriculums: ["IB"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["Mathematics", "Math AA", "Math AI", "Math AA HL", "Math AI HL"],
+    subjectLevels: ["HL", "SL"],
+  },
+  8102: {
+    locations: [locationProfiles.gurugramCity],
+    curriculums: ["IB"],
+    ibProgrammes: ["MYP", "DP"],
+    ibSubjects: ["Mathematics", "Math AA", "MYP Mathematics"],
+    subjectLevels: ["MYP", "HL", "SL"],
+  },
+  8103: {
+    locations: [locationProfiles.bangalore],
+    curriculums: ["IB"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["Mathematics", "Math AI", "Math AI HL"],
+    subjectLevels: ["HL", "SL"],
+  },
+  8201: {
+    locations: [locationProfiles.gurugramCity],
+    curriculums: ["IB", "IGCSE"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["Physics"],
+    igcseSubjects: ["Physics"],
+    subjectLevels: ["HL", "SL", "Grade 9", "Grade 10"],
+    examBoards: ["Cambridge IGCSE", "Pearson Edexcel International GCSE"],
+  },
+  8202: {
+    locations: [locationProfiles.noida],
+    curriculums: ["IB"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["Chemistry"],
+    subjectLevels: ["HL", "SL"],
+  },
+  8203: {
+    locations: [locationProfiles.pune],
+    curriculums: ["IB"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["Biology"],
+    subjectLevels: ["HL", "SL"],
+  },
+  8301: {
+    locations: [locationProfiles.delhiOnline],
+    curriculums: ["IB"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["Economics"],
+    subjectLevels: ["HL", "SL"],
+  },
+  8302: {
+    locations: [locationProfiles.gurugramCore],
+    curriculums: ["IB"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["Business Management", "Economics"],
+    subjectLevels: ["HL", "SL"],
+  },
+  8303: {
+    locations: [locationProfiles.mumbaiOnline],
+    curriculums: ["IB"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["History"],
+    subjectLevels: ["HL", "SL"],
+  },
+  8401: {
+    locations: [locationProfiles.gurugramCore],
+    curriculums: ["IB", "IGCSE"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["English", "English A", "English Literature"],
+    igcseSubjects: ["English", "English Literature", "English Language"],
+    subjectLevels: ["HL", "SL", "Grade 9", "Grade 10"],
+    examBoards: ["Cambridge IGCSE", "Pearson Edexcel International GCSE"],
+  },
+  8402: {
+    locations: [locationProfiles.noida],
+    curriculums: ["IB", "IGCSE"],
+    ibProgrammes: ["MYP", "DP"],
+    ibSubjects: ["English", "English A", "English Language"],
+    igcseSubjects: ["English", "English Language"],
+    subjectLevels: ["MYP", "SL", "Grade 9", "Grade 10"],
+    examBoards: ["Cambridge IGCSE"],
+  },
+  8403: {
+    locations: [locationProfiles.bangalore],
+    curriculums: ["IB"],
+    ibProgrammes: ["DP"],
+    ibSubjects: ["English", "English A", "English Literature"],
+    subjectLevels: ["HL", "SL"],
+  },
+  8501: {
+    locations: [locationProfiles.gurugramCity],
+    curriculums: ["IB"],
+    ibProgrammes: ["MYP", "DP"],
+    ibSubjects: ["Spanish", "Language B"],
+    subjectLevels: ["HL", "SL"],
+  },
+  8502: {
+    locations: [locationProfiles.pune],
+    curriculums: ["IB"],
+    ibProgrammes: ["MYP", "DP"],
+    ibSubjects: ["French", "Language B"],
+    subjectLevels: ["HL", "SL"],
+  },
+  8503: {
+    locations: [locationProfiles.mumbaiOnline],
+    curriculums: ["IB"],
+    ibProgrammes: ["MYP", "DP"],
+    ibSubjects: ["Arabic", "Language A", "Language B"],
+    subjectLevels: ["HL", "SL"],
+  },
+};
+
+function unique(values: Array<string | undefined>): string[] {
+  return Array.from(new Set(values.filter((value): value is string => Boolean(value))));
+}
+
+function deriveCurriculums(seed: TutorSeed, enrichment: TutorEnrichment): TutorCurriculum[] {
+  if (enrichment.curriculums?.length) return enrichment.curriculums;
+  if (seed.curriculum === "Both") return ["IB", "IGCSE"];
+  return [seed.curriculum];
+}
+
+function deriveProgrammes(seed: TutorSeed, enrichment: TutorEnrichment): Array<"PYP" | "MYP" | "DP"> {
+  if (enrichment.ibProgrammes?.length) return enrichment.ibProgrammes;
+  const grade = seed.grade.toLowerCase();
+  if (grade.includes("pyp") || grade.includes("year 1") || grade.includes("year 2") || grade.includes("year 3")) return ["PYP"];
+  if (grade.includes("myp") || grade.includes("year 7") || grade.includes("year 8") || grade.includes("year 9")) return ["MYP"];
+  return ["DP"];
+}
+
+function deriveSubjects(seed: TutorSeed, curriculum: TutorCurriculum, enrichment: TutorEnrichment): string[] {
+  const explicit = curriculum === "IB" ? enrichment.ibSubjects : enrichment.igcseSubjects;
+  if (explicit?.length) return explicit;
+  return [seed.subject];
+}
+
+function deriveDefaultLocation(seed: TutorSeed): TutorLocation {
+  if (seed.curriculum === "IGCSE") return locationProfiles.gurugramIgcse;
+  if (seed.subject.toLowerCase().includes("math")) return locationProfiles.gurugramCore;
+  return locationProfiles.gurugramCity;
+}
+
+function createTutor(seed: TutorSeed): Tutor {
+  const enrichment = tutorEnrichmentById[seed.id] ?? {};
+  const locations = enrichment.locations?.length ? enrichment.locations : [deriveDefaultLocation(seed)];
+  const activeLocations = locations.filter((location) => location.isActive !== false);
+  const primaryLocation = activeLocations.find((location) => location.priority === "primary") ?? activeLocations[0] ?? locations[0];
+  const curriculums = deriveCurriculums(seed, enrichment);
+  const ibSubjects = curriculums.includes("IB") ? deriveSubjects(seed, "IB", enrichment) : [];
+  const igcseSubjects = curriculums.includes("IGCSE") ? deriveSubjects(seed, "IGCSE", enrichment) : [];
+  const homeTutoringAvailable = activeLocations.some((location) => location.homeTutoringAvailable);
+  const onlineTutoringAvailable = activeLocations.some((location) => location.onlineTutoringAvailable);
+  const hybridTutoringAvailable = activeLocations.some((location) => location.hybridTutoringAvailable);
+  const availableAreas = unique(activeLocations.flatMap((location) => location.areas ?? []));
+  const availableSectors = unique(activeLocations.flatMap((location) => location.sectors ?? []));
+  const availableSocieties = unique(activeLocations.flatMap((location) => location.societies ?? []));
+  const nearbySchools = unique(activeLocations.flatMap((location) => location.nearbySchools ?? []));
+  const serviceRadiusKm = enrichment.serviceRadiusKm ?? primaryLocation.serviceRadiusKm;
+
+  return {
+    ...seed,
+    isActive: enrichment.isActive ?? true,
+    verified: enrichment.verified ?? true,
+    approved: enrichment.approved ?? true,
+    recentlyActive: enrichment.recentlyActive ?? "2026-05-06",
+    curriculums,
+    ibProgrammes: deriveProgrammes(seed, enrichment),
+    ibSubjects,
+    igcseSubjects,
+    subjectLevels: enrichment.subjectLevels ?? [seed.grade],
+    examBoards: enrichment.examBoards,
+    primaryCity: primaryLocation.cityName,
+    primaryCitySlug: primaryLocation.citySlug,
+    stateName: primaryLocation.stateName ?? "",
+    countryName: primaryLocation.countryName ?? "India",
+    availableCities: unique(activeLocations.map((location) => location.cityName)),
+    availableCitySlugs: unique(activeLocations.map((location) => location.citySlug)),
+    availableAreas,
+    availableAreaSlugs: availableAreas.map(slugify),
+    availableSectors,
+    availableSectorSlugs: availableSectors.map(slugify),
+    availableSocieties,
+    availableSocietySlugs: availableSocieties.map(slugify),
+    nearbySchools,
+    nearbySchoolSlugs: nearbySchools.map(slugify),
+    serviceRadiusKm,
+    homeTutoringAvailable,
+    onlineTutoringAvailable,
+    hybridTutoringAvailable,
+    travelNotes:
+      enrichment.travelNotes ??
+      (homeTutoringAvailable
+        ? `Home tutoring is reviewed within ${serviceRadiusKm ?? "selected"} km of ${primaryLocation.cityName}, subject to timing and route feasibility.`
+        : "Home tutoring is not currently listed for this tutor outside confirmed local routes."),
+    locationAvailabilityNotes:
+      enrichment.locationAvailabilityNotes ??
+      `Available in ${primaryLocation.cityName}${availableAreas.length ? `: ${availableAreas.slice(0, 4).join(", ")}` : ""}${
+        availableSectors.length ? `, ${availableSectors.slice(0, 3).join(", ")}` : ""
+      } and nearby areas. Availability depends on subject, schedule, location and tutor confirmation.`,
+    locations,
+  };
+}
+
+const tutorSeeds: TutorSeed[] = [
   {
     id: 1,
     name: "Dr. Sarah M.",
@@ -461,3 +989,5 @@ export const allTutors: Tutor[] = [
     curriculum: "IB",
   }
 ];
+
+export const allTutors: Tutor[] = tutorSeeds.map(createTutor);

@@ -7,6 +7,7 @@ import { allTutors } from "@/lib/tutor-data";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Star, Clock, GraduationCap, ShieldCheck, CheckCircle2, MessageCircle, ArrowRight, Laptop, Home as HomeIcon, Award, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
+import { TutorProfileLocationSection } from "@/components/tutors/TutorProfileLocationSection";
 
 export default function TutorProfilePage() {
    const params = useParams();
@@ -198,6 +199,8 @@ export default function TutorProfilePage() {
                            ))}
                         </div>
                      </section>
+
+                     <TutorProfileLocationSection tutor={tutor} />
 
                      <section>
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">

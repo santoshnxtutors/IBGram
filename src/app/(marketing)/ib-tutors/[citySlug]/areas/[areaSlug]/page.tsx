@@ -9,6 +9,8 @@ import { buildCityPath } from "@/lib/seo/slug-utils";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getGeneratedPageForRoute, getGeneratedStaticParamsForTypes } from "@/lib/generated-pages/routes";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
+import { TutorAvailabilitySection } from "@/components/tutors/TutorAvailabilitySection";
+import { buildTutorAvailabilityIntro, getTutorsForArea } from "@/lib/tutors/tutor-location-matching";
 
 type AreaPageProps = {
   params: Promise<{ citySlug: string; areaSlug: string }>;
@@ -65,6 +67,9 @@ export default async function CityAreaPage({ params }: AreaPageProps) {
     notFound();
   }
 
+  const context = { curriculum: "IB" as const, pageType: "area" as const, citySlug: page.citySlug, areaSlug: area.slug };
+  const result = getTutorsForArea(page.citySlug, area.slug, { curriculum: "IB", limit: 6 });
+
   return (
     <div className="min-h-screen bg-background py-12 md:py-20">
       <div className="container mx-auto px-4 md:px-6">
@@ -115,6 +120,19 @@ export default async function CityAreaPage({ params }: AreaPageProps) {
             <p className="text-sm font-medium leading-relaxed text-muted-foreground">{page.localCtaText}</p>
           </div>
         </section>
+
+        <TutorAvailabilitySection
+          title={`IB tutors available near ${area.name}`}
+          description={buildTutorAvailabilityIntro({
+            curriculum: "IB",
+            cityName: page.cityName,
+            placeName: area.name,
+            pageType: "area",
+            matchSummary: result.matchSummary,
+          })}
+          result={result}
+          context={context}
+        />
 
         <Link
           href={buildCityPath(page.citySlug)}

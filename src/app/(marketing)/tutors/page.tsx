@@ -20,6 +20,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { allTutors } from "@/lib/tutor-data";
+import { getTutorLocationBadges } from "@/lib/tutors/tutor-location-matching";
 
 const IB_SUBJECTS = [
   "IB Mathematics",
@@ -321,6 +322,14 @@ export default function TutorsPage() {
                       <span className="rounded-lg border border-current/20 bg-primary/10 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-primary md:px-3 md:text-[10px]">
                         {tutor.curriculum}
                       </span>
+                      {getTutorLocationBadges(tutor).slice(0, 2).map((badge) => (
+                        <span
+                          key={badge}
+                          className="rounded-lg border border-border/60 bg-muted/20 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-muted-foreground md:px-3 md:text-[10px]"
+                        >
+                          {badge}
+                        </span>
+                      ))}
                       {tutor.tags.slice(0, 1).map((tag: string) => (
                         <span
                           key={tag}

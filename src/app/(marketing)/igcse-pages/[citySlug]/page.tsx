@@ -19,6 +19,8 @@ import { JsonLd } from "@/components/seo-city/JsonLd";
 import { buildIgcseCityMetadata } from "@/lib/seo/metadata";
 import { buildIgcseCityPageSchema } from "@/lib/seo/schema";
 import { getIgcseCityPageBySlug, getLiveIgcseCityPages } from "@/lib/seo/igcse-city-pages";
+import { TutorAvailabilitySection } from "@/components/tutors/TutorAvailabilitySection";
+import { buildTutorAvailabilityIntro, getTutorsForCity } from "@/lib/tutors/tutor-location-matching";
 
 type IgcseCityPageProps = {
   params: Promise<{ citySlug: string }>;
@@ -51,6 +53,8 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
   }
 
   const schema = buildIgcseCityPageSchema(page);
+  const context = { curriculum: "IGCSE" as const, pageType: "city" as const, citySlug: page.citySlug };
+  const tutorResult = getTutorsForCity(page.citySlug, { curriculum: "IGCSE", limit: 6 });
 
   return (
     <div className="min-h-screen bg-background">
@@ -245,6 +249,18 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
           </div>
         </div>
       </section>
+
+      <TutorAvailabilitySection
+        title={`IGCSE tutors currently mapped to ${page.cityName}`}
+        description={buildTutorAvailabilityIntro({
+          curriculum: "IGCSE",
+          cityName: page.cityName,
+          areas: page.areaNotes.map((area) => area.name),
+          matchSummary: tutorResult.matchSummary,
+        })}
+        result={tutorResult}
+        context={context}
+      />
 
       <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
