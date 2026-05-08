@@ -3,6 +3,9 @@ import { ArrowLeft, ArrowRight, MapPinned, SearchCheck } from "lucide-react";
 import { TutorAvailabilitySection } from "@/components/tutors/TutorAvailabilitySection";
 import { buildTutorAvailabilityIntro, getTutorsForGeneratedPage, type TutorPageContext, type TutorPageType } from "@/lib/tutors/tutor-location-matching";
 import type { IgcseCitySeoPage } from "@/lib/seo/igcse-city-pages";
+import { buildTutorLandingPageSchema } from "@/lib/seo/schema";
+import { absoluteUrl } from "@/lib/seo/slug-utils";
+import { JsonLd } from "@/components/generated-pages/JsonLd";
 
 type IgcseTutorAvailabilityPageProps = {
   page: IgcseCitySeoPage;
@@ -37,9 +40,30 @@ export function IgcseTutorAvailabilityPage({
   };
   const result = getTutorsForGeneratedPage(context, { limit: 6 });
   const locationTitle = placeName ?? page.cityName;
+  const canonicalUrl = absoluteUrl(buildCanonicalPath(page.citySlug, pageType, { areaSlug, sectorSlug, societySlug, schoolSlug, subjectSlug }));
+  const faqs = buildIgcseTutorFaqs(page.cityName, locationTitle, pageType, page.schoolDisclaimer);
+  const schema = buildTutorLandingPageSchema({
+    canonicalUrl,
+    title: `IGCSE tutors near ${locationTitle}`,
+    description: `Compare Cambridge and Pearson Edexcel IGCSE tutors near ${locationTitle} with city, locality, subject and online fallback matching.`,
+    breadcrumbItems: [
+      { name: "Home", url: absoluteUrl("/") },
+      { name: "IGCSE", url: absoluteUrl("/igcse/") },
+      { name: page.cityName, url: absoluteUrl(`/igcse-tutors/${page.citySlug}/`) },
+      { name: locationTitle, url: canonicalUrl },
+    ],
+    serviceName: `IGCSE tutoring near ${locationTitle}`,
+    serviceType: "IGCSE tutoring",
+    areaServed: [locationTitle, page.cityName, ...page.areaNotes.slice(0, 4).map((area) => area.name)],
+    subjects: page.subjects.map((subject) => subject.name),
+    educationalLevel: "IGCSE, International GCSE, Grades 9-10",
+    faqs,
+    dateModified: page.lastUpdated,
+  });
 
   return (
     <div className="min-h-screen bg-background">
+      <JsonLd data={schema} />
       <section className="relative overflow-hidden bg-background py-14 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <Link href="/igcse-pages/" className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary/80">
@@ -92,6 +116,19 @@ export function IgcseTutorAvailabilityPage({
         tinted
       />
 
+      <section className="bg-muted/10 py-12">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid gap-5 md:grid-cols-2">
+            {faqs.map((faq) => (
+              <article key={faq.question} className="rounded-2xl border border-border/50 bg-background p-5">
+                <h2 className="text-base font-black text-foreground">{faq.question}</h2>
+                <p className="mt-2 text-sm font-medium leading-relaxed text-muted-foreground">{faq.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-background pb-20">
         <div className="container mx-auto px-4 md:px-6">
           <Link href={page.canonicalPath} className="inline-flex h-12 items-center justify-center rounded-xl bg-primary px-6 text-sm font-black text-primary-foreground">
@@ -102,4 +139,38 @@ export function IgcseTutorAvailabilityPage({
       </section>
     </div>
   );
+}
+
+function buildCanonicalPath(
+  citySlug: string,
+  pageType: TutorPageType,
+  slugs: { areaSlug?: string; sectorSlug?: string; societySlug?: string; schoolSlug?: string; subjectSlug?: string },
+): string {
+  if (pageType === "area" && slugs.areaSlug) return `/igcse-tutors/${citySlug}/areas/${slugs.areaSlug}/`;
+  if (pageType === "sector" && slugs.sectorSlug) return `/igcse-tutors/${citySlug}/sectors/${slugs.sectorSlug}/`;
+  if (pageType === "society" && slugs.societySlug) return `/igcse-tutors/${citySlug}/societies/${slugs.societySlug}/`;
+  if (pageType === "school" && slugs.schoolSlug) return `/igcse-tutors/${citySlug}/schools/${slugs.schoolSlug}/`;
+  if (pageType === "subject" && slugs.subjectSlug) return `/igcse-tutors/${citySlug}/${slugs.subjectSlug}/`;
+  return `/igcse-tutors/${citySlug}/`;
+}
+
+function buildIgcseTutorFaqs(cityName: string, locationTitle: string, pageType: TutorPageType, disclaimer: string) {
+  return [
+    {
+      question: `Can I find IGCSE tutors near ${locationTitle}?`,
+      answer: `Yes. IB Gram reviews IGCSE tutor availability near ${locationTitle} for Cambridge and Pearson Edexcel support, with exact local matches first and online fallback when it is academically stronger.`,
+    },
+    {
+      question: "Which IGCSE subjects are commonly supported?",
+      answer: "Common requests include Maths, Physics, Chemistry, Biology, English, Economics and Business. Tutor fit depends on board, syllabus, current grade range and exam session.",
+    },
+    {
+      question: pageType === "school" ? `Is IB Gram affiliated with schools in ${cityName}?` : "Can online IGCSE tutoring work well?",
+      answer: pageType === "school" ? disclaimer : "Yes. Online tutoring is often useful for board-specific specialists, mock review, past-paper practice and urgent exam-season doubts.",
+    },
+    {
+      question: `How does matching work in ${cityName}?`,
+      answer: "The match starts with board, subject, syllabus route, location, mode, schedule and current learning gap. IB Gram then reviews home, online or hybrid options where available.",
+    },
+  ];
 }

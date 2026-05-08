@@ -5,7 +5,7 @@ import { ArrowRight, Check, CheckCircle, Clock, ShieldCheck, Sparkles, Star, X }
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { formatCourseSubject, getCourseTutorProfiles } from "./course-tutor-data";
@@ -17,6 +17,8 @@ interface CourseTutorSectionProps {
 
 export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSectionProps) {
   const router = useRouter();
+  const pathname = usePathname();
+  const currentPath = pathname;
   const subjectTitle = formatCourseSubject(subjectSlug);
   const courseTutors = getCourseTutorProfiles(curriculum, subjectSlug);
   const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -34,7 +36,7 @@ export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSecti
 
   const handleCompareRedirect = () => {
     if (compareIds.length === 2) {
-      router.push(`/tutor-compare?ids=${compareIds.join(",")}`);
+      router.push(`/tutor-compare?ids=${compareIds.join(",")}&returnTo=${encodeURIComponent(currentPath)}`);
     }
   };
 
@@ -366,7 +368,7 @@ export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSecti
                         document.body.style.position = "";
                         document.body.style.width = "";
                         document.body.style.top = "";
-                        router.push(`/tutor-profile/${activeTutor.id}`);
+                        router.push(`/tutor-profile/${activeTutor.id}?returnTo=${encodeURIComponent(currentPath)}`);
                       }}
                       className="group flex flex-1 items-center justify-end text-lg font-bold text-primary transition-colors hover:text-primary/80"
                       type="button"

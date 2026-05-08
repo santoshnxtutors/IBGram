@@ -3,15 +3,17 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, Clock, CheckCircle, X, ShieldCheck, Sparkles, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { allTutors } from "@/lib/tutor-data";
 
 export function TutorDiscovery() {
   const router = useRouter();
+  const pathname = usePathname();
+  const currentPath = pathname;
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [compareIds, setCompareIds] = useState<number[]>([]);
 
@@ -25,7 +27,7 @@ export function TutorDiscovery() {
 
   const handleCompareRedirect = () => {
     if (compareIds.length === 2) {
-      router.push(`/tutor-compare?ids=${compareIds.join(",")}`);
+      router.push(`/tutor-compare?ids=${compareIds.join(",")}&returnTo=${encodeURIComponent(currentPath)}`);
     }
   };
 
@@ -291,7 +293,7 @@ export function TutorDiscovery() {
                         Message
                       </Button>
                       <button
-                        onClick={() => router.push(`/tutor-profile/${tutor.id}`)}
+                        onClick={() => router.push(`/tutor-profile/${tutor.id}?returnTo=${encodeURIComponent(currentPath)}`)}
                         className="flex-1 flex justify-end items-center font-bold text-primary hover:text-primary/80 transition-colors group text-lg"
                       >
                         Full Profile <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
@@ -307,4 +309,3 @@ export function TutorDiscovery() {
     </section>
   );
 }
-

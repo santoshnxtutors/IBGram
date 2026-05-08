@@ -1,6 +1,8 @@
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
+import { gurgaonGeneratedSeoPages } from "@/lib/local-seo/gurgaon";
 
 export const generatedSeoPages: GeneratedSeoPage[] = [
+  ...gurgaonGeneratedSeoPages,
   {
     pageId: "IBG_GURUGRAM_SECTOR_56_IB_TUTORS",
     pageType: "sector",

@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Star, Clock, CheckCircle, X, Sparkles, GraduationCap, Trophy, Zap, Calendar, MousePointer2, ArrowLeft } from "lucide-react";
+import { Star, Clock, CheckCircle, Sparkles, GraduationCap, Trophy, Calendar, MousePointer2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -9,11 +8,12 @@ import { Tutor } from "@/lib/tutor-data";
 
 interface ComparisonViewProps {
   tutors: Tutor[];
-  onClose?: () => void;
+  returnTo?: string;
 }
 
-export function ComparisonView({ tutors, onClose }: ComparisonViewProps) {
+export function ComparisonView({ tutors, returnTo }: ComparisonViewProps) {
   const router = useRouter();
+  const profileReturnParam = returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : "";
 
   if (tutors.length < 2) {
     return (
@@ -25,8 +25,8 @@ export function ComparisonView({ tutors, onClose }: ComparisonViewProps) {
         <p className="text-muted-foreground mb-8 max-w-md">
           Choose at least two tutors from our elite roster to see a side-by-side diagnostic comparison.
         </p>
-        <Button onClick={() => router.push("/tutors")} className="rounded-xl h-12 px-8 font-bold">
-          Browse Tutors
+        <Button onClick={() => router.push(returnTo ?? "/tutors")} className="rounded-xl h-12 px-8 font-bold">
+          {returnTo ? "Back to Page" : "Browse Tutors"}
         </Button>
       </div>
     );
@@ -93,7 +93,7 @@ export function ComparisonView({ tutors, onClose }: ComparisonViewProps) {
 
       {/* Comparison Rows */}
       <div className="divide-y divide-border/30">
-        {attributes.map((attr, idx) => (
+        {attributes.map((attr) => (
           <div
             key={attr.label}
             className="grid grid-cols-[1.2fr_2fr_2fr] gap-4 py-5 px-6 hover:bg-muted/20 transition-colors rounded-2xl"
@@ -137,14 +137,14 @@ export function ComparisonView({ tutors, onClose }: ComparisonViewProps) {
         <div className="mt-10 pt-8 border-t border-border/50 flex flex-col md:flex-row gap-4 items-center justify-between">
            <div className="flex gap-3">
               <Button 
-                onClick={() => router.push(`/tutor-profile/${tutors[0].id}`)}
+                onClick={() => router.push(`/tutor-profile/${tutors[0].id}${profileReturnParam}`)}
                 variant="outline" 
                 className="rounded-xl border font-bold h-10 px-4 text-xs"
               >
                 Profile: {tutors[0].name.split(" ")[0]}
               </Button>
               <Button 
-                onClick={() => router.push(`/tutor-profile/${tutors[1].id}`)}
+                onClick={() => router.push(`/tutor-profile/${tutors[1].id}${profileReturnParam}`)}
                 variant="outline" 
                 className="rounded-xl border font-bold h-10 px-4 text-xs"
               >

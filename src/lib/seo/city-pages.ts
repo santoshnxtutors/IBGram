@@ -62,7 +62,7 @@ export const citySeoPageBaseData = [
           "High-demand corridor for DP Math, sciences and economics support, especially for families who want evening home lessons with predictable travel windows.",
         nearbyLandmarks: ["Sector 53", "Sector 54", "Rapid Metro corridor"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "DLF Phase 5",
@@ -71,7 +71,7 @@ export const citySeoPageBaseData = [
           "Premium residential pocket where hybrid tutoring is often preferred because students split time between school work, sports and test preparation.",
         nearbyLandmarks: ["The Crest", "DLF Park Place", "Golf Course Road"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Sector 57",
@@ -80,7 +80,7 @@ export const citySeoPageBaseData = [
           "A practical base for families around central Gurugram who need MYP foundations, DP subject tutoring and short-notice online backup.",
         nearbyLandmarks: ["Sushant Lok 3", "Golf Course Extension Road"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Sohna Road",
@@ -89,7 +89,7 @@ export const citySeoPageBaseData = [
           "Useful for families near newer communities where online or hybrid support can reduce commute friction during exam months.",
         nearbyLandmarks: ["Vatika Chowk", "Sector 49", "Sector 50"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Sushant Lok",
@@ -97,7 +97,7 @@ export const citySeoPageBaseData = [
         description:
           "A central tutoring catchment for PYP, MYP and DP families who want quick access to vetted IB mentors.",
         pageEnabled: false,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
     ],
     nearbyAreas: ["Nirvana Country", "South City 1", "DLF Phase 1", "DLF Phase 4", "Sector 50", "Sector 65"],
@@ -230,7 +230,7 @@ export const citySeoPageBaseData = [
           "Families connected with this ecosystem often ask for DP subject depth, MYP assignment structure and balanced school-week scheduling.",
         typicalNeeds: ["DP Math AA and AI support", "MYP criterion guidance", "IA and EE planning"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Lancers International School",
@@ -240,7 +240,7 @@ export const citySeoPageBaseData = [
           "A common reference point for central Gurugram families looking for IB-aligned tutoring near Golf Course Road.",
         typicalNeeds: ["PYP inquiry support", "MYP foundations", "DP sciences and mathematics"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Scottish High International School",
@@ -250,7 +250,7 @@ export const citySeoPageBaseData = [
           "Parents in and around Sector 57 often seek help with DP subject combinations, language support and weekly academic routines.",
         typicalNeeds: ["DP exam revision", "English and humanities writing", "Math foundations"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "GD Goenka World School",
@@ -260,7 +260,7 @@ export const citySeoPageBaseData = [
           "Families around the Sohna Road side of Gurugram often prefer hybrid tutoring to reduce travel strain.",
         typicalNeeds: ["Hybrid tutoring", "DP sciences", "Boarding-school schedule support"],
         pageEnabled: false,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
     ],
     schoolDisclaimer: SCHOOL_DISCLAIMER,
@@ -458,7 +458,7 @@ export const citySeoPageBaseData = [
         description:
           "A high-demand pocket for international school and embassy-community families who often prefer discreet, structured home or hybrid lessons.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Greater Kailash",
@@ -466,7 +466,7 @@ export const citySeoPageBaseData = [
         description:
           "Useful for South Delhi families seeking DP Math, sciences and English support with flexible evening schedules.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Saket",
@@ -474,7 +474,7 @@ export const citySeoPageBaseData = [
         description:
           "A practical base for school support, MYP foundations and online backup for students across South Delhi.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Chanakyapuri",
@@ -482,7 +482,7 @@ export const citySeoPageBaseData = [
         description:
           "Often relevant for families connected with diplomatic and international school communities.",
         pageEnabled: false,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
     ],
     nearbyAreas: ["Defence Colony", "Hauz Khas", "New Friends Colony", "Panchsheel Park", "Green Park", "Jor Bagh"],
@@ -609,7 +609,7 @@ export const citySeoPageBaseData = [
           "Families connected with this school ecosystem often ask for DP subject mentoring and writing support.",
         typicalNeeds: ["DP Math and sciences", "English and humanities writing", "IA planning"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "American Embassy School",
@@ -619,7 +619,7 @@ export const citySeoPageBaseData = [
           "International community families often need flexible tutoring that can adjust around travel and activities.",
         typicalNeeds: ["Flexible online tutoring", "Subject reinforcement", "University pathway support"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "DPS International Saket",
@@ -629,7 +629,7 @@ export const citySeoPageBaseData = [
           "South Delhi families frequently ask for MYP and DP support that balances school assignments and exam preparation.",
         typicalNeeds: ["MYP writing support", "DP Math", "Science revision"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
     ],
     schoolDisclaimer: SCHOOL_DISCLAIMER,
@@ -821,7 +821,7 @@ export const citySeoPageBaseData = [
         description:
           "A central residential area where families often request MYP foundations, DP Math support and weekly home tutoring.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Sector 62",
@@ -829,7 +829,7 @@ export const citySeoPageBaseData = [
         description:
           "Useful for families near institutional and office corridors who prefer evening online or hybrid support.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Noida Expressway",
@@ -837,7 +837,7 @@ export const citySeoPageBaseData = [
         description:
           "A large catchment for school communities where online tutoring can reduce travel pressure during DP exam months.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Sector 128",
@@ -845,7 +845,7 @@ export const citySeoPageBaseData = [
         description:
           "Relevant for families near expressway school corridors and premium residential communities.",
         pageEnabled: false,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
     ],
     nearbyAreas: ["Sector 44", "Sector 45", "Sector 93", "Sector 137", "Greater Noida West", "Indirapuram"],
@@ -970,7 +970,7 @@ export const citySeoPageBaseData = [
         description: "Families in this ecosystem often ask for PYP, MYP and DP support across the full IB continuum.",
         typicalNeeds: ["PYP inquiry", "MYP criteria", "DP Math and sciences"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Genesis Global School",
@@ -979,7 +979,7 @@ export const citySeoPageBaseData = [
         description: "Expressway families often prefer hybrid support around school travel and activity schedules.",
         typicalNeeds: ["Hybrid tutoring", "MYP foundations", "DP revision"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Step by Step School",
@@ -988,7 +988,7 @@ export const citySeoPageBaseData = [
         description: "Families around this school corridor often seek strong writing, math and science support.",
         typicalNeeds: ["English writing", "Math support", "Science concepts"],
         pageEnabled: false,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
     ],
     schoolDisclaimer: SCHOOL_DISCLAIMER,
@@ -1181,7 +1181,7 @@ export const citySeoPageBaseData = [
         description:
           "A common premium catchment for home and hybrid tutoring, especially for DP students who need strong weekly structure.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Juhu",
@@ -1189,7 +1189,7 @@ export const citySeoPageBaseData = [
         description:
           "Often relevant for families seeking IB English, Math and science support with flexible evening options.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Powai",
@@ -1197,7 +1197,7 @@ export const citySeoPageBaseData = [
         description:
           "A practical hub for online and hybrid support, especially for students balancing school, activities and test preparation.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "South Mumbai",
@@ -1205,7 +1205,7 @@ export const citySeoPageBaseData = [
         description:
           "Useful for families seeking high-quality subject specialists where travel feasibility must be checked carefully.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
     ],
     nearbyAreas: ["Worli", "Lower Parel", "Andheri", "Santacruz", "Malabar Hill", "Thane"],
@@ -1325,7 +1325,7 @@ export const citySeoPageBaseData = [
         description: "Families in this ecosystem often ask for DP subject depth and high-expectation assessment support.",
         typicalNeeds: ["DP Math", "Economics", "English writing"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Oberoi International School",
@@ -1334,7 +1334,7 @@ export const citySeoPageBaseData = [
         description: "Parents often request MYP and DP support that can work around travel and activity schedules.",
         typicalNeeds: ["MYP support", "DP sciences", "IA support"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Ecole Mondiale World School",
@@ -1343,7 +1343,7 @@ export const citySeoPageBaseData = [
         description: "Families around Juhu often ask for home or hybrid tutoring with strong school-calendar awareness.",
         typicalNeeds: ["PYP and MYP support", "DP English", "Math AI"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Aditya Birla World Academy",
@@ -1352,7 +1352,7 @@ export const citySeoPageBaseData = [
         description: "South Mumbai families often need careful mode planning because tutor travel can be difficult.",
         typicalNeeds: ["Online specialists", "DP humanities", "Exam revision"],
         pageEnabled: false,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
     ],
     schoolDisclaimer: SCHOOL_DISCLAIMER,
@@ -1545,7 +1545,7 @@ export const citySeoPageBaseData = [
         description:
           "A high-demand area for international school families seeking DP subject support and structured weekly tutoring.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Sarjapur Road",
@@ -1553,7 +1553,7 @@ export const citySeoPageBaseData = [
         description:
           "A major school and residential corridor where hybrid tutoring can reduce travel pressure.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Indiranagar",
@@ -1561,7 +1561,7 @@ export const citySeoPageBaseData = [
         description:
           "Useful for central Bangalore families seeking Math, English and humanities support.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "North Bangalore",
@@ -1569,7 +1569,7 @@ export const citySeoPageBaseData = [
         description:
           "Relevant for families around international school corridors who may prefer online or hybrid lessons.",
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
     ],
     nearbyAreas: ["Koramangala", "HSR Layout", "Hebbal", "Yelahanka", "Electronic City", "Marathahalli"],
@@ -1689,7 +1689,7 @@ export const citySeoPageBaseData = [
         description: "Families around North Bangalore often ask for hybrid support and DP subject specialists.",
         typicalNeeds: ["DP Math", "Sciences", "Hybrid tutoring"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Canadian International School Bangalore",
@@ -1698,7 +1698,7 @@ export const citySeoPageBaseData = [
         description: "Families often need flexible scheduling and strong online backup for DP subjects.",
         typicalNeeds: ["Online support", "DP revision", "English writing"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "Indus International School Bangalore",
@@ -1707,7 +1707,7 @@ export const citySeoPageBaseData = [
         description: "Sarjapur-area families frequently request MYP and DP support around school calendars.",
         typicalNeeds: ["MYP criteria", "DP Math", "IA support"],
         pageEnabled: true,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
       {
         name: "The International School Bangalore",
@@ -1716,7 +1716,7 @@ export const citySeoPageBaseData = [
         description: "Families often request high-level DP subject support and careful exam planning.",
         typicalNeeds: ["HL support", "Exam planning", "Subject specialists"],
         pageEnabled: false,
-        indexFlag: "noindex",
+        indexFlag: "index",
       },
     ],
     schoolDisclaimer: SCHOOL_DISCLAIMER,

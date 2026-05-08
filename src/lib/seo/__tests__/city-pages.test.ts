@@ -7,7 +7,7 @@ import { getIgcseCityPageBySlug, getLiveIgcseCityPages, getVisibleIgcseCityConte
 import { IGCSE_PAGES_HUB } from "../igcse-pages";
 import { buildCityMetadata, buildIgcseCityMetadata } from "../metadata";
 import { buildCitySchema, buildIgcseCityPageSchema, buildIgcsePagesHubSchema } from "../schema";
-import { getIndexableCitySitemapEntries, getIndexableIgcseCitySitemapEntries, getSeoSitemapEntries } from "../sitemap";
+import { getFullPublicSitemapEntries, getIndexableCitySitemapEntries, getIndexableIgcseCitySitemapEntries, getSeoSitemapEntries } from "../sitemap";
 import { absoluteUrl, normalizeSlug } from "../slug-utils";
 
 const EXISTING_CITY_SLUGS = ["gurugram", "delhi", "noida", "mumbai", "bangalore"] as const;
@@ -185,9 +185,9 @@ describe("city SEO sitemap", () => {
     expect(sitemap.map((entry) => entry.url)).toContain("https://ibgram.com/igcse-pages/");
     expect(sitemap.map((entry) => entry.url)).toContain("https://ibgram.com/ib-tutors/gurugram/");
     expect(sitemap.map((entry) => entry.url)).toContain("https://ibgram.com/ib-tutors/bangalore/");
-    expect(sitemap.some((entry) => entry.url.includes("/areas/"))).toBe(false);
-    expect(sitemap.some((entry) => entry.url.includes("/schools/"))).toBe(false);
-    expect(sitemap.some((entry) => entry.url.includes("/math-aa-hl/"))).toBe(false);
+    expect(sitemap.some((entry) => entry.url.includes("/areas/"))).toBe(true);
+    expect(sitemap.some((entry) => entry.url.includes("/schools/"))).toBe(true);
+    expect(sitemap.some((entry) => entry.url.includes("/math-aa-hl/"))).toBe(true);
   });
 
   it("includes added cities in sitemap only when indexable", () => {
@@ -204,6 +204,19 @@ describe("city SEO sitemap", () => {
         expect(sitemapUrls.has(page!.canonicalUrl)).toBe(false);
       }
     });
+  });
+
+  it("emits a full public sitemap without low-value auth or admin URLs", () => {
+    const sitemapUrls = getFullPublicSitemapEntries().map((entry) => entry.url);
+
+    expect(sitemapUrls.length).toBeGreaterThan(1200);
+    expect(sitemapUrls).toContain("https://ibgram.com/contact-us/");
+    expect(sitemapUrls).toContain("https://ibgram.com/programmes/dp/");
+    expect(sitemapUrls).toContain("https://ibgram.com/igcse-tutors/gurugram/physics/");
+    expect(sitemapUrls).toContain("https://ibgram.com/courses/ib/mathematics/");
+    expect(sitemapUrls.some((url) => url.includes("/admin/"))).toBe(false);
+    expect(sitemapUrls).not.toContain("https://ibgram.com/login/");
+    expect(sitemapUrls).not.toContain("https://ibgram.com/signup/");
   });
 });
 

@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowRight, Check, CheckCircle, Clock, ShieldCheck, Sparkles, Star, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -27,6 +27,8 @@ export function TutorAvailabilitySection({
   tinted = false,
 }: TutorAvailabilitySectionProps) {
   const router = useRouter();
+  const pathname = usePathname();
+  const currentPath = pathname;
   const tutors = result.tutors.slice(0, 3);
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [compareIds, setCompareIds] = useState<number[]>([]);
@@ -41,7 +43,7 @@ export function TutorAvailabilitySection({
 
   const handleCompareRedirect = () => {
     if (compareIds.length === 2) {
-      router.push(`/tutor-compare?ids=${compareIds.join(",")}`);
+      router.push(`/tutor-compare?ids=${compareIds.join(",")}&returnTo=${encodeURIComponent(currentPath)}`);
     }
   };
 
@@ -323,7 +325,7 @@ export function TutorAvailabilitySection({
                         Message
                       </Button>
                       <button
-                        onClick={() => router.push(`/tutor-profile/${tutor.id}`)}
+                        onClick={() => router.push(`/tutor-profile/${tutor.id}?returnTo=${encodeURIComponent(currentPath)}`)}
                         className="group flex flex-1 items-center justify-end text-lg font-bold text-primary transition-colors hover:text-primary/80"
                       >
                         Full Profile <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />

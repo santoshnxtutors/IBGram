@@ -1,17 +1,27 @@
 ﻿"use client";
 
-import { useParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect } from "react";
 import Image from "next/image";
 import { allTutors } from "@/lib/tutor-data";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Star, Clock, GraduationCap, ShieldCheck, CheckCircle2, MessageCircle, ArrowRight, Laptop, Home as HomeIcon, Award, BookOpen } from "lucide-react";
+import { ArrowLeft, Star, Clock, GraduationCap, ShieldCheck, CheckCircle2, MessageCircle, Laptop, Home as HomeIcon, Award, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import { TutorProfileLocationSection } from "@/components/tutors/TutorProfileLocationSection";
 
 export default function TutorProfilePage() {
+   return (
+      <Suspense fallback={<div className="min-h-screen bg-background" />}>
+         <TutorProfileContent />
+      </Suspense>
+   );
+}
+
+function TutorProfileContent() {
    const params = useParams();
    const router = useRouter();
+   const searchParams = useSearchParams();
+   const returnTo = getSafeReturnTo(searchParams.get("returnTo"));
    const tutorId = parseInt(params.id as string);
    const tutor = allTutors.find((t) => t.id === tutorId);
 
@@ -43,6 +53,20 @@ export default function TutorProfilePage() {
       alert("This would open the booking modal or redirect to the calendar scheduling page.");
    };
 
+   const handleBack = () => {
+      if (returnTo) {
+         router.push(returnTo);
+         return;
+      }
+
+      if (window.history.length > 1) {
+         router.back();
+         return;
+      }
+
+      router.push("/tutors");
+   };
+
    return (
       <div className="min-h-screen bg-background text-foreground">
          <div className="h-24 md:h-32" />
@@ -57,11 +81,11 @@ export default function TutorProfilePage() {
                      className="flex flex-col gap-6"
                   >
                      <button
-                        onClick={() => router.back()}
+                        onClick={handleBack}
                         className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-2 group w-fit"
                      >
                         <ArrowLeft className="size-4 md:size-5 transition-transform group-hover:-translate-x-1" />
-                        <span className="font-medium text-sm md:text-base">Back to Tutors</span>
+                        <span className="font-medium text-sm md:text-base">Back</span>
                      </button>
 
                      <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-2xl glassmorphism border border-white/5 bg-muted">
@@ -264,4 +288,11 @@ export default function TutorProfilePage() {
          </div>
       </div>
    );
+}
+
+function getSafeReturnTo(value: string | null): string | undefined {
+   if (!value) return undefined;
+   if (!value.startsWith("/") || value.startsWith("//")) return undefined;
+   if (value.startsWith("/tutor-profile")) return undefined;
+   return value;
 }

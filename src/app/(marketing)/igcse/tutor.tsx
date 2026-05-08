@@ -3,15 +3,17 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, Clock, CheckCircle, X, ShieldCheck, Sparkles, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { allTutors } from "@/lib/tutor-data";
 
 export function IGCSETutors() {
   const router = useRouter();
+  const pathname = usePathname();
+  const currentPath = pathname;
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [compareIds, setCompareIds] = useState<number[]>([]);
 
@@ -27,7 +29,7 @@ export function IGCSETutors() {
 
   const handleCompareRedirect = () => {
     if (compareIds.length === 2) {
-      router.push(`/tutor-compare?ids=${compareIds.join(",")}`);
+      router.push(`/tutor-compare?ids=${compareIds.join(",")}&returnTo=${encodeURIComponent(currentPath)}`);
     }
   };
 
@@ -316,7 +318,7 @@ export function IGCSETutors() {
                           document.body.style.position = "";
                           document.body.style.width = "";
                           document.body.style.top = "";
-                          router.push(`/tutor-profile/${tutor.id}`);
+                          router.push(`/tutor-profile/${tutor.id}?returnTo=${encodeURIComponent(currentPath)}`);
                         }}
                         className="flex-1 flex justify-end items-center font-bold text-primary hover:text-primary/80 transition-colors group text-lg"
                       >

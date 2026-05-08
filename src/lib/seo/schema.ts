@@ -5,6 +5,20 @@ import { buildCityPath, SITE_URL } from "./slug-utils";
 
 export type JsonLdObject = Record<string, unknown>;
 
+export type TutorLandingPageSchemaInput = {
+  canonicalUrl: string;
+  title: string;
+  description: string;
+  breadcrumbItems: Array<{ name: string; url: string }>;
+  serviceName: string;
+  serviceType: string;
+  areaServed: string[];
+  subjects: string[];
+  educationalLevel: string;
+  faqs?: Array<{ question: string; answer: string }>;
+  dateModified?: string;
+};
+
 export function stripUndefinedFromJsonLd(value: unknown): unknown {
   if (Array.isArray(value)) {
     return value.map(stripUndefinedFromJsonLd);
@@ -402,5 +416,101 @@ export function buildIgcseCityPageSchema(page: IgcseCitySeoPage): JsonLdObject {
         })),
       },
     ],
+  }) as JsonLdObject;
+}
+
+export function buildTutorLandingPageSchema(input: TutorLandingPageSchemaInput): JsonLdObject {
+  const organizationId = `${SITE_URL}/#organization`;
+  const webpageId = `${input.canonicalUrl}#webpage`;
+  const serviceId = `${input.canonicalUrl}#service`;
+  const breadcrumbId = `${input.canonicalUrl}#breadcrumb`;
+  const faqId = input.faqs?.length ? `${input.canonicalUrl}#faq` : undefined;
+
+  const graph: JsonLdObject[] = [
+    {
+      "@type": "WebPage",
+      "@id": webpageId,
+      url: input.canonicalUrl,
+      name: input.title,
+      description: input.description,
+      inLanguage: "en",
+      dateModified: input.dateModified,
+      breadcrumb: {
+        "@id": breadcrumbId,
+      },
+      mainEntity: faqId ? [{ "@id": serviceId }, { "@id": faqId }] : { "@id": serviceId },
+      about: input.subjects.map((subject) => ({
+        "@type": "Thing",
+        name: subject,
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": breadcrumbId,
+      itemListElement: input.breadcrumbItems.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        item: item.url,
+      })),
+    },
+    {
+      "@type": "EducationalOrganization",
+      "@id": organizationId,
+      name: "IB Gram",
+      url: SITE_URL,
+      logo: `${SITE_URL}/globe.svg`,
+      email: "ibgram24@gmail.com",
+    },
+    {
+      "@type": "Service",
+      "@id": serviceId,
+      name: input.serviceName,
+      serviceType: input.serviceType,
+      provider: {
+        "@id": organizationId,
+      },
+      areaServed: input.areaServed.map((area) => ({
+        "@type": "Place",
+        name: area,
+      })),
+      audience: {
+        "@type": "EducationalAudience",
+        educationalRole: "student",
+      },
+      educationalLevel: input.educationalLevel,
+      description: input.description,
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: `${input.serviceName} subjects`,
+        itemListElement: input.subjects.map((subject) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Course",
+            name: subject,
+          },
+        })),
+      },
+    },
+  ];
+
+  if (input.faqs?.length) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": faqId,
+      mainEntity: input.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    });
+  }
+
+  return stripUndefinedFromJsonLd({
+    "@context": "https://schema.org",
+    "@graph": graph,
   }) as JsonLdObject;
 }

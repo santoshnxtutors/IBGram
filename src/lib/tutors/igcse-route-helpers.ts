@@ -1,5 +1,6 @@
 import { getCitySeoPageBySlug, getLiveCitySeoPages } from "@/lib/seo/city-pages";
 import { getIgcseCityPageBySlug, getLiveIgcseCityPages } from "@/lib/seo/igcse-city-pages";
+import { getGurgaonLocalPagesByType, getGurgaonLocalPlace } from "@/lib/local-seo/gurgaon";
 
 export function getIgcseTutorCityPage(citySlug: string) {
   return getIgcseCityPageBySlug(citySlug);
@@ -10,7 +11,7 @@ export function getIgcseTutorCityStaticParams() {
 }
 
 export function getIgcseTutorAreaStaticParams() {
-  return getLiveCitySeoPages().flatMap((page) =>
+  const existingParams = getLiveCitySeoPages().flatMap((page) =>
     page.premiumAreas
       .filter((area) => area.pageEnabled)
       .map((area) => ({
@@ -18,11 +19,34 @@ export function getIgcseTutorAreaStaticParams() {
         areaSlug: area.slug,
       })),
   );
+  const gurgaonParams = getGurgaonLocalPagesByType("area").map((area) => ({ citySlug: "gurugram", areaSlug: area.slug }));
+  return dedupeParams([...existingParams, ...gurgaonParams], "areaSlug");
+}
+
+export function getIgcseTutorSectorStaticParams() {
+  return getGurgaonLocalPagesByType("sector").map((sector) => ({ citySlug: "gurugram", sectorSlug: sector.slug }));
+}
+
+export function getIgcseTutorSocietyStaticParams() {
+  return getGurgaonLocalPagesByType("society").map((society) => ({ citySlug: "gurugram", societySlug: society.slug }));
+}
+
+export function getIgcseTutorSchoolStaticParams() {
+  return getLiveCitySeoPages().flatMap((page) =>
+    page.ibSchoolsCity
+      .filter((school) => school.pageEnabled)
+      .map((school) => ({
+        citySlug: page.citySlug,
+        schoolSlug: school.slug,
+      })),
+  );
 }
 
 export function getIgcsePlaceName(citySlug: string, slug: string, type: "area" | "sector" | "society" | "school" | "subject"): string {
   const cityPage = getCitySeoPageBySlug(citySlug);
   const normalizedSlug = normalizeSlug(slug);
+  const gurgaonPlace = citySlug === "gurugram" && type !== "school" && type !== "subject" ? getGurgaonLocalPlace(type, normalizedSlug) : undefined;
+  if (gurgaonPlace) return gurgaonPlace.name;
 
   if (type === "area") {
     return cityPage?.premiumAreas.find((area) => area.slug === normalizedSlug)?.name ?? titleFromSlug(slug);
@@ -33,6 +57,16 @@ export function getIgcsePlaceName(citySlug: string, slug: string, type: "area" |
   }
 
   return titleFromSlug(slug);
+}
+
+function dedupeParams<T extends Record<string, string>>(params: T[], slugKey: keyof T): T[] {
+  const seen = new Set<string>();
+  return params.filter((item) => {
+    const key = `${item.citySlug}:${item[slugKey]}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 export function buildIgcseTutorMetadataTitle(cityName: string, placeName?: string): string {

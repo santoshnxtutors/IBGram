@@ -18,7 +18,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { allTutors } from "@/lib/tutor-data";
 import { getTutorLocationBadges } from "@/lib/tutors/tutor-location-matching";
 
@@ -54,6 +54,8 @@ const INITIAL_VISIBLE_TUTORS = 8;
 
 export default function TutorsPage() {
   const router = useRouter();
+  const pathname = usePathname();
+  const currentPath = pathname;
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [curriculumFilter, setCurriculumFilter] = useState<string>("Curriculum");
   const [subjectFilter, setSubjectFilter] = useState<string>("Subject");
@@ -78,7 +80,7 @@ export default function TutorsPage() {
 
   const handleCompareRedirect = () => {
     if (compareIds.length === 2) {
-      router.push(`/tutor-compare?ids=${compareIds.join(",")}`);
+      router.push(`/tutor-compare?ids=${compareIds.join(",")}&returnTo=${encodeURIComponent(currentPath)}`);
     }
   };
 
@@ -523,7 +525,7 @@ export default function TutorsPage() {
                         Message
                       </Button>
                       <button
-                        onClick={() => router.push(`/tutor-profile/${tutor.id}`)}
+                        onClick={() => router.push(`/tutor-profile/${tutor.id}?returnTo=${encodeURIComponent(currentPath)}`)}
                         className="group flex flex-1 items-center justify-end text-lg font-bold text-primary transition-colors hover:text-primary/80"
                       >
                         Full Profile <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />

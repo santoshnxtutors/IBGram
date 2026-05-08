@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IgcseTutorAvailabilityPage } from "@/components/tutors/IgcseTutorAvailabilityPage";
-import { buildIgcseTutorMetadataTitle, getIgcsePlaceName, getIgcseTutorCityPage } from "@/lib/tutors/igcse-route-helpers";
+import { buildIgcseTutorMetadataTitle, getIgcsePlaceName, getIgcseTutorCityPage, getIgcseTutorSchoolStaticParams } from "@/lib/tutors/igcse-route-helpers";
 
 type IgcseTutorSchoolProps = {
   params: Promise<{ citySlug: string; schoolSlug: string }>;
@@ -9,6 +9,10 @@ type IgcseTutorSchoolProps = {
 
 export const dynamicParams = true;
 export const revalidate = 86400;
+
+export function generateStaticParams() {
+  return getIgcseTutorSchoolStaticParams();
+}
 
 export async function generateMetadata({ params }: IgcseTutorSchoolProps): Promise<Metadata> {
   const { citySlug, schoolSlug } = await params;

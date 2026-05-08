@@ -75,6 +75,46 @@ export function buildNoindexMetadata(args: {
   };
 }
 
+export function buildIndexableMetadata(args: {
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  ogImage: string;
+  keywords?: string[];
+}): Metadata {
+  return {
+    title: args.title,
+    description: args.description,
+    keywords: args.keywords,
+    alternates: {
+      canonical: args.canonicalUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    openGraph: {
+      type: "website",
+      url: args.canonicalUrl,
+      title: args.title,
+      description: args.description,
+      siteName: "IB Gram",
+      images: [
+        {
+          url: args.ogImage,
+          alt: args.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: args.title,
+      description: args.description,
+      images: [args.ogImage],
+    },
+  };
+}
+
 export function buildIgcseCityMetadata(page: IgcseCitySeoPage): Metadata {
   return {
     title: page.metaTitle,

@@ -91,9 +91,10 @@ describe("generated quality and indexing", () => {
 });
 
 describe("generated sitemap entries", () => {
-  it("excludes review/noindex generated pages from sitemap", () => {
+  it("includes published Gurugram local generated pages in sitemap", () => {
     const urls = getIndexableGeneratedSitemapEntries().map((entry) => entry.url);
-    expect(urls).not.toContain("https://ibgram.com/ib-tutors/gurugram/sectors/sector-56/");
+    expect(urls).toContain("https://ibgram.com/ib-tutors/gurugram/sectors/sector-56/");
+    expect(urls).toContain("https://ibgram.com/ib-tutors/gurugram/sectors/sector-29/");
   });
 });
 
