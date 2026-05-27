@@ -13,13 +13,13 @@ export default function SubscriptionPage() {
       icon: Zap
     },
     {
-      title: "AI-Driven Study Plans",
-      description: "Dynamic roadmaps that adapt to your performance data and exam timelines.",
+      title: "Guided Study Plans",
+      description: "Practical roadmaps shaped around exam timelines, weak areas and tutor feedback.",
       icon: Sparkles
     },
     {
-      title: "Elite Resource Library",
-      description: "Access curated question banks, past paper solutions, and exclusive study guides.",
+      title: "Curated Resource Library",
+      description: "Access question banks, past paper solutions and focused study guides.",
       icon: ShieldCheck
     },
     {
@@ -44,7 +44,7 @@ export default function SubscriptionPage() {
       period: "per month",
       description: "Most popular for consistent high performance across the curriculum.",
       highlight: true,
-      cta: "Join Yearly Elite",
+      cta: "Choose Yearly Plan",
       savings: "Save $600/year"
     },
     {
@@ -74,7 +74,7 @@ export default function SubscriptionPage() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest mb-8"
           >
             <ShieldCheck className="size-4" />
-            Join the Elite Academic Inner Circle
+            Study support for serious IB and IGCSE families
           </motion.div>
           
           <motion.h1
@@ -168,7 +168,7 @@ export default function SubscriptionPage() {
                   )}
 
                   <ul className="space-y-4 mb-4">
-                    {['Access to All IB/IGCSE Courses', 'Verified Elite Tutors', '24/7 AI Smart Planner', 'Interactive Dashboard'].map((feature) => (
+                    {['Access to IB/IGCSE Courses', 'Verified Tutor Options', 'Study Planner', 'Interactive Dashboard'].map((feature) => (
                       <li key={feature} className="flex items-center gap-3 text-sm font-semibold">
                         <CheckCircle2 className="size-4 text-primary shrink-0" />
                         <span>{feature}</span>

@@ -15,6 +15,7 @@ import {
   getIgcseTutorSectorStaticParams,
   getIgcseTutorSocietyStaticParams,
 } from "@/lib/tutors/igcse-route-helpers";
+import { igcseAdminContentBlocks, igcseFaqs, igcseInternalLinks } from "@/app/(marketing)/igcse/content";
 import { cambridgeSubjects, edexcelSubjects } from "@/app/(marketing)/igcse/data";
 import type { GeneratedContentBlock, GeneratedInternalLink, GeneratedSeoPage } from "@/lib/page-generator/types";
 import { generateSeoPage } from "@/lib/page-generator/page-generator";
@@ -376,12 +377,62 @@ function buildExplicitRoutePages(): AdminPageRecord[] {
   return [
     base,
     ...publicRoutes.map((route) => {
+      if (route === "/igcse") return igcseHomeAdminPage();
+
       const title = route === "/igcse" ? "IGCSE Guide" : route.split("/").filter(Boolean).map(titleCase).join(" ");
       const curriculum = route.includes("igcse") ? "IGCSE" : route.includes("ib-") || route.includes("programmes") ? "IB" : "Both";
       const type = route.includes("programmes") ? "programme" : route.includes("courses") ? "subject" : route.includes("blog") ? "blog" : route.includes("tutor-profile") ? "tutor_profile" : "static";
       return staticPage(route, title || route, type as AdminPageRecord["pageType"], curriculum, `${title || "IB Gram"} | IB Gram`);
     }),
   ];
+}
+
+function igcseHomeAdminPage(): AdminPageRecord {
+  const visibleText = [
+    "IGCSE tutoring and curriculum support",
+    "Find realistic IGCSE subject support",
+    ...igcseAdminContentBlocks.flatMap((block) => [block.heading, block.body, ...block.items]),
+    ...igcseFaqs.flatMap((faq) => [faq.question, faq.answer]),
+  ].join(" ");
+
+  return staticPage("/igcse/", "IGCSE Tutors, Subjects and Revision Support", "static", "IGCSE", "IGCSE Tutors, Subjects and Revision Support | IB Gram", {
+    id: "route-igcse",
+    seoScore: 88,
+    qualityScore: 86,
+    localDepthScore: 78,
+    wordCount: countWordsAdmin(visibleText),
+    internalLinksCount: igcseInternalLinks.length,
+    hasFaqs: true,
+    hasSchema: true,
+    lastUpdated: "2026-05-25",
+    primaryKeyword: "IGCSE tutors and subject support",
+    secondaryKeywords: [
+      "Cambridge IGCSE tutors",
+      "Pearson Edexcel International GCSE tutors",
+      "IGCSE revision support",
+      "IGCSE past paper tutoring",
+    ],
+    searchIntent: "Help families compare IGCSE board routes, subjects, tutors, revision support and FAQs before requesting a shortlist.",
+    metaDescription:
+      "Compare Cambridge and Pearson Edexcel IGCSE subject support, tutor matching, revision planning, past-paper preparation, FAQs and family resources.",
+    h1: "Find realistic IGCSE subject support",
+    heroTitle: "Find realistic IGCSE subject support",
+    heroSubtitle:
+      "Compare Cambridge and Pearson Edexcel support by subject, syllabus code, tier, exam timeline and learning mode.",
+    introSummary:
+      "The IGCSE page combines board-aware subject guidance, tutor matching context, study planning, parent proof, blog resources and FAQs for Cambridge and Pearson Edexcel families.",
+    contentBlocks: igcseAdminContentBlocks,
+    faqs: igcseFaqs,
+    internalLinks: igcseInternalLinks,
+    schema: {
+      "@type": "FAQPage",
+      mainEntity: igcseFaqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+    },
+    sitemapIncluded: true,
+    source: "app-route",
+    safeDisclaimer:
+      "IB Gram is an independent tutoring platform. Cambridge, Pearson and school names are used only to describe curriculum or local context unless an official relationship is specifically stated.",
+  });
 }
 
 function buildSupplementalPublicPages(): AdminPageRecord[] {
@@ -583,32 +634,32 @@ function staticPage(
     localDepthScore: overrides.localDepthScore ?? 55,
     duplicateRisk: "low",
     wordCount: overrides.wordCount ?? (pageType === "homepage" ? 1800 : 650),
-    internalLinksCount: 3,
+    internalLinksCount: overrides.internalLinksCount ?? 3,
     incomingLinksCount: 0,
     hasSchema: overrides.hasSchema ?? pageType === "homepage",
     hasFaqs: overrides.hasFaqs ?? pageType === "homepage",
     missingMetadata: false,
-    lastUpdated: "2026-05-07",
-    primaryKeyword: title,
-    secondaryKeywords: [],
+    lastUpdated: overrides.lastUpdated ?? "2026-05-07",
+    primaryKeyword: overrides.primaryKeyword ?? title,
+    secondaryKeywords: overrides.secondaryKeywords ?? [],
     searchIntent: overrides.searchIntent ?? "Public website route discovered from the App Router.",
     metaTitle,
-    metaDescription: `Manage SEO and operations for ${title} in the IB Gram admin panel.`,
-    h1: title,
+    metaDescription: overrides.metaDescription ?? `Manage SEO and operations for ${title} in the IB Gram admin panel.`,
+    h1: overrides.h1 ?? title,
     canonicalUrl: overrides.canonicalUrl ?? `${DOMAIN}${normalizedUrl === "/" ? "/" : `${normalizedUrl.replace(/\/$/, "")}/`}`,
     robotsTag: overrides.robotsTag ?? (indexFlag === "index" ? "index, follow" : "noindex, follow"),
-    ogTitle: metaTitle,
-    ogDescription: `IB Gram ${title}`,
-    ogImage: `${DOMAIN}/images/ib-gram-city-og.svg`,
-    twitterTitle: metaTitle,
-    twitterDescription: `IB Gram ${title}`,
-    heroTitle: title,
-    heroSubtitle: "Public route discovered by the admin adapter.",
-    introSummary: "Static public route. Connect a CMS or database adapter to edit this page content directly.",
-    contentBlocks: [{ type: "intro", heading: "Route note", body: "This public route is shown for SEO operations visibility. Runtime editing is intentionally disabled until a persistence layer is connected.", items: [] }],
-    faqs: [],
-    internalLinks: [],
-    schema: {},
+    ogTitle: overrides.ogTitle ?? metaTitle,
+    ogDescription: overrides.ogDescription ?? `IB Gram ${title}`,
+    ogImage: overrides.ogImage ?? `${DOMAIN}/images/ib-gram-city-og.svg`,
+    twitterTitle: overrides.twitterTitle ?? metaTitle,
+    twitterDescription: overrides.twitterDescription ?? `IB Gram ${title}`,
+    heroTitle: overrides.heroTitle ?? title,
+    heroSubtitle: overrides.heroSubtitle ?? "Public route discovered by the admin adapter.",
+    introSummary: overrides.introSummary ?? "Static public route. Connect a CMS or database adapter to edit this page content directly.",
+    contentBlocks: overrides.contentBlocks ?? [{ type: "intro", heading: "Route note", body: "This public route is shown for SEO operations visibility. Runtime editing is intentionally disabled until a persistence layer is connected.", items: [] }],
+    faqs: overrides.faqs ?? [],
+    internalLinks: overrides.internalLinks ?? [],
+    schema: overrides.schema ?? {},
     sitemapIncluded: overrides.sitemapIncluded ?? (pageType !== "tutor_profile" && indexFlag === "index"),
     safeDisclaimer: overrides.safeDisclaimer,
     source: overrides.source ?? "app-route",

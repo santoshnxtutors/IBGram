@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, Clock, CheckCircle, X, ShieldCheck, Sparkles, Check, ArrowRight } from "lucide-react";
+import { Star, Clock, CheckCircle, X, ShieldCheck, Sparkles, Check, ArrowRight, MapPin, Home, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect } from "react";
@@ -55,22 +55,22 @@ export function TutorDiscovery() {
   }, [selectedId]);
 
   return (
-    <section className="py-16 relative overflow-hidden">
+    <section className="py-16 md:py-20 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-foreground">
-              Learn from the <span className="text-primary">Top 1%</span>
+              Meet tutors matched by <span className="text-primary">subject, level and learning need</span>
             </h2>
             <p className="text-lg text-muted-foreground">
-              Rigorous vetting. Proven results. Connect with tutors who have mastered the exact syllabus your school follows.
+              Browse a small sample of IB and IGCSE tutors. Matching considers syllabus fit, preferred tutoring mode, schedule and the kind of support the student needs.
             </p>
           </div>
           <Link
             href="/tutors"
             className="shrink-0 flex items-center text-sm font-bold text-primary hover:text-primary/80 transition-colors group"
           >
-            View All Tutors <ArrowRight className="ml-1.5 size-4 transition-transform group-hover:translate-x-1" />
+            Explore IB tutor options <ArrowRight className="ml-1.5 size-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 
@@ -80,9 +80,18 @@ export function TutorDiscovery() {
               layoutId={`card-${tutor.id}`}
               key={tutor.id}
               onClick={() => setSelectedId(tutor.id)}
-              className="cursor-pointer h-full"
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setSelectedId(tutor.id);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`View profile for ${tutor.name}`}
+              className="cursor-pointer h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 rounded-3xl"
             >
-              <Card className="group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 border border-border/50 bg-background/40 backdrop-blur-md rounded-3xl overflow-hidden h-full flex flex-col hover:-translate-y-2 relative">
+              <Card className="group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 border border-white/10 bg-white/[0.04] backdrop-blur-md rounded-3xl overflow-hidden h-full flex flex-col hover:-translate-y-2 hover:bg-white/[0.06] relative">
                 {/* Compare Toggle */}
                 <div className="absolute top-6 right-6 z-20 flex flex-col items-center gap-1.5">
                   <button
@@ -90,6 +99,8 @@ export function TutorDiscovery() {
                       e.stopPropagation();
                       toggleCompare(tutor.id);
                     }}
+                    aria-pressed={compareIds.includes(tutor.id)}
+                    aria-label={`Compare ${tutor.name}`}
                     className={`size-8 rounded-full flex items-center justify-center border-2 transition-colors ${compareIds.includes(tutor.id) ? 'bg-primary border-primary text-primary-foreground shadow-lg shadow-primary/20 bg-opacity-100' : 'bg-background/80 border-border hover:border-primary/50 text-transparent hover:text-primary/50 backdrop-blur-sm'}`}
                     title="Compare Tutor"
                   >
@@ -100,7 +111,7 @@ export function TutorDiscovery() {
                   </span>
                 </div>
 
-                <CardContent className="p-5 md:p-8 flex-1">
+                <CardContent className="p-5 md:p-7 flex-1">
                   <div className="flex justify-between items-start mb-4 md:mb-6">
                     <div className="flex gap-3 md:gap-4 items-center">
                       <motion.div
@@ -121,19 +132,36 @@ export function TutorDiscovery() {
                           {tutor.name} <CheckCircle className="size-3.5 md:size-4 text-primary" fill="currentColor" />
                         </motion.h3>
                         <motion.p layoutId={`subject-${tutor.id}`} className="text-xs md:text-sm font-semibold text-muted-foreground">{tutor.subject}</motion.p>
+                        <p className="mt-1 text-[11px] font-bold text-foreground/70">
+                          {tutor.curriculums.join(" + ")} | {tutor.subjectLevels.slice(0, 2).join(", ")}
+                        </p>
                       </div>
                     </div>
                   </div>
 
-                  <motion.div layoutId={`stats-${tutor.id}`} className="flex items-center gap-2 md:gap-4 text-xs md:text-sm font-bold mb-4 md:mb-6">
+                  <motion.div layoutId={`stats-${tutor.id}`} className="flex flex-wrap items-center gap-2 text-xs md:text-sm font-bold mb-4 md:mb-5">
                     <span className="flex items-center gap-1 text-foreground bg-secondary/10 px-2 py-0.5 rounded-lg">
-                      <Star className="size-3.5 md:size-4 text-secondary fill-current" /> {tutor.rating} <span className="text-muted-foreground font-medium text-[10px] md:text-xs">({tutor.reviews})</span>
+                      <Star className="size-3.5 md:size-4 text-secondary fill-current" /> {tutor.rating} <span className="text-muted-foreground font-medium text-[10px] md:text-xs">profile reviews</span>
                     </span>
-                    <span className="text-muted-foreground/40">•</span>
                     <span className="flex items-center gap-1 text-foreground bg-primary/10 px-2 py-0.5 rounded-lg">
                       <Clock className="size-3.5 md:size-4 text-primary" /> {tutor.experience}
                     </span>
                   </motion.div>
+
+                  <div className="mb-4 grid gap-2 text-xs font-semibold text-muted-foreground">
+                    <span className="flex items-center gap-2">
+                      <MapPin className="size-3.5 text-primary" />
+                      {tutor.primaryCity}{tutor.availableAreas.length ? `, ${tutor.availableAreas[0]}` : ""}
+                    </span>
+                    <span className="flex items-center gap-2">
+                      {tutor.homeTutoringAvailable ? <Home className="size-3.5 text-secondary" /> : <Monitor className="size-3.5 text-secondary" />}
+                      {[
+                        tutor.homeTutoringAvailable ? "Home" : null,
+                        tutor.onlineTutoringAvailable ? "Online" : null,
+                        tutor.hybridTutoringAvailable ? "Hybrid" : null,
+                      ].filter(Boolean).join(" / ")} availability reviewed
+                    </span>
+                  </div>
 
                   <div className="flex flex-wrap gap-1.5 md:gap-2">
                     {tutor.tags.slice(0, 2).map(tag => (
@@ -148,7 +176,7 @@ export function TutorDiscovery() {
                 </CardContent>
                 <div className="mt-auto flex justify-end">
                   <div className="bg-muted/50 border-t border-l border-border/50 px-5 py-3 rounded-tl-[1.5rem] flex items-center text-xs md:text-sm font-bold text-primary transition-colors group-hover:bg-primary/10">
-                    View Profile <ArrowRight className="ml-1.5 size-3.5 md:size-4 transition-transform group-hover:translate-x-1" />
+                    Check availability <ArrowRight className="ml-1.5 size-3.5 md:size-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </Card>
@@ -223,6 +251,7 @@ export function TutorDiscovery() {
               >
                 <button
                   onClick={() => setSelectedId(null)}
+                  aria-label="Close tutor profile preview"
                   className="absolute top-6 right-6 z-20 size-10 rounded-full bg-background/50 backdrop-blur-md flex items-center justify-center border border-border hover:bg-muted transition-colors"
                 >
                   <X className="size-5" />
@@ -273,7 +302,7 @@ export function TutorDiscovery() {
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-2">
-                        About Me
+                        Teaching focus
                       </h4>
                       <p className="text-base text-card-foreground leading-relaxed">
                         {tutor.bio}
@@ -289,12 +318,12 @@ export function TutorDiscovery() {
                     </div>
 
                     <div className="flex items-center gap-6 pt-4">
-                      <Button variant="outline" className="h-14 flex-1 rounded-2xl font-black border-2 border-border text-lg hover:bg-muted">
-                        Message
+                      <Button variant="outline" className="h-14 flex-1 rounded-2xl font-black border-2 border-border text-base md:text-lg hover:bg-muted">
+                        Share requirement
                       </Button>
                       <button
                         onClick={() => router.push(`/tutor-profile/${tutor.id}?returnTo=${encodeURIComponent(currentPath)}`)}
-                        className="flex-1 flex justify-end items-center font-bold text-primary hover:text-primary/80 transition-colors group text-lg"
+                        className="flex-1 flex justify-end items-center font-bold text-primary hover:text-primary/80 transition-colors group text-base md:text-lg"
                       >
                         Full Profile <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
                       </button>

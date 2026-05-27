@@ -147,7 +147,7 @@ export default function TutorsPage() {
             Find Your <span className="bg-300% text-gradient animate-gradient text-primary">Perfect Tutor</span>
           </motion.h1>
           <p className="text-xl leading-relaxed text-muted-foreground">
-            Search through the world&apos;s most elite IB &amp; IGCSE educators, vetted for excellence and academic results.
+            Search IB and IGCSE tutors by subject, curriculum, level and preferred learning mode.
           </p>
         </div>
 
@@ -238,7 +238,7 @@ export default function TutorsPage() {
         <div className="mb-10 flex items-center justify-between border-b border-border/50 pb-4">
           <h2 className="flex items-center gap-3 text-2xl font-black text-foreground">
             <SlidersHorizontal className="size-6 text-primary" />
-            {displayTutors.length} Elite Educators Found
+            {displayTutors.length} Tutor Options Found
           </h2>
         </div>
 
@@ -372,7 +372,7 @@ export default function TutorsPage() {
           <div className="glassmorphism-heavy rounded-[3rem] border-2 border-dashed border-border/50 py-24 text-center">
             <h3 className="mb-4 text-3xl font-black text-muted-foreground">No tutors represent this search.</h3>
             <p className="mx-auto mb-8 max-w-md font-medium text-muted-foreground/60">
-              Try broadening your subject choice or curriculum grade to find more elite educators.
+              Try broadening your subject choice or curriculum grade to find more suitable tutor options.
             </p>
             <Button
               variant="outline"

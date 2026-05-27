@@ -204,7 +204,7 @@ function TutorProfileContent() {
                                  </div>
                                  <div>
                                     <h4 className="font-bold text-foreground text-lg mb-1">{tag}</h4>
-                                    <p className="text-sm text-muted-foreground font-medium">Fully vetted and verified by elite academic panels.</p>
+                                    <p className="text-sm text-muted-foreground font-medium">Reviewed for profile quality, subject familiarity and teaching reliability.</p>
                                  </div>
                               </div>
                            ))}
@@ -239,7 +239,7 @@ function TutorProfileContent() {
                                  My methodology revolves around breaking down highly complex {tutor.subject.toLowerCase()} topics into intuitive, real-world models. Rather than relying on rote memorization, I empower students to understand the underlying logic required by examiners.
                               </p>
                               <p className="text-lg md:text-xl text-muted-foreground leading-[1.8] font-medium">
-                                 Sessions are structured strictly around international marking schemes to guarantee that all practice translates directly into Top Tier mock grades and elite academic success.
+                                 Sessions are structured around syllabus requirements, marking criteria and targeted practice so students can build clearer exam habits over time.
                               </p>
                            </div>
                         </div>
@@ -274,7 +274,7 @@ function TutorProfileContent() {
                      <section className="text-center mt-10 md:mt-16 pb-10 border-t border-border pt-16">
                         <h3 className="text-3xl md:text-4xl font-black mb-6 text-foreground">Not sure what to choose?</h3>
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
-                           Every student absorbs information differently. The fastest way to guarantee an optimal learning environment is to connect with me directly on a complimentary consultation.
+                           Every student learns differently. A short consultation helps check teaching style, pace and subject fit before committing to regular sessions.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                            <Button size="lg" className="h-16 px-12 rounded-[2rem] bg-primary hover:bg-primary/90 text-primary-foreground font-black text-xl shadow-[0_0_40px_-10px_rgba(33,197,94,0.4)] transition-all hover:-translate-y-1" onClick={handleBookDemo}>

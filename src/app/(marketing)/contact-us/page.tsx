@@ -45,7 +45,7 @@ export default function ContactUsPage() {
                   transition={{ delay: 0.2 }}
                   className="text-muted-foreground text-base md:text-lg font-medium leading-relaxed"
                >
-                  Whether you&apos;re a student looking for the perfect tutor or an educator wanting to join our elite network, we&apos;re here to support you.
+                  Whether you&apos;re a family looking for the right tutor fit or an educator interested in working with IB Gram, we&apos;re here to support you.
                </motion.p>
             </div>
 

@@ -10,7 +10,7 @@ const DEPARTMENTS = ["All Departments", "Teaching & Academic", "Engineering", "O
 const JOBS = [
   {
     id: "1",
-    title: "Elite IB Physics Specialist",
+    title: "IB Physics Specialist",
     department: "Teaching & Academic",
     location: "Global / Remote",
     type: "Full-time",
@@ -84,7 +84,7 @@ export default function JobsPage() {
               Careers at <span className="text-gradient">IB Gram</span>
            </h1>
            <p className="text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-               Building the world&apos;s most intelligent EdTech platform. We&apos;re looking for thinkers, educators, and creators.
+               Building thoughtful academic support for IB and IGCSE families. We&apos;re looking for thinkers, educators, and creators.
            </p>
         </div>
 

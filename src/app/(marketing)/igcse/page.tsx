@@ -5,11 +5,20 @@ import { Button } from "@/components/ui/button";
 import { IGCSETutors } from "./tutor";
 import { IGCSESubjectExplorer } from "./subject-explorer";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
+import { IGCSEBlogs } from "./blogs/IGCSEBlogs";
+import { IGCSEFaqs } from "./faqs/IGCSEFaqs";
+import { IGCSELearningPlan } from "./planning/IGCSELearningPlan";
+import { IGCSEReviews } from "./reviews/IGCSEReviews";
+import { IGCSETrustSignals } from "./trust/IGCSETrustSignals";
+import { igcseFaqs } from "./content";
+
+export const dynamic = "force-static";
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "IGCSE Programmes, Subjects & Tutors",
+  title: "IGCSE Tutors, Subjects and Revision Support",
   description:
-    "Explore Cambridge IGCSE and Pearson Edexcel International GCSE subjects, assessment guidance, online tutoring and exam preparation support with IB Gram.",
+    "Compare Cambridge IGCSE and Pearson Edexcel subject support, tutor matching, revision planning, past-paper preparation and FAQs with IB Gram.",
   keywords: [
     "IGCSE programmes",
     "IGCSE subjects",
@@ -30,9 +39,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: absoluteUrl("/igcse/"),
-    title: "IGCSE Programmes, Subjects & Tutors | IB Gram",
+    title: "IGCSE Tutors, Subjects and Revision Support | IB Gram",
     description:
-      "Browse Cambridge and Pearson Edexcel IGCSE subject support, tutor discovery, assessment guidance and exam preparation resources.",
+      "Browse Cambridge and Pearson Edexcel IGCSE subject support, tutor discovery, assessment guidance, revision planning and exam preparation resources.",
     siteName: "IB Gram",
     images: [
       {
@@ -43,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "IGCSE Programmes, Subjects & Tutors | IB Gram",
+    title: "IGCSE Tutors, Subjects and Revision Support | IB Gram",
     description:
       "Cambridge IGCSE and Pearson Edexcel subject support, tutor discovery and exam preparation guidance.",
     images: [absoluteUrl("/images/ib-gram-city-og.svg")],
@@ -51,8 +60,22 @@ export const metadata: Metadata = {
 };
 
 export default function IGCSEPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: igcseFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative overflow-hidden pt-16 pb-20 noise-overlay">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 -right-1/4 h-[600px] w-[600px] rounded-full bg-primary/5 blur-[100px]" />
@@ -63,32 +86,34 @@ export default function IGCSEPage() {
           <div className="flex flex-col items-center space-y-6 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
               <GraduationCap className="size-4" />
-              <span>Elite IGCSE Tutoring & Curriculum Support</span>
+              <span>IGCSE tutoring and curriculum support</span>
             </div>
 
             <h1 className="text-4xl font-extrabold tracking-tight text-foreground md:text-6xl">
-              Master Your <span className="text-gradient">IGCSE</span> Curriculum
+              Find realistic <span className="text-gradient">IGCSE</span> subject support
             </h1>
 
             <p className="mx-auto max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Our comprehensive IGCSE section provides a stable index of programs, subjects, and official resources to help you excel in Cambridge and Pearson Edexcel examinations.
+              Compare Cambridge and Pearson Edexcel support by subject, syllabus code, tier, exam timeline and learning mode. IB Gram helps families move from a broad request to a clearer tutor shortlist and revision plan.
             </p>
 
             <div className="flex flex-col gap-4 pt-4 sm:flex-row">
               <Link href="/tutors">
                 <Button size="lg" variant="outline" className="glassmorphism h-12 rounded-full border-primary/30 px-8 text-base text-primary transition-all group hover:bg-primary/10">
-                  Find an IGCSE Tutor <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
+                  Find an IGCSE tutor <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
               <Link href="#subjects">
                 <Button size="lg" variant="outline" className="glassmorphism h-12 rounded-full px-8 text-base">
-                  Browse Subjects
+                  Browse subjects
                 </Button>
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      <IGCSETrustSignals />
 
       <section className="border-y border-border/50 bg-muted/5 py-16">
         <div className="container mx-auto max-w-6xl px-4">
@@ -98,23 +123,23 @@ export default function IGCSEPage() {
                 <Target className="size-4" />
                 <span>Program Overview</span>
               </div>
-              <h2 className="text-3xl font-bold">Comprehensive Curriculum Index</h2>
+              <h2 className="text-3xl font-bold">Cambridge and Pearson Edexcel, explained simply</h2>
               <p className="leading-relaxed text-muted-foreground">
-                A comprehensive IGCSE section should behave like a curriculum catalog: a stable source-of-truth index of programs, subjects, and specifications. We model our support around the two primary board programs:
+                IGCSE support becomes useful when it is tied to the exact exam path. Families can use this page to compare board routes, subject choices, assessment style and the tutoring mode that fits the student.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <div className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-xs tracking-tighter text-primary">C</div>
                   <div>
                     <span className="block text-sm font-semibold text-foreground">Cambridge IGCSE</span>
-                    <span className="text-xs text-muted-foreground">Offered by Cambridge University Press & Assessment for ages 14-16.</span>
+                    <span className="text-xs text-muted-foreground">Commonly used by international schools, with syllabus-code specific papers and subject routes.</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-secondary/20 text-xs tracking-tighter text-secondary">P</div>
                   <div>
                     <span className="block text-sm font-semibold text-foreground">Pearson Edexcel International GCSE (9-1)</span>
-                    <span className="text-xs text-muted-foreground">Available in 37 subjects with choice of linear or modular assessment.</span>
+                    <span className="text-xs text-muted-foreground">A 9-1 qualification route with subject specifications, sample assessment material and past-paper practice.</span>
                   </div>
                 </li>
               </ul>
@@ -128,7 +153,7 @@ export default function IGCSEPage() {
                 <h3 className="text-xl font-bold">Why Us for IGCSE?</h3>
               </div>
               <p className="text-sm text-muted-foreground">
-                The most maintainable approach is a student-friendly layer that points to official board documents rather than duplicating copyrighted content. Our subject pages are designed to be thin, informative, and actionable.
+                We focus on the parts parents actually need for tutor selection: the board, subject, level, paper style, weak areas, school deadline and whether home, online or hybrid lessons make sense.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-xl border border-border/50 bg-background/50 p-4">
@@ -136,7 +161,7 @@ export default function IGCSEPage() {
                   <div className="text-[10px] font-bold uppercase text-muted-foreground">Official Alignment</div>
                 </div>
                 <div className="rounded-xl border border-border/50 bg-background/50 p-4">
-                  <div className="text-2xl font-bold text-secondary">Elite</div>
+                  <div className="text-2xl font-bold text-secondary">Verified</div>
                   <div className="text-[10px] font-bold uppercase text-muted-foreground">Tutor Network</div>
                 </div>
               </div>
@@ -145,6 +170,8 @@ export default function IGCSEPage() {
         </div>
       </section>
 
+      <IGCSELearningPlan />
+
       <section className="bg-background py-20" id="subjects">
         <div className="container mx-auto max-w-7xl px-4">
           <IGCSESubjectExplorer />
@@ -152,6 +179,8 @@ export default function IGCSEPage() {
       </section>
 
       <IGCSETutors />
+
+      <IGCSEReviews />
 
       <section className="bg-muted/10 py-20" id="assessment">
         <div className="container mx-auto max-w-6xl px-4">
@@ -207,21 +236,28 @@ export default function IGCSEPage() {
         </div>
       </section>
 
+      <IGCSEBlogs />
+      <IGCSEFaqs />
+
       <section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 -z-10 bg-primary/10" />
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <div className="glassmorphism space-y-8 rounded-[2.5rem] border-primary/20 p-12">
-            <h2 className="text-4xl font-bold">Ready to Excel in your IGCSEs?</h2>
+            <h2 className="text-4xl font-bold">Ready to build a clearer IGCSE plan?</h2>
             <p className="text-lg text-muted-foreground">
-              Do not navigate the complex world of IGCSE programs alone. Connect with our elite subject experts who specialize in Cambridge and Edexcel curriculums.
+              Share the board, subject, syllabus route and exam timeline so the tutor shortlist starts with the right context.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Button size="lg" variant="outline" className="glassmorphism group h-14 rounded-full border-primary/30 px-10 text-lg text-primary transition-all hover:bg-primary/10">
-                Book a Free Trial Session <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button size="lg" variant="outline" className="glassmorphism h-14 rounded-full border-primary/30 px-10 text-lg hover:bg-primary/5">
-                Speak with an Academic Advisor
-              </Button>
+              <Link href="/tutors">
+                <Button size="lg" variant="outline" className="glassmorphism group h-14 rounded-full border-primary/30 px-10 text-lg text-primary transition-all hover:bg-primary/10">
+                  Find an IGCSE tutor <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+              <Link href="/contact-us">
+                <Button size="lg" variant="outline" className="glassmorphism h-14 rounded-full border-primary/30 px-10 text-lg hover:bg-primary/5">
+                  Speak with an academic advisor
+                </Button>
+              </Link>
             </div>
             <div className="flex justify-center gap-8 pt-6 text-sm font-medium text-muted-foreground">
               <span className="flex items-center gap-2">
@@ -234,7 +270,7 @@ export default function IGCSEPage() {
               </span>
               <span className="flex items-center gap-2">
                 <div className="size-1.5 rounded-full bg-green-500" />
-                AI-Driven Insights
+                Practical study insights
               </span>
             </div>
           </div>

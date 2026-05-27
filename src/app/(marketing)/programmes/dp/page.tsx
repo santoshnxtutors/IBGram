@@ -18,7 +18,7 @@ export default function DPPage() {
             Diploma Programme (DP)
           </h1>
           <h2 className="text-xl md:text-2xl font-medium text-muted-foreground max-w-2xl">
-            Elite DP Tutoring for IB Excellence
+            DP tutoring for focused IB support
           </h2>
           <p className="text-lg text-muted-foreground/80 max-w-3xl leading-relaxed">
             The DP is a globally recognized curriculum. Our specialized tutors help you master all six subject groups and the DP Core to secure your dream score.
@@ -119,7 +119,7 @@ export default function DPPage() {
 
       <ProgrammeSection 
         title="Why Choose Our DP Tutors?" 
-        description="Elite coaching designed to secure admission into the world's top universities."
+        description="Subject support for DP coursework, assessment timelines and exam preparation."
         icon={GraduationCap}
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -148,7 +148,7 @@ export default function DPPage() {
               Achieve Your Dream IB Score (40+)
             </h3>
             <p className="text-muted-foreground font-medium max-w-xl text-[15px] leading-relaxed">
-              Maximize your IB Diploma score. Our elite DP tutors specialize in individual subjects and the DP Core to help you secure admission into Ivy League and Oxbridge.
+              Get support for individual DP subjects, IA planning, exam practice and the DP Core without relying on score guarantees.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 w-full lg:w-auto shrink-0">

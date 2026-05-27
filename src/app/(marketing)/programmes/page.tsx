@@ -134,7 +134,7 @@ export default function ProgrammesHubPage() {
               {
                 title: "Diploma (DP)",
                 age: "Ages 16–19",
-                description: "Elite academic preparation for success at world-leading universities.",
+                description: "Subject support, IA planning and exam practice for demanding DP timelines.",
                 href: "/programmes/dp"
               },
               {
@@ -178,7 +178,7 @@ export default function ProgrammesHubPage() {
               Our Primary Aim: Expert Tutoring
             </h3>
             <p className="text-muted-foreground font-medium max-w-xl text-[15px] leading-relaxed">
-              While we provide a comprehensive understanding of the IB continuum, our ultimate goal is to connect you with world-class, certified tutors. Whether it&apos;s the PYP exhibition or the DP core, our elite educators ensure your academic success.
+              IB Gram helps families understand the IB continuum and connect with tutors for PYP exhibitions, MYP foundations, DP subjects and the DP Core where availability fits.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 w-full lg:w-auto shrink-0">

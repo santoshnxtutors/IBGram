@@ -121,7 +121,7 @@ export default function MYPPage() {
           <div className="bg-card border border-border/50 p-5 rounded-xl">
             <h4 className="text-[15px] font-bold text-foreground mb-2">Personal Project Mentorship</h4>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Our specialists mentor students through their independent Personal Project to guarantee a stellar final portfolio.
+              Tutors can guide planning, research habits and reflection for the Personal Project while the student&apos;s work remains their own.
             </p>
           </div>
         </div>

@@ -30,8 +30,8 @@ export function Footer() {
             </Link>
             <p className="text-sm text-muted-foreground font-medium mb-6 leading-relaxed max-w-sm">
               {isIgcsePage 
-                ? "The world's premium destination for IGCSE prep, bridging the gap between Cambridge and Edexcel with elite tutors and official curriculum resources."
-                : "The world's gold standard for IB and IGCSE preparation, accelerating learning outcomes with top-tier tutors and AI diagnostics."}
+                ? "IGCSE tutoring support for Cambridge and Pearson Edexcel students, with tutor options reviewed by subject, schedule and learning mode."
+                : "IB and IGCSE tutor matching for families who need syllabus-aware support, practical study tools and clear next steps."}
             </p>
             <div className="flex gap-4">
               <Link href="#" aria-label="Visit our Global Network" className="text-muted-foreground hover:text-primary transition-colors hover:scale-110">
@@ -75,7 +75,7 @@ export function Footer() {
               </li>
               <li><Link href="#" className="hover:text-primary transition-colors">AI Test Generator</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">{isIgcsePage ? "IGCSE Study Planner" : "Smart Planner"}</Link></li>
-              <li><Link href="/subscription" className="hover:text-primary transition-colors">Membership</Link></li>
+              <li><Link href="/subscription" className="hover:text-primary transition-colors">Plans</Link></li>
               <li><Link href="/blog" className="hover:text-primary transition-colors">Blogs</Link></li>
             </ul>
           </div>
@@ -96,9 +96,9 @@ export function Footer() {
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-semibold text-muted-foreground">
           <p>© {new Date().getFullYear()} IB Gram. All rights reserved.</p>
           <div className="flex gap-4">
-            <span>Global Operations</span>
-            <span className="hidden md:inline">•</span>
-            <span>Enterprise-Grade Security</span>
+            <span>Independent tutoring platform</span>
+            <span className="hidden md:inline">|</span>
+            <span>Availability varies by subject, level and mode</span>
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, X, Target, Brain, Trophy, Globe } from "lucide-react";
+import { Sparkles, X, Target, Brain, ShieldCheck, MessageCircle } from "lucide-react";
 
 export function WhyIBGram() {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,24 +30,24 @@ export function WhyIBGram() {
 
   const reasons = [
     {
-      icon: <Trophy className="size-6 text-primary" />,
-      title: "The Top 1% Elite Educators",
-      desc: "Our tutors aren't just teachers; they are curriculum architects, examiners, and high-achievers who meticulously deconstruct the IB and IGCSE rubrics to guarantee your success."
+      icon: <ShieldCheck className="size-6 text-primary" />,
+      title: "Experienced tutor matching",
+      desc: "Tutor fit is reviewed by curriculum, subject, level, schedule and the kind of support the student needs."
     },
     {
       icon: <Brain className="size-6 text-primary" />,
-      title: "AI-Driven Diagnostics",
-      desc: "We completely eliminate guesswork. Our proprietary AI tools analyze your learning patterns, identify precise knowledge gaps, and dynamically adjust your study roadmap for maximum efficiency."
+      title: "Practical study tools",
+      desc: "Planning and practice tools help students notice weak areas, prepare better questions and keep revision organised between sessions."
     },
     {
       icon: <Target className="size-6 text-primary" />,
-      title: "Strategic Curriculum Mastery",
-      desc: "We focus on rigorous past-paper analysis, marking scheme mastery, and strategic exam techniques rather than passive reading, allowing our students to conquer exams with absolute confidence."
+      title: "Syllabus-aware support",
+      desc: "Support can focus on IB and IGCSE topics, past-paper practice, IA direction and school assessment timelines."
     },
     {
-      icon: <Globe className="size-6 text-primary" />,
-      title: "Global Success Record",
-      desc: "Trusted by thousands of students worldwide, IB Gram has a verified track record of transforming predicted grades into perfect scores, securing admissions into the world's Ivy League and Russell Group universities."
+      icon: <MessageCircle className="size-6 text-primary" />,
+      title: "Clear parent communication",
+      desc: "Families can ask for concise updates on what was covered, what needs practice and what should happen next."
     }
   ];
 
@@ -114,7 +114,7 @@ export function WhyIBGram() {
                     Why Choose <span className="text-primary text-gradient bg-300% animate-gradient">IB Gram?</span>
                   </h2>
                   <p className="text-sm md:text-base text-muted-foreground font-medium leading-relaxed max-w-lg mx-auto">
-                    We don&apos;t just teach. We engineer your success with data-driven methodology, elite tutoring, and uncompromising academic standards.
+                    IB Gram helps families find syllabus-aware support without overpromising outcomes.
                   </p>
                 </header>
 
@@ -146,7 +146,7 @@ export function WhyIBGram() {
                 </div>
 
                 <div className="text-center pt-3 border-t border-border/50">
-                  <p className="text-[10px] md:text-xs text-muted-foreground/60 font-semibold uppercase tracking-[0.2em]">Dominate the Curriculum. Join the top 1% today.</p>
+                  <p className="text-[10px] md:text-xs text-muted-foreground/60 font-semibold uppercase tracking-[0.2em]">Support depends on subject, level, schedule and tutor availability.</p>
                 </div>
               </div>
             </motion.article>

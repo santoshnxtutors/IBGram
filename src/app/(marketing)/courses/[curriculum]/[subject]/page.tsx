@@ -40,7 +40,7 @@ export default function CoursePage() {
                 {curriculum} Curriculum
               </div>
               <div className="rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-secondary">
-                Top 1% Tutors
+                Subject-fit tutors
               </div>
             </motion.div>
 
@@ -59,8 +59,8 @@ export default function CoursePage() {
               transition={{ delay: 0.2 }}
               className="mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
             >
-              Get matched with elite, verified tutors specialized in {curriculum} {subject}. Our educators bring years of
-              experience and proven success strategies to help you build confidence and perform strongly in your exams.
+              Get matched with verified tutors familiar with {curriculum} {subject}. Tutor options are reviewed by
+              subject fit, level, availability and the kind of support you need for school and exams.
             </motion.p>
 
             <motion.div

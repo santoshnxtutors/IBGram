@@ -66,7 +66,7 @@ export function IGCSETutors() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-foreground">
-              Elite <span className="text-primary">IGCSE</span> Tutors
+              Subject-aware <span className="text-primary">IGCSE</span> Tutors
             </h2>
             <p className="text-lg text-muted-foreground">
               Master the Cambridge and Pearson Edexcel syllabuses with tutors who have achieved exceptional results.

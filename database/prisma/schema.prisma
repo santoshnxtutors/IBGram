@@ -1,0 +1,993 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserStatus {
+  active
+  invited
+  suspended
+  deleted
+}
+
+enum PageStatus {
+  draft
+  generated
+  needs_review
+  approved
+  published
+  paused
+  archived
+}
+
+enum IndexFlag {
+  index
+  noindex
+  auto
+}
+
+enum PageType {
+  city
+  area
+  sector
+  society
+  school
+  subject
+  programme
+  service
+  hub
+  blog_support
+}
+
+enum Curriculum {
+  IB
+  IGCSE
+  BOTH
+}
+
+enum UploadProvider {
+  local
+  cloudinary
+  s3
+}
+
+enum ImportStatus {
+  pending
+  processing
+  completed
+  failed
+  partially_completed
+}
+
+enum ImportRowStatus {
+  pending
+  imported
+  skipped
+  failed
+}
+
+enum TutorStatus {
+  draft
+  active
+  paused
+  archived
+}
+
+model User {
+  id              String         @id @default(cuid())
+  email           String         @unique
+  username        String         @unique
+  passwordHash    String
+  firstName       String?
+  lastName        String?
+  avatarUrl       String?
+  status          UserStatus     @default(invited)
+  lastLoginAt     DateTime?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  deletedAt       DateTime?
+  roles           UserRole[]
+  sessions        Session[]
+  refreshTokens   RefreshToken[]
+  loginAttempts   LoginAttempt[]
+  createdPages    GeneratedPage[]       @relation("GeneratedPageCreatedBy")
+  updatedPages    GeneratedPage[]       @relation("GeneratedPageUpdatedBy")
+  approvedPages   GeneratedPage[]       @relation("GeneratedPageApprovedBy")
+  publishedPages  GeneratedPage[]       @relation("GeneratedPagePublishedBy")
+  pageRevisions   PageRevision[]        @relation("PageRevisionCreatedBy")
+  publishLogs     PagePublishLog[]      @relation("PagePublishLogActor")
+  generationJobs  PageGenerationJob[]   @relation("PageGenerationJobRequestedBy")
+  assets          Asset[]               @relation("AssetCreatedBy")
+  csvImports      CsvImport[]           @relation("CsvImportCreatedBy")
+  auditLogs       AuditLog[]            @relation("AuditActor")
+  canonicalRules  CanonicalRule[]       @relation("CanonicalRuleCreatedBy")
+  redirectRules   RedirectRule[]        @relation("RedirectRuleCreatedBy")
+
+  @@index([status])
+  @@index([deletedAt])
+}
+
+model Role {
+  id          String           @id @default(cuid())
+  name        String           @unique
+  description String?
+  isSystem    Boolean          @default(true)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  users       UserRole[]
+  permissions RolePermission[]
+}
+
+model Permission {
+  id          String           @id @default(cuid())
+  name        String           @unique
+  description String?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  roles       RolePermission[]
+}
+
+model UserRole {
+  userId    String
+  roleId    String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      Role     @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@index([roleId])
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+  createdAt    DateTime   @default(now())
+  role          Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission    Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+  @@index([permissionId])
+}
+
+model Session {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  ipAddress String?
+  userAgent String?
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tokenHash])
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model RefreshToken {
+  id         String    @id @default(cuid())
+  userId     String
+  sessionId  String?
+  tokenHash  String    @unique
+  familyId   String?
+  ipAddress  String?
+  userAgent  String?
+  expiresAt  DateTime
+  revokedAt  DateTime?
+  rotatedAt  DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tokenHash])
+  @@index([userId])
+  @@index([sessionId])
+  @@index([expiresAt])
+}
+
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  userId    String?
+  email     String?
+  success   Boolean  @default(false)
+  ipAddress String?
+  userAgent String?
+  reason    String?
+  createdAt DateTime @default(now())
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([email])
+  @@index([createdAt])
+}
+
+model GeneratedPage {
+  id                String      @id @default(cuid())
+  pageType          PageType
+  curriculum        Curriculum  @default(IB)
+  status            PageStatus  @default(draft)
+  indexFlag         IndexFlag   @default(auto)
+  slug              String
+  fullPath          String      @unique
+  canonicalUrl      String?
+  canonicalTarget   String?
+  parentPageId      String?
+  cityId            String?
+  areaId            String?
+  sectorId          String?
+  societyId         String?
+  schoolId          String?
+  primaryKeyword    String
+  secondaryKeywords String[]    @default([])
+  searchIntent      String?
+  title             String?
+  metaTitle         String?
+  metaDescription   String?
+  h1                String?
+  heroTitle         String?
+  heroSubtitle      String?
+  introSummary      String?
+  contentWordCount  Int         @default(0)
+  qualityScore      Float?
+  localDepthScore   Float?
+  readabilityScore  Float?
+  duplicateRisk     String?
+  internalLinkScore Float?
+  schemaStatus      String?
+  sitemapIncluded   Boolean     @default(false)
+  robotsTag         String?
+  ogTitle           String?
+  ogDescription     String?
+  twitterTitle      String?
+  twitterDescription String?
+  ogImageAssetId    String?
+  createdById       String?
+  updatedById       String?
+  approvedById      String?
+  publishedById     String?
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  approvedAt        DateTime?
+  publishedAt       DateTime?
+  lastGeneratedAt   DateTime?
+  lastReviewedAt    DateTime?
+  deletedAt         DateTime?
+  parentPage        GeneratedPage?  @relation("GeneratedPageHierarchy", fields: [parentPageId], references: [id], onDelete: SetNull)
+  childPages        GeneratedPage[] @relation("GeneratedPageHierarchy")
+  city              City?       @relation(fields: [cityId], references: [id], onDelete: SetNull)
+  area              Area?       @relation(fields: [areaId], references: [id], onDelete: SetNull)
+  sector            Sector?     @relation(fields: [sectorId], references: [id], onDelete: SetNull)
+  society           Society?    @relation(fields: [societyId], references: [id], onDelete: SetNull)
+  school            School?     @relation(fields: [schoolId], references: [id], onDelete: SetNull)
+  ogImageAsset      Asset?      @relation("GeneratedPageOgImage", fields: [ogImageAssetId], references: [id], onDelete: SetNull)
+  createdBy         User?       @relation("GeneratedPageCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  updatedBy         User?       @relation("GeneratedPageUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
+  approvedBy        User?       @relation("GeneratedPageApprovedBy", fields: [approvedById], references: [id], onDelete: SetNull)
+  publishedBy       User?       @relation("GeneratedPagePublishedBy", fields: [publishedById], references: [id], onDelete: SetNull)
+  revisions         PageRevision[]
+  blocks            PageBlock[]
+  faqs              PageFaq[]
+  metadata          PageMetadata?
+  schemas           PageSchema[]
+  sourceLinks       PageInternalLink[] @relation("PageInternalLinkSource")
+  targetLinks       PageInternalLink[] @relation("PageInternalLinkTarget")
+  qualityScores     PageQualityScore[]
+  publishLogs       PagePublishLog[]
+
+  @@index([slug])
+  @@index([pageType])
+  @@index([curriculum])
+  @@index([status])
+  @@index([indexFlag])
+  @@index([cityId])
+  @@index([areaId])
+  @@index([sectorId])
+  @@index([societyId])
+  @@index([schoolId])
+  @@index([primaryKeyword])
+  @@index([deletedAt])
+}
+
+model PageRevision {
+  id          String        @id @default(cuid())
+  pageId      String
+  version     Int
+  title       String?
+  contentJson Json
+  metadataJson Json?
+  createdById String?
+  createdAt   DateTime      @default(now())
+  page        GeneratedPage @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  createdBy   User?         @relation("PageRevisionCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+
+  @@unique([pageId, version])
+  @@index([createdById])
+}
+
+model PageBlock {
+  id        String        @id @default(cuid())
+  pageId    String
+  blockType String
+  heading   String?
+  body      String?
+  items     Json?
+  sortOrder Int           @default(0)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  page      GeneratedPage @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  @@index([pageId])
+  @@index([blockType])
+}
+
+model PageFaq {
+  id        String        @id @default(cuid())
+  pageId    String
+  question  String
+  answer    String
+  sortOrder Int           @default(0)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  page      GeneratedPage @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  @@index([pageId])
+}
+
+model PageMetadata {
+  id              String        @id @default(cuid())
+  pageId          String        @unique
+  metaTitle       String?
+  metaDescription String?
+  canonicalUrl    String?
+  robotsTag       String?
+  ogTitle         String?
+  ogDescription   String?
+  twitterTitle    String?
+  twitterDescription String?
+  metadataJson    Json?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  page            GeneratedPage @relation(fields: [pageId], references: [id], onDelete: Cascade)
+}
+
+model PageSchema {
+  id         String        @id @default(cuid())
+  pageId     String
+  schemaType String
+  schemaJson Json
+  status     String        @default("draft")
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+  page       GeneratedPage @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  @@index([pageId])
+  @@index([schemaType])
+}
+
+model PageInternalLink {
+  id           String        @id @default(cuid())
+  sourcePageId String
+  targetPageId String?
+  targetUrl    String
+  anchorText   String
+  context      String?
+  createdAt    DateTime      @default(now())
+  sourcePage   GeneratedPage @relation("PageInternalLinkSource", fields: [sourcePageId], references: [id], onDelete: Cascade)
+  targetPage   GeneratedPage? @relation("PageInternalLinkTarget", fields: [targetPageId], references: [id], onDelete: SetNull)
+
+  @@index([sourcePageId])
+  @@index([targetPageId])
+}
+
+model PageQualityScore {
+  id                  String        @id @default(cuid())
+  pageId              String
+  wordCount           Int           @default(0)
+  uniquenessScore     Float?
+  localDepthScore     Float?
+  seoScore            Float?
+  readabilityScore    Float?
+  internalLinkScore   Float?
+  duplicateRisk       String?
+  recommendedIndexFlag IndexFlag?
+  warnings            Json?
+  createdAt           DateTime      @default(now())
+  page                GeneratedPage @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  @@index([pageId])
+}
+
+model PagePublishLog {
+  id         String        @id @default(cuid())
+  pageId     String
+  actorId    String?
+  action     String
+  fromStatus PageStatus?
+  toStatus   PageStatus?
+  notes      String?
+  createdAt  DateTime      @default(now())
+  page       GeneratedPage @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  actor      User?         @relation("PagePublishLogActor", fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([pageId])
+  @@index([actorId])
+  @@index([createdAt])
+}
+
+model PageGenerationJob {
+  id            String              @id @default(cuid())
+  jobType       String
+  status        String              @default("pending")
+  requestedById String?
+  payload       Json?
+  result        Json?
+  startedAt     DateTime?
+  completedAt   DateTime?
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
+  requestedBy   User?               @relation("PageGenerationJobRequestedBy", fields: [requestedById], references: [id], onDelete: SetNull)
+  logs          PageGenerationLog[]
+
+  @@index([status])
+  @@index([requestedById])
+  @@index([createdAt])
+}
+
+model PageGenerationLog {
+  id        String            @id @default(cuid())
+  jobId     String
+  level     String            @default("info")
+  message   String
+  metadata  Json?
+  createdAt DateTime          @default(now())
+  job       PageGenerationJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@index([jobId])
+  @@index([createdAt])
+}
+
+model Country {
+  id        String   @id @default(cuid())
+  name      String
+  code      String   @unique
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  states    State[]
+  cities    City[]
+}
+
+model State {
+  id        String   @id @default(cuid())
+  countryId String
+  name      String
+  code      String?
+  slug      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  country   Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  cities    City[]
+
+  @@unique([countryId, slug])
+  @@index([slug])
+}
+
+model City {
+  id        String   @id @default(cuid())
+  countryId String
+  stateId   String
+  name      String
+  slug      String
+  latitude  Float?
+  longitude Float?
+  timezone  String   @default("Asia/Kolkata")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  country   Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  state     State    @relation(fields: [stateId], references: [id], onDelete: Cascade)
+  areas     Area[]
+  sectors   Sector[]
+  societies Society[]
+  schools   School[]
+  pages     GeneratedPage[]
+  tutorLocations TutorLocation[]
+
+  @@unique([stateId, slug])
+  @@index([slug])
+}
+
+model Area {
+  id        String   @id @default(cuid())
+  cityId    String
+  name      String
+  slug      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  city      City     @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  sectors   Sector[]
+  societies Society[]
+  schools   School[]
+  pages     GeneratedPage[]
+  tutorLocations TutorLocation[]
+
+  @@unique([cityId, slug])
+  @@index([slug])
+}
+
+model Sector {
+  id        String   @id @default(cuid())
+  cityId    String
+  areaId    String?
+  name      String
+  slug      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  city      City     @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  area      Area?    @relation(fields: [areaId], references: [id], onDelete: SetNull)
+  societies Society[]
+  schools   School[]
+  pages     GeneratedPage[]
+  tutorLocations TutorLocation[]
+
+  @@unique([cityId, slug])
+  @@index([slug])
+  @@index([areaId])
+}
+
+model Society {
+  id        String   @id @default(cuid())
+  cityId    String
+  areaId    String?
+  sectorId  String?
+  name      String
+  slug      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  city      City     @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  area      Area?    @relation(fields: [areaId], references: [id], onDelete: SetNull)
+  sector    Sector?  @relation(fields: [sectorId], references: [id], onDelete: SetNull)
+  schools   School[]
+  pages     GeneratedPage[]
+  tutorLocations TutorLocation[]
+
+  @@unique([cityId, slug])
+  @@index([slug])
+  @@index([areaId])
+  @@index([sectorId])
+}
+
+model School {
+  id        String   @id @default(cuid())
+  cityId    String
+  areaId    String?
+  sectorId  String?
+  societyId String?
+  name      String
+  slug      String
+  curriculum Curriculum @default(IB)
+  websiteUrl String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  city      City     @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  area      Area?    @relation(fields: [areaId], references: [id], onDelete: SetNull)
+  sector    Sector?  @relation(fields: [sectorId], references: [id], onDelete: SetNull)
+  society   Society? @relation(fields: [societyId], references: [id], onDelete: SetNull)
+  pages     GeneratedPage[]
+  tutorLocations TutorLocation[]
+
+  @@unique([cityId, slug])
+  @@index([slug])
+  @@index([areaId])
+  @@index([sectorId])
+  @@index([societyId])
+}
+
+model Tutor {
+  id              String          @id @default(cuid())
+  slug            String          @unique
+  displayName     String
+  email           String?
+  phone           String?
+  status          TutorStatus     @default(draft)
+  headline        String?
+  bio             String?
+  experienceYears Int?
+  rating          Float?
+  reviewCount     Int             @default(0)
+  hourlyRate      Decimal?
+  currency        String          @default("INR")
+  avatarUrl       String?
+  verified        Boolean         @default(false)
+  approved        Boolean         @default(false)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  deletedAt       DateTime?
+  profile         TutorProfile?
+  subjects        TutorSubject[]
+  curriculums     TutorCurriculum[]
+  locations       TutorLocation[]
+  availability    TutorAvailability[]
+  assets          TutorAsset[]
+
+  @@index([status])
+  @@index([deletedAt])
+}
+
+model TutorProfile {
+  id             String   @id @default(cuid())
+  tutorId        String   @unique
+  education      String?
+  methodology    String?
+  successRate    String?
+  responseTime   String?
+  availabilityText String?
+  languages      String[] @default([])
+  tags           String[] @default([])
+  metadata       Json?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  tutor          Tutor    @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+}
+
+model TutorSubject {
+  id          String     @id @default(cuid())
+  tutorId     String
+  subjectName String
+  subjectSlug String
+  curriculum  Curriculum @default(IB)
+  level       String?
+  priority    Int        @default(0)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  tutor       Tutor      @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+
+  @@unique([tutorId, subjectSlug, curriculum, level])
+  @@index([subjectSlug])
+  @@index([curriculum])
+}
+
+model TutorCurriculum {
+  id          String     @id @default(cuid())
+  tutorId     String
+  curriculum  Curriculum
+  programme   String?
+  isPrimary   Boolean    @default(false)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  tutor       Tutor      @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+
+  @@unique([tutorId, curriculum, programme])
+  @@index([curriculum])
+}
+
+model TutorLocation {
+  id                       String   @id @default(cuid())
+  tutorId                  String
+  cityId                   String
+  areaId                   String?
+  sectorId                 String?
+  societyId                String?
+  schoolId                 String?
+  cityName                 String
+  citySlug                 String
+  areaName                 String?
+  areaSlug                 String?
+  sectorName               String?
+  sectorSlug               String?
+  societyName              String?
+  societySlug              String?
+  nearbySchoolName         String?
+  nearbySchoolSlug         String?
+  homeTutoringAvailable    Boolean  @default(false)
+  onlineTutoringAvailable  Boolean  @default(true)
+  hybridTutoringAvailable  Boolean  @default(false)
+  serviceRadiusKm          Float?
+  priority                 Int      @default(0)
+  isActive                 Boolean  @default(true)
+  notes                    String?
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+  tutor                    Tutor    @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+  city                     City     @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  area                     Area?    @relation(fields: [areaId], references: [id], onDelete: SetNull)
+  sector                   Sector?  @relation(fields: [sectorId], references: [id], onDelete: SetNull)
+  society                  Society? @relation(fields: [societyId], references: [id], onDelete: SetNull)
+  school                   School?  @relation(fields: [schoolId], references: [id], onDelete: SetNull)
+
+  @@index([tutorId])
+  @@index([cityId])
+  @@index([areaId])
+  @@index([sectorId])
+  @@index([societyId])
+  @@index([schoolId])
+  @@index([citySlug])
+  @@index([areaSlug])
+  @@index([sectorSlug])
+  @@index([societySlug])
+}
+
+model TutorAvailability {
+  id        String   @id @default(cuid())
+  tutorId   String
+  dayOfWeek Int
+  startTime String
+  endTime   String
+  timezone  String   @default("Asia/Kolkata")
+  mode      String   @default("online")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tutor     Tutor    @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+
+  @@index([tutorId])
+  @@index([dayOfWeek])
+}
+
+model TutorAsset {
+  id        String   @id @default(cuid())
+  tutorId   String
+  assetId   String
+  role      String   @default("gallery")
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  tutor     Tutor    @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+  asset     Asset    @relation(fields: [assetId], references: [id], onDelete: Cascade)
+
+  @@unique([tutorId, assetId, role])
+  @@index([assetId])
+}
+
+model CanonicalRule {
+  id          String   @id @default(cuid())
+  sourcePath  String   @unique
+  targetPath  String
+  reason      String?
+  isActive    Boolean  @default(true)
+  createdById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   User?    @relation("CanonicalRuleCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+
+  @@index([isActive])
+}
+
+model RedirectRule {
+  id          String   @id @default(cuid())
+  sourcePath  String   @unique
+  targetPath  String
+  statusCode  Int      @default(301)
+  reason      String?
+  isActive    Boolean  @default(true)
+  createdById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   User?    @relation("RedirectRuleCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+
+  @@index([isActive])
+}
+
+model SitemapEntry {
+  id         String    @id @default(cuid())
+  loc        String    @unique
+  lastmod    DateTime?
+  changefreq String?
+  priority   Float?
+  isIncluded Boolean   @default(true)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  @@index([isIncluded])
+}
+
+model RobotsRule {
+  id        String   @id @default(cuid())
+  userAgent String   @default("*")
+  directive String
+  path      String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userAgent])
+  @@index([isActive])
+}
+
+model KeywordCluster {
+  id             String              @id @default(cuid())
+  name           String
+  slug           String              @unique
+  primaryKeyword String
+  keywords       String[]            @default([])
+  intent         String?
+  notes          String?
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+  anchorVariants AnchorTextVariant[]
+
+  @@index([primaryKeyword])
+}
+
+model AnchorTextVariant {
+  id               String          @id @default(cuid())
+  keywordClusterId String?
+  anchorText       String
+  targetPath       String?
+  weight           Int             @default(1)
+  isActive         Boolean         @default(true)
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  keywordCluster   KeywordCluster? @relation(fields: [keywordClusterId], references: [id], onDelete: SetNull)
+
+  @@index([keywordClusterId])
+  @@index([isActive])
+}
+
+model AssetFolder {
+  id        String        @id @default(cuid())
+  parentId  String?
+  name      String
+  slug      String
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  parent    AssetFolder?  @relation("AssetFolderTree", fields: [parentId], references: [id], onDelete: SetNull)
+  children  AssetFolder[] @relation("AssetFolderTree")
+  assets    Asset[]
+
+  @@unique([parentId, slug])
+  @@index([slug])
+}
+
+model Asset {
+  id                    String          @id @default(cuid())
+  folderId              String?
+  provider              UploadProvider  @default(local)
+  key                   String
+  url                   String
+  filename              String
+  mimeType              String
+  sizeBytes             Int
+  width                 Int?
+  height                Int?
+  altText               String?
+  metadata              Json?
+  createdById           String?
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
+  folder                AssetFolder?    @relation(fields: [folderId], references: [id], onDelete: SetNull)
+  createdBy             User?           @relation("AssetCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  generatedPageOgImages GeneratedPage[] @relation("GeneratedPageOgImage")
+  tutorAssets           TutorAsset[]
+  csvImports            CsvImport[]     @relation("CsvImportFileAsset")
+
+  @@unique([provider, key])
+  @@index([folderId])
+  @@index([createdById])
+}
+
+model CsvImport {
+  id           String          @id @default(cuid())
+  entityType   String
+  status       ImportStatus    @default(pending)
+  fileAssetId  String?
+  createdById  String?
+  totalRows    Int             @default(0)
+  importedRows Int             @default(0)
+  failedRows   Int             @default(0)
+  metadata     Json?
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  fileAsset    Asset?          @relation("CsvImportFileAsset", fields: [fileAssetId], references: [id], onDelete: SetNull)
+  createdBy    User?           @relation("CsvImportCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  rows         CsvImportRow[]
+
+  @@index([entityType])
+  @@index([status])
+  @@index([createdById])
+}
+
+model CsvImportRow {
+  id        String          @id @default(cuid())
+  importId  String
+  rowNumber Int
+  rawData   Json
+  status    ImportRowStatus @default(pending)
+  result    Json?
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+  import    CsvImport       @relation(fields: [importId], references: [id], onDelete: Cascade)
+  errors    CsvImportError[]
+
+  @@unique([importId, rowNumber])
+  @@index([status])
+}
+
+model CsvImportError {
+  id        String       @id @default(cuid())
+  rowId     String
+  field     String?
+  code      String
+  message   String
+  details   Json?
+  createdAt DateTime     @default(now())
+  row       CsvImportRow @relation(fields: [rowId], references: [id], onDelete: Cascade)
+
+  @@index([rowId])
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  actorId    String?
+  action     String
+  entityType String
+  entityId   String?
+  metadata   Json?
+  beforeJson Json?
+  afterJson  Json?
+  ipAddress  String?
+  userAgent  String?
+  requestId  String?
+  createdAt  DateTime @default(now())
+  actor      User?    @relation("AuditActor", fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([actorId])
+  @@index([entityType])
+  @@index([requestId])
+  @@index([createdAt])
+}
+
+model SiteSetting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  isPublic  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SeoSetting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AiProviderSetting {
+  id              String   @id @default(cuid())
+  provider        String   @unique
+  model           String
+  encryptedApiKey String?
+  config          Json?
+  isActive        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Programme {
+  id         String     @id @default(cuid())
+  code       String     @unique
+  name       String
+  curriculum Curriculum @default(IB)
+  sortOrder  Int        @default(0)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model Subject {
+  id         String     @id @default(cuid())
+  name       String
+  slug       String     @unique
+  curriculum Curriculum @default(IB)
+  groupName  String?
+  sortOrder  Int        @default(0)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  @@index([curriculum])
+}

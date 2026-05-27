@@ -29,8 +29,8 @@ const PHILOSOPHY = [
     icon: Target
   },
   {
-    title: "AI-Driven Precision",
-    description: "While we value the human touch, we use AI diagnostics to pinpoint exact learning gaps. This allows us to make every minute of a mentorship session count towards a higher grade.",
+    title: "Practical Learning Insight",
+    description: "We value the human touch and use study data carefully to notice learning gaps, plan sessions and keep feedback useful.",
     icon: Lightbulb
   }
 ];
@@ -59,7 +59,7 @@ export default function AboutUsPage() {
       {/* Header Spacer */}
       <div className="h-24 md:h-32" />
 
-      {/* Hero Section - Elite Minimalism */}
+      {/* Hero Section */}
       <section className="container max-w-7xl mx-auto px-4 md:px-6 mb-24 md:mb-32">
         <div className="max-w-5xl mx-auto text-center">
           <motion.h1
@@ -72,7 +72,7 @@ export default function AboutUsPage() {
             Tomorrow.
           </motion.h1>
           <p className="text-xl md:text-2xl text-muted-foreground font-medium underline-offset-4 decoration-primary/30 leading-relaxed max-w-3xl mx-auto mt-12">
-            IB Gram is a premier mentorship ecosystem dedicated to re-imagining how students master the world&apos;s most rigorous international curriculums.
+            IB Gram is a tutoring platform for families navigating demanding international curriculums with clearer subject support and practical guidance.
           </p>
         </div>
       </section>
@@ -189,7 +189,7 @@ export default function AboutUsPage() {
       {/* Academic Excellence Quote - PW Inspiration (Focus on outcomes) */}
       <section className="container max-w-4xl mx-auto px-4 md:px-6 text-center border-t border-border/40 pt-4">
         <p className="text-2xl md:text-4xl font-black text-foreground italic leading-tight mb-4">
-          &ldquo;Education is the strongest weapon we have. At IB Gram, we ensure it is honed to perfection for the world&apos;s most challenging curriculums.&rdquo;
+          &ldquo;Education works best when students feel understood, supported and clear about the next step.&rdquo;
         </p>
         <div className="text-primary font-black tracking-widest uppercase text-sm">— Ajay Vatsyayan, Founder</div>
       </section>

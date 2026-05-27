@@ -16,11 +16,11 @@ const greatVibes = Great_Vibes({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ibgram.com"),
   title: {
-    default: "IB Gram | Global AI-Powered EdTech for IB & IGCSE",
+    default: "IB Gram | IB and IGCSE Tutors for Home and Online Learning",
     template: "%s | IB Gram",
   },
-  description: "The world's gold standard for IB and IGCSE preparation.",
-  keywords: ["IB", "IGCSE", "Education", "AI Tutor", "EdTech"],
+  description: "Find IB and IGCSE tutors for PYP, MYP, DP, Math AA, Math AI, Physics, Chemistry, Economics and English with home, online and hybrid support.",
+  keywords: ["IB tutors", "IGCSE tutors", "IB Math AA", "IB Math AI", "IB Physics", "IB Chemistry", "IB Economics", "PYP", "MYP", "DP", "online tutors", "home tutors"],
   icons: {
     icon: [{ url: "/ibgramlogo.png", type: "image/png" }],
     shortcut: ["/ibgramlogo.png"],
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://ibgram.com",
-    title: "IB Gram | Global AI-Powered EdTech for IB & IGCSE",
-    description: "The world's gold standard for IB and IGCSE preparation.",
+    title: "IB Gram | IB and IGCSE Tutors for Home and Online Learning",
+    description: "Find IB and IGCSE tutors for PYP, MYP, DP and core subjects with practical matching support for families.",
     siteName: "IB Gram",
   },
   twitter: {
     card: "summary_large_image",
-    title: "IB Gram | Global AI-Powered EdTech for IB & IGCSE",
-    description: "The world's gold standard for IB and IGCSE preparation.",
+    title: "IB Gram | IB and IGCSE Tutors for Home and Online Learning",
+    description: "Tutor matching for IB and IGCSE families across home, online and hybrid learning.",
   },
 };
 

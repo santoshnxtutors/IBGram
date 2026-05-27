@@ -3,49 +3,39 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import {
-  X,
   FlaskConical,
-  Dna,
-  Atom,
   Briefcase,
-  TrendingUp,
-  Leaf,
-  Brain,
-  History,
   BookOpen,
-  BookText,
   Languages,
   Variable,
-  Sigma,
-  Sparkles,
   ArrowRight
 } from "lucide-react";
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo } from "react";
 
 const PROGRAMS = [
   {
     id: "pyp",
     title: "Primary Years Programme (PYP)",
-    age: "Ages 3–12",
-    description: "Nurturing active, caring participants in their own learning through transdisciplinary themes.",
+    age: "Ages 3-12",
+    description: "Early inquiry support for reading, numeracy, unit work and confidence with school routines.",
   },
   {
     id: "myp",
     title: "Middle Years Programme (MYP)",
-    age: "Ages 11–16",
-    description: "Encouraging students to make practical connections between their studies and the real world.",
+    age: "Ages 11-16",
+    description: "Subject foundations, project support and steady preparation before DP or IGCSE choices.",
   },
   {
     id: "dp",
     title: "Diploma Programme (DP)",
-    age: "Ages 16–19",
-    description: "A rigorous pre-university course where students study six subjects and a 'DP Core'.",
+    age: "Ages 16-19",
+    description: "Focused help across HL and SL subjects, IA direction, exam practice and the DP Core.",
   },
   {
     id: "cp",
     title: "Career-related Programme (CP)",
-    age: "Ages 16–19",
-    description: "Combining academic DP courses with career-related studies to prepare for professional pathways.",
+    age: "Ages 16-19",
+    description: "Academic tutoring alongside career-related study demands and practical deadlines.",
   }
 ];
 
@@ -122,14 +112,13 @@ export function CourseExplorer() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4"
           >
-            Curriculum Navigator
+            Curriculum navigator
           </motion.div>
           <h2 className="text-2xl md:text-6xl font-black text-foreground mb-4 tracking-tight leading-none">
-            Explore IB <span className="text-primary italic">Global Standards</span>
+            Explore IB <span className="text-primary italic">programmes and subjects</span>
           </h2>
           <p className="text-muted-foreground font-medium max-w-2xl text-base md:text-lg leading-relaxed">
-            A comprehensive guide to the world&apos;s most rigorous academic pathways.
-            Select a program or course to discover focused subjects.
+            Find the right support by programme, subject and level, from PYP and MYP foundations to DP Math AA, Math AI, sciences and humanities.
           </p>
         </div>
 
@@ -165,7 +154,7 @@ export function CourseExplorer() {
           {/* Column 2: Core IB Courses (Interactive) */}
           <div className="lg:col-span-7">
             <h3 className="text-xl font-black text-foreground mb-6 flex items-center gap-2">
-              Core IB Courses
+              IB subject areas
             </h3>
 
             <div className="flex flex-col md:flex-row gap-6">

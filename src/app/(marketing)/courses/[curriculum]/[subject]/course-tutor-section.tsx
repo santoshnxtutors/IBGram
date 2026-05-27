@@ -73,7 +73,7 @@ export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSecti
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-5xl">
-              Elite <span className="text-primary">{subjectTitle}</span> Tutors
+              Subject-aware <span className="text-primary">{subjectTitle}</span> Tutors
             </h2>
             <p className="text-lg text-muted-foreground">
               Learn with verified tutors matched for {curriculum.toUpperCase()} {subjectTitle}, with strong exam support,

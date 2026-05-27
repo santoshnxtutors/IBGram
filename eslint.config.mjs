@@ -11,6 +11,12 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    "backend/dist/**",
+    "backend/node_modules/**",
+    "shared/dist/**",
+    "shared/node_modules/**",
+    "authentication/dist/**",
+    "authentication/node_modules/**",
     "next-env.d.ts",
   ]),
 ]);

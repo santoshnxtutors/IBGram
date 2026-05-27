@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, Clock, Tag } from "lucide-react";
+import { ArrowRight, Clock, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const MOCK_BLOGS = [
   {
     id: "1",
-    title: "Mastering the IB DP Core: A Strategy for ToK and EE",
-    excerpt: "Discover the proven methodologies to score an A in Theory of Knowledge and your Extended Essay without burning out.",
+    title: "Planning the IB DP Core without losing the weekly rhythm",
+    excerpt: "A practical way to organise TOK, EE and subject work so deadlines feel visible before they become urgent.",
     category: "IB Strategy",
     readTime: "5 min read",
     date: "Aug 12, 2024",
@@ -17,8 +17,8 @@ const MOCK_BLOGS = [
   },
   {
     id: "2",
-    title: "IGCSE Success: Time Management for Intense Revision",
-    excerpt: "How top students organize their weekly schedules bridging the gap between social life and 9A*s.",
+    title: "IGCSE revision when several subjects feel urgent",
+    excerpt: "How students can split revision time across weak areas, past papers and school assignments without overloading the week.",
     category: "Study Tips",
     readTime: "4 min read",
     date: "Sep 05, 2024",
@@ -26,8 +26,8 @@ const MOCK_BLOGS = [
   },
   {
     id: "3",
-    title: "The Ultimate Guide to STEM Applications Worldwide",
-    excerpt: "An insider's view on what admissions officers at Oxbridge and Ivy League schools look for in a modern applicant.",
+    title: "Choosing STEM subjects with university plans in mind",
+    excerpt: "Questions families can ask before choosing HL subjects, IGCSE combinations or additional academic support.",
     category: "University",
     readTime: "7 min read",
     date: "Oct 21, 2024",
@@ -43,10 +43,10 @@ export function BlogInsights() {
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4 tracking-tight">
-              Latest Insights & <span className="text-gradient">Resources</span>
+              Study insights and <span className="text-gradient">family resources</span>
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl font-medium">
-              Expert strategies, study guides, and university admission secrets directly from elite educators.
+              Calm, practical reading for IB and IGCSE families thinking through subjects, revision, deadlines and tutor support.
             </p>
           </div>
           <Link

@@ -23,7 +23,7 @@ export function ComparisonView({ tutors, returnTo }: ComparisonViewProps) {
         </div>
         <h3 className="text-2xl font-bold mb-2">Select Tutors to Compare</h3>
         <p className="text-muted-foreground mb-8 max-w-md">
-          Choose at least two tutors from our elite roster to see a side-by-side diagnostic comparison.
+          Choose at least two tutors to review subject fit, availability and teaching approach side by side.
         </p>
         <Button onClick={() => router.push(returnTo ?? "/tutors")} className="rounded-xl h-12 px-8 font-bold">
           {returnTo ? "Back to Page" : "Browse Tutors"}

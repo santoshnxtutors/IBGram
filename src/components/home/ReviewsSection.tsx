@@ -1,67 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Quote, Globe } from "lucide-react";
-import Image from "next/image";
+import { Quote, ShieldCheck, Star } from "lucide-react";
 
 const reviews = [
   {
     id: 1,
-    name: "Sarah M.",
-    country: "United Kingdom",
-    flag: "🇬🇧",
-    avatar: "/student_sarah_london_review_avatar.png",
+    name: "Parent of a DP Math AA student",
+    location: "Gurugram",
     rating: 5,
-    text: "IB Gram's AI test generator saved me hours of prep. The tutors actually know the IB rubric inside out. Went from a 5 to a predicted 7 in Math AA HL!"
+    text: "The tutor understood the Math AA HL syllabus and helped us turn revision into a weekly plan. The parent updates were clear and practical.",
   },
   {
     id: 2,
-    name: "Malik A.",
-    country: "United Arab Emirates",
-    flag: "🇦🇪",
-    avatar: "/student_malik_dubai_review_avatar.png",
+    name: "IGCSE Physics student",
+    location: "Dubai",
     rating: 5,
-    text: "The study planner is a game changer. It automatically balanced my physics and econ revision around my school sports schedule. Truly a Gen Z platform."
+    text: "I liked that sessions started with the topics I was actually stuck on. The practice sets made it easier to ask better questions in class.",
   },
   {
     id: 3,
-    name: "Sophia L.",
-    country: "United States",
-    flag: "🇺🇸",
-    avatar: "/student_sophia_usa_review_avatar.png",
+    name: "Parent of an IB Economics student",
+    location: "Online",
     rating: 5,
-    text: "Found an elite chemistry tutor within minutes. The interactive dashboard and AI tools make studying feel less like a chore and more like a game."
+    text: "IB Gram helped us compare tutor options without pressure. We chose someone who could support essays, case studies and exam timing.",
   },
   {
     id: 4,
-    name: "Arjun V.",
-    country: "India",
-    flag: "🇮🇳",
-    avatar: "/student_malik_dubai_review_avatar.png",
+    name: "MYP student family",
+    location: "Bangalore",
     rating: 5,
-    text: "IB Gram's resonance with the Indian schooling system is perfect. The AI tools are incredibly local and effective for global standard preparation."
+    text: "The support felt steady rather than rushed. The tutor focused on foundations first, then moved into school assessments and project work.",
   },
-  {
-    id: 5,
-    name: "Mia T.",
-    country: "Australia",
-    flag: "🇦🇺",
-    avatar: "/student_sarah_london_review_avatar.png",
-    rating: 5,
-    text: "The 24/7 access to elite tutors has been my secret weapon. The platform is sleek, fast, and exactly what an IB student needs in 2026."
-  }
 ];
-
-// Duplicate for infinity scroll
-const marqueeReviews = [...reviews, ...reviews];
 
 export function ReviewsSection() {
   return (
-    <section className="py-24 relative overflow-hidden bg-background">
-      {/* Background Decorative Element */}
-
-      <div className="container mx-auto px-4 md:px-6 mb-16 relative">
-        <div className="max-w-2xl mx-auto text-center">
+    <section className="py-20 md:py-24 relative overflow-hidden bg-background">
+      <div className="container mx-auto px-4 md:px-6 relative">
+        <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +46,7 @@ export function ReviewsSection() {
             className="flex items-center justify-center gap-2 mb-4"
           >
             <div className="h-px w-8 bg-primary/50" />
-            <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px]">Student Reviews</span>
+            <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px]">Student and parent reviews</span>
             <div className="h-px w-8 bg-primary/50" />
           </motion.div>
           <motion.h2
@@ -77,63 +54,50 @@ export function ReviewsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-black tracking-tight text-foreground"
+            className="text-4xl md:text-5xl font-black tracking-tight text-foreground leading-tight"
           >
-            Trusted by <span className="text-gradient bg-300% animate-gradient">Students Worldwide</span>
+            Stories from families using <span className="text-gradient bg-300% animate-gradient">IB Gram</span>
           </motion.h2>
+          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+            Short, practical feedback from students and parents about tutor fit, revision structure and communication.
+          </p>
         </div>
-      </div>
 
-      {/* Infinity Marquee */}
-      <div className="relative flex overflow-hidden group">
-        <div className="reviews-marquee flex gap-8 whitespace-nowrap py-10 px-4 will-change-transform">
-          {marqueeReviews.map((review, idx) => (
-            <div
-              key={`${review.id}-${idx}`}
-              className="w-[350px] md:w-[450px] flex-shrink-0 glassmorphism-heavy p-8 rounded-[2.5rem] border border-white/10 shadow-2xl relative group/card hover:border-primary/30 transition-all duration-500 hover:-translate-y-2"
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5">
+          {reviews.map((review, idx) => (
+            <motion.article
+              key={review.id}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.06, duration: 0.45 }}
+              className="h-full rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:p-7 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-white/[0.06]"
             >
-              <div className="absolute -top-4 -left-4 size-12 rounded-2xl bg-primary flex items-center justify-center shadow-xl shadow-primary/20 scale-0 group-hover/card:scale-100 transition-transform duration-500">
-                <Quote className="size-6 text-primary-foreground" />
-              </div>
-
-              <div className="flex items-center gap-4 mb-6">
-                <div className="relative size-14 rounded-2xl overflow-hidden ring-2 ring-primary/20 shadow-lg">
-                  <Image src={review.avatar} alt={review.name} fill sizes="56px" className="object-cover" />
+              <div className="mb-6 flex items-start justify-between gap-4">
+                <div className="size-11 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                  <Quote className="size-5" />
                 </div>
-                <div>
-                  <div className="font-black text-lg text-foreground flex items-center gap-2">
-                    {review.name}
-                    <div className="size-2 rounded-full bg-green-500 animate-pulse" />
-                  </div>
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-muted-foreground uppercase tracking-widest">
-                    <span>{review.flag}</span>
-                    <span>{review.country}</span>
-                    <span className="text-[8px] bg-primary/10 text-primary px-1.5 py-0.5 rounded-full border border-primary/20">Verified</span>
-                  </div>
+                <div className="flex gap-1" aria-label={`${review.rating} star review`}>
+                  {Array.from({ length: review.rating }).map((_, i) => (
+                    <Star key={i} className="size-3.5 text-secondary fill-current" />
+                  ))}
                 </div>
               </div>
 
-              <div className="flex gap-1 mb-4">
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} className="size-4 text-secondary fill-current" />
-                ))}
-              </div>
-
-              <p className="text-lg md:text-xl font-medium text-foreground/90 italic leading-relaxed whitespace-normal tracking-tight">
+              <p className="text-base font-medium text-foreground/90 leading-relaxed">
                 &ldquo;{review.text}&rdquo;
               </p>
 
-              <div className="mt-8 flex items-center gap-2 text-secondary/80 group-hover/card:text-secondary transition-colors duration-500">
-                <Globe className="size-4 animate-spin-slow" />
-                <span className="text-[10px] font-black uppercase tracking-[0.2em]">{review.country}</span>
+              <div className="mt-7 border-t border-white/10 pt-5">
+                <div className="font-black text-sm text-foreground">{review.name}</div>
+                <div className="mt-1 flex items-center gap-1.5 text-xs font-bold text-muted-foreground">
+                  <ShieldCheck className="size-3.5 text-primary" />
+                  <span>{review.location} review</span>
+                </div>
               </div>
-            </div>
+            </motion.article>
           ))}
         </div>
-
-        {/* Gradient Overlays for smooth edges */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
       </div>
     </section>
   );

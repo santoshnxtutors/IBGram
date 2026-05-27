@@ -53,10 +53,10 @@ function CompareHeader() {
         </button>
 
         <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground mb-6 flex items-center gap-4">
-          Elite <span className="text-primary">Comparison</span> <Sparkles className="size-8 text-primary" />
+          Tutor <span className="text-primary">Comparison</span> <Sparkles className="size-8 text-primary" />
         </h1>
         <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-          Our proprietary AI analyzes the pedagogical nuances of our top 1% educators to help you find the precise match for your student&apos;s learning style.
+          Compare tutor fit by subject, level, teaching style, availability and the support your student needs most.
         </p>
       </motion.div>
     </div>

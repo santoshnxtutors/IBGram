@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Sparkles, BrainCircuit, Target, ShieldCheck } from "lucide-react";
+import { CheckCircle2, BrainCircuit, Target, ShieldCheck } from "lucide-react";
 
 export interface SEOPlatformProps {
   location?: {
@@ -31,26 +31,26 @@ export function SEOPlatformInfo({ location = { country: "India" } }: SEOPlatform
                   <BrainCircuit className="size-5" />
                 </div>
                 <h2 className="text-xl md:text-2xl font-black text-foreground leading-tight">
-                  AI-Based Tutor Matching Across {location.country}
+                  Tutor matching across {location.country}
                 </h2>
               </div>
               <div className="space-y-4 text-muted-foreground text-base/relaxed font-medium">
                 <p>
-                  IB Gram is an AI-powered tutor and education matching platform connecting parents and students with verified educators across {location.country}. We provide home tutors, online tutors, institute mentors and hybrid academic support for Classes 6–12 across CBSE, ICSE, IB, ISC and IGCSE boards.
+                  IB Gram helps parents and students review tutor options across {location.country}. The focus is practical: curriculum fit, subject level, preferred tutoring mode, schedule and the kind of academic support the student needs.
                 </p>
                 <p>
-                  Instead of browsing random tutor listings, our structured AI recommendation system evaluates academic compatibility and delivers a shortlist of 2–3 high-fit tutors based on subject expertise, board alignment, availability, budget and reliability signals.
+                  Instead of browsing long tutor lists, families can share a requirement and receive a smaller shortlist to consider. Matching looks at subject expertise, board alignment, availability, budget and reliability signals.
                 </p>
                 <p>
-                  We also support competitive exam preparation including JEE and NEET through specialised mentors and structured learning plans. Parents can book a demo class to evaluate teaching clarity and decide confidently.
+                  For IB and IGCSE families, this can include PYP, MYP, DP, Math AA, Math AI, Physics, Chemistry, Economics, English and other subject needs. Parents can use the first session to check teaching clarity, pace and comfort.
                 </p>
               </div>
 
               <div className="mt-6 space-y-3">
                 {[
-                  `Verified tutors for home, online and hybrid learning across ${location.country}.`,
-                  "Support for CBSE, ICSE, IB, ISC, IGCSE + JEE & NEET.",
-                  "AI-based shortlisting: get 2–3 best matches instead of long lists."
+                  `Tutor options for home, online and hybrid learning across ${location.country}, where available.`,
+                  "Support for IB, IGCSE, PYP, MYP, DP and subject-specific revision.",
+                  "Shortlisting based on subject, level, schedule, mode and family requirements."
                 ].map((point, i) => (
                   <div key={i} className="flex items-start gap-2.5">
                     <ShieldCheck className="size-4 text-secondary shrink-0 mt-0.5" />
@@ -70,37 +70,30 @@ export function SEOPlatformInfo({ location = { country: "India" } }: SEOPlatform
                   <Target className="size-5" />
                 </div>
                 <h2 className="text-xl md:text-2xl font-black text-foreground leading-tight">
-                  How Our AI Tutor Matching System Works
+                  How tutor matching works
                 </h2>
               </div>
               
               <p className="text-muted-foreground text-base/relaxed font-medium mb-6">
-                Our AI engine processes structured compatibility parameters to recommend educators who fit your child&apos;s academic goals — whether it&apos;s school support, foundation building or competitive exam preparation.
+                Matching works best when the requirement is specific. Share the curriculum, subject, level, school deadline, weak areas, preferred schedule and whether you need home, online or hybrid tutoring.
               </p>
 
               <div className="space-y-3 mb-8">
                 {[
-                  "Subject expertise relevance & teaching experience match",
-                  "Board alignment (CBSE, ICSE, IB, ISC, IGCSE)",
-                  "Class & exam specialization (JEE, NEET)",
-                  "Location feasibility for home tutoring & online readiness",
+                  "Subject expertise and teaching experience",
+                  "Curriculum alignment for IB, IGCSE and related school needs",
+                  "Programme and level fit, including PYP, MYP, DP, HL and SL",
+                  "Location feasibility for home tutoring and online readiness",
                   "Availability overlap with preferred time slots",
-                  "Teaching clarity, feedback signals & outcome patterns",
-                  "Reliability, consistency & profile verification",
-                  "Budget/pricing alignment and communication quality"
+                  "Teaching clarity, communication style and parent feedback",
+                  "Reliability, consistency and profile verification",
+                  "Budget alignment and first-session comfort"
                 ].map((point, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
                     <span className="text-foreground/80 font-medium text-xs md:text-sm leading-tight">{point}</span>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-6 flex items-start gap-3">
-                <Sparkles className="size-5 text-primary shrink-0 animate-pulse mt-0.5" />
-                <p className="text-foreground/90 font-medium text-xs md:text-sm leading-snug">
-                  This system helps parents avoid confusion and saves time by delivering 2–3 precise tutor recommendations with high match confidence. You can book a demo to confirm the fit before continuing.
-                </p>
               </div>
             </div>
         </motion.div>
