@@ -1,6 +1,7 @@
 import "server-only";
 
 import { createHash, createHmac, timingSafeEqual } from "node:crypto";
+import { cache } from "react";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { NextResponse, type NextRequest } from "next/server";
@@ -10,14 +11,18 @@ import { ROLE_PERMISSIONS, verifyLocalAdminUser } from "./admin-users";
 import type { AdminPermission, AdminUserRole } from "../_types/admin";
 
 const COOKIE_NAME = "ibgram_admin_session";
+const BACKEND_SESSION_COOKIE = "ibgram_session";
 const SESSION_TTL_SECONDS = 60 * 60 * 8;
 const REMEMBER_TTL_SECONDS = 60 * 60 * 24 * 14;
 const LOGIN_ATTEMPTS = new Map<string, { count: number; resetAt: number }>();
 
 export type AdminSession = {
   username: string;
+  email?: string;
   role: AdminUserRole;
+  roles?: string[];
   permissions: AdminPermission[];
+  backendPermissions?: string[];
   issuedAt: number;
   expiresAt: number;
 };
@@ -26,10 +31,18 @@ export function getAdminCookieName() {
   return COOKIE_NAME;
 }
 
-export async function getAdminSession(): Promise<AdminSession | null> {
+export const getAdminSession = cache(async (): Promise<AdminSession | null> => {
   const cookieStore = await cookies();
-  return verifySessionToken(cookieStore.get(COOKIE_NAME)?.value);
-}
+  const backendCookie = cookieStore.get(BACKEND_SESSION_COOKIE)?.value;
+  const localCookie = cookieStore.get(COOKIE_NAME)?.value;
+
+  if (getBackendUrl() && backendCookie) {
+    const backendSession = await revalidateAgainstBackend(backendCookie);
+    if (backendSession) return backendSession;
+  }
+
+  return verifySessionToken(localCookie);
+});
 
 export async function requireAdminSession(): Promise<AdminSession> {
   const session = await getAdminSession();
@@ -43,7 +56,8 @@ export async function redirectIfAdminSession() {
 }
 
 export function requireAdminRequest(request: NextRequest): AdminSession | Response {
-  const session = verifySessionToken(request.cookies.get(COOKIE_NAME)?.value);
+  const localCookie = request.cookies.get(COOKIE_NAME)?.value;
+  const session = verifySessionToken(localCookie);
   if (!session) {
     return Response.json({ error: "Admin session required." }, { status: 401 });
   }
@@ -168,18 +182,47 @@ async function loginWithBackendAuth(request: NextRequest, username: string, pass
   }
 }
 
+async function revalidateAgainstBackend(backendCookieValue: string): Promise<AdminSession | null> {
+  const backendUrl = getBackendUrl();
+  if (!backendUrl) return null;
+
+  try {
+    const response = await fetch(`${backendUrl}/api/auth/me`, {
+      method: "GET",
+      headers: { cookie: `${BACKEND_SESSION_COOKIE}=${backendCookieValue}` },
+      cache: "no-store",
+    });
+    if (!response.ok) return null;
+
+    const payload = await response.json().catch(() => null);
+    const user = payload?.data?.user;
+    if (!user) return null;
+
+    if (user.status && user.status !== "active") return null;
+    return adminSessionFromBackendUser(user, false);
+  } catch {
+    return null;
+  }
+}
+
 function getBackendUrl(): string {
   return (process.env.BACKEND_URL ?? "").replace(/\/$/, "");
 }
 
-function adminSessionFromBackendUser(user: { username?: string; roles?: string[]; permissions?: string[] }, remember: boolean): AdminSession {
+function adminSessionFromBackendUser(
+  user: { username?: string; email?: string; roles?: string[]; permissions?: string[]; status?: string },
+  remember: boolean,
+): AdminSession {
   const role = mapBackendRole(user.roles ?? []);
   const permissions = mapBackendPermissions(user.permissions ?? [], role);
   const ttl = remember ? REMEMBER_TTL_SECONDS : SESSION_TTL_SECONDS;
   return {
     username: user.username ?? "admin",
+    email: user.email,
     role,
+    roles: user.roles ?? [],
     permissions,
+    backendPermissions: user.permissions ?? [],
     issuedAt: Date.now(),
     expiresAt: Date.now() + ttl * 1000,
   };
@@ -211,6 +254,7 @@ function mapBackendPermissions(permissions: string[], role: AdminUserRole): Admi
 }
 
 export function isAuthConfigured(): boolean {
+  if (getBackendUrl()) return true;
   return Boolean(process.env.ADMIN_USERNAME && process.env.ADMIN_SESSION_SECRET && (process.env.ADMIN_PASSWORD || process.env.ADMIN_PASSWORD_HASH));
 }
 

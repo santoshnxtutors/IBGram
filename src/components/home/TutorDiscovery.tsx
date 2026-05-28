@@ -1,14 +1,14 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, Clock, CheckCircle, X, ShieldCheck, Sparkles, Check, ArrowRight, MapPin, Home, Monitor } from "lucide-react";
+import { X, ShieldCheck, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { allTutors } from "@/lib/tutor-data";
+import { TutorCard } from "@/components/tutors/TutorCard";
 
 export function TutorDiscovery() {
   const router = useRouter();
@@ -76,115 +76,16 @@ export function TutorDiscovery() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allTutors.slice(0, 3).map((tutor) => (
-            <motion.div
-              layoutId={`card-${tutor.id}`}
+            <TutorCard
               key={tutor.id}
-              onClick={() => setSelectedId(tutor.id)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  setSelectedId(tutor.id);
-                }
-              }}
-              role="button"
-              tabIndex={0}
-              aria-label={`View profile for ${tutor.name}`}
-              className="cursor-pointer h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 rounded-3xl"
-            >
-              <Card className="group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 border border-white/10 bg-white/[0.04] backdrop-blur-md rounded-3xl overflow-hidden h-full flex flex-col hover:-translate-y-2 hover:bg-white/[0.06] relative">
-                {/* Compare Toggle */}
-                <div className="absolute top-6 right-6 z-20 flex flex-col items-center gap-1.5">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleCompare(tutor.id);
-                    }}
-                    aria-pressed={compareIds.includes(tutor.id)}
-                    aria-label={`Compare ${tutor.name}`}
-                    className={`size-8 rounded-full flex items-center justify-center border-2 transition-colors ${compareIds.includes(tutor.id) ? 'bg-primary border-primary text-primary-foreground shadow-lg shadow-primary/20 bg-opacity-100' : 'bg-background/80 border-border hover:border-primary/50 text-transparent hover:text-primary/50 backdrop-blur-sm'}`}
-                    title="Compare Tutor"
-                  >
-                    <Check className={`size-4 ${compareIds.includes(tutor.id) ? 'text-current' : ''}`} strokeWidth={3} />
-                  </button>
-                  <span className={`text-[12px] font-extrabold tracking-wide transition-colors select-none ${compareIds.includes(tutor.id) ? 'text-primary' : 'text-white/90 group-hover:text-white'}`}>
-                    Compare
-                  </span>
-                </div>
-
-                <CardContent className="p-5 md:p-7 flex-1">
-                  <div className="flex justify-between items-start mb-4 md:mb-6">
-                    <div className="flex gap-3 md:gap-4 items-center">
-                      <motion.div
-                        layoutId={`avatar-${tutor.id}`}
-                        className="size-14 md:size-16 rounded-2xl bg-muted flex items-center justify-center relative overflow-hidden ring-4 ring-background shadow-lg"
-                      >
-                        <Image
-                          src={tutor.image}
-                          alt={tutor.name}
-                          fill
-                          sizes="(max-width: 768px) 56px, 64px"
-                          className="object-cover"
-                        />
-                        <div className="absolute bottom-0 right-0 size-3 md:size-4 bg-green-500 border-2 border-background rounded-full animate-pulse z-10" />
-                      </motion.div>
-                      <div>
-                        <motion.h3 layoutId={`name-${tutor.id}`} className="font-bold text-lg md:text-xl flex items-center gap-1 text-primary transition-colors tracking-tight">
-                          {tutor.name} <CheckCircle className="size-3.5 md:size-4 text-primary" fill="currentColor" />
-                        </motion.h3>
-                        <motion.p layoutId={`subject-${tutor.id}`} className="text-xs md:text-sm font-semibold text-muted-foreground">{tutor.subject}</motion.p>
-                        <p className="mt-1 text-[11px] font-bold text-foreground/70">
-                          {tutor.curriculums.join(" + ")} | {tutor.subjectLevels.slice(0, 2).join(", ")}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <motion.div layoutId={`stats-${tutor.id}`} className="flex flex-wrap items-center gap-2 text-xs md:text-sm font-bold mb-4 md:mb-5">
-                    <span className="flex items-center gap-1 text-foreground bg-secondary/10 px-2 py-0.5 rounded-lg">
-                      <Star className="size-3.5 md:size-4 text-secondary fill-current" /> {tutor.rating} <span className="text-muted-foreground font-medium text-[10px] md:text-xs">profile reviews</span>
-                    </span>
-                    <span className="flex items-center gap-1 text-foreground bg-primary/10 px-2 py-0.5 rounded-lg">
-                      <Clock className="size-3.5 md:size-4 text-primary" /> {tutor.experience}
-                    </span>
-                  </motion.div>
-
-                  <div className="mb-4 grid gap-2 text-xs font-semibold text-muted-foreground">
-                    <span className="flex items-center gap-2">
-                      <MapPin className="size-3.5 text-primary" />
-                      {tutor.primaryCity}{tutor.availableAreas.length ? `, ${tutor.availableAreas[0]}` : ""}
-                    </span>
-                    <span className="flex items-center gap-2">
-                      {tutor.homeTutoringAvailable ? <Home className="size-3.5 text-secondary" /> : <Monitor className="size-3.5 text-secondary" />}
-                      {[
-                        tutor.homeTutoringAvailable ? "Home" : null,
-                        tutor.onlineTutoringAvailable ? "Online" : null,
-                        tutor.hybridTutoringAvailable ? "Hybrid" : null,
-                      ].filter(Boolean).join(" / ")} availability reviewed
-                    </span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-1.5 md:gap-2">
-                    {tutor.tags.slice(0, 2).map(tag => (
-                      <motion.span
-                        key={tag}
-                        className={`text-[9px] md:text-[10px] uppercase tracking-wider font-extrabold px-2.5 md:px-3 py-1 rounded-lg border border-current/20 ${tutor.accent}`}
-                      >
-                        {tag}
-                      </motion.span>
-                    ))}
-                  </div>
-                </CardContent>
-                <div className="mt-auto flex justify-end">
-                  <div className="bg-muted/50 border-t border-l border-border/50 px-5 py-3 rounded-tl-[1.5rem] flex items-center text-xs md:text-sm font-bold text-primary transition-colors group-hover:bg-primary/10">
-                    Check availability <ArrowRight className="ml-1.5 size-3.5 md:size-4 transition-transform group-hover:translate-x-1" />
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
+              tutor={tutor}
+              selectedForCompare={compareIds.includes(tutor.id)}
+              onCompareToggle={toggleCompare}
+              onOpen={setSelectedId}
+            />
           ))}
         </div>
       </div>
-
       {/* Floating Compare Action Bar */}
       <AnimatePresence>
         {compareIds.length > 0 && !selectedId && (

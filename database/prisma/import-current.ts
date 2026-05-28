@@ -34,12 +34,6 @@ function pathFromUrl(value: string): string {
   }
 }
 
-function toCurriculum(value: string | undefined): Curriculum {
-  if (value === "IGCSE") return "IGCSE";
-  if (value === "Both" || value === "BOTH") return "BOTH";
-  return "IB";
-}
-
 function toPageStatus(value: string | undefined): PageStatus {
   if (value === "live" || value === "published") return "published";
   if (value === "review") return "needs_review";

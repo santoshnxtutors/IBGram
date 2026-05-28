@@ -5,6 +5,7 @@ import { authRoutes } from "../modules/auth/auth.routes";
 import { usersRoutes } from "../modules/users/users.routes";
 import { rolesRoutes } from "../modules/roles/roles.routes";
 import { auditRoutes } from "../modules/audit/audit.routes";
+import { dashboardRoutes } from "../modules/dashboard/dashboard.routes";
 
 export const apiRoutes = Router();
 
@@ -14,3 +15,4 @@ apiRoutes.get("/version", versionController);
 apiRoutes.use("/", rolesRoutes);
 apiRoutes.use("/users", usersRoutes);
 apiRoutes.use("/audit-logs", auditRoutes);
+apiRoutes.use("/dashboard", dashboardRoutes);

@@ -1,13 +1,13 @@
-﻿"use client";
+"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Check, CheckCircle, Clock, ShieldCheck, Sparkles, Star, X } from "lucide-react";
+import { ArrowRight, ShieldCheck, Sparkles, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { TutorCard } from "@/components/tutors/TutorCard";
 import { formatCourseSubject, getCourseTutorProfiles } from "./course-tutor-data";
 
 interface CourseTutorSectionProps {
@@ -90,112 +90,17 @@ export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSecti
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {courseTutors.map((tutor) => (
-            <motion.div
-              layoutId={`card-${curriculum}-${subjectSlug}-${tutor.id}`}
+            <TutorCard
               key={tutor.id}
-              onClick={() => setSelectedId(tutor.id)}
-              className="h-full cursor-pointer"
-            >
-              <Card className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border/50 bg-background/40 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/10">
-                <div className="absolute right-6 top-6 z-20 flex flex-col items-center gap-1.5">
-                  <button
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      toggleCompare(tutor.id);
-                    }}
-                    className={`flex size-8 items-center justify-center rounded-full border-2 transition-colors ${
-                      compareIds.includes(tutor.id)
-                        ? "border-primary bg-primary bg-opacity-100 text-primary-foreground shadow-lg shadow-primary/20"
-                        : "border-border bg-background/80 text-transparent backdrop-blur-sm hover:border-primary/50 hover:text-primary/50"
-                    }`}
-                    title="Compare Tutor"
-                    type="button"
-                  >
-                    <Check className={`size-4 ${compareIds.includes(tutor.id) ? "text-current" : ""}`} strokeWidth={3} />
-                  </button>
-                  <span
-                    className={`select-none text-[12px] font-extrabold tracking-wide transition-colors ${
-                      compareIds.includes(tutor.id) ? "text-primary" : "text-white/90 group-hover:text-white"
-                    }`}
-                  >
-                    Compare
-                  </span>
-                </div>
-
-                <CardContent className="flex-1 p-5 md:p-8">
-                  <div className="mb-4 flex items-start justify-between md:mb-6">
-                    <div className="flex items-center gap-3 md:gap-4">
-                      <motion.div
-                        layoutId={`avatar-${curriculum}-${subjectSlug}-${tutor.id}`}
-                        className="relative flex size-14 items-center justify-center overflow-hidden rounded-2xl bg-muted/80 shadow-lg ring-4 ring-background md:size-16"
-                      >
-                        {tutor.image ? (
-                          <Image
-                            src={tutor.image}
-                            alt={tutor.name}
-                            fill
-                            sizes="(max-width: 768px) 56px, 64px"
-                            className="object-cover"
-                          />
-                        ) : (
-                          <span className="text-xl font-bold text-muted-foreground">{tutor.name.charAt(0)}</span>
-                        )}
-                        <div className="absolute bottom-0 right-0 size-3 rounded-full border-2 border-background bg-green-500 md:size-4" />
-                      </motion.div>
-                      <div>
-                        <motion.h3
-                          layoutId={`name-${curriculum}-${subjectSlug}-${tutor.id}`}
-                          className="flex items-center gap-1 text-lg font-bold tracking-tight text-primary transition-colors md:text-xl"
-                        >
-                          {tutor.name} <CheckCircle className="size-3.5 text-primary md:size-4" fill="currentColor" />
-                        </motion.h3>
-                        <motion.p
-                          layoutId={`subject-${curriculum}-${subjectSlug}-${tutor.id}`}
-                          className="text-xs font-semibold text-muted-foreground md:text-sm"
-                        >
-                          {tutor.subject}
-                        </motion.p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <motion.div
-                    layoutId={`stats-${curriculum}-${subjectSlug}-${tutor.id}`}
-                    className="mb-4 flex items-center gap-2 text-xs font-bold md:mb-6 md:gap-4 md:text-sm"
-                  >
-                    <span className="flex items-center gap-1 rounded-lg bg-secondary/10 px-2 py-0.5 text-foreground">
-                      <Star className="size-3.5 fill-current text-secondary md:size-4" /> {tutor.rating}
-                      <span className="text-[10px] font-medium text-muted-foreground md:text-xs">({tutor.reviews})</span>
-                    </span>
-                    <span className="text-muted-foreground/40">&middot;</span>
-                    <span className="flex items-center gap-1 rounded-lg bg-primary/10 px-2 py-0.5 text-foreground">
-                      <Clock className="size-3.5 text-primary md:size-4" /> {tutor.experience}
-                    </span>
-                  </motion.div>
-
-                  <div className="flex flex-wrap gap-1.5 md:gap-2">
-                    {tutor.tags.slice(0, 2).map((tag) => (
-                      <motion.span
-                        key={tag}
-                        className={`rounded-lg border border-current/20 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider md:px-3 md:text-[10px] ${tutor.accent}`}
-                      >
-                        {tag}
-                      </motion.span>
-                    ))}
-                  </div>
-                </CardContent>
-
-                <div className="mt-auto flex justify-end">
-                  <div className="flex items-center rounded-tl-[1.5rem] border-l border-t border-border/50 bg-muted/50 px-5 py-3 text-xs font-bold text-primary transition-colors group-hover:bg-primary/10 md:text-sm">
-                    View Profile <ArrowRight className="ml-1.5 size-3.5 transition-transform group-hover:translate-x-1 md:size-4" />
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
+              tutor={tutor}
+              selectedForCompare={compareIds.includes(tutor.id)}
+              onCompareToggle={toggleCompare}
+              onOpen={setSelectedId}
+              layoutNamespace={`${curriculum}-${subjectSlug}`}
+            />
           ))}
         </div>
       </div>
-
       <AnimatePresence>
         {compareIds.length > 0 && !selectedId && (
           <motion.div
