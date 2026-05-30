@@ -8,6 +8,7 @@ import { buildTutorLandingPageSchema } from "@/lib/seo/schema";
 import { absoluteUrl, buildCityAreaPath, buildCityPath } from "@/lib/seo/slug-utils";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getGeneratedPageForRoute, getGeneratedStaticParamsForTypes } from "@/lib/generated-pages/routes";
+import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { TutorAvailabilitySection } from "@/components/tutors/TutorAvailabilitySection";
 import { buildTutorAvailabilityIntro, getTutorsForArea } from "@/lib/tutors/tutor-location-matching";
@@ -36,9 +37,15 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: AreaPageProps): Promise<Metadata> {
   const { citySlug, areaSlug } = await params;
+  // 1. DB-first (Phase 3)
+  const dbPage = await getDbGeneratedSeoPageByPath(`/ib-tutors/${citySlug}/areas/${areaSlug}/`, ["area"]);
+  if (dbPage) return buildGeneratedMetadata(dbPage);
+
+  // 2. Local generated-pages JSON store
   const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/areas/${areaSlug}/`, ["area"]);
   if (generatedPage) return buildGeneratedMetadata(generatedPage);
 
+  // 3. Static
   const page = getCitySeoPageBySlug(citySlug);
   const area = getAreaPageBySlug(citySlug, areaSlug);
 
@@ -59,9 +66,15 @@ export async function generateMetadata({ params }: AreaPageProps): Promise<Metad
 
 export default async function CityAreaPage({ params }: AreaPageProps) {
   const { citySlug, areaSlug } = await params;
+  // 1. DB-first
+  const dbPage = await getDbGeneratedSeoPageByPath(`/ib-tutors/${citySlug}/areas/${areaSlug}/`, ["area"]);
+  if (dbPage) return <GeneratedPageRenderer page={dbPage} />;
+
+  // 2. Local generated-pages JSON store
   const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/areas/${areaSlug}/`, ["area"]);
   if (generatedPage) return <GeneratedPageRenderer page={generatedPage} />;
 
+  // 3. Static
   const page = getCitySeoPageBySlug(citySlug);
   const area = getAreaPageBySlug(citySlug, areaSlug);
 

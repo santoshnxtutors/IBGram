@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ClientChart } from "@/components/dashboard/ClientChart";
-import { ArrowRight, Users, Clock, Calendar as CalendarIcon, Wallet, Star, AlertCircle, Video } from "lucide-react";
+import { Users, Clock, Calendar as CalendarIcon, Wallet, Star, AlertCircle, Video } from "lucide-react";
 import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip

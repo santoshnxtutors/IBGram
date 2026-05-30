@@ -8,6 +8,7 @@ import { buildTutorLandingPageSchema } from "@/lib/seo/schema";
 import { absoluteUrl, buildCityPath, buildCitySchoolPath } from "@/lib/seo/slug-utils";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getGeneratedPageForRoute, getGeneratedStaticParamsForTypes } from "@/lib/generated-pages/routes";
+import { getDbGeneratedSeoPageByPath as getDbGenSeoSchoolPage } from "@/lib/cms/generated-pages-db";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { TutorAvailabilitySection } from "@/components/tutors/TutorAvailabilitySection";
 import { buildTutorAvailabilityIntro, getTutorsForSchool } from "@/lib/tutors/tutor-location-matching";
@@ -36,6 +37,11 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: SchoolPageProps): Promise<Metadata> {
   const { citySlug, schoolSlug } = await params;
+  // 1. DB-first
+  const dbPage = await getDbGenSeoSchoolPage(`/ib-tutors/${citySlug}/schools/${schoolSlug}/`, ["school"]);
+  if (dbPage) return buildGeneratedMetadata(dbPage);
+
+  // 2. Local store
   const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/schools/${schoolSlug}/`, ["school"]);
   if (generatedPage) return buildGeneratedMetadata(generatedPage);
 
@@ -59,6 +65,11 @@ export async function generateMetadata({ params }: SchoolPageProps): Promise<Met
 
 export default async function CitySchoolPage({ params }: SchoolPageProps) {
   const { citySlug, schoolSlug } = await params;
+  // 1. DB-first
+  const dbPage = await getDbGenSeoSchoolPage(`/ib-tutors/${citySlug}/schools/${schoolSlug}/`, ["school"]);
+  if (dbPage) return <GeneratedPageRenderer page={dbPage} />;
+
+  // 2. Local store
   const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/schools/${schoolSlug}/`, ["school"]);
   if (generatedPage) return <GeneratedPageRenderer page={generatedPage} />;
 

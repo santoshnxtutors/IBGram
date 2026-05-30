@@ -1,17 +1,38 @@
 import { AdminShell } from "../../_components/AdminShell";
-import { AdminPageHeader, AdminCard, AdminDataTable } from "../../_components/AdminPrimitives";
-import { getPages } from "../../_lib/admin-data";
+import { AdminPageHeader, AdminCard, AdminEmptyState } from "../../_components/AdminPrimitives";
+import { CanonicalsClient } from "./CanonicalsClient";
+import { prisma } from "@/lib/db";
+
+export const dynamic = "force-dynamic";
 
 export default async function AdminCanonicalsPage() {
-  const pages = await getPages();
+  let rows: Awaited<ReturnType<typeof prisma.canonicalRule.findMany>> = [];
+  let dbError: string | null = null;
+  try {
+    rows = await prisma.canonicalRule.findMany({ orderBy: { updatedAt: "desc" }, take: 200 });
+  } catch (err) {
+    dbError = err instanceof Error ? err.message : String(err);
+  }
+
+  const items = rows.map((row) => ({
+    id: row.id,
+    sourcePath: row.sourcePath,
+    targetPath: row.targetPath,
+    reason: row.reason,
+    isActive: row.isActive,
+    updatedAt: row.updatedAt.toISOString(),
+  }));
+
   return (
     <AdminShell>
-      <AdminPageHeader eyebrow="Canonicals" title="Canonical Rules" description="Review canonical targets and possible duplicates." />
+      <AdminPageHeader
+        eyebrow="SEO"
+        title="Canonical Rules"
+        description="Database-backed canonical overrides. Used to consolidate Gurgaon aliases under Gurugram and prevent thin/duplicate page indexing."
+      />
       <AdminCard>
-        <AdminDataTable columns={["Page", "URL", "Canonical", "Duplicate risk"]} rows={pages.slice(0, 80).map((page) => [page.title, page.url, page.canonicalUrl, page.duplicateRisk])} />
+        {dbError ? <AdminEmptyState title="Canonical database not reachable" detail={dbError} /> : <CanonicalsClient items={items} />}
       </AdminCard>
     </AdminShell>
   );
 }
-
-

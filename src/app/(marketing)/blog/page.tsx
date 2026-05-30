@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, Tag, Search, ChevronRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { ArrowRight, Clock, Tag, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CATEGORIES = ["All Insights", "IB Strategy", "IGCSE Tips", "Study Habits", "University Prep", "EdTech News"];

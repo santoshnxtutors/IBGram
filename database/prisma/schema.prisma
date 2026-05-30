@@ -864,6 +864,11 @@ model Asset {
   generatedPageOgImages GeneratedPage[] @relation("GeneratedPageOgImage")
   tutorAssets           TutorAsset[]
   csvImports            CsvImport[]     @relation("CsvImportFileAsset")
+  testimonialImages     Testimonial[]   @relation("TestimonialImage")
+  successStoryImages    SuccessStory[]  @relation("SuccessStoryImage")
+  blogFeaturedImages    BlogPost[]      @relation("BlogFeaturedImage")
+  blogOgImages          BlogPost[]      @relation("BlogOgImage")
+  homepageSectionMedia  HomepageSection[] @relation("HomepageSectionMedia")
 
   @@unique([provider, key])
   @@index([folderId])
@@ -990,4 +995,216 @@ model Subject {
   updatedAt  DateTime   @updatedAt
 
   @@index([curriculum])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Phase 2 — Marketing/CMS models (additive, no schema breaking changes)
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum ContentStatus {
+  draft
+  review
+  published
+  archived
+}
+
+enum TestimonialKind {
+  review
+  success_story
+}
+
+model Testimonial {
+  id            String          @id @default(cuid())
+  kind          TestimonialKind @default(review)
+  authorName    String
+  authorRole    String?
+  location      String?
+  rating        Int?
+  quote         String
+  longStory     String?
+  curriculum    Curriculum?
+  imageAssetId  String?
+  status        ContentStatus   @default(published)
+  useOnHomepage Boolean         @default(false)
+  featured      Boolean         @default(false)
+  sortOrder     Int             @default(0)
+  verifiedAt    DateTime?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  imageAsset    Asset?          @relation("TestimonialImage", fields: [imageAssetId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([useOnHomepage])
+  @@index([featured])
+  @@index([curriculum])
+}
+
+model SuccessStory {
+  id           String        @id @default(cuid())
+  studentName  String
+  subject      String?
+  focus        String?
+  outcome      String?
+  nextStep     String?
+  longStory    String?
+  imageAssetId String?
+  accentClass  String?
+  status       ContentStatus @default(published)
+  featured     Boolean       @default(false)
+  sortOrder    Int           @default(0)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  imageAsset   Asset?        @relation("SuccessStoryImage", fields: [imageAssetId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+}
+
+model BlogCategory {
+  id          String      @id @default(cuid())
+  name        String      @unique
+  slug        String      @unique
+  description String?
+  sortOrder   Int         @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  posts       BlogPost[]
+
+  @@index([sortOrder])
+}
+
+model BlogPost {
+  id                String        @id @default(cuid())
+  slug              String        @unique
+  title             String
+  excerpt           String?
+  body              String
+  authorName        String?
+  categoryId        String?
+  featuredImageId   String?
+  metaTitle         String?
+  metaDescription   String?
+  metaKeywords      String[]      @default([])
+  ogImageAssetId    String?
+  schemaJson        Json?
+  tags              String[]      @default([])
+  status            ContentStatus @default(draft)
+  indexFlag         IndexFlag     @default(auto)
+  readingTimeMinutes Int?
+  viewCount         Int           @default(0)
+  publishedAt       DateTime?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+  category          BlogCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  featuredImage     Asset?        @relation("BlogFeaturedImage", fields: [featuredImageId], references: [id], onDelete: SetNull)
+  ogImage           Asset?        @relation("BlogOgImage", fields: [ogImageAssetId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([publishedAt])
+  @@index([categoryId])
+}
+
+model FaqItem {
+  id         String        @id @default(cuid())
+  question   String
+  answer     String
+  category   String?
+  citySlug   String?
+  pageId     String?
+  curriculum Curriculum?
+  sortOrder  Int           @default(0)
+  status     ContentStatus @default(published)
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  @@index([status])
+  @@index([category])
+  @@index([citySlug])
+  @@index([pageId])
+}
+
+model NavigationMenu {
+  id        String               @id @default(cuid())
+  menuKey   String               @unique
+  label     String
+  position  String               @default("header")
+  isActive  Boolean              @default(true)
+  createdAt DateTime             @default(now())
+  updatedAt DateTime             @updatedAt
+  items     NavigationMenuItem[]
+}
+
+model NavigationMenuItem {
+  id            String              @id @default(cuid())
+  menuId        String
+  parentItemId  String?
+  label         String
+  href          String
+  icon          String?
+  isExternal    Boolean             @default(false)
+  sortOrder     Int                 @default(0)
+  requiresAuth  Boolean             @default(false)
+  requiredRole  String?
+  isActive      Boolean             @default(true)
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
+  menu          NavigationMenu      @relation(fields: [menuId], references: [id], onDelete: Cascade)
+  parent        NavigationMenuItem? @relation("MenuItemTree", fields: [parentItemId], references: [id], onDelete: SetNull)
+  children      NavigationMenuItem[] @relation("MenuItemTree")
+
+  @@index([menuId])
+  @@index([parentItemId])
+  @@index([sortOrder])
+}
+
+model FooterBlock {
+  id          String        @id @default(cuid())
+  blockKey    String        @unique
+  columnTitle String?
+  body        String?
+  itemsJson   Json?
+  sortOrder   Int           @default(0)
+  isActive    Boolean       @default(true)
+  status      ContentStatus @default(published)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([sortOrder])
+}
+
+model CtaBlock {
+  id          String        @id @default(cuid())
+  ctaKey      String        @unique
+  heading     String?
+  description String?
+  buttonText  String
+  buttonUrl   String
+  variant     String        @default("primary")
+  status      ContentStatus @default(published)
+  sortOrder   Int           @default(0)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([status])
+}
+
+model HomepageSection {
+  id              String        @id @default(cuid())
+  sectionKey      String        @unique
+  displayName     String
+  sectionType     String
+  heading         String?
+  subheading      String?
+  body            String?
+  itemsJson       Json?
+  mediaAssetId    String?
+  sortOrder       Int           @default(0)
+  isVisible       Boolean       @default(true)
+  status          ContentStatus @default(published)
+  settingsJson    Json?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  mediaAsset      Asset?        @relation("HomepageSectionMedia", fields: [mediaAssetId], references: [id], onDelete: SetNull)
+
+  @@index([sortOrder])
+  @@index([status])
 }

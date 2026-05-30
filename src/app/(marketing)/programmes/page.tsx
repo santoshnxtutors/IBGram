@@ -1,5 +1,4 @@
 import React from "react";
-import { ProgrammeHero } from "@/components/programmes/ProgrammeHero";
 import { ProgrammeSection } from "@/components/programmes/ProgrammeSection";
 import { BookOpen, GraduationCap, ArrowUpRight, CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";

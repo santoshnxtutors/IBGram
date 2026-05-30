@@ -1,447 +1,228 @@
-"use client";
-
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  X,
-  ShieldCheck,
-  Search,
-  SlidersHorizontal,
-  ArrowRight,
-  Sparkles,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import type { Metadata } from "next";
+import Link from "next/link";
+import Script from "next/script";
+import { Breadcrumb, breadcrumbJsonLd } from "@/components/seo-city/Breadcrumb";
+import { SchoolDisclaimer } from "@/components/seo-city/SchoolDisclaimer";
 import { allTutors } from "@/lib/tutor-data";
-import { TutorCard } from "@/components/tutors/TutorCard";
+import { absoluteUrl } from "@/lib/seo/slug-utils";
+import TutorsClient from "./TutorsClient";
 
-const IB_SUBJECTS = [
-  "IB Mathematics",
-  "IB Physics",
-  "IB Chemistry",
-  "IB Biology",
-  "IB Economics",
-  "IB English",
-  "IB Psychology",
-  "IB History",
-  "IB Business Management",
-  "IB Theory of Knowledge",
-];
-const IB_GRADES = ["IB DP (Year 12-13)", "IB MYP (Year 7-11)", "IB PYP (Year 1-6)"];
+const CANONICAL = absoluteUrl("/tutors/");
 
-const IGCSE_SUBJECTS = [
-  "IGCSE Mathematics",
-  "IGCSE Physics",
-  "IGCSE Chemistry",
-  "IGCSE Biology",
-  "IGCSE Economics",
-  "IGCSE English",
-  "IGCSE Business Studies",
-  "IGCSE Computer Science",
-  "IGCSE History",
-  "IGCSE Geography",
-  "IGCSE ICT",
+export const revalidate = 3600;
+
+export const metadata: Metadata = {
+  title: "Find IB & IGCSE Tutors — Home, Online & Hybrid Across India | IB Gram",
+  description:
+    "Search verified IB and IGCSE tutors by curriculum, subject, level and learning mode. Home, online and hybrid lessons across Gurugram, Delhi, Mumbai, Bangalore and more.",
+  keywords: [
+    "IB tutors",
+    "IGCSE tutors",
+    "IB home tutor",
+    "online IB tutor",
+    "IB Math AA tutor",
+    "IB Physics tutor",
+    "IGCSE Math tutor",
+    "IB DP tutor",
+    "IB tutors in Gurugram",
+    "IB tutors in Gurgaon",
+  ],
+  alternates: { canonical: CANONICAL },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: "website",
+    url: CANONICAL,
+    title: "Find IB & IGCSE Tutors — Home, Online & Hybrid",
+    description: "Browse verified IB PYP, MYP, DP and IGCSE tutors across India. Subject-first matching for home, online and hybrid lessons.",
+    siteName: "IB Gram",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Find IB & IGCSE Tutors — IB Gram",
+    description: "Verified IB and IGCSE tutor directory for home, online and hybrid lessons.",
+  },
+};
+
+const BREADCRUMB = [
+  { name: "Home", url: absoluteUrl("/") },
+  { name: "Tutors", url: CANONICAL },
 ];
-const IGCSE_GRADES = ["IGCSE Grade 10 (Final)", "IGCSE Grade 9 (Foundation)"];
-const INITIAL_VISIBLE_TUTORS = 8;
+
+const FAQS = [
+  {
+    question: "How does IB Gram verify tutors?",
+    answer:
+      "Tutor profiles are checked for IB or IGCSE subject experience, qualifications, references and lesson methodology before they are matched to a family. We surface examiner or curriculum experience only when it is genuinely verified.",
+  },
+  {
+    question: "Are IB and IGCSE tutors available for home, online and hybrid lessons?",
+    answer:
+      "Yes. Most subjects have specialists available across all three modes. We recommend online or hybrid when a stronger subject specialist is not realistically local, so the subject fit is protected.",
+  },
+  {
+    question: "Which IB DP subjects are most requested?",
+    answer:
+      "Mathematics AA, Mathematics AI, Physics, Chemistry, Biology, Economics, English Language and Literature, Business Management and Computer Science have the strongest verified availability.",
+  },
+  {
+    question: "Which IGCSE subjects are most requested?",
+    answer:
+      "IGCSE Mathematics, Physics, Chemistry, Biology, Economics and English have the deepest active availability for both Cambridge and Edexcel boards.",
+  },
+  {
+    question: "How long does it take to be matched with a tutor?",
+    answer:
+      "Common subjects are typically matched within one working day. Specialist HL-only requests may take 2–3 working days to confirm the right verified profile.",
+  },
+  {
+    question: "Is IB Gram affiliated with IB or IGCSE schools?",
+    answer:
+      "IB Gram is an independent tutoring platform and is not officially affiliated with any school mentioned unless specifically stated.",
+  },
+];
+
+function jsonLdItemList() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "IB and IGCSE tutors on IB Gram",
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    numberOfItems: allTutors.length,
+    itemListElement: allTutors.slice(0, 25).map((tutor, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Person",
+        name: tutor.name,
+        description: tutor.bio?.slice(0, 220),
+        image: tutor.image ? absoluteUrl(tutor.image.startsWith("http") ? tutor.image : tutor.image) : undefined,
+        knowsAbout: [tutor.subject, tutor.curriculum, tutor.grade].filter(Boolean),
+        url: absoluteUrl(`/tutor-profile/${tutor.id}/`),
+      },
+    })),
+  };
+}
+
+function jsonLdFaq() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+}
 
 export default function TutorsPage() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const currentPath = pathname;
-  const [selectedId, setSelectedId] = useState<number | null>(null);
-  const [curriculumFilter, setCurriculumFilter] = useState<string>("Curriculum");
-  const [subjectFilter, setSubjectFilter] = useState<string>("Subject");
-  const [gradeFilter, setGradeFilter] = useState<string>("Grade");
-  const [filteredTutors, setFilteredTutors] = useState(allTutors);
-  const [compareIds, setCompareIds] = useState<number[]>([]);
-  const [visibleTutorCount, setVisibleTutorCount] = useState(INITIAL_VISIBLE_TUTORS);
-
-  const displayTutors =
-    curriculumFilter === "Curriculum" && subjectFilter === "Subject" && gradeFilter === "Grade"
-      ? allTutors
-      : filteredTutors;
-  const visibleTutors = displayTutors.slice(0, visibleTutorCount);
-
-  const toggleCompare = (id: number) => {
-    setCompareIds((prev) => {
-      if (prev.includes(id)) return prev.filter((item) => item !== id);
-      if (prev.length < 2) return [...prev, id];
-      return [prev[1], id];
-    });
-  };
-
-  const handleCompareRedirect = () => {
-    if (compareIds.length === 2) {
-      router.push(`/tutor-compare?ids=${compareIds.join(",")}&returnTo=${encodeURIComponent(currentPath)}`);
-    }
-  };
-
-  const handleSearch = (curr = curriculumFilter, subj = subjectFilter, grd = gradeFilter) => {
-    let result = allTutors;
-
-    if (curr !== "Curriculum") {
-      result = result.filter((tutor) => tutor.curriculum === curr || tutor.curriculum === "Both");
-    }
-
-    if (subj !== "Subject") {
-      const baseFilter = subj.replace("IB ", "").replace("IGCSE ", "").split(" (")[0];
-      result = result.filter((tutor) => tutor.subject.includes(baseFilter) || baseFilter.includes(tutor.subject));
-    }
-
-    if (grd !== "Grade") {
-      result = result.filter((tutor) => tutor.grade.includes(grd) || grd.includes(tutor.grade));
-    }
-
-    setFilteredTutors(result);
-    setVisibleTutorCount(INITIAL_VISIBLE_TUTORS);
-  };
-
-  useEffect(() => {
-    setSubjectFilter("Subject");
-    setGradeFilter("Grade");
-    setVisibleTutorCount(INITIAL_VISIBLE_TUTORS);
-    handleSearch(curriculumFilter, "Subject", "Grade");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [curriculumFilter]);
-
-  useEffect(() => {
-    if (selectedId !== null) {
-      document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
-      document.body.style.top = `-${window.scrollY}px`;
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.overflow = "unset";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.top = "";
-      if (scrollY) window.scrollTo(0, parseInt(scrollY, 10) * -1);
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.top = "";
-    };
-  }, [selectedId]);
-
   return (
-    <div className="min-h-screen bg-background pt-24 pb-12 space-y-12">
-      <section className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto mb-8 max-w-4xl text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-6 text-4xl font-black tracking-tight text-foreground md:text-6xl"
-          >
-            Find Your <span className="bg-300% text-gradient animate-gradient text-primary">Perfect Tutor</span>
-          </motion.h1>
-          <p className="text-xl leading-relaxed text-muted-foreground">
-            Search IB and IGCSE tutors by subject, curriculum, level and preferred learning mode.
+    <div className="min-h-screen bg-background">
+      <Script id="ld-tutors-breadcrumb" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(breadcrumbJsonLd(BREADCRUMB))}
+      </Script>
+      <Script id="ld-tutors-itemlist" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(jsonLdItemList())}
+      </Script>
+      <Script id="ld-tutors-faq" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(jsonLdFaq())}
+      </Script>
+
+      <section className="container mx-auto px-4 pt-24 md:px-6">
+        <Breadcrumb items={BREADCRUMB} className="mb-6" />
+
+        <header className="mx-auto max-w-4xl text-center">
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-500">Verified tutor directory</p>
+          <h1 className="mt-3 text-4xl font-black tracking-tight text-foreground md:text-6xl">
+            Find IB &amp; IGCSE tutors for home, online and hybrid lessons
+          </h1>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground md:text-xl">
+            Search verified IB PYP, MYP, DP and IGCSE tutors across India. Filter by curriculum, subject, level and learning mode. Indicative
+            fees, lesson modes, areas covered and verified badges are shown on every tutor card.
           </p>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="relative z-20 mx-auto flex w-full max-w-5xl flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-2 rounded-[2rem] lg:rounded-full border border-border/40 bg-card/30 p-3 lg:p-2 shadow-2xl backdrop-blur-3xl"
-        >
-          <div className="flex w-full flex-col md:flex-row flex-1 items-stretch gap-3 md:gap-0 lg:h-14">
-            <div className="relative flex h-12 lg:h-full flex-1 items-center justify-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent md:border-r border-border/20">
-              <Select value={curriculumFilter} onValueChange={(value) => value && setCurriculumFilter(value)}>
-                <SelectTrigger className="flex h-full w-full items-center justify-between md:justify-center rounded-2xl md:rounded-none border-none bg-transparent px-5 text-sm font-black text-primary outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent md:px-6 md:text-base">
-                  <SelectValue placeholder="Curriculum" />
-                </SelectTrigger>
-                <SelectContent className="min-w-[160px] rounded-2xl border-border bg-card/95 p-2 shadow-2xl backdrop-blur-2xl">
-                  <SelectItem value="Curriculum" className="rounded-xl text-center md:text-left font-bold focus:bg-primary/10">
-                    Curriculum
-                  </SelectItem>
-                  <SelectItem value="IB" className="rounded-xl text-center md:text-left font-bold focus:bg-primary/10">
-                    IB
-                  </SelectItem>
-                  <SelectItem value="IGCSE" className="rounded-xl text-center md:text-left font-bold focus:bg-primary/10">
-                    IGCSE
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="relative flex h-12 lg:h-full flex-1 items-center justify-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent md:border-r border-border/20">
-              <Select value={subjectFilter} onValueChange={(value) => value && setSubjectFilter(value)}>
-                <SelectTrigger className="flex h-full w-full items-center justify-between md:justify-center rounded-2xl md:rounded-none border-none bg-transparent px-5 text-sm font-black text-foreground outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent md:px-6 md:text-base">
-                  <SelectValue placeholder="Subject" />
-                </SelectTrigger>
-                <SelectContent className="min-w-[200px] rounded-2xl border-border bg-card/95 p-2 shadow-2xl backdrop-blur-2xl">
-                  <SelectItem value="Subject" className="rounded-xl font-bold focus:bg-primary/10">
-                    Subject
-                  </SelectItem>
-                  {(curriculumFilter === "Curriculum"
-                    ? Array.from(new Set([...IB_SUBJECTS, ...IGCSE_SUBJECTS]))
-                    : curriculumFilter === "IB"
-                      ? IB_SUBJECTS
-                      : IGCSE_SUBJECTS
-                  ).map((subject) => (
-                    <SelectItem key={subject} value={subject} className="rounded-xl font-bold focus:bg-primary/10">
-                      {subject}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="relative flex h-12 lg:h-full flex-1 items-center justify-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent">
-              <Select value={gradeFilter} onValueChange={(value) => value && setGradeFilter(value)}>
-                <SelectTrigger className="flex h-full w-full items-center justify-between md:justify-center rounded-2xl md:rounded-none border-none bg-transparent px-5 text-sm font-black text-foreground outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent md:px-6 md:text-base">
-                  <SelectValue placeholder="Grade" />
-                </SelectTrigger>
-                <SelectContent className="min-w-[200px] rounded-2xl border-border bg-card/95 p-2 shadow-2xl backdrop-blur-2xl">
-                  <SelectItem value="Grade" className="rounded-xl font-bold focus:bg-primary/10">
-                    Grade
-                  </SelectItem>
-                  {(curriculumFilter === "Curriculum"
-                    ? Array.from(new Set([...IB_GRADES, ...IGCSE_GRADES]))
-                    : curriculumFilter === "IB"
-                      ? IB_GRADES
-                      : IGCSE_GRADES
-                  ).map((grade) => (
-                    <SelectItem key={grade} value={grade} className="rounded-xl font-bold focus:bg-primary/10">
-                      {grade}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          <div className="hidden h-8 w-px self-center bg-border/20 lg:block" />
-          <button
-            onClick={() => handleSearch()}
-            className="group flex h-12 w-full lg:h-14 lg:w-14 shrink-0 items-center justify-center rounded-2xl lg:rounded-full bg-primary/10 lg:bg-transparent text-primary transition-all hover:bg-primary/20 lg:hover:bg-transparent"
-          >
-            <Search className="size-5 transition-transform group-hover:scale-110 lg:size-6" strokeWidth={2.5} />
-            <span className="ml-2 font-bold text-sm lg:hidden">Search</span>
-          </button>
-        </motion.div>
+        </header>
       </section>
 
-      <section className="container mx-auto px-4 md:px-6">
-        <div className="mb-10 flex items-center justify-between border-b border-border/50 pb-4">
-          <h2 className="flex items-center gap-3 text-2xl font-black text-foreground">
-            <SlidersHorizontal className="size-6 text-primary" />
-            {displayTutors.length} Tutor Options Found
+      <TutorsClient />
+
+      <section className="container mx-auto mt-16 max-w-4xl space-y-10 px-4 md:px-6">
+        <article>
+          <h2 className="text-2xl font-black tracking-tight text-foreground md:text-3xl">
+            How IB Gram matches IB and IGCSE tutors to your family
           </h2>
-        </div>
-
-        <motion.div layout className="flex flex-wrap gap-6 lg:gap-8">
-          <AnimatePresence mode="popLayout">
-            {visibleTutors.map((tutor) => (
-              <motion.div
-                key={tutor.id}
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-22px)] xl:w-[calc(25%-24px)]"
-              >
-                <TutorCard
-                  tutor={tutor}
-                  selectedForCompare={compareIds.includes(tutor.id)}
-                  onCompareToggle={toggleCompare}
-                  onOpen={setSelectedId}
-                />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-
-        {displayTutors.length > visibleTutorCount && (
-          <div className="mt-2 flex justify-end">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setVisibleTutorCount((previous) => Math.min(previous + INITIAL_VISIBLE_TUTORS, displayTutors.length));
-              }}
-              className="group flex items-center rounded-tl-[1.2rem] border-l border-t border-border/50 bg-muted/50 px-6 py-3 text-xs font-black text-primary transition-all hover:bg-primary/10 md:text-sm"
-            >
-              View More Tutors <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
-            </button>
-          </div>
-        )}
-
-        {displayTutors.length === 0 && (
-          <div className="glassmorphism-heavy rounded-[3rem] border-2 border-dashed border-border/50 py-24 text-center">
-            <h3 className="mb-4 text-3xl font-black text-muted-foreground">No tutors represent this search.</h3>
-            <p className="mx-auto mb-8 max-w-md font-medium text-muted-foreground/60">
-              Try broadening your subject choice or curriculum grade to find more suitable tutor options.
+          <div className="mt-5 space-y-4 text-base font-medium leading-relaxed text-muted-foreground">
+            <p>
+              IB Gram is an independent tutoring platform. Our matching review starts with the student&apos;s curriculum stage (IB PYP, MYP, DP or
+              IGCSE Grade 9 / Grade 10), subject and HL or SL choice, school timeline and lesson-mode preference. Only then do we filter by
+              realistic geographic availability. This keeps subject specialist fit at the centre of the match instead of trading it away for the
+              nearest available tutor.
             </p>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => {
-                setSubjectFilter("Subject");
-                setGradeFilter("Grade");
-                setFilteredTutors(allTutors);
-                setVisibleTutorCount(INITIAL_VISIBLE_TUTORS);
-              }}
-              className="h-14 rounded-2xl border-2 px-8 font-bold"
-            >
-              Reset Filters
-            </Button>
+            <p>
+              For IB Diploma Programme students, this means a Math AA HL or Physics HL specialist is matched first by subject paper depth, IA
+              scaffolding capability and command-term-aware exam practice. For IGCSE students, this means the board (Cambridge or Edexcel) is
+              explicitly confirmed before a tutor is recommended, and lessons are paced for Grade 9 foundations or Grade 10 consolidation as
+              required.
+            </p>
+            <p>
+              Lessons run in three modes: home, online and hybrid. Home lessons work when subject fit, lesson cadence and travel windows align.
+              Online lessons are the right answer when the strongest specialist for a student is not realistically local. Hybrid plans —
+              home for content depth and online for revision — are common for Diploma Programme Year 2 students between mocks and finals.
+            </p>
           </div>
-        )}
-      </section>
+        </article>
 
-      <AnimatePresence>
-        {compareIds.length > 0 && !selectedId && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            className="glassmorphism-heavy fixed bottom-6 left-1/2 z-[110] flex w-fit max-w-[90vw] -translate-x-1/2 items-center justify-between gap-6 overflow-hidden rounded-[2rem] border border-white/10 p-2 pl-8 shadow-[0_0_40px_rgba(0,0,0,0.5)]"
-          >
-            <div className="flex items-center gap-3 text-sm font-bold">
-              <div className="flex -space-x-3">
-                {compareIds.map((id, index) => {
-                  const tutor = allTutors.find((item) => item.id === id);
-                  return tutor ? (
-                    <div
-                      key={index}
-                      className="relative flex size-8 items-center justify-center overflow-hidden rounded-full border-2 border-background bg-muted shadow-sm"
-                    >
-                      {tutor.image ? (
-                        <Image src={tutor.image} alt={tutor.name} fill sizes="32px" className="object-cover" />
-                      ) : (
-                        <span className="text-xs font-bold text-muted-foreground">{tutor.name.charAt(0)}</span>
-                      )}
-                    </div>
-                  ) : null;
-                })}
-              </div>
+        <article>
+          <h2 className="text-2xl font-black tracking-tight text-foreground md:text-3xl">
+            Verified tutor quality
+          </h2>
+          <div className="mt-5 space-y-4 text-base font-medium leading-relaxed text-muted-foreground">
+            <p>
+              Tutor profiles on IB Gram are checked for IB or IGCSE subject experience, qualifications, references and lesson methodology before
+              they are matched to a family. Where examiner or curriculum-author experience is documented, it is surfaced explicitly. Where it is
+              not, we do not inflate claims, and we do not promise outcomes that depend on the student&apos;s own engagement, school timeline or
+              starting level.
+            </p>
+            <p>
+              Indicative fees are listed on each shortlisted profile. Trial sessions confirm fit before any longer commitment.
+            </p>
+          </div>
+        </article>
 
-              {compareIds.length === 1 ? (
-                <span className="hidden text-muted-foreground sm:block">Select 1 more to compare</span>
-              ) : (
-                <span className="text-foreground">2 Tutors Selected</span>
-              )}
-            </div>
+        <article>
+          <h2 className="text-2xl font-black tracking-tight text-foreground md:text-3xl">
+            Local tutoring across Gurugram, Delhi, Mumbai, Bangalore and more
+          </h2>
+          <div className="mt-5 space-y-4 text-base font-medium leading-relaxed text-muted-foreground">
+            <p>
+              IB Gram supports IB and IGCSE families across major Indian cities. In Gurugram (still widely searched as Gurgaon), the most
+              requested areas include Golf Course Road, DLF Phase 5, Sector 57, Sushant Lok and Sohna Road. Similar dense availability exists
+              across South Delhi, Vasant Vihar, Mumbai BKC and Powai, and Bangalore Indiranagar, Whitefield and Sarjapur.
+            </p>
+            <p>
+              Each city hub page lists the realistic IB and IGCSE programme availability, the strongest subject inventory and the local areas
+              that have area-specific tutor guides. Browse the{" "}
+              <Link href="/ib-tutors/" className="font-bold text-primary underline-offset-4 hover:underline">IB tutors hub</Link> or jump straight to{" "}
+              <Link href="/ib-tutors/gurugram/" className="font-bold text-primary underline-offset-4 hover:underline">IB tutors in Gurugram</Link>{" "}
+              and{" "}
+              <Link href="/igcse-tutors/gurugram/" className="font-bold text-primary underline-offset-4 hover:underline">IGCSE tutors in Gurugram</Link>.
+            </p>
+          </div>
+        </article>
 
-            <Button
-              disabled={compareIds.length < 2}
-              onClick={(event) => {
-                event.stopPropagation();
-                handleCompareRedirect();
-              }}
-              className={`h-12 rounded-[1.5rem] px-6 font-bold shadow-lg transition-all ${
-                compareIds.length === 2
-                  ? "shimmer-btn bg-primary text-primary-foreground hover:scale-105 hover:shadow-primary/20"
-                  : "border border-border bg-muted text-muted-foreground"
-              }`}
-            >
-              <Sparkles className="mr-2 size-4" /> Compare
-            </Button>
-
-            <button
-              onClick={(event) => {
-                event.stopPropagation();
-                setCompareIds([]);
-              }}
-              className="mr-2 p-2 text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <X className="size-4" />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {selectedId && (
-          <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 md:p-8">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedId(null)}
-              className="absolute inset-0 bg-background/80 backdrop-blur-2xl"
-            />
-            {allTutors.filter((tutor) => tutor.id === selectedId).map((tutor) => (
-              <motion.div
-                key="expanded"
-                layoutId={`card-${tutor.id}`}
-                className="glassmorphism-heavy relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden overflow-y-auto rounded-[2.5rem] border border-border bg-card shadow-3xl md:flex-row"
-              >
-                <button
-                  onClick={() => setSelectedId(null)}
-                  className="absolute right-6 top-6 z-20 flex size-10 items-center justify-center rounded-full border border-border bg-background/50 backdrop-blur-md transition-colors hover:bg-muted"
-                >
-                  <X className="size-5" />
-                </button>
-                <div className="relative flex h-64 min-h-[300px] w-full items-center justify-center border-b border-border/50 bg-muted/20 md:h-auto md:w-2/5 md:border-b-0 md:border-r">
-                  <motion.div layoutId={`avatar-${tutor.id}`} className="absolute inset-0 flex items-center justify-center bg-muted">
-                    {tutor.image ? (
-                      <Image src={tutor.image} alt={tutor.name} fill sizes="400px" className="object-cover" />
-                    ) : (
-                      <span className="text-6xl font-bold text-muted-foreground">{tutor.name.charAt(0)}</span>
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-r" />
-                  </motion.div>
-                </div>
-                <div className="flex-1 p-8 md:p-12">
-                  <motion.h3
-                    layoutId={`name-${tutor.id}`}
-                    className="mb-1 flex items-center gap-2 text-3xl font-black tracking-tight text-foreground"
-                  >
-                    {tutor.name} <ShieldCheck className="size-6 text-primary" />
-                  </motion.h3>
-                  <motion.p layoutId={`subject-${tutor.id}`} className="mb-8 text-xl font-bold text-primary">
-                    {tutor.subject} ({tutor.grade})
-                  </motion.p>
-
-                  <motion.div layoutId={`stats-${tutor.id}`} className="mb-8 flex items-center gap-6">
-                    <div className="text-center">
-                      <div className="text-2xl font-black">{tutor.rating}</div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-tighter text-muted-foreground">Rating</div>
-                    </div>
-                    <div className="h-8 w-px bg-border" />
-                    <div className="text-center">
-                      <div className="text-2xl font-black">{tutor.experience}</div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-tighter text-muted-foreground">Exp</div>
-                    </div>
-                    <div className="h-8 w-px bg-border" />
-                    <div className="text-center">
-                      <div className="text-2xl font-black">{tutor.rate}</div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-tighter text-muted-foreground">Rate</div>
-                    </div>
-                  </motion.div>
-
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="mb-3 flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
-                        Professional Biography
-                      </h4>
-                      <p className="text-base leading-relaxed text-card-foreground">{tutor.bio}</p>
-                    </div>
-                    <div className="flex items-center gap-6 pt-4">
-                      <Button variant="outline" className="h-14 flex-1 rounded-2xl border-2 border-border text-lg font-black hover:bg-muted">
-                        Message
-                      </Button>
-                      <button
-                        onClick={() => router.push(`/tutor-profile/${tutor.id}?returnTo=${encodeURIComponent(currentPath)}`)}
-                        className="group flex flex-1 items-center justify-end text-lg font-bold text-primary transition-colors hover:text-primary/80"
-                      >
-                        Full Profile <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+        <article>
+          <h2 className="text-2xl font-black tracking-tight text-foreground md:text-3xl">Frequently asked questions</h2>
+          <div className="mt-5 space-y-5">
+            {FAQS.map((faq) => (
+              <details key={faq.question} className="rounded-2xl border border-border/50 bg-card/40 p-5">
+                <summary className="cursor-pointer text-base font-black text-foreground">{faq.question}</summary>
+                <p className="mt-3 text-sm font-medium leading-relaxed text-muted-foreground">{faq.answer}</p>
+              </details>
             ))}
           </div>
-        )}
-      </AnimatePresence>
+        </article>
+
+        <SchoolDisclaimer />
+      </section>
     </div>
   );
 }

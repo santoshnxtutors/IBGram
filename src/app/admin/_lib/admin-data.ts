@@ -8,6 +8,7 @@ import { getAllCitySeoPages } from "@/lib/seo/city-pages";
 import { getAllIgcseCityPages } from "@/lib/seo/igcse-city-pages";
 import { CITY_CONTENT_PAGE_SLUGS } from "@/lib/seo/internal-links";
 import { getAllGeneratedPages, saveGeneratedPage } from "@/lib/generated-pages/store";
+import { writeGeneratedPageToDb } from "@/lib/cms/generated-page-writer";
 import { gurgaonLocalPlaces } from "@/lib/local-seo/gurgaon";
 import {
   getIgcseTutorAreaStaticParams,
@@ -169,9 +170,9 @@ export async function savePage(page: AdminPageRecord): Promise<{ page: AdminPage
   if (page.source === "generated") {
     const generated = getAllGeneratedPages().find((item) => item.pageId === page.id);
     if (generated) {
-      saveGeneratedPage({
+      const merged = {
         ...generated,
-        status: page.status === "published" ? "published" : page.status === "review" ? "review" : "draft",
+        status: (page.status === "published" ? "published" : page.status === "review" ? "review" : "draft") as typeof generated.status,
         indexFlag: page.indexFlag,
         metaTitle: page.metaTitle,
         metaDescription: page.metaDescription,
@@ -184,8 +185,17 @@ export async function savePage(page: AdminPageRecord): Promise<{ page: AdminPage
         internalLinks: page.internalLinks,
         schema: page.schema,
         lastUpdated: new Date().toISOString().slice(0, 10),
-      });
-      return { page, persisted: true, message: "Generated page saved to the local generated-page adapter." };
+      };
+      // Dual-write: existing JSON store (backward-compat) + Prisma (forward DB-first reads)
+      saveGeneratedPage(merged);
+      const dbResult = await writeGeneratedPageToDb(merged);
+      return {
+        page,
+        persisted: true,
+        message: dbResult.ok
+          ? "Saved to local generated-pages store and Prisma database."
+          : `Saved to local store; database write failed: ${dbResult.error}`,
+      };
     }
   }
 

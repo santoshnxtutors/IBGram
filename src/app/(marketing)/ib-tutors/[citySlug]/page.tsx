@@ -17,6 +17,7 @@ import { CityVerification } from "@/components/seo-city/CityVerification";
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getGeneratedPageForRoute, getGeneratedStaticParamsForTypes } from "@/lib/generated-pages/routes";
+import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { getCitySeoPageBySlug, getLiveCitySeoPages } from "@/lib/seo/city-pages";
 import { getIndexingDecision } from "@/lib/seo/indexing";
@@ -39,9 +40,15 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
   const { citySlug } = await params;
+  // 1. DB-first (Phase 3): published GeneratedPage row wins
+  const dbPage = await getDbGeneratedSeoPageByPath(`/ib-tutors/${citySlug}/`, ["city"]);
+  if (dbPage) return buildGeneratedMetadata(dbPage);
+
+  // 2. Local generated-pages JSON store
   const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/`, ["city"]);
   if (generatedPage) return buildGeneratedMetadata(generatedPage);
 
+  // 3. Static city SEO seed
   const page = getCitySeoPageBySlug(citySlug);
 
   if (!page || page.status !== "live") {
@@ -53,9 +60,15 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
 
 export default async function CitySeoPage({ params }: CityPageProps) {
   const { citySlug } = await params;
+  // 1. DB-first
+  const dbPage = await getDbGeneratedSeoPageByPath(`/ib-tutors/${citySlug}/`, ["city"]);
+  if (dbPage) return <GeneratedPageRenderer page={dbPage} />;
+
+  // 2. Local generated-pages JSON store
   const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/`, ["city"]);
   if (generatedPage) return <GeneratedPageRenderer page={generatedPage} />;
 
+  // 3. Static city SEO seed
   const page = getCitySeoPageBySlug(citySlug);
 
   if (!page || page.status !== "live") {

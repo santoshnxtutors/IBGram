@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle2,
   FileText,
   Globe2,
-  LineChart,
   Medal,
   MessageCircle,
   MessageSquare,
@@ -19,7 +17,6 @@ import {
   Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import collabPhoto from "./collab/photo.jpg";
 
 export const metadata: Metadata = {
   title: "Admissions Consulting | IB Gram",

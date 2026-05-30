@@ -23,6 +23,13 @@
     "db:push": "prisma db push --schema database/prisma/schema.prisma",
     "db:seed": "prisma db seed --schema database/prisma/schema.prisma",
     "db:import-current": "tsx database/prisma/import-current.ts",
+    "db:seed-seo": "tsx database/prisma/seed-seo-rules.ts",
+    "db:seed-gurugram": "tsx database/prisma/seed-gurgaon-money-pages.ts",
+    "db:seed-cms": "tsx database/prisma/seed-cms.ts",
+    "db:import-media": "tsx scripts/import-static-media-and-fix-sitemap.ts",
+    "db:push-all-pages": "tsx scripts/push-all-sitemap-urls-to-db.ts",
+    "db:push-all-pages-draft": "tsx scripts/push-all-sitemap-urls-to-db.ts --draft",
+    "db:import-all": "npm run db:generate && npm run db:import-current && npm run db:seed-seo && npm run db:seed-gurugram && npm run db:seed-cms && npm run db:import-media",
     "db:studio": "prisma studio --schema database/prisma/schema.prisma",
     "check:all": "npm run db:generate && npm run backend:build && npm run lint && npm run test && npm run build"
   },

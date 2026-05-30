@@ -13,7 +13,6 @@ import {
   LogOut,
   GraduationCap,
   Users,
-  LineChart,
   Wallet
 } from "lucide-react";
 

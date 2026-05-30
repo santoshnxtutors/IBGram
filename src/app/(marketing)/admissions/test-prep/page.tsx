@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles, BookOpen, Clock, Target, TrendingUp, Star, Users, Award, Zap } from "lucide-react";
+import { ArrowRight, CheckCircle2, Sparkles, BookOpen, Clock, Target, TrendingUp, Star, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const TESTS = [

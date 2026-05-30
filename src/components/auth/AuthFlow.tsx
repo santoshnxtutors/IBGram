@@ -2,20 +2,17 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { GraduationCap, BookOpen, ArrowRight, Sparkles, Mail } from "lucide-react";
+import { GraduationCap, BookOpen, ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 interface AuthFlowProps {
   initialAuthType: "login" | "signup";
 }
 
 export function AuthFlow({ initialAuthType }: AuthFlowProps) {
-  const router = useRouter();
-  
   // Login directly goes to form. Signup goes to role selection first.
   const [authType, setAuthType] = useState<"login" | "signup">(initialAuthType);
   const [step, setStep] = useState<"role" | "form">(initialAuthType === "login" ? "form" : "role");
