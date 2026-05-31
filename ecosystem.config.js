@@ -14,11 +14,15 @@ const BACKEND_PORT = process.env.BACKEND_PORT || "4000";
 module.exports = {
   apps: [
     // Next.js frontend — CloudPanel Nginx proxies www.ibgram.com -> localhost:APP_PORT
+    // IMPORTANT: Next.js must run in FORK mode. In cluster mode the `next`
+    // CLI does not bind the port, so the app appears "online" but nothing
+    // listens on APP_PORT (connection refused).
     {
       name: "ibgram-nextjs",
-      script: "node_modules/.bin/next",
+      script: "node_modules/next/dist/bin/next",
       args: `start --port ${APP_PORT}`,
       cwd: "/home/ibgram/htdocs/www.ibgram.com",
+      exec_mode: "fork",
       instances: 1,
       autorestart: true,
       watch: false,
@@ -37,6 +41,7 @@ module.exports = {
       name: "ibgram-backend",
       script: "backend/dist/server.js",
       cwd: "/home/ibgram/htdocs/www.ibgram.com",
+      exec_mode: "fork",
       instances: 1,
       autorestart: true,
       watch: false,
