@@ -155,12 +155,15 @@ jobs:
         with:
           name: ibgram-build
           retention-days: 1
-          # NOTE: .next/ is intentionally NOT shipped here. The Next.js build
-          # is regenerated fresh on the server during deploy, which guarantees
-          # a complete, valid build for the server environment. Shipping a
-          # prebuilt .next as an artifact was producing corrupt/partial builds
-          # ("Could not find a production build in the '.next' directory").
+          # include-hidden-files MUST be true: ".next" starts with a dot, so
+          # upload-artifact@v4 would silently exclude the entire build dir
+          # (causing "Could not find a production build in the '.next'
+          # directory" on the server). This ships the prebuilt .next so the
+          # server never has to build (build-only deps like shadcn /
+          # tw-animate-css are not present at server build time).
+          include-hidden-files: true
           path: |
+            .next/
             backend/dist/
             backend/package.json
             backend/tsconfig.json
@@ -470,15 +473,13 @@ jobs:
             npm run db:seed
             npm run db:seed-cms
 
-            echo "Building Next.js on the server (guarantees a valid .next build)..."
-            rm -rf .next
-            NODE_OPTIONS="--max-old-space-size=2048" npm run build
-
+            echo "Verifying prebuilt Next.js build shipped from CI..."
             if [ ! -f .next/BUILD_ID ]; then
-              echo "ERROR: next build did not produce .next/BUILD_ID. Aborting."
+              echo "ERROR: .next/BUILD_ID is missing — the prebuilt .next did not arrive."
+              echo "Confirm the CI 'Upload build artifact' step has include-hidden-files: true."
               exit 1
             fi
-            echo "Build OK — .next/BUILD_ID present."
+            echo "Prebuilt .next is present (BUILD_ID found)."
 
             echo "Stopping old PM2 apps and freeing IBGram ports..."
             $PM2_CMD delete all >/dev/null 2>&1 || true
