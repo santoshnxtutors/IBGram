@@ -38,8 +38,23 @@ node_modules/
 .env.production
 .env.staging
 
-# ─── Uploads & media ─────────────────────────────────────────────────────────
+# ─── Uploads & user media (never commit; serve from Cloudinary/S3/local disk) ─
 /public/uploads/
+
+# ─── Large binary / video files inside src (serve these as static assets) ────
+src/**/*.mp4
+src/**/*.mov
+src/**/*.avi
+src/**/*.webm
+src/**/*.mkv
+# Allow specific intentional UI images but block anything under media/ folders
+src/**/media/*.jpg
+src/**/media/*.jpeg
+src/**/media/*.png
+src/**/media/*.gif
+src/**/media/*.webp
+
+# ─── Secrets / certificates ──────────────────────────────────────────────────
 *.pem
 *.key
 *.cert
