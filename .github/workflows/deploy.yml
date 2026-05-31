@@ -247,7 +247,31 @@ jobs:
           fi
 
           quoted_deploy_path="$(printf '%q' "$DEPLOY_PATH")"
-          remote_prepare="mkdir -p ${quoted_deploy_path}/public/uploads /home/ibgram/logs && rm -f ${quoted_deploy_path}/.env"
+          remote_prepare="$(cat <<PREPARE
+          set -e
+          DEPLOY_PATH=${quoted_deploy_path}
+
+          if [ "\$DEPLOY_PATH" != "/home/ibgram/htdocs/www.ibgram.com" ]; then
+            echo "Refusing to clean unexpected deploy path: \$DEPLOY_PATH"
+            exit 1
+          fi
+
+          if command -v pm2 >/dev/null 2>&1; then
+            pm2 delete all >/dev/null 2>&1 || true
+          fi
+
+          if command -v fuser >/dev/null 2>&1; then
+            fuser -k 3000/tcp >/dev/null 2>&1 || true
+            fuser -k 3003/tcp >/dev/null 2>&1 || true
+            fuser -k 4000/tcp >/dev/null 2>&1 || true
+          fi
+
+          mkdir -p "\$DEPLOY_PATH/public/uploads" /home/ibgram/logs
+          find "\$DEPLOY_PATH" -mindepth 1 -maxdepth 1 ! -name public -exec rm -rf {} +
+          find "\$DEPLOY_PATH/public" -mindepth 1 -maxdepth 1 ! -name uploads -exec rm -rf {} +
+          rm -f "\$DEPLOY_PATH/.env"
+          PREPARE
+          )"
 
           if [ -n "${VPS_SSH_PASSWORD:-}" ]; then
             sshpass -e ssh ${ssh_options} "${VPS_USER}@${VPS_HOST}" "$remote_prepare"
