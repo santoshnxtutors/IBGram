@@ -153,9 +153,11 @@ jobs:
             backend/package.json
             backend/tsconfig.json
             shared/dist/
+            shared/src/
             shared/package.json
             shared/tsconfig.json
             authentication/dist/
+            authentication/src/
             authentication/package.json
             authentication/tsconfig.json
             database/
@@ -230,88 +232,28 @@ jobs:
 
           ssh-keyscan -p "$VPS_SSH_PORT" -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Create production .env
+      - name: Prepare empty CloudPanel folder
         env:
-          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-          NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
-          BACKEND_URL: ${{ secrets.BACKEND_URL }}
-          CORS_ORIGIN: ${{ secrets.CORS_ORIGIN }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          PRISMA_CONNECTION_LIMIT: ${{ secrets.PRISMA_CONNECTION_LIMIT || '3' }}
-          PRISMA_POOL_TIMEOUT: ${{ secrets.PRISMA_POOL_TIMEOUT || '30' }}
-          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
-          ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
-          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
-          ADMIN_PASSWORD_HASH: ${{ secrets.ADMIN_PASSWORD_HASH }}
-          ADMIN_SESSION_SECRET: ${{ secrets.ADMIN_SESSION_SECRET }}
-          AUTH_SESSION_SECRET: ${{ secrets.AUTH_SESSION_SECRET }}
-          JWT_ACCESS_SECRET: ${{ secrets.JWT_ACCESS_SECRET }}
-          JWT_REFRESH_SECRET: ${{ secrets.JWT_REFRESH_SECRET }}
-          COOKIE_DOMAIN: ${{ secrets.COOKIE_DOMAIN }}
-          AUTH_RATE_LIMIT_WINDOW_MS: ${{ secrets.AUTH_RATE_LIMIT_WINDOW_MS || '900000' }}
-          AUTH_RATE_LIMIT_MAX: ${{ secrets.AUTH_RATE_LIMIT_MAX || '10' }}
-          UPLOAD_PROVIDER: ${{ secrets.UPLOAD_PROVIDER || 'local' }}
-          UPLOAD_MAX_BYTES: ${{ secrets.UPLOAD_MAX_BYTES || '5242880' }}
-          NEXT_PUBLIC_UPLOAD_MAX_BYTES: ${{ secrets.NEXT_PUBLIC_UPLOAD_MAX_BYTES || '5242880' }}
-          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
-          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
-          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || 'gpt-5.2' }}
-          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-          LOG_LEVEL: ${{ secrets.LOG_LEVEL || 'info' }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT }}
+          VPS_SSH_PASSWORD: ${{ secrets.VPS_SSH_PASSWORD }}
+          SSHPASS: ${{ secrets.VPS_SSH_PASSWORD }}
         run: |
           set -euo pipefail
-          env_file="deploy/.env"
-          : > "$env_file"
+          ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes"
+          if [ -f ~/.ssh/ibgram_deploy_key ]; then
+            ssh_options="-i ${HOME}/.ssh/ibgram_deploy_key ${ssh_options}"
+          fi
 
-          write_env() {
-            printf '%s=%s\n' "$1" "$2" >> "$env_file"
-          }
+          quoted_deploy_path="$(printf '%q' "$DEPLOY_PATH")"
+          remote_prepare="mkdir -p ${quoted_deploy_path}/public/uploads /home/ibgram/logs && rm -f ${quoted_deploy_path}/.env"
 
-          write_env NODE_ENV production
-          write_env NEXT_PUBLIC_SITE_URL "$NEXT_PUBLIC_SITE_URL"
-          write_env NEXT_PUBLIC_APP_URL "$NEXT_PUBLIC_APP_URL"
-          write_env BACKEND_PORT "4000"
-          write_env BACKEND_URL "$BACKEND_URL"
-          write_env CORS_ORIGIN "$CORS_ORIGIN"
-          write_env DATABASE_URL "$DATABASE_URL"
-          write_env PRISMA_CONNECTION_LIMIT "$PRISMA_CONNECTION_LIMIT"
-          write_env PRISMA_POOL_TIMEOUT "$PRISMA_POOL_TIMEOUT"
-          write_env ADMIN_EMAIL "$ADMIN_EMAIL"
-          write_env ADMIN_USERNAME "$ADMIN_USERNAME"
-          write_env ADMIN_PASSWORD "$ADMIN_PASSWORD"
-          write_env ADMIN_PASSWORD_HASH "${ADMIN_PASSWORD_HASH:-}"
-          write_env ADMIN_SESSION_SECRET "$ADMIN_SESSION_SECRET"
-          write_env AUTH_SESSION_SECRET "$AUTH_SESSION_SECRET"
-          write_env JWT_ACCESS_SECRET "$JWT_ACCESS_SECRET"
-          write_env JWT_REFRESH_SECRET "$JWT_REFRESH_SECRET"
-          write_env SESSION_TTL "8h"
-          write_env ACCESS_TOKEN_TTL "15m"
-          write_env REFRESH_TOKEN_TTL "30d"
-          write_env COOKIE_DOMAIN "${COOKIE_DOMAIN:-}"
-          write_env COOKIE_SECURE "true"
-          write_env AUTH_RATE_LIMIT_WINDOW_MS "$AUTH_RATE_LIMIT_WINDOW_MS"
-          write_env AUTH_RATE_LIMIT_MAX "$AUTH_RATE_LIMIT_MAX"
-          write_env UPLOAD_PROVIDER "$UPLOAD_PROVIDER"
-          write_env UPLOAD_DIR "public/uploads"
-          write_env UPLOAD_MAX_BYTES "$UPLOAD_MAX_BYTES"
-          write_env NEXT_PUBLIC_UPLOAD_MAX_BYTES "$NEXT_PUBLIC_UPLOAD_MAX_BYTES"
-          write_env CLOUDINARY_CLOUD_NAME "${CLOUDINARY_CLOUD_NAME:-}"
-          write_env CLOUDINARY_API_KEY "${CLOUDINARY_API_KEY:-}"
-          write_env CLOUDINARY_API_SECRET "${CLOUDINARY_API_SECRET:-}"
-          write_env AWS_REGION "${AWS_REGION:-}"
-          write_env AWS_S3_BUCKET "${AWS_S3_BUCKET:-}"
-          write_env AWS_ACCESS_KEY_ID "${AWS_ACCESS_KEY_ID:-}"
-          write_env AWS_SECRET_ACCESS_KEY "${AWS_SECRET_ACCESS_KEY:-}"
-          write_env OPENAI_API_KEY "${OPENAI_API_KEY:-}"
-          write_env OPENAI_MODEL "$OPENAI_MODEL"
-          write_env SENTRY_DSN "${SENTRY_DSN:-}"
-          write_env LOG_LEVEL "$LOG_LEVEL"
+          if [ -n "${VPS_SSH_PASSWORD:-}" ]; then
+            sshpass -e ssh ${ssh_options} "${VPS_USER}@${VPS_HOST}" "$remote_prepare"
+          else
+            ssh ${ssh_options} "${VPS_USER}@${VPS_HOST}" "$remote_prepare"
+          fi
 
       - name: Rsync files to VPS
         env:
@@ -347,6 +289,46 @@ jobs:
           VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT }}
           VPS_SSH_PASSWORD: ${{ secrets.VPS_SSH_PASSWORD }}
           SSHPASS: ${{ secrets.VPS_SSH_PASSWORD }}
+          DEPLOY_PATH: ${{ env.DEPLOY_PATH }}
+          NODE_ENV: production
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
+          BACKEND_PORT: "4000"
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+          CORS_ORIGIN: ${{ secrets.CORS_ORIGIN }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          PRISMA_CONNECTION_LIMIT: ${{ secrets.PRISMA_CONNECTION_LIMIT || '3' }}
+          PRISMA_POOL_TIMEOUT: ${{ secrets.PRISMA_POOL_TIMEOUT || '30' }}
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          ADMIN_PASSWORD_HASH: ${{ secrets.ADMIN_PASSWORD_HASH }}
+          ADMIN_SESSION_SECRET: ${{ secrets.ADMIN_SESSION_SECRET }}
+          AUTH_SESSION_SECRET: ${{ secrets.AUTH_SESSION_SECRET }}
+          JWT_ACCESS_SECRET: ${{ secrets.JWT_ACCESS_SECRET }}
+          JWT_REFRESH_SECRET: ${{ secrets.JWT_REFRESH_SECRET }}
+          SESSION_TTL: 8h
+          ACCESS_TOKEN_TTL: 15m
+          REFRESH_TOKEN_TTL: 30d
+          COOKIE_DOMAIN: ${{ secrets.COOKIE_DOMAIN }}
+          COOKIE_SECURE: "true"
+          AUTH_RATE_LIMIT_WINDOW_MS: ${{ secrets.AUTH_RATE_LIMIT_WINDOW_MS || '900000' }}
+          AUTH_RATE_LIMIT_MAX: ${{ secrets.AUTH_RATE_LIMIT_MAX || '10' }}
+          UPLOAD_PROVIDER: ${{ secrets.UPLOAD_PROVIDER || 'local' }}
+          UPLOAD_DIR: public/uploads
+          UPLOAD_MAX_BYTES: ${{ secrets.UPLOAD_MAX_BYTES || '5242880' }}
+          NEXT_PUBLIC_UPLOAD_MAX_BYTES: ${{ secrets.NEXT_PUBLIC_UPLOAD_MAX_BYTES || '5242880' }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || 'gpt-5.2' }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          LOG_LEVEL: ${{ secrets.LOG_LEVEL || 'info' }}
         run: |
           set -euo pipefail
           ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes"
@@ -354,11 +336,85 @@ jobs:
             ssh_options="-i ${HOME}/.ssh/ibgram_deploy_key ${ssh_options}"
           fi
 
-          remote_script='
-            set -e
-            cd /home/ibgram/htdocs/www.ibgram.com
+          emit_export() {
+            local key="$1"
+            printf 'export %s=' "$key"
+            printf '%q' "${!key:-}"
+            printf '\n'
+          }
+
+          run_remote() {
+            if [ -n "${VPS_SSH_PASSWORD:-}" ]; then
+              sshpass -e ssh ${ssh_options} "${VPS_USER}@${VPS_HOST}" "bash -s"
+            else
+              ssh ${ssh_options} "${VPS_USER}@${VPS_HOST}" "bash -s"
+            fi
+          }
+
+          {
+            for key in \
+              DEPLOY_PATH \
+              NODE_ENV NEXT_PUBLIC_SITE_URL NEXT_PUBLIC_APP_URL BACKEND_PORT BACKEND_URL CORS_ORIGIN \
+              DATABASE_URL PRISMA_CONNECTION_LIMIT PRISMA_POOL_TIMEOUT \
+              ADMIN_EMAIL ADMIN_USERNAME ADMIN_PASSWORD ADMIN_PASSWORD_HASH ADMIN_SESSION_SECRET \
+              AUTH_SESSION_SECRET JWT_ACCESS_SECRET JWT_REFRESH_SECRET SESSION_TTL ACCESS_TOKEN_TTL REFRESH_TOKEN_TTL \
+              COOKIE_DOMAIN COOKIE_SECURE AUTH_RATE_LIMIT_WINDOW_MS AUTH_RATE_LIMIT_MAX \
+              UPLOAD_PROVIDER UPLOAD_DIR UPLOAD_MAX_BYTES NEXT_PUBLIC_UPLOAD_MAX_BYTES \
+              CLOUDINARY_CLOUD_NAME CLOUDINARY_API_KEY CLOUDINARY_API_SECRET \
+              AWS_REGION AWS_S3_BUCKET AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY \
+              OPENAI_API_KEY OPENAI_MODEL SENTRY_DSN LOG_LEVEL; do
+              emit_export "$key"
+            done
+
+            cat <<'REMOTE_SCRIPT'
+            set -euo pipefail
+
+            load_node_path() {
+              set +u
+              site_home="${DEPLOY_PATH%%/htdocs/*}"
+
+              for profile in /etc/profile "$HOME/.profile" "$HOME/.bash_profile" "$HOME/.bashrc"; do
+                if [ -r "$profile" ]; then
+                  . "$profile" >/dev/null 2>&1 || true
+                fi
+              done
+
+              if [ -s "$site_home/.nvm/nvm.sh" ]; then
+                . "$site_home/.nvm/nvm.sh"
+                nvm use 20 >/dev/null 2>&1 || nvm install 20 >/dev/null 2>&1 || nvm use --lts >/dev/null 2>&1 || true
+              fi
+
+              if [ -s "$HOME/.nvm/nvm.sh" ]; then
+                . "$HOME/.nvm/nvm.sh"
+                nvm use 20 >/dev/null 2>&1 || nvm install 20 >/dev/null 2>&1 || nvm use --lts >/dev/null 2>&1 || true
+              fi
+
+              if [ -s "/usr/local/nvm/nvm.sh" ]; then
+                . "/usr/local/nvm/nvm.sh"
+                nvm use 20 >/dev/null 2>&1 || nvm install 20 >/dev/null 2>&1 || nvm use --lts >/dev/null 2>&1 || true
+              fi
+
+              export PATH="$site_home/.npm-global/bin:$site_home/.local/bin:$HOME/.npm-global/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/snap/bin:$PATH"
+              set -u
+            }
+
+            load_node_path
+
+            if ! command -v npm >/dev/null 2>&1; then
+              echo "npm was not found on the VPS SSH PATH. Install Node.js 20 for this SSH user or add npm to PATH."
+              exit 127
+            fi
+
+            if command -v pm2 >/dev/null 2>&1; then
+              PM2_CMD="pm2"
+            else
+              PM2_CMD="npx --yes pm2"
+            fi
+
+            cd "$DEPLOY_PATH"
 
             mkdir -p public/uploads /home/ibgram/logs
+            rm -f .env
 
             echo "Installing dependencies..."
             npm ci --legacy-peer-deps
@@ -370,25 +426,25 @@ jobs:
               echo "Running Prisma migrations..."
               npx prisma migrate deploy --schema database/prisma/schema.prisma
             else
-              echo "No Prisma migrations directory found; skipping prisma migrate deploy."
+              echo "No Prisma migrations directory found; pushing Prisma schema..."
+              npx prisma db push --skip-generate --schema database/prisma/schema.prisma
             fi
 
+            echo "Seeding database..."
+            npm run db:seed
+            npm run db:seed-cms
+
             echo "Restarting PM2 apps..."
-            pm2 startOrReload ecosystem.config.js --update-env
-            pm2 save
+            $PM2_CMD startOrReload ecosystem.config.js --update-env
+            $PM2_CMD save
 
             echo "Checking local services..."
             curl -fsS --max-time 30 http://127.0.0.1:3000/ >/dev/null
             curl -fsS --max-time 30 http://127.0.0.1:4000/health >/dev/null
 
             echo "Deployment complete."
-          '
-
-          if [ -n "${VPS_SSH_PASSWORD:-}" ]; then
-            sshpass -e ssh ${ssh_options} "${VPS_USER}@${VPS_HOST}" "$remote_script"
-          else
-            ssh ${ssh_options} "${VPS_USER}@${VPS_HOST}" "$remote_script"
-          fi
+          REMOTE_SCRIPT
+          } | run_remote
 
   smoke-test:
     name: Smoke Test
