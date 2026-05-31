@@ -4,12 +4,12 @@
 
 module.exports = {
   apps: [
-    // ── Next.js frontend (port 3000) ─────────────────────────────────────────
-    // CloudPanel Nginx proxies www.ibgram.com → localhost:3000
+    // Next.js frontend (port 3003)
+    // CloudPanel Nginx proxies www.ibgram.com to localhost:3003
     {
       name: "ibgram-nextjs",
       script: "node_modules/.bin/next",
-      args: "start --port 3000",
+      args: "start --port 3003",
       cwd: "/home/ibgram/htdocs/www.ibgram.com",
       instances: 1,
       autorestart: true,
@@ -17,7 +17,7 @@ module.exports = {
       max_memory_restart: "512M",
       env: {
         NODE_ENV: "production",
-        PORT: "3000",
+        PORT: "3003",
       },
       error_file: "/home/ibgram/logs/nextjs-error.log",
       out_file: "/home/ibgram/logs/nextjs-out.log",
