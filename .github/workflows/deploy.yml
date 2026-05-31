@@ -417,17 +417,17 @@ jobs:
             rm -f .env
 
             echo "Installing dependencies..."
-            npm ci --legacy-peer-deps
+            npm ci --include=dev --legacy-peer-deps
 
             echo "Generating Prisma client..."
-            npx prisma generate --schema database/prisma/schema.prisma
+            npx --no-install prisma generate --schema database/prisma/schema.prisma
 
             if [ -d database/prisma/migrations ] && find database/prisma/migrations -mindepth 1 -maxdepth 1 -type d | grep -q .; then
               echo "Running Prisma migrations..."
-              npx prisma migrate deploy --schema database/prisma/schema.prisma
+              npx --no-install prisma migrate deploy --schema database/prisma/schema.prisma
             else
               echo "No Prisma migrations directory found; pushing Prisma schema..."
-              npx prisma db push --skip-generate --schema database/prisma/schema.prisma
+              npx --no-install prisma db push --skip-generate --schema database/prisma/schema.prisma
             fi
 
             echo "Seeding database..."
