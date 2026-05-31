@@ -19,6 +19,7 @@ permissions:
 env:
   NODE_VERSION: "20"
   DEPLOY_PATH: /home/ibgram/htdocs/www.ibgram.com
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
   lint:
@@ -178,7 +179,6 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     environment:
       name: production
-      url: https://www.ibgram.com
     steps:
       - name: Download build artifact
         uses: actions/download-artifact@v4
