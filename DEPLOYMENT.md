@@ -1,245 +1,347 @@
-# IB Gram — Deployment Guide
+# IB Gram — CloudPanel VPS Deployment Guide
 
-This document covers everything needed to deploy IB Gram to **Cloudflare Pages** (frontend) and a **VPS** (Express backend + PostgreSQL).
+**Server:** `13.127.64.109`
+**Panel:** CloudPanel (port 8443)
+**Domain:** `www.ibgram.com`
+**Site user:** `ibgram`
+**SSH user:** `ibgramuser`
+**Deploy path:** `/home/ibgram/htdocs/www.ibgram.com`
 
 ---
 
 ## Architecture
 
 ```
-GitHub ──push──► GitHub Actions
-                      │
-          ┌───────────┴────────────┐
-          ▼                        ▼
- Cloudflare Pages          VPS (Ubuntu/Debian)
- (Next.js frontend)        ├── Node.js (PM2)
-                           ├── Express backend
-                           └── PostgreSQL
+GitHub push → GitHub Actions CI
+                    │
+                    ▼
+            Build Next.js + Backend
+                    │
+              rsync over SSH
+                    │
+                    ▼
+         VPS  13.127.64.109
+         ├── PM2: ibgram-nextjs  (port 3000)
+         ├── PM2: ibgram-backend (port 4000)
+         └── CloudPanel Nginx
+               ├── www.ibgram.com  → localhost:3000
+               └── api.ibgram.com → localhost:4000
 ```
 
 ---
 
-## Step 1 — GitHub Repository Secrets
+## Step 1 — One-time VPS setup (do this first, only once)
 
-Go to **GitHub → Your Repo → Settings → Secrets and variables → Actions → New repository secret** and add every secret listed below.
+SSH into your server using CloudPanel credentials:
 
-> **Rule:** never commit real values. The `.env.example` file is the only environment file in source control.
+```bash
+ssh ibgramuser@13.127.64.109
+```
 
-### 1A — Cloudflare (Frontend)
+### 1A — Install Node.js 20 on the VPS
 
-| Secret name | What it is | Where to get it |
-|---|---|---|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with **Cloudflare Pages: Edit** permission | Cloudflare Dashboard → My Profile → API Tokens → Create Token → Use "Edit Cloudflare Pages" template |
-| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare account ID | Cloudflare Dashboard → right-side panel → Account ID |
-| `CLOUDFLARE_PAGES_PROJECT` | The **project name** you created in Cloudflare Pages | Cloudflare Dashboard → Pages → your project name (e.g. `ibgram`) |
+```bash
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+node -v   # should show v20.x.x
+```
 
-### 1B — Database
+### 1B — Install PM2 globally
 
-| Secret name | Example value | Notes |
-|---|---|---|
-| `DATABASE_URL` | `postgresql://user:pass@host:5432/ibgram1?sslmode=require` | Full Postgres connection string. Use `sslmode=require` in production. |
-| `DB_HOST` | `db.yourhost.com` | Hostname only (used by some scripts) |
-| `DB_PORT` | `5432` | Default Postgres port |
-| `DB_NAME` | `ibgram1` | Database name |
-| `DB_USER` | `ibgram_user` | DB user |
-| `DB_PASSWORD` | *(strong random password)* | DB password |
+```bash
+sudo npm install -g pm2
+pm2 startup   # copy and run the command it prints
+```
 
-### 1C — Application URLs
+### 1C — Create the log folder
 
-| Secret name | Example value | Notes |
-|---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | `https://ibgram.com` | Your live domain — used for canonical URLs and OG tags |
-| `NEXT_PUBLIC_APP_URL` | `https://ibgram.com` | Same as SITE_URL unless you have a separate app subdomain |
-| `BACKEND_URL` | `https://api.ibgram.com` | Your Express backend URL |
+```bash
+mkdir -p /home/ibgram/logs
+```
 
-### 1D — Auth & Session Secrets
+### 1D — Create the .env file on the server
 
-> Generate each secret with: `openssl rand -hex 64`
+```bash
+nano /home/ibgram/htdocs/www.ibgram.com/.env
+```
 
-| Secret name | Notes |
-|---|---|
-| `AUTH_SESSION_SECRET` | Long random string — signs session cookies |
-| `JWT_ACCESS_SECRET` | Signs short-lived JWT access tokens (15 min) |
-| `JWT_REFRESH_SECRET` | Signs long-lived JWT refresh tokens (30 days) |
-| `ADMIN_SESSION_SECRET` | Signs the Next.js admin session cookie |
-| `ADMIN_PASSWORD_HASH` | Bcrypt hash of your admin password. Generate with: `node -e "const b=require('bcrypt');b.hash('YourPassword',12).then(console.log)"` |
-| `ADMIN_EMAIL` | Admin login email (e.g. `admin@ibgram.com`) |
-| `ADMIN_USERNAME` | Admin username |
-| `ADMIN_PASSWORD` | Plain admin password (used only for initial seed — rotate after first login) |
+Paste all your production values (see Section 3 below for every key).
 
-### 1E — VPS SSH (Backend Deploy)
+### 1E — Generate the SSH deploy key
 
-| Secret name | Notes |
-|---|---|
-| `VPS_SSH_KEY` | Private SSH key (`-----BEGIN OPENSSH PRIVATE KEY-----…`). The **public** key must be in `~/.ssh/authorized_keys` on the VPS. |
-| `VPS_HOST` | VPS IP or hostname (e.g. `167.99.123.45` or `vps.ibgram.com`) |
-| `VPS_USER` | SSH user on the VPS (e.g. `ubuntu` or `deploy`) |
-| `VPS_DEPLOY_PATH` | Absolute path on VPS where the app lives (e.g. `/var/www/ibgram`) |
+Run this **on your local machine** (not the server):
 
-**Generate SSH key pair (on your local machine):**
 ```bash
 ssh-keygen -t ed25519 -C "github-deploy-ibgram" -f ~/.ssh/ibgram_deploy
-# Copy public key to VPS:
-ssh-copy-id -i ~/.ssh/ibgram_deploy.pub ubuntu@YOUR_VPS_IP
-# Paste the PRIVATE key contents into the VPS_SSH_KEY secret
+# Press Enter twice for no passphrase
+```
+
+Copy the **public key** to the VPS:
+
+```bash
+ssh-copy-id -i ~/.ssh/ibgram_deploy.pub ibgramuser@13.127.64.109
+```
+
+Or manually: copy the output of `cat ~/.ssh/ibgram_deploy.pub` and paste it into CloudPanel → SSH/FTP → SSH Users → click `ibgramuser` → add the public key.
+
+Print the **private key** to copy into GitHub:
+
+```bash
 cat ~/.ssh/ibgram_deploy
 ```
 
-### 1F — Uploads / Storage (pick one)
+---
 
-**Option A — Local filesystem (simplest, but files live on the VPS)**
+## Step 2 — Configure CloudPanel Nginx (reverse proxy)
+
+In CloudPanel → Sites → www.ibgram.com → **Vhost** tab, replace the contents with:
+
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.ibgram.com ibgram.com;
+
+    # Let CloudPanel handle SSL redirect
+    return 301 https://www.ibgram.com$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name www.ibgram.com ibgram.com;
+
+    ssl_certificate /etc/nginx/ssl/www.ibgram.com/certificate.crt;
+    ssl_certificate_key /etc/nginx/ssl/www.ibgram.com/private.key;
+
+    # Next.js app
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+        proxy_read_timeout 60s;
+    }
+
+    # Static files served directly (faster, bypasses Node.js)
+    location /_next/static/ {
+        alias /home/ibgram/htdocs/www.ibgram.com/.next/static/;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        access_log off;
+    }
+
+    location /images/ {
+        alias /home/ibgram/htdocs/www.ibgram.com/public/images/;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        access_log off;
+    }
+
+    # Block admin API from outside
+    location /admin/api/ {
+        deny all;
+        return 403;
+    }
+}
+```
+
+Click **Save** in CloudPanel. Then go to **SSL/TLS** tab and enable Let's Encrypt for `www.ibgram.com`.
+
+---
+
+## Step 3 — GitHub Secrets (Settings → Secrets → Actions)
+
+Go to **https://github.com/santoshnxtutors/IBGram/settings/secrets/actions** → click **New repository secret** for each one below.
+
+### SSH / Server
 
 | Secret name | Value |
 |---|---|
-| `UPLOAD_PROVIDER` | `local` |
-| `NEXT_PUBLIC_UPLOAD_MAX_BYTES` | `5242880` (5 MB) |
+| `VPS_HOST` | `13.127.64.109` |
+| `VPS_USER` | `ibgramuser` |
+| `VPS_SSH_PORT` | `22` |
+| `VPS_SSH_KEY` | The **private key** from `cat ~/.ssh/ibgram_deploy` (full content including `-----BEGIN...` and `-----END...`) |
 
-**Option B — Cloudinary (recommended for production)**
+### Database
 
-| Secret name | Where to get it |
+| Secret name | Example value |
 |---|---|
-| `UPLOAD_PROVIDER` | `cloudinary` |
-| `CLOUDINARY_CLOUD_NAME` | Cloudinary dashboard → Account Details |
-| `CLOUDINARY_API_KEY` | Cloudinary dashboard → API Keys |
-| `CLOUDINARY_API_SECRET` | Cloudinary dashboard → API Keys |
+| `DATABASE_URL` | `postgresql://ibgram_user:PASSWORD@localhost:5432/ibgram1?sslmode=disable` |
 
-**Option C — AWS S3**
+> **Note:** If your PostgreSQL is on the same VPS, use `localhost`. Get DB host/user/pass from CloudPanel → Sites → www.ibgram.com → **Databases** tab.
+
+### URLs
+
+| Secret name | Value |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | `https://www.ibgram.com` |
+| `NEXT_PUBLIC_APP_URL` | `https://www.ibgram.com` |
+| `BACKEND_URL` | `https://api.ibgram.com` (or `http://localhost:4000` if no API subdomain) |
+
+### Auth secrets (generate each with: `openssl rand -hex 64`)
 
 | Secret name | Notes |
 |---|---|
-| `UPLOAD_PROVIDER` | `s3` |
-| `AWS_REGION` | e.g. `ap-south-1` |
-| `AWS_S3_BUCKET` | Your bucket name |
-| `AWS_ACCESS_KEY_ID` | IAM user with S3 PutObject permission |
-| `AWS_SECRET_ACCESS_KEY` | IAM secret |
+| `ADMIN_USERNAME` | Your admin login username |
+| `ADMIN_PASSWORD_HASH` | Generate: `node -e "const c=require('crypto');console.log('sha256:'+c.createHash('sha256').update('YourPassword').digest('hex'))"` |
+| `ADMIN_SESSION_SECRET` | `openssl rand -hex 64` |
+| `AUTH_SESSION_SECRET` | `openssl rand -hex 64` |
+| `JWT_ACCESS_SECRET` | `openssl rand -hex 64` |
+| `JWT_REFRESH_SECRET` | `openssl rand -hex 64` |
 
-### 1G — Optional Services
+### Uploads
+
+| Secret name | Value |
+|---|---|
+| `UPLOAD_PROVIDER` | `local` (or `cloudinary`) |
+| `NEXT_PUBLIC_UPLOAD_MAX_BYTES` | `5242880` |
+| `CLOUDINARY_CLOUD_NAME` | *(only if using Cloudinary)* |
+| `CLOUDINARY_API_KEY` | *(only if using Cloudinary)* |
+| `CLOUDINARY_API_SECRET` | *(only if using Cloudinary)* |
+
+### Optional
 
 | Secret name | Notes |
 |---|---|
-| `OPENAI_API_KEY` | Only needed if you use the AI content generation features |
-| `SENTRY_DSN` | Error monitoring — get from sentry.io project settings |
+| `OPENAI_API_KEY` | Only if AI content generation is used |
+| `SENTRY_DSN` | Error monitoring |
 
 ---
 
-## Step 2 — Cloudflare Pages Setup
+## Step 4 — .env file on the VPS
 
-1. Go to **Cloudflare Dashboard → Pages → Create a project**
-2. Connect your GitHub repo
-3. Set build settings:
-   - **Framework preset:** `Next.js`
-   - **Build command:** `npm run build`
-   - **Build output directory:** `.next`
-   - **Node.js version:** `20`
-4. Under **Environment variables**, add the `NEXT_PUBLIC_*` variables from Section 1C above
-5. Note the **Project name** — this goes into `CLOUDFLARE_PAGES_PROJECT` secret
+This file lives on the server at `/home/ibgram/htdocs/www.ibgram.com/.env`.
+It is **never committed to git** — the CI only deploys built code, not secrets.
 
----
+```env
+NODE_ENV=production
 
-## Step 3 — VPS Setup
+# URLs
+NEXT_PUBLIC_SITE_URL=https://www.ibgram.com
+NEXT_PUBLIC_APP_URL=https://www.ibgram.com
+BACKEND_URL=http://localhost:4000
 
-```bash
-# 1. Install Node.js 20
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt-get install -y nodejs
+# Database (get from CloudPanel → Databases tab)
+DATABASE_URL=postgresql://ibgram_user:PASSWORD@localhost:5432/ibgram1?sslmode=disable
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=ibgram1
+DB_USER=ibgram_user
+DB_PASSWORD=YOUR_DB_PASSWORD
 
-# 2. Install PM2 globally
-sudo npm install -g pm2
+# Admin auth
+ADMIN_USERNAME=your_admin_username
+ADMIN_PASSWORD_HASH=sha256:YOUR_HASH_HERE
+ADMIN_SESSION_SECRET=YOUR_64_CHAR_RANDOM_STRING
+ADMIN_EMAIL=your@email.com
 
-# 3. Install PostgreSQL (if self-hosting the DB)
-sudo apt-get install -y postgresql postgresql-contrib
+# Auth
+AUTH_SESSION_SECRET=YOUR_64_CHAR_RANDOM_STRING
+JWT_ACCESS_SECRET=YOUR_64_CHAR_RANDOM_STRING
+JWT_REFRESH_SECRET=YOUR_64_CHAR_RANDOM_STRING
+SESSION_TTL=8h
+ACCESS_TOKEN_TTL=15m
+REFRESH_TOKEN_TTL=30d
 
-# 4. Create the deploy directory
-sudo mkdir -p /var/www/ibgram
-sudo chown deploy:deploy /var/www/ibgram
+# Uploads
+UPLOAD_PROVIDER=local
+UPLOAD_DIR=public/uploads
+UPLOAD_MAX_BYTES=5242880
+NEXT_PUBLIC_UPLOAD_MAX_BYTES=5242880
 
-# 5. Create .env on the VPS (the CI only ships dist — not .env)
-nano /var/www/ibgram/.env
-# Paste production values — see .env.example for all keys
-
-# 6. PM2 startup (auto-restart on reboot)
-pm2 startup systemd
-sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u deploy --hp /home/deploy
+# Cookie settings
+COOKIE_SECURE=true
+CORS_ORIGIN=https://www.ibgram.com
 ```
 
 ---
 
-## Step 4 — Database Migration on First Deploy
+## Step 5 — First deployment (manual)
 
-After the first successful CI run, SSH into your VPS and run:
+Before GitHub Actions takes over, do the first deploy manually:
 
 ```bash
-cd /var/www/ibgram
+# On your VPS
+ssh ibgramuser@13.127.64.109
+
+cd /home/ibgram/htdocs/www.ibgram.com
+
+# Install deps
+npm ci --legacy-peer-deps
+
+# Generate Prisma client
+npx prisma generate --schema database/prisma/schema.prisma
+
+# Run migrations
 npx prisma migrate deploy --schema database/prisma/schema.prisma
-npx prisma db seed --schema database/prisma/schema.prisma
+
+# Start with PM2
+pm2 start ecosystem.config.js
+pm2 save
+
+# Check both apps are running
+pm2 status
 ```
 
 ---
 
-## Step 5 — Custom Domain
+## Step 6 — Verify everything works
 
-### Cloudflare Pages (frontend)
-1. Pages → Your project → Custom domains → Add custom domain
-2. Add `ibgram.com` and `www.ibgram.com`
-3. Cloudflare automatically provisions SSL
+```bash
+# On VPS — check PM2 processes
+pm2 status
 
-### Backend API
-1. Point `api.ibgram.com` → your VPS IP (A record in Cloudflare DNS)
-2. Set **Proxy status = DNS only (grey cloud)** for the API subdomain to avoid Cloudflare proxying WebSocket / SSE traffic
-3. Install Certbot on VPS for SSL:
-   ```bash
-   sudo apt install certbot python3-certbot-nginx
-   sudo certbot --nginx -d api.ibgram.com
-   ```
+# Test Next.js directly
+curl http://localhost:3000
 
----
+# Test backend directly
+curl http://localhost:4000/health
 
-## Deployment Flow Summary
-
-```
-git push main
-    │
-    ├── lint job (always runs)
-    │
-    ├── build-frontend → deploy-frontend → Cloudflare Pages
-    │
-    ├── build-backend  → deploy-backend → VPS via SSH
-    │       └── prisma migrate deploy
-    │           pm2 restart
-    │
-    └── smoke-test (checks live URL + /health endpoint)
+# Check logs
+pm2 logs ibgram-nextjs --lines 50
+pm2 logs ibgram-backend --lines 50
 ```
 
 ---
 
-## Secrets Checklist
+## How GitHub Actions deploys (after setup)
 
-Copy this list and tick off each one before your first deploy:
+Every `git push main`:
 
-- [ ] `CLOUDFLARE_API_TOKEN`
-- [ ] `CLOUDFLARE_ACCOUNT_ID`
-- [ ] `CLOUDFLARE_PAGES_PROJECT`
+```
+1. Lint (ESLint)
+2. Build (Next.js + backend)
+3. rsync files → 13.127.64.109 as ibgramuser
+4. On server: npm ci + prisma migrate + pm2 restart
+5. Smoke test: curl https://www.ibgram.com → expect 200
+```
+
+---
+
+## Secrets checklist
+
+- [ ] `VPS_HOST` = `13.127.64.109`
+- [ ] `VPS_USER` = `ibgramuser`
+- [ ] `VPS_SSH_PORT` = `22`
+- [ ] `VPS_SSH_KEY` = private key content
 - [ ] `DATABASE_URL`
-- [ ] `DB_HOST` / `DB_PORT` / `DB_NAME` / `DB_USER` / `DB_PASSWORD`
-- [ ] `NEXT_PUBLIC_SITE_URL`
-- [ ] `NEXT_PUBLIC_APP_URL`
+- [ ] `NEXT_PUBLIC_SITE_URL` = `https://www.ibgram.com`
+- [ ] `NEXT_PUBLIC_APP_URL` = `https://www.ibgram.com`
 - [ ] `BACKEND_URL`
+- [ ] `ADMIN_USERNAME`
+- [ ] `ADMIN_PASSWORD_HASH`
+- [ ] `ADMIN_SESSION_SECRET`
 - [ ] `AUTH_SESSION_SECRET`
 - [ ] `JWT_ACCESS_SECRET`
 - [ ] `JWT_REFRESH_SECRET`
-- [ ] `ADMIN_SESSION_SECRET`
-- [ ] `ADMIN_PASSWORD_HASH`
-- [ ] `ADMIN_EMAIL`
-- [ ] `ADMIN_USERNAME`
-- [ ] `ADMIN_PASSWORD`
-- [ ] `VPS_SSH_KEY`
-- [ ] `VPS_HOST`
-- [ ] `VPS_USER`
-- [ ] `VPS_DEPLOY_PATH`
-- [ ] `UPLOAD_PROVIDER` + cloud storage keys (Cloudinary / S3)
+- [ ] `UPLOAD_PROVIDER`
 - [ ] `NEXT_PUBLIC_UPLOAD_MAX_BYTES`
-- [ ] `OPENAI_API_KEY` *(optional)*
-- [ ] `SENTRY_DSN` *(optional)*
 
 ---
 
@@ -247,8 +349,9 @@ Copy this list and tick off each one before your first deploy:
 
 | Problem | Fix |
 |---|---|
-| Build fails: `prisma generate` error | Make sure `DATABASE_URL` secret is set and the DB is reachable from GitHub Actions runners (allow `0.0.0.0/0` in DB firewall rules temporarily, or use a tunnel) |
-| Cloudflare deploy fails: `project not found` | Double-check `CLOUDFLARE_PAGES_PROJECT` matches the exact project name in Cloudflare Pages (case-sensitive) |
-| SSH deploy: `Permission denied (publickey)` | Confirm the public key is in `~/.ssh/authorized_keys` on the VPS **for the correct user** (`VPS_USER`) |
-| PM2 `restart` fails on first deploy | First run: `pm2 start backend/dist/server.js --name ibgram-backend` manually on the VPS, then CI will use `pm2 restart` on subsequent deploys |
-| `prisma migrate deploy` fails: `shadow database` error | Use `--skip-generate` flag or ensure `DATABASE_URL` user has `CREATE DATABASE` permission (needed for shadow DB in CI) |
+| SSH: `Permission denied (publickey)` | The public key from `ibgram_deploy.pub` must be in `/home/ibgramuser/.ssh/authorized_keys` |
+| PM2 `restart` fails on first run | Run `pm2 start ecosystem.config.js` manually on VPS first |
+| `prisma migrate deploy` fails | Check `DATABASE_URL` in `.env` on VPS is correct. PostgreSQL must be running. |
+| Site shows 502 Bad Gateway | Next.js isn't running on port 3000. Run `pm2 logs ibgram-nextjs` to see the error. |
+| `.env not found` error at runtime | The `.env` file must be created manually on the VPS — it's never deployed by CI. |
+| CloudPanel shows wrong Node version | In CloudPanel → Sites → www.ibgram.com → Settings, check Node.js version is 20 |
