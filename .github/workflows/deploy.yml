@@ -1,4 +1,4 @@
-name: Deploy IB Gram → CloudPanel VPS
+name: Deploy IB Gram to CloudPanel VPS
 
 on:
   push:
@@ -7,26 +7,29 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: true
+
+permissions:
+  contents: read
 
 env:
   NODE_VERSION: "20"
   DEPLOY_PATH: /home/ibgram/htdocs/www.ibgram.com
 
 jobs:
-  # ─────────────────────────────────────────
-  # JOB 1 — Lint (every push + PR)
-  # ─────────────────────────────────────────
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
@@ -37,29 +40,57 @@ jobs:
       - name: Generate Prisma client
         run: npx prisma generate --schema database/prisma/schema.prisma
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: postgresql://user:password@localhost:5432/ibgram?schema=public
 
       - name: Run ESLint
         run: npm run lint
 
-  # ─────────────────────────────────────────
-  # JOB 2 — Build (only on push to main)
-  # ─────────────────────────────────────────
   build:
     name: Build
     runs-on: ubuntu-latest
     needs: lint
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
 
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
+
+      - name: Check required build secrets
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+          CORS_ORIGIN: ${{ secrets.CORS_ORIGIN }}
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          ADMIN_SESSION_SECRET: ${{ secrets.ADMIN_SESSION_SECRET }}
+          AUTH_SESSION_SECRET: ${{ secrets.AUTH_SESSION_SECRET }}
+          JWT_ACCESS_SECRET: ${{ secrets.JWT_ACCESS_SECRET }}
+          JWT_REFRESH_SECRET: ${{ secrets.JWT_REFRESH_SECRET }}
+        run: |
+          set -euo pipefail
+          missing=()
+          for key in DATABASE_URL NEXT_PUBLIC_SITE_URL NEXT_PUBLIC_APP_URL BACKEND_URL CORS_ORIGIN ADMIN_EMAIL ADMIN_USERNAME ADMIN_PASSWORD ADMIN_SESSION_SECRET AUTH_SESSION_SECRET JWT_ACCESS_SECRET JWT_REFRESH_SECRET; do
+            if [ -z "${!key:-}" ]; then
+              missing+=("$key")
+            fi
+          done
+
+          if [ "${#missing[@]}" -gt 0 ]; then
+            printf 'Missing required GitHub Secrets:\n'
+            printf ' - %s\n' "${missing[@]}"
+            exit 1
+          fi
 
       - name: Generate Prisma client
         run: npx prisma generate --schema database/prisma/schema.prisma
@@ -68,6 +99,17 @@ jobs:
 
       - name: Build backend packages
         run: npm run backend:build
+        env:
+          NODE_ENV: production
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+          CORS_ORIGIN: ${{ secrets.CORS_ORIGIN }}
+          AUTH_SESSION_SECRET: ${{ secrets.AUTH_SESSION_SECRET }}
+          JWT_ACCESS_SECRET: ${{ secrets.JWT_ACCESS_SECRET }}
+          JWT_REFRESH_SECRET: ${{ secrets.JWT_REFRESH_SECRET }}
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
 
       - name: Build Next.js
         run: npm run build
@@ -75,18 +117,28 @@ jobs:
           NODE_ENV: production
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
           NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
-          NEXT_PUBLIC_UPLOAD_MAX_BYTES: "5242880"
+          NEXT_PUBLIC_UPLOAD_MAX_BYTES: ${{ secrets.NEXT_PUBLIC_UPLOAD_MAX_BYTES || '5242880' }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           BACKEND_URL: ${{ secrets.BACKEND_URL }}
-          ADMIN_SESSION_SECRET: ${{ secrets.ADMIN_SESSION_SECRET }}
-          ADMIN_PASSWORD_HASH: ${{ secrets.ADMIN_PASSWORD_HASH }}
+          CORS_ORIGIN: ${{ secrets.CORS_ORIGIN }}
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
           ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          ADMIN_PASSWORD_HASH: ${{ secrets.ADMIN_PASSWORD_HASH }}
+          ADMIN_SESSION_SECRET: ${{ secrets.ADMIN_SESSION_SECRET }}
           AUTH_SESSION_SECRET: ${{ secrets.AUTH_SESSION_SECRET }}
           JWT_ACCESS_SECRET: ${{ secrets.JWT_ACCESS_SECRET }}
           JWT_REFRESH_SECRET: ${{ secrets.JWT_REFRESH_SECRET }}
-          UPLOAD_PROVIDER: "local"
+          COOKIE_SECURE: "true"
+          UPLOAD_PROVIDER: ${{ secrets.UPLOAD_PROVIDER || 'local' }}
+          UPLOAD_DIR: public/uploads
+          UPLOAD_MAX_BYTES: ${{ secrets.UPLOAD_MAX_BYTES || '5242880' }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || 'gpt-5.2' }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          LOG_LEVEL: ${{ secrets.LOG_LEVEL || 'info' }}
 
-      - name: Upload build artefact
+      - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: ibgram-build
@@ -94,8 +146,14 @@ jobs:
           path: |
             .next/
             backend/dist/
+            backend/package.json
+            backend/tsconfig.json
             shared/dist/
+            shared/package.json
+            shared/tsconfig.json
             authentication/dist/
+            authentication/package.json
+            authentication/tsconfig.json
             database/
             public/
             src/
@@ -107,11 +165,8 @@ jobs:
             .npmrc
             ecosystem.config.js
 
-  # ─────────────────────────────────────────
-  # JOB 3 — Deploy via SSH password
-  # ─────────────────────────────────────────
   deploy:
-    name: Deploy → CloudPanel (ibgramuser)
+    name: Deploy to CloudPanel
     runs-on: ubuntu-latest
     needs: build
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
@@ -119,106 +174,214 @@ jobs:
       name: production
       url: https://www.ibgram.com
     steps:
-      - name: Download build artefact
+      - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
           name: ibgram-build
           path: deploy/
 
-      # Install sshpass for password-based SSH
-      - name: Install sshpass
-        run: sudo apt-get install -y sshpass
+      - name: Install SSH tools
+        run: sudo apt-get update && sudo apt-get install -y rsync sshpass
 
-      # Add VPS to known hosts
-      - name: Add VPS to known hosts
+      - name: Check required deploy secrets
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT }}
+          VPS_SSH_PASSWORD: ${{ secrets.VPS_SSH_PASSWORD }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
         run: |
+          set -euo pipefail
+          missing=()
+          for key in VPS_HOST VPS_USER VPS_SSH_PORT; do
+            if [ -z "${!key:-}" ]; then
+              missing+=("$key")
+            fi
+          done
+
+          if [ -z "${VPS_SSH_PASSWORD:-}" ] && [ -z "${VPS_SSH_KEY:-}" ]; then
+            missing+=("VPS_SSH_PASSWORD or VPS_SSH_KEY")
+          fi
+
+          if [ "${#missing[@]}" -gt 0 ]; then
+            printf 'Missing required GitHub Secrets:\n'
+            printf ' - %s\n' "${missing[@]}"
+            exit 1
+          fi
+
+      - name: Prepare SSH
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          set -euo pipefail
           mkdir -p ~/.ssh
-          ssh-keyscan -p ${{ secrets.VPS_SSH_PORT }} -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+          chmod 700 ~/.ssh
 
-      # ── Create .env file from GitHub secrets and include in deploy ──────────
-      - name: Create .env file from GitHub secrets
+          if [ -n "${VPS_SSH_KEY:-}" ]; then
+            printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/ibgram_deploy_key
+            chmod 600 ~/.ssh/ibgram_deploy_key
+          fi
+
+          ssh-keyscan -p "$VPS_SSH_PORT" -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Create production .env
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+          CORS_ORIGIN: ${{ secrets.CORS_ORIGIN }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          ADMIN_PASSWORD_HASH: ${{ secrets.ADMIN_PASSWORD_HASH }}
+          ADMIN_SESSION_SECRET: ${{ secrets.ADMIN_SESSION_SECRET }}
+          AUTH_SESSION_SECRET: ${{ secrets.AUTH_SESSION_SECRET }}
+          JWT_ACCESS_SECRET: ${{ secrets.JWT_ACCESS_SECRET }}
+          JWT_REFRESH_SECRET: ${{ secrets.JWT_REFRESH_SECRET }}
+          COOKIE_DOMAIN: ${{ secrets.COOKIE_DOMAIN }}
+          AUTH_RATE_LIMIT_WINDOW_MS: ${{ secrets.AUTH_RATE_LIMIT_WINDOW_MS || '900000' }}
+          AUTH_RATE_LIMIT_MAX: ${{ secrets.AUTH_RATE_LIMIT_MAX || '10' }}
+          UPLOAD_PROVIDER: ${{ secrets.UPLOAD_PROVIDER || 'local' }}
+          UPLOAD_MAX_BYTES: ${{ secrets.UPLOAD_MAX_BYTES || '5242880' }}
+          NEXT_PUBLIC_UPLOAD_MAX_BYTES: ${{ secrets.NEXT_PUBLIC_UPLOAD_MAX_BYTES || '5242880' }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || 'gpt-5.2' }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          LOG_LEVEL: ${{ secrets.LOG_LEVEL || 'info' }}
         run: |
-          cat > deploy/.env << EOF
-          NODE_ENV=production
+          set -euo pipefail
+          env_file="deploy/.env"
+          : > "$env_file"
 
-          # URLs
-          NEXT_PUBLIC_SITE_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }}
-          NEXT_PUBLIC_APP_URL=${{ secrets.NEXT_PUBLIC_APP_URL }}
-          BACKEND_URL=${{ secrets.BACKEND_URL }}
-          CORS_ORIGIN=${{ secrets.CORS_ORIGIN }}
+          write_env() {
+            printf '%s=%s\n' "$1" "$2" >> "$env_file"
+          }
 
-          # Database
-          DATABASE_URL=${{ secrets.DATABASE_URL }}
+          write_env NODE_ENV production
+          write_env NEXT_PUBLIC_SITE_URL "$NEXT_PUBLIC_SITE_URL"
+          write_env NEXT_PUBLIC_APP_URL "$NEXT_PUBLIC_APP_URL"
+          write_env BACKEND_PORT "4000"
+          write_env BACKEND_URL "$BACKEND_URL"
+          write_env CORS_ORIGIN "$CORS_ORIGIN"
+          write_env DATABASE_URL "$DATABASE_URL"
+          write_env ADMIN_EMAIL "$ADMIN_EMAIL"
+          write_env ADMIN_USERNAME "$ADMIN_USERNAME"
+          write_env ADMIN_PASSWORD "$ADMIN_PASSWORD"
+          write_env ADMIN_PASSWORD_HASH "${ADMIN_PASSWORD_HASH:-}"
+          write_env ADMIN_SESSION_SECRET "$ADMIN_SESSION_SECRET"
+          write_env AUTH_SESSION_SECRET "$AUTH_SESSION_SECRET"
+          write_env JWT_ACCESS_SECRET "$JWT_ACCESS_SECRET"
+          write_env JWT_REFRESH_SECRET "$JWT_REFRESH_SECRET"
+          write_env SESSION_TTL "8h"
+          write_env ACCESS_TOKEN_TTL "15m"
+          write_env REFRESH_TOKEN_TTL "30d"
+          write_env COOKIE_DOMAIN "${COOKIE_DOMAIN:-}"
+          write_env COOKIE_SECURE "true"
+          write_env AUTH_RATE_LIMIT_WINDOW_MS "$AUTH_RATE_LIMIT_WINDOW_MS"
+          write_env AUTH_RATE_LIMIT_MAX "$AUTH_RATE_LIMIT_MAX"
+          write_env UPLOAD_PROVIDER "$UPLOAD_PROVIDER"
+          write_env UPLOAD_DIR "public/uploads"
+          write_env UPLOAD_MAX_BYTES "$UPLOAD_MAX_BYTES"
+          write_env NEXT_PUBLIC_UPLOAD_MAX_BYTES "$NEXT_PUBLIC_UPLOAD_MAX_BYTES"
+          write_env CLOUDINARY_CLOUD_NAME "${CLOUDINARY_CLOUD_NAME:-}"
+          write_env CLOUDINARY_API_KEY "${CLOUDINARY_API_KEY:-}"
+          write_env CLOUDINARY_API_SECRET "${CLOUDINARY_API_SECRET:-}"
+          write_env AWS_REGION "${AWS_REGION:-}"
+          write_env AWS_S3_BUCKET "${AWS_S3_BUCKET:-}"
+          write_env AWS_ACCESS_KEY_ID "${AWS_ACCESS_KEY_ID:-}"
+          write_env AWS_SECRET_ACCESS_KEY "${AWS_SECRET_ACCESS_KEY:-}"
+          write_env OPENAI_API_KEY "${OPENAI_API_KEY:-}"
+          write_env OPENAI_MODEL "$OPENAI_MODEL"
+          write_env SENTRY_DSN "${SENTRY_DSN:-}"
+          write_env LOG_LEVEL "$LOG_LEVEL"
 
-          # Admin panel login
-          ADMIN_USERNAME=${{ secrets.ADMIN_USERNAME }}
-          ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}
-          ADMIN_PASSWORD_HASH=${{ secrets.ADMIN_PASSWORD_HASH }}
-          ADMIN_EMAIL=${{ secrets.ADMIN_EMAIL }}
-          ADMIN_SESSION_SECRET=${{ secrets.ADMIN_SESSION_SECRET }}
-
-          # Auth (backend)
-          AUTH_SESSION_SECRET=${{ secrets.AUTH_SESSION_SECRET }}
-          JWT_ACCESS_SECRET=${{ secrets.JWT_ACCESS_SECRET }}
-          JWT_REFRESH_SECRET=${{ secrets.JWT_REFRESH_SECRET }}
-          SESSION_TTL=8h
-          ACCESS_TOKEN_TTL=15m
-          REFRESH_TOKEN_TTL=30d
-          COOKIE_SECURE=true
-
-          # Uploads
-          UPLOAD_PROVIDER=local
-          UPLOAD_DIR=public/uploads
-          UPLOAD_MAX_BYTES=5242880
-          NEXT_PUBLIC_UPLOAD_MAX_BYTES=5242880
-          EOF
-
-      # Sync all files INCLUDING .env to server
       - name: Rsync files to VPS
         env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT }}
+          VPS_SSH_PASSWORD: ${{ secrets.VPS_SSH_PASSWORD }}
           SSHPASS: ${{ secrets.VPS_SSH_PASSWORD }}
         run: |
-          sshpass -e rsync -avz --delete \
-            --exclude='node_modules' \
-            --exclude='public/uploads/' \
-            -e "ssh -p ${{ secrets.VPS_SSH_PORT }} -o StrictHostKeyChecking=no" \
-            deploy/ \
-            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ env.DEPLOY_PATH }}/
+          set -euo pipefail
+          ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes"
+          if [ -f ~/.ssh/ibgram_deploy_key ]; then
+            ssh_options="-i ${HOME}/.ssh/ibgram_deploy_key ${ssh_options}"
+          fi
 
-      # Install deps, migrate DB, restart PM2
-      - name: Install, migrate & restart on VPS
+          rsync_cmd=(rsync -az --delete
+            --exclude='node_modules'
+            --exclude='public/uploads/'
+            -e "ssh ${ssh_options}"
+            deploy/
+            "${VPS_USER}@${VPS_HOST}:${DEPLOY_PATH}/")
+
+          if [ -n "${VPS_SSH_PASSWORD:-}" ]; then
+            sshpass -e "${rsync_cmd[@]}"
+          else
+            "${rsync_cmd[@]}"
+          fi
+
+      - name: Install, prepare database, and restart PM2
         env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT }}
+          VPS_SSH_PASSWORD: ${{ secrets.VPS_SSH_PASSWORD }}
           SSHPASS: ${{ secrets.VPS_SSH_PASSWORD }}
         run: |
-          sshpass -e ssh \
-            -p ${{ secrets.VPS_SSH_PORT }} \
-            -o StrictHostKeyChecking=no \
-            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'ENDSSH'
+          set -euo pipefail
+          ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes"
+          if [ -f ~/.ssh/ibgram_deploy_key ]; then
+            ssh_options="-i ${HOME}/.ssh/ibgram_deploy_key ${ssh_options}"
+          fi
+
+          remote_script='
             set -e
             cd /home/ibgram/htdocs/www.ibgram.com
 
-            echo "==> Installing production dependencies..."
-            npm ci --omit=dev --legacy-peer-deps
+            mkdir -p public/uploads /home/ibgram/logs
 
-            echo "==> Generating Prisma client..."
+            echo "Installing dependencies..."
+            npm ci --legacy-peer-deps
+
+            echo "Generating Prisma client..."
             npx prisma generate --schema database/prisma/schema.prisma
 
-            echo "==> Running database migrations..."
-            npx prisma migrate deploy --schema database/prisma/schema.prisma
+            if [ -d database/prisma/migrations ] && find database/prisma/migrations -mindepth 1 -maxdepth 1 -type d | grep -q .; then
+              echo "Running Prisma migrations..."
+              npx prisma migrate deploy --schema database/prisma/schema.prisma
+            else
+              echo "No Prisma migrations directory found; skipping prisma migrate deploy."
+            fi
 
-            echo "==> Restarting Next.js (PM2)..."
-            pm2 restart ibgram-nextjs 2>/dev/null || pm2 start ecosystem.config.js --only ibgram-nextjs
-
-            echo "==> Restarting backend (PM2)..."
-            pm2 restart ibgram-backend 2>/dev/null || pm2 start ecosystem.config.js --only ibgram-backend
-
+            echo "Restarting PM2 apps..."
+            pm2 startOrReload ecosystem.config.js --update-env
             pm2 save
-            echo "==> Deploy complete!"
-          ENDSSH
 
-  # ─────────────────────────────────────────
-  # JOB 4 — Smoke test
-  # ─────────────────────────────────────────
+            echo "Checking local services..."
+            curl -fsS --max-time 30 http://127.0.0.1:3000/ >/dev/null
+            curl -fsS --max-time 30 http://127.0.0.1:4000/health >/dev/null
+
+            echo "Deployment complete."
+          '
+
+          if [ -n "${VPS_SSH_PASSWORD:-}" ]; then
+            sshpass -e ssh ${ssh_options} "${VPS_USER}@${VPS_HOST}" "$remote_script"
+          else
+            ssh ${ssh_options} "${VPS_USER}@${VPS_HOST}" "$remote_script"
+          fi
+
   smoke-test:
     name: Smoke Test
     runs-on: ubuntu-latest
@@ -228,12 +391,11 @@ jobs:
       - name: Wait for app to boot
         run: sleep 15
 
-      - name: Check site is live
+      - name: Check production site
         run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 "https://www.ibgram.com")
-          echo "HTTP status: $STATUS"
-          if [[ "$STATUS" != "200" && "$STATUS" != "301" && "$STATUS" != "302" ]]; then
-            echo "FAILED — site returned HTTP $STATUS"
+          set -euo pipefail
+          status="$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 https://www.ibgram.com/)"
+          echo "HTTP status: ${status}"
+          if [ "$status" != "200" ] && [ "$status" != "301" ] && [ "$status" != "302" ]; then
             exit 1
           fi
-          echo "PASSED"
