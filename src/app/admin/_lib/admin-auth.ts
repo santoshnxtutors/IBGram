@@ -307,7 +307,10 @@ async function verifyPassword(password: string): Promise<boolean> {
     const normalizedHash = hash.startsWith("sha256:") ? hash.slice("sha256:".length) : hash;
     return safeCompare(digest, normalizedHash);
   }
-  return safeCompare(password, process.env.ADMIN_PASSWORD ?? "");
+  const plainPassword = process.env.ADMIN_PASSWORD?.trim();
+  // Refuse to compare if no password is configured — prevents empty-string bypass.
+  if (!plainPassword) return false;
+  return safeCompare(password, plainPassword);
 }
 
 function getSecret(): string {

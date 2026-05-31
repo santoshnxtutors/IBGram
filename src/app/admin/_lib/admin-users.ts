@@ -148,7 +148,9 @@ export function getEnvironmentAdminUser(): AdminUserRecord {
 }
 
 function getEnvironmentAdminUsername(): string {
-  return process.env.ADMIN_USERNAME?.trim() || "ADMIN_USERNAME";
+  const username = process.env.ADMIN_USERNAME?.trim();
+  if (!username) throw new Error("ADMIN_USERNAME env var is required but not set.");
+  return username;
 }
 
 function normalizePermissions(role: AdminUserRole, permissions?: AdminPermission[]): AdminPermission[] {

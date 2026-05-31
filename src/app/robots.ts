@@ -1,17 +1,53 @@
 import type { MetadataRoute } from "next";
 import { getActiveRobotsRules } from "@/lib/seo/seo-db";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://ibgram.com";
+const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
+
+// Standard web crawlers + every major AI / LLM crawler — all allowed on public pages.
+// Admin, API and login routes are blocked for everyone.
 const FALLBACK_RULES: MetadataRoute.Robots["rules"] = [
+  // ── Standard crawlers ────────────────────────────────────────────────────
   {
     userAgent: "*",
     allow: "/",
-    disallow: ["/admin/", "/admin/api/", "/api/"],
+    disallow: ["/admin/", "/admin/api/", "/api/", "/login/", "/signup/"],
   },
+  // ── Google ───────────────────────────────────────────────────────────────
+  { userAgent: "Googlebot",       allow: "/" },
+  { userAgent: "Googlebot-Image", allow: "/" },
+  { userAgent: "Googlebot-News",  allow: "/" },
+  // ── Bing / Microsoft ─────────────────────────────────────────────────────
+  { userAgent: "bingbot",   allow: "/" },
+  { userAgent: "msnbot",    allow: "/" },
+  { userAgent: "BingPreview", allow: "/" },
+  // ── AI crawlers (allow so answers cite ibgram.com) ────────────────────────
+  // OpenAI ChatGPT
+  { userAgent: "GPTBot",          allow: "/" },
+  { userAgent: "ChatGPT-User",    allow: "/" },
+  { userAgent: "OAI-SearchBot",   allow: "/" },
+  // Anthropic Claude
+  { userAgent: "ClaudeBot",       allow: "/" },
+  { userAgent: "Claude-Web",      allow: "/" },
+  { userAgent: "anthropic-ai",    allow: "/" },
+  // Perplexity
+  { userAgent: "PerplexityBot",   allow: "/" },
+  // Google Gemini / AI Overviews
+  { userAgent: "Google-Extended",    allow: "/" },
+  { userAgent: "Gemini-User",        allow: "/" },
+  // Meta AI
+  { userAgent: "FacebookBot",     allow: "/" },
+  { userAgent: "meta-externalagent", allow: "/" },
+  // Apple
+  { userAgent: "Applebot",        allow: "/" },
+  { userAgent: "Applebot-Extended", allow: "/" },
+  // Common LLM training / research crawlers
+  { userAgent: "YouBot",          allow: "/" },
+  { userAgent: "cohere-ai",       allow: "/" },
+  { userAgent: "AI2Bot",          allow: "/" },
+  { userAgent: "Diffbot",         allow: "/" },
+  { userAgent: "Timpibot",        allow: "/" },
 ];
-
-const SITEMAP_URL = process.env.NEXT_PUBLIC_SITE_URL
-  ? `${process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "")}/sitemap.xml`
-  : "https://ibgram.com/sitemap.xml";
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
   const dbRows = await getActiveRobotsRules().catch(() => []);
@@ -34,9 +70,9 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     grouped.set(ua, bucket);
   }
 
-  const rules: MetadataRoute.Robots["rules"] = [];
+  const dbRules: MetadataRoute.Robots["rules"] = [];
   for (const [userAgent, bucket] of grouped.entries()) {
-    rules.push({
+    dbRules.push({
       userAgent,
       ...(bucket.allow.length ? { allow: bucket.allow } : {}),
       ...(bucket.disallow.length ? { disallow: bucket.disallow } : {}),
@@ -44,5 +80,8 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     });
   }
 
-  return { rules, sitemap: SITEMAP_URL };
+  // Merge DB rules on top of the AI-crawler defaults.
+  // DB rules override the wildcard "*" rule; AI-specific rules are always kept.
+  const aiRules = FALLBACK_RULES.filter((r) => r.userAgent !== "*");
+  return { rules: [...dbRules, ...aiRules], sitemap: SITEMAP_URL };
 }
