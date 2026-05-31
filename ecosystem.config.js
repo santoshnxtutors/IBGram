@@ -1,15 +1,23 @@
 // PM2 ecosystem config for CloudPanel VPS deployment
 // Used by: .github/workflows/deploy.yml
 // Server path: /home/ibgram/htdocs/www.ibgram.com/ecosystem.config.js
+//
+// Ports are NOT hardcoded. They are read from environment variables so the
+// CloudPanel "App Port" can change without editing this file:
+//   APP_PORT      -> Next.js production port  (CloudPanel App Port, default 3005)
+//   BACKEND_PORT  -> Express backend port     (default 4000)
+// Local `npm run dev` is unaffected — it still uses Next.js default port 3000.
+
+const APP_PORT = process.env.APP_PORT || "3005";
+const BACKEND_PORT = process.env.BACKEND_PORT || "4000";
 
 module.exports = {
   apps: [
-    // Next.js frontend (port 3003)
-    // CloudPanel Nginx proxies www.ibgram.com to localhost:3003
+    // Next.js frontend — CloudPanel Nginx proxies www.ibgram.com -> localhost:APP_PORT
     {
       name: "ibgram-nextjs",
       script: "node_modules/.bin/next",
-      args: "start --port 3003",
+      args: `start --port ${APP_PORT}`,
       cwd: "/home/ibgram/htdocs/www.ibgram.com",
       instances: 1,
       autorestart: true,
@@ -17,15 +25,14 @@ module.exports = {
       max_memory_restart: "512M",
       env: {
         NODE_ENV: "production",
-        PORT: "3003",
+        PORT: APP_PORT,
       },
       error_file: "/home/ibgram/logs/nextjs-error.log",
       out_file: "/home/ibgram/logs/nextjs-out.log",
       log_date_format: "YYYY-MM-DD HH:mm:ss",
     },
 
-    // ── Express backend API (port 4000) ──────────────────────────────────────
-    // CloudPanel Nginx proxies api.ibgram.com → localhost:4000
+    // Express backend API — CloudPanel Nginx proxies api.ibgram.com -> localhost:BACKEND_PORT
     {
       name: "ibgram-backend",
       script: "backend/dist/server.js",
@@ -36,7 +43,7 @@ module.exports = {
       max_memory_restart: "256M",
       env: {
         NODE_ENV: "production",
-        PORT: "4000",
+        PORT: BACKEND_PORT,
       },
       error_file: "/home/ibgram/logs/backend-error.log",
       out_file: "/home/ibgram/logs/backend-out.log",

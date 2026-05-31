@@ -20,6 +20,13 @@ env:
   NODE_VERSION: "20"
   DEPLOY_PATH: /home/ibgram/htdocs/www.ibgram.com
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  # Ports are NOT hardcoded — single source of truth here.
+  # Override without editing this file by setting repo Variables
+  # (Settings -> Secrets and variables -> Actions -> Variables):
+  #   APP_PORT      = CloudPanel "App Port" for Next.js (default 3005)
+  #   BACKEND_PORT  = Express backend port (default 4000)
+  APP_PORT: ${{ vars.APP_PORT || '3005' }}
+  BACKEND_PORT: ${{ vars.BACKEND_PORT || '4000' }}
 
 jobs:
   lint:
@@ -262,8 +269,8 @@ jobs:
 
           if command -v fuser >/dev/null 2>&1; then
             fuser -k 3000/tcp >/dev/null 2>&1 || true
-            fuser -k 3003/tcp >/dev/null 2>&1 || true
-            fuser -k 4000/tcp >/dev/null 2>&1 || true
+            fuser -k ${{ env.APP_PORT }}/tcp >/dev/null 2>&1 || true
+            fuser -k ${{ env.BACKEND_PORT }}/tcp >/dev/null 2>&1 || true
           fi
 
           mkdir -p "\$DEPLOY_PATH/public/uploads" /home/ibgram/logs
@@ -317,7 +324,8 @@ jobs:
           NODE_ENV: production
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
           NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
-          BACKEND_PORT: "4000"
+          APP_PORT: ${{ env.APP_PORT }}
+          BACKEND_PORT: ${{ env.BACKEND_PORT }}
           BACKEND_URL: ${{ secrets.BACKEND_URL }}
           CORS_ORIGIN: ${{ secrets.CORS_ORIGIN }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
@@ -378,7 +386,7 @@ jobs:
           {
             for key in \
               DEPLOY_PATH \
-              NODE_ENV NEXT_PUBLIC_SITE_URL NEXT_PUBLIC_APP_URL BACKEND_PORT BACKEND_URL CORS_ORIGIN \
+              NODE_ENV NEXT_PUBLIC_SITE_URL NEXT_PUBLIC_APP_URL APP_PORT BACKEND_PORT BACKEND_URL CORS_ORIGIN \
               DATABASE_URL PRISMA_CONNECTION_LIMIT PRISMA_POOL_TIMEOUT \
               ADMIN_EMAIL ADMIN_USERNAME ADMIN_PASSWORD ADMIN_PASSWORD_HASH ADMIN_SESSION_SECRET \
               AUTH_SESSION_SECRET JWT_ACCESS_SECRET JWT_REFRESH_SECRET SESSION_TTL ACCESS_TOKEN_TTL REFRESH_TOKEN_TTL \
@@ -462,8 +470,8 @@ jobs:
             $PM2_CMD delete all >/dev/null 2>&1 || true
             if command -v fuser >/dev/null 2>&1; then
               fuser -k 3000/tcp >/dev/null 2>&1 || true
-              fuser -k 3003/tcp >/dev/null 2>&1 || true
-              fuser -k 4000/tcp >/dev/null 2>&1 || true
+              fuser -k "${APP_PORT}/tcp" >/dev/null 2>&1 || true
+              fuser -k "${BACKEND_PORT}/tcp" >/dev/null 2>&1 || true
             fi
 
             echo "Restarting PM2 apps..."
@@ -471,12 +479,12 @@ jobs:
             $PM2_CMD save
 
             echo "Checking local services..."
-            homepage="$(curl -fsS --max-time 30 http://127.0.0.1:3003/)"
+            homepage="$(curl -fsS --max-time 30 "http://127.0.0.1:${APP_PORT}/")"
             if printf '%s' "$homepage" | grep -qi "BoardPeFocus"; then
-              echo "Port 3003 is still serving BoardPeFocus instead of IBGram."
+              echo "Port ${APP_PORT} is still serving BoardPeFocus instead of IBGram."
               exit 1
             fi
-            curl -fsS --max-time 30 http://127.0.0.1:4000/health >/dev/null
+            curl -fsS --max-time 30 "http://127.0.0.1:${BACKEND_PORT}/health" >/dev/null
 
             echo "Deployment complete."
           REMOTE_SCRIPT
@@ -499,7 +507,7 @@ jobs:
           echo "HTTP status: ${status}"
           if [ "$status" = "403" ]; then
             echo "CloudPanel returned 403. Deploy succeeded, but the public Vhost is not proxying to the Next.js app yet."
-            echo "Fix CloudPanel Vhost to proxy / to http://127.0.0.1:3003."
+            echo "Fix CloudPanel Vhost to proxy / to http://127.0.0.1:${{ env.APP_PORT }}."
             exit 0
           fi
           if [ "$status" != "200" ] && [ "$status" != "301" ] && [ "$status" != "302" ]; then
