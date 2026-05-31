@@ -1,197 +1,429 @@
-"use client";
-
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import {
-  Users,
-  Target,
-  Lightbulb,
+  ArrowRight,
+  BookOpenCheck,
   CheckCircle2,
   Compass,
-  Zap,
+  GraduationCap,
+  Layers,
+  Lightbulb,
+  MessageSquare,
   ShieldCheck,
-  Globe2
+  Sparkles,
+  Users,
 } from "lucide-react";
-import Image from "next/image";
+import { JsonLd } from "@/components/seo-city/JsonLd";
+import { SchoolDisclaimer } from "@/components/seo-city/SchoolDisclaimer";
+import { absoluteUrl } from "@/lib/seo/slug-utils";
+import { CONTACT } from "@/lib/contact";
+import { FadeIn } from "./AboutAnimations";
+import {
+  aboutFaqs,
+  aboutHeroDescription,
+  aboutHowWeWorkSteps,
+  aboutMetaKeywords,
+  aboutPedagogyPillars,
+  aboutPhilosophyCards,
+  aboutStorySections,
+  aboutSubjectCoverage,
+  aboutValues,
+  aboutWhatWeDoNot,
+} from "./content";
 
+const pageUrl = absoluteUrl("/about-us/");
+const ogImage = absoluteUrl("/images/ib-gram-city-og.svg");
 
-const PHILOSOPHY = [
-  {
-    title: "Mentorship, Not Just Tutoring",
-    description: "We believe that true academic mastery comes from consistent guidance and mentorship rather than isolated lessons. Our approach focuses on building long-term confidence and critical thinking skills.",
-    icon: Users
+export const metadata: Metadata = {
+  title: "About IB Gram — Independent IB & IGCSE Tutoring Platform",
+  description:
+    "IB Gram is an independent IB and IGCSE tutoring platform founded by Ajay Vatsyayan. Verified tutor matching, honest shortlists and calm advisor support for PYP, MYP, DP, Cambridge IGCSE and Edexcel International GCSE families.",
+  keywords: aboutMetaKeywords,
+  alternates: { canonical: pageUrl },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: "website",
+    url: pageUrl,
+    title: "About IB Gram — Independent IB & IGCSE Tutoring Platform",
+    description:
+      "Founded by Ajay Vatsyayan after a decade of IB DP Mathematics and Physics tutoring. Built around honest matching, verified profiles and calm advisor support.",
+    siteName: "IB Gram",
+    images: [{ url: ogImage, alt: "About IB Gram" }],
   },
-  {
-    title: "The Math & Physics Focus",
-    description: "Specializing deeply in IB DP Mathematics (AA & AI) and Physics. We understand the specific rigors of HL and SL curriculums, ensuring students are prepared for the most challenging components of their diplomas.",
-    icon: Target
+  twitter: {
+    card: "summary_large_image",
+    title: "About IB Gram",
+    description:
+      "Independent IB and IGCSE tutoring platform — verified tutor matching, honest shortlists, calm advisor support.",
+    images: [ogImage],
   },
-  {
-    title: "Practical Learning Insight",
-    description: "We value the human touch and use study data carefully to notice learning gaps, plan sessions and keep feedback useful.",
-    icon: Lightbulb
-  }
-];
-
-const CORE_VALUES = [
-  {
-    icon: ShieldCheck,
-    title: "Academic Integrity",
-    details: "We uphold the highest standards of academic honesty, teaching students to think independently while mastering the syllabus."
-  },
-  {
-    icon: Zap,
-    title: "Accelerated Outcomes",
-    details: "Our methods are designed to condense months of learning into weeks of targeted, high-impact mentorship sessions."
-  },
-  {
-    icon: Globe2,
-    title: "Global Standards",
-    details: "Aligning with international benchmarks to ensure students are competitive for top-tier global universities."
-  }
-];
+};
 
 export default function AboutUsPage() {
-  return (
-    <div className="min-h-screen bg-background text-foreground pb-12">
-      {/* Header Spacer */}
-      <div className="h-24 md:h-32" />
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "About", item: pageUrl },
+    ],
+  };
 
-      {/* Hero Section */}
-      <section className="container max-w-7xl mx-auto px-4 md:px-6 mb-24 md:mb-32">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl lg:text-9xl font-black text-foreground mb-8 tracking-tighter leading-[0.85]"
-          >
-            Empowering the <br />
-            <span className="text-gradient">Innovators</span> of <br />
-            Tomorrow.
-          </motion.h1>
-          <p className="text-xl md:text-2xl text-muted-foreground font-medium underline-offset-4 decoration-primary/30 leading-relaxed max-w-3xl mx-auto mt-12">
-            IB Gram is a tutoring platform for families navigating demanding international curriculums with clearer subject support and practical guidance.
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: "IB Gram",
+    url: pageUrl,
+    description: aboutHeroDescription,
+    founder: { "@type": "Person", name: "Ajay Vatsyayan" },
+    email: CONTACT.email,
+    telephone: CONTACT.phoneDisplay,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: `${CONTACT.addressLine1}, ${CONTACT.addressLine2}`,
+      addressLocality: CONTACT.addressCity,
+      addressRegion: CONTACT.addressState,
+      postalCode: CONTACT.addressPostal,
+      addressCountry: CONTACT.addressCountry,
+    },
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: aboutFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
+  const graphSchema = {
+    "@context": "https://schema.org",
+    "@graph": [breadcrumbSchema, orgSchema, faqSchema],
+  };
+
+  return (
+    <div className="min-h-screen overflow-x-hidden bg-background text-foreground pb-16">
+      <JsonLd data={graphSchema} />
+
+      <div className="h-20 sm:h-24 md:h-32" />
+
+      {/* HERO */}
+      <section className="container max-w-5xl mx-auto px-4 md:px-6 mb-16 md:mb-24">
+        <FadeIn className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest mb-4 border border-primary/20">
+            <Sparkles className="size-3" /> About IB Gram
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-foreground mb-6 tracking-tighter leading-[0.9]">
+            Calmer IB & IGCSE <br />
+            <span className="text-gradient">tutor matching</span> — <br />
+            for real families.
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium leading-relaxed max-w-3xl mx-auto mt-8">
+            {aboutHeroDescription}
           </p>
-        </div>
+        </FadeIn>
       </section>
 
-      {/* Philosophy Grid */}
-      <section className="container max-w-6xl mx-auto px-4 md:px-6 mb-40">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-          {PHILOSOPHY.map((item, idx) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="flex flex-col"
-            >
-              <div className="text-primary mb-6">
-                <item.icon className="size-8" />
+      {/* PHILOSOPHY CARDS */}
+      <section className="container max-w-6xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+          {aboutPhilosophyCards.map((item, idx) => (
+            <FadeIn key={item.title} delay={idx * 0.1} className="flex flex-col">
+              <div className="text-primary mb-4">
+                {idx === 0 ? <Users className="size-8" /> : idx === 1 ? <Layers className="size-8" /> : <Lightbulb className="size-8" />}
               </div>
-              <h3 className="text-xl font-black mb-4 tracking-tight uppercase tracking-widest text-xs opacity-80">{item.title}</h3>
-              <h4 className="text-2xl font-black mb-4 tracking-tighter">{item.title}</h4>
-              <p className="text-muted-foreground font-medium leading-relaxed text-base">
-                {item.description}
-              </p>
-            </motion.div>
+              <h3 className="text-xl sm:text-2xl font-black mb-3 tracking-tight">{item.title}</h3>
+              <p className="text-muted-foreground font-medium leading-relaxed text-sm sm:text-base">{item.body}</p>
+            </FadeIn>
           ))}
         </div>
       </section>
 
-      {/* Founder Profile - Direct from User Content */}
-      <section className="container max-w-7xl mx-auto px-4 md:px-6 mb-40">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
-
-          {/* Image Side */}
-          <div className="relative">
-            <div className="aspect-[4/5] relative rounded-[3rem] overflow-hidden border border-border/50 shadow-2xl">
+      {/* FOUNDER */}
+      <section className="container max-w-7xl mx-auto px-4 md:px-6 mb-24 md:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+            <div className="aspect-[4/5] relative rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-border/50 shadow-2xl">
               <Image
                 src="/images/founder/ajay.jpg"
-                alt="Founder Ajay Vatsyayan"
+                alt="Ajay Vatsyayan — IB Gram founder"
                 fill
                 className="object-cover"
               />
             </div>
-            {/* Subtle text overlay */}
-            <div className="absolute -bottom-10 -right-10 bg-card border border-border p-8 rounded-3xl hidden md:block">
-              <div className="text-4xl font-black text-primary">10+</div>
-              <div className="text-xs font-black uppercase tracking-widest text-muted-foreground">Years Experience</div>
+            <div className="absolute -bottom-6 right-2 sm:-bottom-10 sm:-right-10 bg-card border border-border p-5 sm:p-8 rounded-2xl sm:rounded-3xl hidden sm:block">
+              <div className="text-3xl sm:text-4xl font-black text-primary">10+</div>
+              <div className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-muted-foreground">
+                Years of IB tutoring
+              </div>
             </div>
           </div>
 
-          {/* Text Side */}
           <div>
-            <div className="flex items-center gap-3 text-primary text-xs font-black uppercase tracking-widest mb-6">
-              <Compass className="size-4" /> Founder&apos;s Vision
+            <div className="flex items-center gap-3 text-primary text-xs font-black uppercase tracking-widest mb-5">
+              <Compass className="size-4" /> Founder
             </div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 tracking-tighter leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tighter leading-tight">
               Ajay Vatsyayan
             </h2>
-
-            <div className="space-y-8 text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
+            <div className="space-y-5 text-muted-foreground text-base sm:text-lg font-medium leading-relaxed">
               <p>
-                <span className="text-foreground font-black">Ajay Vatsyayan</span> is the visionary founder of IB Gram, a globally recognized tutoring platform specializing in the International Baccalaureate (IB) Diploma Programme (DP) Mathematics and Physics.
+                Ajay Vatsyayan founded IB Gram after more than a decade of one-to-one IB DP Mathematics and Physics
+                tutoring. The platform exists to make IB and IGCSE tutor matching calmer, more honest and easier for
+                families to trust.
               </p>
               <p>
-                With over a decade of experience, he has built a reputation for excellence in guiding students through both <span className="text-primary font-bold">Analysis & Approaches (AA)</span> and <span className="text-primary font-bold">Applications & Interpretation (AI)</span> at Higher Level (HL) and Standard Level (SL).
+                His teaching covers <span className="text-foreground font-bold">Analysis and Approaches (AA)</span> and{" "}
+                <span className="text-foreground font-bold">Applications and Interpretation (AI)</span> at Higher
+                Level and Standard Level, with the same depth applied to IB Physics HL/SL and bridging support into
+                Cambridge International AS / A-Level for selected families.
               </p>
               <p>
-                His approach is rooted in academic rigour and pedagogical clarity, ensuring that every student doesn&apos;t just pass, but masters the core logic of their subjects. Today, IB Gram stands as a testament to his commitment to high-stakes educational excellence.
+                The IB Gram pedagogy is rooted in academic rigour and pedagogical clarity. The aim is not to push
+                students into memorising mark schemes, but to teach the subject well enough that a Grade 7 conversation
+                stays a real conversation — about the topic, the question and the next step.
               </p>
-
-              <div className="pt-8 border-t border-border/40 grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm font-bold">
-                <div className="flex items-center gap-3"><CheckCircle2 className="size-5 text-primary" /> Math DP HL Specialist</div>
-                <div className="flex items-center gap-3"><CheckCircle2 className="size-5 text-primary" /> Physics HL Expert</div>
-                <div className="flex items-center gap-3"><CheckCircle2 className="size-5 text-primary" /> 10+ Years Legacy</div>
-                <div className="flex items-center gap-3"><CheckCircle2 className="size-5 text-primary" /> Global IB Alumni</div>
+              <div className="pt-6 border-t border-border/40 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-bold">
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="size-5 text-primary shrink-0" /> IB DP Maths AA/AI specialist
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="size-5 text-primary shrink-0" /> IB Physics HL/SL teaching
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="size-5 text-primary shrink-0" /> 10+ years of one-to-one DP work
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="size-5 text-primary shrink-0" /> Founder-led tutor curation
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* New Extended Content - Pedagogy & Vision */}
-      <section className="container max-w-7xl mx-auto px-4 md:px-6 mb-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2">
-            <h3 className="text-3xl md:text-5xl font-black mb-8 tracking-tight">The IB Gram Pedagogy</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="space-y-4">
-                <h4 className="text-xl font-bold text-foreground">Syllabus Synthesis</h4>
-                <p className="text-muted-foreground leading-relaxed">We map out the entire IB/IGCSE journey, ensuring no topic is left to chance. Our synthesis approach connects IA, EE, and Theory of Knowledge components with core subject mastery.</p>
+      {/* OUR STORY */}
+      <section className="container max-w-4xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
+        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+          <BookOpenCheck className="size-4" /> Our story
+        </div>
+        <div className="mt-3 space-y-12">
+          {aboutStorySections.map((section) => (
+            <FadeIn key={section.title}>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground mb-4">
+                {section.title}
+              </h2>
+              <div className="space-y-5">
+                {section.paragraphs.map((p, idx) => (
+                  <p
+                    key={idx}
+                    className="text-base sm:text-lg font-medium leading-relaxed text-muted-foreground"
+                  >
+                    {p}
+                  </p>
+                ))}
               </div>
-              <div className="space-y-4">
-                <h4 className="text-xl font-bold text-foreground">Mastering Abstraction</h4>
-                <p className="text-muted-foreground leading-relaxed">Mathematics and Physics are languages of logic. We teach students to decode these languages, turning complex abstract problems into intuitive 7-point solutions.</p>
-              </div>
-            </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      {/* VALUES */}
+      <section className="container max-w-6xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-primary">
+            <ShieldCheck className="size-4" /> What we stand for
           </div>
-          <div className="bg-card p-10 rounded-[3rem] border border-border">
-            <h3 className="text-2xl font-black mb-6">Our Core Focus</h3>
-            <ul className="space-y-6">
-              {CORE_VALUES.map((val) => (
-                <li key={val.title} className="space-y-2">
-                  <div className="flex items-center gap-3 font-black text-foreground uppercase tracking-widest text-[10px]">
-                    <val.icon className="size-4 text-primary" /> {val.title}
+          <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
+            Four quiet values that shape every conversation
+          </h2>
+        </div>
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {aboutValues.map((value) => (
+            <FadeIn key={value.title} className="rounded-3xl border border-border/50 bg-card/40 p-6">
+              <h3 className="text-lg sm:text-xl font-black text-foreground">{value.title}</h3>
+              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-muted-foreground">
+                {value.body}
+              </p>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      {/* HOW WE WORK */}
+      <section className="container max-w-6xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
+        <div className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+              <Compass className="size-4" /> How we work
+            </div>
+            <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
+              From a parent brief to a calm weekly rhythm
+            </h2>
+            <p className="mt-4 text-base sm:text-lg font-medium leading-relaxed text-muted-foreground">
+              The IB Gram workflow is deliberately short. Families tell us what they need, we confirm scope, we share
+              a small shortlist, and the engagement is reviewed every few weeks. There is no automated rush at any
+              step.
+            </p>
+          </div>
+          <ol className="grid gap-4 lg:col-span-7">
+            {aboutHowWeWorkSteps.map((step, idx) => (
+              <li
+                key={step.step}
+                className="rounded-2xl border border-border/50 bg-muted/10 p-5 sm:p-6 transition-colors hover:border-primary/30"
+              >
+                <div className="flex gap-4">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-black text-primary">
+                    {idx + 1}
                   </div>
-                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">{val.details}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-black text-foreground">{step.step}</h3>
+                    <p className="mt-1 text-sm sm:text-base font-medium leading-relaxed text-muted-foreground">
+                      {step.detail}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* Academic Excellence Quote - PW Inspiration (Focus on outcomes) */}
-      <section className="container max-w-4xl mx-auto px-4 md:px-6 text-center border-t border-border/40 pt-4">
-        <p className="text-2xl md:text-4xl font-black text-foreground italic leading-tight mb-4">
+      {/* WHAT WE DO NOT */}
+      <section className="container max-w-4xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
+        <div className="rounded-3xl border border-amber-500/20 bg-amber-500/5 p-6 sm:p-10">
+          <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-300">
+            <ShieldCheck className="size-4" /> Boundaries we keep
+          </div>
+          <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
+            Things IB Gram will never do
+          </h2>
+          <ul className="mt-6 space-y-3">
+            {aboutWhatWeDoNot.map((line) => (
+              <li
+                key={line}
+                className="flex gap-3 text-sm sm:text-base font-medium leading-relaxed text-muted-foreground"
+              >
+                <span className="mt-1 size-2 shrink-0 rounded-full bg-amber-400" />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* PEDAGOGY */}
+      <section className="container max-w-6xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-primary">
+            <Layers className="size-4" /> The IB Gram pedagogy
+          </div>
+          <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
+            Four pillars that show up in every weekly plan
+          </h2>
+        </div>
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {aboutPedagogyPillars.map((pillar) => (
+            <FadeIn key={pillar.title} className="rounded-3xl border border-border/50 bg-card/40 p-6">
+              <h3 className="text-lg sm:text-xl font-black text-foreground">{pillar.title}</h3>
+              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-muted-foreground">
+                {pillar.body}
+              </p>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      {/* SUBJECT COVERAGE */}
+      <section className="container max-w-6xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <GraduationCap className="size-4" /> Subject coverage
+          </div>
+          <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
+            What IB Gram tutors actually teach
+          </h2>
+          <p className="mt-4 text-base sm:text-lg font-medium leading-relaxed text-muted-foreground">
+            The platform began with Mathematics and Physics depth, then expanded carefully into the wider IB and
+            IGCSE catalogue. Subject availability still varies by city and exam window.
+          </p>
+        </div>
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {aboutSubjectCoverage.map((subject) => (
+            <FadeIn key={subject.group} className="rounded-3xl border border-border/50 bg-card/40 p-6">
+              <h3 className="text-lg sm:text-xl font-black text-foreground">{subject.group}</h3>
+              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-muted-foreground">
+                {subject.body}
+              </p>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      {/* FOUNDER QUOTE */}
+      <section className="container max-w-4xl mx-auto px-4 md:px-6 mb-20 md:mb-28 text-center">
+        <p className="text-2xl sm:text-3xl md:text-4xl font-black text-foreground italic leading-tight mb-4">
           &ldquo;Education works best when students feel understood, supported and clear about the next step.&rdquo;
         </p>
-        <div className="text-primary font-black tracking-widest uppercase text-sm">— Ajay Vatsyayan, Founder</div>
+        <div className="text-primary font-black tracking-widest uppercase text-xs sm:text-sm">
+          — Ajay Vatsyayan, Founder
+        </div>
       </section>
 
-      {/* NO PROMOTION SECTION - AS REQUESTED */}
+      {/* FAQ */}
+      <section className="container max-w-4xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
+        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+          <MessageSquare className="size-4" /> Frequently asked questions
+        </div>
+        <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
+          Questions parents ask about the platform itself
+        </h2>
+        <div className="mt-8 divide-y divide-border/50 rounded-3xl border border-border/50 bg-background/60">
+          {aboutFaqs.map((faq) => (
+            <details key={faq.question} className="group p-5 sm:p-6">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-3 text-base sm:text-lg font-black text-foreground">
+                {faq.question}
+                <ArrowRight className="mt-1 size-4 shrink-0 text-primary transition-transform group-open:rotate-90" />
+              </summary>
+              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-muted-foreground">
+                {faq.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+        <SchoolDisclaimer />
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="container max-w-4xl mx-auto px-4 md:px-6">
+        <div className="rounded-[2rem] border border-primary/20 bg-card/40 p-8 text-center md:p-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
+            Ready to share your IB or IGCSE brief?
+          </h2>
+          <p className="mt-4 text-base sm:text-lg font-medium leading-relaxed text-muted-foreground">
+            Send a short message — the advisor team replies with a small, honest shortlist. No long forms, no
+            pressure.
+          </p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href="/contact-us/"
+              className="shimmer-btn inline-flex h-14 w-full max-w-xs items-center justify-center rounded-xl bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20 sm:w-auto"
+            >
+              Speak with an Advisor
+              <ArrowRight className="ml-2 size-5" />
+            </Link>
+            <Link
+              href="/tutors/"
+              className="inline-flex h-14 w-full max-w-xs items-center justify-center rounded-xl border border-border bg-background/50 px-7 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30 sm:w-auto"
+            >
+              Browse Tutor Profiles
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

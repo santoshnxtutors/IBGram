@@ -1,4 +1,4 @@
-import { buildCityInternalLinks } from "./internal-links";
+﻿import { buildCityInternalLinks } from "./internal-links";
 import type { CitySeoPage, CitySeoPageBase } from "./city-page-types";
 import { absoluteUrl, buildCityPath, normalizeSlug } from "./slug-utils";
 import { additionalIndianIbCityPages } from "./city-pages-data/ib";
@@ -123,8 +123,8 @@ export const citySeoPageBaseData = [
     latitude: 28.4595,
     longitude: 77.0266,
     timezone: "Asia/Kolkata",
-    cityPhoneNumber: "+919582706764",
-    cityWhatsappNumber: "+919582706764",
+    cityPhoneNumber: "+917439368115",
+    cityWhatsappNumber: "+917439368115",
     localCtaText: "Book an IB demo class in Gurugram",
     ibProgramsAvailable: [
       {
@@ -398,7 +398,7 @@ export const citySeoPageBaseData = [
       schemaBreadcrumbs: ["Home", "IB Tutors", "Gurugram"],
       schemaOrganizationName: "IB Gram",
       schemaLogoUrl: absoluteUrl("/globe.svg"),
-      schemaContactPhone: "+919582706764",
+      schemaContactPhone: "+917439368115",
       schemaContactEmail: "ibgram24@gmail.com",
       schemaServiceName: "IB Tutoring Services in Gurugram",
       schemaAreaServed: ["Gurugram", "Golf Course Road", "DLF Phase 5", "Sector 57", "Sohna Road"],
@@ -508,8 +508,8 @@ export const citySeoPageBaseData = [
     latitude: 28.6139,
     longitude: 77.209,
     timezone: "Asia/Kolkata",
-    cityPhoneNumber: "+919582706764",
-    cityWhatsappNumber: "+919582706764",
+    cityPhoneNumber: "+917439368115",
+    cityWhatsappNumber: "+917439368115",
     localCtaText: "Book an IB demo class in Delhi",
     ibProgramsAvailable: [
       {
@@ -761,7 +761,7 @@ export const citySeoPageBaseData = [
       schemaBreadcrumbs: ["Home", "IB Tutors", "Delhi"],
       schemaOrganizationName: "IB Gram",
       schemaLogoUrl: absoluteUrl("/globe.svg"),
-      schemaContactPhone: "+919582706764",
+      schemaContactPhone: "+917439368115",
       schemaContactEmail: "ibgram24@gmail.com",
       schemaServiceName: "IB Tutoring Services in Delhi",
       schemaAreaServed: ["Delhi", "Vasant Vihar", "Greater Kailash", "Saket", "Chanakyapuri"],
@@ -876,8 +876,8 @@ export const citySeoPageBaseData = [
     latitude: 28.5355,
     longitude: 77.391,
     timezone: "Asia/Kolkata",
-    cityPhoneNumber: "+919582706764",
-    cityWhatsappNumber: "+919582706764",
+    cityPhoneNumber: "+917439368115",
+    cityWhatsappNumber: "+917439368115",
     localCtaText: "Book an IB demo class in Noida with a tutor match reviewed for programme, level, subject and schedule fit",
     ibProgramsAvailable: [
       {
@@ -1121,7 +1121,7 @@ export const citySeoPageBaseData = [
       schemaBreadcrumbs: ["Home", "IB Tutors", "Noida"],
       schemaOrganizationName: "IB Gram",
       schemaLogoUrl: absoluteUrl("/globe.svg"),
-      schemaContactPhone: "+919582706764",
+      schemaContactPhone: "+917439368115",
       schemaContactEmail: "ibgram24@gmail.com",
       schemaServiceName: "IB Tutoring Services in Noida",
       schemaAreaServed: ["Noida", "Sector 50", "Sector 62", "Noida Expressway", "Sector 137"],
@@ -1231,8 +1231,8 @@ export const citySeoPageBaseData = [
     latitude: 19.076,
     longitude: 72.8777,
     timezone: "Asia/Kolkata",
-    cityPhoneNumber: "+919582706764",
-    cityWhatsappNumber: "+919582706764",
+    cityPhoneNumber: "+917439368115",
+    cityWhatsappNumber: "+917439368115",
     localCtaText: "Book an IB demo class in Mumbai",
     ibProgramsAvailable: [
       {
@@ -1485,7 +1485,7 @@ export const citySeoPageBaseData = [
       schemaBreadcrumbs: ["Home", "IB Tutors", "Mumbai"],
       schemaOrganizationName: "IB Gram",
       schemaLogoUrl: absoluteUrl("/globe.svg"),
-      schemaContactPhone: "+919582706764",
+      schemaContactPhone: "+917439368115",
       schemaContactEmail: "ibgram24@gmail.com",
       schemaServiceName: "IB Tutoring Services in Mumbai",
       schemaAreaServed: ["Mumbai", "Bandra", "Juhu", "Powai", "South Mumbai"],
@@ -1595,8 +1595,8 @@ export const citySeoPageBaseData = [
     latitude: 12.9716,
     longitude: 77.5946,
     timezone: "Asia/Kolkata",
-    cityPhoneNumber: "+919582706764",
-    cityWhatsappNumber: "+919582706764",
+    cityPhoneNumber: "+917439368115",
+    cityWhatsappNumber: "+917439368115",
     localCtaText: "Book an IB demo class in Bangalore",
     ibProgramsAvailable: [
       {
@@ -1849,7 +1849,7 @@ export const citySeoPageBaseData = [
       schemaBreadcrumbs: ["Home", "IB Tutors", "Bangalore"],
       schemaOrganizationName: "IB Gram",
       schemaLogoUrl: absoluteUrl("/globe.svg"),
-      schemaContactPhone: "+919582706764",
+      schemaContactPhone: "+917439368115",
       schemaContactEmail: "ibgram24@gmail.com",
       schemaServiceName: "IB Tutoring Services in Bangalore",
       schemaAreaServed: ["Bangalore", "Whitefield", "Sarjapur Road", "Indiranagar", "North Bangalore"],

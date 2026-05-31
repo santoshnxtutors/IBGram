@@ -5,7 +5,19 @@ import { motion } from "framer-motion";
 import { BookOpenCheck, GraduationCap, Sparkles, Target } from "lucide-react";
 import Image from "next/image";
 
-const stories = [
+type Story = {
+  id: number | string;
+  name: string;
+  subject: string;
+  focus: string;
+  outcome: string;
+  nextStep: string;
+  accent: string;
+  image: string;
+  imageAlt: string;
+};
+
+const fallbackStories: Story[] = [
   {
     id: 1,
     name: "IB Math AA HL success story",
@@ -52,7 +64,8 @@ const stories = [
   },
 ];
 
-export function SuccessStories() {
+export function SuccessStories({ items }: { items?: Story[] }) {
+  const stories = items && items.length > 0 ? items : fallbackStories;
   const [activeIdx, setActiveIdx] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(3);
   const total = stories.length;

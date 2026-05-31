@@ -1,4 +1,4 @@
-import type { CitySeoPageBase, ProgramSupport, SubjectSupport } from "../../city-page-types";
+﻿import type { CitySeoPageBase, ProgramSupport, SubjectSupport } from "../../city-page-types";
 import { absoluteUrl, buildCityPath } from "../../slug-utils";
 import type { AdditionalCityConfig, SubjectInventoryMap } from "./types";
 
@@ -6,7 +6,7 @@ const SCHOOL_DISCLAIMER =
   "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.";
 
 const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
-const CONTACT_PHONE = "+919582706764";
+const CONTACT_PHONE = "+917439368115";
 const CONTACT_EMAIL = "ibgram24@gmail.com";
 
 const SUBJECTS = [

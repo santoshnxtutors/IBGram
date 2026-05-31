@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Check, AlertTriangle, Loader2 } from "lucide-react";
 import type { AdminLocationRecord, AdminTutorRecord } from "../_types/admin";
+import { MediaPicker } from "./MediaPicker";
 
 function csvToArray(value: FormDataEntryValue | null): string[] {
   if (typeof value !== "string") return [];
@@ -17,6 +18,8 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [toast, setToast] = useState<{ tone: "ok" | "err"; message: string } | null>(null);
+  const [avatarAssetId, setAvatarAssetId] = useState<string | null>(null);
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(tutor?.image ?? null);
 
   const showToast = (message: string, tone: "ok" | "err" = "ok") => {
     setToast({ tone, message });
@@ -31,7 +34,14 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
     }
     setBusy(true);
     const fd = new FormData(event.currentTarget);
+    const parseNumberOrNull = (key: string): number | null => {
+      const raw = fd.get(key);
+      if (typeof raw !== "string" || raw.trim() === "") return null;
+      const n = Number(raw);
+      return Number.isFinite(n) ? n : null;
+    };
     const payload = {
+      slug: (fd.get("slug") as string) || undefined,
       displayName: (fd.get("displayName") as string) || undefined,
       headline: (fd.get("headline") as string) || null,
       bio: (fd.get("bio") as string) || null,
@@ -45,6 +55,22 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       sectors: csvToArray(fd.get("sectors")),
       societies: csvToArray(fd.get("societies")),
       travelNotes: (fd.get("travelNotes") as string) || null,
+      tags: csvToArray(fd.get("tags")),
+      languages: csvToArray(fd.get("languages")),
+      rating: parseNumberOrNull("rating"),
+      reviewCount: parseNumberOrNull("reviewCount"),
+      experienceYears: parseNumberOrNull("experienceYears"),
+      hourlyRate: parseNumberOrNull("hourlyRate"),
+      currency: (fd.get("currency") as string) || null,
+      education: (fd.get("education") as string) || null,
+      successRate: (fd.get("successRate") as string) || null,
+      responseTime: (fd.get("responseTime") as string) || null,
+      availabilityText: (fd.get("availabilityText") as string) || null,
+      methodology: (fd.get("methodology") as string) || null,
+      verified: fd.get("verified") === "true",
+      approved: fd.get("approved") === "true",
+      avatarUrl,
+      avatarAssetId,
     };
     // Use the slug, not the legacy numeric id — the Prisma Tutor row uses the
     // slug (e.g. "dr-sarah-m-1"), while AdminTutorRecord.id is the static
@@ -86,8 +112,10 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
     }
   };
 
-  const onSubmitForReview = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const setStatusOnly = async (
+    body: { status: "draft" | "active" | "paused" | "archived"; verified?: boolean; approved?: boolean },
+    successMessage: string,
+  ) => {
     if (!tutor) return;
     setBusy(true);
     const lookupKey = tutor.slug || tutor.id;
@@ -95,10 +123,13 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       const res = await fetch(`/admin/api/tutors/${encodeURIComponent(lookupKey)}/`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: "draft" }),
+        body: JSON.stringify(body),
       });
-      if (!res.ok) throw new Error(`Status change failed (${res.status})`);
-      showToast("Marked as draft for review.");
+      if (!res.ok) {
+        const msg = (await res.json().catch(() => null))?.error ?? `Status change failed (${res.status})`;
+        throw new Error(msg);
+      }
+      showToast(successMessage);
       router.refresh();
     } catch (err) {
       showToast(err instanceof Error ? err.message : "Failed", "err");
@@ -106,6 +137,11 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       setBusy(false);
     }
   };
+
+  const handlePublish = () =>
+    setStatusOnly({ status: "active", approved: true }, "Published — visible on the public site.");
+  const handleUnpublish = () => setStatusOnly({ status: "paused" }, "Unpublished (paused).");
+  const handleDraft = () => setStatusOnly({ status: "draft" }, "Marked as draft.");
 
   return (
     <form
@@ -129,9 +165,49 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
         </div>
       )}
 
+      <div className="md:col-span-2">
+        <MediaPicker
+          label="Profile photo / avatar"
+          value={avatarAssetId}
+          currentUrl={avatarUrl}
+          onChange={(id, url) => {
+            setAvatarAssetId(id);
+            setAvatarUrl(url ?? null);
+          }}
+          folder="tutors"
+        />
+        {avatarUrl && (
+          <p className="mt-2 text-[10px] font-mono text-slate-500">
+            Saved URL: <code className="text-slate-400">{avatarUrl}</code>
+          </p>
+        )}
+      </div>
       <Field name="displayName" label="Name" defaultValue={tutor?.name} />
+      <Field name="slug" label="Slug (URL-safe id, must be unique)" defaultValue={tutor?.slug} />
       <Field name="headline" label="Headline" defaultValue={tutor?.headline} />
       <Textarea name="bio" label="Bio" defaultValue={tutor?.bio} />
+
+      <Field name="tags" label="Tags (comma-separated — e.g. Examiner, Oxford Alumni)" defaultValue="" />
+      <Field name="languages" label="Languages (comma-separated)" defaultValue="" />
+      <Field name="rating" label="Rating (0.0–5.0)" type="number" defaultValue={String(tutor?.rating ?? "")} />
+      <Field name="reviewCount" label="Reviews count" type="number" defaultValue={String(tutor?.reviews ?? "")} />
+      <Field name="experienceYears" label="Experience (years)" type="number" defaultValue="" />
+      <Field name="hourlyRate" label="Hourly rate (number, e.g. 85)" type="number" defaultValue="" />
+      <Field name="currency" label="Currency (INR / USD)" defaultValue="INR" />
+      <Field name="education" label="Education (e.g. PhD Mathematics, Oxford)" defaultValue="" />
+      <Field name="successRate" label="Success rate (e.g. 99%)" defaultValue="" />
+      <Field name="responseTime" label="Response time (e.g. < 5 mins)" defaultValue="" />
+      <Field name="availabilityText" label="Availability text (e.g. Mon–Sat 4–9pm)" defaultValue="" />
+      <Textarea name="methodology" label="Teaching methodology" defaultValue="" />
+
+      <label className="flex items-center gap-2 text-sm font-bold text-slate-300">
+        <input type="checkbox" name="verified" value="true" defaultChecked={tutor?.verificationStatus === "verified"} className="size-4" />
+        Verified
+      </label>
+      <label className="flex items-center gap-2 text-sm font-bold text-slate-300">
+        <input type="checkbox" name="approved" value="true" defaultChecked={tutor?.profileStatus === "active"} className="size-4" />
+        Approved (required for public visibility)
+      </label>
       <Field name="curriculums" label="Curriculums (comma-separated)" defaultValue={tutor?.curriculums ?? "IB"} />
       <Field name="ibProgrammes" label="IB programmes" defaultValue={tutor?.ibProgrammes.join(", ")} />
       <Field name="ibSubjects" label="IB subjects" defaultValue={tutor?.ibSubjects.join(", ")} />
@@ -143,7 +219,21 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       <Field name="societies" label="Societies" defaultValue={tutor?.availableSocieties.join(", ")} />
       <Textarea name="travelNotes" label="Travel notes" defaultValue={tutor?.travelNotes} />
 
-      <div className="md:col-span-2 flex flex-wrap gap-2">
+      <div className="md:col-span-2 flex flex-wrap items-center gap-2">
+        <div className="mr-auto flex items-center gap-2 text-xs font-black uppercase tracking-[0.16em] text-slate-500">
+          Status:
+          <span
+            className={`rounded-full px-2 py-0.5 text-[10px] font-black tracking-[0.15em] ${
+              tutor?.profileStatus === "active"
+                ? "bg-emerald-300/20 text-emerald-300"
+                : tutor?.profileStatus === "paused"
+                  ? "bg-amber-300/20 text-amber-300"
+                  : "bg-slate-300/15 text-slate-300"
+            }`}
+          >
+            {(tutor?.profileStatus ?? "draft").toUpperCase()}
+          </span>
+        </div>
         <button
           type="submit"
           disabled={busy}
@@ -154,10 +244,25 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
         </button>
         <button
           type="button"
-          onClick={(event) => {
-            const form = (event.currentTarget as HTMLButtonElement).closest("form") as HTMLFormElement | null;
-            if (form) onSubmitForReview({ preventDefault() {}, currentTarget: form } as unknown as FormEvent<HTMLFormElement>);
-          }}
+          onClick={handlePublish}
+          disabled={busy}
+          title="Set status=active, approved=true — tutor goes live on the public site"
+          className="h-10 rounded-lg bg-sky-400 px-4 text-sm font-black text-slate-950 hover:bg-sky-300 disabled:opacity-50"
+        >
+          Publish
+        </button>
+        <button
+          type="button"
+          onClick={handleUnpublish}
+          disabled={busy}
+          title="Set status=paused — hidden from public site but kept in DB"
+          className="h-10 rounded-lg border border-white/10 bg-white/[0.04] px-4 text-sm font-black text-white hover:bg-white/[0.08] disabled:opacity-50"
+        >
+          Unpublish
+        </button>
+        <button
+          type="button"
+          onClick={handleDraft}
           disabled={busy}
           className="h-10 rounded-lg border border-white/10 bg-white/[0.04] px-4 text-sm font-black text-white hover:bg-white/[0.08] disabled:opacity-50"
         >

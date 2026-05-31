@@ -18,6 +18,8 @@ import {
   Search,
   Settings,
   Shield,
+  Sparkles,
+  Star,
   Users,
 } from "lucide-react";
 
@@ -35,7 +37,9 @@ const navigation = [
   { label: "Internal Links", href: "/admin/internal-links", icon: Link2 },
   { label: "SEO", href: "/admin/seo", icon: Gauge },
   { label: "Blog", href: "/admin/blog", icon: Newspaper },
-  { label: "Testimonials", href: "/admin/testimonials", icon: MessageSquareQuote },
+  { label: "Reviews", href: "/admin/testimonials", icon: MessageSquareQuote },
+  { label: "Teacher Reviews", href: "/admin/teacher-reviews", icon: Star },
+  { label: "Success Stories", href: "/admin/success-stories", icon: Sparkles },
   { label: "FAQs", href: "/admin/faqs", icon: HelpCircle },
   { label: "Media Library", href: "/admin/assets", icon: Image },
   { label: "Imports", href: "/admin/imports", icon: Import },
@@ -63,17 +67,22 @@ export async function AdminShell({ children }: { children: React.ReactNode }) {
 
 function AdminSidebar() {
   return (
-    <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-white/10 bg-[#080d16]/95 p-4 shadow-2xl shadow-black/30 backdrop-blur-xl lg:block">
-      <Link href="/admin/dashboard" className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-3 shadow-lg shadow-black/20 transition hover:border-emerald-300/30 hover:bg-white/[0.06]">
-        <div className="grid size-11 place-items-center rounded-lg bg-gradient-to-br from-emerald-300 to-teal-500 text-sm font-black tracking-tight text-slate-950 shadow-lg shadow-emerald-950/30">
-          IB
-        </div>
-        <div className="min-w-0">
-          <p className="text-base font-black tracking-tight">IBGram Admin</p>
-          <p className="text-xs font-semibold text-slate-400">Content operations</p>
-        </div>
-      </Link>
-      <nav className="mt-6 space-y-1.5" aria-label="Admin navigation">
+    <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-white/10 bg-[#080d16]/95 shadow-2xl shadow-black/30 backdrop-blur-xl lg:flex lg:flex-col">
+      <div className="shrink-0 p-4 pb-3">
+        <Link href="/admin/dashboard" className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-3 shadow-lg shadow-black/20 transition hover:border-emerald-300/30 hover:bg-white/[0.06]">
+          <div className="grid size-11 place-items-center rounded-lg bg-gradient-to-br from-emerald-300 to-teal-500 text-sm font-black tracking-tight text-slate-950 shadow-lg shadow-emerald-950/30">
+            IB
+          </div>
+          <div className="min-w-0">
+            <p className="text-base font-black tracking-tight">IBGram Admin</p>
+            <p className="text-xs font-semibold text-slate-400">Content operations</p>
+          </div>
+        </Link>
+      </div>
+      <nav
+        className="min-h-0 flex-1 space-y-1.5 overflow-y-auto px-4 pb-4 [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.15)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/15 hover:[&::-webkit-scrollbar-thumb]:bg-white/25"
+        aria-label="Admin navigation"
+      >
         {navigation.map((item) => (
           <Link
             key={item.href}

@@ -80,7 +80,9 @@ export async function POST(request: NextRequest) {
   await fs.writeFile(targetPath, buffer);
 
   const key = `${folder}/${filename}`;
-  const publicUrl = `/uploads/${key}`;
+  // Serve through the /api/media route handler — bypasses Turbopack's static
+  // /public manifest which sometimes doesn't pick up runtime-written files.
+  const publicUrl = `/api/media/${key}`;
 
   const userId = (session as { userId?: string })?.userId;
   const asset = await prisma.asset.create({

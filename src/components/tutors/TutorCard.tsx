@@ -2,10 +2,9 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Check, CheckCircle, Clock, Home, MapPin, Monitor, Star } from "lucide-react";
-import Image from "next/image";
-
 export type TutorCardProfile = {
-  id: number;
+  id: number | string;
+  slug?: string;
   name: string;
   subject: string;
   grade: string;
@@ -28,8 +27,8 @@ export type TutorCardProfile = {
 type TutorCardProps = {
   tutor: TutorCardProfile;
   selectedForCompare: boolean;
-  onCompareToggle: (id: number) => void;
-  onOpen: (id: number) => void;
+  onCompareToggle: (id: number | string) => void;
+  onOpen: (id: number | string) => void;
   layoutNamespace?: string;
   ctaLabel?: string;
   className?: string;
@@ -117,7 +116,8 @@ export function TutorCard({
               className="relative flex size-[74px] shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-muted shadow-lg"
             >
               {tutor.image ? (
-                <Image src={tutor.image} alt={tutor.name} fill sizes="74px" className="object-cover" />
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={tutor.image} alt={tutor.name} className="absolute inset-0 size-full object-cover" />
               ) : (
                 <span className="text-2xl font-black text-muted-foreground">{tutor.name.charAt(0)}</span>
               )}

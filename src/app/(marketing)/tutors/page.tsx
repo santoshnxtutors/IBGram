@@ -5,6 +5,7 @@ import { Breadcrumb, breadcrumbJsonLd } from "@/components/seo-city/Breadcrumb";
 import { SchoolDisclaimer } from "@/components/seo-city/SchoolDisclaimer";
 import { allTutors } from "@/lib/tutor-data";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
+import { getPublicTutorsFromDb } from "@/lib/cms/public-tutors";
 import TutorsClient from "./TutorsClient";
 
 const CANONICAL = absoluteUrl("/tutors/");
@@ -115,7 +116,12 @@ function jsonLdFaq() {
   };
 }
 
-export default function TutorsPage() {
+export default async function TutorsPage() {
+  // DB-first: when the database has at least one published (status=active,
+  // approved=true) tutor, use those. Otherwise fall back to the static seed.
+  const dbTutors = await getPublicTutorsFromDb();
+  const tutorsForClient = dbTutors && dbTutors.length > 0 ? dbTutors : undefined;
+
   return (
     <div className="min-h-screen bg-background">
       <Script id="ld-tutors-breadcrumb" type="application/ld+json" strategy="afterInteractive">
@@ -128,7 +134,7 @@ export default function TutorsPage() {
         {JSON.stringify(jsonLdFaq())}
       </Script>
 
-      <section className="container mx-auto px-4 pt-24 md:px-6">
+      <section className="container mx-auto px-4 pt-6 md:pt-10 md:px-6">
         <Breadcrumb items={BREADCRUMB} className="mb-6" />
 
         <header className="mx-auto max-w-4xl text-center">
@@ -143,7 +149,7 @@ export default function TutorsPage() {
         </header>
       </section>
 
-      <TutorsClient />
+      <TutorsClient tutors={tutorsForClient} />
 
       <section className="container mx-auto mt-16 max-w-4xl space-y-10 px-4 md:px-6">
         <article>

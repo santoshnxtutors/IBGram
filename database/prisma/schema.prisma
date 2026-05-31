@@ -614,9 +614,33 @@ model Tutor {
   locations       TutorLocation[]
   availability    TutorAvailability[]
   assets          TutorAsset[]
+  reviews         TutorReview[]
 
   @@index([status])
   @@index([deletedAt])
+}
+
+model TutorReview {
+  id            String        @id @default(cuid())
+  tutorId       String
+  authorName    String
+  authorRole    String?
+  location      String?
+  rating        Int           @default(5)
+  quote         String
+  curriculum    Curriculum?
+  imageAssetId  String?
+  status        ContentStatus @default(published)
+  featured      Boolean       @default(false)
+  sortOrder     Int           @default(0)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  tutor         Tutor         @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+  imageAsset    Asset?        @relation("TutorReviewImage", fields: [imageAssetId], references: [id], onDelete: SetNull)
+
+  @@index([tutorId])
+  @@index([status])
+  @@index([featured])
 }
 
 model TutorProfile {
@@ -866,6 +890,7 @@ model Asset {
   csvImports            CsvImport[]     @relation("CsvImportFileAsset")
   testimonialImages     Testimonial[]   @relation("TestimonialImage")
   successStoryImages    SuccessStory[]  @relation("SuccessStoryImage")
+  tutorReviewImages     TutorReview[]   @relation("TutorReviewImage")
   blogFeaturedImages    BlogPost[]      @relation("BlogFeaturedImage")
   blogOgImages          BlogPost[]      @relation("BlogOgImage")
   homepageSectionMedia  HomepageSection[] @relation("HomepageSectionMedia")

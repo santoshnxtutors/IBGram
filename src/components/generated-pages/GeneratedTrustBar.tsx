@@ -1,12 +1,20 @@
-import { CheckCircle2, Link2, ShieldCheck, Sparkles } from "lucide-react";
+import { CheckCircle2, Laptop, ShieldCheck, Sparkles } from "lucide-react";
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
 
 export function GeneratedTrustBar({ page }: { page: GeneratedSeoPage }) {
+  const modesLabel = page.tutoringModes.length > 0
+    ? page.tutoringModes
+        .map((m) => (m === "home" ? "Home" : m === "online" ? "Online" : "Hybrid"))
+        .join(" · ")
+    : "Home · Online · Hybrid";
+
+  const programmesLabel = page.programmes.length > 0 ? page.programmes.join(", ") : "IB & IGCSE";
+
   const items = [
-    { icon: ShieldCheck, label: "Verified tutor matching" },
-    { icon: Sparkles, label: `${page.programmes.join(", ")} support` },
-    { icon: Link2, label: `${page.internalLinks.length} internal links` },
-    { icon: CheckCircle2, label: page.indexFlag === "index" ? "Index-ready" : "Review before indexing" },
+    { icon: ShieldCheck, label: "Verified tutor profiles" },
+    { icon: Sparkles, label: `${programmesLabel} support` },
+    { icon: Laptop, label: modesLabel },
+    { icon: CheckCircle2, label: "Subject-first matching" },
   ];
 
   return (

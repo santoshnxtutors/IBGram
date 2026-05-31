@@ -1,5 +1,6 @@
 import nextDynamic from "next/dynamic";
 import { Hero } from "@/components/home/Hero";
+import { getPublicHomepageReviews, getPublicSuccessStories } from "@/lib/cms/public-reviews";
 
 const TrustIndicators = nextDynamic(() => import("@/components/home/TrustIndicators").then((mod) => mod.TrustIndicators));
 const CourseExplorer = nextDynamic(() => import("@/components/home/CourseExplorer").then((mod) => mod.CourseExplorer));
@@ -14,7 +15,12 @@ const BlogInsights = nextDynamic(() => import("@/components/home/BlogInsights").
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
-export default function Home() {
+export default async function Home() {
+  const [reviewItems, storyItems] = await Promise.all([
+    getPublicHomepageReviews(),
+    getPublicSuccessStories(),
+  ]);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Hero />
@@ -22,8 +28,8 @@ export default function Home() {
       <CourseExplorer />
       <TutorDiscovery />
       <AIToolsShowcase />
-      <ReviewsSection />
-      <SuccessStories />
+      <ReviewsSection items={reviewItems ?? undefined} />
+      <SuccessStories items={storyItems ?? undefined} />
       <SEOPlatformInfo />
       <BlogInsights />
       <FAQSection />

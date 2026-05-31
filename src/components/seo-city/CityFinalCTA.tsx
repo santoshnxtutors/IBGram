@@ -21,16 +21,16 @@ export function CityFinalCTA({ page }: { page: CitySeoPage }) {
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
             <Link
               href="/contact-us/"
-              className="inline-flex h-14 items-center justify-center rounded-xl bg-primary px-7 text-sm font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+              className="inline-flex h-14 max-w-xs items-center justify-center whitespace-nowrap rounded-xl bg-primary px-7 text-sm font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
             >
-              {page.primaryCtaText}
+              {page.primaryCtaText || "Book a Free Consultation"}
               <ArrowRight className="ml-2 size-5" />
             </Link>
             <Link
               href="/tutors/"
-              className="inline-flex h-14 items-center justify-center rounded-xl border border-border bg-background/60 px-7 text-sm font-black text-foreground transition-all hover:border-secondary/50"
+              className="inline-flex h-14 max-w-xs items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/60 px-7 text-sm font-black text-foreground transition-all hover:border-secondary/50"
             >
-              View tutors
+              View Tutors
             </Link>
           </div>
         </div>

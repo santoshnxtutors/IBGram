@@ -13,12 +13,25 @@ type Asset = {
 
 type MediaPickerProps = {
   value?: string | null;
+  /** Pre-existing image URL to show when no Asset id is known yet (e.g. legacy avatar) */
+  currentUrl?: string | null;
   onChange: (assetId: string | null, url: string | null) => void;
   label?: string;
   folder?: string;
 };
 
-export function MediaPicker({ value, onChange, label = "Image", folder = "general" }: MediaPickerProps) {
+function normalisePreviewUrl(value: string | null | undefined): string | null {
+  if (!value) return null;
+  const trimmed = value.trim();
+  if (!trimmed) return null;
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) return trimmed;
+  if (trimmed.startsWith("/uploads/")) return `/api/media/${trimmed.slice("/uploads/".length)}`;
+  if (trimmed.startsWith("uploads/")) return `/api/media/${trimmed.slice("uploads/".length)}`;
+  if (trimmed.startsWith("/")) return trimmed;
+  return `/${trimmed}`;
+}
+
+export function MediaPicker({ value, currentUrl, onChange, label = "Image", folder = "general" }: MediaPickerProps) {
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState<Asset[]>([]);
   const [selectedAsset, setSelectedAsset] = useState<Asset | null>(null);
@@ -102,16 +115,30 @@ export function MediaPicker({ value, onChange, label = "Image", folder = "genera
     [folder, onChange],
   );
 
+  const fallbackPreviewUrl = normalisePreviewUrl(currentUrl);
+  const previewUrl = selectedAsset?.url ?? fallbackPreviewUrl;
+  const previewLabel = selectedAsset?.filename ?? (fallbackPreviewUrl ? "Current image (saved earlier)" : null);
+
   return (
     <div>
       <span className="block text-xs font-black uppercase tracking-[0.18em] text-slate-400">{label}</span>
-      <div className="mt-2 flex items-center gap-3">
-        {selectedAsset ? (
+      <div className="mt-2 flex flex-wrap items-center gap-3">
+        {previewUrl ? (
           <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.05] p-2 pr-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={selectedAsset.url} alt={selectedAsset.altText ?? selectedAsset.filename} className="size-12 rounded object-cover" />
+            <img
+              src={previewUrl}
+              alt={previewLabel ?? "Selected"}
+              className="size-16 rounded object-cover"
+              onError={(event) => {
+                const target = event.currentTarget;
+                target.style.opacity = "0.3";
+                target.title = "Image could not be loaded — file may have been deleted.";
+              }}
+            />
             <div className="min-w-0">
-              <p className="truncate text-xs font-black text-slate-200">{selectedAsset.filename}</p>
+              <p className="truncate text-xs font-black text-slate-200">{previewLabel}</p>
+              <p className="truncate text-[10px] font-medium text-slate-500" title={previewUrl}>{previewUrl}</p>
               <button
                 type="button"
                 onClick={() => {
@@ -120,14 +147,14 @@ export function MediaPicker({ value, onChange, label = "Image", folder = "genera
                 }}
                 className="mt-1 inline-flex items-center gap-1 text-[10px] font-bold text-rose-300 hover:text-rose-200"
               >
-                <X className="size-3" /> Clear
+                <X className="size-3" /> Remove image
               </button>
             </div>
           </div>
         ) : (
-          <div className="flex h-14 items-center gap-2 rounded-lg border border-dashed border-white/15 bg-white/[0.02] px-3">
+          <div className="flex h-16 items-center gap-2 rounded-lg border border-dashed border-white/15 bg-white/[0.02] px-3">
             <ImageIcon className="size-4 text-slate-500" />
-            <span className="text-xs font-bold text-slate-500">No image selected</span>
+            <span className="text-xs font-bold text-slate-500">No image set</span>
           </div>
         )}
         <button

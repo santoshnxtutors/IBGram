@@ -1,17 +1,36 @@
-import React from "react";
+﻿import React from "react";
+import type { Metadata } from "next";
+import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
+import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
+import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
+
+export const revalidate = 3600;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const dbPage = await getDbGeneratedSeoPageByPath("/programmes/cp/", ["programme"]);
+  if (dbPage) return buildGeneratedMetadata(dbPage);
+  return {
+    title: "IB CP Tutor — Career-related Programme Support | IB Gram",
+    description: "IB CP tutoring for DP subjects within the CP plan, Reflective Project mentoring and core support.",
+    alternates: { canonical: "/programmes/cp/" },
+  };
+}
 import { ProgrammeSection } from "@/components/programmes/ProgrammeSection";
 import { GraduationCap, Briefcase, Award, CheckCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TutorDiscovery } from "@/components/home/TutorDiscovery";
 
-export default function CPPage() {
+export default async function CPPage() {
+  const dbPage = await getDbGeneratedSeoPageByPath("/programmes/cp/", ["programme"]);
+  if (dbPage) return <GeneratedPageRenderer page={dbPage} />;
+
   return (
     <div className="min-h-screen bg-background pb-4">
       <section className="relative w-full pt-12 pb-12 flex flex-col items-center justify-center text-center px-4">
         <div className="max-w-4xl mx-auto flex flex-col items-center space-y-4 md:space-y-6">
           <span className="inline-flex items-center px-4 py-1.5 text-xs font-bold text-primary bg-primary/10 rounded-full">
-            Ages 16–19
+            Ages 16â€“19
           </span>
           <h1 className="text-4xl md:text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-foreground">
             Career-related Programme (CP)
@@ -29,9 +48,9 @@ export default function CPPage() {
                 Find Your CP Tutor <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
-            <Link href="https://wa.me/919876543210" target="_blank">
+            <Link href="https://wa.me/917439368115" target="_blank">
               <Button variant="outline" className="rounded-full px-6 h-12 text-[15px] font-bold border-primary/20 text-primary hover:bg-primary/5">
-                Contact via WhatsApp 💬
+                Contact via WhatsApp ðŸ’¬
               </Button>
             </Link>
           </div>
@@ -49,10 +68,10 @@ export default function CPPage() {
               <CheckCircle className="w-5 h-5 text-primary" /> CP Core
             </h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• Personal and professional skills</li>
-              <li>• Service learning</li>
-              <li>• Language development</li>
-              <li>• Reflective project</li>
+              <li>â€¢ Personal and professional skills</li>
+              <li>â€¢ Service learning</li>
+              <li>â€¢ Language development</li>
+              <li>â€¢ Reflective project</li>
             </ul>
           </div>
           
@@ -154,7 +173,7 @@ export default function CPPage() {
                   Contact Us
                 </Button>
               </Link>
-              <Link href="https://wa.me/919876543210" target="_blank" className="flex-1 sm:flex-none">
+              <Link href="https://wa.me/917439368115" target="_blank" className="flex-1 sm:flex-none">
                 <Button variant="outline" size="lg" className="w-full rounded-full px-6 text-[15px] font-bold h-12 border-primary/30 text-primary hover:bg-primary/10">
                   WhatsApp
                 </Button>

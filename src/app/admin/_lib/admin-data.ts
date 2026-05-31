@@ -9,6 +9,7 @@ import { getAllIgcseCityPages } from "@/lib/seo/igcse-city-pages";
 import { CITY_CONTENT_PAGE_SLUGS } from "@/lib/seo/internal-links";
 import { getAllGeneratedPages, saveGeneratedPage } from "@/lib/generated-pages/store";
 import { writeGeneratedPageToDb } from "@/lib/cms/generated-page-writer";
+import { prisma } from "@/lib/db";
 import { gurgaonLocalPlaces } from "@/lib/local-seo/gurgaon";
 import {
   getIgcseTutorAreaStaticParams,
@@ -216,7 +217,75 @@ export async function publishPage(id: string) {
   return updatePage(id, { status: "published", indexFlag: "index" });
 }
 
+function unique<T>(values: Array<T | null | undefined>): T[] {
+  return [...new Set(values.filter((v): v is T => v !== null && v !== undefined && v !== ""))];
+}
+
+async function getTutorsFromDb(): Promise<AdminTutorRecord[] | null> {
+  try {
+    const rows = await prisma.tutor.findMany({
+      where: { deletedAt: null },
+      include: {
+        profile: true,
+        subjects: true,
+        curriculums: true,
+        locations: { orderBy: { priority: "asc" } },
+      },
+      orderBy: { displayName: "asc" },
+    });
+    if (rows.length === 0) return null;
+    return rows.map((tutor) => {
+      const ibCurriculum = tutor.curriculums.find((c) => c.curriculum === "IB");
+      const igcseCurriculum = tutor.curriculums.find((c) => c.curriculum === "IGCSE");
+      const curriculums =
+        ibCurriculum && igcseCurriculum ? "Both" : ibCurriculum ? "IB" : igcseCurriculum ? "IGCSE" : "IB";
+      const primaryLocation = tutor.locations[0];
+      return {
+        id: tutor.id,
+        name: tutor.displayName,
+        slug: tutor.slug,
+        image: tutor.avatarUrl ?? undefined,
+        headline: tutor.headline ?? "",
+        bio: tutor.bio ?? "",
+        curriculums,
+        ibProgrammes: unique(tutor.curriculums.filter((c) => c.curriculum === "IB").map((c) => c.programme)),
+        ibSubjects: tutor.subjects.filter((s) => s.curriculum === "IB").map((s) => s.subjectName),
+        igcseSubjects: tutor.subjects.filter((s) => s.curriculum === "IGCSE").map((s) => s.subjectName),
+        subjectLevels: unique(tutor.subjects.map((s) => s.level)),
+        teachingModes: primaryLocation
+          ? [
+              primaryLocation.homeTutoringAvailable ? "home" : "",
+              primaryLocation.onlineTutoringAvailable ? "online" : "",
+              primaryLocation.hybridTutoringAvailable ? "hybrid" : "",
+            ].filter(Boolean)
+          : [],
+        primaryCity: primaryLocation?.cityName ?? "",
+        availableCities: unique(tutor.locations.map((l) => l.cityName)),
+        availableAreas: unique(tutor.locations.map((l) => l.areaName)),
+        availableSectors: unique(tutor.locations.map((l) => l.sectorName)),
+        availableSocieties: unique(tutor.locations.map((l) => l.societyName)),
+        nearbySchools: unique(tutor.locations.map((l) => l.nearbySchoolName)),
+        travelNotes: primaryLocation?.notes ?? "",
+        availabilityNotes: tutor.profile?.availabilityText ?? "",
+        verificationStatus: tutor.verified ? "verified" : "pending",
+        profileStatus:
+          tutor.status === "active" ? "active" : tutor.status === "paused" ? "paused" : "draft",
+        rating: Number(tutor.rating ?? 0),
+        reviews: tutor.reviewCount,
+        lastUpdated: tutor.updatedAt.toISOString().slice(0, 10),
+      } satisfies AdminTutorRecord;
+    });
+  } catch {
+    return null;
+  }
+}
+
 export async function getTutors(): Promise<AdminTutorRecord[]> {
+  // DB-first — return Prisma tutors when ingested. Static fallback only when
+  // the DB is empty or unreachable so dev still works before `db:import-current`.
+  const dbTutors = await getTutorsFromDb();
+  if (dbTutors && dbTutors.length > 0) return dbTutors;
+
   return allTutors.map((tutor) => ({
     id: String(tutor.id),
     name: tutor.name,

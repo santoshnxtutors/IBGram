@@ -39,11 +39,6 @@ const STATUS_OPTIONS = [
   { value: "archived", label: "Archived" },
 ];
 
-const KIND_OPTIONS = [
-  { value: "review", label: "Review" },
-  { value: "success_story", label: "Success story" },
-];
-
 const CURRICULUM_OPTIONS = [
   { value: "", label: "—" },
   { value: "IB", label: "IB" },
@@ -105,10 +100,7 @@ export function TestimonialsClient({ items }: { items: Item[] }) {
               <FieldLabel>Rating (1-5)</FieldLabel>
               <TextInput name="rating" defaultValue={editing?.rating ?? ""} type="number" />
             </label>
-            <label>
-              <FieldLabel>Kind</FieldLabel>
-              <SelectInput name="kind" defaultValue={editing?.kind ?? "review"} options={KIND_OPTIONS} />
-            </label>
+            <input type="hidden" name="kind" value="review" />
             <label>
               <FieldLabel>Curriculum</FieldLabel>
               <SelectInput name="curriculum" defaultValue={editing?.curriculum ?? ""} options={CURRICULUM_OPTIONS} />

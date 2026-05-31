@@ -169,7 +169,7 @@ export function SelectInput({ name, defaultValue, options }: { name: string; def
       className="mt-1 h-10 w-full rounded-md border border-white/10 bg-white/[0.05] px-3 text-sm text-slate-200 focus:border-emerald-300/50 focus:outline-none"
     >
       {options.map((opt) => (
-        <option key={opt.value} value={opt.value}>
+        <option key={opt.value} value={opt.value} className="bg-slate-900 text-slate-100">
           {opt.label}
         </option>
       ))}

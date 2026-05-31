@@ -12,10 +12,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { allTutors } from "@/lib/tutor-data";
+import { allTutors, type Tutor } from "@/lib/tutor-data";
 import { TutorCard } from "@/components/tutors/TutorCard";
+
+type AnyTutorId = string | number;
+const sameId = (a: AnyTutorId | null | undefined, b: AnyTutorId | null | undefined) =>
+  a !== null && a !== undefined && b !== null && b !== undefined && String(a) === String(b);
 
 const IB_SUBJECTS = [
   "IB Mathematics",
@@ -47,27 +50,29 @@ const IGCSE_SUBJECTS = [
 const IGCSE_GRADES = ["IGCSE Grade 10 (Final)", "IGCSE Grade 9 (Foundation)"];
 const INITIAL_VISIBLE_TUTORS = 8;
 
-export default function TutorsClient() {
+export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
   const router = useRouter();
   const pathname = usePathname();
   const currentPath = pathname;
-  const [selectedId, setSelectedId] = useState<number | null>(null);
+  // DB-first when the server page passed in DB rows; static fallback otherwise.
+  const sourceTutors: Tutor[] = tutors && tutors.length > 0 ? tutors : allTutors;
+  const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
   const [curriculumFilter, setCurriculumFilter] = useState<string>("Curriculum");
   const [subjectFilter, setSubjectFilter] = useState<string>("Subject");
   const [gradeFilter, setGradeFilter] = useState<string>("Grade");
-  const [filteredTutors, setFilteredTutors] = useState(allTutors);
-  const [compareIds, setCompareIds] = useState<number[]>([]);
+  const [filteredTutors, setFilteredTutors] = useState<Tutor[]>(sourceTutors);
+  const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
   const [visibleTutorCount, setVisibleTutorCount] = useState(INITIAL_VISIBLE_TUTORS);
 
   const displayTutors =
     curriculumFilter === "Curriculum" && subjectFilter === "Subject" && gradeFilter === "Grade"
-      ? allTutors
+      ? sourceTutors
       : filteredTutors;
   const visibleTutors = displayTutors.slice(0, visibleTutorCount);
 
-  const toggleCompare = (id: number) => {
+  const toggleCompare = (id: AnyTutorId) => {
     setCompareIds((prev) => {
-      if (prev.includes(id)) return prev.filter((item) => item !== id);
+      if (prev.some((item) => sameId(item, id))) return prev.filter((item) => !sameId(item, id));
       if (prev.length < 2) return [...prev, id];
       return [prev[1], id];
     });
@@ -80,7 +85,7 @@ export default function TutorsClient() {
   };
 
   const handleSearch = (curr = curriculumFilter, subj = subjectFilter, grd = gradeFilter) => {
-    let result = allTutors;
+    let result = sourceTutors;
 
     if (curr !== "Curriculum") {
       result = result.filter((tutor) => tutor.curriculum === curr || tutor.curriculum === "Both");
@@ -131,7 +136,7 @@ export default function TutorsClient() {
   }, [selectedId]);
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-12 space-y-12">
+    <div className="min-h-screen bg-background pt-8 pb-12 space-y-10">
       <section className="container mx-auto px-4 md:px-6">
         <div className="mx-auto mb-8 max-w-4xl text-center">
           <motion.h1
@@ -249,7 +254,7 @@ export default function TutorsClient() {
               >
                 <TutorCard
                   tutor={tutor}
-                  selectedForCompare={compareIds.includes(tutor.id)}
+                  selectedForCompare={compareIds.some((item) => sameId(item, tutor.id))}
                   onCompareToggle={toggleCompare}
                   onOpen={setSelectedId}
                 />
@@ -284,7 +289,7 @@ export default function TutorsClient() {
               onClick={() => {
                 setSubjectFilter("Subject");
                 setGradeFilter("Grade");
-                setFilteredTutors(allTutors);
+                setFilteredTutors(sourceTutors);
                 setVisibleTutorCount(INITIAL_VISIBLE_TUTORS);
               }}
               className="h-14 rounded-2xl border-2 px-8 font-bold"
@@ -306,14 +311,15 @@ export default function TutorsClient() {
             <div className="flex items-center gap-3 text-sm font-bold">
               <div className="flex -space-x-3">
                 {compareIds.map((id, index) => {
-                  const tutor = allTutors.find((item) => item.id === id);
+                  const tutor = sourceTutors.find((item) => sameId(item.id, id));
                   return tutor ? (
                     <div
                       key={index}
                       className="relative flex size-8 items-center justify-center overflow-hidden rounded-full border-2 border-background bg-muted shadow-sm"
                     >
                       {tutor.image ? (
-                        <Image src={tutor.image} alt={tutor.name} fill sizes="32px" className="object-cover" />
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={tutor.image} alt={tutor.name} className="absolute inset-0 size-full object-cover" />
                       ) : (
                         <span className="text-xs font-bold text-muted-foreground">{tutor.name.charAt(0)}</span>
                       )}
@@ -367,7 +373,7 @@ export default function TutorsClient() {
               onClick={() => setSelectedId(null)}
               className="absolute inset-0 bg-background/80 backdrop-blur-2xl"
             />
-            {allTutors.filter((tutor) => tutor.id === selectedId).map((tutor) => (
+            {sourceTutors.filter((tutor) => sameId(tutor.id, selectedId)).map((tutor) => (
               <motion.div
                 key="expanded"
                 layoutId={`card-${tutor.id}`}
@@ -382,7 +388,8 @@ export default function TutorsClient() {
                 <div className="relative flex h-64 min-h-[300px] w-full items-center justify-center border-b border-border/50 bg-muted/20 md:h-auto md:w-2/5 md:border-b-0 md:border-r">
                   <motion.div layoutId={`avatar-${tutor.id}`} className="absolute inset-0 flex items-center justify-center bg-muted">
                     {tutor.image ? (
-                      <Image src={tutor.image} alt={tutor.name} fill sizes="400px" className="object-cover" />
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={tutor.image} alt={tutor.name} className="absolute inset-0 size-full object-cover" />
                     ) : (
                       <span className="text-6xl font-bold text-muted-foreground">{tutor.name.charAt(0)}</span>
                     )}
@@ -429,7 +436,7 @@ export default function TutorsClient() {
                         Message
                       </Button>
                       <button
-                        onClick={() => router.push(`/tutor-profile/${tutor.id}?returnTo=${encodeURIComponent(currentPath)}`)}
+                        onClick={() => router.push(`/tutor-profile/${tutor.slug ?? tutor.id}?returnTo=${encodeURIComponent(currentPath)}`)}
                         className="group flex flex-1 items-center justify-end text-lg font-bold text-primary transition-colors hover:text-primary/80"
                       >
                         Full Profile <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />

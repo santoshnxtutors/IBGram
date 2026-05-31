@@ -236,7 +236,7 @@ export function dbBundleToGeneratedSeoPage(row: DbPageWithChildren): GeneratedSe
     quality: buildQuality(row),
     finalCta: blocksToFinalCta(row.blocks),
     schoolDisclaimer: SAFE_DEFAULT_DISCLAIMER,
-    lastUpdated: (row.publishedAt ?? row.updatedAt).toISOString().slice(0, 10),
+    lastUpdated: toIsoDate(row.publishedAt ?? row.updatedAt),
     metaTitle,
     metaDescription,
     ogTitle,
@@ -246,6 +246,18 @@ export function dbBundleToGeneratedSeoPage(row: DbPageWithChildren): GeneratedSe
     twitterDescription,
     breadcrumbTitle: row.h1 ?? row.title ?? row.heroTitle ?? cityName,
   };
+}
+
+// unstable_cache JSON-serializes results, so Date fields come back as ISO strings
+// on cache hit. Accept either and emit a YYYY-MM-DD slice safely.
+function toIsoDate(value: Date | string | null | undefined): string {
+  if (!value) return new Date().toISOString().slice(0, 10);
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  // String case — already ISO-ish; slice the date part. Fall back to today if malformed.
+  const s = String(value);
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
+  const parsed = new Date(s);
+  return Number.isNaN(parsed.getTime()) ? new Date().toISOString().slice(0, 10) : parsed.toISOString().slice(0, 10);
 }
 
 function deriveCityNameFromPath(path: string): string {

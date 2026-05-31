@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Globe } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { CONTACT } from "@/lib/contact";
 
 export function Footer() {
   const pathname = usePathname();
@@ -19,7 +20,7 @@ export function Footer() {
       <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[600px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10 md:gap-y-12 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10 md:gap-y-12 mb-6">
 
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
@@ -29,15 +30,58 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground font-medium mb-6 leading-relaxed max-w-sm">
-              {isIgcsePage 
+              {isIgcsePage
                 ? "IGCSE tutoring support for Cambridge and Pearson Edexcel students, with tutor options reviewed by subject, schedule and learning mode."
                 : "IB and IGCSE tutor matching for families who need syllabus-aware support, practical study tools and clear next steps."}
             </p>
-            <div className="flex gap-4">
-              <Link href="#" aria-label="Visit our Global Network" className="text-muted-foreground hover:text-primary transition-colors hover:scale-110">
-                <Globe className="size-5" />
-              </Link>
-            </div>
+
+            {/* Contact block */}
+            <ul className="mb-6 space-y-2.5 text-sm font-medium text-muted-foreground">
+              <li>
+                <a
+                  href={`tel:${CONTACT.phoneTel}`}
+                  className="inline-flex items-center gap-2 hover:text-primary transition-colors"
+                >
+                  <Phone className="size-4 shrink-0 text-primary" aria-hidden />
+                  {CONTACT.phoneDisplay}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={CONTACT.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-primary transition-colors"
+                >
+                  <MessageCircle className="size-4 shrink-0 text-primary" aria-hidden />
+                  Chat on WhatsApp
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="inline-flex items-center gap-2 hover:text-primary transition-colors"
+                >
+                  <Mail className="size-4 shrink-0 text-primary" aria-hidden />
+                  {CONTACT.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={CONTACT.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2 hover:text-primary transition-colors"
+                >
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
+                  <span className="leading-relaxed">
+                    {CONTACT.addressLine1}, {CONTACT.addressLine2}, {CONTACT.addressCity},{" "}
+                    {CONTACT.addressState} {CONTACT.addressPostal}
+                  </span>
+                </a>
+              </li>
+            </ul>
+
           </div>
 
           {/* Links Column 1: Custom for IGCSE */}
@@ -93,8 +137,8 @@ export function Footer() {
 
         </div>
 
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-semibold text-muted-foreground">
-          <p>© {new Date().getFullYear()} IB Gram. All rights reserved.</p>
+        <div className="border-t border-border pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-semibold text-muted-foreground">
+          <p>© 2024 IB Gram. All rights reserved.</p>
           <div className="flex gap-4">
             <span>Independent tutoring platform</span>
             <span className="hidden md:inline">|</span>

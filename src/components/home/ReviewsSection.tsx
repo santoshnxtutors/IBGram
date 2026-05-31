@@ -3,7 +3,15 @@
 import { motion } from "framer-motion";
 import { Quote, ShieldCheck, Star } from "lucide-react";
 
-const reviews = [
+type Review = {
+  id: number | string;
+  name: string;
+  location: string;
+  rating: number;
+  text: string;
+};
+
+const fallbackReviews: Review[] = [
   {
     id: 1,
     name: "Parent of a DP Math AA student",
@@ -34,7 +42,8 @@ const reviews = [
   },
 ];
 
-export function ReviewsSection() {
+export function ReviewsSection({ items }: { items?: Review[] }) {
+  const reviews = items && items.length > 0 ? items : fallbackReviews;
   return (
     <section className="py-20 md:py-24 relative overflow-hidden bg-background">
       <div className="container mx-auto px-4 md:px-6 relative">

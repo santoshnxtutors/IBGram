@@ -6,7 +6,27 @@ import { requireAdminRequest } from "../../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
 
+function normaliseSlug(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-{2,}/g, "-");
+}
+
 const patchSchema = z.object({
+  // Accept anything — we'll slugify before storing. Empty slugs are rejected.
+  slug: z
+    .string()
+    .min(1, "Slug cannot be empty")
+    .max(180)
+    .transform(normaliseSlug)
+    .refine((s) => s.length > 0, { message: "Slug must contain at least one letter or digit" })
+    .optional(),
   displayName: z.string().min(1).max(200).optional(),
   headline: z.string().max(300).optional().nullable(),
   bio: z.string().max(8000).optional().nullable(),
@@ -23,6 +43,21 @@ const patchSchema = z.object({
   status: z.enum(["draft", "active", "paused", "archived"]).optional(),
   verified: z.boolean().optional(),
   approved: z.boolean().optional(),
+  avatarUrl: z.string().max(1000).optional().nullable(),
+  avatarAssetId: z.string().max(60).optional().nullable(),
+  // Extended fields surfaced on tutor card / profile
+  tags: z.array(z.string()).optional(),
+  languages: z.array(z.string()).optional(),
+  rating: z.number().min(0).max(5).optional().nullable(),
+  reviewCount: z.number().int().min(0).optional().nullable(),
+  experienceYears: z.number().int().min(0).max(80).optional().nullable(),
+  hourlyRate: z.number().min(0).max(100000).optional().nullable(),
+  currency: z.string().max(8).optional().nullable(),
+  education: z.string().max(500).optional().nullable(),
+  successRate: z.string().max(40).optional().nullable(),
+  responseTime: z.string().max(60).optional().nullable(),
+  availabilityText: z.string().max(500).optional().nullable(),
+  methodology: z.string().max(4000).optional().nullable(),
 });
 
 function pickFirstLocation(
@@ -117,27 +152,104 @@ export async function PATCH(
           return { notFound: true as const };
         }
 
-        // 2. Update core Tutor row
+        // 2a. Reject slug change if it collides with another tutor
+        if (data.slug && data.slug !== existing.slug) {
+          const collision = await tx.tutor.findFirst({
+            where: { slug: data.slug, NOT: { id: existing.id } },
+            select: { id: true },
+          });
+          if (collision) {
+            return { notFound: false as const, id: existing.id, slugConflict: data.slug };
+          }
+        }
+
+        // 2. Update core Tutor row (incl. slug + avatarUrl + rating + reviews + experience + rate)
         await tx.tutor.update({
           where: { id: existing.id },
           data: {
+            ...(data.slug !== undefined ? { slug: data.slug } : {}),
             ...(data.displayName !== undefined ? { displayName: data.displayName } : {}),
             ...(data.headline !== undefined ? { headline: data.headline } : {}),
             ...(data.bio !== undefined ? { bio: data.bio } : {}),
             ...(data.status !== undefined ? { status: data.status } : {}),
             ...(data.verified !== undefined ? { verified: data.verified } : {}),
             ...(data.approved !== undefined ? { approved: data.approved } : {}),
+            ...(data.avatarUrl !== undefined ? { avatarUrl: data.avatarUrl } : {}),
+            ...(data.rating !== undefined ? { rating: data.rating } : {}),
+            ...(data.reviewCount !== undefined ? { reviewCount: data.reviewCount ?? 0 } : {}),
+            ...(data.experienceYears !== undefined ? { experienceYears: data.experienceYears } : {}),
+            ...(data.hourlyRate !== undefined ? { hourlyRate: data.hourlyRate } : {}),
+            ...(data.currency !== undefined && data.currency
+              ? { currency: data.currency.toUpperCase() }
+              : {}),
           },
         });
 
-        // 3. Mirror bio to TutorProfile
-        if (data.bio !== undefined) {
+        // 2c. Upsert TutorProfile with tags / languages / education / methodology / etc.
+        if (
+          data.tags !== undefined ||
+          data.languages !== undefined ||
+          data.education !== undefined ||
+          data.methodology !== undefined ||
+          data.successRate !== undefined ||
+          data.responseTime !== undefined ||
+          data.availabilityText !== undefined
+        ) {
           await tx.tutorProfile.upsert({
             where: { tutorId: existing.id },
-            create: { tutorId: existing.id, bio: data.bio },
-            update: { bio: data.bio },
+            create: {
+              tutorId: existing.id,
+              ...(data.tags ? { tags: data.tags } : {}),
+              ...(data.languages ? { languages: data.languages } : {}),
+              ...(data.education !== undefined ? { education: data.education } : {}),
+              ...(data.methodology !== undefined ? { methodology: data.methodology } : {}),
+              ...(data.successRate !== undefined ? { successRate: data.successRate } : {}),
+              ...(data.responseTime !== undefined ? { responseTime: data.responseTime } : {}),
+              ...(data.availabilityText !== undefined ? { availabilityText: data.availabilityText } : {}),
+            },
+            update: {
+              ...(data.tags !== undefined ? { tags: data.tags } : {}),
+              ...(data.languages !== undefined ? { languages: data.languages } : {}),
+              ...(data.education !== undefined ? { education: data.education } : {}),
+              ...(data.methodology !== undefined ? { methodology: data.methodology } : {}),
+              ...(data.successRate !== undefined ? { successRate: data.successRate } : {}),
+              ...(data.responseTime !== undefined ? { responseTime: data.responseTime } : {}),
+              ...(data.availabilityText !== undefined ? { availabilityText: data.availabilityText } : {}),
+            },
           });
         }
+
+        // 2b. Link avatar Asset row to this tutor via TutorAsset(role='avatar').
+        // Only mutate the TutorAsset link when a NEW assetId is provided OR
+        // when the user explicitly cleared the avatar (avatarUrl was set to null).
+        // This preserves the existing link when admin re-saves without re-picking.
+        if (data.avatarAssetId) {
+          await tx.tutorAsset.deleteMany({
+            where: { tutorId: existing.id, role: "avatar" },
+          });
+          const asset = await tx.asset.findUnique({ where: { id: data.avatarAssetId } });
+          if (asset) {
+            await tx.tutorAsset.create({
+              data: {
+                tutorId: existing.id,
+                assetId: data.avatarAssetId,
+                role: "avatar",
+                sortOrder: 0,
+              },
+            });
+          }
+        } else if (data.avatarUrl === null) {
+          // User clicked Remove — clear the link.
+          await tx.tutorAsset.deleteMany({
+            where: { tutorId: existing.id, role: "avatar" },
+          });
+        }
+
+        // 3. (Removed) TutorProfile does not carry a `bio` column — bio lives
+        // on the Tutor model only and was updated in step 2 above. Other
+        // TutorProfile fields (education, methodology, successRate,
+        // responseTime, availabilityText, languages, tags) can be added here
+        // once they're exposed as form inputs.
 
         // 4. Replace TutorSubject rows
         if (data.ibSubjects || data.igcseSubjects) {
@@ -263,6 +375,12 @@ export async function PATCH(
 
     if (result.notFound) {
       return Response.json({ error: `Tutor not found for id or slug "${id}"` }, { status: 404 });
+    }
+    if ("slugConflict" in result && result.slugConflict) {
+      return Response.json(
+        { error: `Slug "${result.slugConflict}" is already used by another tutor. Pick a different slug.` },
+        { status: 409 },
+      );
     }
 
     revalidateTag("cms:tutors");

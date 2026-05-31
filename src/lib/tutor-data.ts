@@ -1,5 +1,6 @@
 ﻿export interface Tutor {
-  id: number;
+  id: number | string;
+  slug?: string;
   name: string;
   subject: string;
   grade: string;
@@ -486,6 +487,16 @@ function deriveDefaultLocation(seed: TutorSeed): TutorLocation {
   return locationProfiles.gurugramCity;
 }
 
+function seedSlug(seed: TutorSeed): string {
+  return `${seed.name}-${seed.id}`
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-{2,}/g, "-");
+}
+
 function createTutor(seed: TutorSeed): Tutor {
   const enrichment = tutorEnrichmentById[seed.id] ?? {};
   const locations = enrichment.locations?.length ? enrichment.locations : [deriveDefaultLocation(seed)];
@@ -505,6 +516,7 @@ function createTutor(seed: TutorSeed): Tutor {
 
   return {
     ...seed,
+    slug: seedSlug(seed),
     isActive: enrichment.isActive ?? true,
     verified: enrichment.verified ?? true,
     approved: enrichment.approved ?? true,

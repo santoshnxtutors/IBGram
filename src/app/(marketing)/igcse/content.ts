@@ -157,6 +157,31 @@ export const igcseFaqs: GeneratedFaq[] = [
     answer:
       "No. IB Gram is an independent tutoring platform. Board and school names are used only to describe curriculum or local context unless an official relationship is specifically stated.",
   },
+  {
+    question: "Can I find IGCSE tutors in Gurugram, Delhi or Noida?",
+    answer:
+      "Yes. IGCSE tutor inventory is strongest in central Gurugram (Golf Course Road, DLF Phase 5, Sushant Lok), South Delhi (Vasant Vihar, Saket, Greater Kailash, Defence Colony) and central Noida (Sector 50, Sector 62, Sector 44). For families along the Noida Expressway or in Dwarka and Rohini, online-led lessons usually match a stronger subject specialist than insisting on long-commute home tuition.",
+  },
+  {
+    question: "How does board choice change the tutoring approach?",
+    answer:
+      "Cambridge IGCSE and Pearson Edexcel International GCSE differ on syllabus codes, paper structure, grading scale and option subjects. Tutors familiar with one board are not always equally effective on the other, especially in Maths, Sciences and Business. We confirm the board explicitly before a match so the right paper style and command-term coaching is applied from week one.",
+  },
+  {
+    question: "When in Grade 9 or Grade 10 should we start IGCSE tutoring?",
+    answer:
+      "Two common entry points: late Grade 9 (to consolidate foundations before the heavier Grade 10 calendar) and the start of Grade 10 (to map the year against mocks and final exam windows). Short-cycle mock revision in the four to six weeks before each mock window is also common, especially in Mathematics and the Sciences.",
+  },
+  {
+    question: "Are there IGCSE tutors who can also help with the Edexcel International A-Level transition?",
+    answer:
+      "Some IGCSE Sciences and Maths specialists also support the Edexcel International A-Level pathway in Year 12 and Year 13. If you anticipate continuing with the same board into A-Levels, mention that early so the tutor match can plan the bridge.",
+  },
+  {
+    question: "What does an IGCSE tutoring engagement usually cost?",
+    answer:
+      "Indicative fees are listed per tutor profile after a discovery conversation. Pricing reflects subject, level, lesson mode (home, online or hybrid) and the tutor's documented examiner or marker experience. There is no fixed contract length — engagements are reviewed every few weeks and most families adjust cadence around mocks and finals.",
+  },
 ];
 
 export const igcseAdminContentBlocks: GeneratedContentBlock[] = [

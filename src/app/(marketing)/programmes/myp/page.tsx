@@ -1,17 +1,36 @@
-import React from "react";
+﻿import React from "react";
+import type { Metadata } from "next";
 import { ProgrammeSection } from "@/components/programmes/ProgrammeSection";
 import { GraduationCap, BookOpen, ScrollText, Award, Layers, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TutorDiscovery } from "@/components/home/TutorDiscovery";
+import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
+import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
+import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 
-export default function MYPPage() {
+export const revalidate = 3600;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const dbPage = await getDbGeneratedSeoPageByPath("/programmes/myp/", ["programme"]);
+  if (dbPage) return buildGeneratedMetadata(dbPage);
+  return {
+    title: "IB MYP Tutor — Middle Years Programme Support | IB Gram",
+    description: "MYP tutoring for criterion-based assessment, Personal Project mentoring and eAssessment preparation. Home, online and hybrid.",
+    alternates: { canonical: "/programmes/myp/" },
+  };
+}
+
+export default async function MYPPage() {
+  const dbPage = await getDbGeneratedSeoPageByPath("/programmes/myp/", ["programme"]);
+  if (dbPage) return <GeneratedPageRenderer page={dbPage} />;
+
   return (
     <div className="min-h-screen bg-background pb-4">
       <section className="relative w-full pt-12 pb-12 flex flex-col items-center justify-center text-center px-4">
         <div className="max-w-4xl mx-auto flex flex-col items-center space-y-4 md:space-y-6">
           <span className="inline-flex items-center px-4 py-1.5 text-xs font-bold text-primary bg-primary/10 rounded-full">
-            Ages 11–16
+            Ages 11â€“16
           </span>
           <h1 className="text-4xl md:text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-foreground">
             Middle Years Programme (MYP)
@@ -29,9 +48,9 @@ export default function MYPPage() {
                 Find Your MYP Tutor <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
-            <Link href="https://wa.me/919876543210" target="_blank">
+            <Link href="https://wa.me/917439368115" target="_blank">
               <Button variant="outline" className="rounded-full px-6 h-12 text-[15px] font-bold border-primary/20 text-primary hover:bg-primary/5">
-                Contact via WhatsApp 💬
+                Contact via WhatsApp ðŸ’¬
               </Button>
             </Link>
           </div>
@@ -77,9 +96,9 @@ export default function MYPPage() {
             In the final year of the programme, each MYP student completes an independent &ldquo;Personal Project&rdquo;. This project allows students to:
           </p>
           <ul className="space-y-3 text-[15px] font-medium text-foreground">
-            <li className="flex items-start"><span className="text-primary mr-2 mt-0.5">•</span> Demonstrate the skills they have learned</li>
-            <li className="flex items-start"><span className="text-primary mr-2 mt-0.5">•</span> Engage in practical explorations through a cycle of inquiry, action, and reflection</li>
-            <li className="flex items-start"><span className="text-primary mr-2 mt-0.5">•</span> Express individual passions and interests</li>
+            <li className="flex items-start"><span className="text-primary mr-2 mt-0.5">â€¢</span> Demonstrate the skills they have learned</li>
+            <li className="flex items-start"><span className="text-primary mr-2 mt-0.5">â€¢</span> Engage in practical explorations through a cycle of inquiry, action, and reflection</li>
+            <li className="flex items-start"><span className="text-primary mr-2 mt-0.5">â€¢</span> Express individual passions and interests</li>
           </ul>
         </div>
       </ProgrammeSection>
@@ -151,7 +170,7 @@ export default function MYPPage() {
                   Contact Us
                 </Button>
               </Link>
-              <Link href="https://wa.me/919876543210" target="_blank" className="flex-1 sm:flex-none">
+              <Link href="https://wa.me/917439368115" target="_blank" className="flex-1 sm:flex-none">
                 <Button variant="outline" size="lg" className="w-full rounded-full px-6 text-[15px] font-bold h-12 border-primary/30 text-primary hover:bg-primary/10">
                   WhatsApp
                 </Button>

@@ -75,13 +75,30 @@ export async function getDbGeneratedSeoPageByPath(
 
 /**
  * Lists published GeneratedPage rows as sitemap-eligible entries.
+ *
+ * Quality gate applied here so the sitemap never advertises thin, draft, or
+ * noindex pages to search engines:
+ *   - status MUST be 'published'
+ *   - indexFlag MUST be 'index'
+ *   - sitemapIncluded MUST be true
+ *   - contentWordCount MUST be at least 800 (below this is considered thin)
+ *   - canonicalTarget MUST be null (canonicalised pages point elsewhere and should not advertise themselves)
+ *
  * Returns empty array on DB error.
  */
+const SITEMAP_MIN_WORD_COUNT = 800;
+
 export const listPublishedDbSitemapEntries = unstable_cache(
   async () => {
     try {
       const rows = await prisma.generatedPage.findMany({
-        where: { status: "published", indexFlag: "index", sitemapIncluded: true },
+        where: {
+          status: "published",
+          indexFlag: "index",
+          sitemapIncluded: true,
+          contentWordCount: { gte: SITEMAP_MIN_WORD_COUNT },
+          canonicalTarget: null,
+        },
         select: { fullPath: true, canonicalUrl: true, updatedAt: true, publishedAt: true, qualityScore: true },
       });
       return rows;

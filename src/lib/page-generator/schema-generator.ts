@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/lib/seo/slug-utils";
+﻿import { SITE_URL } from "@/lib/seo/slug-utils";
 import { stripUndefinedFromJsonLd, type JsonLdObject } from "@/lib/seo/schema";
 import type { GeneratedSeoPage } from "./types";
 

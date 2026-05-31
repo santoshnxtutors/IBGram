@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IgcseTutorAvailabilityPage } from "@/components/tutors/IgcseTutorAvailabilityPage";
 import { buildIgcseTutorMetadataTitle, getIgcsePlaceName, getIgcseTutorAreaStaticParams, getIgcseTutorCityPage } from "@/lib/tutors/igcse-route-helpers";
+import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
+import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
+import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 
 type IgcseTutorAreaProps = {
   params: Promise<{ citySlug: string; areaSlug: string }>;
@@ -16,6 +19,10 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: IgcseTutorAreaProps): Promise<Metadata> {
   const { citySlug, areaSlug } = await params;
+  const dbPath = `/igcse-tutors/${citySlug}/areas/${areaSlug}/`;
+  const dbPage = await getDbGeneratedSeoPageByPath(dbPath, ["area"]);
+  if (dbPage) return buildGeneratedMetadata(dbPage);
+
   const page = getIgcseTutorCityPage(citySlug);
   if (!page) notFound();
   const placeName = getIgcsePlaceName(page.citySlug, areaSlug, "area");
@@ -29,6 +36,10 @@ export async function generateMetadata({ params }: IgcseTutorAreaProps): Promise
 
 export default async function IgcseTutorAreaPage({ params }: IgcseTutorAreaProps) {
   const { citySlug, areaSlug } = await params;
+  const dbPath = `/igcse-tutors/${citySlug}/areas/${areaSlug}/`;
+  const dbPage = await getDbGeneratedSeoPageByPath(dbPath, ["area"]);
+  if (dbPage) return <GeneratedPageRenderer page={dbPage} />;
+
   const page = getIgcseTutorCityPage(citySlug);
   if (!page) notFound();
 

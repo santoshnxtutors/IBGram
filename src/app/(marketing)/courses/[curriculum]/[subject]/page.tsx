@@ -1,116 +1,80 @@
-﻿"use client";
+import type { Metadata } from "next";
+import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
+import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
+import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
+import type { GeneratedSeoPage } from "@/lib/page-generator/types";
+import { absoluteUrl } from "@/lib/seo/slug-utils";
+import CoursePageClient from "./course-page-client";
+import { getCourseSubjectContent } from "./subject-content";
+import { SubjectPageView } from "./SubjectPageView";
 
-import { useParams, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, BookOpen, GraduationCap } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { CourseTutorSection } from "./course-tutor-section";
-import { formatCourseSubject } from "./course-tutor-data";
+export const revalidate = 3600;
+export const dynamicParams = true;
 
-export default function CoursePage() {
-  const params = useParams();
-  const router = useRouter();
+type CourseProps = { params: Promise<{ curriculum: string; subject: string }> };
 
-  const curriculum = (params.curriculum as string)?.toUpperCase() || "IB";
-  const subjectStr = (params.subject as string) || "course";
-  const subject = formatCourseSubject(subjectStr);
+function pathFor(curriculum: string, subject: string) {
+  return `/courses/${curriculum.toLowerCase()}/${subject.toLowerCase()}/`;
+}
 
-  return (
-    <div className="relative min-h-screen overflow-hidden bg-background">
-      <div className="pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] rounded-full bg-primary/5 blur-[100px]" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-[500px] w-[500px] rounded-full bg-secondary/5 blur-[100px]" />
+// A DB-backed course page is only preferred over the static content module when
+// it actually carries editorial content. Stub rows (the old auto-seeded ones
+// with cityName: "Ib", no FAQs and almost no body) should fall through to the
+// rich SubjectPageView instead of rendering a near-empty templated layout.
+function isRichDbPage(page: GeneratedSeoPage): boolean {
+  const wordCount = page.quality?.wordCount ?? 0;
+  const hasFaqs = (page.faqs?.length ?? 0) >= 4;
+  const hasBlocks = (page.contentBlocks?.length ?? 0) >= 3;
+  return wordCount >= 800 && hasFaqs && hasBlocks;
+}
 
-      <section className="relative z-10 pt-16 pb-14">
-        <div className="container mx-auto max-w-6xl px-4 md:px-6">
-          <Button
-            variant="ghost"
-            onClick={() => router.back()}
-            className="mb-6 rounded-full px-4 hover:bg-white/5"
-          >
-            <ArrowLeft className="mr-2 size-4" /> Back
-          </Button>
+export async function generateMetadata({ params }: CourseProps): Promise<Metadata> {
+  const { curriculum, subject } = await params;
+  const dbPage = await getDbGeneratedSeoPageByPath(pathFor(curriculum, subject), ["subject"]);
+  if (dbPage && isRichDbPage(dbPage)) return buildGeneratedMetadata(dbPage);
 
-          <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-5 flex flex-wrap items-center gap-3"
-            >
-              <div className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-primary">
-                {curriculum} Curriculum
-              </div>
-              <div className="rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-secondary">
-                Subject-fit tutors
-              </div>
-            </motion.div>
+  const content = getCourseSubjectContent(curriculum, subject);
+  if (content) {
+    return {
+      title: content.metaTitle,
+      description: content.metaDescription,
+      keywords: content.metaKeywords,
+      alternates: { canonical: pathFor(curriculum, subject) },
+      robots: { index: true, follow: true },
+      openGraph: {
+        type: "article",
+        url: absoluteUrl(pathFor(curriculum, subject)),
+        title: content.metaTitle,
+        description: content.metaDescription,
+        siteName: "IB Gram",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: content.metaTitle,
+        description: content.metaDescription,
+      },
+    };
+  }
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="mb-6 text-4xl font-black tracking-tight text-foreground md:text-6xl"
-            >
-              Master {subject} with <span className="text-primary">IB Gram</span>
-            </motion.h1>
+  return {
+    title: `${subject.replace(/-/g, " ")} tutor (${curriculum.toUpperCase()}) | IB Gram`,
+    description: `Verified ${curriculum.toUpperCase()} ${subject.replace(/-/g, " ")} tutors with home, online and hybrid options.`,
+    alternates: { canonical: pathFor(curriculum, subject) },
+  };
+}
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
-            >
-              Get matched with verified tutors familiar with {curriculum} {subject}. Tutor options are reviewed by
-              subject fit, level, availability and the kind of support you need for school and exams.
-            </motion.p>
+export default async function CoursePage({ params }: CourseProps) {
+  const { curriculum, subject } = await params;
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="mb-10 grid gap-6 md:grid-cols-2"
-            >
-              <div className="rounded-[2rem] border border-white/5 bg-card p-6 transition-colors hover:border-primary/20">
-                <BookOpen className="mb-4 size-8 text-primary" />
-                <h3 className="mb-2 text-xl font-bold">Comprehensive Syllabus</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  We cover the full {curriculum} {subject} syllabus with structured lessons, topic sequencing, and exam-ready practice.
-                </p>
-              </div>
-              <div className="rounded-[2rem] border border-white/5 bg-card p-6 transition-colors hover:border-secondary/20">
-                <GraduationCap className="mb-4 size-8 text-secondary" />
-                <h3 className="mb-2 text-xl font-bold">Result-Oriented Approach</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  Our tutoring blends concept clarity, question technique, and feedback loops to improve accuracy and final outcomes.
-                </p>
-              </div>
-            </motion.div>
+  const dbPage = await getDbGeneratedSeoPageByPath(pathFor(curriculum, subject), ["subject"]);
+  if (dbPage && isRichDbPage(dbPage)) {
+    return <GeneratedPageRenderer page={dbPage} />;
+  }
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="flex flex-col gap-4 sm:flex-row"
-            >
-              <Button
-                onClick={() => router.push("/tutors")}
-                variant="outline"
-                className="h-14 rounded-2xl border-primary/25 bg-primary/10 px-8 text-lg font-bold text-primary hover:bg-primary/15"
-              >
-                Find a {subject} Tutor <ArrowRight className="ml-2 size-5" />
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => router.push("/admissions")}
-                className="h-14 rounded-2xl border-border px-8 text-lg font-bold hover:bg-muted"
-              >
-                Book a Demo Class <ArrowRight className="ml-2 size-5" />
-              </Button>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+  const content = getCourseSubjectContent(curriculum, subject);
+  if (content) {
+    return <SubjectPageView curriculum={curriculum} subject={subject} content={content} />;
+  }
 
-      <CourseTutorSection curriculum={curriculum} subjectSlug={subjectStr} />
-    </div>
-  );
+  return <CoursePageClient />;
 }

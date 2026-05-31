@@ -9,7 +9,7 @@ export default async function AdminTestimonialsPage() {
   let items: Awaited<ReturnType<typeof prisma.testimonial.findMany>> = [];
   let dbError: string | null = null;
   try {
-    items = await prisma.testimonial.findMany({ orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }], take: 200 });
+    items = await prisma.testimonial.findMany({ where: { kind: "review" }, orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }], take: 200 });
   } catch (err) {
     dbError = err instanceof Error ? err.message : String(err);
   }
@@ -34,8 +34,8 @@ export default async function AdminTestimonialsPage() {
     <AdminShell>
       <AdminPageHeader
         eyebrow="Content"
-        title="Testimonials"
-        description="Reviews and success stories shown on the homepage and city pages. Edits persist immediately to the database."
+        title="Parent & Student Reviews"
+        description="Short reviews shown on the homepage 'Stories from families' grid. Success stories are managed separately under Success Stories."
       />
       <AdminCard>
         {dbError ? <AdminEmptyState title="Database not reachable" detail={dbError} /> : <TestimonialsClient items={serialised} />}
