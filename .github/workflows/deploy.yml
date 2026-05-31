@@ -75,7 +75,7 @@ jobs:
           NODE_ENV: production
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
           NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
-          NEXT_PUBLIC_UPLOAD_MAX_BYTES: ${{ secrets.NEXT_PUBLIC_UPLOAD_MAX_BYTES }}
+          NEXT_PUBLIC_UPLOAD_MAX_BYTES: "5242880"
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           BACKEND_URL: ${{ secrets.BACKEND_URL }}
           ADMIN_SESSION_SECRET: ${{ secrets.ADMIN_SESSION_SECRET }}
@@ -84,7 +84,7 @@ jobs:
           AUTH_SESSION_SECRET: ${{ secrets.AUTH_SESSION_SECRET }}
           JWT_ACCESS_SECRET: ${{ secrets.JWT_ACCESS_SECRET }}
           JWT_REFRESH_SECRET: ${{ secrets.JWT_REFRESH_SECRET }}
-          UPLOAD_PROVIDER: ${{ secrets.UPLOAD_PROVIDER }}
+          UPLOAD_PROVIDER: "local"
 
       - name: Upload build artefact
         uses: actions/upload-artifact@v4
@@ -125,31 +125,67 @@ jobs:
           name: ibgram-build
           path: deploy/
 
-      # Install sshpass — allows SSH login with a password (no key needed)
+      # Install sshpass for password-based SSH
       - name: Install sshpass
         run: sudo apt-get install -y sshpass
 
-      # Disable strict host checking so the runner doesn't get blocked
+      # Add VPS to known hosts
       - name: Add VPS to known hosts
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan -p ${{ secrets.VPS_SSH_PORT }} -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
 
-      # Sync all built files to the VPS
+      # ── Create .env file from GitHub secrets and include in deploy ──────────
+      - name: Create .env file from GitHub secrets
+        run: |
+          cat > deploy/.env << EOF
+          NODE_ENV=production
+
+          # URLs
+          NEXT_PUBLIC_SITE_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_APP_URL=${{ secrets.NEXT_PUBLIC_APP_URL }}
+          BACKEND_URL=${{ secrets.BACKEND_URL }}
+          CORS_ORIGIN=${{ secrets.CORS_ORIGIN }}
+
+          # Database
+          DATABASE_URL=${{ secrets.DATABASE_URL }}
+
+          # Admin panel login
+          ADMIN_USERNAME=${{ secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}
+          ADMIN_PASSWORD_HASH=${{ secrets.ADMIN_PASSWORD_HASH }}
+          ADMIN_EMAIL=${{ secrets.ADMIN_EMAIL }}
+          ADMIN_SESSION_SECRET=${{ secrets.ADMIN_SESSION_SECRET }}
+
+          # Auth (backend)
+          AUTH_SESSION_SECRET=${{ secrets.AUTH_SESSION_SECRET }}
+          JWT_ACCESS_SECRET=${{ secrets.JWT_ACCESS_SECRET }}
+          JWT_REFRESH_SECRET=${{ secrets.JWT_REFRESH_SECRET }}
+          SESSION_TTL=8h
+          ACCESS_TOKEN_TTL=15m
+          REFRESH_TOKEN_TTL=30d
+          COOKIE_SECURE=true
+
+          # Uploads
+          UPLOAD_PROVIDER=local
+          UPLOAD_DIR=public/uploads
+          UPLOAD_MAX_BYTES=5242880
+          NEXT_PUBLIC_UPLOAD_MAX_BYTES=5242880
+          EOF
+
+      # Sync all files INCLUDING .env to server
       - name: Rsync files to VPS
         env:
           SSHPASS: ${{ secrets.VPS_SSH_PASSWORD }}
         run: |
           sshpass -e rsync -avz --delete \
             --exclude='node_modules' \
-            --exclude='.env' \
-            --exclude='.env.local' \
             --exclude='public/uploads/' \
             -e "ssh -p ${{ secrets.VPS_SSH_PORT }} -o StrictHostKeyChecking=no" \
             deploy/ \
             ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ env.DEPLOY_PATH }}/
 
-      # SSH into server: install deps, migrate DB, restart PM2
+      # Install deps, migrate DB, restart PM2
       - name: Install, migrate & restart on VPS
         env:
           SSHPASS: ${{ secrets.VPS_SSH_PASSWORD }}
@@ -177,7 +213,7 @@ jobs:
             pm2 restart ibgram-backend 2>/dev/null || pm2 start ecosystem.config.js --only ibgram-backend
 
             pm2 save
-            echo "==> Done!"
+            echo "==> Deploy complete!"
           ENDSSH
 
   # ─────────────────────────────────────────

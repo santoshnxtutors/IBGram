@@ -1,0 +1,32 @@
+# TEST PREP & ADMISSIONS COACHING - CONCEPT DRAFT
+
+## VISION
+"We prepare you and make admission."
+Providing specialized test preparation and strategic admissions counselling for students targeting global outcomes.
+
+## SERVICES
+1. TEST PREPARATION
+   - Tutors for standardized tests.
+   - Comprehensive drills and mastery.
+2. ADMISSIONS COUNSELLING
+   - Profile building.
+   - Strategic application roadmaps.
+   - Global university selection.
+
+## TESTS COVERED
+- GRE
+- ACT
+- AP
+- DET
+- ESAT
+- GMAT
+- IELTS
+- PTE
+- SAT
+- TOEFL IBT
+
+## CORE PRINCIPLES
+- Minimalist, authentic design.
+- No heavy shadows or clutter.
+- High-contrast, premium typography.
+- Mobile-first architecture.
