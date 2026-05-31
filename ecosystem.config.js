@@ -26,7 +26,11 @@ module.exports = {
       instances: 1,
       autorestart: true,
       watch: false,
-      max_memory_restart: "512M",
+      max_memory_restart: "768M",
+      // Crash-loop protection: if the process keeps dying within 10s,
+      // stop after 5 attempts instead of restarting forever.
+      min_uptime: "10s",
+      max_restarts: 5,
       env: {
         NODE_ENV: "production",
         PORT: APP_PORT,
@@ -46,6 +50,8 @@ module.exports = {
       autorestart: true,
       watch: false,
       max_memory_restart: "256M",
+      min_uptime: "10s",
+      max_restarts: 5,
       env: {
         NODE_ENV: "production",
         PORT: BACKEND_PORT,

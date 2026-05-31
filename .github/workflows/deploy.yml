@@ -155,8 +155,12 @@ jobs:
         with:
           name: ibgram-build
           retention-days: 1
+          # NOTE: .next/ is intentionally NOT shipped here. The Next.js build
+          # is regenerated fresh on the server during deploy, which guarantees
+          # a complete, valid build for the server environment. Shipping a
+          # prebuilt .next as an artifact was producing corrupt/partial builds
+          # ("Could not find a production build in the '.next' directory").
           path: |
-            .next/
             backend/dist/
             backend/package.json
             backend/tsconfig.json
@@ -465,6 +469,16 @@ jobs:
             echo "Seeding database..."
             npm run db:seed
             npm run db:seed-cms
+
+            echo "Building Next.js on the server (guarantees a valid .next build)..."
+            rm -rf .next
+            NODE_OPTIONS="--max-old-space-size=2048" npm run build
+
+            if [ ! -f .next/BUILD_ID ]; then
+              echo "ERROR: next build did not produce .next/BUILD_ID. Aborting."
+              exit 1
+            fi
+            echo "Build OK — .next/BUILD_ID present."
 
             echo "Stopping old PM2 apps and freeing IBGram ports..."
             $PM2_CMD delete all >/dev/null 2>&1 || true
