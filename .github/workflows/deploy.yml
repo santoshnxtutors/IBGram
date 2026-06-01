@@ -160,13 +160,15 @@ jobs:
         with:
           name: ibgram-build
           retention-days: 1
-          # NOTE: .next/ is intentionally NOT shipped. The server rebuilds it
-          # fresh (after prisma generate) so the Turbopack-bundled Prisma client
-          # references always match the server's own node_modules. Shipping a
-          # CI-built .next caused "Cannot find module @prisma/client-<hash>".
-          # The CI build job still runs `next build` purely to validate the code
-          # compiles before we deploy.
+          # include-hidden-files MUST be true — ".next" starts with a dot and
+          # upload-artifact@v4 excludes hidden paths by default, which would
+          # silently drop the build dir. The CI build resolves shadcn /
+          # tw-animate-css fine; Prisma is kept external via
+          # serverExternalPackages so the shipped .next loads it from the
+          # server's node_modules at runtime.
+          include-hidden-files: true
           path: |
+            .next/
             backend/dist/
             backend/package.json
             backend/tsconfig.json
@@ -477,21 +479,18 @@ jobs:
             npm run db:seed
             npm run db:seed-cms
 
-            # Build Next.js ON THE SERVER, AFTER prisma generate. This is the
-            # only reliable way to avoid the Turbopack "Cannot find module
-            # @prisma/client-<hash>" 500: when the build and the runtime share
-            # the same node_modules + generated Prisma client, the bundled
-            # module references always resolve. (Shipping a CI-built .next
-            # embedded a hash that did not exist in the server's node_modules.)
-            echo "Removing any shipped .next and building fresh on the server..."
-            rm -rf .next
-            NODE_OPTIONS="--max-old-space-size=2048" npm run build
-
+            # Use the prebuilt .next shipped from CI. The CI build resolves all
+            # CSS deps (shadcn, tw-animate-css) cleanly, and with
+            # serverExternalPackages in next.config.ts, Prisma is NOT bundled —
+            # so the prebuilt .next loads @prisma/client from the server's own
+            # node_modules at runtime (no "@prisma/client-<hash>" mismatch).
+            echo "Verifying prebuilt Next.js build shipped from CI..."
             if [ ! -f .next/BUILD_ID ]; then
-              echo "ERROR: server build did not produce .next/BUILD_ID. Aborting."
+              echo "ERROR: .next/BUILD_ID missing — prebuilt .next did not arrive."
+              echo "Confirm the CI 'Upload build artifact' step has include-hidden-files: true and ships .next/."
               exit 1
             fi
-            echo "Server build OK — .next/BUILD_ID present."
+            echo "Prebuilt .next present (BUILD_ID found)."
 
             echo "Stopping old PM2 apps and freeing IBGram ports..."
             $PM2_CMD delete all >/dev/null 2>&1 || true
