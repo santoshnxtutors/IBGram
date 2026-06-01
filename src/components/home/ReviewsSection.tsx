@@ -86,9 +86,9 @@ export function ReviewsSection({ items }: { items?: Review[] }) {
                 <div className="size-11 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                   <Quote className="size-5" />
                 </div>
-                <div className="flex gap-1" aria-label={`${review.rating} star review`}>
+                <div className="flex gap-1" role="img" aria-label={`${review.rating} star review`}>
                   {Array.from({ length: review.rating }).map((_, i) => (
-                    <Star key={i} className="size-3.5 text-secondary fill-current" />
+                    <Star key={i} className="size-3.5 text-secondary fill-current" aria-hidden />
                   ))}
                 </div>
               </div>

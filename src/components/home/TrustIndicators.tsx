@@ -14,7 +14,7 @@ export function TrustIndicators() {
   return (
     <section className="py-6 md:py-8 border-y border-border/10 bg-background relative z-10 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <p className="text-center text-[10px] font-black text-muted-foreground/60 uppercase tracking-[0.28em] mb-5">
+        <p className="text-center text-[10px] font-black text-muted-foreground uppercase tracking-[0.28em] mb-5">
           Practical support for IB and IGCSE families
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto">
