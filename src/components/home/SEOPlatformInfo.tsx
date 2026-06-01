@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { CheckCircle2, BrainCircuit, Target, ShieldCheck } from "lucide-react";
 
 export interface SEOPlatformProps {
@@ -18,10 +15,7 @@ export function SEOPlatformInfo({ location = { country: "India" } }: SEOPlatform
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <div
           className="flex flex-col lg:flex-row gap-12 lg:gap-20 relative z-10"
         >
             {/* Left Column - Platform Overview */}
@@ -96,7 +90,7 @@ export function SEOPlatformInfo({ location = { country: "India" } }: SEOPlatform
                 ))}
               </div>
             </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

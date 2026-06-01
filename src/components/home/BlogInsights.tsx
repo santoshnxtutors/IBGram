@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ArrowRight, Clock, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,7 +28,7 @@ const MOCK_BLOGS = [
     category: "University",
     readTime: "7 min read",
     date: "Oct 21, 2024",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop"
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop"
   }
 ];
 
@@ -59,13 +56,9 @@ export function BlogInsights() {
 
         {/* Minimal Grid - No Heavy Blocks */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {MOCK_BLOGS.map((blog, idx) => (
-            <motion.div
+          {MOCK_BLOGS.map((blog) => (
+            <div
               key={blog.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
               className="flex flex-col group cursor-pointer"
             >
               {/* Minimal Image Wrap */}
@@ -101,7 +94,7 @@ export function BlogInsights() {
               <div className="mt-auto flex items-center gap-2 text-sm font-bold text-foreground group-hover:text-primary transition-colors">
                 Read Article <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

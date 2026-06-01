@@ -39,7 +39,7 @@ export function ThemeSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger 
-        aria-label="Select color theme"
+        aria-label={`${currentTheme.name} color theme`}
         className={buttonVariants({ 
           variant: "ghost", 
           className: "flex items-center gap-2 group focus:outline-none bg-muted/20 hover:bg-muted/40 transition-all px-4 py-2 h-auto rounded-full border border-white/5 hover:border-primary/20 cursor-pointer" 

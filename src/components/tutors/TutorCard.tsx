@@ -82,7 +82,6 @@ export function TutorCard({
       }}
       role="button"
       tabIndex={0}
-      aria-label={`View profile for ${tutor.name}`}
       className={`group h-full cursor-pointer rounded-[1.75rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 ${className}`}
     >
       <article className="relative flex min-h-[330px] h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#111820]/85 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-[#121b24] hover:shadow-2xl hover:shadow-primary/10">
@@ -117,7 +116,13 @@ export function TutorCard({
             >
               {tutor.image ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={tutor.image} alt={tutor.name} className="absolute inset-0 size-full object-cover" />
+                <img
+                  src={tutor.image}
+                  alt={tutor.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 size-full object-cover"
+                />
               ) : (
                 <span className="text-2xl font-black text-muted-foreground">{tutor.name.charAt(0)}</span>
               )}

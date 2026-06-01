@@ -101,7 +101,7 @@ export function Header() {
           {/* Curriculum Switcher for Small Screens (Mobile/Tablet) */}
           <div className="lg:hidden ml-4">
             <DropdownMenu>
-              <DropdownMenuTrigger aria-label="Switch Curriculum" className="flex items-center gap-1 text-xs font-bold text-foreground focus:outline-none bg-muted/20 px-2.5 py-1 rounded-full hover:bg-muted/40 transition-colors">
+              <DropdownMenuTrigger aria-label="IB curriculum switcher" className="flex items-center gap-1 text-xs font-bold text-foreground focus:outline-none bg-muted/20 px-2.5 py-1 rounded-full hover:bg-muted/40 transition-colors">
                 <span>{isIgcse ? "IGCSE" : "IB"}</span> <ChevronDown className="size-3" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-32 border-border bg-background mt-2">
@@ -135,7 +135,7 @@ export function Header() {
         <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-6 text-sm font-medium">
           {/* Curriculum Switcher Dropdown */}
           <DropdownMenu>
-            <DropdownMenuTrigger aria-label="Switch Curriculum" className="flex items-center gap-1 text-sm font-bold text-foreground focus:outline-none bg-muted/20 px-3 py-1.5 rounded-full hover:bg-muted/40 transition-colors">
+            <DropdownMenuTrigger aria-label="IB curriculum switcher" className="flex items-center gap-1 text-sm font-bold text-foreground focus:outline-none bg-muted/20 px-3 py-1.5 rounded-full hover:bg-muted/40 transition-colors">
               <span>{isIgcse ? "IGCSE" : "IB"}</span> <ChevronDown className="size-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-40 border-border bg-background mt-2">

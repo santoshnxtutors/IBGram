@@ -1,8 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { BrainCircuit, BookOpenCheck, ArrowRight, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function AIToolsShowcase() {
   return (
@@ -25,11 +21,7 @@ export function AIToolsShowcase() {
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
           
           {/* AI Test Generator Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+          <div
             className="group relative rounded-3xl overflow-hidden bg-white/[0.04] border border-white/10 p-7 md:p-8 transition-colors hover:border-primary/50 hover:bg-white/[0.06] cursor-pointer"
           >
             <div className="relative z-10">
@@ -48,18 +40,14 @@ export function AIToolsShowcase() {
                 ))}
               </div>
               
-              <Button className="w-full sm:w-auto h-12 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90">
+              <button type="button" className="inline-flex w-full sm:w-auto h-12 items-center justify-center rounded-xl bg-primary px-4 font-medium text-primary-foreground hover:bg-primary/90">
                 Build a practice set <ArrowRight className="ml-2 size-4" />
-              </Button>
+              </button>
             </div>
-          </motion.div>
+          </div>
 
            {/* Smart Study Planner Card */}
-           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+           <div
             className="group relative rounded-3xl overflow-hidden bg-white/[0.04] border border-white/10 p-7 md:p-8 transition-colors hover:border-secondary/50 hover:bg-white/[0.06] cursor-pointer"
           >
             <div className="relative z-10">
@@ -78,11 +66,11 @@ export function AIToolsShowcase() {
                 ))}
               </div>
               
-              <Button className="w-full sm:w-auto h-12 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold">
+              <button type="button" className="inline-flex w-full sm:w-auto h-12 items-center justify-center rounded-xl bg-secondary px-4 font-bold text-background hover:bg-secondary/90">
                 Create a study plan <ArrowRight className="ml-2 size-4" />
-              </Button>
+              </button>
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>
