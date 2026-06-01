@@ -43,8 +43,9 @@ module.exports = {
         NODE_ENV: "production",
         PORT: APP_PORT,
       },
-      error_file: "/home/ibgram/logs/nextjs-error.log",
-      out_file: "/home/ibgram/logs/nextjs-out.log",
+      // Logs go to PM2's default dir (~/.pm2/logs/), which the SSH/deploy user
+      // owns and can write. The previous /home/ibgram/logs/ path was in a
+      // different user's home and was not writable, so all logs were lost.
       log_date_format: "YYYY-MM-DD HH:mm:ss",
     },
 
@@ -65,8 +66,7 @@ module.exports = {
         NODE_ENV: "production",
         PORT: BACKEND_PORT,
       },
-      error_file: "/home/ibgram/logs/backend-error.log",
-      out_file: "/home/ibgram/logs/backend-out.log",
+      // Default PM2 log dir (~/.pm2/logs/) — writable by the deploy user.
       log_date_format: "YYYY-MM-DD HH:mm:ss",
     },
   ],
