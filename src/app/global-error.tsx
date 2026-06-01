@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Script from "next/script";
 import { Button } from "@/components/ui/button";
 
 export default function GlobalError({
@@ -17,6 +18,17 @@ export default function GlobalError({
 
   return (
     <html lang="en">
+      <head>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G9S40JW4JJ" strategy="afterInteractive" />
+        <Script id="google-analytics-error" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-G9S40JW4JJ');
+          `}
+        </Script>
+      </head>
       <body>
         <div className="flex flex-col items-center justify-center min-h-screen p-4 text-center">
           <h1 className="text-4xl font-bold mb-4">Something went wrong!</h1>

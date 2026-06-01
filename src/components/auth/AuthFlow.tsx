@@ -1,5 +1,6 @@
 "use client";
 
+import type { FormEvent } from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, BookOpen, ArrowRight, Mail } from "lucide-react";
@@ -7,16 +8,24 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface AuthFlowProps {
   initialAuthType: "login" | "signup";
 }
 
 export function AuthFlow({ initialAuthType }: AuthFlowProps) {
+  const router = useRouter();
   // Login directly goes to form. Signup goes to role selection first.
   const [authType, setAuthType] = useState<"login" | "signup">(initialAuthType);
   const [step, setStep] = useState<"role" | "form">(initialAuthType === "login" ? "form" : "role");
   const [role, setRole] = useState<"student" | "tutor" | null>(null);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleRoleSelect = (selectedRole: "student" | "tutor") => {
     setRole(selectedRole);
@@ -29,6 +38,7 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
   };
 
   const toggleAuthType = () => {
+    setError("");
     if (authType === "login") {
       setAuthType("signup");
       setStep("role");
@@ -36,6 +46,43 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
     } else {
       setAuthType("login");
       setStep("form");
+    }
+  };
+
+  const handleGoogleAuth = () => {
+    window.location.href = `/api/auth/google?role=${role ?? "student"}`;
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      const endpoint = authType === "login" ? "/api/auth/login" : "/api/auth/register";
+      const payload =
+        authType === "login"
+          ? { usernameOrEmail: email, password }
+          : { email, password, firstName, lastName, role: role ?? "student" };
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(payload),
+      });
+
+      const body = await response.json().catch(() => null);
+      if (!response.ok || body?.success === false) {
+        throw new Error(body?.error?.message ?? "Authentication failed.");
+      }
+
+      router.push("/");
+      router.refresh();
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "Authentication failed.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -156,6 +203,8 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
                 {/* Google Auth Button */}
                 <div className="mb-6">
                   <Button 
+                    type="button"
+                    onClick={handleGoogleAuth}
                     variant="outline" 
                     className="w-full h-12 rounded-xl bg-white text-black hover:bg-slate-100 hover:text-black border-none font-bold shadow-sm flex items-center justify-center gap-3"
                   >
@@ -175,16 +224,37 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
                   <div className="flex-grow border-t border-border/40"></div>
                 </div>
 
-                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                {error && (
+                  <div className="mb-4 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive">
+                    {error}
+                  </div>
+                )}
+
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   {authType === "signup" && (
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1.5">
                         <Label htmlFor="firstName" className="text-xs">First name</Label>
-                        <Input id="firstName" className="h-11 rounded-xl bg-background/50 border-border" placeholder="Jane" />
+                        <Input
+                          id="firstName"
+                          className="h-11 rounded-xl bg-background/50 border-border"
+                          placeholder="Jane"
+                          value={firstName}
+                          onChange={(event) => setFirstName(event.target.value)}
+                          autoComplete="given-name"
+                          required={authType === "signup"}
+                        />
                       </div>
                       <div className="space-y-1.5">
                         <Label htmlFor="lastName" className="text-xs">Last name</Label>
-                        <Input id="lastName" className="h-11 rounded-xl bg-background/50 border-border" placeholder="Doe" />
+                        <Input
+                          id="lastName"
+                          className="h-11 rounded-xl bg-background/50 border-border"
+                          placeholder="Doe"
+                          value={lastName}
+                          onChange={(event) => setLastName(event.target.value)}
+                          autoComplete="family-name"
+                        />
                       </div>
                     </div>
                   )}
@@ -195,7 +265,16 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <Mail className="size-4 text-muted-foreground" />
                       </div>
-                      <Input id="email" type="email" className="h-11 pl-10 rounded-xl bg-background/50 border-border" placeholder="you@example.com" />
+                      <Input
+                        id="email"
+                        type="email"
+                        className="h-11 pl-10 rounded-xl bg-background/50 border-border"
+                        placeholder="you@example.com"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                        autoComplete="email"
+                        required
+                      />
                     </div>
                   </div>
 
@@ -208,11 +287,20 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
                         </Link>
                       )}
                     </div>
-                    <Input id="password" type="password" className="h-11 rounded-xl bg-background/50 border-border" />
+                    <Input
+                      id="password"
+                      type="password"
+                      className="h-11 rounded-xl bg-background/50 border-border"
+                      value={password}
+                      onChange={(event) => setPassword(event.target.value)}
+                      autoComplete={authType === "login" ? "current-password" : "new-password"}
+                      minLength={authType === "login" ? 8 : 10}
+                      required
+                    />
                   </div>
 
-                  <Button type="button" className="w-full h-12 rounded-xl bg-primary text-primary-foreground font-bold text-base shadow-lg shadow-primary/20 shimmer-btn hover:scale-105 active:scale-95 transition-all mt-6">
-                    {authType === "login" ? "Sign In" : "Sign Up"}
+                  <Button type="submit" disabled={isSubmitting} className="w-full h-12 rounded-xl bg-primary text-primary-foreground font-bold text-base shadow-lg shadow-primary/20 shimmer-btn hover:scale-105 active:scale-95 transition-all mt-6">
+                    {isSubmitting ? "Please wait..." : authType === "login" ? "Sign In" : "Sign Up"}
                   </Button>
                 </form>
 

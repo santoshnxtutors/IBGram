@@ -11,6 +11,9 @@ const booleanFromString = z
   .union([z.boolean(), z.enum(["true", "false"])])
   .transform((value) => (typeof value === "boolean" ? value : value === "true"));
 
+const optionalUrlWithDefault = (fallback: string) =>
+  z.preprocess((value) => (value === "" ? undefined : value), z.url().optional().default(fallback));
+
 export const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   BACKEND_PORT: z.coerce.number().int().positive().default(4000),
@@ -30,6 +33,11 @@ export const envSchema = z.object({
   ADMIN_EMAIL: z.email(),
   ADMIN_USERNAME: z.string().trim().min(3),
   ADMIN_PASSWORD: z.string().min(12),
+  GOOGLE_CLIENT_ID: z.string().optional().default(""),
+  GOOGLE_CLIENT_SECRET: z.string().optional().default(""),
+  GOOGLE_CALLBACK_URL: optionalUrlWithDefault("http://localhost:3000/api/auth/google/callback"),
+  AUTH_SUCCESS_REDIRECT: optionalUrlWithDefault("http://localhost:3000/"),
+  AUTH_FAILURE_REDIRECT: optionalUrlWithDefault("http://localhost:3000/login?error=oauth_failed"),
   UPLOAD_PROVIDER: z.enum(["local", "cloudinary", "s3"]).default("local"),
   CLOUDINARY_CLOUD_NAME: z.string().optional().default(""),
   CLOUDINARY_API_KEY: z.string().optional().default(""),

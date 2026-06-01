@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Great_Vibes } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -100,6 +101,15 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G9S40JW4JJ" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-G9S40JW4JJ');
+          `}
+        </Script>
         <link rel="icon" href="/ibgramlogo.png" type="image/png" />
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://randomuser.me" crossOrigin="anonymous" />

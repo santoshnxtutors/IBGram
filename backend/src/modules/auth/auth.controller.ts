@@ -1,11 +1,16 @@
 import type { RequestHandler } from "express";
 import { successResponse } from "../../utils/api-response";
 import { asyncHandler } from "../../utils/async-handler";
-import { changePassword, login, logout } from "./auth.service";
+import { changePassword, handleGoogleCallback, login, logout, redirectToGoogle, register } from "./auth.service";
 
 export const loginController: RequestHandler = asyncHandler(async (req, res) => {
   const result = await login(req.body, req, res);
   res.json(successResponse({ user: result.user }, req.requestId ?? ""));
+});
+
+export const registerController: RequestHandler = asyncHandler(async (req, res) => {
+  const result = await register(req.body, req, res);
+  res.status(201).json(successResponse({ user: result.user }, req.requestId ?? ""));
 });
 
 export const logoutController: RequestHandler = asyncHandler(async (req, res) => {
@@ -25,3 +30,11 @@ export const changePasswordController: RequestHandler = asyncHandler(async (req,
 export const passwordResetStubController: RequestHandler = (_req, res) => {
   res.status(202).json(successResponse({ accepted: true }, res.locals.requestId ?? ""));
 };
+
+export const googleStartController: RequestHandler = asyncHandler(async (req, res) => {
+  redirectToGoogle(req, res);
+});
+
+export const googleCallbackController: RequestHandler = asyncHandler(async (req, res) => {
+  await handleGoogleCallback(req, res);
+});

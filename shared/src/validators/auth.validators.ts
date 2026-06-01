@@ -5,6 +5,14 @@ export const loginValidator = z.object({
   password: z.string().min(8).max(256),
 });
 
+export const publicRegisterValidator = z.object({
+  email: z.email(),
+  password: z.string().min(10).max(256),
+  firstName: z.string().trim().min(1).max(80),
+  lastName: z.string().trim().max(80).optional().default(""),
+  role: z.enum(["student", "tutor"]).default("student"),
+});
+
 export const createUserValidator = z.object({
   email: z.email(),
   username: z.string().trim().min(3).max(64).regex(/^[a-zA-Z0-9._-]+$/),
