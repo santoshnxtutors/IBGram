@@ -19,8 +19,8 @@ export default function GlobalError({
   return (
     <html lang="en">
       <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G9S40JW4JJ" strategy="afterInteractive" />
-        <Script id="google-analytics-error" strategy="afterInteractive">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G9S40JW4JJ" strategy="lazyOnload" />
+        <Script id="google-analytics-error" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
