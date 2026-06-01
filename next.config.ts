@@ -4,6 +4,14 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   trailingSlash: true,
+  // Keep Prisma OUT of the Turbopack/webpack bundle. When bundled, Turbopack
+  // emits a content-hashed module name (e.g. "@prisma/client-2c3a283f...")
+  // that only exists in the build machine's node_modules. A prebuilt .next
+  // shipped to the server then fails with "Cannot find module
+  // @prisma/client-<hash>" on every DB-backed page (the admin 500).
+  // Marking it external makes Next.js require("@prisma/client") normally from
+  // the server's node_modules at runtime.
+  serverExternalPackages: ["@prisma/client", "prisma", ".prisma/client"],
   typescript: {
     ignoreBuildErrors: true,
   },
