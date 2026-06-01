@@ -1,4 +1,5 @@
 import nextDynamic from "next/dynamic";
+import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { getPublicHomepageReviews, getPublicSuccessStories } from "@/lib/cms/public-reviews";
 
@@ -15,6 +16,37 @@ const BlogInsights = nextDynamic(() => import("@/components/home/BlogInsights").
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
+const homepageJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: "IB Gram",
+    url: "https://www.ibgram.com/",
+    logo: "https://www.ibgram.com/ibgramlogo.png",
+    description:
+      "IB Gram helps families connect with IB and IGCSE tutors for PYP, MYP, DP and IGCSE subjects across home, online and hybrid learning.",
+    areaServed: ["India", "United Arab Emirates", "Singapore", "United Kingdom", "United States"],
+    sameAs: ["https://www.ibgram.com/"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "IB Gram",
+    url: "https://www.ibgram.com/",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://www.ibgram.com/tutors?search={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  },
+];
+
 export default async function Home() {
   const [reviewItems, storyItems] = await Promise.all([
     getPublicHomepageReviews(),
@@ -23,6 +55,10 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageJsonLd) }}
+      />
       <Hero />
       <TrustIndicators />
       <CourseExplorer />

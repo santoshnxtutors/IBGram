@@ -69,8 +69,8 @@ export const metadata: Metadata = {
     "International Baccalaureate tutor India",
   ],
   icons: {
-    icon: [{ url: "/ibgramlogo.png", type: "image/png" }],
-    shortcut: ["/ibgramlogo.png"],
+    icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
+    shortcut: ["/favicon.ico"],
     apple: [{ url: "/ibgramlogo.png", type: "image/png" }],
   },
   openGraph: {
@@ -110,7 +110,7 @@ export default function RootLayout({
             gtag('config', 'G-G9S40JW4JJ');
           `}
         </Script>
-        <link rel="icon" href="/ibgramlogo.png" type="image/png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://randomuser.me" crossOrigin="anonymous" />
         {/* AI / LLM crawler discovery — https://llmstxt.org */}

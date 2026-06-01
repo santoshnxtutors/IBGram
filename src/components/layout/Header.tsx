@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { MapPin, ChevronDown, Menu, UserCircle, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -234,13 +233,8 @@ export function Header() {
     </header>
 
     {/* Mobile Menu Overlay — rendered OUTSIDE header to escape its stacking context */}
-    <AnimatePresence>
       {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, x: "100%" }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: "100%" }}
-          transition={{ type: "spring", damping: 25, stiffness: 200 }}
+        <div
           className="fixed inset-0 z-[9999] flex flex-col p-6 lg:hidden"
           style={{ backgroundColor: 'oklch(0.18 0.02 260)' }}
         >
@@ -251,6 +245,7 @@ export function Header() {
             <Button 
               variant="ghost" 
               size="icon" 
+              aria-label="Close mobile menu"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <X className="size-6" />
@@ -343,9 +338,8 @@ export function Header() {
               </Button>
             </Link>
           </div>
-        </motion.div>
+        </div>
       )}
-    </AnimatePresence>
     </>
   );
 }

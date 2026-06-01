@@ -1,13 +1,8 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Link from "next/link";
 import { ArrowRight, Star, ClipboardCheck, Target, CalendarCheck, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { buttonVariants } from "@/components/ui/button";
 
 export function Hero() {
-  const router = useRouter();
-
   return (
     <section className="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-20 bg-background">
 
@@ -18,15 +13,12 @@ export function Hero() {
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-7 md:space-y-8">
             <div className="flex flex-wrap items-center gap-4">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
+              <div
                 className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3.5 py-1.5 text-sm font-semibold text-primary shadow-sm glassmorphism"
               >
                 <span className="flex h-2 w-2 rounded-full bg-primary mr-2" />
                 IB and IGCSE tutor matching for families in India and overseas
-              </motion.div>
+              </div>
 
             </div>
 
@@ -39,48 +31,48 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">
-              <Button 
-                onClick={() => router.push('/tutors')}
-                size="lg" 
-                className="h-14 px-8 text-base md:text-lg rounded-xl bg-primary text-primary-foreground group hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all font-bold"
+              <Link
+                href="/tutors"
+                className={buttonVariants({
+                  size: "lg",
+                  className:
+                    "h-14 px-8 text-base md:text-lg rounded-xl bg-primary text-primary-foreground group hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all font-bold",
+                })}
               >
                 Find a tutor for my child
                 <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                onClick={() => router.push('/#curriculum')}
-                size="lg" 
-                variant="outline" 
-                className="h-14 px-8 text-base md:text-lg rounded-xl glassmorphism-heavy group hover:border-secondary hover:bg-white/5 transition-all font-bold"
+              </Link>
+              <Link
+                href="/#curriculum"
+                className={buttonVariants({
+                  size: "lg",
+                  variant: "outline",
+                  className:
+                    "h-14 px-8 text-base md:text-lg rounded-xl glassmorphism-heavy group hover:border-secondary hover:bg-white/5 transition-all font-bold",
+                })}
               >
                 Explore IB subjects
-              </Button>
+              </Link>
             </div>
 
             {/* Trust Indicators */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6 pt-10 border-t border-border/50">
               <div className="flex -space-x-4">
                 {[1, 2, 3, 4].map((i) => (
-                  <motion.div
+                  <div
                     key={i}
-                    whileHover={{ y: -5, zIndex: 10 }}
                     className="size-10 rounded-full border-2 border-background bg-muted flex items-center justify-center overflow-hidden cursor-pointer"
                   >
                     <UserAvatarFallback />
-                  </motion.div>
+                  </div>
                 ))}
               </div>
               <div>
                 <div className="flex items-center gap-1 text-secondary">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.5 + i * 0.1 }}
-                    >
+                    <span key={i}>
                       <Star className="size-4 fill-current" />
-                    </motion.div>
+                    </span>
                   ))}
                 </div>
                 <p className="text-sm font-medium text-foreground mt-1">
@@ -91,10 +83,7 @@ export function Hero() {
           </div>
 
           {/* Right Column - Strategic Advantage / Why IB Gram */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+          <div
             className="lg:col-span-5 relative"
           >
             <div className="space-y-6">
@@ -110,11 +99,8 @@ export function Hero() {
                   { title: "Flexible learning modes", icon: CalendarCheck, desc: "Home, online and hybrid options are reviewed by availability and location." },
                   { title: "Parent communication", icon: MessageCircle, desc: "Clear updates on what was covered, what needs practice and the next step." }
                 ].map((item, i) => (
-                  <motion.div
+                  <div
                     key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + (i * 0.1) }}
                     className="group p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-primary/30 hover:bg-white/[0.06] transition-all flex gap-4"
                   >
                     <div className="size-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary border border-primary/10 group-hover:bg-primary/10 transition-colors shrink-0">
@@ -124,11 +110,11 @@ export function Hero() {
                       <h3 className="font-bold text-sm text-foreground mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect } from "react";
 
-export function LenisProvider({ children }: { children: ReactNode }) {
+export function LenisRuntime() {
   useEffect(() => {
     if (typeof window === "undefined") {
       return;
@@ -90,5 +90,14 @@ export function LenisProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  return <>{children}</>;
+  return null;
+}
+
+export function LenisProvider({ children }: { children: ReactNode }) {
+  return (
+    <>
+      {children}
+      <LenisRuntime />
+    </>
+  );
 }

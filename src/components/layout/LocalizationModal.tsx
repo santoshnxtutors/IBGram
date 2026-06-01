@@ -157,6 +157,7 @@ function SearchableSelect({
       {/* Trigger */}
       <div
         role="combobox"
+        aria-label={placeholder}
         aria-controls={listboxId}
         aria-expanded={open}
         aria-haspopup="listbox"
@@ -185,6 +186,7 @@ function SearchableSelect({
         {open ? (
           <input
             autoFocus
+            aria-label={`Search ${placeholder.toLowerCase()}`}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onClick={(e) => e.stopPropagation()}
@@ -198,7 +200,12 @@ function SearchableSelect({
         )}
         <div className="flex items-center gap-1">
           {selected && !open && (
-            <button type="button" onClick={handleClear} className="text-muted-foreground hover:text-foreground p-1">
+            <button
+              type="button"
+              onClick={handleClear}
+              className="text-muted-foreground hover:text-foreground p-1"
+              aria-label={`Clear ${placeholder.toLowerCase()}`}
+            >
               <X className="size-3.5" />
             </button>
           )}
