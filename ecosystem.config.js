@@ -11,6 +11,13 @@
 const APP_PORT = process.env.APP_PORT || "3005";
 const BACKEND_PORT = process.env.BACKEND_PORT || "4000";
 
+// PM2 evaluates this file in the deploy shell, where the GitHub Actions deploy
+// step has exported every runtime secret (DATABASE_URL, ADMIN_*, JWT_*, etc.).
+// Spreading process.env guarantees the running Next.js + backend processes get
+// those values — instead of relying on `pm2 --update-env` to propagate them,
+// which was leaving DATABASE_URL unset at runtime and causing 500s.
+const sharedEnv = { ...process.env };
+
 module.exports = {
   apps: [
     // Next.js frontend — CloudPanel Nginx proxies www.ibgram.com -> localhost:APP_PORT
@@ -32,6 +39,7 @@ module.exports = {
       min_uptime: "10s",
       max_restarts: 5,
       env: {
+        ...sharedEnv,
         NODE_ENV: "production",
         PORT: APP_PORT,
       },
@@ -53,6 +61,7 @@ module.exports = {
       min_uptime: "10s",
       max_restarts: 5,
       env: {
+        ...sharedEnv,
         NODE_ENV: "production",
         PORT: BACKEND_PORT,
       },
