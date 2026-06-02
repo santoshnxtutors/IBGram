@@ -95,13 +95,28 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G9S40JW4JJ" strategy="lazyOnload" />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            window.gtag = window.gtag || function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-G9S40JW4JJ');
+            (function () {
+              var loaded = false;
+              function loadGtag() {
+                if (loaded) return;
+                loaded = true;
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-G9S40JW4JJ';
+                document.head.appendChild(script);
+              }
+              if ('requestIdleCallback' in window) {
+                requestIdleCallback(function () { setTimeout(loadGtag, 3000); }, { timeout: 5000 });
+              } else {
+                setTimeout(loadGtag, 5000);
+              }
+            })();
           `}
         </Script>
         <link rel="icon" href="/favicon.ico" sizes="any" />

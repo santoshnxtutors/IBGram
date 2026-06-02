@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Script from "next/script";
-import { Button } from "@/components/ui/button";
 
 export default function GlobalError({
   error,
@@ -18,26 +16,20 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G9S40JW4JJ" strategy="lazyOnload" />
-        <Script id="google-analytics-error" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-G9S40JW4JJ');
-          `}
-        </Script>
-      </head>
+      <head />
       <body>
         <div className="flex flex-col items-center justify-center min-h-screen p-4 text-center">
           <h1 className="text-4xl font-bold mb-4">Something went wrong!</h1>
           <p className="text-muted-foreground mb-8">
             A critical error occurred. Please try reloading the page.
           </p>
-          <Button onClick={() => reset()} size="lg">
+          <button
+            type="button"
+            onClick={() => reset()}
+            className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg bg-primary px-2.5 text-sm font-medium whitespace-nowrap text-primary-foreground transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px"
+          >
             Try again
-          </Button>
+          </button>
         </div>
       </body>
     </html>

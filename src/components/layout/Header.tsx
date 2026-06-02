@@ -92,7 +92,7 @@ export function Header() {
         
         {/* Left: Logo & Location (desktop) */}
         <div className="flex items-center">
-          <Link href="/" className="flex items-center gap-1">
+          <Link href="/" prefetch={false} className="flex items-center gap-1">
             <span className="text-2xl font-bold tracking-tight text-foreground">
               IB<span className="text-primary">Gram</span>
             </span>
@@ -156,14 +156,14 @@ export function Header() {
               Programmes <ChevronDown className="size-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-52 border-white/10 bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-2xl shadow-2xl">
-              <Link href="/programmes" className="w-full">
+              <Link href="/programmes" prefetch={false} className="w-full">
                 <DropdownMenuItem className="cursor-pointer rounded-xl py-1.5 px-4 font-bold text-primary hover:bg-primary/10 transition-all mb-1">
                   All Programmes Hub
                 </DropdownMenuItem>
               </Link>
               <div className="h-px bg-border/40 my-1 mx-2" />
               {PROGRAMS.map(prog => (
-                <Link href={`/programmes/${prog.slug}`} key={prog.slug} className="w-full">
+                <Link href={`/programmes/${prog.slug}`} key={prog.slug} prefetch={false} className="w-full">
                   <DropdownMenuItem className="cursor-pointer rounded-xl py-2 px-4 font-bold text-foreground hover:bg-primary/10 hover:text-primary transition-all">
                     {prog.name}
                   </DropdownMenuItem>
@@ -178,7 +178,7 @@ export function Header() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-56 border-white/10 bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-2xl shadow-2xl">
               {COURSE_GROUPS.map(course => (
-                <Link href={`/courses/${isIgcse ? 'igcse' : 'ib'}/${course.slug}`} key={course.slug} className="w-full">
+                <Link href={`/courses/${isIgcse ? 'igcse' : 'ib'}/${course.slug}`} key={course.slug} prefetch={false} className="w-full">
                   <DropdownMenuItem className="cursor-pointer rounded-xl py-2 px-4 font-bold text-foreground hover:bg-primary/10 hover:text-primary transition-all">
                     {course.name}
                   </DropdownMenuItem>
@@ -187,10 +187,10 @@ export function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link href="/tutors" aria-label="Tutors" className="hover:text-primary transition-colors">
+          <Link href="/tutors" prefetch={false} aria-label="Tutors" className="hover:text-primary transition-colors">
             Tutors
           </Link>
-          <Link href="/admissions" aria-label="Admissions & Test Prep" className="hover:text-primary transition-colors">
+          <Link href="/admissions" prefetch={false} aria-label="Admissions & Test Prep" className="hover:text-primary transition-colors">
             Admissions & Test Prep
           </Link>
         </nav>
@@ -203,12 +203,12 @@ export function Header() {
               <UserCircle className="size-8 text-foreground/80 hover:text-primary transition-colors" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 border-white/10 bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-[1.5rem] shadow-2xl transition-all">
-              <Link href="/login" aria-label="Login">
+              <Link href="/login" prefetch={false} aria-label="Login">
                 <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-primary transition-all focus:bg-white/10 outline-none">
                   Login
                 </DropdownMenuItem>
               </Link>
-              <Link href="/signup" aria-label="Sign up">
+              <Link href="/signup" prefetch={false} aria-label="Sign up">
                 <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-primary transition-all focus:bg-white/10 outline-none">
                   Sign up
                 </DropdownMenuItem>
@@ -273,6 +273,7 @@ export function Header() {
               <div className="pl-6 pt-3 pb-1 flex flex-col gap-3">
                 <Link 
                   href="/programmes" 
+                  prefetch={false}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-[15px] font-bold text-primary hover:text-primary transition-colors block py-1"
                 >
@@ -282,6 +283,7 @@ export function Header() {
                   <Link 
                     key={prog.slug}
                     href={`/programmes/${prog.slug}`} 
+                    prefetch={false}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-[15px] font-medium text-muted-foreground hover:text-primary transition-colors block py-1"
                   >
@@ -301,6 +303,7 @@ export function Header() {
                   <Link 
                     key={course.slug}
                     href={`/courses/${isIgcse ? 'igcse' : 'ib'}/${course.slug}`} 
+                    prefetch={false}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-[15px] font-medium text-muted-foreground hover:text-primary transition-colors block py-1"
                   >
@@ -312,6 +315,7 @@ export function Header() {
 
             <Link 
               href="/tutors" 
+              prefetch={false}
               onClick={() => setIsMobileMenuOpen(false)}
               className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary bg-muted/10 rounded-xl"
             >
@@ -319,6 +323,7 @@ export function Header() {
             </Link>
             <Link 
               href="/admissions" 
+              prefetch={false}
               onClick={() => setIsMobileMenuOpen(false)}
               className="px-4 py-3 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary bg-muted/10 rounded-xl shadow-sm"
             >
@@ -327,12 +332,12 @@ export function Header() {
           </nav>
 
           <div className="mt-auto pt-10 border-t border-border/50 flex flex-col gap-4">
-            <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link href="/login" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
               <Button className="w-full py-6 text-lg rounded-2xl font-bold bg-primary text-primary-foreground">
                 Login
               </Button>
             </Link>
-            <Link href="/signup" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link href="/signup" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
               <Button variant="outline" className="w-full py-6 text-lg rounded-2xl font-bold border-primary/20 hover:bg-primary/5">
                 Sign Up
               </Button>

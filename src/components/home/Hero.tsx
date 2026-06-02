@@ -33,6 +33,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">
               <Link
                 href="/tutors"
+                prefetch={false}
                 className={buttonVariants({
                   size: "lg",
                   className:
@@ -44,6 +45,7 @@ export function Hero() {
               </Link>
               <Link
                 href="/#curriculum"
+                prefetch={false}
                 className={buttonVariants({
                   size: "lg",
                   variant: "outline",

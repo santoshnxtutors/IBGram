@@ -61,14 +61,30 @@ export default async function Home() {
       />
       <Hero />
       <TrustIndicators />
-      <CourseExplorer />
-      <TutorDiscovery />
-      <AIToolsShowcase />
-      <ReviewsSection items={reviewItems ?? undefined} />
-      <SuccessStories items={storyItems ?? undefined} />
-      <SEOPlatformInfo />
-      <BlogInsights />
-      <FAQSection />
+      <div className="cv-auto-section">
+        <CourseExplorer />
+      </div>
+      <div className="cv-auto-section">
+        <TutorDiscovery />
+      </div>
+      <div className="cv-auto-section">
+        <AIToolsShowcase />
+      </div>
+      <div className="cv-auto-section">
+        <ReviewsSection items={reviewItems ?? undefined} />
+      </div>
+      <div className="cv-auto-section">
+        <SuccessStories items={storyItems ?? undefined} />
+      </div>
+      <div className="cv-auto-section">
+        <SEOPlatformInfo />
+      </div>
+      <div className="cv-auto-section">
+        <BlogInsights />
+      </div>
+      <div className="cv-auto-section">
+        <FAQSection />
+      </div>
     </div>
   );
 }
