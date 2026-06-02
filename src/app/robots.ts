@@ -8,10 +8,28 @@ const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 // Admin, API and login routes are blocked for everyone.
 const FALLBACK_RULES: MetadataRoute.Robots["rules"] = [
   // ── Standard crawlers ────────────────────────────────────────────────────
+  // Everything important is crawlable. Only private, system, auth, search and
+  // duplicate/low-value URLs are blocked.
   {
     userAgent: "*",
     allow: "/",
-    disallow: ["/admin/", "/admin/api/", "/api/", "/login/", "/signup/"],
+    disallow: [
+      "/admin/", // private CMS / control panel
+      "/admin/api/", // admin API endpoints
+      "/api/", // internal API routes (JSON, not pages)
+      "/login/", // auth page — no SEO value
+      "/signup/", // auth page — no SEO value
+      "/cart/", // (future) shopping cart — never indexable
+      "/checkout/", // (future) checkout — never indexable
+      "/search", // on-site search results page
+      "/*?q=", // search query strings (duplicate content)
+      "/*?search=", // search query strings (duplicate content)
+      "/*?sort=", // sort params (faceted duplicate URLs)
+      "/*?filter=", // filter params (faceted duplicate URLs)
+      "/*?ref=", // referral tracking params
+      "/*?utm_", // campaign tracking params
+      "/*&utm_", // campaign tracking params (chained)
+    ],
   },
   // ── Google ───────────────────────────────────────────────────────────────
   { userAgent: "Googlebot",       allow: "/" },
