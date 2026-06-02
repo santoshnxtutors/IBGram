@@ -1,7 +1,18 @@
 import type { MetadataRoute } from "next";
 import { getActiveRobotsRules } from "@/lib/seo/seo-db";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://ibgram.com";
+// The Sitemap: directive in robots.txt MUST be a full absolute URL with a
+// protocol (https://...). If NEXT_PUBLIC_SITE_URL is unset or missing the
+// scheme (e.g. "www.ibgram.com"), Google/Lighthouse rejects the line with
+// "Syntax not understood". normalizeSiteUrl guarantees a valid absolute base.
+function normalizeSiteUrl(raw?: string): string {
+  let url = (raw ?? "").trim().replace(/\/+$/, "");
+  if (!url) return "https://www.ibgram.com";
+  if (!/^https?:\/\//i.test(url)) url = `https://${url}`;
+  return url;
+}
+
+const SITE_URL = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 
 // Standard web crawlers + every major AI / LLM crawler — all allowed on public pages.
