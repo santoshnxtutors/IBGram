@@ -95,6 +95,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <meta name="google-site-verification" content="K38SzTeTzCsJaMdzQ1-lbdwOsUokujPNs9GoCWfWtVU" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
