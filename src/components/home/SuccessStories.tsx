@@ -210,9 +210,15 @@ export function SuccessStories({ items }: { items?: Story[] }) {
             <button
               key={i}
               onClick={() => setActiveIdx(i)}
-              className={`h-1 rounded-full transition-all duration-500 ${safeActiveIdx === i ? "w-8 bg-secondary" : "w-1.5 bg-border hover:bg-secondary/40"}`}
+              className={`group flex h-6 items-center justify-center rounded-full ${safeActiveIdx === i ? "w-8" : "w-6"}`}
               aria-label={`Student success story ${i + 1}`}
-            />
+            >
+              <span
+                className={`h-1 rounded-full transition-all duration-500 ${
+                  safeActiveIdx === i ? "w-8 bg-secondary" : "w-1.5 bg-border group-hover:bg-secondary/40"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

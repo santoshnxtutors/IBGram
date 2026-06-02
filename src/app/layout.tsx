@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Great_Vibes } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const greatVibes = Great_Vibes({
-  weight: "400",
-  variable: "--font-cursive",
   subsets: ["latin"],
 });
 
@@ -69,8 +63,8 @@ export const metadata: Metadata = {
     "International Baccalaureate tutor India",
   ],
   icons: {
-    icon: [{ url: "/ibgramlogo.png", type: "image/png" }],
-    shortcut: ["/ibgramlogo.png"],
+    icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
+    shortcut: ["/favicon.ico"],
     apple: [{ url: "/ibgramlogo.png", type: "image/png" }],
   },
   openGraph: {
@@ -96,23 +90,36 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${greatVibes.variable} antialiased scroll-smooth`}
+      className={`${plusJakartaSans.variable} antialiased scroll-smooth`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G9S40JW4JJ" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            window.gtag = window.gtag || function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-G9S40JW4JJ');
+            (function () {
+              var loaded = false;
+              function loadGtag() {
+                if (loaded) return;
+                loaded = true;
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-G9S40JW4JJ';
+                document.head.appendChild(script);
+              }
+              if ('requestIdleCallback' in window) {
+                requestIdleCallback(function () { setTimeout(loadGtag, 3000); }, { timeout: 5000 });
+              } else {
+                setTimeout(loadGtag, 5000);
+              }
+            })();
           `}
         </Script>
-        <link rel="icon" href="/ibgramlogo.png" type="image/png" />
-        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://randomuser.me" crossOrigin="anonymous" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         {/* AI / LLM crawler discovery — https://llmstxt.org */}
         <link rel="llms" type="text/plain" href="/llms.txt" />
         <link rel="llms-full" type="text/plain" href="/llms-full.txt" />

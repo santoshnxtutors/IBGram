@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { X, Bot, MoreVertical, ArrowUp, Sparkles } from "lucide-react";
 import { useState } from "react";
 
@@ -20,67 +19,32 @@ export function AiAssistantFloatingWidget() {
           <div className="ai-widget-ring absolute -inset-1.5 rounded-full border-2 border-primary/40 border-t-primary opacity-40 transition-opacity" />
           <div className="absolute inset-0 -z-10 scale-150 rounded-full bg-primary/20 blur-xl" />
 
-          <motion.button
+          <button
+            type="button"
+            aria-label={isOpen ? "Close IBGram AI assistant" : "Open IBGram AI assistant"}
             onClick={() => setIsOpen(!isOpen)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             className={`relative z-10 flex size-12 items-center justify-center rounded-[1.5rem] shadow-2xl transition-all sm:size-14 ${
               isOpen ? "bg-muted text-foreground" : "bg-primary text-primary-foreground"
-            }`}
+            } hover:scale-105 active:scale-95`}
           >
-            <motion.div
-              animate={{
-                rotate: isOpen ? 12 : 0,
-                scale: isOpen ? 1.1 : 1,
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            >
+            <div className={`transition-transform ${isOpen ? "rotate-12 scale-110" : ""}`}>
               {isOpen ? <X className="size-6 sm:size-7" /> : <Bot className="size-7 sm:size-8" />}
-            </motion.div>
-          </motion.button>
+            </div>
+          </button>
         </div>
 
-        <AnimatePresence>
-          {!isOpen && isHovered && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, x: 20 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              exit={{ opacity: 0, scale: 0.8, x: 20 }}
-              className="pointer-events-none absolute right-[calc(100%+0.75rem)] top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-xl border border-border/60 bg-card/95 px-3 py-2 shadow-xl backdrop-blur sm:block"
-            >
-              <p className="flex items-center gap-1.5 text-[11px] font-semibold text-foreground">
-                <span>Ask</span>
-                <span className="italic text-primary">IBGram AI</span>
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {!isOpen && isHovered && (
+          <div className="pointer-events-none absolute right-[calc(100%+0.75rem)] top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-xl border border-border/60 bg-card/95 px-3 py-2 shadow-xl backdrop-blur sm:block">
+            <p className="flex items-center gap-1.5 text-[11px] font-semibold text-foreground">
+              <span>Ask</span>
+              <span className="italic text-primary">IBGram AI</span>
+            </p>
+          </div>
+        )}
       </div>
 
-      <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.4, y: 50, originX: 1, originY: 1 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-              transition: {
-                type: "spring",
-                stiffness: 400,
-                damping: 18,
-                mass: 1,
-              },
-            }}
-            exit={{
-              opacity: 0,
-              scale: 0.4,
-              y: 50,
-              transition: {
-                duration: 0.2,
-                ease: "easeIn",
-              },
-            }}
+          <div
             className="absolute bottom-16 right-0 flex h-[520px] max-h-[80vh] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-[2rem] border border-border/60 bg-card/95 text-foreground shadow-[0_28px_80px_-18px_rgba(0,0,0,0.55)] backdrop-blur-xl sm:bottom-20 sm:h-[620px] sm:w-[390px]"
           >
             <div className="shrink-0 border-b border-border/60 bg-card/90 px-5 py-5">
@@ -94,7 +58,8 @@ export function AiAssistantFloatingWidget() {
                     Ask anything about programmes, admissions, or finding the right next step.
                   </p>
                 </div>
-                <button className="mt-0.5 opacity-60 transition-opacity hover:opacity-100">
+                <button type="button" className="mt-0.5 opacity-60 transition-opacity hover:opacity-100">
+                  <span className="sr-only">Open assistant options</span>
                   <MoreVertical className="size-5" />
                 </button>
               </div>
@@ -130,10 +95,15 @@ export function AiAssistantFloatingWidget() {
               <div className="relative flex items-center">
                 <input
                   type="text"
+                  aria-label="Ask IBGram AI"
                   placeholder="Ask me anything..."
                   className="w-full rounded-full border border-border/60 bg-background/80 py-3.5 pl-5 pr-14 text-sm text-foreground placeholder:text-muted-foreground transition-all focus:border-primary/50 focus:outline-none"
                 />
-                <button className="absolute right-1.5 flex size-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md shadow-primary/20 transition-transform hover:scale-105 hover:bg-primary/90 active:scale-95">
+                <button
+                  type="button"
+                  aria-label="Send message to IBGram AI"
+                  className="absolute right-1.5 flex size-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md shadow-primary/20 transition-transform hover:scale-105 hover:bg-primary/90 active:scale-95"
+                >
                   <ArrowUp className="size-4" strokeWidth={3} />
                 </button>
               </div>
@@ -143,9 +113,8 @@ export function AiAssistantFloatingWidget() {
                 <span>Built with IBGram AI</span>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </div>
   );
 }

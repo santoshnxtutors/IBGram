@@ -216,6 +216,13 @@
     will-change: transform;
   }
 
+  @supports (content-visibility: auto) {
+    .cv-auto-section {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 960px;
+    }
+  }
+
   /* Noise / Grain Overlay */
   .noise-overlay::after {
     content: "";
