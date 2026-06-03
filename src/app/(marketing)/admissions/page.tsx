@@ -17,6 +17,11 @@ import {
   Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CONTACT } from "@/lib/contact";
+
+const admissionsWhatsAppUrl = `https://wa.me/${CONTACT.whatsappDigits}?text=${encodeURIComponent(
+  "Hi IBGram team, I want to know more about admissions consulting.",
+)}`;
 
 export const metadata: Metadata = {
   title: "Admissions Consulting | IB Gram",
@@ -163,25 +168,25 @@ const collaborationPoints = [
 ];
 
 const outcomes = [
-  { university: "Stanford", flag: "ðŸ‡ºðŸ‡¸" },
-  { university: "Oxford", flag: "ðŸ‡¬ðŸ‡§" },
-  { university: "Columbia", flag: "ðŸ‡ºðŸ‡¸" },
-  { university: "Cambridge", flag: "ðŸ‡¬ðŸ‡§" },
-  { university: "UPenn", flag: "ðŸ‡ºðŸ‡¸" },
-  { university: "NUS", flag: "ðŸ‡¸ðŸ‡¬" },
-  { university: "Cornell", flag: "ðŸ‡ºðŸ‡¸" },
-  { university: "LSE", flag: "ðŸ‡¬ðŸ‡§" },
-  { university: "NYU", flag: "ðŸ‡ºðŸ‡¸" },
-  { university: "Imperial", flag: "ðŸ‡¬ðŸ‡§" },
-  { university: "Duke", flag: "ðŸ‡ºðŸ‡¸" },
-  { university: "UCL", flag: "ðŸ‡¬ðŸ‡§" },
+  { university: "Stanford", flag: "US" },
+  { university: "Oxford", flag: "UK" },
+  { university: "Columbia", flag: "US" },
+  { university: "Cambridge", flag: "UK" },
+  { university: "UPenn", flag: "US" },
+  { university: "NUS", flag: "SG" },
+  { university: "Cornell", flag: "US" },
+  { university: "LSE", flag: "UK" },
+  { university: "NYU", flag: "US" },
+  { university: "Imperial", flag: "UK" },
+  { university: "Duke", flag: "US" },
+  { university: "UCL", flag: "UK" },
 ];
 
 const studentResults = [
-  { name: "Aryan S.", admit: "Cornell University", year: "Class of 2028", country: "ðŸ‡®ðŸ‡³" },
-  { name: "Priya M.", admit: "LSE", year: "Class of 2027", country: "ðŸ‡®ðŸ‡³" },
-  { name: "Rohan K.", admit: "UPenn", year: "Class of 2028", country: "ðŸ‡®ðŸ‡³" },
-  { name: "Anika T.", admit: "NUS", year: "Class of 2027", country: "ðŸ‡®ðŸ‡³" },
+  { name: "Aryan S.", admit: "Cornell University", year: "Class of 2028", country: "IN" },
+  { name: "Priya M.", admit: "LSE", year: "Class of 2027", country: "IN" },
+  { name: "Rohan K.", admit: "UPenn", year: "Class of 2028", country: "IN" },
+  { name: "Anika T.", admit: "NUS", year: "Class of 2027", country: "IN" },
 ];
 
 function SectionHeading({
@@ -335,7 +340,7 @@ export default function AdmissionsPage() {
                 </div>
               </div>
 
-              {/* Right â€” stats + video */}
+              {/* Right - stats + video */}
               <div className="space-y-4">
                 {/* Video */}
                 <div className="relative rounded-[2rem] overflow-hidden border border-border/40 bg-background aspect-video">
@@ -352,7 +357,7 @@ export default function AdmissionsPage() {
                   {/* Overlay badge */}
                   <div className="absolute inset-x-0 bottom-0 rounded-b-[1.75rem] bg-[#0b0f17]/95 px-4 py-3 shadow-none">
                     <p className="text-xs font-semibold text-white/60">Our students get into</p>
-                    <p className="text-sm font-black text-white">Stanford Â· Oxford Â· Cornell Â· NUS Â· Columbia</p>
+                    <p className="text-sm font-black text-white">Stanford / Oxford / Cornell / NUS / Columbia</p>
                   </div>
                 </div>
 
@@ -376,9 +381,11 @@ export default function AdmissionsPage() {
             <div className="ticker-track flex gap-8 items-center">
               {[...outcomes, ...outcomes].map((o, i) => (
                 <span key={i} className="flex items-center gap-2 text-sm font-bold text-white/40 shrink-0">
-                  <span className="text-base">{o.flag}</span>
+                  <span className="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[10px] font-black text-primary">
+                    {o.flag}
+                  </span>
                   {o.university}
-                  <span className="text-primary/30 font-black">Â·</span>
+                  <span className="text-primary/30 font-black">/</span>
                 </span>
               ))}
             </div>
@@ -417,7 +424,9 @@ export default function AdmissionsPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {studentResults.map((s) => (
                 <div key={s.name} className="result-card rounded-[1.5rem] border border-border/40 px-5 py-6 card-hover">
-                  <div className="text-2xl mb-3">{s.country}</div>
+                  <div className="mb-3 inline-flex rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[10px] font-black text-primary">
+                    {s.country}
+                  </div>
                   <div className="text-sm font-black text-foreground">{s.name}</div>
                   <div className="mt-1 text-xs font-bold text-primary">{s.admit}</div>
                   <div className="mt-0.5 text-xs text-muted-foreground">{s.year}</div>
@@ -434,7 +443,7 @@ export default function AdmissionsPage() {
               <SectionHeading
                 eyebrow="Our Services"
                 title="Everything You Need To Get In"
-                description="From strategy to submission â€” we handle every stage of the admissions process with precision."
+                description="From strategy to submission - we handle every stage of the admissions process with precision."
               />
             </div>
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -471,7 +480,7 @@ export default function AdmissionsPage() {
                     98% Success Rate
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Our structured SOP means every student follows the same proven framework â€” adapted to their profile.
+                    Our structured SOP means every student follows the same proven framework - adapted to their profile.
                   </p>
                 </div>
               </div>
@@ -502,7 +511,7 @@ export default function AdmissionsPage() {
               <SectionHeading
                 eyebrow="Where We Place Students"
                 title="Admissions Support Across Every Major System"
-                description="Targeted, country-specific strategy â€” not generic advice."
+                description="Targeted, country-specific strategy - not generic advice."
               />
             </div>
             <div className="grid gap-4 lg:grid-cols-3">
@@ -568,7 +577,7 @@ export default function AdmissionsPage() {
                     <p className="text-sm text-muted-foreground leading-relaxed italic">
                       &ldquo;IBGram&apos;s structured approach gave us clarity at every step. Our son got into his top-choice university.&rdquo;
                     </p>
-                    <p className="mt-2 text-xs font-bold text-white/40">â€” Parent, Delhi</p>
+                    <p className="mt-2 text-xs font-bold text-white/40">- Parent, Delhi</p>
                   </div>
                 </div>
               </aside>
@@ -620,7 +629,7 @@ export default function AdmissionsPage() {
         </section>
 
         <Link
-          href="https://wa.me/917439368115"
+          href={admissionsWhatsAppUrl}
           target="_blank"
           rel="noreferrer"
           aria-label="Chat with us on WhatsApp"
