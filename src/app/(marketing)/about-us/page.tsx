@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   BookOpenCheck,
-  CheckCircle2,
   Compass,
   GraduationCap,
   Layers,
@@ -139,69 +137,6 @@ export default function AboutUsPage() {
               <p className="text-muted-foreground font-medium leading-relaxed text-sm sm:text-base">{item.body}</p>
             </FadeIn>
           ))}
-        </div>
-      </section>
-
-      {/* FOUNDER */}
-      <section className="container max-w-7xl mx-auto px-4 md:px-6 mb-24 md:mb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="aspect-[4/5] relative rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-border/50 shadow-2xl">
-              <Image
-                src="/images/founder/ajay.jpg"
-                alt="Ajay Vatsyayan — IB Gram founder"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-6 right-2 sm:-bottom-10 sm:-right-10 bg-card border border-border p-5 sm:p-8 rounded-2xl sm:rounded-3xl hidden sm:block">
-              <div className="text-3xl sm:text-4xl font-black text-primary">10+</div>
-              <div className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-muted-foreground">
-                Years of IB tutoring
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="flex items-center gap-3 text-primary text-xs font-black uppercase tracking-widest mb-5">
-              <Compass className="size-4" /> Founder
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tighter leading-tight">
-              Ajay Vatsyayan
-            </h2>
-            <div className="space-y-5 text-muted-foreground text-base sm:text-lg font-medium leading-relaxed">
-              <p>
-                Ajay Vatsyayan founded IB Gram after more than a decade of one-to-one IB DP Mathematics and Physics
-                tutoring. The platform exists to make IB and IGCSE tutor matching calmer, more honest and easier for
-                families to trust.
-              </p>
-              <p>
-                His teaching covers <span className="text-foreground font-bold">Analysis and Approaches (AA)</span> and{" "}
-                <span className="text-foreground font-bold">Applications and Interpretation (AI)</span> at Higher
-                Level and Standard Level, with the same depth applied to IB Physics HL/SL and bridging support into
-                Cambridge International AS / A-Level for selected families.
-              </p>
-              <p>
-                The IB Gram pedagogy is rooted in academic rigour and pedagogical clarity. The aim is not to push
-                students into memorising mark schemes, but to teach the subject well enough that a Grade 7 conversation
-                stays a real conversation — about the topic, the question and the next step.
-              </p>
-              <div className="pt-6 border-t border-border/40 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-bold">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="size-5 text-primary shrink-0" /> IB DP Maths AA/AI specialist
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="size-5 text-primary shrink-0" /> IB Physics HL/SL teaching
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="size-5 text-primary shrink-0" /> 10+ years of one-to-one DP work
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="size-5 text-primary shrink-0" /> Founder-led tutor curation
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
