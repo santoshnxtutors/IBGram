@@ -27,7 +27,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
   const parsed = patchSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   const updated = await prisma.successStory.update({ where: { id }, data: parsed.data });
-  revalidateTag("cms:success-stories");
+  revalidateTag("cms:success-stories", { expire: 0 });
   return Response.json({ item: updated });
 }
 
@@ -36,6 +36,6 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
   if (session instanceof Response) return session;
   const { id } = await params;
   await prisma.successStory.delete({ where: { id } });
-  revalidateTag("cms:success-stories");
+  revalidateTag("cms:success-stories", { expire: 0 });
   return Response.json({ ok: true });
 }

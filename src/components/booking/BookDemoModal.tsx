@@ -78,7 +78,7 @@ export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaul
     setSubmitting(true);
 
     const lines = [
-      "Hi IBGram team! I would like to book a *Free Demo Class*.",
+      "Hi IBGram team! I would like to book a *Free Trial Class*.",
       "",
       `Name: ${form.name.trim()}`,
       `Phone: ${form.phone.trim()}`,
@@ -125,7 +125,7 @@ export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaul
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-border">
           <h2 id="book-demo-title" className="text-lg font-bold text-foreground">
-            Book a Free Demo
+            Book a Free Trial
           </h2>
           <button
             type="button"
@@ -138,6 +138,13 @@ export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaul
         </div>
 
         <form onSubmit={handleSubmit} className="p-5 space-y-3">
+          {tutorName && (
+            <div className="rounded-xl border border-primary/25 bg-primary/10 px-4 py-3">
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Selected tutor</p>
+              <p className="mt-1 text-sm font-bold text-foreground">{tutorName}</p>
+            </div>
+          )}
+
           <Field label="Full Name *">
             <input
               required

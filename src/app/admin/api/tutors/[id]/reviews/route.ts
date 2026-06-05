@@ -50,6 +50,6 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
   const parsed = createSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   const created = await prisma.tutorReview.create({ data: { ...parsed.data, tutorId } });
-  revalidateTag(`cms:tutor-reviews:${tutorId}`);
+  revalidateTag(`cms:tutor-reviews:${tutorId}`, { expire: 0 });
   return Response.json({ item: created });
 }

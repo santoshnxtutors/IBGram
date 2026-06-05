@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-20 bg-background">
+    <section className="relative overflow-hidden pt-4 pb-16 lg:pt-6 lg:pb-20 bg-background">
 
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">

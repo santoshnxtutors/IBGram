@@ -1,25 +1,34 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ShieldCheck, Sparkles, ArrowRight } from "lucide-react";
+import { X, ShieldCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { createPortal } from "react-dom";
 import { allTutors } from "@/lib/tutor-data";
 import { TutorCard } from "@/components/tutors/TutorCard";
+import { rememberReturnTo } from "@/lib/return-to";
+import { buildTutorComparePath } from "@/lib/tutor-compare-url";
+import { openTutorMessage } from "@/lib/tutor-message";
+
+type AnyTutorId = string | number;
+const sameId = (a: AnyTutorId | null | undefined, b: AnyTutorId | null | undefined) =>
+  a !== null && a !== undefined && b !== null && b !== undefined && String(a) === String(b);
 
 export function TutorDiscovery() {
   const router = useRouter();
   const pathname = usePathname();
   const currentPath = pathname;
-  const [selectedId, setSelectedId] = useState<number | null>(null);
-  const [compareIds, setCompareIds] = useState<number[]>([]);
+  const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
+  const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
+  const portalTarget = typeof document !== "undefined" ? document.body : null;
 
-  const toggleCompare = (id: number) => {
+  const toggleCompare = (id: AnyTutorId) => {
     setCompareIds(prev => {
-      if (prev.includes(id)) return prev.filter(i => i !== id);
+      if (prev.some((item) => sameId(item, id))) return prev.filter((item) => !sameId(item, id));
       if (prev.length < 2) return [...prev, id];
       return [prev[1], id]; // replace oldest
     });
@@ -27,7 +36,8 @@ export function TutorDiscovery() {
 
   const handleCompareRedirect = () => {
     if (compareIds.length === 2) {
-      router.push(`/tutor-compare?ids=${compareIds.join(",")}&returnTo=${encodeURIComponent(currentPath)}`);
+      rememberReturnTo("tutor-compare", currentPath);
+      router.push(buildTutorComparePath(compareIds));
     }
   };
 
@@ -79,58 +89,69 @@ export function TutorDiscovery() {
             <TutorCard
               key={tutor.id}
               tutor={tutor}
-              selectedForCompare={compareIds.includes(tutor.id)}
+              selectedForCompare={compareIds.some((id) => sameId(id, tutor.id))}
               onCompareToggle={toggleCompare}
               onOpen={setSelectedId}
             />
           ))}
         </div>
       </div>
-      {/* Floating Compare Action Bar */}
-      <AnimatePresence>
-        {compareIds.length > 0 && !selectedId && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-[2rem] glassmorphism-heavy border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] p-2 pl-8 flex items-center justify-between gap-6 overflow-hidden max-w-[90vw] w-fit"
-          >
-            <div className="text-sm font-bold flex items-center gap-3">
-              <div className="flex -space-x-3">
-                {compareIds.map((id, i) => {
-                  const t = allTutors.find(t => t.id === id);
-                  return t ? (
-                    <div key={i} className="size-8 rounded-full border-2 border-background overflow-hidden relative shadow-sm">
-                      <Image src={t.image} alt={t.name} fill sizes="32px" className="object-cover" />
+      {portalTarget
+        ? createPortal(
+            <AnimatePresence>
+              {compareIds.length > 0 && !selectedId && (
+                <motion.div
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 50, scale: 0.9 }}
+                  className="glassmorphism-heavy fixed bottom-6 left-1/2 z-[120] flex w-fit max-w-[90vw] -translate-x-1/2 items-center justify-between gap-6 overflow-hidden rounded-[2rem] border border-white/10 p-2 pl-8 shadow-[0_0_40px_rgba(0,0,0,0.5)]"
+                >
+                  <div className="flex items-center gap-3 text-sm font-bold">
+                    <div className="flex -space-x-3">
+                      {compareIds.map((id, i) => {
+                        const t = allTutors.find(t => sameId(t.id, id));
+                        return t ? (
+                          <div key={i} className="relative size-8 overflow-hidden rounded-full border-2 border-background shadow-sm">
+                            <Image src={t.image} alt={t.name} fill sizes="32px" className="object-cover" />
+                          </div>
+                        ) : null;
+                      })}
                     </div>
-                  ) : null;
-                })}
-              </div>
 
-              {compareIds.length === 1 ? (
-                <span className="text-muted-foreground hidden sm:block">Select 1 more to compare</span>
-              ) : (
-                <span className="text-foreground">2 Tutors Selected</span>
+                    {compareIds.length === 1 ? (
+                      <span className="hidden text-muted-foreground sm:block">Select 1 more to compare</span>
+                    ) : (
+                      <span className="text-foreground">2 Tutors Selected</span>
+                    )}
+                  </div>
+
+                  <Button
+                    disabled={compareIds.length < 2}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCompareRedirect();
+                    }}
+                    className={`h-12 rounded-[1.5rem] px-6 font-bold shadow-lg transition-all ${compareIds.length === 2 ? "shimmer-btn bg-primary text-primary-foreground hover:scale-105 hover:shadow-primary/20" : "border border-border bg-muted text-muted-foreground"}`}
+                  >
+                    Compare
+                  </Button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCompareIds([]);
+                    }}
+                    className="mr-2 p-2 text-muted-foreground transition-colors hover:text-foreground"
+                    type="button"
+                  >
+                    <X className="size-4" />
+                  </button>
+                </motion.div>
               )}
-            </div>
-
-            <Button
-              disabled={compareIds.length < 2}
-              onClick={(e) => { e.stopPropagation(); handleCompareRedirect(); }}
-              className={`rounded-[1.5rem] px-6 h-12 shadow-lg transition-all font-bold ${compareIds.length === 2 ? 'bg-primary text-primary-foreground shimmer-btn hover:scale-105 hover:shadow-primary/20' : 'bg-muted text-muted-foreground border border-border'}`}
-            >
-              <Sparkles className="size-4 mr-2" /> Compare
-            </Button>
-
-            <button
-              onClick={(e) => { e.stopPropagation(); setCompareIds([]); }}
-              className="mr-2 text-muted-foreground hover:text-foreground transition-colors p-2"
-            >
-              <X className="size-4" />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </AnimatePresence>,
+            portalTarget,
+          )
+        : null}
 
       {/* Expanded View */}
       <AnimatePresence>
@@ -144,7 +165,7 @@ export function TutorDiscovery() {
               className="absolute inset-0 bg-background/80 backdrop-blur-xl"
             />
 
-            {allTutors.filter(t => t.id === selectedId).map(tutor => (
+            {allTutors.filter(t => sameId(t.id, selectedId)).map(tutor => (
               <motion.div
                 key="expanded"
                 layoutId={`card-${tutor.id}`}
@@ -219,11 +240,18 @@ export function TutorDiscovery() {
                     </div>
 
                     <div className="flex items-center gap-6 pt-4">
-                      <Button variant="outline" className="h-14 flex-1 rounded-2xl font-black border-2 border-border text-base md:text-lg hover:bg-muted">
+                      <Button
+                        variant="outline"
+                        onClick={() => openTutorMessage(tutor)}
+                        className="h-14 flex-1 rounded-2xl font-black border-2 border-border text-base md:text-lg hover:bg-muted"
+                      >
                         Share requirement
                       </Button>
                       <button
-                        onClick={() => router.push(`/tutor-profile/${tutor.id}?returnTo=${encodeURIComponent(currentPath)}`)}
+                        onClick={() => {
+                          rememberReturnTo("tutor-profile", currentPath);
+                          router.push(`/tutor-profile/${tutor.id}`);
+                        }}
                         className="flex-1 flex justify-end items-center font-bold text-primary hover:text-primary/80 transition-colors group text-base md:text-lg"
                       >
                         Full Profile <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />

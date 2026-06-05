@@ -1,24 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles, BookOpen, Clock, Target, TrendingUp, Star, Zap } from "lucide-react";
+import { CheckCircle2, BookOpen, Clock, Target, TrendingUp, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AdmissionsConsultationForm } from "../consultation-form";
+import { MentorsCarousel } from "../mentors-carousel";
 
 const TESTS = [
-  { name: "SAT", desc: "College Admission", region: "🇺🇸" },
-  { name: "GRE", desc: "Graduate School", region: "🇺🇸" },
-  { name: "GMAT", desc: "Business School", region: "🌍" },
-  { name: "IELTS", desc: "English Proficiency", region: "🇬🇧" },
-  { name: "TOEFL IBT", desc: "English Proficiency", region: "🇺🇸" },
-  { name: "ACT", desc: "College Admission", region: "🇺🇸" },
-  { name: "AP", desc: "Advanced Placement", region: "🇺🇸" },
-  { name: "DET", desc: "Duolingo English", region: "🌍" },
-  { name: "ESAT", desc: "Engineering", region: "🇬🇧" },
-  { name: "PTE", desc: "English Proficiency", region: "🌍" },
+  { name: "SAT", desc: "College Admission", region: "US" },
+  { name: "GRE", desc: "Graduate School", region: "US" },
+  { name: "GMAT", desc: "Business School", region: "Global" },
+  { name: "IELTS", desc: "English Proficiency", region: "UK" },
+  { name: "TOEFL IBT", desc: "English Proficiency", region: "US" },
+  { name: "ACT", desc: "College Admission", region: "US" },
+  { name: "AP", desc: "Advanced Placement", region: "US" },
+  { name: "DET", desc: "Duolingo English", region: "Global" },
+  { name: "ESAT", desc: "Engineering", region: "UK" },
+  { name: "PTE", desc: "English Proficiency", region: "Global" },
 ];
 
 const FEATURES = [
-  { title: "Expert Test Prep Tutors", desc: "Experienced tutors who know each test inside out — scoring strategies, timing, and traps.", icon: BookOpen },
+  { title: "Expert Test Prep Tutors", desc: "Experienced tutors who know each test inside out - scoring strategies, timing, and traps.", icon: BookOpen },
   { title: "1:1 Focused Sessions", desc: "Personalised sessions that target your exact weak points, not generic lessons.", icon: Target },
   { title: "Drills & Full-Length Mocks", desc: "Extensive practice with real exam conditions to build speed and accuracy.", icon: Clock },
   { title: "Score Improvement Tracking", desc: "Data-driven progress monitoring with milestone targets and adjustment plans.", icon: TrendingUp },
@@ -32,10 +34,10 @@ const PROCESS = [
 ];
 
 const RESULTS = [
-  { name: "Arjun P.", test: "SAT", score: "1560", improvement: "+180", country: "🇮🇳" },
-  { name: "Meera S.", test: "IELTS", score: "8.5", improvement: "+1.5", country: "🇮🇳" },
-  { name: "Rahul K.", test: "GRE", score: "335", improvement: "+22", country: "🇮🇳" },
-  { name: "Aisha T.", test: "TOEFL", score: "118", improvement: "+14", country: "🇮🇳" },
+  { name: "Ketan Kanish.", test: "SAT", score: "1560", improvement: "+180", country: "IN" },
+  { name: "Tania Sharma.", test: "IELTS", score: "8.5", improvement: "+1.5", country: "IN" },
+  { name: "Vivan Jindal.", test: "GRE", score: "335", improvement: "+22", country: "IN" },
+  { name: "Saanvi Sharma", test: "TOEFL", score: "118", improvement: "+14", country: "IN" },
 ];
 
 const STATS = [
@@ -130,8 +132,7 @@ export default function TestPrepPage() {
             <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
               {/* Left */}
               <div className="space-y-8 fade-up">
-                <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-primary">
-                  <Sparkles className="size-3" />
+                <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-primary">
                   Test Preparation
                 </div>
 
@@ -146,18 +147,14 @@ export default function TestPrepPage() {
                 </div>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Expert 1:1 test prep for SAT, GRE, IELTS, GMAT, TOEFL and more. Our tutors know exactly what it takes to hit your target score — and they&apos;ll get you there.
+                  Expert 1:1 test prep for SAT, GRE, IELTS, GMAT, TOEFL and more. Our tutors know exactly what it takes to hit your target score, and they&apos;ll get you there.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/contact-us">
-                    <Button className="h-14 px-8 rounded-2xl font-black text-base bg-background text-foreground border border-border/50 hover:scale-105 active:scale-95 transition-all ">
-                      Get Started <ArrowRight className="ml-2 size-5" />
-                    </Button>
-                  </Link>
-                  <Link href="/tutors">
+                  <AdmissionsConsultationForm label="Get Started" service="Test Prep" />
+                  <Link href="#admissions-mentors">
                     <Button variant="outline" className="h-14 px-8 rounded-2xl font-black text-base border-border/40 hover:bg-muted/10 transition-all">
-                      Explore Tutors
+                      Explore Mentors
                     </Button>
                   </Link>
                 </div>
@@ -172,7 +169,7 @@ export default function TestPrepPage() {
                 </div>
               </div>
 
-              {/* Right — score cards */}
+              {/* Right score cards */}
               <div className="grid grid-cols-2 gap-4">
                 {STATS.map((s) => (
                   <div key={s.label} className="glow-pulse rounded-2xl border border-primary/20 bg-primary/5 px-6 py-8 text-center card-hover">
@@ -194,7 +191,7 @@ export default function TestPrepPage() {
                 Standardised Test Mastery
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
-                Expert tutors for every major standardised test — with targeted strategies for each.
+                Expert tutors for every major standardised test with targeted strategies for each.
               </p>
             </div>
 
@@ -204,7 +201,7 @@ export default function TestPrepPage() {
                   key={test.name}
                   className="test-card rounded-[1.5rem] border border-border/40 bg-card px-5 py-6 text-center card-hover cursor-default"
                 >
-                  <div className="text-2xl mb-2">{test.region}</div>
+                  <div className="mb-2 text-sm font-black uppercase tracking-[0.18em] text-primary">{test.region}</div>
                   <div className="text-base font-black text-[#f8f9fa]">{test.name}</div>
                   <div className="mt-1 text-[11px] font-semibold text-muted-foreground">{test.desc}</div>
                 </div>
@@ -226,7 +223,7 @@ export default function TestPrepPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {RESULTS.map((r) => (
                 <div key={r.name} className="score-badge rounded-[1.5rem] border border-primary/20 px-6 py-7 card-hover text-center">
-                  <div className="text-2xl mb-3">{r.country}</div>
+                  <div className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-primary">{r.country}</div>
                   <div className="text-2xl font-black text-primary">{r.score}</div>
                   <div className="text-xs font-bold text-muted-foreground mt-0.5">{r.test} Score</div>
                   <div className="mt-3 inline-block rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-xs font-black text-primary">
@@ -238,6 +235,9 @@ export default function TestPrepPage() {
             </div>
           </div>
         </section>
+
+        {/* MENTORS */}
+        <MentorsCarousel />
 
         {/* FEATURES */}
         <section className="px-6 py-20 md:py-28 border-b border-border/30">
@@ -257,7 +257,7 @@ export default function TestPrepPage() {
                     <div className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
                       <f.icon className="size-5 text-primary" />
                     </div>
-                    <div className="text-xs font-black text-primary/50 mb-2">0{i+1}</div>
+                    <div className="text-xs font-black text-primary/50 mb-2">0{i + 1}</div>
                     <h3 className="text-lg font-black tracking-tight text-foreground">{f.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-muted-foreground">{f.desc}</p>
                   </div>
@@ -274,7 +274,7 @@ export default function TestPrepPage() {
               <div className="lg:sticky lg:top-24 space-y-6">
                 <p className="text-xs font-black uppercase tracking-[0.28em] text-primary">Our Method</p>
                 <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#f8f9fa]">
-                  From Diagnostic To Target Score — In 4 Steps
+                  From Diagnostic To Target Score In 4 Steps
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
                   Every student starts with a diagnostic. Every session is purposeful. Every milestone is tracked.
@@ -330,9 +330,9 @@ export default function TestPrepPage() {
 
             <div className="grid md:grid-cols-3 gap-4">
               {[
-                { quote: "My SAT score went from 1380 to 1540 in 8 weeks. The structured approach and targeted drills made all the difference.", name: "Rohan M.", test: "SAT 1540", location: "Delhi" },
-                { quote: "IBGram's IELTS tutor knew exactly where I was losing marks. Went from 7.0 to 8.5 before my UK application deadline.", name: "Priya S.", test: "IELTS 8.5", location: "Gurugram" },
-                { quote: "The GRE prep was methodical and data-driven. I could see my progress week by week. Scored 335 and got into my dream programme.", name: "Aryan K.", test: "GRE 335", location: "Mumbai" },
+                { quote: "My SAT score went from 1380 to 1540 in 8 weeks. The structured approach and targeted drills made all the difference.", name: "Sarah Yadav", test: "SAT 1540", location: "Delhi" },
+                { quote: "IBGram's IELTS tutor knew exactly where I was losing marks. Went from 7.0 to 8.5 before my UK application deadline.", name: "Bhavya Puri", test: "IELTS 8.5", location: "Gurugram" },
+                { quote: "The GRE prep was methodical and data-driven. I could see my progress week by week. Scored 335 and got into my dream programme.", name: "Akshat Raut", test: "GRE 335", location: "Mumbai" },
               ].map((t) => (
                 <div key={t.name} className="rounded-[1.75rem] border border-border/50 bg-card px-6 py-7 card-hover">
                   <div className="flex items-center gap-1 mb-4">
@@ -357,8 +357,7 @@ export default function TestPrepPage() {
         {/* CTA */}
         <section className="px-6 py-24 md:py-32 mb-16">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-primary">
-              <Zap className="size-3" />
+            <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-primary">
               Start Preparing Today
             </div>
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[#f8f9fa] italic">
@@ -368,19 +367,19 @@ export default function TestPrepPage() {
               Book a session with our test prep experts today. We&apos;ll assess your starting point and build a plan to get you where you need to be.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact-us">
-                <Button size="lg" className="h-16 px-12 rounded-2xl font-black text-lg bg-background text-foreground border border-border/50 hover:bg-background transition-all  hover:scale-105">
-                  Book A Consultation <ArrowRight className="ml-2 size-6" />
-                </Button>
-              </Link>
-              <Link href="/tutors">
+              <AdmissionsConsultationForm label="Book A Consultation" service="Test Prep" />
+              <Link href="#admissions-mentors">
                 <Button size="lg" variant="outline" className="h-16 px-12 rounded-2xl font-black text-lg border-border/40 hover:bg-muted/10 transition-all">
-                  Browse Tutors
+                  Meet Mentors
                 </Button>
               </Link>
             </div>
           </div>
         </section>
+
+        <div className="fixed bottom-4 right-4 z-[110] flex items-center gap-2 sm:bottom-5 sm:right-5">
+          <AdmissionsConsultationForm label="Chat with us" service="Test Prep" variant="floating" />
+        </div>
 
       </main>
     </>

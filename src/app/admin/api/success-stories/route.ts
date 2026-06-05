@@ -36,6 +36,6 @@ export async function POST(request: NextRequest) {
   const parsed = createSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   const created = await prisma.successStory.create({ data: parsed.data });
-  revalidateTag("cms:success-stories");
+  revalidateTag("cms:success-stories", { expire: 0 });
   return Response.json({ item: created });
 }

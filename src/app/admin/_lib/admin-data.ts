@@ -247,6 +247,13 @@ async function getTutorsFromDb(): Promise<AdminTutorRecord[] | null> {
         image: tutor.avatarUrl ?? undefined,
         headline: tutor.headline ?? "",
         bio: tutor.bio ?? "",
+        about: tutor.about ?? "",
+        faqs: Array.isArray(tutor.faqs)
+          ? (tutor.faqs as unknown[])
+              .filter((f): f is { question?: unknown; answer?: unknown } => typeof f === "object" && f !== null)
+              .map((f) => ({ question: String(f.question ?? ""), answer: String(f.answer ?? "") }))
+              .filter((f) => f.question && f.answer)
+          : [],
         curriculums,
         ibProgrammes: unique(tutor.curriculums.filter((c) => c.curriculum === "IB").map((c) => c.programme)),
         ibSubjects: tutor.subjects.filter((s) => s.curriculum === "IB").map((s) => s.subjectName),
@@ -272,6 +279,16 @@ async function getTutorsFromDb(): Promise<AdminTutorRecord[] | null> {
           tutor.status === "active" ? "active" : tutor.status === "paused" ? "paused" : "draft",
         rating: Number(tutor.rating ?? 0),
         reviews: tutor.reviewCount,
+        experienceYears: tutor.experienceYears ?? null,
+        hourlyRate: tutor.hourlyRate != null ? Number(tutor.hourlyRate) : null,
+        currency: tutor.currency ?? "INR",
+        education: tutor.profile?.education ?? null,
+        successRate: tutor.profile?.successRate ?? null,
+        responseTime: tutor.profile?.responseTime ?? null,
+        availabilityText: tutor.profile?.availabilityText ?? null,
+        methodology: tutor.profile?.methodology ?? null,
+        tags: tutor.profile?.tags ?? [],
+        languages: tutor.profile?.languages ?? [],
         lastUpdated: tutor.updatedAt.toISOString().slice(0, 10),
       } satisfies AdminTutorRecord;
     });

@@ -1,4 +1,5 @@
 import type { NextRequest } from "next/server";
+import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
@@ -28,6 +29,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
   const parsed = patchSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   const updated = await prisma.testimonial.update({ where: { id }, data: parsed.data });
+  revalidateTag("cms:testimonials", { expire: 0 });
   return Response.json({ item: updated });
 }
 
@@ -36,5 +38,6 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
   if (session instanceof Response) return session;
   const { id } = await params;
   await prisma.testimonial.delete({ where: { id } });
+  revalidateTag("cms:testimonials", { expire: 0 });
   return Response.json({ ok: true });
 }

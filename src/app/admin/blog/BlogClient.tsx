@@ -27,6 +27,10 @@ type Item = {
   indexFlag: string;
   publishedAt: string | null;
   tags: string[];
+  metaTitle: string | null;
+  metaDescription: string | null;
+  metaKeywords: string[];
+  readingTimeMinutes: number | null;
   featuredImageId?: string | null;
   ogImageAssetId?: string | null;
   updatedAt: string;
@@ -45,6 +49,40 @@ const INDEX_OPTIONS = [
   { value: "noindex", label: "Noindex" },
 ];
 
+// Controls which home page(s) the post is featured on. Stored as the special
+// tags "home-ib" / "home-igcse" so no DB migration is needed.
+const HOME_PLACEMENT_OPTIONS = [
+  { value: "none", label: "Not featured" },
+  { value: "ib", label: "IB home page" },
+  { value: "igcse", label: "IGCSE home page" },
+  { value: "both", label: "Both home pages" },
+];
+
+const HOME_TAG_IB = "home-ib";
+const HOME_TAG_IGCSE = "home-igcse";
+
+function placementFromTags(tags: string[] | undefined): string {
+  const ib = tags?.includes(HOME_TAG_IB) ?? false;
+  const ig = tags?.includes(HOME_TAG_IGCSE) ?? false;
+  if (ib && ig) return "both";
+  if (ib) return "ib";
+  if (ig) return "igcse";
+  return "none";
+}
+
+function tagsFromPlacement(placement: unknown, existingTags: string[] | undefined): string[] {
+  const base = (existingTags ?? []).filter((t) => t !== HOME_TAG_IB && t !== HOME_TAG_IGCSE);
+  const home =
+    placement === "both"
+      ? [HOME_TAG_IB, HOME_TAG_IGCSE]
+      : placement === "ib"
+        ? [HOME_TAG_IB]
+        : placement === "igcse"
+          ? [HOME_TAG_IGCSE]
+          : [];
+  return [...base, ...home];
+}
+
 export function BlogClient({ items }: { items: Item[] }) {
   const router = useRouter();
   const { toast, busy, submit, remove } = useCrudForm<Item>("/admin/api/blog", router);
@@ -61,7 +99,11 @@ export function BlogClient({ items }: { items: Item[] }) {
         <div className="flex items-center justify-between gap-3">
           <p className="text-xs font-bold text-slate-500">{items.length} posts</p>
           <button
-            onClick={() => setCreating(true)}
+            onClick={() => {
+              setFeaturedImageId(null);
+              setOgImageId(null);
+              setCreating(true);
+            }}
             className="inline-flex h-10 items-center gap-2 rounded-md bg-emerald-400/20 px-4 text-sm font-black text-emerald-200 hover:bg-emerald-400/30"
           >
             <Plus className="size-4" aria-hidden /> New post
@@ -72,12 +114,21 @@ export function BlogClient({ items }: { items: Item[] }) {
       {(creating || editing) && (
         <form
           onSubmit={(e) =>
-            submit(e, editing ? { method: "PATCH", id: editing.id } : { method: "POST" }, {
-              transform: (data) => ({
-                ...data,
-                featuredImageId: featuredImageId ?? editing?.featuredImageId ?? null,
-                ogImageAssetId: ogImageId ?? editing?.ogImageAssetId ?? null,
-              }),
+            submit(e, {
+              ...(editing ? { method: "PATCH" as const, id: editing.id } : { method: "POST" as const }),
+              transform: (data: Record<string, unknown>) => {
+                const { homePlacement, metaKeywords, ...rest } = data;
+                return {
+                  ...rest,
+                  tags: tagsFromPlacement(homePlacement, editing?.tags),
+                  metaKeywords:
+                    typeof metaKeywords === "string"
+                      ? metaKeywords.split(",").map((s) => s.trim()).filter(Boolean)
+                      : [],
+                  featuredImageId: featuredImageId ?? editing?.featuredImageId ?? null,
+                  ogImageAssetId: ogImageId ?? editing?.ogImageAssetId ?? null,
+                };
+              },
             }).then((res) => {
               if (res) {
                 setEditing(null);
@@ -114,6 +165,14 @@ export function BlogClient({ items }: { items: Item[] }) {
               <SelectInput name="indexFlag" defaultValue={editing?.indexFlag ?? "auto"} options={INDEX_OPTIONS} />
             </label>
             <label className="sm:col-span-2">
+              <FieldLabel>Feature on home page</FieldLabel>
+              <SelectInput
+                name="homePlacement"
+                defaultValue={placementFromTags(editing?.tags)}
+                options={HOME_PLACEMENT_OPTIONS}
+              />
+            </label>
+            <label className="sm:col-span-2">
               <FieldLabel>Excerpt</FieldLabel>
               <TextArea name="excerpt" defaultValue={editing?.excerpt ?? ""} rows={3} />
             </label>
@@ -123,15 +182,32 @@ export function BlogClient({ items }: { items: Item[] }) {
             </label>
             <label>
               <FieldLabel>Meta title</FieldLabel>
-              <TextInput name="metaTitle" defaultValue={""} placeholder="SEO title for search" />
+              <TextInput name="metaTitle" defaultValue={editing?.metaTitle ?? ""} placeholder="SEO title for search" />
             </label>
             <label>
               <FieldLabel>Reading time (min)</FieldLabel>
-              <TextInput name="readingTimeMinutes" type="number" />
+              <TextInput
+                name="readingTimeMinutes"
+                type="number"
+                defaultValue={editing?.readingTimeMinutes ?? ""}
+              />
             </label>
             <label className="sm:col-span-2">
               <FieldLabel>Meta description</FieldLabel>
-              <TextArea name="metaDescription" rows={2} placeholder="Up to ~160 chars" />
+              <TextArea
+                name="metaDescription"
+                defaultValue={editing?.metaDescription ?? ""}
+                rows={2}
+                placeholder="Up to ~160 chars"
+              />
+            </label>
+            <label className="sm:col-span-2">
+              <FieldLabel>Meta keywords (comma-separated)</FieldLabel>
+              <TextInput
+                name="metaKeywords"
+                defaultValue={editing?.metaKeywords?.join(", ") ?? ""}
+                placeholder="IB DP maths, IB subject choice"
+              />
             </label>
             <div>
               <MediaPicker
@@ -188,6 +264,8 @@ export function BlogClient({ items }: { items: Item[] }) {
               <div className="col-span-12 flex justify-end gap-2 md:col-span-4">
                 <button
                   onClick={() => {
+                    setFeaturedImageId(null);
+                    setOgImageId(null);
                     setEditing(item);
                     setCreating(false);
                   }}

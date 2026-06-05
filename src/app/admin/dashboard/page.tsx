@@ -65,8 +65,8 @@ export default async function AdminDashboardPage() {
       <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         <AdminMetricCard
           label="Total pages"
-          value={summary.pages.total}
-          detail="GeneratedPage rows in PostgreSQL"
+          value={summary.pages.total + summary.tutorPages.total + summary.cms.blogPosts}
+          detail={`${summary.pages.total} generated · ${summary.tutorPages.total} tutor reach · ${summary.cms.blogPosts} blog`}
           icon={<AdminIcons.FileText className="size-5" />}
         />
         <AdminMetricCard
@@ -92,6 +92,12 @@ export default async function AdminDashboardPage() {
           value={summary.tutors.total}
           icon={<AdminIcons.Users className="size-5" />}
           detail={`${summary.tutors.active} active`}
+        />
+        <AdminMetricCard
+          label="Tutor reach pages"
+          value={summary.tutorPages.total}
+          icon={<AdminIcons.FileText className="size-5" />}
+          detail={`${summary.tutorPages.published} published`}
         />
         <AdminMetricCard
           label="Tutors missing location"

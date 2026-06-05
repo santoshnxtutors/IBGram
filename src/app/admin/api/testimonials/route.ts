@@ -1,4 +1,5 @@
 import type { NextRequest } from "next/server";
+import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { requireAdminRequest } from "../../_lib/admin-auth";
@@ -34,5 +35,6 @@ export async function POST(request: NextRequest) {
   const parsed = createSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   const created = await prisma.testimonial.create({ data: parsed.data });
+  revalidateTag("cms:testimonials", { expire: 0 });
   return Response.json({ item: created });
 }

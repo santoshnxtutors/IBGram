@@ -7,7 +7,6 @@ import {
   Search,
   SlidersHorizontal,
   ArrowRight,
-  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -15,6 +14,9 @@ import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { allTutors, type Tutor } from "@/lib/tutor-data";
 import { TutorCard } from "@/components/tutors/TutorCard";
+import { rememberReturnTo } from "@/lib/return-to";
+import { buildTutorComparePath } from "@/lib/tutor-compare-url";
+import { openTutorMessage } from "@/lib/tutor-message";
 
 type AnyTutorId = string | number;
 const sameId = (a: AnyTutorId | null | undefined, b: AnyTutorId | null | undefined) =>
@@ -80,7 +82,8 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
 
   const handleCompareRedirect = () => {
     if (compareIds.length === 2) {
-      router.push(`/tutor-compare?ids=${compareIds.join(",")}&returnTo=${encodeURIComponent(currentPath)}`);
+      rememberReturnTo("tutor-compare", currentPath);
+      router.push(buildTutorComparePath(compareIds));
     }
   };
 
@@ -347,7 +350,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
                   : "border border-border bg-muted text-muted-foreground"
               }`}
             >
-              <Sparkles className="mr-2 size-4" /> Compare
+              Compare
             </Button>
 
             <button
@@ -432,11 +435,18 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
                       <p className="text-base leading-relaxed text-card-foreground">{tutor.bio}</p>
                     </div>
                     <div className="flex items-center gap-6 pt-4">
-                      <Button variant="outline" className="h-14 flex-1 rounded-2xl border-2 border-border text-lg font-black hover:bg-muted">
+                      <Button
+                        variant="outline"
+                        onClick={() => openTutorMessage(tutor)}
+                        className="h-14 flex-1 rounded-2xl border-2 border-border text-lg font-black hover:bg-muted"
+                      >
                         Message
                       </Button>
                       <button
-                        onClick={() => router.push(`/tutor-profile/${tutor.slug ?? tutor.id}?returnTo=${encodeURIComponent(currentPath)}`)}
+                        onClick={() => {
+                          rememberReturnTo("tutor-profile", currentPath);
+                          router.push(`/tutor-profile/${tutor.slug ?? tutor.id}`);
+                        }}
                         className="group flex flex-1 items-center justify-end text-lg font-bold text-primary transition-colors hover:text-primary/80"
                       >
                         Full Profile <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />

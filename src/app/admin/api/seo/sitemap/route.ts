@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       isIncluded: parsed.data.isIncluded ?? undefined,
     },
   });
-  revalidateTag(SEO_CACHE_TAGS.sitemap);
+  revalidateTag(SEO_CACHE_TAGS.sitemap, { expire: 0 });
   return Response.json({ entry: row });
 }
 
@@ -66,7 +66,7 @@ export async function PATCH(request: NextRequest) {
       ...(lastmod !== undefined ? { lastmod: lastmod ? new Date(lastmod) : null } : {}),
     },
   });
-  revalidateTag(SEO_CACHE_TAGS.sitemap);
+  revalidateTag(SEO_CACHE_TAGS.sitemap, { expire: 0 });
   return Response.json({ entry: row });
 }
 
@@ -76,6 +76,6 @@ export async function DELETE(request: NextRequest) {
   const id = new URL(request.url).searchParams.get("id");
   if (!id) return Response.json({ error: "id required" }, { status: 400 });
   await prisma.sitemapEntry.delete({ where: { id } });
-  revalidateTag(SEO_CACHE_TAGS.sitemap);
+  revalidateTag(SEO_CACHE_TAGS.sitemap, { expire: 0 });
   return Response.json({ ok: true });
 }

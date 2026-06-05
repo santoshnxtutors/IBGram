@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { allTutors } from "@/lib/tutor-data";
 import { getPublicTutorsFromDb } from "@/lib/cms/public-tutors";
 import { getTutorReviewsForPublic } from "@/lib/cms/public-reviews";
+import { getTutorReachPagesForTutor } from "@/lib/cms/tutor-reach";
 import TutorProfileClient from "./TutorProfileClient";
 
 export const dynamic = "force-dynamic";
@@ -32,5 +33,14 @@ export default async function TutorProfilePage({ params }: TutorProfileProps) {
 
    const reviews = (await getTutorReviewsForPublic(String(tutor.id))) ?? [];
 
-   return <TutorProfileClient tutor={tutor} reviews={reviews} />;
+   // Tutor-reach subject/board pages (DB cuid only — static tutors have none).
+   const reachPages = (await getTutorReachPagesForTutor(String(tutor.id))).map((p) => ({
+      slug: p.slug,
+      board: p.board,
+      subject: p.subject,
+      mode: p.mode,
+      city: p.city,
+   }));
+
+   return <TutorProfileClient tutor={tutor} reviews={reviews} reachPages={reachPages} />;
 }

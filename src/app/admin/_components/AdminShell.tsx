@@ -20,6 +20,7 @@ import {
   Shield,
   Sparkles,
   Star,
+  Target,
   Users,
 } from "lucide-react";
 
@@ -32,6 +33,7 @@ const navigation = [
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "AI Generator", href: "/admin/generator", icon: Bot },
   { label: "Tutors", href: "/admin/tutors", icon: Users },
+  { label: "Tutor Reach", href: "/admin/tutor-reach", icon: Target },
   { label: "Locations", href: "/admin/locations", icon: MapPin },
   { label: "Menus", href: "/admin/menus", icon: MenuIcon },
   { label: "Internal Links", href: "/admin/internal-links", icon: Link2 },

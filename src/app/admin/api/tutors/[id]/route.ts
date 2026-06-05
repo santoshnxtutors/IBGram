@@ -30,6 +30,7 @@ const patchSchema = z.object({
   displayName: z.string().min(1).max(200).optional(),
   headline: z.string().max(300).optional().nullable(),
   bio: z.string().max(8000).optional().nullable(),
+  about: z.string().max(20000).optional().nullable(),
   primaryCitySlug: z.string().max(120).optional().nullable(),
   curriculums: z.array(z.string()).optional(),
   ibProgrammes: z.array(z.string()).optional(),
@@ -58,6 +59,8 @@ const patchSchema = z.object({
   responseTime: z.string().max(60).optional().nullable(),
   availabilityText: z.string().max(500).optional().nullable(),
   methodology: z.string().max(4000).optional().nullable(),
+  // Per-tutor FAQs shown on the public tutor profile.
+  faqs: z.array(z.object({ question: z.string().min(1), answer: z.string().min(1) })).optional(),
 });
 
 function pickFirstLocation(
@@ -171,6 +174,7 @@ export async function PATCH(
             ...(data.displayName !== undefined ? { displayName: data.displayName } : {}),
             ...(data.headline !== undefined ? { headline: data.headline } : {}),
             ...(data.bio !== undefined ? { bio: data.bio } : {}),
+            ...(data.about !== undefined ? { about: data.about } : {}),
             ...(data.status !== undefined ? { status: data.status } : {}),
             ...(data.verified !== undefined ? { verified: data.verified } : {}),
             ...(data.approved !== undefined ? { approved: data.approved } : {}),
@@ -182,6 +186,7 @@ export async function PATCH(
             ...(data.currency !== undefined && data.currency
               ? { currency: data.currency.toUpperCase() }
               : {}),
+            ...(data.faqs !== undefined ? { faqs: data.faqs } : {}),
           },
         });
 
@@ -383,7 +388,7 @@ export async function PATCH(
       );
     }
 
-    revalidateTag("cms:tutors");
+    revalidateTag("cms:tutors", { expire: 0 });
     return Response.json({ ok: true, id: result.id });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
@@ -425,7 +430,7 @@ export async function DELETE(
     if (result.notFound) {
       return Response.json({ error: `Tutor not found for id or slug "${id}"` }, { status: 404 });
     }
-    revalidateTag("cms:tutors");
+    revalidateTag("cms:tutors", { expire: 0 });
     return Response.json({ ok: true });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);

@@ -15,7 +15,15 @@ export async function GET(request: NextRequest) {
   const mimeFilter = url.searchParams.get("mime")?.trim() || undefined;
 
   const where = {
-    ...(search ? { OR: [{ filename: { contains: search, mode: "insensitive" as const } }, { altText: { contains: search, mode: "insensitive" as const } }] } : {}),
+    ...(search
+      ? {
+          OR: [
+            { id: search },
+            { filename: { contains: search, mode: "insensitive" as const } },
+            { altText: { contains: search, mode: "insensitive" as const } },
+          ],
+        }
+      : {}),
     ...(mimeFilter ? { mimeType: { startsWith: mimeFilter } } : {}),
   };
 

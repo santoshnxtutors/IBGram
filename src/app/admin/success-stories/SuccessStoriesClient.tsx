@@ -15,6 +15,7 @@ import {
   SelectInput,
   CheckboxField,
 } from "../_components/CmsCrudShell";
+import { MediaPicker } from "../_components/MediaPicker";
 
 type Item = {
   id: string;
@@ -50,6 +51,21 @@ export function SuccessStoriesClient({ items }: { items: Item[] }) {
   const { toast, busy, submit, remove } = useCrudForm<Item>("/admin/api/success-stories", router);
   const [editing, setEditing] = useState<Item | null>(null);
   const [creating, setCreating] = useState(false);
+  // Image is managed by the MediaPicker (not a form field). `imageTouched` tracks
+  // whether the user changed it this session so an untouched edit leaves the saved
+  // value alone instead of overwriting it.
+  const [imageAssetId, setImageAssetId] = useState<string | null>(null);
+  const [imageTouched, setImageTouched] = useState(false);
+
+  const resetImage = () => {
+    setImageAssetId(null);
+    setImageTouched(false);
+  };
+
+  // A legacy value that is actually a URL (not an Asset id) can't be resolved by
+  // the picker's id lookup — show it as a fallback preview instead.
+  const storedImage = editing?.imageAssetId ?? null;
+  const storedIsUrl = !!storedImage && (storedImage.startsWith("http") || storedImage.startsWith("/"));
 
   return (
     <div className="space-y-5">
@@ -59,7 +75,10 @@ export function SuccessStoriesClient({ items }: { items: Item[] }) {
         <div className="flex items-center justify-between gap-3">
           <p className="text-xs font-bold text-slate-500">{items.length} success stories</p>
           <button
-            onClick={() => setCreating(true)}
+            onClick={() => {
+              resetImage();
+              setCreating(true);
+            }}
             className="inline-flex h-10 items-center gap-2 rounded-md bg-emerald-400/20 px-4 text-sm font-black text-emerald-200 hover:bg-emerald-400/30"
           >
             <Plus className="size-4" aria-hidden /> New success story
@@ -69,11 +88,20 @@ export function SuccessStoriesClient({ items }: { items: Item[] }) {
 
       {(creating || editing) && (
         <form
-          onSubmit={(e) => submit(e, editing ? { method: "PATCH", id: editing.id } : { method: "POST" })
-            .then((res) => {
+          onSubmit={(e) =>
+            submit(e, {
+              ...(editing ? { method: "PATCH" as const, id: editing.id } : { method: "POST" as const }),
+              transform: (data) => ({
+                ...data,
+                // Only send the image when the user changed it; otherwise leave the
+                // existing DB value untouched (PATCH) or default to null (create).
+                ...(imageTouched ? { imageAssetId } : creating ? { imageAssetId: imageAssetId } : {}),
+              }),
+            }).then((res) => {
               if (res) {
                 setEditing(null);
                 setCreating(false);
+                resetImage();
               }
             })
           }
@@ -115,10 +143,18 @@ export function SuccessStoriesClient({ items }: { items: Item[] }) {
               <FieldLabel>Sort order</FieldLabel>
               <TextInput name="sortOrder" defaultValue={editing?.sortOrder ?? 0} type="number" />
             </label>
-            <label>
-              <FieldLabel>Image asset id (optional)</FieldLabel>
-              <TextInput name="imageAssetId" defaultValue={editing?.imageAssetId ?? ""} placeholder="from Media Library" />
-            </label>
+            <div className="sm:col-span-2">
+              <MediaPicker
+                label="Student photo (optional)"
+                value={imageTouched ? imageAssetId : storedIsUrl ? null : storedImage}
+                currentUrl={!imageTouched && storedIsUrl ? storedImage : null}
+                onChange={(id) => {
+                  setImageAssetId(id);
+                  setImageTouched(true);
+                }}
+                folder="success-stories"
+              />
+            </div>
             <label className="sm:col-span-2">
               <FieldLabel>Long story (optional, for future detail page)</FieldLabel>
               <TextArea name="longStory" defaultValue={editing?.longStory ?? ""} rows={4} />
@@ -133,6 +169,7 @@ export function SuccessStoriesClient({ items }: { items: Item[] }) {
               onClick={() => {
                 setEditing(null);
                 setCreating(false);
+                resetImage();
               }}
             />
           </div>
@@ -165,6 +202,7 @@ export function SuccessStoriesClient({ items }: { items: Item[] }) {
               <div className="col-span-12 flex justify-end gap-2 md:col-span-4">
                 <button
                   onClick={() => {
+                    resetImage();
                     setEditing(item);
                     setCreating(false);
                   }}

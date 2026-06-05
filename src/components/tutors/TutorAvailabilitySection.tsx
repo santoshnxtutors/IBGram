@@ -5,10 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ArrowRight, ShieldCheck, Sparkles, X } from "lucide-react";
+import { ArrowRight, ShieldCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { TutorMatchResult, TutorPageContext } from "@/lib/tutors/tutor-location-matching";
 import { TutorCard } from "@/components/tutors/TutorCard";
+import { rememberReturnTo } from "@/lib/return-to";
+import { buildTutorComparePath } from "@/lib/tutor-compare-url";
+import { openTutorMessage } from "@/lib/tutor-message";
+
+type AnyTutorId = string | number;
+const sameId = (a: AnyTutorId | null | undefined, b: AnyTutorId | null | undefined) =>
+  a !== null && a !== undefined && b !== null && b !== undefined && String(a) === String(b);
 
 type TutorAvailabilitySectionProps = {
   title: string;
@@ -30,12 +37,12 @@ export function TutorAvailabilitySection({
   const pathname = usePathname();
   const currentPath = pathname;
   const tutors = result.tutors.slice(0, 3);
-  const [selectedId, setSelectedId] = useState<number | null>(null);
-  const [compareIds, setCompareIds] = useState<number[]>([]);
+  const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
+  const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
 
-  const toggleCompare = (id: number) => {
+  const toggleCompare = (id: AnyTutorId) => {
     setCompareIds((previous) => {
-      if (previous.includes(id)) return previous.filter((item) => item !== id);
+      if (previous.some((item) => sameId(item, id))) return previous.filter((item) => !sameId(item, id));
       if (previous.length < 2) return [...previous, id];
       return [previous[1], id];
     });
@@ -43,7 +50,8 @@ export function TutorAvailabilitySection({
 
   const handleCompareRedirect = () => {
     if (compareIds.length === 2) {
-      router.push(`/tutor-compare?ids=${compareIds.join(",")}&returnTo=${encodeURIComponent(currentPath)}`);
+      rememberReturnTo("tutor-compare", currentPath);
+      router.push(buildTutorComparePath(compareIds));
     }
   };
 
@@ -90,7 +98,7 @@ export function TutorAvailabilitySection({
               <TutorCard
                 key={tutor.id}
                 tutor={tutor}
-                selectedForCompare={compareIds.includes(tutor.id)}
+                selectedForCompare={compareIds.some((id) => sameId(id, tutor.id))}
                 onCompareToggle={toggleCompare}
                 onOpen={setSelectedId}
               />
@@ -121,7 +129,7 @@ export function TutorAvailabilitySection({
             <div className="flex items-center gap-3 text-sm font-bold">
               <div className="flex -space-x-3">
                 {compareIds.map((id) => {
-                  const tutor = tutors.find((item) => item.id === id);
+                  const tutor = tutors.find((item) => sameId(item.id, id));
                   return tutor ? (
                     <div key={id} className="relative flex size-8 items-center justify-center overflow-hidden rounded-full border-2 border-background bg-muted shadow-sm">
                       {tutor.image ? (
@@ -153,7 +161,7 @@ export function TutorAvailabilitySection({
                   : "border border-border bg-muted text-muted-foreground"
               }`}
             >
-              <Sparkles className="mr-2 size-4" /> Compare
+              Compare
             </Button>
 
             <button
@@ -180,7 +188,7 @@ export function TutorAvailabilitySection({
               className="absolute inset-0 bg-background/80 backdrop-blur-2xl"
             />
 
-            {tutors.filter((tutor) => tutor.id === selectedId).map((tutor) => (
+            {tutors.filter((tutor) => sameId(tutor.id, selectedId)).map((tutor) => (
               <motion.div
                 key="expanded"
                 layoutId={`card-${tutor.id}`}
@@ -246,11 +254,18 @@ export function TutorAvailabilitySection({
                     </div>
 
                     <div className="flex items-center gap-6 pt-4">
-                      <Button variant="outline" className="h-14 flex-1 rounded-2xl border-2 border-border text-lg font-black hover:bg-muted">
+                      <Button
+                        variant="outline"
+                        onClick={() => openTutorMessage(tutor)}
+                        className="h-14 flex-1 rounded-2xl border-2 border-border text-lg font-black hover:bg-muted"
+                      >
                         Message
                       </Button>
                       <button
-                        onClick={() => router.push(`/tutor-profile/${tutor.id}?returnTo=${encodeURIComponent(currentPath)}`)}
+                        onClick={() => {
+                          rememberReturnTo("tutor-profile", currentPath);
+                          router.push(`/tutor-profile/${tutor.id}`);
+                        }}
                         className="group flex flex-1 items-center justify-end text-lg font-bold text-primary transition-colors hover:text-primary/80"
                       >
                         Full Profile <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />

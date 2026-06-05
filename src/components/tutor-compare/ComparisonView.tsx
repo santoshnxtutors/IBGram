@@ -1,32 +1,43 @@
 "use client";
 
-import { Star, Clock, CheckCircle, Sparkles, GraduationCap, Trophy, Calendar, MousePointer2 } from "lucide-react";
+import { useState } from "react";
+import { Clock, CheckCircle, GraduationCap, Trophy, Calendar, MousePointer2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BookDemoModal } from "@/components/booking/BookDemoModal";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Tutor } from "@/lib/tutor-data";
+import { getCurrentInternalPath, getStoredReturnTo, rememberReturnTo } from "@/lib/return-to";
 
 interface ComparisonViewProps {
   tutors: Tutor[];
-  returnTo?: string;
 }
 
-export function ComparisonView({ tutors, returnTo }: ComparisonViewProps) {
+export function ComparisonView({ tutors }: ComparisonViewProps) {
   const router = useRouter();
-  const profileReturnParam = returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : "";
+  const [trialTutor, setTrialTutor] = useState<Tutor | null>(null);
+
+  const handleBack = () => {
+    router.push(getStoredReturnTo("tutor-compare", ["/tutor-compare"]) ?? "/tutors");
+  };
+
+  const handleProfileOpen = (tutorId: Tutor["id"]) => {
+    rememberReturnTo("tutor-profile", getCurrentInternalPath(), ["/tutor-profile"]);
+    router.push(`/tutor-profile/${tutorId}`);
+  };
 
   if (tutors.length < 2) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-8">
         <div className="size-20 rounded-full bg-muted flex items-center justify-center mb-6">
-          <Sparkles className="size-10 text-muted-foreground" />
+          <CheckCircle className="size-10 text-muted-foreground" />
         </div>
         <h3 className="text-2xl font-bold mb-2">Select Tutors to Compare</h3>
         <p className="text-muted-foreground mb-8 max-w-md">
           Choose at least two tutors to review subject fit, availability and teaching approach side by side.
         </p>
-        <Button onClick={() => router.push(returnTo ?? "/tutors")} className="rounded-xl h-12 px-8 font-bold">
-          {returnTo ? "Back to Page" : "Browse Tutors"}
+        <Button onClick={handleBack} className="rounded-xl h-12 px-8 font-bold">
+          Back to Tutors
         </Button>
       </div>
     );
@@ -36,11 +47,11 @@ export function ComparisonView({ tutors, returnTo }: ComparisonViewProps) {
     { label: "Expertise", icon: CheckCircle, getValue: (t: Tutor) => t.subject },
     { label: "Education", icon: GraduationCap, getValue: (t: Tutor) => t.education },
     { label: "Experience", icon: Clock, getValue: (t: Tutor) => t.experience },
-    { label: "Rating", icon: Star, getValue: (t: Tutor) => `${t.rating} (${t.reviews} reviews)` },
+    { label: "Parent Feedback", icon: CheckCircle, getValue: (t: Tutor) => `${t.rating} from ${t.reviews} reviews` },
     { label: "Success Rate", icon: Trophy, getValue: (t: Tutor) => t.successRate },
     { label: "Response", icon: MousePointer2, getValue: (t: Tutor) => t.responseTime },
     { label: "Availability", icon: Calendar, getValue: (t: Tutor) => t.availability },
-    { label: "Hourly Rate", icon: Sparkles, getValue: (t: Tutor) => t.rate },
+    { label: "Hourly Rate", icon: Clock, getValue: (t: Tutor) => t.rate },
   ];
 
   return (
@@ -111,52 +122,72 @@ export function ComparisonView({ tutors, returnTo }: ComparisonViewProps) {
         ))}
       </div>
 
-      {/* AI Comparison Summary Section */}
-      <div className="mt-12 p-8 rounded-2xl border border-border bg-card/20">
-        <div className="flex items-center gap-3 mb-8">
-          <Sparkles className="size-5 text-primary" />
-          <h3 className="text-lg font-bold tracking-tight">AI Diagnostic Verdict</h3>
+      <div className="mt-12 rounded-2xl border border-border bg-card/20 p-8">
+        <div className="mb-8">
+          <h3 className="text-xl font-bold tracking-tight">Choose the trial that fits your student</h3>
+          <p className="mt-2 max-w-3xl text-sm font-medium leading-6 text-muted-foreground">
+            Use the comparison above to shortlist a teacher, then book a free trial with the tutor you want to test first.
+            The request sent to IBGram will include the selected teacher name.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          <div className="space-y-3">
-            <h5 className="text-[10px] uppercase tracking-widest font-bold text-primary">Methodology Match</h5>
-            <p className="text-sm leading-relaxed text-muted-foreground font-medium">
-              <span className="text-foreground font-bold">{tutors[0].name}</span> utilizes a {tutors[0].methodology.toLowerCase()} <br/><br/>
-              While <span className="text-foreground font-bold">{tutors[1].name}</span> focuses on a {tutors[1].methodology.toLowerCase()}
-            </p>
-          </div>
-          <div className="space-y-3">
-            <h5 className="text-[10px] uppercase tracking-widest font-bold text-secondary">Optimal Selection</h5>
-            <p className="text-sm leading-relaxed text-muted-foreground font-medium">
-              For students requiring <span className="text-foreground font-bold">intensive exam drilling</span>, {tutors[0].name} is the superior choice. If the priority is <span className="text-foreground font-bold">intuitive understanding</span>, {tutors[1].name} offers a more creative pedagogical path.
-            </p>
-          </div>
-        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {tutors.slice(0, 2).map((tutor) => (
+            <div key={tutor.id} className="rounded-2xl border border-border/70 bg-background/60 p-5">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h4 className="text-lg font-black tracking-tight text-foreground">{tutor.name}</h4>
+                  <p className="mt-1 text-sm font-semibold text-muted-foreground">
+                    {tutor.subject} - {tutor.grade}
+                  </p>
+                </div>
+                <span className="rounded-full border border-border bg-muted/40 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                  {tutor.availability}
+                </span>
+              </div>
 
-        <div className="mt-10 pt-8 border-t border-border/50 flex flex-col md:flex-row gap-4 items-center justify-between">
-           <div className="flex gap-3">
-              <Button 
-                onClick={() => router.push(`/tutor-profile/${tutors[0].id}${profileReturnParam}`)}
-                variant="outline" 
-                className="rounded-xl border font-bold h-10 px-4 text-xs"
-              >
-                Profile: {tutors[0].name.split(" ")[0]}
-              </Button>
-              <Button 
-                onClick={() => router.push(`/tutor-profile/${tutors[1].id}${profileReturnParam}`)}
-                variant="outline" 
-                className="rounded-xl border font-bold h-10 px-4 text-xs"
-              >
-                Profile: {tutors[1].name.split(" ")[0]}
-              </Button>
-           </div>
-           <Button className="rounded-xl h-12 px-8 font-bold bg-primary text-primary-foreground hover:bg-primary/90 transition-all">
-             Book Free Trial with Both
-           </Button>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">{tutor.methodology}</p>
+
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                <Button
+                  onClick={() => setTrialTutor(tutor)}
+                  className="h-11 flex-1 rounded-xl bg-primary font-bold text-primary-foreground hover:bg-primary/90"
+                >
+                  Book free trial with {tutor.name.split(" ")[0]}
+                </Button>
+                <Button
+                  onClick={() => handleProfileOpen(tutor.id)}
+                  variant="outline"
+                  className="h-11 rounded-xl border font-bold"
+                >
+                  View profile
+                </Button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+
+      <BookDemoModal
+        open={trialTutor !== null}
+        onClose={() => setTrialTutor(null)}
+        tutorName={trialTutor?.name}
+        defaultSubject={trialTutor?.subject}
+        defaultBoard={trialTutor ? getDefaultBoard(trialTutor) : undefined}
+      />
     </div>
   );
+}
+
+function getDefaultBoard(tutor: Tutor) {
+  if (tutor.curriculum === "IB") {
+    const grade = tutor.grade.toLowerCase();
+    if (grade.includes("pyp")) return "IB (PYP)";
+    if (grade.includes("myp")) return "IB (MYP)";
+    if (grade.includes("cp")) return "IB (CP)";
+    return "IB (DP)";
+  }
+  if (tutor.curriculum === "IGCSE") return "Cambridge IGCSE";
+  return "";
 }
 

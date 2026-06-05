@@ -1,14 +1,21 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Sparkles, X } from "lucide-react";
+import { ArrowRight, ShieldCheck, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { TutorCard } from "@/components/tutors/TutorCard";
+import { rememberReturnTo } from "@/lib/return-to";
+import { buildTutorComparePath } from "@/lib/tutor-compare-url";
+import { openTutorMessage } from "@/lib/tutor-message";
 import { formatCourseSubject, getCourseTutorProfiles } from "./course-tutor-data";
+
+type AnyTutorId = string | number;
+const sameId = (a: AnyTutorId | null | undefined, b: AnyTutorId | null | undefined) =>
+  a !== null && a !== undefined && b !== null && b !== undefined && String(a) === String(b);
 
 interface CourseTutorSectionProps {
   curriculum: string;
@@ -21,14 +28,14 @@ export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSecti
   const currentPath = pathname;
   const subjectTitle = formatCourseSubject(subjectSlug);
   const courseTutors = getCourseTutorProfiles(curriculum, subjectSlug);
-  const [selectedId, setSelectedId] = useState<number | null>(null);
-  const [compareIds, setCompareIds] = useState<number[]>([]);
+  const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
+  const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
 
-  const activeTutor = courseTutors.find((tutor) => tutor.id === selectedId) ?? null;
+  const activeTutor = courseTutors.find((tutor) => sameId(tutor.id, selectedId)) ?? null;
 
-  const toggleCompare = (id: number) => {
+  const toggleCompare = (id: AnyTutorId) => {
     setCompareIds((prev) => {
-      if (prev.includes(id)) return prev.filter((entry) => entry !== id);
+      if (prev.some((entry) => sameId(entry, id))) return prev.filter((entry) => !sameId(entry, id));
       if (prev.length < 2) return [...prev, id];
       return [prev[1], id];
     });
@@ -36,7 +43,8 @@ export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSecti
 
   const handleCompareRedirect = () => {
     if (compareIds.length === 2) {
-      router.push(`/tutor-compare?ids=${compareIds.join(",")}&returnTo=${encodeURIComponent(currentPath)}`);
+      rememberReturnTo("tutor-compare", currentPath);
+      router.push(buildTutorComparePath(compareIds));
     }
   };
 
@@ -93,7 +101,7 @@ export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSecti
             <TutorCard
               key={tutor.id}
               tutor={tutor}
-              selectedForCompare={compareIds.includes(tutor.id)}
+              selectedForCompare={compareIds.some((id) => sameId(id, tutor.id))}
               onCompareToggle={toggleCompare}
               onOpen={setSelectedId}
               layoutNamespace={`${curriculum}-${subjectSlug}`}
@@ -112,7 +120,7 @@ export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSecti
             <div className="flex items-center gap-3 text-sm font-bold">
               <div className="flex -space-x-3">
                 {compareIds.map((id, index) => {
-                  const tutor = courseTutors.find((entry) => entry.id === id);
+                  const tutor = courseTutors.find((entry) => sameId(entry.id, id));
                   return tutor ? (
                     <div
                       key={`${id}-${index}`}
@@ -147,7 +155,7 @@ export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSecti
                   : "border border-border bg-muted text-muted-foreground"
               }`}
             >
-              <Sparkles className="mr-2 size-4" /> Compare
+              Compare
             </Button>
 
             <button
@@ -264,7 +272,11 @@ export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSecti
                   </div>
 
                   <div className="flex items-center gap-6 pt-4">
-                    <Button variant="outline" className="h-14 flex-1 rounded-2xl border-2 border-border text-lg font-black hover:bg-muted">
+                    <Button
+                      variant="outline"
+                      onClick={() => openTutorMessage(activeTutor)}
+                      className="h-14 flex-1 rounded-2xl border-2 border-border text-lg font-black hover:bg-muted"
+                    >
                       Message
                     </Button>
                     <button
@@ -273,7 +285,8 @@ export function CourseTutorSection({ curriculum, subjectSlug }: CourseTutorSecti
                         document.body.style.position = "";
                         document.body.style.width = "";
                         document.body.style.top = "";
-                        router.push(`/tutor-profile/${activeTutor.id}?returnTo=${encodeURIComponent(currentPath)}`);
+                        rememberReturnTo("tutor-profile", currentPath);
+                        router.push(`/tutor-profile/${activeTutor.id}`);
                       }}
                       className="group flex flex-1 items-center justify-end text-lg font-bold text-primary transition-colors hover:text-primary/80"
                       type="button"

@@ -1,9 +1,18 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/db";
-import type { Tutor, TutorLocation as StaticTutorLocation } from "@/lib/tutor-data";
+import type { Tutor, TutorFaq, TutorLocation as StaticTutorLocation } from "@/lib/tutor-data";
 
 type AnyTutorId = Tutor["id"];
+
+/** Parse the Tutor.faqs JSON column into a clean TutorFaq[]. */
+function parsePublicFaqs(value: unknown): TutorFaq[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((f): f is { question?: unknown; answer?: unknown } => typeof f === "object" && f !== null)
+    .map((f) => ({ question: String(f.question ?? ""), answer: String(f.answer ?? "") }))
+    .filter((f) => f.question.trim() && f.answer.trim());
+}
 
 function uniq<T>(values: Array<T | null | undefined>): T[] {
   return [...new Set(values.filter((v): v is T => v !== null && v !== undefined && v !== ""))];
@@ -120,6 +129,7 @@ function mapPrismaToTutor(row: Awaited<ReturnType<typeof prisma.tutor.findMany>>
     reviews: row.reviewCount,
     experience: row.experienceYears ? `${row.experienceYears} Yrs` : "",
     bio: row.bio ?? "",
+    about: row.about ?? "",
     rate: row.hourlyRate ? `${row.currency === "USD" ? "$" : "₹"}${Number(row.hourlyRate)}/hr` : "",
     image: normaliseImageUrl(row.avatarUrl),
     tags: row.profile?.tags ?? [],
@@ -130,6 +140,7 @@ function mapPrismaToTutor(row: Awaited<ReturnType<typeof prisma.tutor.findMany>>
     responseTime: row.profile?.responseTime ?? "",
     methodology: row.profile?.methodology ?? "",
     curriculum: curriculumLabel,
+    faqs: parsePublicFaqs(row.faqs),
 
     // Enriched fields used by the matching engine
     isActive: row.status === "active",

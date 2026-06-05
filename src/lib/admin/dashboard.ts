@@ -27,6 +27,7 @@ export type AdminDashboardSummary = {
     };
   };
   tutors: { total: number; active: number; verified: number; approved: number; missingLocation: number };
+  tutorPages: { total: number; published: number };
   locations: { countries: number; states: number; cities: number; areas: number; sectors: number; societies: number; schools: number };
   seo: {
     avgSeoScore: number;
@@ -68,6 +69,7 @@ const EMPTY: Omit<AdminDashboardSummary, "state" | "error"> = {
     byType: { city: 0, area: 0, sector: 0, society: 0, school: 0, subject: 0, programme: 0 },
   },
   tutors: { total: 0, active: 0, verified: 0, approved: 0, missingLocation: 0 },
+  tutorPages: { total: 0, published: 0 },
   locations: { countries: 0, states: 0, cities: 0, areas: 0, sectors: 0, societies: 0, schools: 0 },
   seo: { avgSeoScore: 0, missingMetaTitle: 0, missingMetaDescription: 0, missingH1: 0, missingCanonical: 0, redirects: 0, activeRedirects: 0, canonicals: 0, sitemapEntries: 0, robotsRules: 0 },
   internalLinks: { total: 0, withoutTarget: 0 },
@@ -96,6 +98,8 @@ export async function getAdminDashboardSummary(): Promise<AdminDashboardSummary>
       tutorVerifiedCount,
       tutorApprovedCount,
       tutorMissingLoc,
+      tutorReachTotal,
+      tutorReachPublished,
       countriesCount,
       statesCount,
       citiesCount,
@@ -139,6 +143,8 @@ export async function getAdminDashboardSummary(): Promise<AdminDashboardSummary>
       prisma.tutor.count({ where: { verified: true } }),
       prisma.tutor.count({ where: { approved: true } }),
       prisma.tutor.count({ where: { locations: { none: {} } } }),
+      prisma.tutorReachPage.count(),
+      prisma.tutorReachPage.count({ where: { status: "published" } }),
       prisma.country.count(),
       prisma.state.count(),
       prisma.city.count(),
@@ -226,6 +232,10 @@ export async function getAdminDashboardSummary(): Promise<AdminDashboardSummary>
         verified: tutorVerifiedCount,
         approved: tutorApprovedCount,
         missingLocation: tutorMissingLoc,
+      },
+      tutorPages: {
+        total: tutorReachTotal,
+        published: tutorReachPublished,
       },
       locations: {
         countries: countriesCount,

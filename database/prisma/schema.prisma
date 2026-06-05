@@ -597,6 +597,7 @@ model Tutor {
   status          TutorStatus     @default(draft)
   headline        String?
   bio             String?
+  about           String?
   experienceYears Int?
   rating          Float?
   reviewCount     Int             @default(0)
@@ -605,6 +606,7 @@ model Tutor {
   avatarUrl       String?
   verified        Boolean         @default(false)
   approved        Boolean         @default(false)
+  faqs            Json            @default("[]")
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
   deletedAt       DateTime?
@@ -615,9 +617,43 @@ model Tutor {
   availability    TutorAvailability[]
   assets          TutorAsset[]
   reviews         TutorReview[]
+  reachPages      TutorReachPage[]
 
   @@index([status])
   @@index([deletedAt])
+}
+
+/// Per-tutor subject/board landing pages ("Tutor Reach"). Each row is one
+/// SEO landing page like "IB DP Maths Home Tutor — Ajay Vatsyayan" with its
+/// own unique content, FAQs and metadata. Admin-managed, sitemap-aware.
+model TutorReachPage {
+  id              String        @id @default(cuid())
+  tutorId         String
+  slug            String        @unique
+  subject         String
+  board           String
+  mode            String        @default("home")
+  city            String?
+  title           String
+  h1              String
+  intro           String?
+  body            String        @default("")
+  faqs            Json          @default("[]")
+  metaTitle       String?
+  metaDescription String?
+  metaKeywords    String[]      @default([])
+  status          ContentStatus @default(draft)
+  indexFlag       IndexFlag     @default(auto)
+  wordCount       Int           @default(0)
+  viewCount       Int           @default(0)
+  publishedAt     DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  tutor           Tutor         @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+
+  @@index([status])
+  @@index([tutorId])
+  @@index([publishedAt])
 }
 
 model TutorReview {

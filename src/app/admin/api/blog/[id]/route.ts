@@ -1,6 +1,8 @@
 import type { NextRequest } from "next/server";
+import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { BLOG_CACHE_TAG } from "@/lib/cms/blog";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -13,6 +15,7 @@ const patchSchema = z.object({
   authorName: z.string().max(200).optional().nullable(),
   categoryId: z.string().optional().nullable(),
   featuredImageId: z.string().optional().nullable(),
+  ogImageAssetId: z.string().optional().nullable(),
   metaTitle: z.string().max(300).optional().nullable(),
   metaDescription: z.string().max(600).optional().nullable(),
   metaKeywords: z.array(z.string()).optional(),
@@ -34,6 +37,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
     where: { id },
     data: { ...rest, ...(publishedAt !== undefined ? { publishedAt: publishedAt ? new Date(publishedAt) : null } : {}) },
   });
+  revalidateTag(BLOG_CACHE_TAG, { expire: 0 });
   return Response.json({ item: updated });
 }
 
@@ -42,5 +46,6 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
   if (session instanceof Response) return session;
   const { id } = await params;
   await prisma.blogPost.delete({ where: { id } });
+  revalidateTag(BLOG_CACHE_TAG, { expire: 0 });
   return Response.json({ ok: true });
 }

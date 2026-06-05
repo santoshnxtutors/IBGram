@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
       isActive: parsed.data.isActive ?? true,
     },
   });
-  revalidateTag(SEO_CACHE_TAGS.canonicals);
+  revalidateTag(SEO_CACHE_TAGS.canonicals, { expire: 0 });
   return Response.json({ canonical: row });
 }
 
@@ -57,7 +57,7 @@ export async function PATCH(request: NextRequest) {
   }
   const { id, ...data } = parsed.data;
   const row = await prisma.canonicalRule.update({ where: { id }, data });
-  revalidateTag(SEO_CACHE_TAGS.canonicals);
+  revalidateTag(SEO_CACHE_TAGS.canonicals, { expire: 0 });
   return Response.json({ canonical: row });
 }
 
@@ -67,6 +67,6 @@ export async function DELETE(request: NextRequest) {
   const id = new URL(request.url).searchParams.get("id");
   if (!id) return Response.json({ error: "id required" }, { status: 400 });
   await prisma.canonicalRule.delete({ where: { id } });
-  revalidateTag(SEO_CACHE_TAGS.canonicals);
+  revalidateTag(SEO_CACHE_TAGS.canonicals, { expire: 0 });
   return Response.json({ ok: true });
 }

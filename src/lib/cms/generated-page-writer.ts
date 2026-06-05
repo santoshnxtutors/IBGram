@@ -209,8 +209,8 @@ export async function writeGeneratedPageToDb(page: GeneratedSeoPage): Promise<{ 
     });
 
     // Invalidate caches
-    revalidateTag("cms:generated-pages");
-    revalidateTag("seo:sitemap");
+    revalidateTag("cms:generated-pages", { expire: 0 });
+    revalidateTag("seo:sitemap", { expire: 0 });
 
     return { ok: true, id: row.id };
   } catch (err) {

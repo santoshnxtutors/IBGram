@@ -4,7 +4,7 @@ import SuccessStoriesPage from "../successstories";
 export const metadata: Metadata = {
   title: "Success Stories | IB Gram",
   description:
-    "Animated, image-free admissions success stories that highlight university outcomes, student journeys, and family guidance.",
+    "Admissions success stories from students IB Gram has supported — their programmes and the universities they joined.",
   alternates: {
     canonical: "/admissions/success-stories",
   },

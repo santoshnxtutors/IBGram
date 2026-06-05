@@ -45,6 +45,6 @@ export async function POST(request: NextRequest) {
   if (!tutor) return Response.json({ error: "Tutor not found" }, { status: 404 });
 
   const created = await prisma.tutorReview.create({ data: { ...rest, tutorId: tutor.id } });
-  revalidateTag(`cms:tutor-reviews:${tutor.id}`);
+  revalidateTag(`cms:tutor-reviews:${tutor.id}`, { expire: 0 });
   return Response.json({ item: created });
 }

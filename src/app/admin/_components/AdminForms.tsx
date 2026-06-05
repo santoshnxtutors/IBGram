@@ -14,6 +14,51 @@ function csvToArray(value: FormDataEntryValue | null): string[] {
     .filter(Boolean);
 }
 
+// FAQs are edited as plain text. TWO formats are accepted:
+//   1. Blocks separated by a blank line — first line = question, rest = answer:
+//        How many years of experience?
+//        14+ years across CBSE, ICSE, IB and IGCSE.
+//
+//        Does he teach online?
+//        Yes, home, online and hybrid are all available.
+//   2. Single line "Question :: Answer".
+function textToFaqs(value: FormDataEntryValue | null): Array<{ question: string; answer: string }> {
+  if (typeof value !== "string") return [];
+  const text = value.replace(/\r\n/g, "\n").trim();
+  if (!text) return [];
+
+  const faqs: Array<{ question: string; answer: string }> = [];
+  // Split into blocks on blank line(s).
+  const blocks = text.split(/\n\s*\n/);
+  for (const block of blocks) {
+    const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
+    if (lines.length === 0) continue;
+
+    // "Question :: Answer" on a single line.
+    const firstColon = lines[0].indexOf("::");
+    if (lines.length === 1 && firstColon !== -1) {
+      const question = lines[0].slice(0, firstColon).trim();
+      const answer = lines[0].slice(firstColon + 2).trim();
+      if (question && answer) faqs.push({ question, answer });
+      continue;
+    }
+
+    // First line = question, remaining lines = answer.
+    if (lines.length >= 2) {
+      const question = lines[0];
+      const answer = lines.slice(1).join(" ").trim();
+      if (question && answer) faqs.push({ question, answer });
+    }
+  }
+  return faqs;
+}
+
+function faqsToText(faqs: Array<{ question: string; answer: string }> | undefined): string {
+  if (!faqs?.length) return "";
+  // Round-trip in the readable block format (question, answer, blank line).
+  return faqs.map((f) => `${f.question}\n${f.answer}`).join("\n\n");
+}
+
 export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
@@ -45,6 +90,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       displayName: (fd.get("displayName") as string) || undefined,
       headline: (fd.get("headline") as string) || null,
       bio: (fd.get("bio") as string) || null,
+      about: (fd.get("about") as string) || null,
       curriculums: csvToArray(fd.get("curriculums")),
       ibProgrammes: csvToArray(fd.get("ibProgrammes")),
       ibSubjects: csvToArray(fd.get("ibSubjects")),
@@ -67,6 +113,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       responseTime: (fd.get("responseTime") as string) || null,
       availabilityText: (fd.get("availabilityText") as string) || null,
       methodology: (fd.get("methodology") as string) || null,
+      faqs: textToFaqs(fd.get("faqsText")),
       verified: fd.get("verified") === "true",
       approved: fd.get("approved") === "true",
       avatarUrl,
@@ -185,20 +232,34 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       <Field name="displayName" label="Name" defaultValue={tutor?.name} />
       <Field name="slug" label="Slug (URL-safe id, must be unique)" defaultValue={tutor?.slug} />
       <Field name="headline" label="Headline" defaultValue={tutor?.headline} />
-      <Textarea name="bio" label="Bio" defaultValue={tutor?.bio} />
+      <Textarea
+        name="bio"
+        label="Professional Biography (SHORT — shown on the tutor card / quick-view)"
+        defaultValue={tutor?.bio}
+      />
+      <Textarea
+        name="about"
+        label="About (LONG — shown in the 'About' section on the full profile page; leave blank to reuse the short bio)"
+        defaultValue={tutor?.about}
+      />
 
-      <Field name="tags" label="Tags (comma-separated — e.g. Examiner, Oxford Alumni)" defaultValue="" />
-      <Field name="languages" label="Languages (comma-separated)" defaultValue="" />
+      <Field name="tags" label="Tags (comma-separated — e.g. Examiner, Oxford Alumni)" defaultValue={(tutor?.tags ?? []).join(", ")} />
+      <Field name="languages" label="Languages (comma-separated)" defaultValue={(tutor?.languages ?? []).join(", ")} />
       <Field name="rating" label="Rating (0.0–5.0)" type="number" defaultValue={String(tutor?.rating ?? "")} />
       <Field name="reviewCount" label="Reviews count" type="number" defaultValue={String(tutor?.reviews ?? "")} />
-      <Field name="experienceYears" label="Experience (years)" type="number" defaultValue="" />
-      <Field name="hourlyRate" label="Hourly rate (number, e.g. 85)" type="number" defaultValue="" />
-      <Field name="currency" label="Currency (INR / USD)" defaultValue="INR" />
-      <Field name="education" label="Education (e.g. PhD Mathematics, Oxford)" defaultValue="" />
-      <Field name="successRate" label="Success rate (e.g. 99%)" defaultValue="" />
-      <Field name="responseTime" label="Response time (e.g. < 5 mins)" defaultValue="" />
-      <Field name="availabilityText" label="Availability text (e.g. Mon–Sat 4–9pm)" defaultValue="" />
-      <Textarea name="methodology" label="Teaching methodology" defaultValue="" />
+      <Field name="experienceYears" label="Experience (years)" type="number" defaultValue={tutor?.experienceYears != null ? String(tutor.experienceYears) : ""} />
+      <Field name="hourlyRate" label="Hourly rate (number, e.g. 85)" type="number" defaultValue={tutor?.hourlyRate != null ? String(tutor.hourlyRate) : ""} />
+      <Field name="currency" label="Currency (INR / USD)" defaultValue={tutor?.currency ?? "INR"} />
+      <Field name="education" label="Education (e.g. PhD Mathematics, Oxford)" defaultValue={tutor?.education ?? ""} />
+      <Field name="successRate" label="Success rate (e.g. 99%)" defaultValue={tutor?.successRate ?? ""} />
+      <Field name="responseTime" label="Response time (e.g. < 5 mins)" defaultValue={tutor?.responseTime ?? ""} />
+      <Field name="availabilityText" label="Availability text (e.g. Mon–Sat 4–9pm)" defaultValue={tutor?.availabilityText ?? ""} />
+      <Textarea name="methodology" label="Teaching methodology" defaultValue={tutor?.methodology ?? ""} />
+      <Textarea
+        name="faqsText"
+        label="Teacher FAQs (shown on the public profile) — write the question on one line, the answer on the next, and leave a BLANK line between each FAQ"
+        defaultValue={faqsToText(tutor?.faqs)}
+      />
 
       <label className="flex items-center gap-2 text-sm font-bold text-slate-300">
         <input type="checkbox" name="verified" value="true" defaultChecked={tutor?.verificationStatus === "verified"} className="size-4" />

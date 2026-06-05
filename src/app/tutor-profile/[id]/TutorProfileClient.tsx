@@ -1,7 +1,7 @@
 ﻿"use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Star, Clock, GraduationCap, ShieldCheck, CheckCircle2, MessageCircle, Laptop, Home as HomeIcon, Award, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
@@ -10,22 +10,44 @@ import { TutorReviewsCarousel } from "@/components/tutors/TutorReviewsCarousel";
 import { BookDemoModal } from "@/components/booking/BookDemoModal";
 import type { Tutor } from "@/lib/tutor-data";
 import type { PublicTutorReview } from "@/lib/cms/public-reviews";
+import { getStoredReturnTo, storeLegacyReturnToFromUrl } from "@/lib/return-to";
+import { openTutorMessage } from "@/lib/tutor-message";
+import Link from "next/link";
 
-export default function TutorProfileClient({ tutor, reviews = [] }: { tutor: Tutor; reviews?: PublicTutorReview[] }) {
-   return (
-      <Suspense fallback={<div className="min-h-screen bg-background" />}>
-         <TutorProfileContent tutor={tutor} reviews={reviews} />
-      </Suspense>
-   );
+export type TutorReachLink = {
+   slug: string;
+   board: string;
+   subject: string;
+   mode: string;
+   city: string | null;
+};
+
+export default function TutorProfileClient({
+   tutor,
+   reviews = [],
+   reachPages = [],
+}: {
+   tutor: Tutor;
+   reviews?: PublicTutorReview[];
+   reachPages?: TutorReachLink[];
+}) {
+   return <TutorProfileContent tutor={tutor} reviews={reviews} reachPages={reachPages} />;
 }
 
-function TutorProfileContent({ tutor, reviews }: { tutor: Tutor; reviews: PublicTutorReview[] }) {
+function TutorProfileContent({
+   tutor,
+   reviews,
+   reachPages,
+}: {
+   tutor: Tutor;
+   reviews: PublicTutorReview[];
+   reachPages: TutorReachLink[];
+}) {
    const router = useRouter();
-   const searchParams = useSearchParams();
-   const returnTo = getSafeReturnTo(searchParams.get("returnTo"));
    const [demoOpen, setDemoOpen] = useState(false);
 
    useEffect(() => {
+      storeLegacyReturnToFromUrl("tutor-profile", ["/tutor-profile"]);
       document.body.style.overflow = "unset";
       document.body.style.position = "";
       document.body.style.width = "";
@@ -33,7 +55,7 @@ function TutorProfileContent({ tutor, reviews }: { tutor: Tutor; reviews: Public
    }, []);
 
    const handleWhatsApp = () => {
-      window.open(`https://wa.me/917439368115?text=Hi%20IBGram%20team%2C%20I%27m%20interested%20in%20booking%20a%20session%20with%20${encodeURIComponent(tutor.name)}.`, "_blank");
+      openTutorMessage(tutor);
    };
 
    const handleBookDemo = () => {
@@ -41,8 +63,9 @@ function TutorProfileContent({ tutor, reviews }: { tutor: Tutor; reviews: Public
    };
 
    const handleBack = () => {
-      if (returnTo) {
-         router.push(returnTo);
+      const storedReturnTo = getStoredReturnTo("tutor-profile", ["/tutor-profile"]);
+      if (storedReturnTo) {
+         router.push(storedReturnTo);
          return;
       }
 
@@ -184,11 +207,63 @@ function TutorProfileContent({ tutor, reviews }: { tutor: Tutor; reviews: Public
                            <GraduationCap className="size-6 text-primary" /> About {tutor.name.split(" ")[0]}
                         </h3>
                         <div className="p-8 rounded-[2rem] bg-card/40 border border-white/5 glassmorphism">
-                           <p className="text-lg md:text-xl text-muted-foreground leading-[1.8] font-medium">
-                              {tutor.bio}
-                           </p>
+                           <div className="space-y-4 text-lg md:text-xl text-muted-foreground leading-[1.8] font-medium">
+                              {(tutor.about?.trim() ? tutor.about : tutor.bio)
+                                 .split(/\n\s*\n/)
+                                 .map((para, idx) => (
+                                    <p key={idx}>{para.trim()}</p>
+                                 ))}
+                           </div>
                         </div>
                      </section>
+
+                     {reachPages.length > 0 && (
+                        <section>
+                           <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
+                              <BookOpen className="size-6 text-primary" /> Subject pages with {tutor.name.split(" ")[0]}
+                           </h3>
+                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                              {reachPages.map((page) => (
+                                 <Link
+                                    key={page.slug}
+                                    href={`/tutor-pages/${page.slug}/`}
+                                    className="group flex items-center justify-between gap-3 rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-primary/5"
+                                 >
+                                    <div className="min-w-0">
+                                       <p className="font-black text-foreground group-hover:text-primary">
+                                          {page.board} {page.subject}
+                                       </p>
+                                       <p className="mt-1 text-sm font-medium capitalize text-muted-foreground">
+                                          {page.mode} tutoring{page.city ? ` · ${page.city}` : ""}
+                                       </p>
+                                    </div>
+                                    <ArrowLeft className="size-5 shrink-0 rotate-180 text-primary transition-transform group-hover:translate-x-1" />
+                                 </Link>
+                              ))}
+                           </div>
+                        </section>
+                     )}
+
+                     {tutor.faqs && tutor.faqs.length > 0 && (
+                        <section>
+                           <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
+                              <MessageCircle className="size-6 text-primary" /> FAQs about {tutor.name.split(" ")[0]}
+                           </h3>
+                           <div className="divide-y divide-border/50 rounded-[2rem] border border-border bg-card/40">
+                              {tutor.faqs.map((faq, idx) => (
+                                 <details key={idx} className="group p-6">
+                                    <summary className="flex cursor-pointer list-none items-start justify-between gap-3 text-lg font-bold text-foreground">
+                                       {faq.question}
+                                       <CheckCircle2 className="mt-1 size-5 shrink-0 text-primary transition-transform group-open:rotate-90" />
+                                    </summary>
+                                    <p className="mt-3 text-base font-medium leading-relaxed text-muted-foreground">
+                                       {faq.answer}
+                                    </p>
+                                 </details>
+                              ))}
+                           </div>
+                        </section>
+                     )}
 
                      <section>
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
@@ -296,11 +371,4 @@ function TutorProfileContent({ tutor, reviews }: { tutor: Tutor; reviews: Public
          />
       </div>
    );
-}
-
-function getSafeReturnTo(value: string | null): string | undefined {
-   if (!value) return undefined;
-   if (!value.startsWith("/") || value.startsWith("//")) return undefined;
-   if (value.startsWith("/tutor-profile")) return undefined;
-   return value;
 }

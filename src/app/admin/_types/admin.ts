@@ -76,6 +76,8 @@ export interface AdminTutorRecord {
   image?: string;
   headline: string;
   bio: string;
+  about?: string;
+  faqs?: Array<{ question: string; answer: string }>;
   curriculums: AdminCurriculum;
   ibProgrammes: string[];
   ibSubjects: string[];
@@ -94,6 +96,17 @@ export interface AdminTutorRecord {
   profileStatus: "active" | "draft" | "paused";
   rating: number;
   reviews: number;
+  // Extended fields shown in the admin editor (so they reload after save).
+  experienceYears?: number | null;
+  hourlyRate?: number | null;
+  currency?: string | null;
+  education?: string | null;
+  successRate?: string | null;
+  responseTime?: string | null;
+  availabilityText?: string | null;
+  methodology?: string | null;
+  tags?: string[];
+  languages?: string[];
   lastUpdated: string;
 }
 

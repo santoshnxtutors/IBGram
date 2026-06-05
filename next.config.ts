@@ -70,6 +70,7 @@ const nextConfig: NextConfig = {
 
     return [
       { source: "/images/:path*", headers: staticAssetHeaders },
+      { source: "/Admission/:path*", headers: staticAssetHeaders },
       { source: "/uploads/:path*", headers: staticAssetHeaders },
       { source: "/ibgramlogo.png", headers: staticAssetHeaders },
       { source: "/student_sophia_usa_review_avatar.png", headers: staticAssetHeaders },

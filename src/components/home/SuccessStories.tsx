@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { BookOpenCheck, GraduationCap, Sparkles, Target } from "lucide-react";
+import { BookOpenCheck, GraduationCap, Target } from "lucide-react";
 import Image from "next/image";
 
 type Story = {
@@ -111,7 +111,7 @@ export function SuccessStories({ items }: { items?: Story[] }) {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black uppercase tracking-[0.2em] mb-4"
           >
-            <Sparkles className="size-3" /> success stories
+            success stories
           </motion.div>
           <motion.h2
             id="success-heading"

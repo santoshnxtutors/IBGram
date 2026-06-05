@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, X, Target, Brain, ShieldCheck, MessageCircle } from "lucide-react";
+import { X, Target, Brain, ShieldCheck, MessageCircle } from "lucide-react";
 
 export function WhyIBGram() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +60,6 @@ export function WhyIBGram() {
         className="group relative flex items-center gap-2 transition-all z-20 cursor-pointer"
         aria-label="Why Choose IB Gram"
       >
-        <Sparkles className="size-5 md:size-6 text-primary group-hover:animate-pulse drop-shadow-md" />
         <span className="font-extrabold text-sm md:text-base text-foreground/80 group-hover:text-foreground tracking-wider transition-colors drop-shadow-md">
           Why IBGram?
         </span>
@@ -110,7 +109,6 @@ export function WhyIBGram() {
               <div className="max-w-xl mx-auto space-y-4 md:space-y-6">
                 <header className="text-center space-y-2 pt-2 relative">
                   <h2 className="text-xl md:text-3xl font-black tracking-tight flex items-center justify-center gap-2">
-                    <Sparkles className="size-5 text-primary" />
                     Why Choose <span className="text-primary text-gradient bg-300% animate-gradient">IB Gram?</span>
                   </h2>
                   <p className="text-sm md:text-base text-muted-foreground font-medium leading-relaxed max-w-lg mx-auto">

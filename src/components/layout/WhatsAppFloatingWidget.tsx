@@ -46,7 +46,7 @@ export function WhatsAppFloatingWidget() {
   };
 
   return (
-    <div className="fixed bottom-20 right-4 z-[110] sm:bottom-24 sm:right-6">
+    <div className="fixed bottom-4 right-4 z-[110] sm:bottom-6 sm:right-6">
       {isOpen && (
         <div className="absolute bottom-16 right-0 w-[calc(100vw-2rem)] max-w-[340px] overflow-hidden rounded-[1.5rem] border border-border/70 bg-card/95 text-card-foreground shadow-[0_24px_70px_-20px_rgba(0,0,0,0.55)] backdrop-blur-xl">
           <div className="flex items-center justify-between border-b border-border/60 px-4 py-3">

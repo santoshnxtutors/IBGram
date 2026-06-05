@@ -1,4 +1,9 @@
-﻿export interface Tutor {
+﻿export interface TutorFaq {
+  question: string;
+  answer: string;
+}
+
+export interface Tutor {
   id: number | string;
   slug?: string;
   name: string;
@@ -8,6 +13,7 @@
   reviews: number;
   experience: string;
   bio: string;
+  about?: string;
   rate: string;
   image: string;
   tags: string[];
@@ -18,6 +24,7 @@
   responseTime: string;
   methodology: string;
   curriculum: "IB" | "IGCSE" | "Both";
+  faqs?: TutorFaq[];
 }
 
 export type TutorCurriculum = "IB" | "IGCSE";

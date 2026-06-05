@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       isActive: parsed.data.isActive ?? true,
     },
   });
-  revalidateTag(SEO_CACHE_TAGS.redirects);
+  revalidateTag(SEO_CACHE_TAGS.redirects, { expire: 0 });
   return Response.json({ redirect: row });
 }
 
@@ -60,7 +60,7 @@ export async function PATCH(request: NextRequest) {
   }
   const { id, ...data } = parsed.data;
   const row = await prisma.redirectRule.update({ where: { id }, data });
-  revalidateTag(SEO_CACHE_TAGS.redirects);
+  revalidateTag(SEO_CACHE_TAGS.redirects, { expire: 0 });
   return Response.json({ redirect: row });
 }
 
@@ -70,6 +70,6 @@ export async function DELETE(request: NextRequest) {
   const id = new URL(request.url).searchParams.get("id");
   if (!id) return Response.json({ error: "id required" }, { status: 400 });
   await prisma.redirectRule.delete({ where: { id } });
-  revalidateTag(SEO_CACHE_TAGS.redirects);
+  revalidateTag(SEO_CACHE_TAGS.redirects, { expire: 0 });
   return Response.json({ ok: true });
 }
