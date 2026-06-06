@@ -254,15 +254,24 @@ async function seedBlog() {
     });
     categoryMap.set(cat.slug, row.id);
   }
+  let created = 0;
+  let preserved = 0;
   for (const post of BLOG_POSTS) {
     const { categorySlug, ...data } = post;
-    await prisma.blogPost.upsert({
+    const existing = await prisma.blogPost.findUnique({
       where: { slug: post.slug },
-      create: { ...data, categoryId: categoryMap.get(categorySlug) ?? null },
-      update: { ...data, categoryId: categoryMap.get(categorySlug) ?? null },
+      select: { id: true },
     });
+    if (existing) {
+      preserved++;
+      continue;
+    }
+    await prisma.blogPost.create({
+      data: { ...data, categoryId: categoryMap.get(categorySlug) ?? null },
+    });
+    created++;
   }
-  console.log(`✓ Blog: ${BLOG_CATEGORIES.length} categories, ${BLOG_POSTS.length} posts seeded`);
+  console.log(`✓ Blog: ${BLOG_CATEGORIES.length} categories, ${created} posts created, ${preserved} existing posts preserved`);
 }
 
 async function seedFaqs() {

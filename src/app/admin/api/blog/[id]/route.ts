@@ -1,5 +1,5 @@
 import type { NextRequest } from "next/server";
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { BLOG_CACHE_TAG } from "@/lib/cms/blog";
@@ -26,6 +26,16 @@ const patchSchema = z.object({
   publishedAt: z.string().datetime().optional().nullable(),
 });
 
+function revalidateBlogSurfaces(slugs: Array<string | null | undefined>) {
+  revalidateTag(BLOG_CACHE_TAG, { expire: 0 });
+  revalidatePath("/blog/");
+  revalidatePath("/");
+  revalidatePath("/igcse/");
+  for (const slug of slugs) {
+    if (slug) revalidatePath(`/blog/${slug}/`);
+  }
+}
+
 export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const session = requireAdminRequest(request);
   if (session instanceof Response) return session;
@@ -33,11 +43,12 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
   const parsed = patchSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   const { publishedAt, ...rest } = parsed.data;
+  const existing = await prisma.blogPost.findUnique({ where: { id }, select: { slug: true } });
   const updated = await prisma.blogPost.update({
     where: { id },
     data: { ...rest, ...(publishedAt !== undefined ? { publishedAt: publishedAt ? new Date(publishedAt) : null } : {}) },
   });
-  revalidateTag(BLOG_CACHE_TAG, { expire: 0 });
+  revalidateBlogSurfaces([existing?.slug, updated.slug]);
   return Response.json({ item: updated });
 }
 
@@ -45,7 +56,8 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
   const session = requireAdminRequest(request);
   if (session instanceof Response) return session;
   const { id } = await params;
+  const existing = await prisma.blogPost.findUnique({ where: { id }, select: { slug: true } });
   await prisma.blogPost.delete({ where: { id } });
-  revalidateTag(BLOG_CACHE_TAG, { expire: 0 });
+  revalidateBlogSurfaces([existing?.slug]);
   return Response.json({ ok: true });
 }

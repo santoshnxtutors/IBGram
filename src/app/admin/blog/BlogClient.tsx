@@ -120,6 +120,12 @@ export function BlogClient({ items }: { items: Item[] }) {
                 const { homePlacement, metaKeywords, ...rest } = data;
                 return {
                   ...rest,
+                  excerpt: typeof rest.excerpt === "string" ? rest.excerpt : null,
+                  authorName: typeof rest.authorName === "string" ? rest.authorName : null,
+                  metaTitle: typeof rest.metaTitle === "string" ? rest.metaTitle : null,
+                  metaDescription: typeof rest.metaDescription === "string" ? rest.metaDescription : null,
+                  readingTimeMinutes:
+                    typeof rest.readingTimeMinutes === "number" ? rest.readingTimeMinutes : null,
                   tags: tagsFromPlacement(homePlacement, editing?.tags),
                   metaKeywords:
                     typeof metaKeywords === "string"
@@ -178,7 +184,7 @@ export function BlogClient({ items }: { items: Item[] }) {
             </label>
             <label className="sm:col-span-2">
               <FieldLabel>Body *</FieldLabel>
-              <TextArea name="body" defaultValue={editing?.body} rows={10} required />
+              <TextArea name="body" defaultValue={editing?.body} rows={18} required />
             </label>
             <label>
               <FieldLabel>Meta title</FieldLabel>
