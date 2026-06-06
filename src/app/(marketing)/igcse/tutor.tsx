@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { allTutors } from "@/lib/tutor-data";
+import { allTutors, type Tutor } from "@/lib/tutor-data";
 import { TutorCard } from "@/components/tutors/TutorCard";
 import { rememberReturnTo } from "@/lib/return-to";
 import { buildTutorComparePath } from "@/lib/tutor-compare-url";
@@ -17,14 +17,19 @@ type AnyTutorId = string | number;
 const sameId = (a: AnyTutorId | null | undefined, b: AnyTutorId | null | undefined) =>
   a !== null && a !== undefined && b !== null && b !== undefined && String(a) === String(b);
 
-export function IGCSETutors() {
+type IGCSETutorsProps = {
+  tutors?: Tutor[];
+};
+
+export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
   const router = useRouter();
   const pathname = usePathname();
   const currentPath = pathname;
   const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
 
-  const igcseTutors = allTutors.filter(t => t.curriculum === "IGCSE" || t.curriculum === "Both");
+  const sourceTutors = tutors?.length ? tutors : allTutors;
+  const igcseTutors = tutors?.length ? tutors : sourceTutors.filter(t => t.curriculum === "IGCSE" || t.curriculum === "Both");
 
   const toggleCompare = (id: AnyTutorId) => {
     setCompareIds(prev => {
@@ -112,7 +117,7 @@ export function IGCSETutors() {
             <div className="text-sm font-bold flex items-center gap-3">
               <div className="flex -space-x-3">
                 {compareIds.map((id, i) => {
-                  const t = allTutors.find(t => sameId(t.id, id));
+                  const t = sourceTutors.find(t => sameId(t.id, id));
                   return t ? (
                     <div key={i} className="size-8 rounded-full border-2 border-background overflow-hidden relative shadow-sm flex items-center justify-center bg-muted">
                       {t.image ? (
@@ -162,7 +167,7 @@ export function IGCSETutors() {
               className="absolute inset-0 bg-background/80 backdrop-blur-xl"
             />
 
-            {allTutors.filter(t => sameId(t.id, selectedId)).map(tutor => (
+            {sourceTutors.filter(t => sameId(t.id, selectedId)).map(tutor => (
               <motion.div
                 key="expanded"
                 layoutId={`card-${tutor.id}`}

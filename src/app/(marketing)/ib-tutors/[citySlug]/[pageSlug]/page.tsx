@@ -9,6 +9,7 @@ import { buildTutorLandingPageSchema } from "@/lib/seo/schema";
 import { absoluteUrl, buildCityPath, buildCitySubpagePath } from "@/lib/seo/slug-utils";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getGeneratedPageForRoute, getGeneratedStaticParamsForTypes } from "@/lib/generated-pages/routes";
+import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { TutorAvailabilitySection } from "@/components/tutors/TutorAvailabilitySection";
 import { buildTutorAvailabilityIntro, getTutorsForGeneratedPage, type TutorPageContext } from "@/lib/tutors/tutor-location-matching";
@@ -35,6 +36,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: CitySubpageProps): Promise<Metadata> {
   const { citySlug, pageSlug } = await params;
+  const dbPage = await getDbGeneratedSeoPageByPath(`/ib-tutors/${citySlug}/${pageSlug}/`, ["subject", "programme"]);
+  if (dbPage) return buildGeneratedMetadata(dbPage);
+
   const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/${pageSlug}/`, ["subject", "programme"]);
   if (generatedPage) return buildGeneratedMetadata(generatedPage);
 
@@ -60,6 +64,9 @@ export async function generateMetadata({ params }: CitySubpageProps): Promise<Me
 
 export default async function CityContentSubpage({ params }: CitySubpageProps) {
   const { citySlug, pageSlug } = await params;
+  const dbPage = await getDbGeneratedSeoPageByPath(`/ib-tutors/${citySlug}/${pageSlug}/`, ["subject", "programme"]);
+  if (dbPage) return <GeneratedPageRenderer page={dbPage} />;
+
   const generatedPage = getGeneratedPageForRoute(`/ib-tutors/${citySlug}/${pageSlug}/`, ["subject", "programme"]);
   if (generatedPage) return <GeneratedPageRenderer page={generatedPage} />;
 

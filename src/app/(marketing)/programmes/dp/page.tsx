@@ -21,6 +21,7 @@ import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPag
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { SchoolDisclaimer } from "@/components/seo-city/SchoolDisclaimer";
 import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
+import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { CONTACT } from "@/lib/contact";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
@@ -68,8 +69,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function DPPage() {
+  const visibleTutors = await getVisibleTutorsForPage("/programmes/dp/");
   const dbPage = await getDbGeneratedSeoPageByPath("/programmes/dp/", ["programme"]);
-  if (dbPage) return <GeneratedPageRenderer page={dbPage} />;
+  if (dbPage) {
+    return (
+      <>
+        <GeneratedPageRenderer page={dbPage} />
+        <TutorDiscovery tutors={visibleTutors ?? undefined} />
+      </>
+    );
+  }
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -319,7 +328,7 @@ export default async function DPPage() {
         </div>
       </ProgrammeSection>
 
-      <TutorDiscovery />
+      <TutorDiscovery tutors={visibleTutors ?? undefined} />
 
       {/* FAQ */}
       <section className="container max-w-4xl mx-auto px-4 md:px-6 py-12 md:py-16">

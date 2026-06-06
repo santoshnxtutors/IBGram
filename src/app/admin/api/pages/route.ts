@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { saveGeneratedPage } from "@/lib/generated-pages/store";
+import { writeGeneratedPageToDb } from "@/lib/cms/generated-page-writer";
 import { validateGeneratedSeoPage } from "@/lib/page-generator/validators";
 
 import { getPages } from "../../_lib/admin-data";
@@ -20,9 +21,13 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const page = validateGeneratedSeoPage(body.page);
     const saved = saveGeneratedPage(page);
+    const dbResult = await writeGeneratedPageToDb(saved);
     return Response.json({
       page: saved,
-      message: "Saved generated draft to local generated-pages store. Replace with database persistence for multi-user production editing.",
+      persisted: dbResult.ok,
+      message: dbResult.ok
+        ? "Saved generated draft to local generated-pages store and Prisma database."
+        : `Saved generated draft locally; database write failed: ${dbResult.error}`,
     });
   } catch (error) {
     return Response.json({ error: error instanceof Error ? error.message : "Page save failed." }, { status: 400 });

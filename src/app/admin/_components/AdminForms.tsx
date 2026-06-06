@@ -73,7 +73,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!tutor) {
+    if (!tutor && !event.currentTarget) {
       showToast("Cannot save — no tutor loaded.", "err");
       return;
     }
@@ -122,12 +122,14 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
     // Use the slug, not the legacy numeric id — the Prisma Tutor row uses the
     // slug (e.g. "dr-sarah-m-1"), while AdminTutorRecord.id is the static
     // numeric id ("1"). The API route accepts either.
-    const lookupKey = tutor.slug || tutor.id;
+    const lookupKey = tutor ? tutor.slug || tutor.id : "";
+    const saveUrl = tutor ? `/admin/api/tutors/${encodeURIComponent(lookupKey)}/` : "/admin/api/tutors/";
+    const saveMethod = tutor ? "PATCH" : "POST";
     // Trailing slash to match the project's trailingSlash:true config so we
     // don't trigger a 308 redirect that some browsers drop the PATCH body on.
     try {
-      const res = await fetch(`/admin/api/tutors/${encodeURIComponent(lookupKey)}/`, {
-        method: "PATCH",
+      const res = await fetch(saveUrl, {
+        method: saveMethod,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
@@ -144,7 +146,12 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
         throw new Error(msg);
       }
       showToast("Saved to database.");
-      router.refresh();
+      const savedSlug = (bodyJson as { slug?: string } | null)?.slug ?? payload.slug;
+      if (!tutor && savedSlug) {
+        router.push(`/admin/tutors/${encodeURIComponent(savedSlug)}/edit`);
+      } else {
+        router.refresh();
+      }
     } catch (err) {
       const msg =
         err instanceof TypeError && err.message.includes("fetch")

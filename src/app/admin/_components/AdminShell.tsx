@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   BarChart3,
+  BadgeCheck,
   Bot,
   ChevronRight,
   FileText,
@@ -33,6 +34,7 @@ const navigation = [
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "AI Generator", href: "/admin/generator", icon: Bot },
   { label: "Tutors", href: "/admin/tutors", icon: Users },
+  { label: "Tutor Visibility", href: "/admin/tutor-visibility", icon: BadgeCheck },
   { label: "Tutor Reach", href: "/admin/tutor-reach", icon: Target },
   { label: "Locations", href: "/admin/locations", icon: MapPin },
   { label: "Menus", href: "/admin/menus", icon: MenuIcon },

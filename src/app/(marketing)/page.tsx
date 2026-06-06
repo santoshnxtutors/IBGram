@@ -7,6 +7,8 @@ import { ReviewsSection } from "@/components/home/ReviewsSection";
 import { SEOPlatformInfo } from "@/components/home/SEOPlatformInfo";
 import { BlogInsights } from "@/components/home/BlogInsights";
 import { getPublicHomepageReviews, getPublicSuccessStories } from "@/lib/cms/public-reviews";
+import { getPublicHomepageFaqs } from "@/lib/cms/public-faqs";
+import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 
 const CourseExplorer = nextDynamic(() => import("@/components/home/CourseExplorer").then((mod) => mod.CourseExplorer));
 const TutorDiscovery = nextDynamic(() => import("@/components/home/TutorDiscovery").then((mod) => mod.TutorDiscovery));
@@ -48,9 +50,11 @@ const homepageJsonLd = [
 ];
 
 export default async function Home() {
-  const [reviewItems, storyItems] = await Promise.all([
+  const [reviewItems, storyItems, faqItems, visibleTutors] = await Promise.all([
     getPublicHomepageReviews(),
     getPublicSuccessStories(),
+    getPublicHomepageFaqs(),
+    getVisibleTutorsForPage("/"),
   ]);
 
   return (
@@ -65,7 +69,7 @@ export default async function Home() {
         <CourseExplorer />
       </div>
       <div className="cv-auto-section">
-        <TutorDiscovery />
+        <TutorDiscovery tutors={visibleTutors ?? undefined} />
       </div>
       <div className="cv-auto-section">
         <AIToolsShowcase />
@@ -83,7 +87,7 @@ export default async function Home() {
         <BlogInsights />
       </div>
       <div className="cv-auto-section">
-        <FAQSection />
+        <FAQSection items={faqItems ?? undefined} />
       </div>
     </div>
   );

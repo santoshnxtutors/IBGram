@@ -72,8 +72,8 @@ export const getPublicTutorsFromDb = unstable_cache(
   { tags: ["cms:tutors"], revalidate: 300 },
 );
 
-function mapPrismaToTutor(row: Awaited<ReturnType<typeof prisma.tutor.findMany>>[number] & {
-  profile: { education: string | null; methodology: string | null; successRate: string | null; responseTime: string | null; availabilityText: string | null; languages: string[]; tags: string[] } | null;
+export function mapPrismaToTutor(row: Awaited<ReturnType<typeof prisma.tutor.findMany>>[number] & {
+  profile: { education: string | null; methodology: string | null; successRate: string | null; responseTime: string | null; availabilityText: string | null; languages: string[]; tags: string[]; metadata?: unknown } | null;
   subjects: Array<{ subjectName: string; curriculum: string; level: string | null }>;
   curriculums: Array<{ curriculum: string; programme: string | null }>;
   locations: Array<{

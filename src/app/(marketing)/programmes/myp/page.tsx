@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { TutorDiscovery } from "@/components/home/TutorDiscovery";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
+import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 
 export const revalidate = 3600;
@@ -22,8 +23,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function MYPPage() {
+  const visibleTutors = await getVisibleTutorsForPage("/programmes/myp/");
   const dbPage = await getDbGeneratedSeoPageByPath("/programmes/myp/", ["programme"]);
-  if (dbPage) return <GeneratedPageRenderer page={dbPage} />;
+  if (dbPage) {
+    return (
+      <>
+        <GeneratedPageRenderer page={dbPage} />
+        <TutorDiscovery tutors={visibleTutors ?? undefined} />
+      </>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background pb-4">
@@ -145,7 +154,7 @@ export default async function MYPPage() {
         </div>
       </ProgrammeSection>
 
-      <TutorDiscovery />
+      <TutorDiscovery tutors={visibleTutors ?? undefined} />
 
       <div className="max-w-5xl mx-auto px-4 mt-16 mb-8">
         <div className="bg-card border border-border/50 rounded-3xl p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-sm">

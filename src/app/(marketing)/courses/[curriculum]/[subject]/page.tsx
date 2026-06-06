@@ -3,8 +3,10 @@ import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPag
 import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
+import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
 import CoursePageClient from "./course-page-client";
+import { CourseTutorSection } from "./course-tutor-section";
 import { getCourseSubjectContent } from "./subject-content";
 import { SubjectPageView } from "./SubjectPageView";
 
@@ -65,16 +67,23 @@ export async function generateMetadata({ params }: CourseProps): Promise<Metadat
 
 export default async function CoursePage({ params }: CourseProps) {
   const { curriculum, subject } = await params;
+  const pagePath = pathFor(curriculum, subject);
+  const visibleTutors = await getVisibleTutorsForPage(pagePath);
 
-  const dbPage = await getDbGeneratedSeoPageByPath(pathFor(curriculum, subject), ["subject"]);
+  const dbPage = await getDbGeneratedSeoPageByPath(pagePath, ["subject"]);
   if (dbPage && isRichDbPage(dbPage)) {
-    return <GeneratedPageRenderer page={dbPage} />;
+    return (
+      <>
+        <GeneratedPageRenderer page={dbPage} />
+        <CourseTutorSection curriculum={curriculum} subjectSlug={subject} tutors={visibleTutors ?? undefined} />
+      </>
+    );
   }
 
   const content = getCourseSubjectContent(curriculum, subject);
   if (content) {
-    return <SubjectPageView curriculum={curriculum} subject={subject} content={content} />;
+    return <SubjectPageView curriculum={curriculum} subject={subject} content={content} visibleTutors={visibleTutors ?? undefined} />;
   }
 
-  return <CoursePageClient />;
+  return <CoursePageClient visibleTutors={visibleTutors ?? undefined} />;
 }

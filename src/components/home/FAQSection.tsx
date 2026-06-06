@@ -9,16 +9,20 @@ export interface FAQSectionProps {
     country: string;
     cities?: string;
   };
+  items?: Array<{
+    question: string;
+    answer: string;
+  }>;
 }
 
-export function FAQSection({ location = { country: "India", cities: "Mumbai, Delhi NCR, Bangalore, Pune, and Hyderabad" } }: FAQSectionProps) {
+export function FAQSection({ location = { country: "India", cities: "Mumbai, Delhi NCR, Bangalore, Pune, and Hyderabad" }, items }: FAQSectionProps) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   const toggleFaq = (idx: number) => {
     setOpenIdx(openIdx === idx ? null : idx);
   };
 
-  const faqs = [
+  const faqs = items?.length ? items : [
     {
       question: "How does IB Gram match a tutor?",
       answer: "We look at the curriculum, subject, level, weak areas, school timeline, preferred tutoring mode, schedule and budget. The goal is to help families review a smaller, more relevant set of tutor options instead of a long generic list.",

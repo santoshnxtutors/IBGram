@@ -17,15 +17,18 @@ import { JsonLd } from "@/components/seo-city/JsonLd";
 import { SchoolDisclaimer } from "@/components/seo-city/SchoolDisclaimer";
 import { CONTACT } from "@/lib/contact";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
+import type { Tutor } from "@/lib/tutor-data";
+import { CourseTutorSection } from "./course-tutor-section";
 import type { CourseSubjectContent } from "./subject-content";
 
 type Props = {
   curriculum: string;
   subject: string;
   content: CourseSubjectContent;
+  visibleTutors?: Tutor[];
 };
 
-export function SubjectPageView({ curriculum, subject, content }: Props) {
+export function SubjectPageView({ curriculum, subject, content, visibleTutors }: Props) {
   const pageUrl = absoluteUrl(`/courses/${curriculum.toLowerCase()}/${subject.toLowerCase()}/`);
   const curriculumUpper = curriculum.toUpperCase();
 
@@ -324,6 +327,8 @@ export function SubjectPageView({ curriculum, subject, content }: Props) {
           </div>
         </div>
       </section>
+
+      <CourseTutorSection curriculum={curriculum} subjectSlug={subject} tutors={visibleTutors} />
 
       {/* FAQ */}
       <section className="py-12 md:py-20">

@@ -23,6 +23,7 @@ import { IGCSELearningPlan } from "./planning/IGCSELearningPlan";
 import { IGCSEReviews } from "./reviews/IGCSEReviews";
 import { IGCSETrustSignals } from "./trust/IGCSETrustSignals";
 import { igcseFaqs } from "./content";
+import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 
 export const dynamic = "force-static";
 export const revalidate = 3600;
@@ -138,7 +139,8 @@ const MATCHING_STEPS = [
   },
 ];
 
-export default function IGCSEPage() {
+export default async function IGCSEPage() {
+  const visibleTutors = await getVisibleTutorsForPage("/igcse/");
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -434,7 +436,7 @@ export default function IGCSEPage() {
         </div>
       </section>
 
-      <IGCSETutors />
+      <IGCSETutors tutors={visibleTutors ?? undefined} />
 
       <IGCSEReviews />
 

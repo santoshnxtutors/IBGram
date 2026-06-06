@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
-import { allTutors } from "@/lib/tutor-data";
+import { allTutors, type Tutor } from "@/lib/tutor-data";
 import { TutorCard } from "@/components/tutors/TutorCard";
 import { rememberReturnTo } from "@/lib/return-to";
 import { buildTutorComparePath } from "@/lib/tutor-compare-url";
@@ -18,13 +18,18 @@ type AnyTutorId = string | number;
 const sameId = (a: AnyTutorId | null | undefined, b: AnyTutorId | null | undefined) =>
   a !== null && a !== undefined && b !== null && b !== undefined && String(a) === String(b);
 
-export function TutorDiscovery() {
+type TutorDiscoveryProps = {
+  tutors?: Tutor[];
+};
+
+export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
   const router = useRouter();
   const pathname = usePathname();
   const currentPath = pathname;
   const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
   const portalTarget = typeof document !== "undefined" ? document.body : null;
+  const sourceTutors = tutors?.length ? tutors : allTutors;
 
   const toggleCompare = (id: AnyTutorId) => {
     setCompareIds(prev => {
@@ -85,7 +90,7 @@ export function TutorDiscovery() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allTutors.slice(0, 3).map((tutor) => (
+          {sourceTutors.slice(0, 3).map((tutor) => (
             <TutorCard
               key={tutor.id}
               tutor={tutor}
@@ -109,7 +114,7 @@ export function TutorDiscovery() {
                   <div className="flex items-center gap-3 text-sm font-bold">
                     <div className="flex -space-x-3">
                       {compareIds.map((id, i) => {
-                        const t = allTutors.find(t => sameId(t.id, id));
+                        const t = sourceTutors.find(t => sameId(t.id, id));
                         return t ? (
                           <div key={i} className="relative size-8 overflow-hidden rounded-full border-2 border-background shadow-sm">
                             <Image src={t.image} alt={t.name} fill sizes="32px" className="object-cover" />
@@ -165,7 +170,7 @@ export function TutorDiscovery() {
               className="absolute inset-0 bg-background/80 backdrop-blur-xl"
             />
 
-            {allTutors.filter(t => sameId(t.id, selectedId)).map(tutor => (
+            {sourceTutors.filter(t => sameId(t.id, selectedId)).map(tutor => (
               <motion.div
                 key="expanded"
                 layoutId={`card-${tutor.id}`}

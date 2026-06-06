@@ -117,7 +117,7 @@ export function Footer() {
               <li><Link href="/subscription" className="hover:text-primary transition-colors">Plans</Link></li>
               <li><Link href="/blog" className="hover:text-primary transition-colors">Blogs</Link></li>
             </ul>
-          </div>
+          </div>  
 
           {/* Support Column */}
           <div>

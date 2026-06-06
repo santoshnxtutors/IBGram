@@ -4,10 +4,15 @@ import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, BookOpen, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import type { Tutor } from "@/lib/tutor-data";
 import { CourseTutorSection } from "./course-tutor-section";
 import { formatCourseSubject } from "./course-tutor-data";
 
-export default function CoursePageClient() {
+type CoursePageClientProps = {
+  visibleTutors?: Tutor[];
+};
+
+export default function CoursePageClient({ visibleTutors }: CoursePageClientProps = {}) {
   const params = useParams();
   const router = useRouter();
 
@@ -110,7 +115,7 @@ export default function CoursePageClient() {
         </div>
       </section>
 
-      <CourseTutorSection curriculum={curriculum} subjectSlug={subjectStr} />
+      <CourseTutorSection curriculum={curriculum} subjectSlug={subjectStr} tutors={visibleTutors} />
     </div>
   );
 }

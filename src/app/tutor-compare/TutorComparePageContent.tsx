@@ -16,24 +16,24 @@ export async function TutorComparePageContent({ tutorIds }: TutorComparePageCont
     .filter((tutor): tutor is (typeof tutorPool)[number] => Boolean(tutor));
 
   return (
-    <div className="min-h-screen pt-24 pb-32 bg-background mesh-gradient relative">
+    <div className="relative min-h-screen bg-background pb-24 pt-20">
       <CompareUrlCleaner />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] bg-primary/5 blur-[120px] rounded-full -z-10 pointer-events-none" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_20%_10%,rgba(34,197,94,0.12),transparent_35%)]" />
 
-      <div className="container mx-auto px-4 md:px-6 mb-12">
-        <div className="max-w-4xl mx-auto">
+      <div className="container relative mx-auto mb-8 px-4 md:px-6">
+        <div className="mx-auto max-w-5xl">
           <CompareBackButton />
 
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground mb-6">
+          <h1 className="mb-4 text-4xl font-black tracking-tight text-foreground md:text-6xl">
             Tutor <span className="text-primary">Comparison</span>
           </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            Compare two tutor profiles side by side, then book a free trial with the teacher you want to test first.
+          <p className="max-w-2xl text-base font-medium leading-7 text-muted-foreground md:text-lg">
+            Compare the essentials, then book a free trial with the tutor you want to test first.
           </p>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container relative mx-auto px-4 md:px-6">
         <ComparisonView tutors={selectedTutors} />
       </div>
     </div>
