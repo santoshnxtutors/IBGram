@@ -1069,6 +1069,22 @@ enum ContentStatus {
   archived
 }
 
+enum JobStatus {
+  draft
+  published
+  closed
+  archived
+}
+
+enum JobApplicationStatus {
+  received
+  reviewing
+  shortlisted
+  rejected
+  hired
+  withdrawn
+}
+
 enum TestimonialKind {
   review
   success_story
@@ -1162,6 +1178,75 @@ model BlogPost {
   @@index([status])
   @@index([publishedAt])
   @@index([categoryId])
+}
+
+model Job {
+  id                 String           @id @default(cuid())
+  slug               String           @unique
+  title              String
+  department         String
+  location           String
+  employmentType     String
+  level              String?
+  workMode           String?
+  summary            String?
+  roleOverview       String?
+  jobDescription     String
+  responsibilities   String[]         @default([])
+  requirements       String[]         @default([])
+  niceToHave         String[]         @default([])
+  benefits           String[]         @default([])
+  applicationPrompt  String?
+  status             JobStatus        @default(draft)
+  sortOrder          Int              @default(0)
+  publishedAt        DateTime?
+  closesAt           DateTime?
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+  applications       JobApplication[]
+
+  @@index([status])
+  @@index([department])
+  @@index([publishedAt])
+  @@index([sortOrder])
+}
+
+model JobApplication {
+  id                   String               @id @default(cuid())
+  jobId                String?
+  jobTitleSnapshot     String
+  status               JobApplicationStatus @default(received)
+  firstName            String
+  lastName             String
+  email                String
+  phone                String?
+  currentLocation      String?
+  currentRole          String?
+  experienceYears      Int?
+  noticePeriod         String?
+  expectedCompensation String?
+  linkedInUrl          String?
+  portfolioUrl         String?
+  resumeUrl            String?
+  resumeFilename       String?
+  resumeMimeType       String?
+  resumeSizeBytes      Int?
+  photoUrl             String?
+  photoFilename        String?
+  photoMimeType        String?
+  photoSizeBytes       Int?
+  coverLetter          String?
+  answersJson          Json?
+  consentAccepted      Boolean              @default(false)
+  adminNotes           String?
+  createdAt            DateTime             @default(now())
+  updatedAt            DateTime             @updatedAt
+  job                  Job?                 @relation(fields: [jobId], references: [id], onDelete: SetNull)
+
+  @@index([jobId])
+  @@index([status])
+  @@index([email])
+  @@index([createdAt])
 }
 
 model FaqItem {
