@@ -26,7 +26,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
   const router = useRouter();
   const pathname = usePathname();
   const currentPath = pathname;
-  const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
+  const [selectedTutor, setSelectedTutor] = useState<Tutor | null>(null);
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
   const portalTarget = typeof document !== "undefined" ? document.body : null;
   const sourceTutors = tutors?.length ? tutors : allTutors;
@@ -48,7 +48,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
 
   // Prevent scrolling when expanded view is open
   useEffect(() => {
-    if (selectedId !== null) {
+    if (selectedTutor !== null) {
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
       document.body.style.width = "100%";
@@ -67,7 +67,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
       document.body.style.width = "";
       document.body.style.top = "";
     };
-  }, [selectedId]);
+  }, [selectedTutor]);
 
   return (
     <section className="py-16 md:py-20 relative overflow-hidden">
@@ -96,7 +96,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
               tutor={tutor}
               selectedForCompare={compareIds.some((id) => sameId(id, tutor.id))}
               onCompareToggle={toggleCompare}
-              onOpen={setSelectedId}
+              onOpen={(tutor) => setSelectedTutor(tutor as Tutor)}
             />
           ))}
         </div>
@@ -104,7 +104,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
       {portalTarget
         ? createPortal(
             <AnimatePresence>
-              {compareIds.length > 0 && !selectedId && (
+              {compareIds.length > 0 && !selectedTutor && (
                 <motion.div
                   initial={{ opacity: 0, y: 50, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -159,25 +159,27 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
         : null}
 
       {/* Expanded View */}
-      <AnimatePresence>
-        {selectedId && (
+      {portalTarget
+        ? createPortal(
+            <AnimatePresence>
+              {selectedTutor && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedId(null)}
+              onClick={() => setSelectedTutor(null)}
               className="absolute inset-0 bg-background/80 backdrop-blur-xl"
             />
 
-            {sourceTutors.filter(t => sameId(t.id, selectedId)).map(tutor => (
+            {[selectedTutor].map(tutor => (
               <motion.div
                 key="expanded"
                 layoutId={`card-${tutor.id}`}
                 className="relative w-full max-w-3xl bg-card border border-border rounded-[2.5rem] shadow-3xl overflow-hidden glassmorphism-heavy flex flex-col md:flex-row max-h-[90vh] overflow-y-auto"
               >
                 <button
-                  onClick={() => setSelectedId(null)}
+                  onClick={() => setSelectedTutor(null)}
                   aria-label="Close tutor profile preview"
                   className="absolute top-6 right-6 z-20 size-10 rounded-full bg-background/50 backdrop-blur-md flex items-center justify-center border border-border hover:bg-muted transition-colors"
                 >
@@ -187,13 +189,19 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
                 {/* Profile Pic Side */}
                 <div className="w-full md:w-2/5 relative h-64 md:h-auto min-h-[300px]">
                   <motion.div layoutId={`avatar-${tutor.id}`} className="absolute inset-0">
-                    <Image
-                      src={tutor.image}
-                      alt={tutor.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 40vw"
-                      className="object-cover"
-                    />
+                    {tutor.image ? (
+                      <Image
+                        src={tutor.image}
+                        alt={tutor.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 40vw"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="grid h-full w-full place-items-center bg-muted text-6xl font-black text-muted-foreground">
+                        {tutor.name.charAt(0)}
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-r" />
                   </motion.div>
                 </div>
@@ -255,7 +263,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
                       <button
                         onClick={() => {
                           rememberReturnTo("tutor-profile", currentPath);
-                          router.push(`/tutor-profile/${tutor.id}`);
+                          router.push(`/tutor-profile/${tutor.slug ?? tutor.id}`);
                         }}
                         className="flex-1 flex justify-end items-center font-bold text-primary hover:text-primary/80 transition-colors group text-base md:text-lg"
                       >
@@ -267,8 +275,11 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
               </motion.div>
             ))}
           </div>
-        )}
-      </AnimatePresence>
+              )}
+            </AnimatePresence>,
+            portalTarget,
+          )
+        : null}
     </section>
   );
 }

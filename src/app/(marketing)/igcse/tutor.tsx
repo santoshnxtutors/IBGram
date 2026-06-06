@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { createPortal } from "react-dom";
 import { allTutors, type Tutor } from "@/lib/tutor-data";
 import { TutorCard } from "@/components/tutors/TutorCard";
 import { rememberReturnTo } from "@/lib/return-to";
@@ -25,8 +26,9 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
   const router = useRouter();
   const pathname = usePathname();
   const currentPath = pathname;
-  const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
+  const [selectedTutor, setSelectedTutor] = useState<Tutor | null>(null);
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
+  const portalTarget = typeof document !== "undefined" ? document.body : null;
 
   const sourceTutors = tutors?.length ? tutors : allTutors;
   const igcseTutors = tutors?.length ? tutors : sourceTutors.filter(t => t.curriculum === "IGCSE" || t.curriculum === "Both");
@@ -48,7 +50,7 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
 
   // Prevent scrolling when expanded view is open
   useEffect(() => {
-    if (selectedId !== null) {
+    if (selectedTutor !== null) {
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
       document.body.style.width = "100%";
@@ -69,7 +71,7 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
       document.body.style.width = "";
       document.body.style.top = "";
     };
-  }, [selectedId]);
+  }, [selectedTutor]);
 
   if (igcseTutors.length === 0) return null;
 
@@ -100,14 +102,14 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
               tutor={tutor}
               selectedForCompare={compareIds.some((id) => sameId(id, tutor.id))}
               onCompareToggle={toggleCompare}
-              onOpen={setSelectedId}
+              onOpen={(tutor) => setSelectedTutor(tutor as Tutor)}
             />
           ))}
         </div>
       </div>
       {/* Floating Compare Action Bar */}
       <AnimatePresence>
-        {compareIds.length > 0 && !selectedId && (
+        {compareIds.length > 0 && !selectedTutor && (
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -156,25 +158,27 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
       </AnimatePresence>
 
       {/* Expanded View */}
-      <AnimatePresence>
-        {selectedId && (
+      {portalTarget
+        ? createPortal(
+            <AnimatePresence>
+              {selectedTutor && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedId(null)}
+              onClick={() => setSelectedTutor(null)}
               className="absolute inset-0 bg-background/80 backdrop-blur-xl"
             />
 
-            {sourceTutors.filter(t => sameId(t.id, selectedId)).map(tutor => (
+            {[selectedTutor].map(tutor => (
               <motion.div
                 key="expanded"
                 layoutId={`card-${tutor.id}`}
                 className="relative w-full max-w-3xl bg-card border border-border rounded-[2.5rem] shadow-3xl overflow-hidden glassmorphism-heavy flex flex-col md:flex-row max-h-[90vh] overflow-y-auto"
               >
                 <button
-                  onClick={() => setSelectedId(null)}
+                  onClick={() => setSelectedTutor(null)}
                   className="absolute top-6 right-6 z-20 size-10 rounded-full bg-background/50 backdrop-blur-md flex items-center justify-center border border-border hover:bg-muted transition-colors"
                 >
                   <X className="size-5" />
@@ -261,7 +265,7 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
                           document.body.style.width = "";
                           document.body.style.top = "";
                           rememberReturnTo("tutor-profile", currentPath);
-                          router.push(`/tutor-profile/${tutor.id}`);
+                          router.push(`/tutor-profile/${tutor.slug ?? tutor.id}`);
                         }}
                         className="flex-1 flex justify-end items-center font-bold text-primary hover:text-primary/80 transition-colors group text-lg"
                       >
@@ -273,8 +277,11 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
               </motion.div>
             ))}
           </div>
-        )}
-      </AnimatePresence>
+              )}
+            </AnimatePresence>,
+            portalTarget,
+          )
+        : null}
     </section>
   );
 }

@@ -259,7 +259,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
                   tutor={tutor}
                   selectedForCompare={compareIds.some((item) => sameId(item, tutor.id))}
                   onCompareToggle={toggleCompare}
-                  onOpen={setSelectedId}
+                  onOpen={(tutor) => setSelectedId(tutor.id)}
                 />
               </motion.div>
             ))}

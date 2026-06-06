@@ -100,7 +100,7 @@ export function TutorAvailabilitySection({
                 tutor={tutor}
                 selectedForCompare={compareIds.some((id) => sameId(id, tutor.id))}
                 onCompareToggle={toggleCompare}
-                onOpen={setSelectedId}
+                onOpen={(tutor) => setSelectedId(tutor.id)}
               />
             ))}
           </div>
