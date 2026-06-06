@@ -41,7 +41,7 @@ const datasourceUrl = buildConstrainedDatasourceUrl();
 const prisma =
   globalThis.__ibgramPrisma ??
   new PrismaClient({
-    log: process.env.NODE_ENV === "development" ? ["error", "warn"] : ["error"],
+    log: process.env.PRISMA_LOG_ERRORS === "true" ? ["error", "warn"] : [],
     ...(datasourceUrl ? { datasourceUrl } : {}),
   });
 

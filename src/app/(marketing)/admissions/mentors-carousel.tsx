@@ -207,7 +207,7 @@ export function MentorsCarousel() {
             </div>
             <div className="grid min-h-0 flex-1 gap-4 overflow-y-auto p-4 sm:gap-6 sm:p-5 md:grid-cols-[220px_1fr]">
               <div className="relative h-[min(62dvh,440px)] shrink-0 overflow-hidden rounded-2xl bg-muted sm:aspect-[4/5] sm:h-auto">
-                <Image src={activeMentor.image} alt={activeMentor.name} fill sizes="(min-width: 768px) 220px, 100vw" className="object-cover object-top" />
+                <Image src={activeMentor.image} alt={activeMentor.name} fill sizes="(min-width: 768px) 220px, 100vw" className="object-contain object-center" />
               </div>
               <div>
                 <p className="text-sm leading-7 text-muted-foreground">{activeMentor.details}</p>

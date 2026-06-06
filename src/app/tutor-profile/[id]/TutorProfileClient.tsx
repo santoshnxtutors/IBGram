@@ -226,7 +226,7 @@ function TutorProfileContent({
                               {reachPages.map((page) => (
                                  <Link
                                     key={page.slug}
-                                    href={`/tutor-pages/${page.slug}/`}
+                                    href={`/tutor/${page.slug}/`}
                                     className="group flex items-center justify-between gap-3 rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-primary/5"
                                  >
                                     <div className="min-w-0">

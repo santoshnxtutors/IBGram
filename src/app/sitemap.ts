@@ -35,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 1c. Published tutor-reach pages (quality-gated in getTutorReachSitemapEntries)
   for (const reach of reachEntries) {
-    const url = absoluteUrl(`/tutor-pages/${reach.slug}/`);
+    const url = absoluteUrl(`/tutor/${reach.slug}/`);
     byUrl.set(url, {
       url,
       lastModified: reach.lastModified,

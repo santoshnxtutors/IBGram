@@ -275,7 +275,7 @@ export function TutorReachClient({ items, tutors }: { items: Item[]; tutors: Tut
                   )}
                 </div>
                 <p className="mt-1 text-xs font-bold text-slate-500">
-                  {item.tutorName} · {item.board} {item.subject} · /tutor-pages/{item.slug}/
+                  {item.tutorName} · {item.board} {item.subject} · /tutor/{item.slug}/
                 </p>
                 <p className="mt-2 line-clamp-2 text-sm font-medium leading-relaxed text-slate-300">
                   {item.intro ?? item.body.slice(0, 200)}
@@ -284,7 +284,7 @@ export function TutorReachClient({ items, tutors }: { items: Item[]; tutors: Tut
               <div className="col-span-12 flex justify-end gap-2 md:col-span-4">
                 {item.status === "published" && (
                   <a
-                    href={`/tutor-pages/${item.slug}/`}
+                    href={`/tutor/${item.slug}/`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex h-9 items-center gap-2 rounded-md border border-white/15 bg-white/[0.05] px-3 text-xs font-bold text-slate-200 hover:bg-white/10"

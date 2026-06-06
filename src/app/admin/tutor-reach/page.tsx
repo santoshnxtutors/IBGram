@@ -81,7 +81,7 @@ export default async function AdminTutorReachPage() {
       <AdminPageHeader
         eyebrow="Content"
         title="Tutor Reach"
-        description="Create per-tutor subject/board landing pages (e.g. 'IB DP Maths Home Tutor — Ajay Vatsyayan'). Each page needs its own unique content; thin pages stay out of the sitemap to protect SEO. Published pages live at /tutor-pages/<slug>/."
+        description="Create per-tutor subject/board landing pages (e.g. 'IB DP Maths Home Tutor — Ajay Vatsyayan'). Each page needs its own unique content; thin pages stay out of the sitemap to protect SEO. Published pages live at /tutor/<slug>/."
       />
       <AdminCard>
         {dbError ? (
