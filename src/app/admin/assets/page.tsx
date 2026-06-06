@@ -22,7 +22,7 @@ export default async function AssetsPage() {
       <AdminPageHeader
         eyebrow="Media"
         title="Media Library"
-        description="Drag-drop or pick files to upload directly. Images go to /public/uploads/<folder>/. Each upload creates an Asset row with alt text, dimensions and mime type."
+        description="Drag-drop or pick files to upload directly. Uploads use Cloudinary when configured, otherwise local storage. Each upload creates an Asset row with alt text, dimensions and mime type."
       />
       <AdminCard>
         <MediaLibrary

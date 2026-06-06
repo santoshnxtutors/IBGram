@@ -35,10 +35,6 @@ function getMaxBytes(): number {
   return Number.isFinite(parsed) && parsed > 0 ? parsed : DEFAULT_MAX_BYTES;
 }
 
-function localUploadsAllowed(): boolean {
-  return process.env.NODE_ENV !== "production" || process.env.ALLOW_LOCAL_PRODUCTION_UPLOADS === "true";
-}
-
 function safeFilename(input: string): string {
   const base = path.basename(input).replace(/[^a-zA-Z0-9._-]/g, "_");
   return base.length > 80 ? base.slice(0, 80) : base;
@@ -94,27 +90,28 @@ export async function POST(request: NextRequest) {
     return Response.json({ asset });
   }
 
-  if (!localUploadsAllowed()) {
-    return Response.json(
-      {
-        error:
-          "Production media uploads require Cloudinary env vars CLOUDINARY_CLOUD_NAME and CLOUDINARY_UPLOAD_PRESET, or explicit ALLOW_LOCAL_PRODUCTION_UPLOADS=true on persistent storage.",
-      },
-      { status: 503 },
-    );
-  }
-
   const uploadDir = getUploadDir();
   const targetDir = path.join(uploadDir, folder);
-  await fs.mkdir(targetDir, { recursive: true });
-
   const stamp = Date.now().toString(36);
   const rand = crypto.randomBytes(4).toString("hex");
   const filename = `${stamp}-${rand}-${safeFilename(file.name)}`;
   const targetPath = path.join(targetDir, filename);
 
-  const buffer = Buffer.from(await file.arrayBuffer());
-  await fs.writeFile(targetPath, buffer);
+  try {
+    await fs.mkdir(targetDir, { recursive: true });
+    const buffer = Buffer.from(await file.arrayBuffer());
+    await fs.writeFile(targetPath, buffer);
+  } catch (error) {
+    return Response.json(
+      {
+        error:
+          error instanceof Error
+            ? `Local upload failed: ${error.message}`
+            : "Local upload failed. Check UPLOAD_DIR permissions.",
+      },
+      { status: 500 },
+    );
+  }
 
   const key = `${folder}/${filename}`;
   // Serve through the /api/media route handler — bypasses Turbopack's static
