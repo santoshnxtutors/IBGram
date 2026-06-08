@@ -1,17 +1,21 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useDeferredValue, useMemo, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { GripVertical, Plus, Save, Sparkles, Trash2 } from "lucide-react";
 
 import type { AdminPageRecord } from "../_types/admin";
 import { AdminJsonViewer, AdminQualityChecklist } from "./AdminPrimitives";
 
 export function AdminPageEditor({ page, checklist }: { page: AdminPageRecord; checklist: { errors: string[]; warnings: string[] } }) {
+  const router = useRouter();
   const [draft, setDraft] = useState(page);
   const [message, setMessage] = useState("");
+  const [isPending, startTransition] = useTransition();
+  const deferredDraft = useDeferredValue(draft);
   const wordCount = useMemo(
-    () => [draft.h1, draft.heroSubtitle, draft.introSummary, ...draft.contentBlocks.map((block) => `${block.heading} ${block.body}`)].join(" ").trim().split(/\s+/).filter(Boolean).length,
-    [draft],
+    () => [deferredDraft.h1, deferredDraft.heroSubtitle, deferredDraft.introSummary, ...deferredDraft.contentBlocks.map((block) => `${block.heading} ${block.body}`)].join(" ").trim().split(/\s+/).filter(Boolean).length,
+    [deferredDraft],
   );
 
   async function save() {
@@ -22,6 +26,10 @@ export function AdminPageEditor({ page, checklist }: { page: AdminPageRecord; ch
       body: JSON.stringify(draft),
     });
     const json = await response.json();
+    if (response.ok && json.page) {
+      setDraft(json.page);
+      startTransition(() => router.refresh());
+    }
     setMessage(json.message || (response.ok ? "Saved preview." : "Save failed."));
   }
 
@@ -84,9 +92,9 @@ export function AdminPageEditor({ page, checklist }: { page: AdminPageRecord; ch
         <div className="sticky top-24 space-y-4">
           <Panel title="Editor controls">
             <div className="grid gap-2">
-              <button type="button" onClick={save} className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-emerald-300 px-3 text-sm font-black text-slate-950 hover:bg-amber-300">
+              <button type="button" onClick={save} disabled={isPending} className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-emerald-300 px-3 text-sm font-black text-slate-950 hover:bg-amber-300 disabled:opacity-60">
                 <Save className="size-4" />
-                Manual save
+                {isPending ? "Refreshing..." : "Manual save"}
               </button>
               <button type="button" className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 text-sm font-black text-white">
                 <Sparkles className="size-4 text-emerald-300" />

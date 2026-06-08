@@ -44,6 +44,30 @@ const PUBLIC_PAGE_PRIORITY: Record<AdminPageRecord["source"], number> = {
   "app-route": 1,
 };
 
+function gurgaonPremiumScore(place: (typeof gurgaonLocalPlaces)[number]) {
+  const localCoverage = place.nearbyAreas.length + place.nearbySectors.length + place.nearbySocieties.length;
+  const indexBase = place.indexFlag === "index" ? 70 : 45;
+  const duplicatePenalty = place.duplicateRisk === "high" ? 20 : place.duplicateRisk === "medium" ? 10 : 0;
+  return Math.max(0, Math.min(100, indexBase + localCoverage * 3 - duplicatePenalty));
+}
+
+function gurgaonDemandScore(place: (typeof gurgaonLocalPlaces)[number]) {
+  const reasonBase =
+    place.indexReason === "strong-local-depth"
+      ? 82
+      : place.indexReason === "mapped-local-intent"
+        ? 70
+        : 45;
+  return Math.max(0, Math.min(100, reasonBase + place.schoolEcosystem.length * 2 + place.nearbyAreas.length));
+}
+
+function generatedPageTypeToAdmin(page: GeneratedSeoPage): AdminPageRecord["pageType"] {
+  if (page.pageType === "city") {
+    return page.serviceFocus.toLowerCase().includes("igcse") ? "igcse_city" : "ib_city";
+  }
+  return page.pageType as AdminPageRecord["pageType"];
+}
+
 export async function getPages(): Promise<AdminPageRecord[]> {
   const explicitPages = buildExplicitRoutePages();
   const cityPages = getAllCitySeoPages().map<AdminPageRecord>((page) => {
@@ -369,8 +393,8 @@ export async function getLocations(type?: AdminLocationRecord["type"]): Promise<
     state: "Haryana",
     country: "India",
     localDescription: place.localIntent,
-    premiumScore: place.premiumScore,
-    demandScore: place.demandScore,
+    premiumScore: gurgaonPremiumScore(place),
+    demandScore: gurgaonDemandScore(place),
     active: true,
     seoNotes: `Index: ${place.indexFlag}. Duplicate risk: ${place.duplicateRisk}.`,
     relatedPages: place.nearbyAreas.concat(place.nearbySectors, place.nearbySocieties),
@@ -771,7 +795,7 @@ function generatedToAdminPage(page: GeneratedSeoPage): AdminPageRecord {
     title: page.metaTitle,
     slug: page.slug,
     url: pathFromUrl(page.canonicalUrl),
-    pageType: page.pageType,
+    pageType: generatedPageTypeToAdmin(page),
     curriculum: page.serviceFocus.toLowerCase().includes("igcse") ? "IGCSE" : "IB",
     city: page.cityName,
     locality: page.microLocationName,

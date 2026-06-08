@@ -22,6 +22,23 @@ type TutorDiscoveryProps = {
   tutors?: Tutor[];
 };
 
+const fallbackTutorImages = [
+  "/tutor_sarah_avatar_1775559612425.png",
+  "/tutor_james_avatar_1775559651647.png",
+  "/tutor_elena_avatar_1775559725738.png",
+];
+
+function withDisplayImageFallback(tutor: Tutor, index: number): Tutor {
+  if (!tutor.image || tutor.image.startsWith("/api/media/")) {
+    return {
+      ...tutor,
+      image: fallbackTutorImages[index % fallbackTutorImages.length],
+    };
+  }
+
+  return tutor;
+}
+
 export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
   const router = useRouter();
   const pathname = usePathname();
@@ -29,7 +46,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
   const [selectedTutor, setSelectedTutor] = useState<Tutor | null>(null);
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
   const portalTarget = typeof document !== "undefined" ? document.body : null;
-  const sourceTutors = tutors?.length ? tutors : allTutors;
+  const sourceTutors = (tutors ?? allTutors).map(withDisplayImageFallback);
 
   const toggleCompare = (id: AnyTutorId) => {
     setCompareIds(prev => {

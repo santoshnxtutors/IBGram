@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { allTutors } from "@/lib/tutor-data";
+import { allTutors, type Tutor } from "@/lib/tutor-data";
 import { getPublicTutorsFromDb } from "@/lib/cms/public-tutors";
 import { getTutorReviewsForPublic } from "@/lib/cms/public-reviews";
 import { getTutorReachPagesForTutor } from "@/lib/cms/tutor-reach";
@@ -18,10 +18,10 @@ export default async function TutorProfilePage({ params }: TutorProfileProps) {
 
    // 1. Try Prisma first — match by cuid, numeric id, OR slug.
    const dbTutors = await getPublicTutorsFromDb();
-   let tutor = dbTutors?.find((t) => String(t.id) === decodedId || t.slug === decodedId);
+   let tutor: Tutor | undefined = dbTutors?.find((t) => String(t.id) === decodedId || t.slug === decodedId);
 
    // 2. Fall back to static allTutors — match by numeric id, string id, OR slug.
-   if (!tutor) {
+   if (!tutor && dbTutors === null) {
       const numericId = Number.parseInt(decodedId, 10);
       tutor =
          (!Number.isNaN(numericId) ? allTutors.find((t) => t.id === numericId) : undefined) ??

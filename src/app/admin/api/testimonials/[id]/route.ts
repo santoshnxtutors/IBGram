@@ -1,7 +1,9 @@
 import type { NextRequest } from "next/server";
-import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { CACHE_TAGS } from "@/lib/cache/cache-tags";
+import { getAffectedPathsForReviewSurface } from "@/lib/cache/affected-paths";
+import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -27,10 +29,10 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
   if (session instanceof Response) return session;
   const { id } = await params;
   const parsed = patchSchema.safeParse(await request.json().catch(() => ({})));
-  if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+  if (!parsed.success) return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   const updated = await prisma.testimonial.update({ where: { id }, data: parsed.data });
-  revalidateTag("cms:testimonials", { expire: 0 });
-  return Response.json({ item: updated });
+  const revalidated = applyRevalidationTargets(getAffectedPathsForReviewSurface(CACHE_TAGS.testimonials));
+  return jsonNoStore({ item: updated, revalidated });
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
@@ -38,6 +40,6 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
   if (session instanceof Response) return session;
   const { id } = await params;
   await prisma.testimonial.delete({ where: { id } });
-  revalidateTag("cms:testimonials", { expire: 0 });
-  return Response.json({ ok: true });
+  const revalidated = applyRevalidationTargets(getAffectedPathsForReviewSurface(CACHE_TAGS.testimonials));
+  return jsonNoStore({ ok: true, revalidated });
 }

@@ -14,6 +14,12 @@ function normalizeSiteUrl(raw?: string): string {
 
 const SITE_URL = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
+type RobotsRule = {
+  userAgent: string | string[];
+  allow?: string | string[];
+  disallow?: string | string[];
+  crawlDelay?: number;
+};
 
 // Standard web crawlers + every major AI / LLM crawler — all allowed on public pages.
 // Admin, API and login routes are blocked for everyone.
@@ -99,7 +105,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     grouped.set(ua, bucket);
   }
 
-  const dbRules: MetadataRoute.Robots["rules"] = [];
+  const dbRules: RobotsRule[] = [];
   for (const [userAgent, bucket] of grouped.entries()) {
     dbRules.push({
       userAgent,
@@ -111,6 +117,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 
   // Merge DB rules on top of the AI-crawler defaults.
   // DB rules override the wildcard "*" rule; AI-specific rules are always kept.
-  const aiRules = FALLBACK_RULES.filter((r) => r.userAgent !== "*");
+  const fallbackRules = Array.isArray(FALLBACK_RULES) ? FALLBACK_RULES : [FALLBACK_RULES];
+  const aiRules = fallbackRules.filter((rule): rule is RobotsRule => Boolean(rule.userAgent) && rule.userAgent !== "*");
   return { rules: [...dbRules, ...aiRules], sitemap: SITEMAP_URL };
 }

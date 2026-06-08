@@ -2,6 +2,7 @@ import type { NextRequest } from "next/server";
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { jsonNoStore } from "@/lib/cache/revalidation";
 import { TUTOR_REACH_CACHE_TAG, countWords } from "@/lib/cms/tutor-reach";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
 
@@ -12,7 +13,7 @@ function slugify(value: string): string {
     .trim()
     .toLowerCase()
     .normalize("NFKD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
@@ -47,7 +48,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
   const { id } = await params;
   const parsed = patchSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) {
-    return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+    return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   }
   const { publishedAt, faqs, body, slug, ...rest } = parsed.data;
 
@@ -55,13 +56,13 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
   let finalSlug: string | undefined;
   if (slug !== undefined) {
     finalSlug = slugify(slug);
-    if (!finalSlug) return Response.json({ error: "Slug cannot be empty." }, { status: 400 });
+    if (!finalSlug) return jsonNoStore({ error: "Slug cannot be empty." }, { status: 400 });
     const collision = await prisma.tutorReachPage.findFirst({
       where: { slug: finalSlug, NOT: { id } },
       select: { id: true },
     });
     if (collision) {
-      return Response.json({ error: `Slug "${finalSlug}" is already used.` }, { status: 409 });
+      return jsonNoStore({ error: `Slug "${finalSlug}" is already used.` }, { status: 409 });
     }
   }
 
@@ -76,7 +77,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
     },
   });
   revalidateTag(TUTOR_REACH_CACHE_TAG, { expire: 0 });
-  return Response.json({ item: updated });
+  return jsonNoStore({ item: updated });
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
@@ -85,5 +86,5 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
   const { id } = await params;
   await prisma.tutorReachPage.delete({ where: { id } });
   revalidateTag(TUTOR_REACH_CACHE_TAG, { expire: 0 });
-  return Response.json({ ok: true });
+  return jsonNoStore({ ok: true });
 }

@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { prisma } from "@/lib/db";
+import { jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -14,5 +15,5 @@ export async function GET(request: NextRequest) {
     include: { job: { select: { slug: true, title: true, department: true } } },
   });
 
-  return Response.json({ items });
+  return jsonNoStore({ items });
 }

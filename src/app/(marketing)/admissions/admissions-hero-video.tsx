@@ -23,7 +23,6 @@ export function AdmissionsHeroVideo() {
           playsInline
           preload="metadata"
           poster="/Admission/home-poster.webp"
-          fetchPriority="high"
         >
           <source src="/Admission/home-optimized.mp4" type="video/mp4" />
         </video>

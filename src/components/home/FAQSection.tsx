@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, MessageCircleQuestion } from "lucide-react";
 
 export interface FAQSectionProps {
@@ -70,36 +69,21 @@ export function FAQSection({ location = { country: "India", cities: "Mumbai, Del
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-2 mb-3"
-            >
+            <div className="flex items-center gap-2 mb-3">
               <MessageCircleQuestion className="size-5 text-secondary" />
               <span className="text-secondary font-black uppercase tracking-[0.2em] text-[10px]">Support and information</span>
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-3xl md:text-5xl font-black tracking-tight text-foreground"
-            >
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground">
               Questions parents usually ask
-            </motion.h2>
+            </h2>
           </div>
 
-          <motion.a
+          <a
             href="/contact-us"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
             className="px-6 py-2.5 rounded-full border border-white/10 hover:border-primary/40 bg-white/[0.04] text-sm font-bold text-foreground transition-all duration-300 w-fit"
           >
             Talk to an academic advisor
-          </motion.a>
+          </a>
         </div>
 
         <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
@@ -107,14 +91,7 @@ export function FAQSection({ location = { country: "India", cities: "Mumbai, Del
             const isOpen = openIdx === idx;
 
             return (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.05 }}
-                key={faq.question}
-                className="h-fit"
-              >
+              <div key={faq.question} className="h-fit">
                 <button
                   type="button"
                   onClick={() => toggleFaq(idx)}
@@ -136,22 +113,13 @@ export function FAQSection({ location = { country: "India", cities: "Mumbai, Del
                     </span>
                   </div>
 
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                      >
-                        <div className="px-4 md:px-5 pb-5 text-sm md:text-base text-muted-foreground leading-relaxed border-t border-white/5 pt-3">
-                          {faq.answer}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {isOpen && (
+                    <div className="px-4 md:px-5 pb-5 text-sm md:text-base text-muted-foreground leading-relaxed border-t border-white/5 pt-3">
+                      {faq.answer}
+                    </div>
+                  )}
                 </button>
-              </motion.div>
+              </div>
             );
           })}
         </div>

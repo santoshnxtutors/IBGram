@@ -498,15 +498,15 @@ function seedSlug(seed: TutorSeed): string {
   return `${seed.name}-${seed.id}`
     .toLowerCase()
     .normalize("NFKD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .replace(/-{2,}/g, "-");
 }
 
 function createTutor(seed: TutorSeed): Tutor {
-  const enrichment = tutorEnrichmentById[seed.id] ?? {};
-  const locations = enrichment.locations?.length ? enrichment.locations : [deriveDefaultLocation(seed)];
+  const enrichment = (typeof seed.id === "number" ? tutorEnrichmentById[seed.id] : undefined) ?? {};
+  const locations: TutorLocation[] = enrichment.locations?.length ? enrichment.locations : [deriveDefaultLocation(seed)];
   const activeLocations = locations.filter((location) => location.isActive !== false);
   const primaryLocation = activeLocations.find((location) => location.priority === "primary") ?? activeLocations[0] ?? locations[0];
   const curriculums = deriveCurriculums(seed, enrichment);

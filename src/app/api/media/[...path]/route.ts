@@ -14,6 +14,7 @@ const MIME_BY_EXT: Record<string, string> = {
   ".avif": "image/avif",
   ".pdf": "application/pdf",
 };
+const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".avif"]);
 
 function getUploadDir(): string {
   const envDir = process.env.UPLOAD_DIR?.trim();
@@ -54,6 +55,19 @@ export async function GET(_request: NextRequest, { params }: { params: Promise<{
   try {
     file = await fs.readFile(normalisedRequested);
   } catch {
+    const ext = path.extname(normalisedRequested).toLowerCase();
+    if (IMAGE_EXTENSIONS.has(ext)) {
+      return new Response(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1" viewBox="0 0 1 1"><rect width="1" height="1" fill="transparent"/></svg>',
+        {
+          status: 200,
+          headers: {
+            "Content-Type": "image/svg+xml",
+            "Cache-Control": "no-store",
+          },
+        },
+      );
+    }
     return new Response("Not found", { status: 404 });
   }
 

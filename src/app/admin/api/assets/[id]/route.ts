@@ -3,6 +3,8 @@ import path from "node:path";
 import type { NextRequest } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { getAffectedPathsForAsset } from "@/lib/cache/affected-paths";
+import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -18,10 +20,11 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
   const { id } = await params;
   const parsed = patchSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) {
-    return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+    return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   }
   const asset = await prisma.asset.update({ where: { id }, data: parsed.data });
-  return Response.json({ asset });
+  const revalidated = applyRevalidationTargets(getAffectedPathsForAsset());
+  return jsonNoStore({ asset, revalidated });
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
@@ -29,7 +32,7 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
   if (session instanceof Response) return session;
   const { id } = await params;
   const asset = await prisma.asset.findUnique({ where: { id } });
-  if (!asset) return Response.json({ error: "Not found" }, { status: 404 });
+  if (!asset) return jsonNoStore({ error: "Not found" }, { status: 404 });
 
   if (asset.provider === "local") {
     const uploadDir = process.env.UPLOAD_DIR?.trim() || path.join(/* turbopackIgnore: true */ process.cwd(), "public", "uploads");
@@ -40,5 +43,6 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
   }
 
   await prisma.asset.delete({ where: { id } });
-  return Response.json({ ok: true });
+  const revalidated = applyRevalidationTargets(getAffectedPathsForAsset());
+  return jsonNoStore({ ok: true, revalidated });
 }

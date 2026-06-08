@@ -117,10 +117,10 @@ function jsonLdFaq() {
 }
 
 export default async function TutorsPage() {
-  // DB-first: when the database has at least one published (status=active,
-  // approved=true) tutor, use those. Otherwise fall back to the static seed.
+  // DB-first: null means DB unreachable and the client may use static seeds.
+  // [] means DB is reachable and there are no public tutors to show.
   const dbTutors = await getPublicTutorsFromDb();
-  const tutorsForClient = dbTutors && dbTutors.length > 0 ? dbTutors : undefined;
+  const tutorsForClient = dbTutors ?? undefined;
 
   return (
     <div className="min-h-screen bg-background">

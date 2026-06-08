@@ -1,7 +1,8 @@
 import type { NextRequest } from "next/server";
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -32,13 +33,13 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   if (session instanceof Response) return session;
   const { id } = await params;
   const tutorId = await resolveTutorId(id);
-  if (!tutorId) return Response.json({ error: "Tutor not found" }, { status: 404 });
+  if (!tutorId) return jsonNoStore({ error: "Tutor not found" }, { status: 404 });
   const items = await prisma.tutorReview.findMany({
     where: { tutorId },
     orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }],
     take: 200,
   });
-  return Response.json({ items });
+  return jsonNoStore({ items });
 }
 
 export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
@@ -46,10 +47,11 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
   if (session instanceof Response) return session;
   const { id } = await params;
   const tutorId = await resolveTutorId(id);
-  if (!tutorId) return Response.json({ error: "Tutor not found" }, { status: 404 });
+  if (!tutorId) return jsonNoStore({ error: "Tutor not found" }, { status: 404 });
   const parsed = createSchema.safeParse(await request.json().catch(() => ({})));
-  if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+  if (!parsed.success) return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   const created = await prisma.tutorReview.create({ data: { ...parsed.data, tutorId } });
   revalidateTag(`cms:tutor-reviews:${tutorId}`, { expire: 0 });
-  return Response.json({ item: created });
+  revalidatePath(`/tutor-profile/${tutorId}/`);
+  return jsonNoStore({ item: created });
 }

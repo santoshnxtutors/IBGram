@@ -8,7 +8,7 @@ export function LogoutButton() {
 
   async function logout() {
     setLoading(true);
-    await fetch("/admin/api/auth/logout/", { method: "POST", credentials: "same-origin" });
+    await fetch("/admin/api/auth/logout/", { method: "POST", cache: "no-store", credentials: "same-origin" });
     window.location.href = "/admin/login";
   }
 

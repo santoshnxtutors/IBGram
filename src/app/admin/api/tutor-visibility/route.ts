@@ -3,6 +3,7 @@ import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
+import { jsonNoStore } from "@/lib/cache/revalidation";
 import {
   normalizeTutorVisibilityPath,
   parseTutorVisibilityPlacements,
@@ -48,7 +49,7 @@ export async function GET(request: NextRequest) {
       })),
     );
 
-    return Response.json({
+    return jsonNoStore({
       pageOptions: tutorVisibilityPageOptions,
       tutors: tutors.map((tutor) => ({
         id: tutor.id,
@@ -62,7 +63,7 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    return Response.json({ error: `Could not load tutor visibility: ${message.slice(0, 500)}` }, { status: 500 });
+    return jsonNoStore({ error: `Could not load tutor visibility: ${message.slice(0, 500)}` }, { status: 500 });
   }
 }
 
@@ -72,7 +73,7 @@ export async function POST(request: NextRequest) {
 
   const parsed = saveSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) {
-    return Response.json(
+    return jsonNoStore(
       { error: parsed.error.issues[0]?.message ?? "Invalid visibility payload.", issues: parsed.error.flatten().fieldErrors },
       { status: 400 },
     );
@@ -122,9 +123,9 @@ export async function POST(request: NextRequest) {
     revalidateTag("cms:tutors", { expire: 0 });
     revalidatePath(pagePath);
 
-    return Response.json({ ok: true, pagePath, saved: assignments.length });
+    return jsonNoStore({ ok: true, pagePath, saved: assignments.length });
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    return Response.json({ error: `Could not save tutor visibility: ${message.slice(0, 500)}` }, { status: 500 });
+    return jsonNoStore({ error: `Could not save tutor visibility: ${message.slice(0, 500)}` }, { status: 500 });
   }
 }

@@ -3,6 +3,8 @@ import path from "node:path";
 import crypto from "node:crypto";
 import type { NextRequest } from "next/server";
 import { prisma } from "@/lib/db";
+import { getAffectedPathsForAsset } from "@/lib/cache/affected-paths";
+import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -46,21 +48,21 @@ export async function POST(request: NextRequest) {
 
   const formData = await request.formData().catch(() => null);
   if (!formData) {
-    return Response.json({ error: "Multipart form required" }, { status: 400 });
+    return jsonNoStore({ error: "Multipart form required" }, { status: 400 });
   }
 
   const file = formData.get("file");
   if (!(file instanceof File)) {
-    return Response.json({ error: "Missing 'file' part" }, { status: 400 });
+    return jsonNoStore({ error: "Missing 'file' part" }, { status: 400 });
   }
 
   if (!ALLOWED_MIME.has(file.type)) {
-    return Response.json({ error: `Unsupported file type: ${file.type}` }, { status: 415 });
+    return jsonNoStore({ error: `Unsupported file type: ${file.type}` }, { status: 415 });
   }
 
   const maxBytes = getMaxBytes();
   if (file.size <= 0 || file.size > maxBytes) {
-    return Response.json({ error: `File exceeds ${Math.round(maxBytes / 1024)} KB limit` }, { status: 413 });
+    return jsonNoStore({ error: `File exceeds ${Math.round(maxBytes / 1024)} KB limit` }, { status: 413 });
   }
 
   const altText = (formData.get("altText") as string | null)?.toString().trim() || null;
@@ -87,7 +89,8 @@ export async function POST(request: NextRequest) {
         createdById: userId ?? null,
       },
     });
-    return Response.json({ asset });
+    const revalidated = applyRevalidationTargets(getAffectedPathsForAsset());
+    return jsonNoStore({ asset, revalidated });
   }
 
   const uploadDir = getUploadDir();
@@ -102,7 +105,7 @@ export async function POST(request: NextRequest) {
     const buffer = Buffer.from(await file.arrayBuffer());
     await fs.writeFile(targetPath, buffer);
   } catch (error) {
-    return Response.json(
+    return jsonNoStore(
       {
         error:
           error instanceof Error
@@ -132,7 +135,8 @@ export async function POST(request: NextRequest) {
     },
   });
 
-  return Response.json({ asset });
+  const revalidated = applyRevalidationTargets(getAffectedPathsForAsset());
+  return jsonNoStore({ asset, revalidated });
 }
 
 async function uploadToCloudinary(file: File, folder: string): Promise<{ url: string; publicId: string; width?: number; height?: number }> {

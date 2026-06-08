@@ -2,11 +2,16 @@ import { AdminShell } from "../_components/AdminShell";
 import { AdminPageHeader, AdminCard, AdminEmptyState } from "../_components/AdminPrimitives";
 import { MenusClient } from "./MenusClient";
 import { prisma } from "@/lib/db";
+import type { Prisma } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
+type NavigationMenuWithItems = Prisma.NavigationMenuGetPayload<{
+  include: { items: true };
+}>;
+
 export default async function AdminMenusPage() {
-  let menus: Awaited<ReturnType<typeof prisma.navigationMenu.findMany>> = [];
+  let menus: NavigationMenuWithItems[] = [];
   let dbError: string | null = null;
   try {
     menus = await prisma.navigationMenu.findMany({
@@ -22,7 +27,7 @@ export default async function AdminMenusPage() {
     menuKey: m.menuKey,
     label: m.label,
     position: m.position,
-    items: m.items.map((it) => ({ id: it.id, label: it.label, href: it.href, sortOrder: it.sortOrder, isActive: it.isActive })),
+    items: m.items.map((it: NavigationMenuWithItems["items"][number]) => ({ id: it.id, label: it.label, href: it.href, sortOrder: it.sortOrder, isActive: it.isActive })),
   }));
 
   return (

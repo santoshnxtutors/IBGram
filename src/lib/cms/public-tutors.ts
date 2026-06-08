@@ -44,7 +44,8 @@ function normaliseImageUrl(value: string | null | undefined): string {
  * Read all visible tutors from Prisma and map them onto the legacy `Tutor`
  * shape the existing TutorsClient / TutorCard / tutor-profile components
  * already understand. Returns null if the DB is unreachable so callers can
- * fall back to the static `allTutors` array.
+ * fall back to the static `allTutors` array. Returns [] when the DB is
+ * reachable but no public tutors are published.
  *
  * "Visible" = NOT soft-deleted AND status is 'active' (i.e. Published).
  * Drafts / paused / archived tutors stay invisible on the public site.
@@ -62,7 +63,6 @@ export const getPublicTutorsFromDb = unstable_cache(
         },
         orderBy: [{ rating: "desc" }, { displayName: "asc" }],
       });
-      if (rows.length === 0) return null;
       return rows.map(mapPrismaToTutor);
     } catch {
       return null;

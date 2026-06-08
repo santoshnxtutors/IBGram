@@ -1,7 +1,8 @@
 import type { NextRequest } from "next/server";
-import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { getAffectedPathsForTutor } from "@/lib/cache/affected-paths";
+import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -133,7 +134,7 @@ export async function PATCH(
   const { id } = await params;
   const parsed = patchSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) {
-    return Response.json(
+    return jsonNoStore(
       { error: parsed.error.issues[0]?.message ?? "Invalid input" },
       { status: 400 },
     );
@@ -379,21 +380,27 @@ export async function PATCH(
     );
 
     if (result.notFound) {
-      return Response.json({ error: `Tutor not found for id or slug "${id}"` }, { status: 404 });
+      return jsonNoStore({ error: `Tutor not found for id or slug "${id}"` }, { status: 404 });
     }
     if ("slugConflict" in result && result.slugConflict) {
-      return Response.json(
+      return jsonNoStore(
         { error: `Slug "${result.slugConflict}" is already used by another tutor. Pick a different slug.` },
         { status: 409 },
       );
     }
 
-    revalidateTag("cms:tutors", { expire: 0 });
-    return Response.json({ ok: true, id: result.id });
+    const revalidated = applyRevalidationTargets(
+      getAffectedPathsForTutor({
+        ...data,
+        id: result.id,
+        slug: data.slug ?? id,
+      }),
+    );
+    return jsonNoStore({ ok: true, id: result.id, revalidated });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     const transient = isTransientDbError(err);
-    return Response.json(
+    return jsonNoStore(
       {
         error: transient
           ? "Database is out of connection slots (after retry). Try again in a few seconds or switch to a local/pooled Postgres."
@@ -428,12 +435,12 @@ export async function DELETE(
       }),
     );
     if (result.notFound) {
-      return Response.json({ error: `Tutor not found for id or slug "${id}"` }, { status: 404 });
+      return jsonNoStore({ error: `Tutor not found for id or slug "${id}"` }, { status: 404 });
     }
-    revalidateTag("cms:tutors", { expire: 0 });
-    return Response.json({ ok: true });
+    const revalidated = applyRevalidationTargets(getAffectedPathsForTutor({ id, slug: id }));
+    return jsonNoStore({ ok: true, revalidated });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
-    return Response.json({ error: `Delete failed: ${message.slice(0, 500)}` }, { status: 503 });
+    return jsonNoStore({ error: `Delete failed: ${message.slice(0, 500)}` }, { status: 503 });
   }
 }

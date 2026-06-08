@@ -10,7 +10,7 @@ type TutorComparePageContentProps = {
 
 export async function TutorComparePageContent({ tutorIds }: TutorComparePageContentProps) {
   const dbTutors = await getPublicTutorsFromDb();
-  const tutorPool = [...(dbTutors ?? []), ...allTutors];
+  const tutorPool = dbTutors ?? allTutors;
   const selectedTutors = tutorIds
     .map((id) => tutorPool.find((tutor) => String(tutor.id) === id))
     .filter((tutor): tutor is (typeof tutorPool)[number] => Boolean(tutor));

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Check, CheckCircle, Clock, Home, MapPin, Monitor, Star } from "lucide-react";
+import Image from "next/image";
 export type TutorCardProfile = {
   id: number | string;
   slug?: string;
@@ -115,10 +116,11 @@ export function TutorCard({
               className="relative flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-muted shadow-lg sm:size-[74px]"
             >
               {tutor.image ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <Image
                   src={tutor.image}
                   alt={tutor.name}
+                  fill
+                  sizes="(max-width: 640px) 64px, 74px"
                   loading="lazy"
                   decoding="async"
                   className="absolute inset-0 size-full object-cover"

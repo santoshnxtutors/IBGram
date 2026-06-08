@@ -56,8 +56,9 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
   const router = useRouter();
   const pathname = usePathname();
   const currentPath = pathname;
-  // DB-first when the server page passed in DB rows; static fallback otherwise.
-  const sourceTutors: Tutor[] = tutors && tutors.length > 0 ? tutors : allTutors;
+  // DB-first when the server page passed DB rows. An empty array is intentional:
+  // it means the DB is reachable and no public tutors are currently published.
+  const sourceTutors: Tutor[] = tutors ?? allTutors;
   const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
   const [curriculumFilter, setCurriculumFilter] = useState<string>("Curriculum");
   const [subjectFilter, setSubjectFilter] = useState<string>("Subject");

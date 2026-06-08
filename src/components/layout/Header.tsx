@@ -89,8 +89,8 @@ export function Header() {
     <>
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${
       scrolled 
-        ? "border-b border-primary/20 bg-background/60 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]" 
-        : "border-b border-border/40 bg-background/80 backdrop-blur-md"
+        ? "border-b border-primary/20 bg-background/95 md:bg-background/60 md:backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]" 
+        : "border-b border-border/40 bg-background/95 md:bg-background/80 md:backdrop-blur-md"
     }`}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         

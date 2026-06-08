@@ -56,7 +56,7 @@ export function TutorVisibilityClient() {
 
   useEffect(() => {
     let mounted = true;
-    fetch("/admin/api/tutor-visibility")
+    fetch("/admin/api/tutor-visibility", { cache: "no-store" })
       .then((response) => response.json().then((json) => ({ response, json })))
       .then(({ response, json }) => {
         if (!mounted) return;
@@ -130,6 +130,7 @@ export function TutorVisibilityClient() {
     try {
       const response = await fetch("/admin/api/tutor-visibility", {
         method: "POST",
+        cache: "no-store",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           pagePath: activePagePath,
@@ -139,7 +140,7 @@ export function TutorVisibilityClient() {
       });
       const json = await response.json();
       if (!response.ok) throw new Error(json.error || "Could not save tutor visibility.");
-      const fresh = await fetch("/admin/api/tutor-visibility").then((res) => res.json());
+      const fresh = await fetch("/admin/api/tutor-visibility", { cache: "no-store" }).then((res) => res.json());
       setData(fresh);
       setStatus(`Saved ${json.saved} tutor${json.saved === 1 ? "" : "s"} for ${json.pagePath}`);
     } catch (error) {

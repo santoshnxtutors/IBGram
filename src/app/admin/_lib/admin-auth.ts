@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { NextResponse, type NextRequest } from "next/server";
 
+import { ADMIN_NO_STORE_HEADERS, jsonNoStore } from "@/lib/cache/revalidation";
 import { adminLoginSchema } from "../_validators/admin-validators";
 import { ROLE_PERMISSIONS, verifyLocalAdminUser } from "./admin-users";
 import type { AdminPermission, AdminUserRole } from "../_types/admin";
@@ -59,7 +60,7 @@ export function requireAdminRequest(request: NextRequest): AdminSession | Respon
   const localCookie = request.cookies.get(COOKIE_NAME)?.value;
   const session = verifySessionToken(localCookie);
   if (!session) {
-    return Response.json({ error: "Admin session required." }, { status: 401 });
+    return jsonNoStore({ error: "Admin session required." }, { status: 401 });
   }
   return session;
 }
@@ -68,18 +69,18 @@ export async function handleAdminLogin(request: NextRequest): Promise<Response> 
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
   const rate = checkRateLimit(ip);
   if (!rate.ok) {
-    return Response.json({ error: "Too many login attempts. Try again shortly." }, { status: 429 });
+    return jsonNoStore({ error: "Too many login attempts. Try again shortly." }, { status: 429 });
   }
 
   const parsed = adminLoginSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) {
     recordFailedAttempt(ip);
-    return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid login request." }, { status: 400 });
+    return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid login request." }, { status: 400 });
   }
 
   if (!isAuthConfigured()) {
     recordFailedAttempt(ip);
-    return Response.json({ error: "Admin auth is not configured." }, { status: 503 });
+    return jsonNoStore({ error: "Admin auth is not configured." }, { status: 503 });
   }
 
   const { username, password, remember } = parsed.data;
@@ -92,7 +93,7 @@ export async function handleAdminLogin(request: NextRequest): Promise<Response> 
   const credentialUser = await verifyAdminCredentials(username, password);
   if (!credentialUser) {
     recordFailedAttempt(ip);
-    return Response.json({ error: "Invalid admin credentials." }, { status: 401 });
+    return jsonNoStore({ error: "Invalid admin credentials." }, { status: 401 });
   }
 
   LOGIN_ATTEMPTS.delete(ip);
@@ -105,7 +106,7 @@ export async function handleAdminLogin(request: NextRequest): Promise<Response> 
     expiresAt: Date.now() + ttl * 1000,
   });
 
-  const response = NextResponse.json({ ok: true, redirectTo: "/admin/dashboard" });
+  const response = withNoStoreHeaders(NextResponse.json({ ok: true, redirectTo: "/admin/dashboard" }));
   response.cookies.set(COOKIE_NAME, token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
@@ -117,7 +118,7 @@ export async function handleAdminLogin(request: NextRequest): Promise<Response> 
 }
 
 export async function handleAdminLogout(request?: NextRequest): Promise<Response> {
-  const response = NextResponse.json({ ok: true, redirectTo: "/admin/login" });
+  const response = withNoStoreHeaders(NextResponse.json({ ok: true, redirectTo: "/admin/login" }));
   const backendUrl = getBackendUrl();
   if (backendUrl && request) {
     try {
@@ -166,7 +167,7 @@ async function loginWithBackendAuth(request: NextRequest, username: string, pass
     if (!backendResponse.ok || !payload?.success || !payload?.data?.user) return null;
 
     const session = adminSessionFromBackendUser(payload.data.user, remember);
-    const response = NextResponse.json({ ok: true, redirectTo: "/admin/dashboard" });
+    const response = withNoStoreHeaders(NextResponse.json({ ok: true, redirectTo: "/admin/dashboard" }));
     const backendSetCookie = backendResponse.headers.get("set-cookie");
     if (backendSetCookie) response.headers.append("set-cookie", backendSetCookie);
     response.cookies.set(COOKIE_NAME, signSession(session), {
@@ -207,6 +208,11 @@ async function revalidateAgainstBackend(backendCookieValue: string): Promise<Adm
 
 function getBackendUrl(): string {
   return (process.env.BACKEND_URL ?? "").replace(/\/$/, "");
+}
+
+function withNoStoreHeaders<T extends NextResponse>(response: T): T {
+  Object.entries(ADMIN_NO_STORE_HEADERS).forEach(([key, value]) => response.headers.set(key, value));
+  return response;
 }
 
 function adminSessionFromBackendUser(

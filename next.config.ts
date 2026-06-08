@@ -12,9 +12,6 @@ const nextConfig: NextConfig = {
   // Marking it external makes Next.js require("@prisma/client") normally from
   // the server's node_modules at runtime.
   serverExternalPackages: ["@prisma/client", "prisma", ".prisma/client"],
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   experimental: {
     optimizePackageImports: ["lucide-react", "recharts", "framer-motion"],
     serverComponentsHmrCache: true,
@@ -67,8 +64,16 @@ const nextConfig: NextConfig = {
         value: "public, max-age=31536000, immutable",
       },
     ];
+    const adminNoStoreHeaders = [
+      ...baseHeaders,
+      { key: "Cache-Control", value: "no-store, no-cache, must-revalidate, proxy-revalidate" },
+      { key: "Pragma", value: "no-cache" },
+      { key: "Expires", value: "0" },
+    ];
 
     return [
+      { source: "/admin/:path*", headers: adminNoStoreHeaders },
+      { source: "/admin/api/:path*", headers: adminNoStoreHeaders },
       { source: "/images/:path*", headers: staticAssetHeaders },
       { source: "/Admission/:path*", headers: staticAssetHeaders },
       { source: "/uploads/:path*", headers: staticAssetHeaders },

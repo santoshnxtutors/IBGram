@@ -120,7 +120,7 @@ export const getVisibleTutorsForPage = unstable_cache(
         .slice(0, 3)
         .map(({ row }) => mapPrismaToTutor(row));
 
-      return selected.length ? selected : null;
+      return selected;
     } catch {
       return null;
     }

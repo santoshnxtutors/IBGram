@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { PointerEvent, useEffect, useRef, useState } from "react";
 import { BookOpenCheck, GraduationCap, Target } from "lucide-react";
 import Image from "next/image";
 
@@ -68,6 +67,7 @@ export function SuccessStories({ items }: { items?: Story[] }) {
   const stories = items && items.length > 0 ? items : fallbackStories;
   const [activeIdx, setActiveIdx] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(3);
+  const dragStartX = useRef<number | null>(null);
   const total = stories.length;
 
   useEffect(() => {
@@ -101,58 +101,58 @@ export function SuccessStories({ items }: { items?: Story[] }) {
   const maxIdx = total - itemsToShow;
   const safeActiveIdx = Math.min(activeIdx, maxIdx >= 0 ? maxIdx : 0);
 
+  const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    dragStartX.current = event.clientX;
+  };
+
+  const handlePointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    if (dragStartX.current === null) {
+      return;
+    }
+
+    const offset = event.clientX - dragStartX.current;
+    dragStartX.current = null;
+
+    if (offset < -50 && safeActiveIdx < total - itemsToShow) {
+      setActiveIdx((prev) => prev + 1);
+    } else if (offset > 50 && safeActiveIdx > 0) {
+      setActiveIdx((prev) => prev - 1);
+    }
+  };
+
   return (
     <section className="py-14 md:py-20 relative overflow-hidden bg-background" aria-labelledby="success-heading">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-left mb-10 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black uppercase tracking-[0.2em] mb-4"
-          >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black uppercase tracking-[0.2em] mb-4">
             success stories
-          </motion.div>
-          <motion.h2
+          </div>
+          <h2
             id="success-heading"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
             className="text-2xl md:text-5xl font-black tracking-tight text-foreground mb-4 leading-tight"
           >
             Our Student <span className="text-secondary">Success Stories</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-sm md:text-base font-medium max-w-2xl leading-relaxed"
-          >
+          </h2>
+          <p className="text-muted-foreground text-sm md:text-base font-medium max-w-2xl leading-relaxed">
             Add real IB Gram student journeys here with approved photos, subject context and the kind of support that helped them build confidence, planning habits and stronger understanding.
-          </motion.p>
+          </p>
         </div>
 
         <div className="relative max-w-full group/carousel">
-          <div className="overflow-hidden cursor-grab active:cursor-grabbing">
-            <motion.div
-              className="flex gap-4 md:gap-6"
-              drag="x"
-              dragConstraints={{ right: 0, left: -((total - itemsToShow) * (100 / itemsToShow)) * (total / itemsToShow) }}
-              onDragEnd={(_, { offset }) => {
-                const swipeThreshold = 50;
-                if (offset.x < -swipeThreshold && safeActiveIdx < total - itemsToShow) {
-                  setActiveIdx((prev) => prev + 1);
-                } else if (offset.x > swipeThreshold && safeActiveIdx > 0) {
-                  setActiveIdx((prev) => prev - 1);
-                }
-              }}
-              animate={{ x: `-${safeActiveIdx * (100 / itemsToShow)}%` }}
-              transition={{ type: "spring", stiffness: 100, damping: 20 }}
+          <div
+            className="overflow-hidden cursor-grab active:cursor-grabbing"
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
+            onPointerCancel={() => {
+              dragStartX.current = null;
+            }}
+          >
+            <div
+              className="flex gap-4 transition-transform duration-300 ease-out md:gap-6"
+              style={{ transform: `translate3d(-${safeActiveIdx * (100 / itemsToShow)}%, 0, 0)` }}
             >
               {stories.map((story) => (
-                <motion.div
+                <div
                   key={story.id}
                   className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 select-none"
                 >
@@ -199,9 +199,9 @@ export function SuccessStories({ items }: { items?: Story[] }) {
                       <span>Published with consent; individual results may vary</span>
                     </div>
                   </article>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
 

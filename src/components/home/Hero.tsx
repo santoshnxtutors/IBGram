@@ -23,7 +23,7 @@ export function Hero() {
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.06] max-w-5xl">
-              Find <span className="text-primary text-gradient bg-300% animate-gradient">IB and IGCSE tutors</span> who understand your syllabus, school and goals.
+              Find <span className="text-primary md:text-gradient md:bg-300% md:animate-gradient">IB and IGCSE tutors</span> who understand your syllabus, school and goals.
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-[680px] leading-relaxed">

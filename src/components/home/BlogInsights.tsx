@@ -1,4 +1,5 @@
 import { ArrowRight, Clock, Tag } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { getHomeBlogPosts } from "@/lib/cms/blog";
 
@@ -39,11 +40,13 @@ export async function BlogInsights() {
             <Link key={blog.id} href={`/blog/${blog.slug}/`} className="group flex flex-col">
               <div className="relative mb-6 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border/50 bg-card">
                 {blog.featuredImageUrl ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
+                  <Image
                     src={blog.featuredImageUrl}
                     alt={blog.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading="lazy"
+                    unoptimized={blog.featuredImageUrl.startsWith("http")}
                     className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (

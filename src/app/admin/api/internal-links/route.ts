@@ -1,4 +1,6 @@
 import type { NextRequest } from "next/server";
+import { getAffectedPathsForInternalLink, getAffectedPathsForPage, mergeRevalidationTargets } from "@/lib/cache/affected-paths";
+import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
 import { getInternalLinks, getPageById, updatePage } from "../../_lib/admin-data";
 import { requireAdminRequest } from "../../_lib/admin-auth";
 import { adminInternalLinkSchema } from "../../_validators/admin-validators";
@@ -8,16 +10,16 @@ export const dynamic = "force-dynamic";
 export async function GET(request: NextRequest) {
   const session = requireAdminRequest(request);
   if (session instanceof Response) return session;
-  return Response.json({ links: await getInternalLinks() });
+  return jsonNoStore({ links: await getInternalLinks() });
 }
 
 export async function POST(request: NextRequest) {
   const session = requireAdminRequest(request);
   if (session instanceof Response) return session;
   const parsed = adminInternalLinkSchema.safeParse(await request.json().catch(() => ({})));
-  if (!parsed.success) return Response.json({ error: "Invalid internal link.", issues: parsed.error.flatten().fieldErrors }, { status: 400 });
+  if (!parsed.success) return jsonNoStore({ error: "Invalid internal link.", issues: parsed.error.flatten().fieldErrors }, { status: 400 });
   const sourcePage = await getPageById(parsed.data.sourcePageId);
-  if (!sourcePage) return Response.json({ error: "Source page not found." }, { status: 404 });
+  if (!sourcePage) return jsonNoStore({ error: "Source page not found." }, { status: 404 });
 
   const link = {
     linkId: `admin-link-${Date.now().toString(36)}`,
@@ -36,12 +38,18 @@ export async function POST(request: NextRequest) {
   const saved = await updatePage(sourcePage.id, {
     internalLinks: [...sourcePage.internalLinks.filter((item) => item.linkId !== link.linkId), link],
   });
-  if (!saved) return Response.json({ error: "Source page not found." }, { status: 404 });
+  if (!saved) return jsonNoStore({ error: "Source page not found." }, { status: 404 });
   if (!saved.persisted) {
-    return Response.json(
+    return jsonNoStore(
       { error: saved.message, persisted: false, link },
       { status: 501 },
     );
   }
-  return Response.json({ link, page: saved.page, persisted: true, message: saved.message });
+  const revalidated = applyRevalidationTargets(
+    mergeRevalidationTargets("internal link changed", [
+      getAffectedPathsForPage(sourcePage, saved.page),
+      getAffectedPathsForInternalLink({ sourceUrl: sourcePage.url, targetUrl: link.targetUrl }),
+    ]),
+  );
+  return jsonNoStore({ link, page: saved.page, persisted: true, message: saved.message, revalidated });
 }

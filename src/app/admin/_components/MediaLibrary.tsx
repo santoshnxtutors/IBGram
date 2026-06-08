@@ -72,7 +72,7 @@ export function MediaLibrary({ initial }: { initial: ApiResponse | null }) {
         fd.append("folder", folder);
         fd.append("altText", "");
         try {
-          const res = await fetch("/admin/api/assets/upload", { method: "POST", body: fd });
+          const res = await fetch("/admin/api/assets/upload", { method: "POST", body: fd, cache: "no-store" });
           if (!res.ok) {
             const msg = (await res.json().catch(() => null))?.error ?? `Upload failed: ${res.status}`;
             throw new Error(msg);
@@ -95,6 +95,7 @@ export function MediaLibrary({ initial }: { initial: ApiResponse | null }) {
     async (id: string, altText: string) => {
       const res = await fetch(`/admin/api/assets/${id}`, {
         method: "PATCH",
+        cache: "no-store",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ altText }),
       });
@@ -112,7 +113,7 @@ export function MediaLibrary({ initial }: { initial: ApiResponse | null }) {
   const onDelete = useCallback(
     async (id: string, filename: string) => {
       if (!window.confirm(`Delete ${filename}? This cannot be undone.`)) return;
-      const res = await fetch(`/admin/api/assets/${id}`, { method: "DELETE" });
+      const res = await fetch(`/admin/api/assets/${id}`, { method: "DELETE", cache: "no-store" });
       if (res.ok) {
         showToast("Deleted");
         await fetchAssets();

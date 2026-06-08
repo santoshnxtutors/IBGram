@@ -34,6 +34,7 @@ export function AdminGeneratorWizard() {
     };
     const response = await fetch("/admin/api/generator/", {
       method: "POST",
+      cache: "no-store",
       credentials: "same-origin",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -53,6 +54,7 @@ export function AdminGeneratorWizard() {
     setLoading(true);
     const response = await fetch("/admin/api/pages/", {
       method: "POST",
+      cache: "no-store",
       credentials: "same-origin",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ page: result.page }),

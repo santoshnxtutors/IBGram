@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 
+import { jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../_lib/admin-auth";
 import { generateAdminSeoDraft } from "../../_lib/admin-data";
 import { adminGeneratorSchema } from "../../_validators/admin-validators";
@@ -12,7 +13,7 @@ export async function POST(request: NextRequest) {
 
   const parsed = adminGeneratorSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) {
-    return Response.json({ error: "Invalid generator input.", issues: parsed.error.flatten().fieldErrors }, { status: 400 });
+    return jsonNoStore({ error: "Invalid generator input.", issues: parsed.error.flatten().fieldErrors }, { status: 400 });
   }
 
   const input = parsed.data;
@@ -29,5 +30,5 @@ export async function POST(request: NextRequest) {
     ctaFocus: input.ctaFocus,
     indexPreference: input.indexPreference,
   });
-  return Response.json(result);
+  return jsonNoStore(result);
 }

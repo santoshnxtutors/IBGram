@@ -1,7 +1,8 @@
 import type { NextRequest } from "next/server";
-import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { getAffectedPathsForTutor } from "@/lib/cache/affected-paths";
+import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
 import { getTutors } from "../../_lib/admin-data";
 import { requireAdminRequest } from "../../_lib/admin-auth";
 import { slugifyAdmin } from "../../_lib/admin-url";
@@ -11,7 +12,7 @@ export const dynamic = "force-dynamic";
 export async function GET(request: NextRequest) {
   const session = requireAdminRequest(request);
   if (session instanceof Response) return session;
-  return Response.json({ tutors: await getTutors() });
+  return jsonNoStore({ tutors: await getTutors() });
 }
 
 export async function POST(request: NextRequest) {
@@ -19,7 +20,7 @@ export async function POST(request: NextRequest) {
   if (session instanceof Response) return session;
   const parsed = createTutorSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) {
-    return Response.json(
+    return jsonNoStore(
       { error: parsed.error.issues[0]?.message ?? "Invalid tutor payload.", issues: parsed.error.flatten().fieldErrors },
       { status: 400 },
     );
@@ -27,11 +28,11 @@ export async function POST(request: NextRequest) {
 
   const data = parsed.data;
   const slug = slugifyAdmin(data.slug || data.displayName);
-  if (!slug) return Response.json({ error: "Tutor slug is required." }, { status: 400 });
+  if (!slug) return jsonNoStore({ error: "Tutor slug is required." }, { status: 400 });
 
   try {
     const existing = await prisma.tutor.findUnique({ where: { slug }, select: { id: true } });
-    if (existing) return Response.json({ error: `Slug "${slug}" is already used by another tutor.` }, { status: 409 });
+    if (existing) return jsonNoStore({ error: `Slug "${slug}" is already used by another tutor.` }, { status: 409 });
 
     const citySlug = slugifyAdmin(data.primaryCitySlug || "gurugram");
     const city = await prisma.city.findFirst({ where: { slug: citySlug } });
@@ -129,11 +130,17 @@ export async function POST(request: NextRequest) {
       return created;
     });
 
-    revalidateTag("cms:tutors", { expire: 0 });
-    return Response.json({ ok: true, id: tutor.id, slug: tutor.slug, tutor }, { status: 201 });
+    const revalidated = applyRevalidationTargets(
+      getAffectedPathsForTutor({
+        ...data,
+        id: tutor.id,
+        slug: tutor.slug,
+      }),
+    );
+    return jsonNoStore({ ok: true, id: tutor.id, slug: tutor.slug, tutor, revalidated }, { status: 201 });
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    return Response.json({ error: `Create failed: ${message.slice(0, 500)}` }, { status: 500 });
+    return jsonNoStore({ error: `Create failed: ${message.slice(0, 500)}` }, { status: 500 });
   }
 }
 

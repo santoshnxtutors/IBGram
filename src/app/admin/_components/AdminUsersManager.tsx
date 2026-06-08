@@ -64,6 +64,7 @@ export function AdminUsersManager({ initialUsers }: { initialUsers: AdminUserRec
 
     const response = await fetch("/admin/api/users/", {
       method: "POST",
+      cache: "no-store",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
     });
@@ -87,6 +88,7 @@ export function AdminUsersManager({ initialUsers }: { initialUsers: AdminUserRec
 
     const response = await fetch("/admin/api/users/", {
       method: "PATCH",
+      cache: "no-store",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: user.id, ...patch }),
     });
@@ -101,7 +103,7 @@ export function AdminUsersManager({ initialUsers }: { initialUsers: AdminUserRec
 
   async function deleteUser(user: AdminUserRecord) {
     if (user.source === "environment") return;
-    const response = await fetch(`/admin/api/users/?id=${encodeURIComponent(user.id)}`, { method: "DELETE" });
+    const response = await fetch(`/admin/api/users/?id=${encodeURIComponent(user.id)}`, { method: "DELETE", cache: "no-store" });
     const data = (await response.json().catch(() => ({}))) as { error?: string };
     if (!response.ok) {
       setError(data.error ?? "Could not delete user.");

@@ -1,8 +1,8 @@
 import type { NextRequest } from "next/server";
-import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
-import { BLOG_CACHE_TAG } from "@/lib/cms/blog";
+import { getAffectedPathsForBlog } from "@/lib/cache/affected-paths";
+import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -26,38 +26,28 @@ const patchSchema = z.object({
   publishedAt: z.string().datetime().optional().nullable(),
 });
 
-function revalidateBlogSurfaces(slugs: Array<string | null | undefined>) {
-  revalidateTag(BLOG_CACHE_TAG, { expire: 0 });
-  revalidatePath("/blog/");
-  revalidatePath("/");
-  revalidatePath("/igcse/");
-  for (const slug of slugs) {
-    if (slug) revalidatePath(`/blog/${slug}/`);
-  }
-}
-
 export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const session = requireAdminRequest(request);
   if (session instanceof Response) return session;
   const { id } = await params;
   const parsed = patchSchema.safeParse(await request.json().catch(() => ({})));
-  if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+  if (!parsed.success) return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   const { publishedAt, ...rest } = parsed.data;
-  const existing = await prisma.blogPost.findUnique({ where: { id }, select: { slug: true } });
+  const existing = await prisma.blogPost.findUnique({ where: { id }, select: { slug: true, status: true } });
   const updated = await prisma.blogPost.update({
     where: { id },
     data: { ...rest, ...(publishedAt !== undefined ? { publishedAt: publishedAt ? new Date(publishedAt) : null } : {}) },
   });
-  revalidateBlogSurfaces([existing?.slug, updated.slug]);
-  return Response.json({ item: updated });
+  const revalidated = applyRevalidationTargets(getAffectedPathsForBlog(existing, updated));
+  return jsonNoStore({ item: updated, revalidated });
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const session = requireAdminRequest(request);
   if (session instanceof Response) return session;
   const { id } = await params;
-  const existing = await prisma.blogPost.findUnique({ where: { id }, select: { slug: true } });
+  const existing = await prisma.blogPost.findUnique({ where: { id }, select: { slug: true, status: true } });
   await prisma.blogPost.delete({ where: { id } });
-  revalidateBlogSurfaces([existing?.slug]);
-  return Response.json({ ok: true });
+  const revalidated = applyRevalidationTargets(getAffectedPathsForBlog(existing));
+  return jsonNoStore({ ok: true, revalidated });
 }

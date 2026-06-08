@@ -1,8 +1,8 @@
 import type { NextRequest } from "next/server";
-import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
-import { PUBLIC_FAQS_CACHE_TAG } from "@/lib/cms/public-faqs";
+import { getAffectedPathsForFaq } from "@/lib/cache/affected-paths";
+import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -23,17 +23,19 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
   if (session instanceof Response) return session;
   const { id } = await params;
   const parsed = patchSchema.safeParse(await request.json().catch(() => ({})));
-  if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+  if (!parsed.success) return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+  const before = await prisma.faqItem.findUnique({ where: { id } });
   const updated = await prisma.faqItem.update({ where: { id }, data: parsed.data });
-  revalidateTag(PUBLIC_FAQS_CACHE_TAG, { expire: 0 });
-  return Response.json({ item: updated });
+  const revalidated = applyRevalidationTargets(getAffectedPathsForFaq(before, updated));
+  return jsonNoStore({ item: updated, revalidated });
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const session = requireAdminRequest(request);
   if (session instanceof Response) return session;
   const { id } = await params;
+  const before = await prisma.faqItem.findUnique({ where: { id } });
   await prisma.faqItem.delete({ where: { id } });
-  revalidateTag(PUBLIC_FAQS_CACHE_TAG, { expire: 0 });
-  return Response.json({ ok: true });
+  const revalidated = applyRevalidationTargets(getAffectedPathsForFaq(before));
+  return jsonNoStore({ ok: true, revalidated });
 }

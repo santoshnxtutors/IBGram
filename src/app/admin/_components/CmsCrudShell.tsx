@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState, type FormEvent } from "react";
+import { startTransition, useCallback, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Check, AlertTriangle, Save, X, Trash2 } from "lucide-react";
 
@@ -52,6 +52,7 @@ export function useCrudForm<TItem>(
       try {
         const res = await fetch(url, {
           method,
+          cache: "no-store",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
@@ -61,7 +62,7 @@ export function useCrudForm<TItem>(
         }
         const body = (await res.json().catch(() => null)) as { item?: TItem } | null;
         showToast(opts?.id ? "Saved" : "Created");
-        router.refresh();
+        startTransition(() => router.refresh());
         return body?.item ?? null;
       } catch (err) {
         showToast(err instanceof Error ? err.message : "Failed", "err");
@@ -78,10 +79,10 @@ export function useCrudForm<TItem>(
       if (!window.confirm(`Delete "${label}"? This cannot be undone.`)) return;
       setBusy(true);
       try {
-        const res = await fetch(`${endpoint}/${id}`, { method: "DELETE" });
+        const res = await fetch(`${endpoint}/${id}`, { method: "DELETE", cache: "no-store" });
         if (!res.ok) throw new Error(`Delete failed (${res.status})`);
         showToast("Deleted");
-        router.refresh();
+        startTransition(() => router.refresh());
       } catch (err) {
         showToast(err instanceof Error ? err.message : "Failed", "err");
       } finally {

@@ -96,7 +96,7 @@ export function MediaPicker({ value, currentUrl, onChange, label = "Image", fold
         fd.append("file", list[0]);
         fd.append("folder", folder);
         fd.append("altText", "");
-        const res = await fetch("/admin/api/assets/upload", { method: "POST", body: fd });
+        const res = await fetch("/admin/api/assets/upload", { method: "POST", body: fd, cache: "no-store" });
         if (!res.ok) {
           const msg = (await res.json().catch(() => null))?.error ?? `Upload failed (${res.status})`;
           throw new Error(msg);

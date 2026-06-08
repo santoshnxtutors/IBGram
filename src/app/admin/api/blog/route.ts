@@ -1,8 +1,8 @@
 import type { NextRequest } from "next/server";
-import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
-import { BLOG_CACHE_TAG } from "@/lib/cms/blog";
+import { getAffectedPathsForBlog } from "@/lib/cache/affected-paths";
+import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -26,14 +26,6 @@ const createSchema = z.object({
   publishedAt: z.string().datetime().optional().nullable(),
 });
 
-function revalidateBlogSurfaces(slug?: string | null) {
-  revalidateTag(BLOG_CACHE_TAG, { expire: 0 });
-  revalidatePath("/blog/");
-  revalidatePath("/");
-  revalidatePath("/igcse/");
-  if (slug) revalidatePath(`/blog/${slug}/`);
-}
-
 export async function GET(request: NextRequest) {
   const session = requireAdminRequest(request);
   if (session instanceof Response) return session;
@@ -42,18 +34,18 @@ export async function GET(request: NextRequest) {
     take: 200,
     include: { category: true },
   });
-  return Response.json({ items });
+  return jsonNoStore({ items });
 }
 
 export async function POST(request: NextRequest) {
   const session = requireAdminRequest(request);
   if (session instanceof Response) return session;
   const parsed = createSchema.safeParse(await request.json().catch(() => ({})));
-  if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+  if (!parsed.success) return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   const { publishedAt, ...data } = parsed.data;
   const created = await prisma.blogPost.create({
     data: { ...data, ...(publishedAt ? { publishedAt: new Date(publishedAt) } : {}) },
   });
-  revalidateBlogSurfaces(created.slug);
-  return Response.json({ item: created });
+  const revalidated = applyRevalidationTargets(getAffectedPathsForBlog(created));
+  return jsonNoStore({ item: created, revalidated });
 }

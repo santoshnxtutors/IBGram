@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import {
   FlaskConical,
@@ -106,14 +105,9 @@ export function CourseExplorer() {
     <section className="pt-16 pb-6 px-4 bg-background overflow-hidden" id="curriculum">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-8 text-left">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4"
-          >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4">
             Curriculum navigator
-          </motion.div>
+          </div>
           <h2 className="text-2xl md:text-6xl font-black text-foreground mb-4 tracking-tight leading-none">
             Explore IB <span className="text-primary italic">programmes and subjects</span>
           </h2>
@@ -177,14 +171,7 @@ export function CourseExplorer() {
 
               {/* Subject Detail View */}
               <div className="flex-1 p-5 md:p-6 rounded-3xl bg-muted/5 border border-border/50 backdrop-blur-md">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={selectedCourseId}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="space-y-6"
-                  >
+                <div key={selectedCourseId} className="space-y-6">
                     <div className="pb-4 border-b border-border/40 flex items-center justify-between gap-4">
                       <h4 className="text-lg md:text-xl font-black text-foreground break-words tracking-tight">
                         {activeCategory.title} Subjects
@@ -214,9 +201,7 @@ export function CourseExplorer() {
                         </div>
                       ))}
                     </div>
-
-                  </motion.div>
-                </AnimatePresence>
+                </div>
               </div>
             </div>
           </div>

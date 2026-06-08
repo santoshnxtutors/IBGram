@@ -2,6 +2,7 @@ import type { NextRequest } from "next/server";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { jsonNoStore } from "@/lib/cache/revalidation";
 import { JOBS_CACHE_TAG, splitListText } from "@/lib/jobs";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
 
@@ -53,10 +54,10 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
 
   const { id } = await params;
   const parsed = patchSchema.safeParse(await request.json().catch(() => ({})));
-  if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+  if (!parsed.success) return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
 
   const existing = await prisma.job.findUnique({ where: { id }, select: { slug: true, publishedAt: true } });
-  if (!existing) return Response.json({ error: "Job not found" }, { status: 404 });
+  if (!existing) return jsonNoStore({ error: "Job not found" }, { status: 404 });
 
   const { responsibilities, requirements, niceToHave, benefits, publishedAt, closesAt, status, ...rest } = parsed.data;
   const updated = await prisma.job.update({
@@ -74,7 +75,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
   });
 
   revalidateJobsSurfaces([existing.slug, updated.slug]);
-  return Response.json({ item: updated });
+  return jsonNoStore({ item: updated });
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
@@ -83,9 +84,9 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
 
   const { id } = await params;
   const existing = await prisma.job.findUnique({ where: { id }, select: { slug: true } });
-  if (!existing) return Response.json({ error: "Job not found" }, { status: 404 });
+  if (!existing) return jsonNoStore({ error: "Job not found" }, { status: 404 });
 
   await prisma.job.delete({ where: { id } });
   revalidateJobsSurfaces([existing.slug]);
-  return Response.json({ ok: true });
+  return jsonNoStore({ ok: true });
 }

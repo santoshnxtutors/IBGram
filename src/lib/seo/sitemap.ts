@@ -15,7 +15,6 @@ import {
   getIgcseTutorSocietyStaticParams,
 } from "@/lib/tutors/igcse-route-helpers";
 import { cambridgeSubjects, edexcelSubjects } from "@/app/(marketing)/igcse/data";
-import { allTutors } from "@/lib/tutor-data";
 
 const LAST_MODIFIED = "2026-05-08";
 const COURSE_SUBJECT_SLUGS = ["pyp", "myp", "dp", "cp", "mathematics", "sciences", "individuals", "individuals-and-societies", "english", "language"];
@@ -171,9 +170,7 @@ export function getIndexableCourseSitemapEntries(): MetadataRoute.Sitemap {
 }
 
 export function getIndexableTutorProfileSitemapEntries(): MetadataRoute.Sitemap {
-  return allTutors
-    .filter((tutor) => tutor.isActive && tutor.verified && tutor.approved)
-    .map((tutor) => sitemapEntry(`/tutor-profile/${tutor.id}/`, 0.58, "monthly"));
+  return [];
 }
 
 function sitemapEntry(path: string, priority: number, changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] = "weekly"): MetadataRoute.Sitemap[number] {

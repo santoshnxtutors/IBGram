@@ -1,7 +1,6 @@
-import { Header } from "@/components/layout/Header";
+import { DeferredHeader } from "@/components/layout/DeferredHeader";
 import { Footer } from "@/components/layout/Footer";
-import { LenisRuntime } from "@/components/providers/LenisProvider";
-import { WhatsAppFloatingWidget } from "@/components/layout/WhatsAppFloatingWidget";
+import { MarketingDeferredWidgets } from "@/components/layout/MarketingDeferredWidgets";
 
 export default function MarketingLayout({
   children,
@@ -10,11 +9,10 @@ export default function MarketingLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <DeferredHeader />
       <main className="flex-1">{children}</main>
       <Footer />
-      <WhatsAppFloatingWidget />
-      <LenisRuntime />
+      <MarketingDeferredWidgets />
     </div>
   );
 }

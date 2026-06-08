@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { startTransition, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Check, AlertTriangle, Loader2 } from "lucide-react";
 import type { AdminLocationRecord, AdminTutorRecord } from "../_types/admin";
@@ -130,6 +130,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
     try {
       const res = await fetch(saveUrl, {
         method: saveMethod,
+        cache: "no-store",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
@@ -150,7 +151,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       if (!tutor && savedSlug) {
         router.push(`/admin/tutors/${encodeURIComponent(savedSlug)}/edit`);
       } else {
-        router.refresh();
+        startTransition(() => router.refresh());
       }
     } catch (err) {
       const msg =
@@ -176,6 +177,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
     try {
       const res = await fetch(`/admin/api/tutors/${encodeURIComponent(lookupKey)}/`, {
         method: "PATCH",
+        cache: "no-store",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
@@ -184,7 +186,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
         throw new Error(msg);
       }
       showToast(successMessage);
-      router.refresh();
+      startTransition(() => router.refresh());
     } catch (err) {
       showToast(err instanceof Error ? err.message : "Failed", "err");
     } finally {

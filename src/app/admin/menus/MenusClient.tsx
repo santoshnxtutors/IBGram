@@ -35,7 +35,12 @@ export function MenusClient({ menus }: { menus: Menu[] }) {
       sortOrder: Number(fd.get("sortOrder") ?? 0),
       isActive: fd.get("isActive") === "true",
     };
-    const res = await fetch("/admin/api/menus", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+    const res = await fetch("/admin/api/menus", {
+      method: "POST",
+      cache: "no-store",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
     if (res.ok) {
       setAddingTo(null);
       router.refresh();

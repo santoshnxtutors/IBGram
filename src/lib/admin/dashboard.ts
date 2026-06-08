@@ -188,12 +188,17 @@ export async function getAdminDashboardSummary(): Promise<AdminDashboardSummary>
       }),
     ]);
 
-    const countBy = <K extends string>(rows: Array<{ _count: { _all: number }; [key: string]: unknown }>, field: string, key: K): number => {
+    type GroupedCountRow = { _count?: true | { _all?: number | null } | null; [key: string]: unknown };
+
+    const rowCount = (row: GroupedCountRow): number =>
+      typeof row._count === "object" && row._count !== null && typeof row._count._all === "number" ? row._count._all : 0;
+
+    const countBy = <K extends string>(rows: GroupedCountRow[], field: string, key: K): number => {
       const found = rows.find((row) => row[field] === key);
-      return found?._count._all ?? 0;
+      return found ? rowCount(found) : 0;
     };
 
-    const sumAll = (rows: Array<{ _count: { _all: number } }>) => rows.reduce((acc, row) => acc + row._count._all, 0);
+    const sumAll = (rows: GroupedCountRow[]) => rows.reduce((acc, row) => acc + rowCount(row), 0);
 
     const pagesTotal = sumAll(pageGroupByStatus);
     const missingMetaTitle = missingMetaTitleCount;

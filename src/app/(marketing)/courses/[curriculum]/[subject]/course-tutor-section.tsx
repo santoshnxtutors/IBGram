@@ -29,7 +29,7 @@ export function CourseTutorSection({ curriculum, subjectSlug, tutors }: CourseTu
   const pathname = usePathname();
   const currentPath = pathname;
   const subjectTitle = formatCourseSubject(subjectSlug);
-  const courseTutors = tutors?.length ? tutors : getCourseTutorProfiles(curriculum, subjectSlug);
+  const courseTutors = tutors ?? getCourseTutorProfiles(curriculum, subjectSlug);
   const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
 

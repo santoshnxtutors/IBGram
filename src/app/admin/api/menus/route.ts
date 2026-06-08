@@ -1,6 +1,7 @@
 import type { NextRequest } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -26,7 +27,7 @@ export async function GET(request: NextRequest) {
     include: { items: { orderBy: { sortOrder: "asc" } } },
     orderBy: { menuKey: "asc" },
   });
-  return Response.json({ menus });
+  return jsonNoStore({ menus });
 }
 
 export async function POST(request: NextRequest) {
@@ -35,18 +36,18 @@ export async function POST(request: NextRequest) {
   const body = (await request.json().catch(() => ({}))) as { kind?: "menu" | "item" } & Record<string, unknown>;
   if (body.kind === "item") {
     const parsed = itemSchema.safeParse(body);
-    if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+    if (!parsed.success) return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
     const menu = await prisma.navigationMenu.findUnique({ where: { menuKey: parsed.data.menuKey } });
-    if (!menu) return Response.json({ error: `Menu with key ${parsed.data.menuKey} not found` }, { status: 404 });
+    if (!menu) return jsonNoStore({ error: `Menu with key ${parsed.data.menuKey} not found` }, { status: 404 });
     const item = await prisma.navigationMenuItem.create({
       data: { menuId: menu.id, label: parsed.data.label, href: parsed.data.href, sortOrder: parsed.data.sortOrder ?? 0, isActive: parsed.data.isActive ?? true },
     });
-    return Response.json({ item });
+    return jsonNoStore({ item });
   }
   const parsed = menuCreateSchema.safeParse(body);
-  if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+  if (!parsed.success) return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   const menu = await prisma.navigationMenu.create({
     data: { menuKey: parsed.data.menuKey, label: parsed.data.label, position: parsed.data.position ?? "header" },
   });
-  return Response.json({ menu });
+  return jsonNoStore({ menu });
 }

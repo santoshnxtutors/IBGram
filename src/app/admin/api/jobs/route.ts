@@ -2,6 +2,7 @@ import type { NextRequest } from "next/server";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { jsonNoStore } from "@/lib/cache/revalidation";
 import { JOBS_CACHE_TAG, slugifyJobTitle, splitListText } from "@/lib/jobs";
 import { requireAdminRequest } from "../../_lib/admin-auth";
 
@@ -55,7 +56,7 @@ export async function GET(request: NextRequest) {
     take: 250,
     include: { _count: { select: { applications: true } } },
   });
-  return Response.json({ items });
+  return jsonNoStore({ items });
 }
 
 export async function POST(request: NextRequest) {
@@ -63,7 +64,7 @@ export async function POST(request: NextRequest) {
   if (session instanceof Response) return session;
 
   const parsed = jobSchema.safeParse(await request.json().catch(() => ({})));
-  if (!parsed.success) return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+  if (!parsed.success) return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
 
   const data = parsed.data;
   const status = data.status ?? "draft";
@@ -92,5 +93,5 @@ export async function POST(request: NextRequest) {
   });
 
   revalidateJobsSurfaces([created.slug]);
-  return Response.json({ item: created });
+  return jsonNoStore({ item: created });
 }

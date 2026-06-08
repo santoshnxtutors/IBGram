@@ -2,6 +2,7 @@ import type { NextRequest } from "next/server";
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { jsonNoStore } from "@/lib/cache/revalidation";
 import { TUTOR_REACH_CACHE_TAG, countWords } from "@/lib/cms/tutor-reach";
 import { requireAdminRequest } from "../../_lib/admin-auth";
 
@@ -12,7 +13,7 @@ function slugify(value: string): string {
     .trim()
     .toLowerCase()
     .normalize("NFKD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
@@ -49,7 +50,7 @@ export async function GET(request: NextRequest) {
     take: 500,
     include: { tutor: { select: { displayName: true, slug: true } } },
   });
-  return Response.json({ items });
+  return jsonNoStore({ items });
 }
 
 export async function POST(request: NextRequest) {
@@ -57,16 +58,16 @@ export async function POST(request: NextRequest) {
   if (session instanceof Response) return session;
   const parsed = createSchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) {
-    return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
+    return jsonNoStore({ error: parsed.error.issues[0]?.message ?? "Invalid input" }, { status: 400 });
   }
   const { publishedAt, faqs, body, slug, ...rest } = parsed.data;
 
   const finalSlug = slugify(slug || rest.title);
-  if (!finalSlug) return Response.json({ error: "Could not derive a valid slug." }, { status: 400 });
+  if (!finalSlug) return jsonNoStore({ error: "Could not derive a valid slug." }, { status: 400 });
 
   const collision = await prisma.tutorReachPage.findUnique({ where: { slug: finalSlug }, select: { id: true } });
   if (collision) {
-    return Response.json({ error: `Slug "${finalSlug}" is already used. Pick a different one.` }, { status: 409 });
+    return jsonNoStore({ error: `Slug "${finalSlug}" is already used. Pick a different one.` }, { status: 409 });
   }
 
   const bodyText = body ?? "";
@@ -81,5 +82,5 @@ export async function POST(request: NextRequest) {
     },
   });
   revalidateTag(TUTOR_REACH_CACHE_TAG, { expire: 0 });
-  return Response.json({ item: created });
+  return jsonNoStore({ item: created });
 }

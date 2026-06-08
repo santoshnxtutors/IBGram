@@ -30,8 +30,8 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
   const portalTarget = typeof document !== "undefined" ? document.body : null;
 
-  const sourceTutors = tutors?.length ? tutors : allTutors;
-  const igcseTutors = tutors?.length ? tutors : sourceTutors.filter(t => t.curriculum === "IGCSE" || t.curriculum === "Both");
+  const sourceTutors = tutors ?? allTutors;
+  const igcseTutors = tutors ? tutors : sourceTutors.filter(t => t.curriculum === "IGCSE" || t.curriculum === "Both");
 
   const toggleCompare = (id: AnyTutorId) => {
     setCompareIds(prev => {
