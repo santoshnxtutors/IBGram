@@ -95,7 +95,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
               Meet tutors matched by <span className="text-primary">subject, level and learning need</span>
             </h2>
             <p className="text-lg text-muted-foreground">
-              Browse a small sample of IB and IGCSE tutors. Matching considers syllabus fit, preferred tutoring mode, schedule and the kind of support the student needs.
+             Browse a small sample of IB and IGCSE tutors. Matching considers syllabus fit, preferred tutoring mode, schedule and the kind of support the student's needs.
             </p>
           </div>
           <Link
