@@ -29,7 +29,7 @@ const fallbackTutorImages = [
 ];
 
 function withDisplayImageFallback(tutor: Tutor, index: number): Tutor {
-  if (!tutor.image || tutor.image.startsWith("/api/media/")) {
+  if (!tutor.image) {
     return {
       ...tutor,
       image: fallbackTutorImages[index % fallbackTutorImages.length],
