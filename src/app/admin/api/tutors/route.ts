@@ -36,7 +36,6 @@ export async function POST(request: NextRequest) {
 
     const citySlug = slugifyAdmin(data.primaryCitySlug || "gurugram");
     const city = await prisma.city.findFirst({ where: { slug: citySlug } });
-    const modes = new Set((data.teachingModes ?? ["online"]).map((mode) => mode.toLowerCase()));
     const tutor = await prisma.$transaction(async (tx) => {
       const created = await tx.tutor.create({
         data: {
@@ -93,28 +92,16 @@ export async function POST(request: NextRequest) {
       if (curriculumRows.length) await tx.tutorCurriculum.createMany({ data: curriculumRows, skipDuplicates: true });
 
       if (city) {
-        const areaName = data.areas?.[0]?.trim() || null;
-        const sectorName = data.sectors?.[0]?.trim() || null;
-        const societyName = data.societies?.[0]?.trim() || null;
-        await tx.tutorLocation.create({
-          data: {
-            tutorId: created.id,
-            cityId: city.id,
-            cityName: city.name,
-            citySlug: city.slug,
-            areaName,
-            areaSlug: areaName ? slugifyAdmin(areaName) : null,
-            sectorName,
-            sectorSlug: sectorName ? slugifyAdmin(sectorName) : null,
-            societyName,
-            societySlug: societyName ? slugifyAdmin(societyName) : null,
-            homeTutoringAvailable: modes.has("home"),
-            onlineTutoringAvailable: modes.has("online") || modes.size === 0,
-            hybridTutoringAvailable: modes.has("hybrid"),
-            notes: data.travelNotes ?? null,
-            priority: 0,
-            isActive: true,
-          },
+        await tx.tutorLocation.createMany({
+          data: buildLocationRows(
+            created.id,
+            city,
+            data.areas,
+            data.sectors,
+            data.societies,
+            data.teachingModes,
+            data.travelNotes,
+          ),
         });
       }
 
@@ -198,4 +185,54 @@ function buildCurriculumRows(tutorId: string, curriculums: string[] = ["IB"], ib
     seen.add(key);
   }
   return rows;
+}
+
+function uniqueClean(values: string[] | undefined): string[] {
+  return [...new Set((values ?? []).map((value) => value.trim()).filter(Boolean))];
+}
+
+function buildLocationRows(
+  tutorId: string,
+  city: { id: string; name: string; slug: string },
+  areas: string[] | undefined,
+  sectors: string[] | undefined,
+  societies: string[] | undefined,
+  modes: string[] | undefined,
+  notes: string | null | undefined,
+) {
+  const modeSet = new Set((modes ?? []).map((mode) => mode.trim().toLowerCase()).filter(Boolean));
+  const base = {
+    tutorId,
+    cityId: city.id,
+    cityName: city.name,
+    citySlug: city.slug,
+    homeTutoringAvailable: modeSet.has("home"),
+    onlineTutoringAvailable: modeSet.has("online") || modeSet.size === 0,
+    hybridTutoringAvailable: modeSet.has("hybrid"),
+    notes: notes ?? null,
+    isActive: true,
+  };
+  let priority = 0;
+  const rows = [
+    ...uniqueClean(areas).map((areaName) => ({
+      ...base,
+      areaName,
+      areaSlug: slugifyAdmin(areaName),
+      priority: priority++,
+    })),
+    ...uniqueClean(sectors).map((sectorName) => ({
+      ...base,
+      sectorName,
+      sectorSlug: slugifyAdmin(sectorName),
+      priority: priority++,
+    })),
+    ...uniqueClean(societies).map((societyName) => ({
+      ...base,
+      societyName,
+      societySlug: slugifyAdmin(societyName),
+      priority: priority++,
+    })),
+  ];
+
+  return rows.length ? rows : [{ ...base, priority: 0 }];
 }

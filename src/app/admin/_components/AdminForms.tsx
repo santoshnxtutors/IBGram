@@ -65,6 +65,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
   const [toast, setToast] = useState<{ tone: "ok" | "err"; message: string } | null>(null);
   const [avatarAssetId, setAvatarAssetId] = useState<string | null>(null);
   const [avatarUrl, setAvatarUrl] = useState<string | null>(tutor?.image ?? null);
+  const [savedLookupKey, setSavedLookupKey] = useState(tutor?.slug || tutor?.id || "");
 
   const showToast = (message: string, tone: "ok" | "err" = "ok") => {
     setToast({ tone, message });
@@ -122,7 +123,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
     // Use the slug, not the legacy numeric id — the Prisma Tutor row uses the
     // slug (e.g. "dr-sarah-m-1"), while AdminTutorRecord.id is the static
     // numeric id ("1"). The API route accepts either.
-    const lookupKey = tutor ? tutor.slug || tutor.id : "";
+    const lookupKey = tutor ? savedLookupKey || tutor.slug || tutor.id : "";
     const saveUrl = tutor ? `/admin/api/tutors/${encodeURIComponent(lookupKey)}/` : "/admin/api/tutors/";
     const saveMethod = tutor ? "PATCH" : "POST";
     // Trailing slash to match the project's trailingSlash:true config so we
@@ -148,10 +149,12 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       }
       showToast("Saved to database.");
       const savedSlug = (bodyJson as { slug?: string } | null)?.slug ?? payload.slug;
+      const savedId = (bodyJson as { id?: string } | null)?.id;
+      if (savedSlug || savedId) {
+        setSavedLookupKey(savedSlug || savedId || lookupKey);
+      }
       if (!tutor && savedSlug) {
         router.push(`/admin/tutors/${encodeURIComponent(savedSlug)}/edit`);
-      } else {
-        startTransition(() => router.refresh());
       }
     } catch (err) {
       const msg =
@@ -173,7 +176,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
   ) => {
     if (!tutor) return;
     setBusy(true);
-    const lookupKey = tutor.slug || tutor.id;
+    const lookupKey = savedLookupKey || tutor.slug || tutor.id;
     try {
       const res = await fetch(`/admin/api/tutors/${encodeURIComponent(lookupKey)}/`, {
         method: "PATCH",
@@ -304,6 +307,11 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
             {(tutor?.profileStatus ?? "draft").toUpperCase()}
           </span>
         </div>
+        {toast && (
+          <span className={`text-xs font-bold ${toast.tone === "ok" ? "text-emerald-300" : "text-rose-300"}`}>
+            {toast.message}
+          </span>
+        )}
         <button
           type="submit"
           disabled={busy}

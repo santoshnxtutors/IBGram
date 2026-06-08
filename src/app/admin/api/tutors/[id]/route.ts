@@ -64,30 +64,54 @@ const patchSchema = z.object({
   faqs: z.array(z.object({ question: z.string().min(1), answer: z.string().min(1) })).optional(),
 });
 
-function pickFirstLocation(
-  primaryCitySlug: string | null | undefined,
+function uniqueClean(values: string[] | undefined): string[] {
+  return [...new Set((values ?? []).map((value) => value.trim()).filter(Boolean))];
+}
+
+function buildLocationRows(
+  tutorId: string,
+  city: { id: string; name: string; slug: string },
   areas: string[] | undefined,
   sectors: string[] | undefined,
   societies: string[] | undefined,
   modes: string[] | undefined,
+  notes: string | null | undefined,
 ) {
-  const cleanArea = (areas?.[0] ?? "").trim();
-  const cleanSector = (sectors?.[0] ?? "").trim();
-  const cleanSociety = (societies?.[0] ?? "").trim();
-  const m = new Set((modes ?? []).map((s) => s.trim().toLowerCase()));
-  return {
-    cityName: primaryCitySlug ?? "",
-    citySlug: primaryCitySlug?.toLowerCase().replace(/\s+/g, "-") ?? "",
-    areaName: cleanArea || null,
-    areaSlug: cleanArea ? cleanArea.toLowerCase().replace(/\s+/g, "-") : null,
-    sectorName: cleanSector || null,
-    sectorSlug: cleanSector ? cleanSector.toLowerCase().replace(/\s+/g, "-") : null,
-    societyName: cleanSociety || null,
-    societySlug: cleanSociety ? cleanSociety.toLowerCase().replace(/\s+/g, "-") : null,
-    homeTutoringAvailable: m.has("home"),
-    onlineTutoringAvailable: m.has("online"),
-    hybridTutoringAvailable: m.has("hybrid"),
+  const modeSet = new Set((modes ?? []).map((mode) => mode.trim().toLowerCase()).filter(Boolean));
+  const base = {
+    tutorId,
+    cityId: city.id,
+    cityName: city.name,
+    citySlug: city.slug,
+    homeTutoringAvailable: modeSet.has("home"),
+    onlineTutoringAvailable: modeSet.has("online") || modeSet.size === 0,
+    hybridTutoringAvailable: modeSet.has("hybrid"),
+    notes: notes ?? null,
+    isActive: true,
   };
+  let priority = 0;
+  const rows = [
+    ...uniqueClean(areas).map((areaName) => ({
+      ...base,
+      areaName,
+      areaSlug: normaliseSlug(areaName),
+      priority: priority++,
+    })),
+    ...uniqueClean(sectors).map((sectorName) => ({
+      ...base,
+      sectorName,
+      sectorSlug: normaliseSlug(sectorName),
+      priority: priority++,
+    })),
+    ...uniqueClean(societies).map((societyName) => ({
+      ...base,
+      societyName,
+      societySlug: normaliseSlug(societyName),
+      priority: priority++,
+    })),
+  ];
+
+  return rows.length ? rows : [{ ...base, priority: 0 }];
 }
 
 function isTransientDbError(err: unknown): boolean {
@@ -341,41 +365,24 @@ export async function PATCH(
           data.teachingModes !== undefined ||
           data.travelNotes !== undefined
         ) {
-          const citySlug = (data.primaryCitySlug ?? "gurugram").toLowerCase();
+          const citySlug = normaliseSlug(data.primaryCitySlug ?? "gurugram");
           const city = await tx.city.findFirst({ where: { slug: citySlug } });
           if (city) {
             await tx.tutorLocation.deleteMany({ where: { tutorId: existing.id } });
-            const loc = pickFirstLocation(
-              data.primaryCitySlug ?? citySlug,
+            const locationRows = buildLocationRows(
+              existing.id,
+              city,
               data.areas,
               data.sectors,
               data.societies,
               data.teachingModes,
+              data.travelNotes,
             );
-            await tx.tutorLocation.create({
-              data: {
-                tutorId: existing.id,
-                cityId: city.id,
-                cityName: loc.cityName || "Gurugram",
-                citySlug: loc.citySlug || "gurugram",
-                areaName: loc.areaName,
-                areaSlug: loc.areaSlug,
-                sectorName: loc.sectorName,
-                sectorSlug: loc.sectorSlug,
-                societyName: loc.societyName,
-                societySlug: loc.societySlug,
-                homeTutoringAvailable: loc.homeTutoringAvailable,
-                onlineTutoringAvailable: loc.onlineTutoringAvailable,
-                hybridTutoringAvailable: loc.hybridTutoringAvailable,
-                notes: data.travelNotes ?? null,
-                priority: 0,
-                isActive: true,
-              },
-            });
+            await tx.tutorLocation.createMany({ data: locationRows });
           }
         }
 
-        return { notFound: false as const, id: existing.id };
+        return { notFound: false as const, id: existing.id, slug: data.slug ?? existing.slug };
       }, { timeout: 15_000, maxWait: 8_000 }),
     );
 
@@ -393,10 +400,10 @@ export async function PATCH(
       getAffectedPathsForTutor({
         ...data,
         id: result.id,
-        slug: data.slug ?? id,
+        slug: result.slug ?? data.slug ?? id,
       }),
     );
-    return jsonNoStore({ ok: true, id: result.id, revalidated });
+    return jsonNoStore({ ok: true, id: result.id, slug: result.slug, revalidated });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     const transient = isTransientDbError(err);
