@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/greater-noida/",
+  "routeKey": "/ib-tutors/greater-noida/",
+  "pageType": "city",
+  "citySlug": "greater-noida",
+  "cityName": "Greater Noida",
+  "slug": "",
+  "pageId": "IBG_GREATER_NOIDA_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Greater Noida",
+    "citySlug": "greater-noida",
+    "primaryKeyword": "IB tutors in Greater Noida",
+    "secondaryKeywords": [
+      "IB home tutors Greater Noida",
+      "IB DP tutor Greater Noida",
+      "IB Math AA tutor Greater Noida",
+      "IB online tutors Greater Noida"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Jaypee Greens",
+      "Omega",
+      "Pari Chowk",
+      "Noida Extension",
+      "Techzone"
+    ],
+    "nearbyAreas": [
+      "Alpha",
+      "Beta",
+      "Gamma",
+      "Knowledge Park",
+      "Gaur City",
+      "Yamuna Expressway",
+      "Sector 150"
+    ],
+    "nearbyCities": [
+      "Noida",
+      "Delhi",
+      "Ghaziabad"
+    ],
+    "schoolsMentioned": [
+      "Expressway international learner corridor",
+      "Noida Extension school families",
+      "Jaypee Greens and Omega learner cluster"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Greater Noida has a distinct international school and premium tutoring market. Greater Noida's IB tutoring demand is connected to expressway school corridors, premium societies and families comparing Noida, Delhi and Ghaziabad support options. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often need tutoring that understands long school routes, society-based schedules and the difference between generic tuition and IB assessment support. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring may be feasible within society clusters, while online and hybrid support often give DP students stronger subject depth across NCR. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Greater Noida families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Greater Noida's IB tutoring demand is connected to expressway school corridors, premium societies and families comparing Noida, Delhi and Ghaziabad support options.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Greater Noida usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Greater Noida areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Jaypee Greens",
+        "description": "Premium area where families often ask for home tutoring review and online DP specialist access."
+      },
+      {
+        "name": "Omega",
+        "description": "Residential sector cluster for MYP foundations, Math support and hybrid tutoring around school routes."
+      },
+      {
+        "name": "Pari Chowk",
+        "description": "Central Greater Noida node where families compare local, Noida and online tutoring options."
+      },
+      {
+        "name": "Noida Extension",
+        "description": "Large residential corridor where online support can reduce travel pressure and widen specialist availability."
+      },
+      {
+        "name": "Techzone",
+        "description": "Growing school and residential area for Math, science and exam-season support."
+      }
+    ],
+    "schoolsMentioned": [
+      "Expressway international learner corridor",
+      "Noida Extension school families",
+      "Jaypee Greens and Omega learner cluster"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Greater Noida request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Greater Noida often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Greater Noida is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Greater Noida is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Greater Noida often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Greater Noida is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Greater Noida is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Greater Noida",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Noida",
+      "Delhi",
+      "Ghaziabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

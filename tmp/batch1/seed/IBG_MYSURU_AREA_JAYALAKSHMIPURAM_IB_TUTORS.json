@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/mysuru/areas/jayalakshmipuram/",
+  "routeKey": "/ib-tutors/mysuru/areas/jayalakshmipuram/",
+  "pageType": "area",
+  "citySlug": "mysuru",
+  "cityName": "Mysuru",
+  "slug": "jayalakshmipuram",
+  "pageId": "IBG_MYSURU_AREA_JAYALAKSHMIPURAM_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Mysuru",
+    "citySlug": "mysuru",
+    "parentLocation": "Mysuru",
+    "microLocationName": "Jayalakshmipuram",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Jayalakshmipuram Mysuru",
+    "secondaryKeywords": [
+      "IB home tutor Jayalakshmipuram",
+      "IB DP tutor near Jayalakshmipuram",
+      "IB Math AA tutor Jayalakshmipuram",
+      "IB online tutors Mysuru"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Jayalakshmipuram",
+      "Kuvempunagar",
+      "Vijayanagar",
+      "Gokulam",
+      "Hebbal"
+    ],
+    "nearbyAreas": [
+      "Vontikoppal",
+      "Yadavagiri",
+      "Saraswathipuram",
+      "Hinkal",
+      "Vivekananda Nagar",
+      "Bogadi",
+      "Siddhartha Layout"
+    ],
+    "nearbyCities": [
+      "Bangalore",
+      "Coimbatore",
+      "Chennai"
+    ],
+    "schoolsMentioned": [
+      "Central Mysuru learner cluster",
+      "Kuvempunagar residential school families",
+      "Vijayanagar and Hebbal education corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Premium residential area for English, MYP and structured academic support.",
+    "nearbyLandmarks": [
+      "Vontikoppal",
+      "Gokulam"
+    ],
+    "nearbyAreas": [
+      "Vontikoppal",
+      "Yadavagiri",
+      "Saraswathipuram",
+      "Hinkal",
+      "Vivekananda Nagar",
+      "Bogadi",
+      "Siddhartha Layout"
+    ],
+    "schoolsMentioned": [
+      "Central Mysuru learner cluster",
+      "Kuvempunagar residential school families",
+      "Vijayanagar and Hebbal education corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Mysuru",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Bangalore",
+      "Coimbatore",
+      "Chennai"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

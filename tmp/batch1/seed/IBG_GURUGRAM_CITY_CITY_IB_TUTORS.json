@@ -1,0 +1,156 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/",
+  "routeKey": "/ib-tutors/gurugram/",
+  "pageType": "city",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "",
+  "pageId": "IBG_GURUGRAM_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "primaryKeyword": "IB tutors in Gurugram",
+    "secondaryKeywords": [
+      "IB home tutors Gurugram",
+      "IB DP tutor Gurugram",
+      "IB Math AA tutor Gurugram",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Nirvana Country",
+      "South City 1",
+      "DLF Phase 1",
+      "DLF Phase 4",
+      "Sector 50",
+      "Sector 65"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Pathways World School",
+      "Lancers International School",
+      "Scottish High International School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Gurugram has one of the strongest international school tutoring markets in North India. Many families here are balancing rigorous IB expectations with long school days, activity-heavy schedules, and frequent travel between Golf Course Road, DLF phases, Sohna Road, Sushant Lok, Sector 57 and newer residential communities. The result is a clear need for tutoring that is structured, responsive and genuinely aligned with IB assessment rather than generic board tutoring.",
+      "IB students in Gurugram often need help at different points in the academic journey. PYP families may want reading, inquiry and numeracy support that does not turn early learning into rote worksheets. MYP students often need help translating concepts into criterion-based assignments. DP students usually need specialist subject support, IA direction, exam strategy, and a calm weekly plan that protects school deadlines.",
+      "IB Gram's Gurugram page is built for parents who want a clear local view before speaking to an advisor. It explains where home tutoring may be feasible, when online lessons make more sense, which subjects usually need specialist matching, and how IB Gram screens tutors before recommending a shortlist."
+    ],
+    "cityAcademicIntro": [
+      "For many Gurugram families, the challenge is not finding a tutor; it is finding an IB tutor who understands how the programme is assessed. A student can be bright and still lose marks because an IA question is too broad, an MYP reflection is vague, or a DP response misses command-term expectations. IB Gram starts with those details.",
+      "The matching conversation looks at the student's programme, school calendar, subject level, present performance, preferred learning mode and goal. A PYP student near DLF Phase 5 may need a gentle mentor who can build reading and numeracy confidence. A DP student near Golf Course Road may need a Math AA HL specialist who can work through calculus, functions and timed papers. A science student near Sohna Road may need online support because the best-fit tutor is not within practical travel distance.",
+      "This page is intentionally local. It covers Gurugram areas, nearby NCR links, school ecosystems, tutoring modes and FAQs so parents can decide what kind of support to request before booking a consultation."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Golf Course Road",
+        "description": "High-demand corridor for DP Math, sciences and economics support, especially for families who want evening home lessons with predictable travel windows."
+      },
+      {
+        "name": "DLF Phase 5",
+        "description": "Premium residential pocket where hybrid tutoring is often preferred because students split time between school work, sports and test preparation."
+      },
+      {
+        "name": "Sector 57",
+        "description": "A practical base for families around central Gurugram who need MYP foundations, DP subject tutoring and short-notice online backup."
+      },
+      {
+        "name": "Sohna Road",
+        "description": "Useful for families near newer communities where online or hybrid support can reduce commute friction during exam months."
+      },
+      {
+        "name": "Sushant Lok",
+        "description": "A central tutoring catchment for PYP, MYP and DP families who want quick access to vetted IB mentors."
+      }
+    ],
+    "schoolsMentioned": [
+      "Pathways World School",
+      "Lancers International School",
+      "Scottish High International School",
+      "GD Goenka World School"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is one of the most requested Gurugram subjects, especially for DP students aiming at engineering, economics or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "AI HL support is helpful for Gurugram students who need stronger application routines and calculator-led confidence."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics requests in Gurugram often involve students who understand class notes but need help applying command terms under exam pressure."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry students often ask for structured weekly problem practice and clearer links between theory, lab skills and markschemes."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics tutoring is useful for students who need better 10-mark and 15-mark response structure alongside current examples."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Gurugram is often requested by strong students who need more precise thesis building and textual evidence."
+      }
+    ],
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

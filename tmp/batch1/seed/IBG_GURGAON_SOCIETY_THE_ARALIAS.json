@@ -1,0 +1,108 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/societies/the-aralias/",
+  "routeKey": "/ib-tutors/gurugram/societies/the-aralias/",
+  "pageType": "society",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "the-aralias",
+  "pageId": "IBG_GURGAON_SOCIETY_THE_ARALIAS",
+  "reusedPageId": true,
+  "input": {
+    "pageType": "society",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "The Aralias",
+    "microLocationType": "society",
+    "primaryKeyword": "IB tutors near The Aralias Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor The Aralias",
+      "IB DP tutor near The Aralias",
+      "IB Math AA tutor The Aralias",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA",
+      "Math AI",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Economics",
+      "English"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Sector 42",
+      "Sector 43",
+      "Golf Course Road",
+      "DLF Phase 5",
+      "DLF Crest",
+      "DLF Park Place",
+      "DLF The Belaire"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "societyType": "premium residential society/condominium",
+    "nearbyAreas": [
+      "Sector 42",
+      "Sector 43",
+      "Golf Course Road",
+      "DLF Phase 5",
+      "DLF Crest",
+      "DLF Park Place",
+      "DLF The Belaire"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "Local IB tutoring support near The Aralias, Gurugram, often searched as Gurgaon, for PYP, MYP and DP families who want programme-aware subject help, practical tutor matching and safe home, online or hybrid scheduling. Availability depends on subject, grade level, exact location, schedule and preferred tutoring mode.",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

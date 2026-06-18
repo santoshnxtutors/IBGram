@@ -93,8 +93,8 @@ describe("generated quality and indexing", () => {
 describe("generated sitemap entries", () => {
   it("includes published Gurugram local generated pages in sitemap", () => {
     const urls = getIndexableGeneratedSitemapEntries().map((entry) => entry.url);
-    expect(urls).toContain("https://ibgram.com/ib-tutors/gurugram/sectors/sector-56/");
-    expect(urls).toContain("https://ibgram.com/ib-tutors/gurugram/sectors/sector-29/");
+    expect(urls).toContain("https://www.ibgram.com/ib-tutors/gurugram/sectors/sector-56/");
+    expect(urls).toContain("https://www.ibgram.com/ib-tutors/gurugram/sectors/sector-29/");
   });
 });
 
@@ -105,8 +105,8 @@ function makePage(): GeneratedSeoPage {
     pageType: "sector",
     status: "review",
     indexFlag: "noindex",
-    canonicalUrl: "https://ibgram.com/ib-tutors/gurugram/sectors/sector-56/",
-    canonicalTarget: "https://ibgram.com/ib-tutors/gurugram/",
+    canonicalUrl: "https://www.ibgram.com/ib-tutors/gurugram/sectors/sector-56/",
+    canonicalTarget: "https://www.ibgram.com/ib-tutors/gurugram/",
     slug: "sector-56",
     cityName: "Gurugram",
     citySlug: "gurugram",
@@ -127,7 +127,7 @@ function makePage(): GeneratedSeoPage {
     metaDescription: "Find IB tutors in Sector 56 Gurugram for PYP, MYP and DP students with home, online and hybrid support.",
     ogTitle: "IB Tutors in Sector 56 Gurugram | IB Gram",
     ogDescription: "IB tutors in Sector 56 Gurugram with verified tutor matching.",
-    ogImage: "https://ibgram.com/images/ib-gram-city-og.svg",
+    ogImage: "https://www.ibgram.com/images/ib-gram-city-og.svg",
     twitterTitle: "IB Tutors in Sector 56 Gurugram | IB Gram",
     twitterDescription: "IB tutors in Sector 56 Gurugram with verified tutor matching.",
     breadcrumbTitle: "IB Tutors in Sector 56",

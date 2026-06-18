@@ -1,0 +1,99 @@
+{
+  "url": "https://ibgram.com/ib-tutors/ahmedabad/physics/",
+  "routeKey": "/ib-tutors/ahmedabad/physics/",
+  "pageType": "subject",
+  "citySlug": "ahmedabad",
+  "cityName": "Ahmedabad",
+  "slug": "physics",
+  "pageId": "IBG_AHMEDABAD_SUBJECT_PHYSICS_PHYSICS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "subject",
+    "cityName": "Ahmedabad",
+    "citySlug": "ahmedabad",
+    "primaryKeyword": "IB Physics tutor in Ahmedabad",
+    "secondaryKeywords": [
+      "IB Physics HL tutor Ahmedabad",
+      "IB Physics SL tutor Ahmedabad",
+      "IB Physics online tutor",
+      "Physics IB home tutor Ahmedabad"
+    ],
+    "serviceFocus": "Physics",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Physics"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "SG Highway",
+      "Satellite",
+      "Bodakdev",
+      "Prahlad Nagar",
+      "Thaltej"
+    ],
+    "nearbyAreas": [
+      "Vastrapur",
+      "Jodhpur",
+      "Makarba",
+      "Science City",
+      "Sola",
+      "Ambli",
+      "Shela"
+    ],
+    "nearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Physics",
+    "subjectLevel": "HL and SL",
+    "subjectDescription": "Mechanics, waves, electricity, fields, data-based questions, practical skills and timed paper practice.",
+    "subjectCityNote": "Physics tutoring in Ahmedabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice.",
+    "premiumAreas": [
+      "SG Highway",
+      "Satellite",
+      "Bodakdev",
+      "Prahlad Nagar",
+      "Thaltej"
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "cityName": "Ahmedabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "url": "https://ibgram.com/ib-tutors/mumbai/areas/south-mumbai/",
+  "routeKey": "/ib-tutors/mumbai/areas/south-mumbai/",
+  "pageType": "area",
+  "citySlug": "mumbai",
+  "cityName": "Mumbai",
+  "slug": "south-mumbai",
+  "pageId": "IBG_MUMBAI_AREA_SOUTH_MUMBAI_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Mumbai",
+    "citySlug": "mumbai",
+    "parentLocation": "Mumbai",
+    "microLocationName": "South Mumbai",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near South Mumbai Mumbai",
+    "secondaryKeywords": [
+      "IB home tutor South Mumbai",
+      "IB DP tutor near South Mumbai",
+      "IB Math AA tutor South Mumbai",
+      "IB online tutors Mumbai"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Bandra",
+      "Juhu",
+      "Powai",
+      "South Mumbai"
+    ],
+    "nearbyAreas": [
+      "Worli",
+      "Lower Parel",
+      "Andheri",
+      "Santacruz",
+      "Malabar Hill",
+      "Thane"
+    ],
+    "nearbyCities": [
+      "Pune",
+      "Thane",
+      "Navi Mumbai"
+    ],
+    "schoolsMentioned": [
+      "Dhirubhai Ambani International School",
+      "Oberoi International School",
+      "Ecole Mondiale World School",
+      "Aditya Birla World Academy"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Useful for families seeking high-quality subject specialists where travel feasibility must be checked carefully.",
+    "nearbyLandmarks": [],
+    "nearbyAreas": [
+      "Worli",
+      "Lower Parel",
+      "Andheri",
+      "Santacruz",
+      "Malabar Hill",
+      "Thane"
+    ],
+    "schoolsMentioned": [
+      "Dhirubhai Ambani International School",
+      "Oberoi International School",
+      "Ecole Mondiale World School",
+      "Aditya Birla World Academy"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Mumbai",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Pune",
+      "Thane",
+      "Navi Mumbai"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/ghaziabad/areas/crossings-republik/",
+  "routeKey": "/ib-tutors/ghaziabad/areas/crossings-republik/",
+  "pageType": "area",
+  "citySlug": "ghaziabad",
+  "cityName": "Ghaziabad",
+  "slug": "crossings-republik",
+  "pageId": "IBG_GHAZIABAD_AREA_CROSSINGS_REPUBLIK_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Ghaziabad",
+    "citySlug": "ghaziabad",
+    "parentLocation": "Ghaziabad",
+    "microLocationName": "Crossings Republik",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Crossings Republik Ghaziabad",
+    "secondaryKeywords": [
+      "IB home tutor Crossings Republik",
+      "IB DP tutor near Crossings Republik",
+      "IB Math AA tutor Crossings Republik",
+      "IB online tutors Ghaziabad"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Indirapuram",
+      "Vaishali",
+      "Raj Nagar Extension",
+      "Crossings Republik",
+      "Kaushambi"
+    ],
+    "nearbyAreas": [
+      "Ahinsa Khand",
+      "Vasundhara",
+      "Sahibabad",
+      "Sanjay Nagar",
+      "NH 24",
+      "Vijay Nagar",
+      "Kavi Nagar"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Greater Noida"
+    ],
+    "schoolsMentioned": [
+      "Indirapuram and Vaishali learner cluster",
+      "Raj Nagar Extension school families",
+      "Crossings Republik and NH 24 corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Useful for families comparing Ghaziabad, Noida and Greater Noida tutoring options.",
+    "nearbyLandmarks": [
+      "NH 24",
+      "Vijay Nagar"
+    ],
+    "nearbyAreas": [
+      "Ahinsa Khand",
+      "Vasundhara",
+      "Sahibabad",
+      "Sanjay Nagar",
+      "NH 24",
+      "Vijay Nagar",
+      "Kavi Nagar"
+    ],
+    "schoolsMentioned": [
+      "Indirapuram and Vaishali learner cluster",
+      "Raj Nagar Extension school families",
+      "Crossings Republik and NH 24 corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Ghaziabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Greater Noida"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

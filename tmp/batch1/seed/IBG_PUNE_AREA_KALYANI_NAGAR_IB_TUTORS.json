@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/pune/areas/kalyani-nagar/",
+  "routeKey": "/ib-tutors/pune/areas/kalyani-nagar/",
+  "pageType": "area",
+  "citySlug": "pune",
+  "cityName": "Pune",
+  "slug": "kalyani-nagar",
+  "pageId": "IBG_PUNE_AREA_KALYANI_NAGAR_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Pune",
+    "citySlug": "pune",
+    "parentLocation": "Pune",
+    "microLocationName": "Kalyani Nagar",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Kalyani Nagar Pune",
+    "secondaryKeywords": [
+      "IB home tutor Kalyani Nagar",
+      "IB DP tutor near Kalyani Nagar",
+      "IB Math AA tutor Kalyani Nagar",
+      "IB online tutors Pune"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Koregaon Park",
+      "Kalyani Nagar",
+      "Baner",
+      "Hinjawadi",
+      "Viman Nagar"
+    ],
+    "nearbyAreas": [
+      "Aundh",
+      "Balewadi",
+      "Wakad",
+      "Magarpatta",
+      "Hadapsar",
+      "Pashan",
+      "Kharadi"
+    ],
+    "nearbyCities": [
+      "Mumbai",
+      "Navi Mumbai",
+      "Thane"
+    ],
+    "schoolsMentioned": [
+      "East Pune international school families",
+      "West Pune IB learner cluster",
+      "Central Pune premium school corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Useful for families who need flexible IB tutoring around school commutes, activities and evening study blocks near the eastern corridor.",
+    "nearbyLandmarks": [
+      "Viman Nagar",
+      "Yerawada"
+    ],
+    "nearbyAreas": [
+      "Aundh",
+      "Balewadi",
+      "Wakad",
+      "Magarpatta",
+      "Hadapsar",
+      "Pashan",
+      "Kharadi"
+    ],
+    "schoolsMentioned": [
+      "East Pune international school families",
+      "West Pune IB learner cluster",
+      "Central Pune premium school corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Pune",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Mumbai",
+      "Navi Mumbai",
+      "Thane"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

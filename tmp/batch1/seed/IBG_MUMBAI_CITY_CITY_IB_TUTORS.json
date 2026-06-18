@@ -1,0 +1,154 @@
+{
+  "url": "https://ibgram.com/ib-tutors/mumbai/",
+  "routeKey": "/ib-tutors/mumbai/",
+  "pageType": "city",
+  "citySlug": "mumbai",
+  "cityName": "Mumbai",
+  "slug": "",
+  "pageId": "IBG_MUMBAI_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Mumbai",
+    "citySlug": "mumbai",
+    "primaryKeyword": "IB tutors in Mumbai",
+    "secondaryKeywords": [
+      "IB home tutors Mumbai",
+      "IB DP tutor Mumbai",
+      "IB Math AA tutor Mumbai",
+      "IB online tutors Mumbai"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Bandra",
+      "Juhu",
+      "Powai",
+      "South Mumbai"
+    ],
+    "nearbyAreas": [
+      "Worli",
+      "Lower Parel",
+      "Andheri",
+      "Santacruz",
+      "Malabar Hill",
+      "Thane"
+    ],
+    "nearbyCities": [
+      "Pune",
+      "Thane",
+      "Navi Mumbai"
+    ],
+    "schoolsMentioned": [
+      "Dhirubhai Ambani International School",
+      "Oberoi International School",
+      "Ecole Mondiale World School",
+      "Aditya Birla World Academy"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Mumbai has a mature international school ecosystem and a high concentration of families seeking specialist IB support. The practical challenge is usually not demand; it is matching the right tutor to the right area, subject and schedule in a city where travel can quickly consume academic energy.",
+      "Parents often request DP Math AA, Math AI, sciences, economics, English and IA support. Younger students may need MYP criteria guidance or PYP foundation support. Mumbai's school calendars, extracurricular load and commute patterns make online and hybrid tutoring especially useful for consistent progress.",
+      "The local academic pattern is usually intense but time-constrained. Students may have strong school support and still need a separate space to slow down, repair gaps and practise with feedback. An IB Math AA HL tutor may focus on calculus and timed papers, while an Economics tutor may work on diagrams, evaluation and IA commentary. The goal is not more hours for the sake of it; it is a clearer weekly rhythm that protects energy.",
+      "IB Gram's Mumbai city page focuses on safe, practical guidance: which areas are commonly served, when home tutoring may work, when online tutoring is stronger, how school references are handled without implying partnership, and what parents should share for a better match."
+    ],
+    "cityAcademicIntro": [
+      "In Mumbai, the best tutor match often depends on both academic fit and route feasibility. A student may need a home tutor in Bandra for weekly consistency, but a stronger online specialist for IA feedback or HL revision. IB Gram helps parents decide that mix without overpromising a nearby tutor for every subject.",
+      "The academic need is mapped first: PYP foundation, MYP criteria, DP subject mastery, IA direction, EE planning, TOK support or exam revision. Then the city reality is added: area, timing, traffic, online readiness and parent preference.",
+      "Mumbai families also tend to ask for concise academic communication. Parents want to know what changed after a session: which topic improved, what homework was set, whether the IA question is becoming narrower, and whether mock-paper timing is improving. IB Gram encourages that clarity during matching so support stays measurable without promising guaranteed results.",
+      "This page gives Mumbai parents a clear local view before they speak to IB Gram, including areas, school ecosystem references, subject support, tutoring modes and FAQs."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Bandra",
+        "description": "A common premium catchment for home and hybrid tutoring, especially for DP students who need strong weekly structure."
+      },
+      {
+        "name": "Juhu",
+        "description": "Often relevant for families seeking IB English, Math and science support with flexible evening options."
+      },
+      {
+        "name": "Powai",
+        "description": "A practical hub for online and hybrid support, especially for students balancing school, activities and test preparation."
+      },
+      {
+        "name": "South Mumbai",
+        "description": "Useful for families seeking high-quality subject specialists where travel feasibility must be checked carefully."
+      }
+    ],
+    "schoolsMentioned": [
+      "Dhirubhai Ambani International School",
+      "Oberoi International School",
+      "Ecole Mondiale World School",
+      "Aditya Birla World Academy"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA is a high-demand subject for Mumbai students targeting engineering, economics and data-heavy pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI support is useful for students who need confidence with data interpretation and application-heavy questions."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Mumbai physics requests often focus on structured revision and paper practice around school calendars."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring often combines topic repair with weekly problem practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics support in Mumbai often includes current examples and sharper evaluation language."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support is commonly requested by students who need more precise interpretation and thesis control."
+      }
+    ],
+    "cityName": "Mumbai",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Pune",
+      "Thane",
+      "Navi Mumbai"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

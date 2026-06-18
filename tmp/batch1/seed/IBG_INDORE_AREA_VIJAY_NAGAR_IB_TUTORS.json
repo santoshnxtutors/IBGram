@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/indore/areas/vijay-nagar/",
+  "routeKey": "/ib-tutors/indore/areas/vijay-nagar/",
+  "pageType": "area",
+  "citySlug": "indore",
+  "cityName": "Indore",
+  "slug": "vijay-nagar",
+  "pageId": "IBG_INDORE_AREA_VIJAY_NAGAR_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Indore",
+    "citySlug": "indore",
+    "parentLocation": "Indore",
+    "microLocationName": "Vijay Nagar",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Vijay Nagar Indore",
+    "secondaryKeywords": [
+      "IB home tutor Vijay Nagar",
+      "IB DP tutor near Vijay Nagar",
+      "IB Math AA tutor Vijay Nagar",
+      "IB online tutors Indore"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Vijay Nagar",
+      "Palasia",
+      "Nipania",
+      "Rau",
+      "Super Corridor"
+    ],
+    "nearbyAreas": [
+      "Mahalaxmi Nagar",
+      "Scheme 78",
+      "AB Road",
+      "Bypass Road",
+      "Old Palasia",
+      "New Palasia",
+      "MR 10"
+    ],
+    "nearbyCities": [
+      "Bhopal",
+      "Vadodara",
+      "Ahmedabad"
+    ],
+    "schoolsMentioned": [
+      "Vijay Nagar and eastern Indore learner cluster",
+      "Central Indore academic families",
+      "Rau and Super Corridor school routes"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "High-demand residential and commercial hub for Math, science and exam-revision tutoring.",
+    "nearbyLandmarks": [
+      "AB Road",
+      "Scheme 54"
+    ],
+    "nearbyAreas": [
+      "Mahalaxmi Nagar",
+      "Scheme 78",
+      "AB Road",
+      "Bypass Road",
+      "Old Palasia",
+      "New Palasia",
+      "MR 10"
+    ],
+    "schoolsMentioned": [
+      "Vijay Nagar and eastern Indore learner cluster",
+      "Central Indore academic families",
+      "Rau and Super Corridor school routes"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Indore",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Bhopal",
+      "Vadodara",
+      "Ahmedabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

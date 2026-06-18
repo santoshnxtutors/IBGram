@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/thane/",
+  "routeKey": "/ib-tutors/thane/",
+  "pageType": "city",
+  "citySlug": "thane",
+  "cityName": "Thane",
+  "slug": "",
+  "pageId": "IBG_THANE_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Thane",
+    "citySlug": "thane",
+    "primaryKeyword": "IB tutors in Thane",
+    "secondaryKeywords": [
+      "IB home tutors Thane",
+      "IB DP tutor Thane",
+      "IB Math AA tutor Thane",
+      "IB online tutors Thane"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Hiranandani Estate",
+      "Ghodbunder Road",
+      "Pokhran Road",
+      "Vasant Vihar",
+      "Majiwada"
+    ],
+    "nearbyAreas": [
+      "Waghbil",
+      "Kasarvadavali",
+      "Patlipada",
+      "Upvan",
+      "Manpada",
+      "Kolshet",
+      "Eastern Express Highway"
+    ],
+    "nearbyCities": [
+      "Mumbai",
+      "Navi Mumbai",
+      "Pune"
+    ],
+    "schoolsMentioned": [
+      "Hiranandani Estate learner cluster",
+      "Ghodbunder Road school families",
+      "Pokhran Road and Vasant Vihar corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Thane has a distinct international school and premium tutoring market. Thane's IB tutoring demand is closely linked to Mumbai's premium school ecosystem, with families balancing suburban commutes, society living and access to specialist tutors. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often compare Thane home tutoring with Mumbai and Navi Mumbai online specialist availability for DP subjects. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can be practical inside Hiranandani Estate, Pokhran Road and Ghodbunder Road clusters, while online support widens access to Mumbai-area specialists. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Thane families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Thane's IB tutoring demand is closely linked to Mumbai's premium school ecosystem, with families balancing suburban commutes, society living and access to specialist tutors.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Thane usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Thane areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Hiranandani Estate",
+        "description": "Premium society-led area where families often request home review, DP Math and hybrid tutoring."
+      },
+      {
+        "name": "Ghodbunder Road",
+        "description": "Long residential corridor where online and hybrid support can reduce travel pressure."
+      },
+      {
+        "name": "Pokhran Road",
+        "description": "Established Thane pocket for MYP, English, Math and structured weekly tutoring."
+      },
+      {
+        "name": "Vasant Vihar",
+        "description": "Useful for families seeking consistent support, parent updates and exam planning."
+      },
+      {
+        "name": "Majiwada",
+        "description": "Central Thane node where hybrid tutoring can connect students to Mumbai and Navi Mumbai specialists."
+      }
+    ],
+    "schoolsMentioned": [
+      "Hiranandani Estate learner cluster",
+      "Ghodbunder Road school families",
+      "Pokhran Road and Vasant Vihar corridor"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Thane request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Thane often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Thane is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Thane is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Thane often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Thane is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Thane is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Thane",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Mumbai",
+      "Navi Mumbai",
+      "Pune"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

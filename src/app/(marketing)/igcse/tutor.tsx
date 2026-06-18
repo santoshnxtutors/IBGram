@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
-import { allTutors, type Tutor } from "@/lib/tutor-data";
+import type { Tutor } from "@/lib/tutor-data";
 import { TutorCard } from "@/components/tutors/TutorCard";
 import { rememberReturnTo } from "@/lib/return-to";
 import { buildTutorComparePath } from "@/lib/tutor-compare-url";
@@ -30,8 +30,8 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
   const portalTarget = typeof document !== "undefined" ? document.body : null;
 
-  const sourceTutors = tutors ?? allTutors;
-  const igcseTutors = tutors ? tutors : sourceTutors.filter(t => t.curriculum === "IGCSE" || t.curriculum === "Both");
+  const sourceTutors = tutors ?? [];
+  const igcseTutors = sourceTutors.filter(t => t.curriculum === "IGCSE" || t.curriculum === "Both");
 
   const toggleCompare = (id: AnyTutorId) => {
     setCompareIds(prev => {

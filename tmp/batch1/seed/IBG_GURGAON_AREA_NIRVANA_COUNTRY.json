@@ -1,0 +1,115 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/areas/nirvana-country/",
+  "routeKey": "/ib-tutors/gurugram/areas/nirvana-country/",
+  "pageType": "area",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "nirvana-country",
+  "pageId": "IBG_GURGAON_AREA_NIRVANA_COUNTRY",
+  "reusedPageId": true,
+  "input": {
+    "pageType": "area",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "Nirvana Country",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Nirvana Country Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor Nirvana Country",
+      "IB DP tutor near Nirvana Country",
+      "IB Math AA tutor Nirvana Country",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA",
+      "Math AI",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Economics",
+      "English"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Sector 49",
+      "Sector 50",
+      "Sector 51",
+      "Sector 52",
+      "South City 2",
+      "Sohna Road",
+      "Golf Course Extension Road",
+      "Nirvana Country",
+      "South Close",
+      "Unitech Fresco"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Families around Nirvana Country often need tutoring that is local enough for routine lessons but specialist enough for IB assessment, IA deadlines and exam revision. This page is built for parents comparing ib tutor availability around nirvana country with home, online and hybrid options. It keeps the Gurugram locality context visible without claiming guaranteed availability or any official school, builder, RWA or community association.",
+    "nearbyLandmarks": [],
+    "nearbyAreas": [
+      "Sector 49",
+      "Sector 50",
+      "Sector 51",
+      "Sector 52",
+      "South City 2",
+      "Sohna Road",
+      "Golf Course Extension Road",
+      "Nirvana Country",
+      "South Close",
+      "Unitech Fresco"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "Local IB tutoring support near Nirvana Country, Gurugram, often searched as Gurgaon, for PYP, MYP and DP families who want programme-aware subject help, practical tutor matching and safe home, online or hybrid scheduling. Availability depends on subject, grade level, exact location, schedule and preferred tutoring mode.",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

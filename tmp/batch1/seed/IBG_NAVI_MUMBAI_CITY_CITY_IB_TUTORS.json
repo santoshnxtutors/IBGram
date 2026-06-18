@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/navi-mumbai/",
+  "routeKey": "/ib-tutors/navi-mumbai/",
+  "pageType": "city",
+  "citySlug": "navi-mumbai",
+  "cityName": "Navi Mumbai",
+  "slug": "",
+  "pageId": "IBG_NAVI_MUMBAI_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Navi Mumbai",
+    "citySlug": "navi-mumbai",
+    "primaryKeyword": "IB tutors in Navi Mumbai",
+    "secondaryKeywords": [
+      "IB home tutors Navi Mumbai",
+      "IB DP tutor Navi Mumbai",
+      "IB Math AA tutor Navi Mumbai",
+      "IB online tutors Navi Mumbai"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Vashi",
+      "Nerul",
+      "Kharghar",
+      "Seawoods",
+      "Belapur"
+    ],
+    "nearbyAreas": [
+      "Palm Beach Road",
+      "Airoli",
+      "Sanpada",
+      "Kopar Khairane",
+      "Ulwe",
+      "CBD Belapur",
+      "NRI Complex"
+    ],
+    "nearbyCities": [
+      "Mumbai",
+      "Thane",
+      "Pune"
+    ],
+    "schoolsMentioned": [
+      "Vashi and Nerul learner cluster",
+      "Kharghar international school corridor",
+      "Seawoods and Belapur premium families"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Navi Mumbai has a distinct international school and premium tutoring market. Navi Mumbai's international curriculum demand sits between Mumbai's specialist tutor market and local school corridors across Vashi, Nerul, Kharghar, Seawoods and Belapur. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Families often need mode guidance because a strong tutor may be in Mumbai, Thane or online while the student's school and home routine is Navi Mumbai based. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can work inside Vashi, Nerul or Kharghar clusters, while online and hybrid lessons help students access stronger DP specialists across the Mumbai region. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Navi Mumbai families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Navi Mumbai's international curriculum demand sits between Mumbai's specialist tutor market and local school corridors across Vashi, Nerul, Kharghar, Seawoods and Belapur.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Navi Mumbai usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Navi Mumbai areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Vashi",
+        "description": "Central Navi Mumbai area for Math, science, English and structured IB tutoring requests."
+      },
+      {
+        "name": "Nerul",
+        "description": "Practical residential and school corridor where families often ask for MYP support and hybrid DP tutoring."
+      },
+      {
+        "name": "Kharghar",
+        "description": "High-demand area for DP Math, sciences and online specialist access across the Mumbai region."
+      },
+      {
+        "name": "Seawoods",
+        "description": "Premium residential pocket where home tutoring and online backup can work well together."
+      },
+      {
+        "name": "Belapur",
+        "description": "Useful CBD-side catchment for English, Economics, study planning and exam revision support."
+      }
+    ],
+    "schoolsMentioned": [
+      "Vashi and Nerul learner cluster",
+      "Kharghar international school corridor",
+      "Seawoods and Belapur premium families"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Navi Mumbai request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Navi Mumbai often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Navi Mumbai is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Navi Mumbai is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Navi Mumbai often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Navi Mumbai is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Navi Mumbai is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Navi Mumbai",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Mumbai",
+      "Thane",
+      "Pune"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

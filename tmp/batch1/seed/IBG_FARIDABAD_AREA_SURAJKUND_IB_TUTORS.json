@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/faridabad/areas/surajkund/",
+  "routeKey": "/ib-tutors/faridabad/areas/surajkund/",
+  "pageType": "area",
+  "citySlug": "faridabad",
+  "cityName": "Faridabad",
+  "slug": "surajkund",
+  "pageId": "IBG_FARIDABAD_AREA_SURAJKUND_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Faridabad",
+    "citySlug": "faridabad",
+    "parentLocation": "Faridabad",
+    "microLocationName": "Surajkund",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Surajkund Faridabad",
+    "secondaryKeywords": [
+      "IB home tutor Surajkund",
+      "IB DP tutor near Surajkund",
+      "IB Math AA tutor Surajkund",
+      "IB online tutors Faridabad"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Sector 15",
+      "Sector 21",
+      "Green Fields",
+      "Neharpar",
+      "Surajkund"
+    ],
+    "nearbyAreas": [
+      "Sector 16",
+      "Sector 28",
+      "Sector 31",
+      "Greater Faridabad",
+      "Badarpur Border",
+      "Charmwood Village",
+      "Ballabhgarh"
+    ],
+    "nearbyCities": [
+      "Gurugram",
+      "Delhi",
+      "Noida"
+    ],
+    "schoolsMentioned": [
+      "Central Faridabad learner cluster",
+      "Green Fields and Surajkund NCR corridor",
+      "Neharpar and Greater Faridabad school families"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Premium edge-of-NCR area where hybrid support can connect students to Delhi and Gurugram IB tutors.",
+    "nearbyLandmarks": [
+      "Shooting Range Road",
+      "Delhi border"
+    ],
+    "nearbyAreas": [
+      "Sector 16",
+      "Sector 28",
+      "Sector 31",
+      "Greater Faridabad",
+      "Badarpur Border",
+      "Charmwood Village",
+      "Ballabhgarh"
+    ],
+    "schoolsMentioned": [
+      "Central Faridabad learner cluster",
+      "Green Fields and Surajkund NCR corridor",
+      "Neharpar and Greater Faridabad school families"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Faridabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Gurugram",
+      "Delhi",
+      "Noida"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

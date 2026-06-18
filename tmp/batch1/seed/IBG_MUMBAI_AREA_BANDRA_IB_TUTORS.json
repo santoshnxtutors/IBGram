@@ -1,0 +1,106 @@
+{
+  "url": "https://ibgram.com/ib-tutors/mumbai/areas/bandra/",
+  "routeKey": "/ib-tutors/mumbai/areas/bandra/",
+  "pageType": "area",
+  "citySlug": "mumbai",
+  "cityName": "Mumbai",
+  "slug": "bandra",
+  "pageId": "IBG_MUMBAI_AREA_BANDRA_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Mumbai",
+    "citySlug": "mumbai",
+    "parentLocation": "Mumbai",
+    "microLocationName": "Bandra",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Bandra Mumbai",
+    "secondaryKeywords": [
+      "IB home tutor Bandra",
+      "IB DP tutor near Bandra",
+      "IB Math AA tutor Bandra",
+      "IB online tutors Mumbai"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Bandra",
+      "Juhu",
+      "Powai",
+      "South Mumbai"
+    ],
+    "nearbyAreas": [
+      "Worli",
+      "Lower Parel",
+      "Andheri",
+      "Santacruz",
+      "Malabar Hill",
+      "Thane"
+    ],
+    "nearbyCities": [
+      "Pune",
+      "Thane",
+      "Navi Mumbai"
+    ],
+    "schoolsMentioned": [
+      "Dhirubhai Ambani International School",
+      "Oberoi International School",
+      "Ecole Mondiale World School",
+      "Aditya Birla World Academy"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "A common premium catchment for home and hybrid tutoring, especially for DP students who need strong weekly structure.",
+    "nearbyLandmarks": [],
+    "nearbyAreas": [
+      "Worli",
+      "Lower Parel",
+      "Andheri",
+      "Santacruz",
+      "Malabar Hill",
+      "Thane"
+    ],
+    "schoolsMentioned": [
+      "Dhirubhai Ambani International School",
+      "Oberoi International School",
+      "Ecole Mondiale World School",
+      "Aditya Birla World Academy"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Mumbai",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Pune",
+      "Thane",
+      "Navi Mumbai"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

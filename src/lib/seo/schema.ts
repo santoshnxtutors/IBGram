@@ -1,7 +1,7 @@
 ﻿import type { CitySeoPage } from "./city-page-types";
 import type { IgcseCitySeoPage } from "./igcse-city-pages";
 import type { IgcsePagesHubData } from "./igcse-pages";
-import { buildCityPath, SITE_URL } from "./slug-utils";
+import { absoluteUrl, buildCityPath, SITE_URL } from "./slug-utils";
 
 export type JsonLdObject = Record<string, unknown>;
 
@@ -35,6 +35,27 @@ export function stripUndefinedFromJsonLd(value: unknown): unknown {
   return value;
 }
 
+export function normalizeJsonLdUrls(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(normalizeJsonLdUrls);
+
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value as Record<string, unknown>).map(([key, entry]) => [
+        key,
+        shouldNormalizeJsonLdUrl(key, entry) ? absoluteUrl(String(entry)) : normalizeJsonLdUrls(entry),
+      ]),
+    );
+  }
+
+  return value;
+}
+
+function shouldNormalizeJsonLdUrl(key: string, value: unknown): boolean {
+  if (typeof value !== "string") return false;
+  if (!["url", "item", "image", "logo", "@id"].includes(key)) return false;
+  return /^(https?:\/\/(www\.)?ibgram\.com|https?:\/\/localhost|https?:\/\/127\.0\.0\.1|\/)/i.test(value);
+}
+
 export function buildCitySchema(page: CitySeoPage): JsonLdObject {
   const organizationId = `${SITE_URL}/#organization`;
   const webpageId = `${page.canonicalUrl}#webpage`;
@@ -52,10 +73,10 @@ export function buildCitySchema(page: CitySeoPage): JsonLdObject {
     graph.push(buildFaqSchema(page));
   }
 
-  return stripUndefinedFromJsonLd({
+  return normalizeJsonLdUrls(stripUndefinedFromJsonLd({
     "@context": "https://schema.org",
     "@graph": graph,
-  }) as JsonLdObject;
+  })) as JsonLdObject;
 }
 
 export function buildWebPageSchema(
@@ -193,7 +214,7 @@ export function buildIgcsePagesHubSchema(page: IgcsePagesHubData): JsonLdObject 
   const breadcrumbId = `${page.canonicalUrl}#breadcrumb`;
   const faqId = `${page.canonicalUrl}#faq`;
 
-  return stripUndefinedFromJsonLd({
+  return normalizeJsonLdUrls(stripUndefinedFromJsonLd({
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -303,7 +324,7 @@ export function buildIgcsePagesHubSchema(page: IgcsePagesHubData): JsonLdObject 
         })),
       },
     ],
-  }) as JsonLdObject;
+  })) as JsonLdObject;
 }
 
 export function buildIgcseCityPageSchema(page: IgcseCitySeoPage): JsonLdObject {
@@ -313,7 +334,7 @@ export function buildIgcseCityPageSchema(page: IgcseCitySeoPage): JsonLdObject {
   const breadcrumbId = `${page.canonicalUrl}#breadcrumb`;
   const faqId = `${page.canonicalUrl}#faq`;
 
-  return stripUndefinedFromJsonLd({
+  return normalizeJsonLdUrls(stripUndefinedFromJsonLd({
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -416,7 +437,7 @@ export function buildIgcseCityPageSchema(page: IgcseCitySeoPage): JsonLdObject {
         })),
       },
     ],
-  }) as JsonLdObject;
+  })) as JsonLdObject;
 }
 
 export function buildTutorLandingPageSchema(input: TutorLandingPageSchemaInput): JsonLdObject {
@@ -509,8 +530,8 @@ export function buildTutorLandingPageSchema(input: TutorLandingPageSchemaInput):
     });
   }
 
-  return stripUndefinedFromJsonLd({
+  return normalizeJsonLdUrls(stripUndefinedFromJsonLd({
     "@context": "https://schema.org",
     "@graph": graph,
-  }) as JsonLdObject;
+  })) as JsonLdObject;
 }

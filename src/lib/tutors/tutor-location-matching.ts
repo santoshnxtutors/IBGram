@@ -1,4 +1,4 @@
-import { allTutors, type Tutor, type TutorCurriculum } from "@/lib/tutor-data";
+import type { Tutor, TutorCurriculum } from "@/lib/tutor-data";
 
 export type TutorPageType = "city" | "area" | "sector" | "society" | "school" | "subject" | "programme";
 export type TutorMode = "home" | "online" | "hybrid";
@@ -135,7 +135,7 @@ export function getTutorsForGeneratedPage(pageContext: TutorPageContext, options
     tutoringMode: options.tutoringMode ?? pageContext.tutoringMode,
     curriculum: options.curriculum ?? pageContext.curriculum,
   };
-  const scored = (options.tutors ?? allTutors)
+  const scored = (options.tutors ?? [])
     .map((tutor) => scoreTutor(tutor, context, options))
     .filter((match): match is ScoredTutor => Boolean(match))
     .sort((a, b) => b.score - a.score || b.tutor.rating - a.tutor.rating || b.tutor.reviews - a.tutor.reviews);

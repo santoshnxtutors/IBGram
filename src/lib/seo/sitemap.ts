@@ -7,6 +7,7 @@ import { CITY_CONTENT_PAGE_SLUGS } from "./internal-links";
 import { absoluteUrl, buildCityAreaPath, buildCitySchoolPath, buildCitySubpagePath } from "./slug-utils";
 import { getSitemapGeneratedPages } from "@/lib/generated-pages/store";
 import { generatedPageToSitemapEntry } from "./sitemap-utils";
+import { dedupeSitemapUrls, normalizeCanonicalUrl } from "./sitemap-policy";
 import {
   getIgcseTutorAreaStaticParams,
   getIgcseTutorCityStaticParams,
@@ -66,8 +67,6 @@ export function getCorePublicSitemapEntries(): MetadataRoute.Sitemap {
     ["/programmes/myp/", "monthly", 0.74],
     ["/programmes/dp/", "monthly", 0.76],
     ["/programmes/cp/", "monthly", 0.7],
-    ["/subscription/", "monthly", 0.56],
-    ["/tutor-compare/", "weekly", 0.72],
     ["/tutors/", "weekly", 0.82],
   ];
 
@@ -92,7 +91,7 @@ export function getIndexableCitySitemapEntries(): MetadataRoute.Sitemap {
   return getLiveCitySeoPages()
     .filter((page) => getIndexingDecision(page).index)
     .map((page) => ({
-      url: page.canonicalUrl,
+      url: normalizeCanonicalUrl(page.canonicalUrl),
       lastModified: page.lastUpdated,
       changeFrequency: "weekly",
       priority: Number((page.priorityScore / 10).toFixed(2)),
@@ -140,7 +139,7 @@ export function getIndexableIgcseCitySitemapEntries(): MetadataRoute.Sitemap {
   return getLiveIgcseCityPages()
     .filter((page) => page.indexFlag === "index")
     .map((page) => ({
-      url: page.canonicalUrl,
+      url: normalizeCanonicalUrl(page.canonicalUrl),
       lastModified: page.lastUpdated,
       changeFrequency: "weekly",
       priority: page.priorityScore,
@@ -187,7 +186,7 @@ function getIgcseSubjectSlugs(): string[] {
 }
 
 function dedupeSitemapEntries(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {
-  return [...new Map(entries.map((entry) => [entry.url, entry])).values()].sort((a, b) => a.url.localeCompare(b.url));
+  return dedupeSitemapUrls(entries);
 }
 
 function slugifySitemap(value: string): string {

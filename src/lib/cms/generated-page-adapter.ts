@@ -12,6 +12,7 @@ import type {
   TutoringMode,
   DuplicateRisk,
 } from "@/lib/page-generator/types";
+import { absoluteUrl } from "@/lib/seo/slug-utils";
 
 type DbPageWithChildren = {
   id: string;
@@ -194,7 +195,7 @@ export function dbBundleToGeneratedSeoPage(row: DbPageWithChildren): GeneratedSe
   const meta = row.metadata;
   const metaTitle = row.metaTitle ?? meta?.metaTitle ?? row.title ?? row.h1 ?? "";
   const metaDescription = row.metaDescription ?? meta?.metaDescription ?? "";
-  const canonical = row.canonicalUrl ?? meta?.canonicalUrl ?? `https://ibgram.com${row.fullPath}`;
+  const canonical = absoluteUrl(row.canonicalUrl ?? meta?.canonicalUrl ?? row.fullPath);
   const ogTitle = row.ogTitle ?? meta?.ogTitle ?? metaTitle;
   const ogDescription = row.ogDescription ?? meta?.ogDescription ?? metaDescription;
   const twitterTitle = row.twitterTitle ?? meta?.twitterTitle ?? metaTitle;
@@ -210,7 +211,7 @@ export function dbBundleToGeneratedSeoPage(row: DbPageWithChildren): GeneratedSe
     status,
     indexFlag: indexFlagOf(row.indexFlag),
     canonicalUrl: canonical,
-    canonicalTarget: row.canonicalTarget ?? undefined,
+    canonicalTarget: row.canonicalTarget ? absoluteUrl(row.canonicalTarget) : undefined,
     slug: row.slug,
     cityName,
     citySlug,
@@ -241,7 +242,7 @@ export function dbBundleToGeneratedSeoPage(row: DbPageWithChildren): GeneratedSe
     metaDescription,
     ogTitle,
     ogDescription,
-    ogImage: "https://ibgram.com/images/ib-gram-city-og.svg",
+    ogImage: absoluteUrl("/images/ib-gram-city-og.svg"),
     twitterTitle,
     twitterDescription,
     breadcrumbTitle: row.h1 ?? row.title ?? row.heroTitle ?? cityName,

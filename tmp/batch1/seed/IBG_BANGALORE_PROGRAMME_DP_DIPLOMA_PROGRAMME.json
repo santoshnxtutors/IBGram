@@ -1,0 +1,101 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bangalore/dp/",
+  "routeKey": "/ib-tutors/bangalore/dp/",
+  "pageType": "programme",
+  "citySlug": "bangalore",
+  "cityName": "Bangalore",
+  "slug": "dp",
+  "pageId": "IBG_BANGALORE_PROGRAMME_DP_DIPLOMA_PROGRAMME",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "programme",
+    "cityName": "Bangalore",
+    "citySlug": "bangalore",
+    "primaryKeyword": "IB Diploma Programme tutors in Bangalore",
+    "secondaryKeywords": [
+      "IB Diploma Programme tutor Bangalore",
+      "IB Diploma Programme home tutor Bangalore",
+      "IB Diploma Programme online tutoring"
+    ],
+    "serviceFocus": "Diploma Programme",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "nearbyAreas": [
+      "Koramangala",
+      "HSR Layout",
+      "Hebbal",
+      "Yelahanka",
+      "Electronic City",
+      "Marathahalli"
+    ],
+    "nearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Diploma Programme",
+    "subjectLevel": "",
+    "subjectDescription": "HL and SL subject support, IA, EE, TOK, mock revision and exam strategy.",
+    "subjectCityNote": "Bangalore DP tutoring works best when the tutor understands school deadlines and the student's university pathway.",
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "cityName": "Bangalore",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

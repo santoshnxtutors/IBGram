@@ -13,6 +13,8 @@ import type {
   SeoGeneratorInput,
   TutoringMode,
 } from "./types";
+import { canonicalUrl } from "@/lib/seo/canonical";
+import { absoluteUrl } from "@/lib/seo/slug-utils";
 import { normalizeGeneratedSlug } from "./slug";
 
 const PAGE_TYPES = ["city", "area", "sector", "society", "school", "subject", "programme"] satisfies GeneratedPageType[];
@@ -85,13 +87,14 @@ export function validateGeneratedSeoPage(value: unknown): GeneratedSeoPage {
   const page = asRecord(value, "page must be an object.");
   const quality = asRecord(page.quality, "page.quality is required.");
 
+  const canonicalTarget = optionalString(page.canonicalTarget);
   const result: GeneratedSeoPage = {
     pageId: requiredString(page.pageId, "pageId"),
     pageType: enumValue(page.pageType, PAGE_TYPES, "pageType"),
     status: enumValue(page.status, STATUSES, "status"),
     indexFlag: enumValue(page.indexFlag, INDEX_FLAGS, "indexFlag"),
-    canonicalUrl: requiredString(page.canonicalUrl, "canonicalUrl"),
-    canonicalTarget: optionalString(page.canonicalTarget),
+    canonicalUrl: canonicalUrl(requiredString(page.canonicalUrl, "canonicalUrl")),
+    canonicalTarget: canonicalTarget ? canonicalUrl(canonicalTarget) : undefined,
     slug: optionalString(page.slug) ?? "",
     cityName: requiredString(page.cityName, "cityName"),
     citySlug: requiredString(page.citySlug, "citySlug"),
@@ -112,7 +115,7 @@ export function validateGeneratedSeoPage(value: unknown): GeneratedSeoPage {
     metaDescription: requiredString(page.metaDescription, "metaDescription"),
     ogTitle: optionalString(page.ogTitle) || requiredString(page.metaTitle, "metaTitle"),
     ogDescription: optionalString(page.ogDescription) || requiredString(page.metaDescription, "metaDescription"),
-    ogImage: optionalString(page.ogImage) || "https://ibgram.com/images/ib-gram-city-og.svg",
+    ogImage: absoluteUrl(optionalString(page.ogImage) || "/images/ib-gram-city-og.svg"),
     twitterTitle: optionalString(page.twitterTitle) || requiredString(page.metaTitle, "metaTitle"),
     twitterDescription: optionalString(page.twitterDescription) || requiredString(page.metaDescription, "metaDescription"),
     breadcrumbTitle: optionalString(page.breadcrumbTitle) || requiredString(page.h1, "h1"),
@@ -141,8 +144,8 @@ export function validateGeneratedSeoPage(value: unknown): GeneratedSeoPage {
     lastUpdated: optionalString(page.lastUpdated) || new Date().toISOString().slice(0, 10),
   };
 
-  if (!/^https:\/\/ibgram\.com\//.test(result.canonicalUrl)) {
-    throw new ValidationError(["canonicalUrl must be an absolute ibgram.com URL."]);
+  if (!/^https:\/\/www\.ibgram\.com\//.test(result.canonicalUrl)) {
+    throw new ValidationError(["canonicalUrl must be an absolute www.ibgram.com URL."]);
   }
   if (result.pageType === "school" && !result.schoolDisclaimer?.includes("not officially affiliated")) {
     throw new ValidationError(["School pages must include the independent platform disclaimer."]);

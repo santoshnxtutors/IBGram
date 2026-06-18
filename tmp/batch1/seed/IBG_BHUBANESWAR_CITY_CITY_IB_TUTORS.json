@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bhubaneswar/",
+  "routeKey": "/ib-tutors/bhubaneswar/",
+  "pageType": "city",
+  "citySlug": "bhubaneswar",
+  "cityName": "Bhubaneswar",
+  "slug": "",
+  "pageId": "IBG_BHUBANESWAR_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Bhubaneswar",
+    "citySlug": "bhubaneswar",
+    "primaryKeyword": "IB tutors in Bhubaneswar",
+    "secondaryKeywords": [
+      "IB home tutors Bhubaneswar",
+      "IB DP tutor Bhubaneswar",
+      "IB Math AA tutor Bhubaneswar",
+      "IB online tutors Bhubaneswar"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Patia",
+      "Kalinga Nagar",
+      "Nayapalli",
+      "Chandrasekharpur",
+      "Saheed Nagar"
+    ],
+    "nearbyAreas": [
+      "Infocity",
+      "KIIT area",
+      "Khandagiri",
+      "IRC Village",
+      "Damana",
+      "Niladri Vihar",
+      "Jaydev Vihar"
+    ],
+    "nearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Bhubaneswar has a distinct international school and premium tutoring market. Bhubaneswar's international curriculum demand is developing around education-focused families, globally mobile professionals and students preparing for broader university options. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often need careful guidance on online versus local tutoring because DP specialist availability can vary by subject and timing. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can be reviewed in Patia, Kalinga Nagar and central pockets, while online support is often the best way to access exact IB DP expertise. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Bhubaneswar families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Bhubaneswar's international curriculum demand is developing around education-focused families, globally mobile professionals and students preparing for broader university options.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Bhubaneswar usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Bhubaneswar areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Patia",
+        "description": "Major residential and education corridor where families often request Math, science and online DP support."
+      },
+      {
+        "name": "Kalinga Nagar",
+        "description": "Growing residential pocket for hybrid tutoring, MYP foundations and exam planning."
+      },
+      {
+        "name": "Nayapalli",
+        "description": "Central area where home tutoring review and structured weekly academic support may be practical."
+      },
+      {
+        "name": "Chandrasekharpur",
+        "description": "Important residential and school-side corridor for Math, English and online specialist tutoring."
+      },
+      {
+        "name": "Saheed Nagar",
+        "description": "Central premium pocket for English, Economics, study planning and parent-visible progress."
+      }
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Bhubaneswar request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Bhubaneswar often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Bhubaneswar is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Bhubaneswar is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Bhubaneswar often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Bhubaneswar is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Bhubaneswar is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Bhubaneswar",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

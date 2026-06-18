@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/chandigarh/",
+  "routeKey": "/ib-tutors/chandigarh/",
+  "pageType": "city",
+  "citySlug": "chandigarh",
+  "cityName": "Chandigarh",
+  "slug": "",
+  "pageId": "IBG_CHANDIGARH_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Chandigarh",
+    "citySlug": "chandigarh",
+    "primaryKeyword": "IB tutors in Chandigarh",
+    "secondaryKeywords": [
+      "IB home tutors Chandigarh",
+      "IB DP tutor Chandigarh",
+      "IB Math AA tutor Chandigarh",
+      "IB online tutors Chandigarh"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Sector 8",
+      "Sector 9",
+      "Sector 15",
+      "Mohali",
+      "Panchkula"
+    ],
+    "nearbyAreas": [
+      "Sector 10",
+      "Sector 11",
+      "Sector 17",
+      "Zirakpur",
+      "New Chandigarh",
+      "Kharar",
+      "Aerocity"
+    ],
+    "nearbyCities": [
+      "Ludhiana",
+      "Dehradun",
+      "Delhi"
+    ],
+    "schoolsMentioned": [
+      "Chandigarh sector school families",
+      "Mohali international learner cluster",
+      "Panchkula and Zirakpur school corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Chandigarh has a distinct international school and premium tutoring market. Chandigarh's international school demand extends into Mohali and Panchkula, so families often think in terms of the wider tricity rather than a single neighbourhood. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents usually want tutors who can combine polished communication with online reach for DP subjects that may not have a deep local pool. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring is practical across selected sectors and tricity pockets, while online and hybrid support can connect students to stronger HL specialists. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Chandigarh families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Chandigarh's international school demand extends into Mohali and Panchkula, so families often think in terms of the wider tricity rather than a single neighbourhood.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Chandigarh usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Chandigarh areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Sector 8",
+        "description": "Central premium area where families often request home feasibility, English support and structured DP planning."
+      },
+      {
+        "name": "Sector 9",
+        "description": "Established residential pocket for PYP, MYP and DP tutoring with practical access to nearby sectors."
+      },
+      {
+        "name": "Sector 15",
+        "description": "Useful area for Math and science support, especially where students need steady weekly accountability."
+      },
+      {
+        "name": "Mohali",
+        "description": "Important tricity catchment where hybrid tutoring helps families balance school travel and subject specialist access."
+      },
+      {
+        "name": "Panchkula",
+        "description": "Nearby residential hub where online support can supplement home tutoring for DP HL and IA needs."
+      }
+    ],
+    "schoolsMentioned": [
+      "Chandigarh sector school families",
+      "Mohali international learner cluster",
+      "Panchkula and Zirakpur school corridor"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Chandigarh request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Chandigarh often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Chandigarh is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Chandigarh is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Chandigarh often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Chandigarh is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Chandigarh is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Chandigarh",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Ludhiana",
+      "Dehradun",
+      "Delhi"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

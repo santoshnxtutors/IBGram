@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/kolkata/areas/em-bypass/",
+  "routeKey": "/ib-tutors/kolkata/areas/em-bypass/",
+  "pageType": "area",
+  "citySlug": "kolkata",
+  "cityName": "Kolkata",
+  "slug": "em-bypass",
+  "pageId": "IBG_KOLKATA_AREA_EM_BYPASS_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Kolkata",
+    "citySlug": "kolkata",
+    "parentLocation": "Kolkata",
+    "microLocationName": "EM Bypass",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near EM Bypass Kolkata",
+    "secondaryKeywords": [
+      "IB home tutor EM Bypass",
+      "IB DP tutor near EM Bypass",
+      "IB Math AA tutor EM Bypass",
+      "IB online tutors Kolkata"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Ballygunge",
+      "Alipore",
+      "Salt Lake",
+      "New Town",
+      "EM Bypass"
+    ],
+    "nearbyAreas": [
+      "Park Street",
+      "Tollygunge",
+      "Rajarhat",
+      "New Alipore",
+      "Gariahat",
+      "Lake Gardens",
+      "Sector V"
+    ],
+    "nearbyCities": [
+      "Bhubaneswar",
+      "Delhi",
+      "Mumbai"
+    ],
+    "schoolsMentioned": [
+      "South Kolkata international school families",
+      "Salt Lake and New Town learner cluster",
+      "Central Kolkata IB support corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "A practical corridor for hybrid IB tutoring, especially for students balancing school travel, sports and revision timelines.",
+    "nearbyLandmarks": [
+      "Ruby",
+      "Science City"
+    ],
+    "nearbyAreas": [
+      "Park Street",
+      "Tollygunge",
+      "Rajarhat",
+      "New Alipore",
+      "Gariahat",
+      "Lake Gardens",
+      "Sector V"
+    ],
+    "schoolsMentioned": [
+      "South Kolkata international school families",
+      "Salt Lake and New Town learner cluster",
+      "Central Kolkata IB support corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Kolkata",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Bhubaneswar",
+      "Delhi",
+      "Mumbai"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

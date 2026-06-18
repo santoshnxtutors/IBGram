@@ -1,0 +1,104 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bhubaneswar/pyp/",
+  "routeKey": "/ib-tutors/bhubaneswar/pyp/",
+  "pageType": "programme",
+  "citySlug": "bhubaneswar",
+  "cityName": "Bhubaneswar",
+  "slug": "pyp",
+  "pageId": "IBG_BHUBANESWAR_PROGRAMME_PYP_PRIMARY_YEARS_PROGRAMME",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "programme",
+    "cityName": "Bhubaneswar",
+    "citySlug": "bhubaneswar",
+    "primaryKeyword": "IB Primary Years Programme tutors in Bhubaneswar",
+    "secondaryKeywords": [
+      "IB Primary Years Programme tutor Bhubaneswar",
+      "IB Primary Years Programme home tutor Bhubaneswar",
+      "IB Primary Years Programme online tutoring"
+    ],
+    "serviceFocus": "Primary Years Programme",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Patia",
+      "Kalinga Nagar",
+      "Nayapalli",
+      "Chandrasekharpur",
+      "Saheed Nagar"
+    ],
+    "nearbyAreas": [
+      "Infocity",
+      "KIIT area",
+      "Khandagiri",
+      "IRC Village",
+      "Damana",
+      "Niladri Vihar",
+      "Jaydev Vihar"
+    ],
+    "nearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Primary Years Programme",
+    "subjectLevel": "",
+    "subjectDescription": "Inquiry-led support for reading, numeracy, unit research, presentation confidence and early study habits.",
+    "subjectCityNote": "PYP families in Bhubaneswar often want calm structure that supports curiosity without turning early IB learning into rote worksheets.",
+    "premiumAreas": [
+      "Patia",
+      "Kalinga Nagar",
+      "Nayapalli",
+      "Chandrasekharpur",
+      "Saheed Nagar"
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "cityName": "Bhubaneswar",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bangalore/chemistry/",
+  "routeKey": "/ib-tutors/bangalore/chemistry/",
+  "pageType": "subject",
+  "citySlug": "bangalore",
+  "cityName": "Bangalore",
+  "slug": "chemistry",
+  "pageId": "IBG_BANGALORE_SUBJECT_CHEMISTRY_CHEMISTRY",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "subject",
+    "cityName": "Bangalore",
+    "citySlug": "bangalore",
+    "primaryKeyword": "IB Chemistry tutor in Bangalore",
+    "secondaryKeywords": [
+      "IB Chemistry HL tutor Bangalore",
+      "IB Chemistry SL tutor Bangalore",
+      "IB Chemistry online tutor",
+      "Chemistry IB home tutor Bangalore"
+    ],
+    "serviceFocus": "Chemistry",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Chemistry"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "nearbyAreas": [
+      "Koramangala",
+      "HSR Layout",
+      "Hebbal",
+      "Yelahanka",
+      "Electronic City",
+      "Marathahalli"
+    ],
+    "nearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Chemistry",
+    "subjectLevel": "HL and SL",
+    "subjectDescription": "Stoichiometry, bonding, energetics, kinetics, organic chemistry and IA planning.",
+    "subjectCityNote": "Chemistry students often need regular topic consolidation before mocks and final exams.",
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "cityName": "Bangalore",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

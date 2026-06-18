@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/jaipur/areas/c-scheme/",
+  "routeKey": "/ib-tutors/jaipur/areas/c-scheme/",
+  "pageType": "area",
+  "citySlug": "jaipur",
+  "cityName": "Jaipur",
+  "slug": "c-scheme",
+  "pageId": "IBG_JAIPUR_AREA_C_SCHEME_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Jaipur",
+    "citySlug": "jaipur",
+    "parentLocation": "Jaipur",
+    "microLocationName": "C-Scheme",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near C-Scheme Jaipur",
+    "secondaryKeywords": [
+      "IB home tutor C-Scheme",
+      "IB DP tutor near C-Scheme",
+      "IB Math AA tutor C-Scheme",
+      "IB online tutors Jaipur"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Vaishali Nagar",
+      "C-Scheme",
+      "Mansarovar",
+      "Malviya Nagar",
+      "Jagatpura"
+    ],
+    "nearbyAreas": [
+      "Civil Lines",
+      "Tonk Road",
+      "Ajmer Road",
+      "Sanganer",
+      "Raja Park",
+      "Bani Park",
+      "Sitapura"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Gurugram",
+      "Ahmedabad"
+    ],
+    "schoolsMentioned": [
+      "West Jaipur international learner cluster",
+      "Central Jaipur premium school families",
+      "South Jaipur education corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Central Jaipur area where families often prefer polished communication, home feasibility checks and structured academic planning.",
+    "nearbyLandmarks": [
+      "MI Road",
+      "Civil Lines"
+    ],
+    "nearbyAreas": [
+      "Civil Lines",
+      "Tonk Road",
+      "Ajmer Road",
+      "Sanganer",
+      "Raja Park",
+      "Bani Park",
+      "Sitapura"
+    ],
+    "schoolsMentioned": [
+      "West Jaipur international learner cluster",
+      "Central Jaipur premium school families",
+      "South Jaipur education corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Jaipur",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Gurugram",
+      "Ahmedabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

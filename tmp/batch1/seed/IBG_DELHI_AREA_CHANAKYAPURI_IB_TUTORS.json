@@ -1,0 +1,103 @@
+{
+  "url": "https://ibgram.com/ib-tutors/delhi/areas/chanakyapuri/",
+  "routeKey": "/ib-tutors/delhi/areas/chanakyapuri/",
+  "pageType": "area",
+  "citySlug": "delhi",
+  "cityName": "Delhi",
+  "slug": "chanakyapuri",
+  "pageId": "IBG_DELHI_AREA_CHANAKYAPURI_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Delhi",
+    "citySlug": "delhi",
+    "parentLocation": "Delhi",
+    "microLocationName": "Chanakyapuri",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Chanakyapuri Delhi",
+    "secondaryKeywords": [
+      "IB home tutor Chanakyapuri",
+      "IB DP tutor near Chanakyapuri",
+      "IB Math AA tutor Chanakyapuri",
+      "IB online tutors Delhi"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Vasant Vihar",
+      "Greater Kailash",
+      "Saket"
+    ],
+    "nearbyAreas": [
+      "Defence Colony",
+      "Hauz Khas",
+      "New Friends Colony",
+      "Panchsheel Park",
+      "Green Park",
+      "Jor Bagh"
+    ],
+    "nearbyCities": [
+      "Gurugram",
+      "Noida",
+      "Ghaziabad"
+    ],
+    "schoolsMentioned": [
+      "The British School New Delhi",
+      "American Embassy School",
+      "DPS International Saket"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Often relevant for families connected with diplomatic and international school communities.",
+    "nearbyLandmarks": [],
+    "nearbyAreas": [
+      "Defence Colony",
+      "Hauz Khas",
+      "New Friends Colony",
+      "Panchsheel Park",
+      "Green Park",
+      "Jor Bagh"
+    ],
+    "schoolsMentioned": [
+      "The British School New Delhi",
+      "American Embassy School",
+      "DPS International Saket"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Delhi",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Gurugram",
+      "Noida",
+      "Ghaziabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

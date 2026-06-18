@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/mysuru/",
+  "routeKey": "/ib-tutors/mysuru/",
+  "pageType": "city",
+  "citySlug": "mysuru",
+  "cityName": "Mysuru",
+  "slug": "",
+  "pageId": "IBG_MYSURU_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Mysuru",
+    "citySlug": "mysuru",
+    "primaryKeyword": "IB tutors in Mysuru",
+    "secondaryKeywords": [
+      "IB home tutors Mysuru",
+      "IB DP tutor Mysuru",
+      "IB Math AA tutor Mysuru",
+      "IB online tutors Mysuru"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Jayalakshmipuram",
+      "Kuvempunagar",
+      "Vijayanagar",
+      "Gokulam",
+      "Hebbal"
+    ],
+    "nearbyAreas": [
+      "Vontikoppal",
+      "Yadavagiri",
+      "Saraswathipuram",
+      "Hinkal",
+      "Vivekananda Nagar",
+      "Bogadi",
+      "Siddhartha Layout"
+    ],
+    "nearbyCities": [
+      "Bangalore",
+      "Coimbatore",
+      "Chennai"
+    ],
+    "schoolsMentioned": [
+      "Central Mysuru learner cluster",
+      "Kuvempunagar residential school families",
+      "Vijayanagar and Hebbal education corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Mysuru has a distinct international school and premium tutoring market. Mysuru's premium tutoring demand is quieter than Bangalore's but meaningful for families seeking international curriculum readiness, English confidence and university-aligned subject support. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often compare local tutoring with Bangalore or online specialists because exact IB DP availability can be limited by subject. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can be reviewed in central Mysuru pockets, while online support often gives students stronger access to DP HL and IA specialists. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Mysuru families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Mysuru's premium tutoring demand is quieter than Bangalore's but meaningful for families seeking international curriculum readiness, English confidence and university-aligned subject support.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Mysuru usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Mysuru areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Jayalakshmipuram",
+        "description": "Premium residential area for English, MYP and structured academic support."
+      },
+      {
+        "name": "Kuvempunagar",
+        "description": "Established neighbourhood for home tutoring review, PYP routines and Math support."
+      },
+      {
+        "name": "Vijayanagar",
+        "description": "Large residential catchment where hybrid tutoring can combine local accountability with online DP depth."
+      },
+      {
+        "name": "Gokulam",
+        "description": "Central premium pocket for English writing, study planning and parent-visible progress."
+      },
+      {
+        "name": "Hebbal",
+        "description": "Growing corridor where online support can widen access to specialist IB tutors."
+      }
+    ],
+    "schoolsMentioned": [
+      "Central Mysuru learner cluster",
+      "Kuvempunagar residential school families",
+      "Vijayanagar and Hebbal education corridor"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Mysuru request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Mysuru often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Mysuru is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Mysuru is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Mysuru often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Mysuru is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Mysuru is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Mysuru",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Bangalore",
+      "Coimbatore",
+      "Chennai"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

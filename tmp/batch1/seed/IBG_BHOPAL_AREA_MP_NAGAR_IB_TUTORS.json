@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bhopal/areas/mp-nagar/",
+  "routeKey": "/ib-tutors/bhopal/areas/mp-nagar/",
+  "pageType": "area",
+  "citySlug": "bhopal",
+  "cityName": "Bhopal",
+  "slug": "mp-nagar",
+  "pageId": "IBG_BHOPAL_AREA_MP_NAGAR_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Bhopal",
+    "citySlug": "bhopal",
+    "parentLocation": "Bhopal",
+    "microLocationName": "MP Nagar",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near MP Nagar Bhopal",
+    "secondaryKeywords": [
+      "IB home tutor MP Nagar",
+      "IB DP tutor near MP Nagar",
+      "IB Math AA tutor MP Nagar",
+      "IB online tutors Bhopal"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Arera Colony",
+      "Kolar Road",
+      "MP Nagar",
+      "Shahpura",
+      "Hoshangabad Road"
+    ],
+    "nearbyAreas": [
+      "Bittan Market",
+      "Danish Kunj",
+      "Misrod",
+      "Habibganj",
+      "Bairagarh",
+      "Ayodhya Bypass",
+      "Bawadia Kalan"
+    ],
+    "nearbyCities": [
+      "Indore",
+      "Nagpur",
+      "Ahmedabad"
+    ],
+    "schoolsMentioned": [
+      "Arera and Shahpura learner cluster",
+      "Kolar Road residential school families",
+      "Hoshangabad Road academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Central area for structured academic planning, revision support and online DP specialist access.",
+    "nearbyLandmarks": [
+      "Zone I",
+      "Zone II"
+    ],
+    "nearbyAreas": [
+      "Bittan Market",
+      "Danish Kunj",
+      "Misrod",
+      "Habibganj",
+      "Bairagarh",
+      "Ayodhya Bypass",
+      "Bawadia Kalan"
+    ],
+    "schoolsMentioned": [
+      "Arera and Shahpura learner cluster",
+      "Kolar Road residential school families",
+      "Hoshangabad Road academic corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Bhopal",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Indore",
+      "Nagpur",
+      "Ahmedabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

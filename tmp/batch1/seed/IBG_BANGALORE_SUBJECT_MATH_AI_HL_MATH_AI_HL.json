@@ -1,0 +1,97 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bangalore/math-ai-hl/",
+  "routeKey": "/ib-tutors/bangalore/math-ai-hl/",
+  "pageType": "subject",
+  "citySlug": "bangalore",
+  "cityName": "Bangalore",
+  "slug": "math-ai-hl",
+  "pageId": "IBG_BANGALORE_SUBJECT_MATH_AI_HL_MATH_AI_HL",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "subject",
+    "cityName": "Bangalore",
+    "citySlug": "bangalore",
+    "primaryKeyword": "IB Math AI HL tutor in Bangalore",
+    "secondaryKeywords": [
+      "IB Math AI HL HL tutor Bangalore",
+      "IB Math AI HL SL tutor Bangalore",
+      "IB Math AI HL online tutor",
+      "Math AI HL IB home tutor Bangalore"
+    ],
+    "serviceFocus": "Math AI HL",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AI HL"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "nearbyAreas": [
+      "Koramangala",
+      "HSR Layout",
+      "Hebbal",
+      "Yelahanka",
+      "Electronic City",
+      "Marathahalli"
+    ],
+    "nearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Math AI HL",
+    "subjectLevel": "HL and SL pathways",
+    "subjectDescription": "Statistics, modelling, technology use, probability and applied problem solving.",
+    "subjectCityNote": "Math AI is often requested by students who want structured data interpretation and application practice.",
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "cityName": "Bangalore",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

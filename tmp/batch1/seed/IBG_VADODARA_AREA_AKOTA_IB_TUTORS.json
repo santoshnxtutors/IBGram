@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/vadodara/areas/akota/",
+  "routeKey": "/ib-tutors/vadodara/areas/akota/",
+  "pageType": "area",
+  "citySlug": "vadodara",
+  "cityName": "Vadodara",
+  "slug": "akota",
+  "pageId": "IBG_VADODARA_AREA_AKOTA_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Vadodara",
+    "citySlug": "vadodara",
+    "parentLocation": "Vadodara",
+    "microLocationName": "Akota",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Akota Vadodara",
+    "secondaryKeywords": [
+      "IB home tutor Akota",
+      "IB DP tutor near Akota",
+      "IB Math AA tutor Akota",
+      "IB online tutors Vadodara"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Alkapuri",
+      "Gotri",
+      "Vasna Bhayli Road",
+      "Akota",
+      "Sama Savli"
+    ],
+    "nearbyAreas": [
+      "Race Course",
+      "Old Padra Road",
+      "Bhayli",
+      "Sevasi",
+      "Mujmahuda",
+      "Waghodia Road",
+      "Manjalpur"
+    ],
+    "nearbyCities": [
+      "Ahmedabad",
+      "Surat",
+      "Indore"
+    ],
+    "schoolsMentioned": [
+      "Alkapuri and Race Course learner cluster",
+      "Gotri and Vasna Bhayli school families",
+      "Akota and Old Padra academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Practical area for home tutoring review, MYP foundations and English writing support.",
+    "nearbyLandmarks": [
+      "Old Padra Road",
+      "Mujmahuda"
+    ],
+    "nearbyAreas": [
+      "Race Course",
+      "Old Padra Road",
+      "Bhayli",
+      "Sevasi",
+      "Mujmahuda",
+      "Waghodia Road",
+      "Manjalpur"
+    ],
+    "schoolsMentioned": [
+      "Alkapuri and Race Course learner cluster",
+      "Gotri and Vasna Bhayli school families",
+      "Akota and Old Padra academic corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Vadodara",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Ahmedabad",
+      "Surat",
+      "Indore"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

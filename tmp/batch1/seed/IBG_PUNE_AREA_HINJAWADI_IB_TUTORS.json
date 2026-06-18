@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/pune/areas/hinjawadi/",
+  "routeKey": "/ib-tutors/pune/areas/hinjawadi/",
+  "pageType": "area",
+  "citySlug": "pune",
+  "cityName": "Pune",
+  "slug": "hinjawadi",
+  "pageId": "IBG_PUNE_AREA_HINJAWADI_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Pune",
+    "citySlug": "pune",
+    "parentLocation": "Pune",
+    "microLocationName": "Hinjawadi",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Hinjawadi Pune",
+    "secondaryKeywords": [
+      "IB home tutor Hinjawadi",
+      "IB DP tutor near Hinjawadi",
+      "IB Math AA tutor Hinjawadi",
+      "IB online tutors Pune"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Koregaon Park",
+      "Kalyani Nagar",
+      "Baner",
+      "Hinjawadi",
+      "Viman Nagar"
+    ],
+    "nearbyAreas": [
+      "Aundh",
+      "Balewadi",
+      "Wakad",
+      "Magarpatta",
+      "Hadapsar",
+      "Pashan",
+      "Kharadi"
+    ],
+    "nearbyCities": [
+      "Mumbai",
+      "Navi Mumbai",
+      "Thane"
+    ],
+    "schoolsMentioned": [
+      "East Pune international school families",
+      "West Pune IB learner cluster",
+      "Central Pune premium school corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Technology corridor where hybrid IB tutoring can reduce travel friction while keeping weekly accountability steady.",
+    "nearbyLandmarks": [
+      "Wakad",
+      "Rajiv Gandhi Infotech Park"
+    ],
+    "nearbyAreas": [
+      "Aundh",
+      "Balewadi",
+      "Wakad",
+      "Magarpatta",
+      "Hadapsar",
+      "Pashan",
+      "Kharadi"
+    ],
+    "schoolsMentioned": [
+      "East Pune international school families",
+      "West Pune IB learner cluster",
+      "Central Pune premium school corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Pune",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Mumbai",
+      "Navi Mumbai",
+      "Thane"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

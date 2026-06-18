@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/societies/heritage-city/",
+  "routeKey": "/ib-tutors/gurugram/societies/heritage-city/",
+  "pageType": "society",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "heritage-city",
+  "pageId": "IBG_GURGAON_SOCIETY_HERITAGE_CITY",
+  "reusedPageId": true,
+  "input": {
+    "pageType": "society",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "Heritage City",
+    "microLocationType": "society",
+    "primaryKeyword": "IB tutors near Heritage City Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor Heritage City",
+      "IB DP tutor near Heritage City",
+      "IB Math AA tutor Heritage City",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA",
+      "Math AI",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Economics",
+      "English"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Sector 24",
+      "Sector 25",
+      "Sector 28",
+      "MG Road",
+      "DLF Phase 2",
+      "DLF Phase 3",
+      "Ambience Caitriona",
+      "Heritage City",
+      "DLF Beverly Park"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "societyType": "premium residential society/condominium",
+    "nearbyAreas": [
+      "Sector 24",
+      "Sector 25",
+      "Sector 28",
+      "MG Road",
+      "DLF Phase 2",
+      "DLF Phase 3",
+      "Ambience Caitriona",
+      "Heritage City",
+      "DLF Beverly Park"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "Local IB tutoring support near Heritage City, Gurugram, often searched as Gurgaon, for PYP, MYP and DP families who want programme-aware subject help, practical tutor matching and safe home, online or hybrid scheduling. Availability depends on subject, grade level, exact location, schedule and preferred tutoring mode.",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

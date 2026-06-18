@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/ahmedabad/",
+  "routeKey": "/ib-tutors/ahmedabad/",
+  "pageType": "city",
+  "citySlug": "ahmedabad",
+  "cityName": "Ahmedabad",
+  "slug": "",
+  "pageId": "IBG_AHMEDABAD_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Ahmedabad",
+    "citySlug": "ahmedabad",
+    "primaryKeyword": "IB tutors in Ahmedabad",
+    "secondaryKeywords": [
+      "IB home tutors Ahmedabad",
+      "IB DP tutor Ahmedabad",
+      "IB Math AA tutor Ahmedabad",
+      "IB online tutors Ahmedabad"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "SG Highway",
+      "Satellite",
+      "Bodakdev",
+      "Prahlad Nagar",
+      "Thaltej"
+    ],
+    "nearbyAreas": [
+      "Vastrapur",
+      "Jodhpur",
+      "Makarba",
+      "Science City",
+      "Sola",
+      "Ambli",
+      "Shela"
+    ],
+    "nearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Ahmedabad has a distinct international school and premium tutoring market. Ahmedabad's international curriculum market is shaped by entrepreneurial families, globally mobile students and premium residential corridors around SG Highway, Bodakdev, Satellite and Prahlad Nagar. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents usually want IB support that is precise, accountable and connected to university goals, especially for DP Math, science, Economics and English writing. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can be feasible across nearby western neighbourhoods, while online tutoring helps families access specialist HL support without depending on cross-city travel. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Ahmedabad families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Ahmedabad's international curriculum market is shaped by entrepreneurial families, globally mobile students and premium residential corridors around SG Highway, Bodakdev, Satellite and Prahlad Nagar.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Ahmedabad usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Ahmedabad areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "SG Highway",
+        "description": "A major premium corridor for IB families who need flexible home, online or hybrid support around school and activity schedules."
+      },
+      {
+        "name": "Satellite",
+        "description": "Established residential area where parents often ask for structured MYP support and DP Math or science tutoring."
+      },
+      {
+        "name": "Bodakdev",
+        "description": "High-demand pocket for English, Economics, Math and weekly academic accountability for international school students."
+      },
+      {
+        "name": "Prahlad Nagar",
+        "description": "Practical area for families seeking IB DP support with predictable schedules and online backup during exam months."
+      },
+      {
+        "name": "Thaltej",
+        "description": "Useful for families around western Ahmedabad who need Math AA, Math AI, science and IA support reviewed by availability."
+      }
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Ahmedabad request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Ahmedabad often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Ahmedabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Ahmedabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Ahmedabad often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Ahmedabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Ahmedabad is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Ahmedabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

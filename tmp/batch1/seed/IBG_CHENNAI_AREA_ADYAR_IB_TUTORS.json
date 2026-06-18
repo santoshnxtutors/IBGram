@@ -1,0 +1,110 @@
+{
+  "url": "https://ibgram.com/ib-tutors/chennai/areas/adyar/",
+  "routeKey": "/ib-tutors/chennai/areas/adyar/",
+  "pageType": "area",
+  "citySlug": "chennai",
+  "cityName": "Chennai",
+  "slug": "adyar",
+  "pageId": "IBG_CHENNAI_AREA_ADYAR_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Chennai",
+    "citySlug": "chennai",
+    "parentLocation": "Chennai",
+    "microLocationName": "Adyar",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Adyar Chennai",
+    "secondaryKeywords": [
+      "IB home tutor Adyar",
+      "IB DP tutor near Adyar",
+      "IB Math AA tutor Adyar",
+      "IB online tutors Chennai"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Adyar",
+      "OMR",
+      "ECR",
+      "Anna Nagar",
+      "Velachery"
+    ],
+    "nearbyAreas": [
+      "Besant Nagar",
+      "Thoraipakkam",
+      "Sholinganallur",
+      "Neelankarai",
+      "Taramani",
+      "Nungambakkam"
+    ],
+    "nearbyCities": [
+      "Bangalore",
+      "Hyderabad",
+      "Coimbatore"
+    ],
+    "schoolsMentioned": [
+      "South Chennai international learner cluster",
+      "OMR and ECR school corridor",
+      "Central Chennai premium school families"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "A strong central-south tutoring pocket for PYP, MYP, English and DP science support with practical home lesson potential.",
+    "nearbyLandmarks": [
+      "Besant Nagar",
+      "Indira Nagar"
+    ],
+    "nearbyAreas": [
+      "Besant Nagar",
+      "Thoraipakkam",
+      "Sholinganallur",
+      "Neelankarai",
+      "Taramani",
+      "Nungambakkam"
+    ],
+    "schoolsMentioned": [
+      "South Chennai international learner cluster",
+      "OMR and ECR school corridor",
+      "Central Chennai premium school families"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Chennai",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Bangalore",
+      "Hyderabad",
+      "Coimbatore"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

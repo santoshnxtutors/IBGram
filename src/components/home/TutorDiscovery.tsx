@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
-import { allTutors, type Tutor } from "@/lib/tutor-data";
+import type { Tutor } from "@/lib/tutor-data";
 import { TutorCard } from "@/components/tutors/TutorCard";
 import { rememberReturnTo } from "@/lib/return-to";
 import { buildTutorComparePath } from "@/lib/tutor-compare-url";
@@ -22,23 +22,6 @@ type TutorDiscoveryProps = {
   tutors?: Tutor[];
 };
 
-const fallbackTutorImages = [
-  "/tutor_sarah_avatar_1775559612425.png",
-  "/tutor_james_avatar_1775559651647.png",
-  "/tutor_elena_avatar_1775559725738.png",
-];
-
-function withDisplayImageFallback(tutor: Tutor, index: number): Tutor {
-  if (!tutor.image) {
-    return {
-      ...tutor,
-      image: fallbackTutorImages[index % fallbackTutorImages.length],
-    };
-  }
-
-  return tutor;
-}
-
 export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
   const router = useRouter();
   const pathname = usePathname();
@@ -46,7 +29,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
   const [selectedTutor, setSelectedTutor] = useState<Tutor | null>(null);
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
   const portalTarget = typeof document !== "undefined" ? document.body : null;
-  const sourceTutors = (tutors ?? allTutors).map(withDisplayImageFallback);
+  const sourceTutors = tutors ?? [];
 
   const toggleCompare = (id: AnyTutorId) => {
     setCompareIds(prev => {

@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/visakhapatnam/areas/seethammadhara/",
+  "routeKey": "/ib-tutors/visakhapatnam/areas/seethammadhara/",
+  "pageType": "area",
+  "citySlug": "visakhapatnam",
+  "cityName": "Visakhapatnam",
+  "slug": "seethammadhara",
+  "pageId": "IBG_VISAKHAPATNAM_AREA_SEETHAMMADHARA_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Visakhapatnam",
+    "citySlug": "visakhapatnam",
+    "parentLocation": "Visakhapatnam",
+    "microLocationName": "Seethammadhara",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Seethammadhara Visakhapatnam",
+    "secondaryKeywords": [
+      "IB home tutor Seethammadhara",
+      "IB DP tutor near Seethammadhara",
+      "IB Math AA tutor Seethammadhara",
+      "IB online tutors Visakhapatnam"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "MVP Colony",
+      "Rushikonda",
+      "Seethammadhara",
+      "Gajuwaka",
+      "Beach Road"
+    ],
+    "nearbyAreas": [
+      "Madhurawada",
+      "Siripuram",
+      "Maddilapalem",
+      "NAD",
+      "Kurmannapalem",
+      "Yendada",
+      "Waltair Uplands"
+    ],
+    "nearbyCities": [
+      "Hyderabad",
+      "Bhubaneswar",
+      "Chennai"
+    ],
+    "schoolsMentioned": [
+      "MVP Colony and Beach Road learner cluster",
+      "Rushikonda education corridor",
+      "Gajuwaka and southern Vizag families"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Central residential area where families often need structured weekly support and parent updates.",
+    "nearbyLandmarks": [
+      "HB Colony",
+      "Maddilapalem"
+    ],
+    "nearbyAreas": [
+      "Madhurawada",
+      "Siripuram",
+      "Maddilapalem",
+      "NAD",
+      "Kurmannapalem",
+      "Yendada",
+      "Waltair Uplands"
+    ],
+    "schoolsMentioned": [
+      "MVP Colony and Beach Road learner cluster",
+      "Rushikonda education corridor",
+      "Gajuwaka and southern Vizag families"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Visakhapatnam",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Hyderabad",
+      "Bhubaneswar",
+      "Chennai"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

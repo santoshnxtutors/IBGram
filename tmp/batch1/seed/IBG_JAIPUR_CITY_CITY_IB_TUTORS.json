@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/jaipur/",
+  "routeKey": "/ib-tutors/jaipur/",
+  "pageType": "city",
+  "citySlug": "jaipur",
+  "cityName": "Jaipur",
+  "slug": "",
+  "pageId": "IBG_JAIPUR_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Jaipur",
+    "citySlug": "jaipur",
+    "primaryKeyword": "IB tutors in Jaipur",
+    "secondaryKeywords": [
+      "IB home tutors Jaipur",
+      "IB DP tutor Jaipur",
+      "IB Math AA tutor Jaipur",
+      "IB online tutors Jaipur"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Vaishali Nagar",
+      "C-Scheme",
+      "Mansarovar",
+      "Malviya Nagar",
+      "Jagatpura"
+    ],
+    "nearbyAreas": [
+      "Civil Lines",
+      "Tonk Road",
+      "Ajmer Road",
+      "Sanganer",
+      "Raja Park",
+      "Bani Park",
+      "Sitapura"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Gurugram",
+      "Ahmedabad"
+    ],
+    "schoolsMentioned": [
+      "West Jaipur international learner cluster",
+      "Central Jaipur premium school families",
+      "South Jaipur education corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Jaipur has a distinct international school and premium tutoring market. Jaipur's international curriculum demand is smaller than the largest metros but serious, especially among families planning overseas admissions or moving between Indian and international school pathways. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often ask for careful subject matching because the local pool of specialist IB DP tutors can be narrower than Delhi NCR or Mumbai. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can be practical around central and western neighbourhoods, but online tutoring gives Jaipur students stronger access to rare DP subject specialists. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Jaipur families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Jaipur's international curriculum demand is smaller than the largest metros but serious, especially among families planning overseas admissions or moving between Indian and international school pathways.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Jaipur usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Jaipur areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Vaishali Nagar",
+        "description": "A high-demand residential area for MYP foundations, English support and online DP specialist tutoring."
+      },
+      {
+        "name": "C-Scheme",
+        "description": "Central Jaipur area where families often prefer polished communication, home feasibility checks and structured academic planning."
+      },
+      {
+        "name": "Mansarovar",
+        "description": "Large residential catchment where hybrid tutoring can help students maintain consistency around school and activity schedules."
+      },
+      {
+        "name": "Malviya Nagar",
+        "description": "Practical area for Math, Physics, Chemistry and exam-revision requests near south-eastern Jaipur."
+      },
+      {
+        "name": "Jagatpura",
+        "description": "Growing education corridor where online and hybrid IB support can reduce travel friction for specialist subjects."
+      }
+    ],
+    "schoolsMentioned": [
+      "West Jaipur international learner cluster",
+      "Central Jaipur premium school families",
+      "South Jaipur education corridor"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Jaipur request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Jaipur often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Jaipur is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Jaipur is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Jaipur often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Jaipur is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Jaipur is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Jaipur",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Gurugram",
+      "Ahmedabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

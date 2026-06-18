@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/ludhiana/areas/pakhowal-road/",
+  "routeKey": "/ib-tutors/ludhiana/areas/pakhowal-road/",
+  "pageType": "area",
+  "citySlug": "ludhiana",
+  "cityName": "Ludhiana",
+  "slug": "pakhowal-road",
+  "pageId": "IBG_LUDHIANA_AREA_PAKHOWAL_ROAD_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Ludhiana",
+    "citySlug": "ludhiana",
+    "parentLocation": "Ludhiana",
+    "microLocationName": "Pakhowal Road",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Pakhowal Road Ludhiana",
+    "secondaryKeywords": [
+      "IB home tutor Pakhowal Road",
+      "IB DP tutor near Pakhowal Road",
+      "IB Math AA tutor Pakhowal Road",
+      "IB online tutors Ludhiana"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Sarabha Nagar",
+      "Model Town",
+      "Pakhowal Road",
+      "Civil Lines",
+      "South City"
+    ],
+    "nearbyAreas": [
+      "Ferozepur Road",
+      "Dugri",
+      "Gurdev Nagar",
+      "Ayali Road",
+      "Barewal",
+      "Atam Nagar",
+      "BRS Nagar"
+    ],
+    "nearbyCities": [
+      "Chandigarh",
+      "Dehradun",
+      "Delhi"
+    ],
+    "schoolsMentioned": [
+      "Sarabha Nagar premium learner cluster",
+      "Model Town and Civil Lines school families",
+      "Pakhowal Road and South City corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Growing premium corridor where hybrid tutoring can connect students to Chandigarh and online specialists.",
+    "nearbyLandmarks": [
+      "South City",
+      "Barewal"
+    ],
+    "nearbyAreas": [
+      "Ferozepur Road",
+      "Dugri",
+      "Gurdev Nagar",
+      "Ayali Road",
+      "Barewal",
+      "Atam Nagar",
+      "BRS Nagar"
+    ],
+    "schoolsMentioned": [
+      "Sarabha Nagar premium learner cluster",
+      "Model Town and Civil Lines school families",
+      "Pakhowal Road and South City corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Ludhiana",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Chandigarh",
+      "Dehradun",
+      "Delhi"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "url": "https://ibgram.com/ib-tutors/ahmedabad/dp/",
+  "routeKey": "/ib-tutors/ahmedabad/dp/",
+  "pageType": "programme",
+  "citySlug": "ahmedabad",
+  "cityName": "Ahmedabad",
+  "slug": "dp",
+  "pageId": "IBG_AHMEDABAD_PROGRAMME_DP_DIPLOMA_PROGRAMME",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "programme",
+    "cityName": "Ahmedabad",
+    "citySlug": "ahmedabad",
+    "primaryKeyword": "IB Diploma Programme tutors in Ahmedabad",
+    "secondaryKeywords": [
+      "IB Diploma Programme tutor Ahmedabad",
+      "IB Diploma Programme home tutor Ahmedabad",
+      "IB Diploma Programme online tutoring"
+    ],
+    "serviceFocus": "Diploma Programme",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "SG Highway",
+      "Satellite",
+      "Bodakdev",
+      "Prahlad Nagar",
+      "Thaltej"
+    ],
+    "nearbyAreas": [
+      "Vastrapur",
+      "Jodhpur",
+      "Makarba",
+      "Science City",
+      "Sola",
+      "Ambli",
+      "Shela"
+    ],
+    "nearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Diploma Programme",
+    "subjectLevel": "",
+    "subjectDescription": "HL and SL tutoring, IA support, EE planning, TOK guidance, exam revision and weekly academic accountability.",
+    "subjectCityNote": "DP support in Ahmedabad works best when tutoring follows the student's subject combination, school deadlines and May or November exam plan.",
+    "premiumAreas": [
+      "SG Highway",
+      "Satellite",
+      "Bodakdev",
+      "Prahlad Nagar",
+      "Thaltej"
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "cityName": "Ahmedabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

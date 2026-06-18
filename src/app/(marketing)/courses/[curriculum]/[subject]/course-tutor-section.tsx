@@ -12,7 +12,7 @@ import type { Tutor } from "@/lib/tutor-data";
 import { rememberReturnTo } from "@/lib/return-to";
 import { buildTutorComparePath } from "@/lib/tutor-compare-url";
 import { openTutorMessage } from "@/lib/tutor-message";
-import { formatCourseSubject, getCourseTutorProfiles } from "./course-tutor-data";
+import { formatCourseSubject } from "./course-tutor-data";
 
 type AnyTutorId = string | number;
 const sameId = (a: AnyTutorId | null | undefined, b: AnyTutorId | null | undefined) =>
@@ -29,7 +29,7 @@ export function CourseTutorSection({ curriculum, subjectSlug, tutors }: CourseTu
   const pathname = usePathname();
   const currentPath = pathname;
   const subjectTitle = formatCourseSubject(subjectSlug);
-  const courseTutors = tutors ?? getCourseTutorProfiles(curriculum, subjectSlug);
+  const courseTutors = tutors ?? [];
   const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
 

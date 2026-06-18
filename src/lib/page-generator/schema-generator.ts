@@ -1,17 +1,19 @@
-﻿import { SITE_URL } from "@/lib/seo/slug-utils";
-import { stripUndefinedFromJsonLd, type JsonLdObject } from "@/lib/seo/schema";
+import { canonicalUrl } from "@/lib/seo/canonical";
+import { normalizeJsonLdUrls, stripUndefinedFromJsonLd, type JsonLdObject } from "@/lib/seo/schema";
+import { SITE_URL } from "@/lib/seo/slug-utils";
 import type { GeneratedSeoPage } from "./types";
 
 export function buildGeneratedPageSchema(page: GeneratedSeoPage): JsonLdObject {
+  const canonical = canonicalUrl(page.canonicalUrl);
   const organizationId = `${SITE_URL}/#organization`;
-  const webpageId = `${page.canonicalUrl}#webpage`;
-  const breadcrumbId = `${page.canonicalUrl}#breadcrumb`;
-  const serviceId = `${page.canonicalUrl}#service`;
+  const webpageId = `${canonical}#webpage`;
+  const breadcrumbId = `${canonical}#breadcrumb`;
+  const serviceId = `${canonical}#service`;
   const graph: JsonLdObject[] = [
     {
       "@type": "WebPage",
       "@id": webpageId,
-      url: page.canonicalUrl,
+      url: canonical,
       name: page.h1,
       description: page.metaDescription,
       inLanguage: "en",
@@ -77,7 +79,7 @@ export function buildGeneratedPageSchema(page: GeneratedSeoPage): JsonLdObject {
     });
   }
 
-  return stripUndefinedFromJsonLd({ "@context": "https://schema.org", "@graph": graph }) as JsonLdObject;
+  return normalizeJsonLdUrls(stripUndefinedFromJsonLd({ "@context": "https://schema.org", "@graph": graph })) as JsonLdObject;
 }
 
 function buildBreadcrumbItems(page: GeneratedSeoPage): JsonLdObject[] {
@@ -92,7 +94,7 @@ function buildBreadcrumbItems(page: GeneratedSeoPage): JsonLdObject[] {
       "@type": "ListItem",
       position: 4,
       name: page.breadcrumbTitle,
-      item: page.canonicalUrl,
+      item: canonicalUrl(page.canonicalUrl),
     });
   }
 

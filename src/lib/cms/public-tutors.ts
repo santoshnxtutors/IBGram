@@ -43,9 +43,8 @@ function normaliseImageUrl(value: string | null | undefined): string {
 /**
  * Read all visible tutors from Prisma and map them onto the legacy `Tutor`
  * shape the existing TutorsClient / TutorCard / tutor-profile components
- * already understand. Returns null if the DB is unreachable so callers can
- * fall back to the static `allTutors` array. Returns [] when the DB is
- * reachable but no public tutors are published.
+ * already understand. Returns null if the DB is unreachable. Returns [] when
+ * the DB is reachable but no public tutors are published.
  *
  * "Visible" = NOT soft-deleted AND status is 'active' (i.e. Published).
  * Drafts / paused / archived tutors stay invisible on the public site.
@@ -175,4 +174,55 @@ export function mapPrismaToTutor(row: Awaited<ReturnType<typeof prisma.tutor.fin
     locationAvailabilityNotes: row.profile?.availabilityText ?? "",
     locations,
   };
+}
+
+export type PublicTutorProfileSitemapEntry = {
+  slug: string;
+  lastModified: Date;
+};
+
+export const getPublicTutorProfileSitemapEntries = unstable_cache(
+  async (): Promise<PublicTutorProfileSitemapEntry[]> => {
+    try {
+      const rows = await prisma.tutor.findMany({
+        where: { deletedAt: null, status: "active", approved: true },
+        select: {
+          slug: true,
+          updatedAt: true,
+          displayName: true,
+          headline: true,
+          bio: true,
+          about: true,
+          subjects: { select: { subjectName: true } },
+        },
+        orderBy: [{ rating: "desc" }, { displayName: "asc" }],
+      });
+
+      return rows
+        .filter((row) => row.slug && countProfileWords(row) >= 35)
+        .map((row) => ({
+          slug: row.slug,
+          lastModified: row.updatedAt,
+        }));
+    } catch {
+      return [];
+    }
+  },
+  ["public-tutor-profile-sitemap-entries"],
+  { tags: ["cms:tutors"], revalidate: 300 },
+);
+
+function countProfileWords(row: {
+  displayName: string;
+  headline: string | null;
+  bio: string | null;
+  about: string | null;
+  subjects: Array<{ subjectName: string }>;
+}): number {
+  return [row.displayName, row.headline, row.bio, row.about, ...row.subjects.map((subject) => subject.subjectName)]
+    .filter(Boolean)
+    .join(" ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
 }

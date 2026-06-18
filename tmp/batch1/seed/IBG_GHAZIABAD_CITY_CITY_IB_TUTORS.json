@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/ghaziabad/",
+  "routeKey": "/ib-tutors/ghaziabad/",
+  "pageType": "city",
+  "citySlug": "ghaziabad",
+  "cityName": "Ghaziabad",
+  "slug": "",
+  "pageId": "IBG_GHAZIABAD_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Ghaziabad",
+    "citySlug": "ghaziabad",
+    "primaryKeyword": "IB tutors in Ghaziabad",
+    "secondaryKeywords": [
+      "IB home tutors Ghaziabad",
+      "IB DP tutor Ghaziabad",
+      "IB Math AA tutor Ghaziabad",
+      "IB online tutors Ghaziabad"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Indirapuram",
+      "Vaishali",
+      "Raj Nagar Extension",
+      "Crossings Republik",
+      "Kaushambi"
+    ],
+    "nearbyAreas": [
+      "Ahinsa Khand",
+      "Vasundhara",
+      "Sahibabad",
+      "Sanjay Nagar",
+      "NH 24",
+      "Vijay Nagar",
+      "Kavi Nagar"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Greater Noida"
+    ],
+    "schoolsMentioned": [
+      "Indirapuram and Vaishali learner cluster",
+      "Raj Nagar Extension school families",
+      "Crossings Republik and NH 24 corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Ghaziabad has a distinct international school and premium tutoring market. Ghaziabad's IB and international tutoring demand is tied to the wider NCR school ecosystem, especially Indirapuram, Vaishali, Raj Nagar Extension and Noida-side routes. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often compare Ghaziabad home tutoring with Delhi, Noida and Greater Noida online availability for stronger DP subject matching. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can be feasible in Indirapuram and Vaishali clusters, while online support often gives better access to DP HL and IA specialists. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Ghaziabad families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Ghaziabad's IB and international tutoring demand is tied to the wider NCR school ecosystem, especially Indirapuram, Vaishali, Raj Nagar Extension and Noida-side routes.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Ghaziabad usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Ghaziabad areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Indirapuram",
+        "description": "High-demand NCR residential area for Math, science, MYP and hybrid IB tutoring."
+      },
+      {
+        "name": "Vaishali",
+        "description": "Practical area for home tutoring review and online specialist support near Delhi and Noida routes."
+      },
+      {
+        "name": "Raj Nagar Extension",
+        "description": "Growing residential corridor where online and hybrid support can reduce travel pressure."
+      },
+      {
+        "name": "Crossings Republik",
+        "description": "Useful for families comparing Ghaziabad, Noida and Greater Noida tutoring options."
+      },
+      {
+        "name": "Kaushambi",
+        "description": "Delhi-border pocket where hybrid IB tutoring can connect students to a wider NCR tutor pool."
+      }
+    ],
+    "schoolsMentioned": [
+      "Indirapuram and Vaishali learner cluster",
+      "Raj Nagar Extension school families",
+      "Crossings Republik and NH 24 corridor"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Ghaziabad request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Ghaziabad often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Ghaziabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Ghaziabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Ghaziabad often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Ghaziabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Ghaziabad is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Ghaziabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Greater Noida"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

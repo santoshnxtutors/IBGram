@@ -1,4 +1,6 @@
-export const SITE_URL = "https://ibgram.com";
+export const SITE_URL = "https://www.ibgram.com";
+
+const INTERNAL_HOSTS = new Set(["ibgram.com", "www.ibgram.com", "localhost", "127.0.0.1"]);
 
 export function normalizeSlug(value: string): string {
   return value
@@ -19,12 +21,20 @@ export function ensureTrailingSlash(path: string): string {
 }
 
 export function absoluteUrl(path: string): string {
-  if (path.startsWith("http://") || path.startsWith("https://")) {
-    return ensureTrailingSlash(path);
+  const trimmed = path.trim();
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+    try {
+      const url = new URL(trimmed);
+      if (!INTERNAL_HOSTS.has(url.hostname.toLowerCase())) return trimmed;
+      return `${SITE_URL}${ensureTrailingSlash(url.pathname)}${url.search}${url.hash}`;
+    } catch {
+      return ensureTrailingSlash(trimmed);
+    }
   }
 
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  return `${SITE_URL}${ensureTrailingSlash(normalizedPath)}`;
+  const normalizedPath = trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
+  const url = new URL(normalizedPath, SITE_URL);
+  return `${SITE_URL}${ensureTrailingSlash(url.pathname)}${url.search}${url.hash}`;
 }
 
 export function buildCityPath(citySlug: string): string {

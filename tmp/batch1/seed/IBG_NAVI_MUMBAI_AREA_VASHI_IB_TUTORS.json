@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/navi-mumbai/areas/vashi/",
+  "routeKey": "/ib-tutors/navi-mumbai/areas/vashi/",
+  "pageType": "area",
+  "citySlug": "navi-mumbai",
+  "cityName": "Navi Mumbai",
+  "slug": "vashi",
+  "pageId": "IBG_NAVI_MUMBAI_AREA_VASHI_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Navi Mumbai",
+    "citySlug": "navi-mumbai",
+    "parentLocation": "Navi Mumbai",
+    "microLocationName": "Vashi",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Vashi Navi Mumbai",
+    "secondaryKeywords": [
+      "IB home tutor Vashi",
+      "IB DP tutor near Vashi",
+      "IB Math AA tutor Vashi",
+      "IB online tutors Navi Mumbai"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Vashi",
+      "Nerul",
+      "Kharghar",
+      "Seawoods",
+      "Belapur"
+    ],
+    "nearbyAreas": [
+      "Palm Beach Road",
+      "Airoli",
+      "Sanpada",
+      "Kopar Khairane",
+      "Ulwe",
+      "CBD Belapur",
+      "NRI Complex"
+    ],
+    "nearbyCities": [
+      "Mumbai",
+      "Thane",
+      "Pune"
+    ],
+    "schoolsMentioned": [
+      "Vashi and Nerul learner cluster",
+      "Kharghar international school corridor",
+      "Seawoods and Belapur premium families"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Central Navi Mumbai area for Math, science, English and structured IB tutoring requests.",
+    "nearbyLandmarks": [
+      "Sector 17",
+      "Palm Beach Road"
+    ],
+    "nearbyAreas": [
+      "Palm Beach Road",
+      "Airoli",
+      "Sanpada",
+      "Kopar Khairane",
+      "Ulwe",
+      "CBD Belapur",
+      "NRI Complex"
+    ],
+    "schoolsMentioned": [
+      "Vashi and Nerul learner cluster",
+      "Kharghar international school corridor",
+      "Seawoods and Belapur premium families"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Navi Mumbai",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Mumbai",
+      "Thane",
+      "Pune"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

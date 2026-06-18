@@ -42,7 +42,7 @@ const NEW_CITY_SLUGS = [
 describe("city SEO slug lookup", () => {
   it("normalizes city slugs and finds seeded pages", () => {
     expect(normalizeSlug(" Golf Course Road ")).toBe("golf-course-road");
-    expect(absoluteUrl("/globe.svg")).toBe("https://ibgram.com/globe.svg");
+    expect(absoluteUrl("/globe.svg")).toBe("https://www.ibgram.com/globe.svg");
     EXISTING_CITY_SLUGS.forEach((slug) => {
       expect(getCitySeoPageBySlug(slug)?.citySlug).toBe(slug);
     });
@@ -56,7 +56,7 @@ describe("city SEO slug lookup", () => {
 
       expect(page?.citySlug).toBe(slug);
       expect(page?.status).toBe("live");
-      expect(page?.canonicalUrl).toBe(`https://ibgram.com/ib-tutors/${slug}/`);
+      expect(page?.canonicalUrl).toBe(`https://www.ibgram.com/ib-tutors/${slug}/`);
       expect(page?.cityFaqs.length).toBeGreaterThanOrEqual(6);
       expect(page?.internalLinksOut.length).toBeGreaterThanOrEqual(12);
     });
@@ -103,7 +103,7 @@ describe("city SEO metadata", () => {
 
     const metadata = buildCityMetadata(page!, getIndexingDecision(page!));
     expect(metadata.title).toBe("IB Tutors in Delhi for PYP, MYP & DP");
-    expect(metadata.alternates?.canonical).toBe("https://ibgram.com/ib-tutors/delhi/");
+    expect(metadata.alternates?.canonical).toBe("https://www.ibgram.com/ib-tutors/delhi/");
     expect(metadata.robots).toMatchObject({ index: true, follow: true });
   });
 
@@ -118,8 +118,8 @@ describe("city SEO metadata", () => {
     pages.forEach((page) => {
       const metadata = buildCityMetadata(page, getIndexingDecision(page));
       expect(metadata.alternates?.canonical).toBe(page.canonicalUrl);
-      expect(page.canonicalUrl).toMatch(/^https:\/\/ibgram\.com\/ib-tutors\/[a-z-]+\/$/);
-      expect(page.ogImage).toMatch(/^https:\/\/ibgram\.com\/images\/ib-gram-city-og\.svg$/);
+      expect(page.canonicalUrl).toMatch(/^https:\/\/www\.ibgram\.com\/ib-tutors\/[a-z-]+\/$/);
+      expect(page.ogImage).toMatch(/^https:\/\/www\.ibgram\.com\/images\/ib-gram-city-og\.svg$/);
     });
   });
 
@@ -181,10 +181,10 @@ describe("city SEO sitemap", () => {
     const liveCities = getLiveCitySeoPages();
 
     expect(citySitemap).toHaveLength(liveCities.length);
-    expect(sitemap.map((entry) => entry.url)).toContain("https://ibgram.com/ib-tutors/");
-    expect(sitemap.map((entry) => entry.url)).toContain("https://ibgram.com/igcse-pages/");
-    expect(sitemap.map((entry) => entry.url)).toContain("https://ibgram.com/ib-tutors/gurugram/");
-    expect(sitemap.map((entry) => entry.url)).toContain("https://ibgram.com/ib-tutors/bangalore/");
+    expect(sitemap.map((entry) => entry.url)).toContain("https://www.ibgram.com/ib-tutors/");
+    expect(sitemap.map((entry) => entry.url)).toContain("https://www.ibgram.com/igcse-pages/");
+    expect(sitemap.map((entry) => entry.url)).toContain("https://www.ibgram.com/ib-tutors/gurugram/");
+    expect(sitemap.map((entry) => entry.url)).toContain("https://www.ibgram.com/ib-tutors/bangalore/");
     expect(sitemap.some((entry) => entry.url.includes("/areas/"))).toBe(true);
     expect(sitemap.some((entry) => entry.url.includes("/schools/"))).toBe(true);
     expect(sitemap.some((entry) => entry.url.includes("/math-aa-hl/"))).toBe(true);
@@ -210,13 +210,13 @@ describe("city SEO sitemap", () => {
     const sitemapUrls = getFullPublicSitemapEntries().map((entry) => entry.url);
 
     expect(sitemapUrls.length).toBeGreaterThan(1200);
-    expect(sitemapUrls).toContain("https://ibgram.com/contact-us/");
-    expect(sitemapUrls).toContain("https://ibgram.com/programmes/dp/");
-    expect(sitemapUrls).toContain("https://ibgram.com/igcse-tutors/gurugram/physics/");
-    expect(sitemapUrls).toContain("https://ibgram.com/courses/ib/mathematics/");
+    expect(sitemapUrls).toContain("https://www.ibgram.com/contact-us/");
+    expect(sitemapUrls).toContain("https://www.ibgram.com/programmes/dp/");
+    expect(sitemapUrls).toContain("https://www.ibgram.com/igcse-tutors/gurugram/physics/");
+    expect(sitemapUrls).toContain("https://www.ibgram.com/courses/ib/mathematics/");
     expect(sitemapUrls.some((url) => url.includes("/admin/"))).toBe(false);
-    expect(sitemapUrls).not.toContain("https://ibgram.com/login/");
-    expect(sitemapUrls).not.toContain("https://ibgram.com/signup/");
+    expect(sitemapUrls).not.toContain("https://www.ibgram.com/login/");
+    expect(sitemapUrls).not.toContain("https://www.ibgram.com/signup/");
   });
 });
 
@@ -228,7 +228,7 @@ describe("IGCSE pages hub SEO", () => {
       | { mainEntity: Array<Record<string, unknown>> }
       | undefined;
 
-    expect(IGCSE_PAGES_HUB.canonicalUrl).toBe("https://ibgram.com/igcse-pages/");
+    expect(IGCSE_PAGES_HUB.canonicalUrl).toBe("https://www.ibgram.com/igcse-pages/");
     expect(IGCSE_PAGES_HUB.keywords).toEqual(expect.arrayContaining(["IGCSE tutors", "Cambridge IGCSE tutors"]));
     expect(IGCSE_PAGES_HUB.links.every((link) => link.href.startsWith("/") && !/click here/i.test(link.anchorText))).toBe(true);
     expect(graph.map((item) => item["@type"])).toEqual(
@@ -246,7 +246,7 @@ describe("IGCSE city pages SEO", () => {
       const page = getIgcseCityPageBySlug(slug);
 
       expect(page?.citySlug).toBe(slug);
-      expect(page?.canonicalUrl).toBe(`https://ibgram.com/igcse-pages/${slug}/`);
+      expect(page?.canonicalUrl).toBe(`https://www.ibgram.com/igcse-pages/${slug}/`);
       expect(page?.faqs.length).toBeGreaterThanOrEqual(6);
       expect(page?.internalLinks.every((link) => link.targetUrl.startsWith("/") && link.isCrawlable)).toBe(true);
     });
@@ -278,7 +278,7 @@ describe("IGCSE city pages SEO", () => {
     const sitemapUrls = new Set(getIndexableIgcseCitySitemapEntries().map((entry) => entry.url));
 
     NEW_CITY_SLUGS.forEach((slug) => {
-      expect(sitemapUrls.has(`https://ibgram.com/igcse-pages/${slug}/`)).toBe(true);
+      expect(sitemapUrls.has(`https://www.ibgram.com/igcse-pages/${slug}/`)).toBe(true);
     });
   });
 

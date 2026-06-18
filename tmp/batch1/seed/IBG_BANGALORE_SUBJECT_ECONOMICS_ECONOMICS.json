@@ -1,0 +1,97 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bangalore/economics/",
+  "routeKey": "/ib-tutors/bangalore/economics/",
+  "pageType": "subject",
+  "citySlug": "bangalore",
+  "cityName": "Bangalore",
+  "slug": "economics",
+  "pageId": "IBG_BANGALORE_SUBJECT_ECONOMICS_ECONOMICS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "subject",
+    "cityName": "Bangalore",
+    "citySlug": "bangalore",
+    "primaryKeyword": "IB Economics tutor in Bangalore",
+    "secondaryKeywords": [
+      "IB Economics HL tutor Bangalore",
+      "IB Economics SL tutor Bangalore",
+      "IB Economics online tutor",
+      "Economics IB home tutor Bangalore"
+    ],
+    "serviceFocus": "Economics",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Economics"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "nearbyAreas": [
+      "Koramangala",
+      "HSR Layout",
+      "Hebbal",
+      "Yelahanka",
+      "Electronic City",
+      "Marathahalli"
+    ],
+    "nearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Economics",
+    "subjectLevel": "HL and SL",
+    "subjectDescription": "Diagrams, evaluation, examples, essays and IA commentary support.",
+    "subjectCityNote": "Economics support often focuses on writing structure and real-world application.",
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "cityName": "Bangalore",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

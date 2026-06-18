@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/dehradun/areas/prem-nagar/",
+  "routeKey": "/ib-tutors/dehradun/areas/prem-nagar/",
+  "pageType": "area",
+  "citySlug": "dehradun",
+  "cityName": "Dehradun",
+  "slug": "prem-nagar",
+  "pageId": "IBG_DEHRADUN_AREA_PREM_NAGAR_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Dehradun",
+    "citySlug": "dehradun",
+    "parentLocation": "Dehradun",
+    "microLocationName": "Prem Nagar",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Prem Nagar Dehradun",
+    "secondaryKeywords": [
+      "IB home tutor Prem Nagar",
+      "IB DP tutor near Prem Nagar",
+      "IB Math AA tutor Prem Nagar",
+      "IB online tutors Dehradun"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Rajpur Road",
+      "Dalanwala",
+      "Mussoorie Road",
+      "Vasant Vihar",
+      "Prem Nagar"
+    ],
+    "nearbyAreas": [
+      "Jakhan",
+      "Malsi",
+      "Ballupur",
+      "Race Course",
+      "EC Road",
+      "Clement Town",
+      "Sahastradhara Road"
+    ],
+    "nearbyCities": [
+      "Chandigarh",
+      "Ludhiana",
+      "Delhi"
+    ],
+    "schoolsMentioned": [
+      "Rajpur Road premium school corridor",
+      "Central Dehradun learner cluster",
+      "West Dehradun academic routes"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Western Dehradun catchment where online support can widen access to DP specialists.",
+    "nearbyLandmarks": [
+      "Sudhowala",
+      "Nanda Ki Chowki"
+    ],
+    "nearbyAreas": [
+      "Jakhan",
+      "Malsi",
+      "Ballupur",
+      "Race Course",
+      "EC Road",
+      "Clement Town",
+      "Sahastradhara Road"
+    ],
+    "schoolsMentioned": [
+      "Rajpur Road premium school corridor",
+      "Central Dehradun learner cluster",
+      "West Dehradun academic routes"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Dehradun",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Chandigarh",
+      "Ludhiana",
+      "Delhi"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

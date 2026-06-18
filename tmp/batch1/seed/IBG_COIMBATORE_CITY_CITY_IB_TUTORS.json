@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/coimbatore/",
+  "routeKey": "/ib-tutors/coimbatore/",
+  "pageType": "city",
+  "citySlug": "coimbatore",
+  "cityName": "Coimbatore",
+  "slug": "",
+  "pageId": "IBG_COIMBATORE_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Coimbatore",
+    "citySlug": "coimbatore",
+    "primaryKeyword": "IB tutors in Coimbatore",
+    "secondaryKeywords": [
+      "IB home tutors Coimbatore",
+      "IB DP tutor Coimbatore",
+      "IB Math AA tutor Coimbatore",
+      "IB online tutors Coimbatore"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Race Course",
+      "RS Puram",
+      "Peelamedu",
+      "Saravanampatti",
+      "Saibaba Colony"
+    ],
+    "nearbyAreas": [
+      "Gandhipuram",
+      "Avinashi Road",
+      "Kalapatti",
+      "Vadavalli",
+      "Ramanathapuram",
+      "Singanallur",
+      "Kovaipudur"
+    ],
+    "nearbyCities": [
+      "Kochi",
+      "Chennai",
+      "Bangalore"
+    ],
+    "schoolsMentioned": [
+      "Central Coimbatore learner cluster",
+      "Peelamedu education corridor",
+      "Saravanampatti technology-side families"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Coimbatore has a distinct international school and premium tutoring market. Coimbatore's international tutoring demand is shaped by education-focused families, returning professionals and students who may combine local schooling with global university ambitions. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often need clear advice on whether a home tutor, online specialist or hybrid plan will give the student the strongest IB fit. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can work in central neighbourhoods, while online tutoring is valuable for DP HL subjects and less common electives. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Coimbatore families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Coimbatore's international tutoring demand is shaped by education-focused families, returning professionals and students who may combine local schooling with global university ambitions.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Coimbatore usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Coimbatore areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Race Course",
+        "description": "Central premium pocket where families often prefer structured support, parent updates and home tutoring review."
+      },
+      {
+        "name": "RS Puram",
+        "description": "Established area for PYP, MYP, English and Math tutoring with practical weekly scheduling."
+      },
+      {
+        "name": "Peelamedu",
+        "description": "Education and residential corridor where DP Math and sciences are common tutoring requests."
+      },
+      {
+        "name": "Saravanampatti",
+        "description": "Growing technology-side corridor where online and hybrid tutoring can reduce travel pressure."
+      },
+      {
+        "name": "Saibaba Colony",
+        "description": "Residential area where families often ask for steady MYP foundations and English writing support."
+      }
+    ],
+    "schoolsMentioned": [
+      "Central Coimbatore learner cluster",
+      "Peelamedu education corridor",
+      "Saravanampatti technology-side families"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Coimbatore request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Coimbatore often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Coimbatore is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Coimbatore is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Coimbatore often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Coimbatore is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Coimbatore is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Coimbatore",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Kochi",
+      "Chennai",
+      "Bangalore"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

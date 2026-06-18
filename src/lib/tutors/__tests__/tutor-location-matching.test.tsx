@@ -12,20 +12,20 @@ import {
 
 describe("tutor location matching", () => {
   it("shows a Gurugram IB tutor on the Gurugram IB city page", () => {
-    const result = getTutorsForCity("gurugram", { curriculum: "IB", includeOnlineFallback: false });
+    const result = getTutorsForCity("gurugram", { curriculum: "IB", includeOnlineFallback: false, tutors: allTutors });
 
     expect(result.tutors.some((tutor) => tutor.primaryCitySlug === "gurugram" && tutor.curriculums.includes("IB"))).toBe(true);
   });
 
   it("shows a Sector 56 tutor on the Gurugram Sector 56 page", () => {
-    const result = getTutorsForSector("gurugram", "sector-56", { curriculum: "IB", includeOnlineFallback: false });
+    const result = getTutorsForSector("gurugram", "sector-56", { curriculum: "IB", includeOnlineFallback: false, tutors: allTutors });
 
     expect(result.matchSummary.exactLocalMatches).toBeGreaterThan(0);
     expect(result.tutors[0].availableSectorSlugs).toContain("sector-56");
   });
 
   it("shows a Golf Course Road tutor on the Gurugram area page", () => {
-    const result = getTutorsForArea("gurugram", "golf-course-road", { curriculum: "IB", includeOnlineFallback: false });
+    const result = getTutorsForArea("gurugram", "golf-course-road", { curriculum: "IB", includeOnlineFallback: false, tutors: allTutors });
 
     expect(result.matchSummary.exactLocalMatches).toBeGreaterThan(0);
     expect(result.tutors[0].availableAreaSlugs).toContain("golf-course-road");
@@ -35,10 +35,12 @@ describe("tutor location matching", () => {
     const withoutFallback = getTutorsForSector("gurugram", "sector-56", {
       curriculum: "IB",
       includeOnlineFallback: false,
+      tutors: allTutors,
     });
     const withFallback = getTutorsForSector("gurugram", "sector-56", {
       curriculum: "IB",
       includeOnlineFallback: true,
+      tutors: allTutors,
     });
 
     expect(withoutFallback.tutors.map((tutor) => tutor.id)).not.toContain(3);
@@ -46,27 +48,27 @@ describe("tutor location matching", () => {
   });
 
   it("keeps IB-only tutors off IGCSE pages", () => {
-    const result = getTutorsForCity("gurugram", { curriculum: "IGCSE" });
+    const result = getTutorsForCity("gurugram", { curriculum: "IGCSE", tutors: allTutors });
 
     expect(result.tutors.map((tutor) => tutor.id)).not.toContain(1);
   });
 
   it("keeps IGCSE-only tutors off IB pages", () => {
-    const result = getTutorsForCity("gurugram", { curriculum: "IB" });
+    const result = getTutorsForCity("gurugram", { curriculum: "IB", tutors: allTutors });
 
     expect(result.tutors.map((tutor) => tutor.id)).not.toContain(2);
   });
 
   it("allows tutors supporting both curricula to appear on IB and IGCSE pages", () => {
-    const ibResult = getTutorsForCity("gurugram", { curriculum: "IB" });
-    const igcseResult = getTutorsForCity("gurugram", { curriculum: "IGCSE" });
+    const ibResult = getTutorsForCity("gurugram", { curriculum: "IB", tutors: allTutors });
+    const igcseResult = getTutorsForCity("gurugram", { curriculum: "IGCSE", tutors: allTutors });
 
     expect(ibResult.tutors.map((tutor) => tutor.id)).toContain(5);
     expect(igcseResult.tutors.map((tutor) => tutor.id)).toContain(5);
   });
 
   it("ranks exact local matches above city-level matches", () => {
-    const result = getTutorsForSector("gurugram", "sector-56", { curriculum: "IB", includeOnlineFallback: false });
+    const result = getTutorsForSector("gurugram", "sector-56", { curriculum: "IB", includeOnlineFallback: false, tutors: allTutors });
     const exactIndex = result.tutors.findIndex((tutor) => tutor.availableSectorSlugs.includes("sector-56"));
     const cityOnlyIndex = result.tutors.findIndex((tutor) => tutor.id === 4);
 
@@ -75,7 +77,7 @@ describe("tutor location matching", () => {
   });
 
   it("places online fallback after local and city matches", () => {
-    const result = getTutorsForSector("gurugram", "sector-56", { curriculum: "IB", includeOnlineFallback: true });
+    const result = getTutorsForSector("gurugram", "sector-56", { curriculum: "IB", includeOnlineFallback: true, tutors: allTutors });
     const onlineFallbackIndex = result.tutors.findIndex((tutor) => tutor.id === 3);
     const firstCityOrLocalIndex = result.tutors.findIndex((tutor) => tutor.primaryCitySlug === "gurugram");
 
@@ -87,6 +89,7 @@ describe("tutor location matching", () => {
       curriculum: "IB",
       includeOnlineFallback: false,
       allowCityFallbackForLocal: false,
+      tutors: allTutors,
     });
 
     expect(result.matchSummary.totalMatches).toBe(0);
@@ -98,7 +101,7 @@ describe("tutor location matching", () => {
       pageType: "subject",
       citySlug: "gurugram",
       subjectSlug: "math-aa-hl",
-    });
+    }, { tutors: allTutors });
 
     expect(result.tutors.length).toBeGreaterThan(0);
     expect(result.tutors[0].ibSubjects.some((subject) => subject.includes("Math AA"))).toBe(true);

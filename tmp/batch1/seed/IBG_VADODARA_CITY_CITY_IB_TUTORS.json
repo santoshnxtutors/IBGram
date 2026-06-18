@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/vadodara/",
+  "routeKey": "/ib-tutors/vadodara/",
+  "pageType": "city",
+  "citySlug": "vadodara",
+  "cityName": "Vadodara",
+  "slug": "",
+  "pageId": "IBG_VADODARA_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Vadodara",
+    "citySlug": "vadodara",
+    "primaryKeyword": "IB tutors in Vadodara",
+    "secondaryKeywords": [
+      "IB home tutors Vadodara",
+      "IB DP tutor Vadodara",
+      "IB Math AA tutor Vadodara",
+      "IB online tutors Vadodara"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Alkapuri",
+      "Gotri",
+      "Vasna Bhayli Road",
+      "Akota",
+      "Sama Savli"
+    ],
+    "nearbyAreas": [
+      "Race Course",
+      "Old Padra Road",
+      "Bhayli",
+      "Sevasi",
+      "Mujmahuda",
+      "Waghodia Road",
+      "Manjalpur"
+    ],
+    "nearbyCities": [
+      "Ahmedabad",
+      "Surat",
+      "Indore"
+    ],
+    "schoolsMentioned": [
+      "Alkapuri and Race Course learner cluster",
+      "Gotri and Vasna Bhayli school families",
+      "Akota and Old Padra academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Vadodara has a distinct international school and premium tutoring market. Vadodara's international curriculum demand is practical and parent-led, with families seeking strong academic support without the scale of a metro tutoring market. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often want a tutor match that is honest about availability and willing to use online support when that creates a better DP fit. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can be reviewed in Alkapuri, Gotri and Akota routes, while online tutoring is useful for HL subjects, IA review and urgent doubts. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Vadodara families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Vadodara's international curriculum demand is practical and parent-led, with families seeking strong academic support without the scale of a metro tutoring market.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Vadodara usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Vadodara areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Alkapuri",
+        "description": "Central premium area for English, Economics, MYP and study-planning support."
+      },
+      {
+        "name": "Gotri",
+        "description": "Growing residential catchment where families often ask for Math, science and hybrid tutoring."
+      },
+      {
+        "name": "Vasna Bhayli Road",
+        "description": "Premium corridor where online DP support can complement home tutoring and reduce travel pressure."
+      },
+      {
+        "name": "Akota",
+        "description": "Practical area for home tutoring review, MYP foundations and English writing support."
+      },
+      {
+        "name": "Sama Savli",
+        "description": "Residential corridor where hybrid support helps students maintain consistency during exam months."
+      }
+    ],
+    "schoolsMentioned": [
+      "Alkapuri and Race Course learner cluster",
+      "Gotri and Vasna Bhayli school families",
+      "Akota and Old Padra academic corridor"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Vadodara request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Vadodara often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Vadodara is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Vadodara is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Vadodara often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Vadodara is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Vadodara is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Vadodara",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Ahmedabad",
+      "Surat",
+      "Indore"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

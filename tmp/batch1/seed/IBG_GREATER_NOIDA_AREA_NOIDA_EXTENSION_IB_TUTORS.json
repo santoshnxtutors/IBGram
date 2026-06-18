@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/greater-noida/areas/noida-extension/",
+  "routeKey": "/ib-tutors/greater-noida/areas/noida-extension/",
+  "pageType": "area",
+  "citySlug": "greater-noida",
+  "cityName": "Greater Noida",
+  "slug": "noida-extension",
+  "pageId": "IBG_GREATER_NOIDA_AREA_NOIDA_EXTENSION_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Greater Noida",
+    "citySlug": "greater-noida",
+    "parentLocation": "Greater Noida",
+    "microLocationName": "Noida Extension",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Noida Extension Greater Noida",
+    "secondaryKeywords": [
+      "IB home tutor Noida Extension",
+      "IB DP tutor near Noida Extension",
+      "IB Math AA tutor Noida Extension",
+      "IB online tutors Greater Noida"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Jaypee Greens",
+      "Omega",
+      "Pari Chowk",
+      "Noida Extension",
+      "Techzone"
+    ],
+    "nearbyAreas": [
+      "Alpha",
+      "Beta",
+      "Gamma",
+      "Knowledge Park",
+      "Gaur City",
+      "Yamuna Expressway",
+      "Sector 150"
+    ],
+    "nearbyCities": [
+      "Noida",
+      "Delhi",
+      "Ghaziabad"
+    ],
+    "schoolsMentioned": [
+      "Expressway international learner corridor",
+      "Noida Extension school families",
+      "Jaypee Greens and Omega learner cluster"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Large residential corridor where online support can reduce travel pressure and widen specialist availability.",
+    "nearbyLandmarks": [
+      "Gaur City",
+      "Techzone 4"
+    ],
+    "nearbyAreas": [
+      "Alpha",
+      "Beta",
+      "Gamma",
+      "Knowledge Park",
+      "Gaur City",
+      "Yamuna Expressway",
+      "Sector 150"
+    ],
+    "schoolsMentioned": [
+      "Expressway international learner corridor",
+      "Noida Extension school families",
+      "Jaypee Greens and Omega learner cluster"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Greater Noida",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Noida",
+      "Delhi",
+      "Ghaziabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

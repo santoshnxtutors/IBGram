@@ -17,6 +17,8 @@ const eslintConfig = defineConfig([
     "shared/node_modules/**",
     "authentication/dist/**",
     "authentication/node_modules/**",
+    "scripts/seo-batch/**",
+    "tmp/**",
     "next-env.d.ts",
   ]),
 ]);

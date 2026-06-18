@@ -1,0 +1,106 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/areas/sector-56/",
+  "routeKey": "/ib-tutors/gurugram/areas/sector-56/",
+  "pageType": "area",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "sector-56",
+  "pageId": "IBG_GURUGRAM_AREA_SECTOR_56_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "Sector 56",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Sector 56 Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor Sector 56",
+      "IB DP tutor near Sector 56",
+      "IB Math AA tutor Sector 56",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Nirvana Country",
+      "South City 1",
+      "DLF Phase 1",
+      "DLF Phase 4",
+      "Sector 50",
+      "Sector 65"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Pathways World School",
+      "Lancers International School",
+      "Scottish High International School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "",
+    "nearbyLandmarks": [],
+    "nearbyAreas": [
+      "Nirvana Country",
+      "South City 1",
+      "DLF Phase 1",
+      "DLF Phase 4",
+      "Sector 50",
+      "Sector 65"
+    ],
+    "schoolsMentioned": [
+      "Pathways World School",
+      "Lancers International School",
+      "Scottish High International School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

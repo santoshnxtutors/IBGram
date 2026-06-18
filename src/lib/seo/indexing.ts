@@ -1,5 +1,6 @@
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
 import type { CitySeoPage, IndexingConfig, InternalLink } from "./city-page-types";
+import { canonicalUrl as toCanonicalUrl } from "./canonical";
 
 export interface IndexingDecision {
   index: boolean;
@@ -60,7 +61,7 @@ export function getIndexingDecision(
     index: true,
     follow: true,
     robotsTag: "index, follow",
-    canonicalUrl: pageData.canonicalTarget ?? pageData.canonicalUrl,
+    canonicalUrl: toCanonicalUrl(pageData.canonicalTarget ?? pageData.canonicalUrl),
     reason: "Unique city content, strong demand, FAQs and useful internal links are present.",
   };
 }
@@ -83,7 +84,7 @@ export function getGeneratedIndexingDecision(page: GeneratedSeoPage): IndexingDe
     index: true,
     follow: true,
     robotsTag: "index, follow",
-    canonicalUrl: page.canonicalTarget ?? page.canonicalUrl,
+    canonicalUrl: toCanonicalUrl(page.canonicalTarget ?? page.canonicalUrl),
     reason: "Generated page is published, useful, unique enough and internally linked.",
   };
 }
@@ -93,7 +94,7 @@ export function getNoindexSubpageDecision(canonicalUrl: string, reason = "Subpag
     index: false,
     follow: true,
     robotsTag: "noindex, follow",
-    canonicalUrl,
+    canonicalUrl: toCanonicalUrl(canonicalUrl),
     reason,
   };
 }
@@ -106,7 +107,7 @@ function noindex(
     index: false,
     follow: true,
     robotsTag: "noindex, follow",
-    canonicalUrl: pageData.canonicalTarget ?? pageData.canonicalUrl,
+    canonicalUrl: toCanonicalUrl(pageData.canonicalTarget ?? pageData.canonicalUrl),
     reason,
   };
 }
@@ -116,7 +117,7 @@ function generatedNoindex(page: GeneratedSeoPage, reason: string): IndexingDecis
     index: false,
     follow: true,
     robotsTag: "noindex, follow",
-    canonicalUrl: page.canonicalTarget ?? page.canonicalUrl,
+    canonicalUrl: toCanonicalUrl(page.canonicalTarget ?? page.canonicalUrl),
     reason,
   };
 }

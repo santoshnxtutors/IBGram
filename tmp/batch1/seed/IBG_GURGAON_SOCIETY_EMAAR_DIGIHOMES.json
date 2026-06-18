@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/societies/emaar-digihomes/",
+  "routeKey": "/ib-tutors/gurugram/societies/emaar-digihomes/",
+  "pageType": "society",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "emaar-digihomes",
+  "pageId": "IBG_GURGAON_SOCIETY_EMAAR_DIGIHOMES",
+  "reusedPageId": true,
+  "input": {
+    "pageType": "society",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "Emaar DigiHomes",
+    "microLocationType": "society",
+    "primaryKeyword": "IB tutors near Emaar DigiHomes Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor Emaar DigiHomes",
+      "IB DP tutor near Emaar DigiHomes",
+      "IB Math AA tutor Emaar DigiHomes",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA",
+      "Math AI",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Economics",
+      "English"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Sector 61",
+      "Sector 62",
+      "Sector 65",
+      "Sector 66",
+      "Golf Course Extension Road",
+      "Sohna Road",
+      "Emaar Palm Springs",
+      "Emaar Emerald Hills",
+      "M3M Golf Estate"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "societyType": "premium residential society/condominium",
+    "nearbyAreas": [
+      "Sector 61",
+      "Sector 62",
+      "Sector 65",
+      "Sector 66",
+      "Golf Course Extension Road",
+      "Sohna Road",
+      "Emaar Palm Springs",
+      "Emaar Emerald Hills",
+      "M3M Golf Estate"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "Local IB tutoring support near Emaar DigiHomes, Gurugram, often searched as Gurgaon, for PYP, MYP and DP families who want programme-aware subject help, practical tutor matching and safe home, online or hybrid scheduling. Availability depends on subject, grade level, exact location, schedule and preferred tutoring mode.",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

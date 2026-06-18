@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/surat/",
+  "routeKey": "/ib-tutors/surat/",
+  "pageType": "city",
+  "citySlug": "surat",
+  "cityName": "Surat",
+  "slug": "",
+  "pageId": "IBG_SURAT_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Surat",
+    "citySlug": "surat",
+    "primaryKeyword": "IB tutors in Surat",
+    "secondaryKeywords": [
+      "IB home tutors Surat",
+      "IB DP tutor Surat",
+      "IB Math AA tutor Surat",
+      "IB online tutors Surat"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Vesu",
+      "Adajan",
+      "Citylight",
+      "Piplod",
+      "Pal"
+    ],
+    "nearbyAreas": [
+      "Athwa",
+      "Ghod Dod Road",
+      "Dumas Road",
+      "VIP Road",
+      "Canal Road",
+      "Althan",
+      "Pal Gam"
+    ],
+    "nearbyCities": [
+      "Vadodara",
+      "Ahmedabad",
+      "Mumbai"
+    ],
+    "schoolsMentioned": [
+      "Vesu and Piplod international learner cluster",
+      "Adajan and Pal school families",
+      "Citylight premium academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Surat has a distinct international school and premium tutoring market. Surat's premium tutoring demand is linked to entrepreneurial families, globally mobile students and growing interest in international curriculum pathways. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often need careful tutor matching because specialist IB availability can vary, especially for DP HL and less common subjects. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can work in Vesu, Adajan and Citylight clusters, while online tutoring is useful for DP specialists and assessment support. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Surat families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Surat's premium tutoring demand is linked to entrepreneurial families, globally mobile students and growing interest in international curriculum pathways.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Surat usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Surat areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Vesu",
+        "description": "High-demand residential area for Math, science, MYP and hybrid IB tutoring support."
+      },
+      {
+        "name": "Adajan",
+        "description": "Established residential catchment where families often request home feasibility and structured weekly tutoring."
+      },
+      {
+        "name": "Citylight",
+        "description": "Premium area for English, Economics, PYP routines and parent-visible progress updates."
+      },
+      {
+        "name": "Piplod",
+        "description": "Practical area for online and hybrid DP support around school and activity schedules."
+      },
+      {
+        "name": "Pal",
+        "description": "Growing residential pocket where students may need steady MYP support and online DP specialist access."
+      }
+    ],
+    "schoolsMentioned": [
+      "Vesu and Piplod international learner cluster",
+      "Adajan and Pal school families",
+      "Citylight premium academic corridor"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Surat request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Surat often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Surat is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Surat is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Surat often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Surat is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Surat is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Surat",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Vadodara",
+      "Ahmedabad",
+      "Mumbai"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

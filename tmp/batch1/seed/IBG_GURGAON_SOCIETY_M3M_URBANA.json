@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/societies/m3m-urbana/",
+  "routeKey": "/ib-tutors/gurugram/societies/m3m-urbana/",
+  "pageType": "society",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "m3m-urbana",
+  "pageId": "IBG_GURGAON_SOCIETY_M3M_URBANA",
+  "reusedPageId": true,
+  "input": {
+    "pageType": "society",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "M3M Urbana",
+    "microLocationType": "society",
+    "primaryKeyword": "IB tutors near M3M Urbana Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor M3M Urbana",
+      "IB DP tutor near M3M Urbana",
+      "IB Math AA tutor M3M Urbana",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA",
+      "Math AI",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Economics",
+      "English"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Sector 65",
+      "Sector 67",
+      "Sector 68",
+      "Sector 113",
+      "Golf Course Extension Road",
+      "Sohna Road",
+      "M3M Golf Estate",
+      "M3M Merlin",
+      "M3M Skycity"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "societyType": "premium residential society/condominium",
+    "nearbyAreas": [
+      "Sector 65",
+      "Sector 67",
+      "Sector 68",
+      "Sector 113",
+      "Golf Course Extension Road",
+      "Sohna Road",
+      "M3M Golf Estate",
+      "M3M Merlin",
+      "M3M Skycity"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "Local IB tutoring support near M3M Urbana, Gurugram, often searched as Gurgaon, for PYP, MYP and DP families who want programme-aware subject help, practical tutor matching and safe home, online or hybrid scheduling. Availability depends on subject, grade level, exact location, schedule and preferred tutoring mode.",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

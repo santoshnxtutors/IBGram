@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bhubaneswar/areas/patia/",
+  "routeKey": "/ib-tutors/bhubaneswar/areas/patia/",
+  "pageType": "area",
+  "citySlug": "bhubaneswar",
+  "cityName": "Bhubaneswar",
+  "slug": "patia",
+  "pageId": "IBG_BHUBANESWAR_AREA_PATIA_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Bhubaneswar",
+    "citySlug": "bhubaneswar",
+    "parentLocation": "Bhubaneswar",
+    "microLocationName": "Patia",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Patia Bhubaneswar",
+    "secondaryKeywords": [
+      "IB home tutor Patia",
+      "IB DP tutor near Patia",
+      "IB Math AA tutor Patia",
+      "IB online tutors Bhubaneswar"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Patia",
+      "Kalinga Nagar",
+      "Nayapalli",
+      "Chandrasekharpur",
+      "Saheed Nagar"
+    ],
+    "nearbyAreas": [
+      "Infocity",
+      "KIIT area",
+      "Khandagiri",
+      "IRC Village",
+      "Damana",
+      "Niladri Vihar",
+      "Jaydev Vihar"
+    ],
+    "nearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Major residential and education corridor where families often request Math, science and online DP support.",
+    "nearbyLandmarks": [
+      "KIIT area",
+      "Infocity"
+    ],
+    "nearbyAreas": [
+      "Infocity",
+      "KIIT area",
+      "Khandagiri",
+      "IRC Village",
+      "Damana",
+      "Niladri Vihar",
+      "Jaydev Vihar"
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Bhubaneswar",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

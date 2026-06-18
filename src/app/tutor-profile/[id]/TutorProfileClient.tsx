@@ -12,7 +12,6 @@ import type { Tutor } from "@/lib/tutor-data";
 import type { PublicTutorReview } from "@/lib/cms/public-reviews";
 import { getStoredReturnTo, storeLegacyReturnToFromUrl } from "@/lib/return-to";
 import { openTutorMessage } from "@/lib/tutor-message";
-import Link from "next/link";
 
 export type TutorReachLink = {
    slug: string;
@@ -25,23 +24,20 @@ export type TutorReachLink = {
 export default function TutorProfileClient({
    tutor,
    reviews = [],
-   reachPages = [],
 }: {
    tutor: Tutor;
    reviews?: PublicTutorReview[];
    reachPages?: TutorReachLink[];
 }) {
-   return <TutorProfileContent tutor={tutor} reviews={reviews} reachPages={reachPages} />;
+   return <TutorProfileContent tutor={tutor} reviews={reviews} />;
 }
 
 function TutorProfileContent({
    tutor,
    reviews,
-   reachPages,
 }: {
    tutor: Tutor;
    reviews: PublicTutorReview[];
-   reachPages: TutorReachLink[];
 }) {
    const router = useRouter();
    const [demoOpen, setDemoOpen] = useState(false);
@@ -176,7 +172,12 @@ function TutorProfileContent({
                   <div className="flex items-center gap-4 text-muted-foreground mb-8 text-sm md:text-base font-medium">
                      <span className="flex items-center gap-2"><CheckCircle2 className="size-5 text-primary" /> Verified Indentity</span>
                      <span>•</span>
-                     <span className="flex items-center gap-2"><MessageCircle className="size-4" /> {tutor.reviews} Student Reviews</span>
+                     <a
+                        href="#tutor-reviews"
+                        className="flex items-center gap-2 transition-colors hover:text-primary"
+                     >
+                        <MessageCircle className="size-4" /> {tutor.reviews} Student Reviews
+                     </a>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4 pb-12 pt-2 border-b border-border/50">
@@ -216,33 +217,6 @@ function TutorProfileContent({
                            </div>
                         </div>
                      </section>
-
-                     {reachPages.length > 0 && (
-                        <section>
-                           <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
-                              <BookOpen className="size-6 text-primary" /> Subject pages with {tutor.name.split(" ")[0]}
-                           </h3>
-                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                              {reachPages.map((page) => (
-                                 <Link
-                                    key={page.slug}
-                                    href={`/tutor/${page.slug}/`}
-                                    className="group flex items-center justify-between gap-3 rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-primary/5"
-                                 >
-                                    <div className="min-w-0">
-                                       <p className="font-black text-foreground group-hover:text-primary">
-                                          {page.board} {page.subject}
-                                       </p>
-                                       <p className="mt-1 text-sm font-medium capitalize text-muted-foreground">
-                                          {page.mode} tutoring{page.city ? ` · ${page.city}` : ""}
-                                       </p>
-                                    </div>
-                                    <ArrowLeft className="size-5 shrink-0 rotate-180 text-primary transition-transform group-hover:translate-x-1" />
-                                 </Link>
-                              ))}
-                           </div>
-                        </section>
-                     )}
 
                      {tutor.faqs && tutor.faqs.length > 0 && (
                         <section>
@@ -299,7 +273,9 @@ function TutorProfileContent({
 
                      <TutorProfileLocationSection tutor={tutor} />
 
-                     <TutorReviewsCarousel reviews={reviews} tutorFirstName={tutor.name.split(" ")[0]} />
+                     <div id="tutor-reviews" className="scroll-mt-28">
+                        <TutorReviewsCarousel reviews={reviews} tutorFirstName={tutor.name.split(" ")[0]} />
+                     </div>
 
                      <section>
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">

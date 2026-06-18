@@ -1,0 +1,99 @@
+{
+  "url": "https://ibgram.com/ib-tutors/chandigarh/chemistry/",
+  "routeKey": "/ib-tutors/chandigarh/chemistry/",
+  "pageType": "subject",
+  "citySlug": "chandigarh",
+  "cityName": "Chandigarh",
+  "slug": "chemistry",
+  "pageId": "IBG_CHANDIGARH_SUBJECT_CHEMISTRY_CHEMISTRY",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "subject",
+    "cityName": "Chandigarh",
+    "citySlug": "chandigarh",
+    "primaryKeyword": "IB Chemistry tutor in Chandigarh",
+    "secondaryKeywords": [
+      "IB Chemistry HL tutor Chandigarh",
+      "IB Chemistry SL tutor Chandigarh",
+      "IB Chemistry online tutor",
+      "Chemistry IB home tutor Chandigarh"
+    ],
+    "serviceFocus": "Chemistry",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Chemistry"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Sector 8",
+      "Sector 9",
+      "Sector 15",
+      "Mohali",
+      "Panchkula"
+    ],
+    "nearbyAreas": [
+      "Sector 10",
+      "Sector 11",
+      "Sector 17",
+      "Zirakpur",
+      "New Chandigarh",
+      "Kharar",
+      "Aerocity"
+    ],
+    "nearbyCities": [
+      "Ludhiana",
+      "Dehradun",
+      "Delhi"
+    ],
+    "schoolsMentioned": [
+      "Chandigarh sector school families",
+      "Mohali international learner cluster",
+      "Panchkula and Zirakpur school corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Chemistry",
+    "subjectLevel": "HL and SL",
+    "subjectDescription": "Stoichiometry, bonding, energetics, kinetics, equilibrium, organic chemistry, data questions and IA planning.",
+    "subjectCityNote": "Chemistry tutoring in Chandigarh is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice.",
+    "premiumAreas": [
+      "Sector 8",
+      "Sector 9",
+      "Sector 15",
+      "Mohali",
+      "Panchkula"
+    ],
+    "schoolsMentioned": [
+      "Chandigarh sector school families",
+      "Mohali international learner cluster",
+      "Panchkula and Zirakpur school corridor"
+    ],
+    "cityName": "Chandigarh",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Ludhiana",
+      "Dehradun",
+      "Delhi"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

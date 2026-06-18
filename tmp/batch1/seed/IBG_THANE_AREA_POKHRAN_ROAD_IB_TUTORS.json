@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/thane/areas/pokhran-road/",
+  "routeKey": "/ib-tutors/thane/areas/pokhran-road/",
+  "pageType": "area",
+  "citySlug": "thane",
+  "cityName": "Thane",
+  "slug": "pokhran-road",
+  "pageId": "IBG_THANE_AREA_POKHRAN_ROAD_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Thane",
+    "citySlug": "thane",
+    "parentLocation": "Thane",
+    "microLocationName": "Pokhran Road",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Pokhran Road Thane",
+    "secondaryKeywords": [
+      "IB home tutor Pokhran Road",
+      "IB DP tutor near Pokhran Road",
+      "IB Math AA tutor Pokhran Road",
+      "IB online tutors Thane"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Hiranandani Estate",
+      "Ghodbunder Road",
+      "Pokhran Road",
+      "Vasant Vihar",
+      "Majiwada"
+    ],
+    "nearbyAreas": [
+      "Waghbil",
+      "Kasarvadavali",
+      "Patlipada",
+      "Upvan",
+      "Manpada",
+      "Kolshet",
+      "Eastern Express Highway"
+    ],
+    "nearbyCities": [
+      "Mumbai",
+      "Navi Mumbai",
+      "Pune"
+    ],
+    "schoolsMentioned": [
+      "Hiranandani Estate learner cluster",
+      "Ghodbunder Road school families",
+      "Pokhran Road and Vasant Vihar corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Established Thane pocket for MYP, English, Math and structured weekly tutoring.",
+    "nearbyLandmarks": [
+      "Vasant Vihar",
+      "Upvan"
+    ],
+    "nearbyAreas": [
+      "Waghbil",
+      "Kasarvadavali",
+      "Patlipada",
+      "Upvan",
+      "Manpada",
+      "Kolshet",
+      "Eastern Express Highway"
+    ],
+    "schoolsMentioned": [
+      "Hiranandani Estate learner cluster",
+      "Ghodbunder Road school families",
+      "Pokhran Road and Vasant Vihar corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Thane",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Mumbai",
+      "Navi Mumbai",
+      "Pune"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

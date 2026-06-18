@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/faridabad/",
+  "routeKey": "/ib-tutors/faridabad/",
+  "pageType": "city",
+  "citySlug": "faridabad",
+  "cityName": "Faridabad",
+  "slug": "",
+  "pageId": "IBG_FARIDABAD_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Faridabad",
+    "citySlug": "faridabad",
+    "primaryKeyword": "IB tutors in Faridabad",
+    "secondaryKeywords": [
+      "IB home tutors Faridabad",
+      "IB DP tutor Faridabad",
+      "IB Math AA tutor Faridabad",
+      "IB online tutors Faridabad"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Sector 15",
+      "Sector 21",
+      "Green Fields",
+      "Neharpar",
+      "Surajkund"
+    ],
+    "nearbyAreas": [
+      "Sector 16",
+      "Sector 28",
+      "Sector 31",
+      "Greater Faridabad",
+      "Badarpur Border",
+      "Charmwood Village",
+      "Ballabhgarh"
+    ],
+    "nearbyCities": [
+      "Gurugram",
+      "Delhi",
+      "Noida"
+    ],
+    "schoolsMentioned": [
+      "Central Faridabad learner cluster",
+      "Green Fields and Surajkund NCR corridor",
+      "Neharpar and Greater Faridabad school families"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Faridabad has a distinct international school and premium tutoring market. Faridabad's IB tutoring demand is closely connected to the wider NCR ecosystem, with families comparing local home support against Delhi, Gurugram and Noida specialist availability. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often need help deciding whether a Faridabad home tutor is practical or whether an online NCR specialist gives stronger DP subject depth. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring may be feasible in compact sectors and Surajkund-side pockets, while online and hybrid tutoring is often useful for DP HL, IA and exam support. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Faridabad families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Faridabad's IB tutoring demand is closely connected to the wider NCR ecosystem, with families comparing local home support against Delhi, Gurugram and Noida specialist availability.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Faridabad usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Faridabad areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Sector 15",
+        "description": "Established residential area for home tutoring review, MYP support and DP subject planning."
+      },
+      {
+        "name": "Sector 21",
+        "description": "Premium pocket where families often ask for Math, science and hybrid tutoring with NCR specialist reach."
+      },
+      {
+        "name": "Green Fields",
+        "description": "Useful area for families comparing Faridabad home support with Delhi and Gurugram online specialists."
+      },
+      {
+        "name": "Neharpar",
+        "description": "Growing residential corridor where online tutoring can reduce travel friction and support exam-season continuity."
+      },
+      {
+        "name": "Surajkund",
+        "description": "Premium edge-of-NCR area where hybrid support can connect students to Delhi and Gurugram IB tutors."
+      }
+    ],
+    "schoolsMentioned": [
+      "Central Faridabad learner cluster",
+      "Green Fields and Surajkund NCR corridor",
+      "Neharpar and Greater Faridabad school families"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Faridabad request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Faridabad often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Faridabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Faridabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Faridabad often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Faridabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Faridabad is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Faridabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Gurugram",
+      "Delhi",
+      "Noida"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

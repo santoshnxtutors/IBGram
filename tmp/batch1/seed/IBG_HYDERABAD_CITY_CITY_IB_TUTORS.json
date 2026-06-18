@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/hyderabad/",
+  "routeKey": "/ib-tutors/hyderabad/",
+  "pageType": "city",
+  "citySlug": "hyderabad",
+  "cityName": "Hyderabad",
+  "slug": "",
+  "pageId": "IBG_HYDERABAD_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Hyderabad",
+    "citySlug": "hyderabad",
+    "primaryKeyword": "IB tutors in Hyderabad",
+    "secondaryKeywords": [
+      "IB home tutors Hyderabad",
+      "IB DP tutor Hyderabad",
+      "IB Math AA tutor Hyderabad",
+      "IB online tutors Hyderabad"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Gachibowli",
+      "Jubilee Hills",
+      "Banjara Hills",
+      "HITEC City",
+      "Kondapur"
+    ],
+    "nearbyAreas": [
+      "Madhapur",
+      "Nanakramguda",
+      "Financial District",
+      "Kokapet",
+      "Manikonda",
+      "Miyapur",
+      "Tellapur"
+    ],
+    "nearbyCities": [
+      "Bangalore",
+      "Chennai",
+      "Pune"
+    ],
+    "schoolsMentioned": [
+      "Gachibowli and Financial District school corridor",
+      "Jubilee Hills premium learner cluster",
+      "Western Hyderabad international school families"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Hyderabad has a distinct international school and premium tutoring market. Hyderabad's IB demand is shaped by technology families, globally mobile professionals and premium school corridors around Gachibowli, Jubilee Hills, Banjara Hills and the HITEC City belt. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often want tutoring that can handle high academic ambition without ignoring practical scheduling across western Hyderabad's work, school and activity traffic. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring is most realistic within close neighbourhood clusters, while online tutoring is often preferred for DP HL subjects, late evening doubts and IA review. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Hyderabad families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Hyderabad's IB demand is shaped by technology families, globally mobile professionals and premium school corridors around Gachibowli, Jubilee Hills, Banjara Hills and the HITEC City belt.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Hyderabad usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Hyderabad areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Gachibowli",
+        "description": "A major IB tutoring catchment for families who need specialist DP support around school and technology corridor schedules."
+      },
+      {
+        "name": "Jubilee Hills",
+        "description": "Premium residential area where parents often request polished communication, home tutoring feasibility and DP subject depth."
+      },
+      {
+        "name": "Banjara Hills",
+        "description": "Central high-demand area for PYP foundations, English support, Economics writing and hybrid IB tutoring plans."
+      },
+      {
+        "name": "HITEC City",
+        "description": "Busy corridor where online and hybrid IB lessons can reduce commute strain while preserving subject-matched support."
+      },
+      {
+        "name": "Kondapur",
+        "description": "A practical base for families seeking Math AA, Math AI, Physics and Chemistry support near western Hyderabad."
+      }
+    ],
+    "schoolsMentioned": [
+      "Gachibowli and Financial District school corridor",
+      "Jubilee Hills premium learner cluster",
+      "Western Hyderabad international school families"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Hyderabad request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Hyderabad often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Hyderabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Hyderabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Hyderabad often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Hyderabad is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Hyderabad is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Hyderabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Bangalore",
+      "Chennai",
+      "Pune"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/chandigarh/areas/panchkula/",
+  "routeKey": "/ib-tutors/chandigarh/areas/panchkula/",
+  "pageType": "area",
+  "citySlug": "chandigarh",
+  "cityName": "Chandigarh",
+  "slug": "panchkula",
+  "pageId": "IBG_CHANDIGARH_AREA_PANCHKULA_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Chandigarh",
+    "citySlug": "chandigarh",
+    "parentLocation": "Chandigarh",
+    "microLocationName": "Panchkula",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Panchkula Chandigarh",
+    "secondaryKeywords": [
+      "IB home tutor Panchkula",
+      "IB DP tutor near Panchkula",
+      "IB Math AA tutor Panchkula",
+      "IB online tutors Chandigarh"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Sector 8",
+      "Sector 9",
+      "Sector 15",
+      "Mohali",
+      "Panchkula"
+    ],
+    "nearbyAreas": [
+      "Sector 10",
+      "Sector 11",
+      "Sector 17",
+      "Zirakpur",
+      "New Chandigarh",
+      "Kharar",
+      "Aerocity"
+    ],
+    "nearbyCities": [
+      "Ludhiana",
+      "Dehradun",
+      "Delhi"
+    ],
+    "schoolsMentioned": [
+      "Chandigarh sector school families",
+      "Mohali international learner cluster",
+      "Panchkula and Zirakpur school corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Nearby residential hub where online support can supplement home tutoring for DP HL and IA needs.",
+    "nearbyLandmarks": [
+      "Sector 5",
+      "Zirakpur"
+    ],
+    "nearbyAreas": [
+      "Sector 10",
+      "Sector 11",
+      "Sector 17",
+      "Zirakpur",
+      "New Chandigarh",
+      "Kharar",
+      "Aerocity"
+    ],
+    "schoolsMentioned": [
+      "Chandigarh sector school families",
+      "Mohali international learner cluster",
+      "Panchkula and Zirakpur school corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Chandigarh",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Ludhiana",
+      "Dehradun",
+      "Delhi"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

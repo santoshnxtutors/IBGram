@@ -1,0 +1,153 @@
+{
+  "url": "https://ibgram.com/ib-tutors/noida/",
+  "routeKey": "/ib-tutors/noida/",
+  "pageType": "city",
+  "citySlug": "noida",
+  "cityName": "Noida",
+  "slug": "",
+  "pageId": "IBG_NOIDA_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Noida",
+    "citySlug": "noida",
+    "primaryKeyword": "IB tutors in Noida",
+    "secondaryKeywords": [
+      "IB home tutors Noida",
+      "IB DP tutor Noida",
+      "IB Math AA tutor Noida",
+      "IB online tutors Noida"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Sector 50",
+      "Sector 62",
+      "Noida Expressway"
+    ],
+    "nearbyAreas": [
+      "Sector 44",
+      "Sector 45",
+      "Sector 93",
+      "Sector 137",
+      "Greater Noida West",
+      "Indirapuram"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Gurugram",
+      "Ghaziabad",
+      "Greater Noida"
+    ],
+    "schoolsMentioned": [
+      "Pathways School Noida",
+      "Genesis Global School",
+      "Step by Step School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Noida's international school demand is spread across central sectors, expressway communities and Greater Noida corridors. Families often need a mix of home support and online subject specialists because commute patterns can change sharply by time of day.",
+      "The city has a strong need for MYP foundations, DP Math, sciences, economics, English and assessment support. Parents often ask for tutors who can help students stay consistent through school projects, unit tests, IA deadlines and exam preparation.",
+      "For many Noida parents, the pressure point is the jump from classroom understanding to IB-ready output. A student may know the Physics concept but lose marks on data handling, or understand an Economics case but need sharper diagrams and evaluation. Younger students may need help building research habits before MYP criteria become demanding. Good tutoring here is local in schedule, but exact in how it reads IB assessment.",
+      "IB Gram's Noida page helps parents understand where tutoring may be available, which subjects are commonly requested, and why a hybrid plan can be more practical than insisting on a nearby tutor for every need."
+    ],
+    "cityAcademicIntro": [
+      "Noida's tutoring challenge is practical as much as academic. A nearby tutor may be useful for weekly accountability, but a DP student may need a more specialized online tutor for Math AA, Physics or Economics. IB Gram helps families compare both realities.",
+      "The matching process starts with the student's actual need. Is the issue conceptual confidence, assignment structure, exam technique, IA planning, or consistency? Once that is clear, mode and location become easier to decide.",
+      "Families around Sector 50, Sector 62 and the Noida Expressway often ask whether home tutoring and online tutoring can be combined. A blended plan can work well: home sessions keep younger students consistent, while online sessions help DP students access specialist support for IA, EE and TOK support, Physics HL/SL, Chemistry HL/SL or Economics without losing time to cross-city travel.",
+      "This Noida page gives parents a local overview of areas, nearby NCR links, school ecosystems, subjects, tutoring modes and FAQs so the first conversation with IB Gram is more focused."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Sector 50",
+        "description": "A central residential area where families often request MYP foundations, DP Math support and weekly home tutoring."
+      },
+      {
+        "name": "Sector 62",
+        "description": "Useful for families near institutional and office corridors who prefer evening online or hybrid support."
+      },
+      {
+        "name": "Noida Expressway",
+        "description": "A large catchment for school communities where online tutoring can reduce travel pressure during DP exam months."
+      },
+      {
+        "name": "Sector 128",
+        "description": "Relevant for families near expressway school corridors and premium residential communities."
+      }
+    ],
+    "schoolsMentioned": [
+      "Pathways School Noida",
+      "Genesis Global School",
+      "Step by Step School"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA is frequently requested by Noida students preparing for engineering, finance and quantitative degrees."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "AI support is useful for Noida students who need more practice interpreting data-heavy questions."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring often focuses on converting understood concepts into markscheme-ready responses."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry students in Noida often ask for regular problem sets and clearer practical connections."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics tutoring is helpful for students who need stronger structure and current examples."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English requests are reviewed based on availability and exact school texts where relevant."
+      }
+    ],
+    "cityName": "Noida",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Gurugram",
+      "Ghaziabad",
+      "Greater Noida"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

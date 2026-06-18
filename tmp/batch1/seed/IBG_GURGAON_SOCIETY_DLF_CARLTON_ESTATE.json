@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/societies/dlf-carlton-estate/",
+  "routeKey": "/ib-tutors/gurugram/societies/dlf-carlton-estate/",
+  "pageType": "society",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "dlf-carlton-estate",
+  "pageId": "IBG_GURGAON_SOCIETY_DLF_CARLTON_ESTATE",
+  "reusedPageId": true,
+  "input": {
+    "pageType": "society",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "DLF Carlton Estate",
+    "microLocationType": "society",
+    "primaryKeyword": "IB tutors near DLF Carlton Estate Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor DLF Carlton Estate",
+      "IB DP tutor near DLF Carlton Estate",
+      "IB Math AA tutor DLF Carlton Estate",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA",
+      "Math AI",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Economics",
+      "English"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Sector 42",
+      "Sector 43",
+      "Sector 54",
+      "DLF Phase 5",
+      "Golf Course Road",
+      "DLF Phase 4",
+      "DLF Crest",
+      "DLF Park Place",
+      "DLF The Pinnacle"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "societyType": "premium residential society/condominium",
+    "nearbyAreas": [
+      "Sector 42",
+      "Sector 43",
+      "Sector 54",
+      "DLF Phase 5",
+      "Golf Course Road",
+      "DLF Phase 4",
+      "DLF Crest",
+      "DLF Park Place",
+      "DLF The Pinnacle"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "Local IB tutoring support near DLF Carlton Estate, Gurugram, often searched as Gurgaon, for PYP, MYP and DP families who want programme-aware subject help, practical tutor matching and safe home, online or hybrid scheduling. Availability depends on subject, grade level, exact location, schedule and preferred tutoring mode.",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

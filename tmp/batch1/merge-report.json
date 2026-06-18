@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://ibgram.com/ib-tutors/delhi/areas/vasant-vihar/",
+    "type": "area",
+    "words": 3851,
+    "titleLen": 57,
+    "descLen": 161,
+    "links": 20,
+    "faqs": 6,
+    "index": "index",
+    "localDepth": 100,
+    "dup": "low",
+    "warnings": []
+  },
+  {
+    "url": "https://ibgram.com/ib-tutors/gurugram/societies/ambience-caitriona/",
+    "type": "society",
+    "words": 3494,
+    "titleLen": 53,
+    "descLen": 153,
+    "links": 20,
+    "faqs": 6,
+    "index": "index",
+    "localDepth": 100,
+    "dup": "low",
+    "warnings": []
+  },
+  {
+    "url": "https://ibgram.com/ib-tutors/pune/",
+    "type": "city",
+    "words": 4035,
+    "titleLen": 51,
+    "descLen": 181,
+    "links": 20,
+    "faqs": 6,
+    "index": "index",
+    "localDepth": 100,
+    "dup": "low",
+    "warnings": [
+      "Metadata is incomplete or too weak."
+    ]
+  },
+  {
+    "url": "https://ibgram.com/ib-tutors/ahmedabad/chemistry/",
+    "type": "subject",
+    "words": 3283,
+    "titleLen": 51,
+    "descLen": 153,
+    "links": 20,
+    "faqs": 6,
+    "index": "index",
+    "localDepth": 100,
+    "dup": "low",
+    "warnings": []
+  }
+]

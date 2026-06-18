@@ -1,0 +1,105 @@
+{
+  "url": "https://ibgram.com/ib-tutors/noida/areas/sector-128/",
+  "routeKey": "/ib-tutors/noida/areas/sector-128/",
+  "pageType": "area",
+  "citySlug": "noida",
+  "cityName": "Noida",
+  "slug": "sector-128",
+  "pageId": "IBG_NOIDA_AREA_SECTOR_128_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Noida",
+    "citySlug": "noida",
+    "parentLocation": "Noida",
+    "microLocationName": "Sector 128",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Sector 128 Noida",
+    "secondaryKeywords": [
+      "IB home tutor Sector 128",
+      "IB DP tutor near Sector 128",
+      "IB Math AA tutor Sector 128",
+      "IB online tutors Noida"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Sector 50",
+      "Sector 62",
+      "Noida Expressway"
+    ],
+    "nearbyAreas": [
+      "Sector 44",
+      "Sector 45",
+      "Sector 93",
+      "Sector 137",
+      "Greater Noida West",
+      "Indirapuram"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Gurugram",
+      "Ghaziabad",
+      "Greater Noida"
+    ],
+    "schoolsMentioned": [
+      "Pathways School Noida",
+      "Genesis Global School",
+      "Step by Step School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Relevant for families near expressway school corridors and premium residential communities.",
+    "nearbyLandmarks": [],
+    "nearbyAreas": [
+      "Sector 44",
+      "Sector 45",
+      "Sector 93",
+      "Sector 137",
+      "Greater Noida West",
+      "Indirapuram"
+    ],
+    "schoolsMentioned": [
+      "Pathways School Noida",
+      "Genesis Global School",
+      "Step by Step School"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Noida",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Gurugram",
+      "Ghaziabad",
+      "Greater Noida"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

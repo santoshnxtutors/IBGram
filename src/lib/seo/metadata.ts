@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import type { CitySeoPage } from "./city-page-types";
 import type { IgcseCitySeoPage } from "./igcse-city-pages";
 import type { IndexingDecision } from "./indexing";
+import { canonicalUrl } from "./canonical";
+import { absoluteUrl } from "./slug-utils";
 
 export function buildCityMetadata(page: CitySeoPage, indexing: IndexingDecision): Metadata {
   return {
@@ -9,7 +11,7 @@ export function buildCityMetadata(page: CitySeoPage, indexing: IndexingDecision)
     description: page.metaDescription,
     keywords: [page.primaryKeyword, ...page.secondaryKeywords],
     alternates: {
-      canonical: indexing.canonicalUrl,
+      canonical: canonicalUrl(indexing.canonicalUrl),
     },
     robots: {
       index: indexing.index,
@@ -17,13 +19,13 @@ export function buildCityMetadata(page: CitySeoPage, indexing: IndexingDecision)
     },
     openGraph: {
       type: "website",
-      url: page.canonicalUrl,
+      url: canonicalUrl(page.canonicalUrl),
       title: page.ogTitle,
       description: page.ogDescription,
       siteName: "IB Gram",
       images: [
         {
-          url: page.ogImage,
+          url: absoluteUrl(page.ogImage),
           alt: page.imageAltText,
         },
       ],
@@ -32,7 +34,7 @@ export function buildCityMetadata(page: CitySeoPage, indexing: IndexingDecision)
       card: "summary_large_image",
       title: page.ogTitle,
       description: page.ogDescription,
-      images: [page.ogImage],
+      images: [absoluteUrl(page.ogImage)],
     },
   };
 }
@@ -47,7 +49,7 @@ export function buildNoindexMetadata(args: {
     title: args.title,
     description: args.description,
     alternates: {
-      canonical: args.canonicalUrl,
+      canonical: canonicalUrl(args.canonicalUrl),
     },
     robots: {
       index: false,
@@ -55,13 +57,13 @@ export function buildNoindexMetadata(args: {
     },
     openGraph: {
       type: "website",
-      url: args.canonicalUrl,
+      url: canonicalUrl(args.canonicalUrl),
       title: args.title,
       description: args.description,
       siteName: "IB Gram",
       images: [
         {
-          url: args.ogImage,
+          url: absoluteUrl(args.ogImage),
           alt: args.title,
         },
       ],
@@ -70,7 +72,7 @@ export function buildNoindexMetadata(args: {
       card: "summary_large_image",
       title: args.title,
       description: args.description,
-      images: [args.ogImage],
+      images: [absoluteUrl(args.ogImage)],
     },
   };
 }
@@ -87,7 +89,7 @@ export function buildIndexableMetadata(args: {
     description: args.description,
     keywords: args.keywords,
     alternates: {
-      canonical: args.canonicalUrl,
+      canonical: canonicalUrl(args.canonicalUrl),
     },
     robots: {
       index: true,
@@ -95,13 +97,13 @@ export function buildIndexableMetadata(args: {
     },
     openGraph: {
       type: "website",
-      url: args.canonicalUrl,
+      url: canonicalUrl(args.canonicalUrl),
       title: args.title,
       description: args.description,
       siteName: "IB Gram",
       images: [
         {
-          url: args.ogImage,
+          url: absoluteUrl(args.ogImage),
           alt: args.title,
         },
       ],
@@ -110,7 +112,7 @@ export function buildIndexableMetadata(args: {
       card: "summary_large_image",
       title: args.title,
       description: args.description,
-      images: [args.ogImage],
+      images: [absoluteUrl(args.ogImage)],
     },
   };
 }
@@ -121,7 +123,7 @@ export function buildIgcseCityMetadata(page: IgcseCitySeoPage): Metadata {
     description: page.metaDescription,
     keywords: page.keywords,
     alternates: {
-      canonical: page.canonicalUrl,
+      canonical: canonicalUrl(page.canonicalUrl),
     },
     robots: {
       index: page.indexFlag === "index",
@@ -129,13 +131,13 @@ export function buildIgcseCityMetadata(page: IgcseCitySeoPage): Metadata {
     },
     openGraph: {
       type: "website",
-      url: page.canonicalUrl,
+      url: canonicalUrl(page.canonicalUrl),
       title: page.ogTitle,
       description: page.ogDescription,
       siteName: "IB Gram",
       images: [
         {
-          url: page.ogImage,
+          url: absoluteUrl(page.ogImage),
           alt: page.breadcrumbTitle,
         },
       ],
@@ -144,7 +146,7 @@ export function buildIgcseCityMetadata(page: IgcseCitySeoPage): Metadata {
       card: "summary_large_image",
       title: page.twitterTitle,
       description: page.twitterDescription,
-      images: [page.ogImage],
+      images: [absoluteUrl(page.ogImage)],
     },
   };
 }

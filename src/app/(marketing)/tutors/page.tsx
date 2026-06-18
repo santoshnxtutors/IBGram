@@ -3,7 +3,7 @@ import Link from "next/link";
 import Script from "next/script";
 import { Breadcrumb, breadcrumbJsonLd } from "@/components/seo-city/Breadcrumb";
 import { SchoolDisclaimer } from "@/components/seo-city/SchoolDisclaimer";
-import { allTutors } from "@/lib/tutor-data";
+import type { Tutor } from "@/lib/tutor-data";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
 import { getPublicTutorsFromDb } from "@/lib/cms/public-tutors";
 import TutorsClient from "./TutorsClient";
@@ -82,14 +82,14 @@ const FAQS = [
   },
 ];
 
-function jsonLdItemList() {
+function jsonLdItemList(tutors: Tutor[]) {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "IB and IGCSE tutors on IB Gram",
     itemListOrder: "https://schema.org/ItemListOrderDescending",
-    numberOfItems: allTutors.length,
-    itemListElement: allTutors.slice(0, 25).map((tutor, index) => ({
+    numberOfItems: tutors.length,
+    itemListElement: tutors.slice(0, 25).map((tutor, index) => ({
       "@type": "ListItem",
       position: index + 1,
       item: {
@@ -117,10 +117,8 @@ function jsonLdFaq() {
 }
 
 export default async function TutorsPage() {
-  // DB-first: null means DB unreachable and the client may use static seeds.
-  // [] means DB is reachable and there are no public tutors to show.
   const dbTutors = await getPublicTutorsFromDb();
-  const tutorsForClient = dbTutors ?? undefined;
+  const tutorsForClient = dbTutors ?? [];
 
   return (
     <div className="min-h-screen bg-background">
@@ -128,7 +126,7 @@ export default async function TutorsPage() {
         {JSON.stringify(breadcrumbJsonLd(BREADCRUMB))}
       </Script>
       <Script id="ld-tutors-itemlist" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(jsonLdItemList())}
+        {JSON.stringify(jsonLdItemList(tutorsForClient))}
       </Script>
       <Script id="ld-tutors-faq" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(jsonLdFaq())}

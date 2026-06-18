@@ -1,0 +1,154 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bangalore/",
+  "routeKey": "/ib-tutors/bangalore/",
+  "pageType": "city",
+  "citySlug": "bangalore",
+  "cityName": "Bangalore",
+  "slug": "",
+  "pageId": "IBG_BANGALORE_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Bangalore",
+    "citySlug": "bangalore",
+    "primaryKeyword": "IB tutors in Bangalore",
+    "secondaryKeywords": [
+      "IB home tutors Bangalore",
+      "IB DP tutor Bangalore",
+      "IB Math AA tutor Bangalore",
+      "IB online tutors Bangalore"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "nearbyAreas": [
+      "Koramangala",
+      "HSR Layout",
+      "Hebbal",
+      "Yelahanka",
+      "Electronic City",
+      "Marathahalli"
+    ],
+    "nearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Bangalore has a strong international school ecosystem spread across Whitefield, Sarjapur Road, North Bangalore, Indiranagar, Koramangala and nearby school corridors. The spread makes tutoring mode an important decision: sometimes a local home tutor is ideal, and sometimes online support gives the student a stronger subject specialist.",
+      "IB families in Bangalore often ask for DP Math, sciences, economics, English, IA support and steady MYP foundations. The city's academic culture is ambitious, but students can struggle when school deadlines, long commutes and extracurricular activities compress revision time.",
+      "The city also has a parent base that is comfortable with digital learning but still values accountability. That makes hybrid tutoring especially useful: online lessons can cover advanced DP work, while occasional home sessions can help younger students organize notebooks, assignments and revision routines. For subjects such as Physics HL/SL, Chemistry HL/SL and Economics, the better match may be a specialist who understands IB command terms rather than the closest general tutor.",
+      "IB Gram's Bangalore page helps parents request the right kind of support with clarity. It explains subject coverage, areas, school ecosystem references, matching steps, verification and FAQs while avoiding any claim of official school affiliation."
+    ],
+    "cityAcademicIntro": [
+      "Bangalore's IB families are often spread across school corridors that do not behave like one compact tutoring market. A student in Whitefield, Sarjapur Road or North Bangalore may need a different tutoring mode even for the same subject. IB Gram keeps that practical layer visible.",
+      "The academic matching starts with the programme and the assessment need. PYP students may need foundation confidence. MYP students may need criteria and project structure. DP students may need subject mastery, IA planning, exam revision or a weekly accountability plan.",
+      "A strong Bangalore match usually looks at university direction too. A student aiming at engineering may need an IB Math AA HL tutor and Physics support with timed practice. A student moving toward business or social sciences may need an IB Math AI HL tutor, Economics writing support and help connecting IA data with real interpretation. For both, IA, EE and TOK support should guide thinking without taking ownership of assessed work.",
+      "This page gives parents a city-specific view of Bangalore areas, subjects, school ecosystem references, tutoring modes and FAQs so they can request a stronger match."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Whitefield",
+        "description": "A high-demand area for international school families seeking DP subject support and structured weekly tutoring."
+      },
+      {
+        "name": "Sarjapur Road",
+        "description": "A major school and residential corridor where hybrid tutoring can reduce travel pressure."
+      },
+      {
+        "name": "Indiranagar",
+        "description": "Useful for central Bangalore families seeking Math, English and humanities support."
+      },
+      {
+        "name": "North Bangalore",
+        "description": "Relevant for families around international school corridors who may prefer online or hybrid lessons."
+      }
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA is a high-priority subject for Bangalore students targeting engineering, computing and quantitative fields."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI is often requested by students who want structured data interpretation and application practice."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics support is often requested by students who need stronger problem-solving routines."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry students often need regular topic consolidation before mocks and final exams."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics support often focuses on writing structure and real-world application."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support is often useful for students who need sharper interpretation and response organization."
+      }
+    ],
+    "cityName": "Bangalore",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

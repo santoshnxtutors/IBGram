@@ -1,0 +1,119 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/areas/dlf-phase-5/",
+  "routeKey": "/ib-tutors/gurugram/areas/dlf-phase-5/",
+  "pageType": "area",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "dlf-phase-5",
+  "pageId": "IBG_GURGAON_AREA_DLF_PHASE_5",
+  "reusedPageId": true,
+  "input": {
+    "pageType": "area",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "DLF Phase 5",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near DLF Phase 5 Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor DLF Phase 5",
+      "IB DP tutor near DLF Phase 5",
+      "IB Math AA tutor DLF Phase 5",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA",
+      "Math AI",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Economics",
+      "English"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Sector 42",
+      "Sector 43",
+      "Sector 53",
+      "Sector 54",
+      "Golf Course Road",
+      "DLF Phase 4",
+      "Sushant Lok 1",
+      "DLF Crest",
+      "DLF Park Place",
+      "DLF The Belaire"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Premium residential pocket where hybrid tutoring is often preferred because students split time between school work, sports and test preparation.",
+    "nearbyLandmarks": [
+      "The Crest",
+      "DLF Park Place",
+      "Golf Course Road"
+    ],
+    "nearbyAreas": [
+      "Sector 42",
+      "Sector 43",
+      "Sector 53",
+      "Sector 54",
+      "Golf Course Road",
+      "DLF Phase 4",
+      "Sushant Lok 1",
+      "DLF Crest",
+      "DLF Park Place",
+      "DLF The Belaire"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "Local IB tutoring support near DLF Phase 5, Gurugram, often searched as Gurgaon, for PYP, MYP and DP families who want programme-aware subject help, practical tutor matching and safe home, online or hybrid scheduling. Availability depends on subject, grade level, exact location, schedule and preferred tutoring mode.",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

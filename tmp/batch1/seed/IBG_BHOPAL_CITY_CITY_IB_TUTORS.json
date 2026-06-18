@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bhopal/",
+  "routeKey": "/ib-tutors/bhopal/",
+  "pageType": "city",
+  "citySlug": "bhopal",
+  "cityName": "Bhopal",
+  "slug": "",
+  "pageId": "IBG_BHOPAL_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Bhopal",
+    "citySlug": "bhopal",
+    "primaryKeyword": "IB tutors in Bhopal",
+    "secondaryKeywords": [
+      "IB home tutors Bhopal",
+      "IB DP tutor Bhopal",
+      "IB Math AA tutor Bhopal",
+      "IB online tutors Bhopal"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Arera Colony",
+      "Kolar Road",
+      "MP Nagar",
+      "Shahpura",
+      "Hoshangabad Road"
+    ],
+    "nearbyAreas": [
+      "Bittan Market",
+      "Danish Kunj",
+      "Misrod",
+      "Habibganj",
+      "Bairagarh",
+      "Ayodhya Bypass",
+      "Bawadia Kalan"
+    ],
+    "nearbyCities": [
+      "Indore",
+      "Nagpur",
+      "Ahmedabad"
+    ],
+    "schoolsMentioned": [
+      "Arera and Shahpura learner cluster",
+      "Kolar Road residential school families",
+      "Hoshangabad Road academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Bhopal has a distinct international school and premium tutoring market. Bhopal's international curriculum demand is focused and growing, with families often seeking strong online access to specialist IB support alongside local academic structure. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents may not always find the exact DP specialist locally, so IB Gram reviews both home and online options before recommending a route. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can be reviewed in Arera Colony, Shahpura and Kolar Road clusters, while online tutoring is often better for HL depth and IA review. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Bhopal families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Bhopal's international curriculum demand is focused and growing, with families often seeking strong online access to specialist IB support alongside local academic structure.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Bhopal usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Bhopal areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Arera Colony",
+        "description": "Premium residential area for English, MYP and DP tutoring requests with home feasibility review."
+      },
+      {
+        "name": "Kolar Road",
+        "description": "Large residential corridor where hybrid tutoring can help families maintain consistency."
+      },
+      {
+        "name": "MP Nagar",
+        "description": "Central area for structured academic planning, revision support and online DP specialist access."
+      },
+      {
+        "name": "Shahpura",
+        "description": "Established pocket for PYP, MYP, Math and English support near central Bhopal."
+      },
+      {
+        "name": "Hoshangabad Road",
+        "description": "Growing corridor where online and hybrid support can reduce travel friction for DP subjects."
+      }
+    ],
+    "schoolsMentioned": [
+      "Arera and Shahpura learner cluster",
+      "Kolar Road residential school families",
+      "Hoshangabad Road academic corridor"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Bhopal request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Bhopal often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Bhopal is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Bhopal is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Bhopal often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Bhopal is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Bhopal is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Bhopal",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Indore",
+      "Nagpur",
+      "Ahmedabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

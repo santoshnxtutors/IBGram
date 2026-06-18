@@ -88,15 +88,6 @@ export default async function TutorReachPage({ params }: Props) {
       url: tutorProfileUrl,
       ...(page.tutor.avatarUrl ? { image: page.tutor.avatarUrl } : {}),
     },
-    ...(page.tutor.rating
-      ? {
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: page.tutor.rating,
-            reviewCount: page.tutor.reviewCount || 1,
-          },
-        }
-      : {}),
   };
 
   const faqSchema =

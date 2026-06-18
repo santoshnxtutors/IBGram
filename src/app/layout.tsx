@@ -10,7 +10,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ibgram.com"),
+  metadataBase: new URL("https://www.ibgram.com"),
   title: {
     default: "IB Gram | IB and IGCSE Tutors for Home and Online Learning",
     template: "%s | IB Gram",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ibgram.com",
+    url: "https://www.ibgram.com",
     title: "IB Gram | IB and IGCSE Tutors for Home and Online Learning",
     description: "Find IB and IGCSE tutors for PYP, MYP, DP and core subjects with practical matching support for families.",
     siteName: "IB Gram",

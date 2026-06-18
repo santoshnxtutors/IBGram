@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/coimbatore/areas/race-course/",
+  "routeKey": "/ib-tutors/coimbatore/areas/race-course/",
+  "pageType": "area",
+  "citySlug": "coimbatore",
+  "cityName": "Coimbatore",
+  "slug": "race-course",
+  "pageId": "IBG_COIMBATORE_AREA_RACE_COURSE_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Coimbatore",
+    "citySlug": "coimbatore",
+    "parentLocation": "Coimbatore",
+    "microLocationName": "Race Course",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Race Course Coimbatore",
+    "secondaryKeywords": [
+      "IB home tutor Race Course",
+      "IB DP tutor near Race Course",
+      "IB Math AA tutor Race Course",
+      "IB online tutors Coimbatore"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Race Course",
+      "RS Puram",
+      "Peelamedu",
+      "Saravanampatti",
+      "Saibaba Colony"
+    ],
+    "nearbyAreas": [
+      "Gandhipuram",
+      "Avinashi Road",
+      "Kalapatti",
+      "Vadavalli",
+      "Ramanathapuram",
+      "Singanallur",
+      "Kovaipudur"
+    ],
+    "nearbyCities": [
+      "Kochi",
+      "Chennai",
+      "Bangalore"
+    ],
+    "schoolsMentioned": [
+      "Central Coimbatore learner cluster",
+      "Peelamedu education corridor",
+      "Saravanampatti technology-side families"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Central premium pocket where families often prefer structured support, parent updates and home tutoring review.",
+    "nearbyLandmarks": [
+      "Gopalapuram",
+      "Red Fields"
+    ],
+    "nearbyAreas": [
+      "Gandhipuram",
+      "Avinashi Road",
+      "Kalapatti",
+      "Vadavalli",
+      "Ramanathapuram",
+      "Singanallur",
+      "Kovaipudur"
+    ],
+    "schoolsMentioned": [
+      "Central Coimbatore learner cluster",
+      "Peelamedu education corridor",
+      "Saravanampatti technology-side families"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Coimbatore",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Kochi",
+      "Chennai",
+      "Bangalore"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

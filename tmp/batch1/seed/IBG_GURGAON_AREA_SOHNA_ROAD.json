@@ -1,0 +1,119 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/areas/sohna-road/",
+  "routeKey": "/ib-tutors/gurugram/areas/sohna-road/",
+  "pageType": "area",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "sohna-road",
+  "pageId": "IBG_GURGAON_AREA_SOHNA_ROAD",
+  "reusedPageId": true,
+  "input": {
+    "pageType": "area",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "Sohna Road",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Sohna Road Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor Sohna Road",
+      "IB DP tutor near Sohna Road",
+      "IB Math AA tutor Sohna Road",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA",
+      "Math AI",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Economics",
+      "English"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Sector 47",
+      "Sector 48",
+      "Sector 49",
+      "Sector 50",
+      "Sector 65",
+      "Sector 66",
+      "Sector 67",
+      "Sector 68",
+      "Golf Course Extension Road",
+      "South City 2"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Useful for families near newer communities where online or hybrid support can reduce commute friction during exam months.",
+    "nearbyLandmarks": [
+      "Vatika Chowk",
+      "Sector 49",
+      "Sector 50"
+    ],
+    "nearbyAreas": [
+      "Sector 47",
+      "Sector 48",
+      "Sector 49",
+      "Sector 50",
+      "Sector 65",
+      "Sector 66",
+      "Sector 67",
+      "Sector 68",
+      "Golf Course Extension Road",
+      "South City 2"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "Local IB tutoring support near Sohna Road, Gurugram, often searched as Gurgaon, for PYP, MYP and DP families who want programme-aware subject help, practical tutor matching and safe home, online or hybrid scheduling. Availability depends on subject, grade level, exact location, schedule and preferred tutoring mode.",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

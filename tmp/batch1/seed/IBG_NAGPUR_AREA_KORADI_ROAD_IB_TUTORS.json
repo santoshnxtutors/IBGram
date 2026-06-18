@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/nagpur/areas/koradi-road/",
+  "routeKey": "/ib-tutors/nagpur/areas/koradi-road/",
+  "pageType": "area",
+  "citySlug": "nagpur",
+  "cityName": "Nagpur",
+  "slug": "koradi-road",
+  "pageId": "IBG_NAGPUR_AREA_KORADI_ROAD_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Nagpur",
+    "citySlug": "nagpur",
+    "parentLocation": "Nagpur",
+    "microLocationName": "Koradi Road",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Koradi Road Nagpur",
+    "secondaryKeywords": [
+      "IB home tutor Koradi Road",
+      "IB DP tutor near Koradi Road",
+      "IB Math AA tutor Koradi Road",
+      "IB online tutors Nagpur"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Civil Lines",
+      "Dharampeth",
+      "Wardha Road",
+      "Manish Nagar",
+      "Koradi Road"
+    ],
+    "nearbyAreas": [
+      "Ramdaspeth",
+      "Sadar",
+      "Besa",
+      "Somalwada",
+      "Shankar Nagar",
+      "Mankapur",
+      "Pratap Nagar"
+    ],
+    "nearbyCities": [
+      "Bhopal",
+      "Pune",
+      "Hyderabad"
+    ],
+    "schoolsMentioned": [
+      "Central Nagpur academic families",
+      "Wardha Road school corridor",
+      "North Nagpur learner cluster"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Northern residential corridor where online support can improve access to exact IB subject fit.",
+    "nearbyLandmarks": [
+      "Mankapur",
+      "Zingabai Takli"
+    ],
+    "nearbyAreas": [
+      "Ramdaspeth",
+      "Sadar",
+      "Besa",
+      "Somalwada",
+      "Shankar Nagar",
+      "Mankapur",
+      "Pratap Nagar"
+    ],
+    "schoolsMentioned": [
+      "Central Nagpur academic families",
+      "Wardha Road school corridor",
+      "North Nagpur learner cluster"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Nagpur",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Bhopal",
+      "Pune",
+      "Hyderabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

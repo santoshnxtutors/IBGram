@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { allTutors, type Tutor } from "@/lib/tutor-data";
+import type { Tutor } from "@/lib/tutor-data";
 import { TutorCard } from "@/components/tutors/TutorCard";
 import { rememberReturnTo } from "@/lib/return-to";
 import { buildTutorComparePath } from "@/lib/tutor-compare-url";
@@ -58,7 +58,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
   const currentPath = pathname;
   // DB-first when the server page passed DB rows. An empty array is intentional:
   // it means the DB is reachable and no public tutors are currently published.
-  const sourceTutors: Tutor[] = tutors ?? allTutors;
+  const sourceTutors: Tutor[] = tutors ?? [];
   const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
   const [curriculumFilter, setCurriculumFilter] = useState<string>("Curriculum");
   const [subjectFilter, setSubjectFilter] = useState<string>("Subject");

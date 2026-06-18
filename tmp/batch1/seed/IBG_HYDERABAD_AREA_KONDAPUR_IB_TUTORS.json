@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/hyderabad/areas/kondapur/",
+  "routeKey": "/ib-tutors/hyderabad/areas/kondapur/",
+  "pageType": "area",
+  "citySlug": "hyderabad",
+  "cityName": "Hyderabad",
+  "slug": "kondapur",
+  "pageId": "IBG_HYDERABAD_AREA_KONDAPUR_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Hyderabad",
+    "citySlug": "hyderabad",
+    "parentLocation": "Hyderabad",
+    "microLocationName": "Kondapur",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Kondapur Hyderabad",
+    "secondaryKeywords": [
+      "IB home tutor Kondapur",
+      "IB DP tutor near Kondapur",
+      "IB Math AA tutor Kondapur",
+      "IB online tutors Hyderabad"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Gachibowli",
+      "Jubilee Hills",
+      "Banjara Hills",
+      "HITEC City",
+      "Kondapur"
+    ],
+    "nearbyAreas": [
+      "Madhapur",
+      "Nanakramguda",
+      "Financial District",
+      "Kokapet",
+      "Manikonda",
+      "Miyapur",
+      "Tellapur"
+    ],
+    "nearbyCities": [
+      "Bangalore",
+      "Chennai",
+      "Pune"
+    ],
+    "schoolsMentioned": [
+      "Gachibowli and Financial District school corridor",
+      "Jubilee Hills premium learner cluster",
+      "Western Hyderabad international school families"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "A practical base for families seeking Math AA, Math AI, Physics and Chemistry support near western Hyderabad.",
+    "nearbyLandmarks": [
+      "Botanical Garden",
+      "Whitefields"
+    ],
+    "nearbyAreas": [
+      "Madhapur",
+      "Nanakramguda",
+      "Financial District",
+      "Kokapet",
+      "Manikonda",
+      "Miyapur",
+      "Tellapur"
+    ],
+    "schoolsMentioned": [
+      "Gachibowli and Financial District school corridor",
+      "Jubilee Hills premium learner cluster",
+      "Western Hyderabad international school families"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Hyderabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Bangalore",
+      "Chennai",
+      "Pune"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

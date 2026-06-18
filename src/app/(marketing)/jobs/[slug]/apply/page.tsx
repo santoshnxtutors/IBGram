@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Briefcase, MapPin } from "lucide-react";
@@ -5,6 +6,11 @@ import { getPublishedJobBySlug } from "@/lib/jobs";
 import { JobApplicationForm } from "./JobApplicationForm";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  title: "Job Application | IB Gram",
+  robots: { index: false, follow: true },
+  alternates: { canonical: "/jobs/" },
+};
 
 export default async function ApplyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

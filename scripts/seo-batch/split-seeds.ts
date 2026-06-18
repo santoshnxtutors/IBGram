@@ -1,0 +1,10 @@
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import path from "node:path";
+const ROOT = path.resolve(__dirname, "..", "..");
+const TMP = path.join(ROOT, "tmp", "batch1");
+const m: any[] = JSON.parse(readFileSync(path.join(TMP, "manifest.json"), "utf8"));
+mkdirSync(path.join(TMP, "seed"), { recursive: true });
+mkdirSync(path.join(TMP, "content"), { recursive: true });
+for (const e of m) writeFileSync(path.join(TMP, "seed", `${e.pageId}.json`), JSON.stringify(e, null, 2));
+writeFileSync(path.join(TMP, "pageids.json"), JSON.stringify(m.map((e) => ({ pageId: e.pageId, url: e.url, pageType: e.pageType }))));
+console.log("seed files:", m.length, "size of pageids.json:", JSON.stringify(m.map((e)=>e.pageId)).length);

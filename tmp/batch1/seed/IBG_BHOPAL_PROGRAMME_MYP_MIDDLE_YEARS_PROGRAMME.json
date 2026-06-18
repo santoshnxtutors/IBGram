@@ -1,0 +1,104 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bhopal/myp/",
+  "routeKey": "/ib-tutors/bhopal/myp/",
+  "pageType": "programme",
+  "citySlug": "bhopal",
+  "cityName": "Bhopal",
+  "slug": "myp",
+  "pageId": "IBG_BHOPAL_PROGRAMME_MYP_MIDDLE_YEARS_PROGRAMME",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "programme",
+    "cityName": "Bhopal",
+    "citySlug": "bhopal",
+    "primaryKeyword": "IB Middle Years Programme tutors in Bhopal",
+    "secondaryKeywords": [
+      "IB Middle Years Programme tutor Bhopal",
+      "IB Middle Years Programme home tutor Bhopal",
+      "IB Middle Years Programme online tutoring"
+    ],
+    "serviceFocus": "Middle Years Programme",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Arera Colony",
+      "Kolar Road",
+      "MP Nagar",
+      "Shahpura",
+      "Hoshangabad Road"
+    ],
+    "nearbyAreas": [
+      "Bittan Market",
+      "Danish Kunj",
+      "Misrod",
+      "Habibganj",
+      "Bairagarh",
+      "Ayodhya Bypass",
+      "Bawadia Kalan"
+    ],
+    "nearbyCities": [
+      "Indore",
+      "Nagpur",
+      "Ahmedabad"
+    ],
+    "schoolsMentioned": [
+      "Arera and Shahpura learner cluster",
+      "Kolar Road residential school families",
+      "Hoshangabad Road academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Middle Years Programme",
+    "subjectLevel": "",
+    "subjectDescription": "Subject foundations, criterion-based assignments, interdisciplinary thinking and personal project planning.",
+    "subjectCityNote": "MYP students in Bhopal usually need help converting class ideas into evidence, reflection and criteria-aware work.",
+    "premiumAreas": [
+      "Arera Colony",
+      "Kolar Road",
+      "MP Nagar",
+      "Shahpura",
+      "Hoshangabad Road"
+    ],
+    "schoolsMentioned": [
+      "Arera and Shahpura learner cluster",
+      "Kolar Road residential school families",
+      "Hoshangabad Road academic corridor"
+    ],
+    "cityName": "Bhopal",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Indore",
+      "Nagpur",
+      "Ahmedabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

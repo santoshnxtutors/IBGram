@@ -1,0 +1,104 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bhubaneswar/myp/",
+  "routeKey": "/ib-tutors/bhubaneswar/myp/",
+  "pageType": "programme",
+  "citySlug": "bhubaneswar",
+  "cityName": "Bhubaneswar",
+  "slug": "myp",
+  "pageId": "IBG_BHUBANESWAR_PROGRAMME_MYP_MIDDLE_YEARS_PROGRAMME",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "programme",
+    "cityName": "Bhubaneswar",
+    "citySlug": "bhubaneswar",
+    "primaryKeyword": "IB Middle Years Programme tutors in Bhubaneswar",
+    "secondaryKeywords": [
+      "IB Middle Years Programme tutor Bhubaneswar",
+      "IB Middle Years Programme home tutor Bhubaneswar",
+      "IB Middle Years Programme online tutoring"
+    ],
+    "serviceFocus": "Middle Years Programme",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Patia",
+      "Kalinga Nagar",
+      "Nayapalli",
+      "Chandrasekharpur",
+      "Saheed Nagar"
+    ],
+    "nearbyAreas": [
+      "Infocity",
+      "KIIT area",
+      "Khandagiri",
+      "IRC Village",
+      "Damana",
+      "Niladri Vihar",
+      "Jaydev Vihar"
+    ],
+    "nearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Middle Years Programme",
+    "subjectLevel": "",
+    "subjectDescription": "Subject foundations, criterion-based assignments, interdisciplinary thinking and personal project planning.",
+    "subjectCityNote": "MYP students in Bhubaneswar usually need help converting class ideas into evidence, reflection and criteria-aware work.",
+    "premiumAreas": [
+      "Patia",
+      "Kalinga Nagar",
+      "Nayapalli",
+      "Chandrasekharpur",
+      "Saheed Nagar"
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "cityName": "Bhubaneswar",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/ahmedabad/areas/prahlad-nagar/",
+  "routeKey": "/ib-tutors/ahmedabad/areas/prahlad-nagar/",
+  "pageType": "area",
+  "citySlug": "ahmedabad",
+  "cityName": "Ahmedabad",
+  "slug": "prahlad-nagar",
+  "pageId": "IBG_AHMEDABAD_AREA_PRAHLAD_NAGAR_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Ahmedabad",
+    "citySlug": "ahmedabad",
+    "parentLocation": "Ahmedabad",
+    "microLocationName": "Prahlad Nagar",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Prahlad Nagar Ahmedabad",
+    "secondaryKeywords": [
+      "IB home tutor Prahlad Nagar",
+      "IB DP tutor near Prahlad Nagar",
+      "IB Math AA tutor Prahlad Nagar",
+      "IB online tutors Ahmedabad"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "SG Highway",
+      "Satellite",
+      "Bodakdev",
+      "Prahlad Nagar",
+      "Thaltej"
+    ],
+    "nearbyAreas": [
+      "Vastrapur",
+      "Jodhpur",
+      "Makarba",
+      "Science City",
+      "Sola",
+      "Ambli",
+      "Shela"
+    ],
+    "nearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Practical area for families seeking IB DP support with predictable schedules and online backup during exam months.",
+    "nearbyLandmarks": [
+      "Corporate Road",
+      "Makarba"
+    ],
+    "nearbyAreas": [
+      "Vastrapur",
+      "Jodhpur",
+      "Makarba",
+      "Science City",
+      "Sola",
+      "Ambli",
+      "Shela"
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Ahmedabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

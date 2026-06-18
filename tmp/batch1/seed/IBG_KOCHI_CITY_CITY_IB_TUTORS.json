@@ -1,0 +1,164 @@
+{
+  "url": "https://ibgram.com/ib-tutors/kochi/",
+  "routeKey": "/ib-tutors/kochi/",
+  "pageType": "city",
+  "citySlug": "kochi",
+  "cityName": "Kochi",
+  "slug": "",
+  "pageId": "IBG_KOCHI_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Kochi",
+    "citySlug": "kochi",
+    "primaryKeyword": "IB tutors in Kochi",
+    "secondaryKeywords": [
+      "IB home tutors Kochi",
+      "IB DP tutor Kochi",
+      "IB Math AA tutor Kochi",
+      "IB online tutors Kochi"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Kakkanad",
+      "Panampilly Nagar",
+      "Edappally",
+      "Aluva",
+      "Marine Drive"
+    ],
+    "nearbyAreas": [
+      "Kadavanthra",
+      "Palarivattom",
+      "Kalamassery",
+      "Thevara",
+      "Vyttila",
+      "Thrippunithura",
+      "Fort Kochi"
+    ],
+    "nearbyCities": [
+      "Coimbatore",
+      "Chennai",
+      "Bangalore"
+    ],
+    "schoolsMentioned": [
+      "Kakkanad international learner cluster",
+      "Central Kochi premium school families",
+      "Edappally and Aluva school routes"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Kochi has a distinct international school and premium tutoring market. Kochi's international curriculum demand is influenced by globally mobile families, Gulf-return households and premium residential corridors across Kakkanad, Panampilly Nagar, Edappally and Aluva. Parents are usually not looking for a generic board tutor; they want someone who understands IB inquiry, criterion-based assessment, DP subject levels and the pressure that builds around internal assessments, mocks and final exam sessions.",
+      "Parents often want academically careful support that works around school travel, family schedules and subject availability in a smaller but premium market. A PYP student may need gentle reading, numeracy and unit-of-inquiry support. An MYP student may need help turning broad classroom ideas into criterion-ready work. A DP student may need a subject specialist who can handle HL or SL depth, IA planning, command terms and timed paper practice without taking over assessed work.",
+      "Home tutoring can be reviewed within practical neighbourhood routes, while online tutoring is valuable for DP HL subjects and IA support where specialist availability is limited. IB Gram uses this city context before suggesting a match. The aim is to help families choose between home tutoring, online specialist support and hybrid plans based on programme level, subject, area, school calendar, student confidence and realistic weekly scheduling."
+    ],
+    "cityAcademicIntro": [
+      "Kochi families often approach IB tutoring after noticing that ordinary subject tuition is not enough for inquiry-led tasks, MYP criteria or DP markscheme expectations. Kochi's international curriculum demand is influenced by globally mobile families, Gulf-return households and premium residential corridors across Kakkanad, Panampilly Nagar, Edappally and Aluva.",
+      "The first matching question is not only the subject. IB Gram checks programme, grade, school timeline, current confidence, assessment deadlines and whether the student needs concept repair, writing structure, IA direction, exam revision or steady accountability.",
+      "Subject demand in Kochi usually clusters around Math AA, Math AI, Physics, Chemistry, Biology, Economics and English. The right tutor should understand the difference between HL and SL work, support academic honesty and help the student build independent routines instead of memorising model answers.",
+      "This page gives parents a local view of Kochi areas, nearby cities, school ecosystem patterns, tutoring modes, verification steps, internal links and FAQs before they speak with an advisor."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Kakkanad",
+        "description": "Major residential and technology corridor where families often request Math, science and hybrid IB tutoring."
+      },
+      {
+        "name": "Panampilly Nagar",
+        "description": "Premium central area where home tutoring may work for younger students and structured weekly support."
+      },
+      {
+        "name": "Edappally",
+        "description": "Practical school and residential catchment for PYP, MYP, Math and online DP specialist access."
+      },
+      {
+        "name": "Aluva",
+        "description": "Important northern corridor where online support can reduce travel pressure for specialist DP subjects."
+      },
+      {
+        "name": "Marine Drive",
+        "description": "Central premium pocket for families who prefer polished communication, English support and planning-led tutoring."
+      }
+    ],
+    "schoolsMentioned": [
+      "Kakkanad international learner cluster",
+      "Central Kochi premium school families",
+      "Edappally and Aluva school routes"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA HL is a common Kochi request for students targeting engineering, economics, data-heavy or quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "Math AI HL support in Kochi often focuses on modelling, statistics, technology use and IA data interpretation."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Physics tutoring in Kochi is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry tutoring in Kochi is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Economics students in Kochi often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure."
+      },
+      {
+        "name": "Biology",
+        "level": "HL and SL",
+        "note": "Biology tutoring in Kochi is usually strongest when concepts are tied to data questions, practical thinking and timed markscheme practice."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English support in Kochi is often requested for thesis building, close reading, oral preparation and clearer evidence-led writing."
+      }
+    ],
+    "cityName": "Kochi",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Coimbatore",
+      "Chennai",
+      "Bangalore"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

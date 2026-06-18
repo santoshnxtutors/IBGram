@@ -1,0 +1,99 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bhubaneswar/economics/",
+  "routeKey": "/ib-tutors/bhubaneswar/economics/",
+  "pageType": "subject",
+  "citySlug": "bhubaneswar",
+  "cityName": "Bhubaneswar",
+  "slug": "economics",
+  "pageId": "IBG_BHUBANESWAR_SUBJECT_ECONOMICS_ECONOMICS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "subject",
+    "cityName": "Bhubaneswar",
+    "citySlug": "bhubaneswar",
+    "primaryKeyword": "IB Economics tutor in Bhubaneswar",
+    "secondaryKeywords": [
+      "IB Economics HL tutor Bhubaneswar",
+      "IB Economics SL tutor Bhubaneswar",
+      "IB Economics online tutor",
+      "Economics IB home tutor Bhubaneswar"
+    ],
+    "serviceFocus": "Economics",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Economics"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Patia",
+      "Kalinga Nagar",
+      "Nayapalli",
+      "Chandrasekharpur",
+      "Saheed Nagar"
+    ],
+    "nearbyAreas": [
+      "Infocity",
+      "KIIT area",
+      "Khandagiri",
+      "IRC Village",
+      "Damana",
+      "Niladri Vihar",
+      "Jaydev Vihar"
+    ],
+    "nearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Economics",
+    "subjectLevel": "HL and SL",
+    "subjectDescription": "Microeconomics, macroeconomics, global economics, diagrams, real-world examples and essay structure.",
+    "subjectCityNote": "Economics students in Bhubaneswar often need stronger diagram use, real-world examples and 10-mark or 15-mark response structure.",
+    "premiumAreas": [
+      "Patia",
+      "Kalinga Nagar",
+      "Nayapalli",
+      "Chandrasekharpur",
+      "Saheed Nagar"
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "cityName": "Bhubaneswar",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

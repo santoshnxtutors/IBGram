@@ -1,0 +1,106 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bangalore/areas/whitefield/",
+  "routeKey": "/ib-tutors/bangalore/areas/whitefield/",
+  "pageType": "area",
+  "citySlug": "bangalore",
+  "cityName": "Bangalore",
+  "slug": "whitefield",
+  "pageId": "IBG_BANGALORE_AREA_WHITEFIELD_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Bangalore",
+    "citySlug": "bangalore",
+    "parentLocation": "Bangalore",
+    "microLocationName": "Whitefield",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Whitefield Bangalore",
+    "secondaryKeywords": [
+      "IB home tutor Whitefield",
+      "IB DP tutor near Whitefield",
+      "IB Math AA tutor Whitefield",
+      "IB online tutors Bangalore"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "nearbyAreas": [
+      "Koramangala",
+      "HSR Layout",
+      "Hebbal",
+      "Yelahanka",
+      "Electronic City",
+      "Marathahalli"
+    ],
+    "nearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "A high-demand area for international school families seeking DP subject support and structured weekly tutoring.",
+    "nearbyLandmarks": [],
+    "nearbyAreas": [
+      "Koramangala",
+      "HSR Layout",
+      "Hebbal",
+      "Yelahanka",
+      "Electronic City",
+      "Marathahalli"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Bangalore",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bhubaneswar/math-aa-hl/",
+  "routeKey": "/ib-tutors/bhubaneswar/math-aa-hl/",
+  "pageType": "subject",
+  "citySlug": "bhubaneswar",
+  "cityName": "Bhubaneswar",
+  "slug": "math-aa-hl",
+  "pageId": "IBG_BHUBANESWAR_SUBJECT_MATH_AA_HL_MATH_AA_HL",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "subject",
+    "cityName": "Bhubaneswar",
+    "citySlug": "bhubaneswar",
+    "primaryKeyword": "IB Math AA HL tutor in Bhubaneswar",
+    "secondaryKeywords": [
+      "IB Math AA HL HL tutor Bhubaneswar",
+      "IB Math AA HL SL tutor Bhubaneswar",
+      "IB Math AA HL online tutor",
+      "Math AA HL IB home tutor Bhubaneswar"
+    ],
+    "serviceFocus": "Math AA HL",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Patia",
+      "Kalinga Nagar",
+      "Nayapalli",
+      "Chandrasekharpur",
+      "Saheed Nagar"
+    ],
+    "nearbyAreas": [
+      "Infocity",
+      "KIIT area",
+      "Khandagiri",
+      "IRC Village",
+      "Damana",
+      "Niladri Vihar",
+      "Jaydev Vihar"
+    ],
+    "nearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Math AA HL",
+    "subjectLevel": "HL and SL pathways",
+    "subjectDescription": "Functions, calculus, proof, vectors, complex problem solving, exam technique and IA topic shaping for Analysis and Approaches students.",
+    "subjectCityNote": "Math AA HL is a common Bhubaneswar request for students targeting engineering, economics, data-heavy or quantitative university pathways.",
+    "premiumAreas": [
+      "Patia",
+      "Kalinga Nagar",
+      "Nayapalli",
+      "Chandrasekharpur",
+      "Saheed Nagar"
+    ],
+    "schoolsMentioned": [
+      "Patia and Infocity learner cluster",
+      "Kalinga Nagar residential school families",
+      "Central Bhubaneswar academic corridor"
+    ],
+    "cityName": "Bhubaneswar",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Kolkata",
+      "Visakhapatnam",
+      "Hyderabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

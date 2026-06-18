@@ -1,0 +1,106 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/areas/sushant-lok/",
+  "routeKey": "/ib-tutors/gurugram/areas/sushant-lok/",
+  "pageType": "area",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "sushant-lok",
+  "pageId": "IBG_GURUGRAM_AREA_SUSHANT_LOK_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "Sushant Lok",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Sushant Lok Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor Sushant Lok",
+      "IB DP tutor near Sushant Lok",
+      "IB Math AA tutor Sushant Lok",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Nirvana Country",
+      "South City 1",
+      "DLF Phase 1",
+      "DLF Phase 4",
+      "Sector 50",
+      "Sector 65"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Pathways World School",
+      "Lancers International School",
+      "Scottish High International School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "A central tutoring catchment for PYP, MYP and DP families who want quick access to vetted IB mentors.",
+    "nearbyLandmarks": [],
+    "nearbyAreas": [
+      "Nirvana Country",
+      "South City 1",
+      "DLF Phase 1",
+      "DLF Phase 4",
+      "Sector 50",
+      "Sector 65"
+    ],
+    "schoolsMentioned": [
+      "Pathways World School",
+      "Lancers International School",
+      "Scottish High International School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

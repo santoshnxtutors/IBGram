@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { GeneratedSeoPage } from "./types";
 import { getGeneratedIndexingDecision } from "@/lib/seo/indexing";
+import { absoluteUrl } from "@/lib/seo/slug-utils";
 
 export function buildGeneratedMetadata(page: GeneratedSeoPage): Metadata {
   const indexing = getGeneratedIndexingDecision(page);
@@ -17,17 +18,17 @@ export function buildGeneratedMetadata(page: GeneratedSeoPage): Metadata {
     },
     openGraph: {
       type: "website",
-      url: page.canonicalUrl,
+      url: indexing.canonicalUrl,
       title: page.ogTitle,
       description: page.ogDescription,
       siteName: "IB Gram",
-      images: [{ url: page.ogImage, alt: page.breadcrumbTitle }],
+      images: [{ url: absoluteUrl(page.ogImage), alt: page.breadcrumbTitle }],
     },
     twitter: {
       card: "summary_large_image",
       title: page.twitterTitle,
       description: page.twitterDescription,
-      images: [page.ogImage],
+      images: [absoluteUrl(page.ogImage)],
     },
   };
 }

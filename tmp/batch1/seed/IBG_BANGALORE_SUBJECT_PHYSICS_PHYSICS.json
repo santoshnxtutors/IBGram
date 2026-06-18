@@ -1,0 +1,97 @@
+{
+  "url": "https://ibgram.com/ib-tutors/bangalore/physics/",
+  "routeKey": "/ib-tutors/bangalore/physics/",
+  "pageType": "subject",
+  "citySlug": "bangalore",
+  "cityName": "Bangalore",
+  "slug": "physics",
+  "pageId": "IBG_BANGALORE_SUBJECT_PHYSICS_PHYSICS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "subject",
+    "cityName": "Bangalore",
+    "citySlug": "bangalore",
+    "primaryKeyword": "IB Physics tutor in Bangalore",
+    "secondaryKeywords": [
+      "IB Physics HL tutor Bangalore",
+      "IB Physics SL tutor Bangalore",
+      "IB Physics online tutor",
+      "Physics IB home tutor Bangalore"
+    ],
+    "serviceFocus": "Physics",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Physics"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "nearbyAreas": [
+      "Koramangala",
+      "HSR Layout",
+      "Hebbal",
+      "Yelahanka",
+      "Electronic City",
+      "Marathahalli"
+    ],
+    "nearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Physics",
+    "subjectLevel": "HL and SL",
+    "subjectDescription": "Mechanics, electricity, waves, data response, practical skills and timed practice.",
+    "subjectCityNote": "Physics support is often requested by students who need stronger problem-solving routines.",
+    "premiumAreas": [
+      "Whitefield",
+      "Sarjapur Road",
+      "Indiranagar",
+      "North Bangalore"
+    ],
+    "schoolsMentioned": [
+      "Stonehill International School",
+      "Canadian International School Bangalore",
+      "Indus International School Bangalore",
+      "The International School Bangalore"
+    ],
+    "cityName": "Bangalore",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Hyderabad",
+      "Chennai",
+      "Mysuru"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

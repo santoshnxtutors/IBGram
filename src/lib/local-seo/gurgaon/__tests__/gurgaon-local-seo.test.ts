@@ -5,6 +5,7 @@ import { getVisibleGeneratedContentText } from "@/lib/page-generator/content-nor
 import { countWords } from "@/lib/page-generator/quality-score";
 import { getCitySeoPageBySlug } from "@/lib/seo/city-pages";
 import { getIndexableGeneratedSitemapEntries } from "@/lib/seo/sitemap";
+import { allTutors } from "@/lib/tutor-data";
 import { getTutorsForSociety } from "@/lib/tutors/tutor-location-matching";
 import {
   getGurgaonIndexablePlaces,
@@ -94,7 +95,7 @@ describe("Gurgaon local SEO generated pages", () => {
   });
 
   it("ranks exact society tutors before broader Gurugram matches when society inventory exists", () => {
-    const result = getTutorsForSociety("gurugram", "dlf-park-place", { curriculum: "IB", includeOnlineFallback: true });
+    const result = getTutorsForSociety("gurugram", "dlf-park-place", { curriculum: "IB", includeOnlineFallback: true, tutors: allTutors });
 
     expect(result.matchSummary.exactLocalMatches).toBeGreaterThan(0);
     expect(result.tutors[0].availableSocietySlugs).toContain("dlf-park-place");

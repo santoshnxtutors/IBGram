@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/surat/areas/vesu/",
+  "routeKey": "/ib-tutors/surat/areas/vesu/",
+  "pageType": "area",
+  "citySlug": "surat",
+  "cityName": "Surat",
+  "slug": "vesu",
+  "pageId": "IBG_SURAT_AREA_VESU_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Surat",
+    "citySlug": "surat",
+    "parentLocation": "Surat",
+    "microLocationName": "Vesu",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Vesu Surat",
+    "secondaryKeywords": [
+      "IB home tutor Vesu",
+      "IB DP tutor near Vesu",
+      "IB Math AA tutor Vesu",
+      "IB online tutors Surat"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Vesu",
+      "Adajan",
+      "Citylight",
+      "Piplod",
+      "Pal"
+    ],
+    "nearbyAreas": [
+      "Athwa",
+      "Ghod Dod Road",
+      "Dumas Road",
+      "VIP Road",
+      "Canal Road",
+      "Althan",
+      "Pal Gam"
+    ],
+    "nearbyCities": [
+      "Vadodara",
+      "Ahmedabad",
+      "Mumbai"
+    ],
+    "schoolsMentioned": [
+      "Vesu and Piplod international learner cluster",
+      "Adajan and Pal school families",
+      "Citylight premium academic corridor"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "High-demand residential area for Math, science, MYP and hybrid IB tutoring support.",
+    "nearbyLandmarks": [
+      "VIP Road",
+      "Canal Road"
+    ],
+    "nearbyAreas": [
+      "Athwa",
+      "Ghod Dod Road",
+      "Dumas Road",
+      "VIP Road",
+      "Canal Road",
+      "Althan",
+      "Pal Gam"
+    ],
+    "schoolsMentioned": [
+      "Vesu and Piplod international learner cluster",
+      "Adajan and Pal school families",
+      "Citylight premium academic corridor"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Surat",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Vadodara",
+      "Ahmedabad",
+      "Mumbai"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

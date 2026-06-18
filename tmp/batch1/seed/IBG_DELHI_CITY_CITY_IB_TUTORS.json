@@ -1,0 +1,150 @@
+{
+  "url": "https://ibgram.com/ib-tutors/delhi/",
+  "routeKey": "/ib-tutors/delhi/",
+  "pageType": "city",
+  "citySlug": "delhi",
+  "cityName": "Delhi",
+  "slug": "",
+  "pageId": "IBG_DELHI_CITY_CITY_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "city",
+    "cityName": "Delhi",
+    "citySlug": "delhi",
+    "primaryKeyword": "IB tutors in Delhi",
+    "secondaryKeywords": [
+      "IB home tutors Delhi",
+      "IB DP tutor Delhi",
+      "IB Math AA tutor Delhi",
+      "IB online tutors Delhi"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Vasant Vihar",
+      "Greater Kailash",
+      "Saket"
+    ],
+    "nearbyAreas": [
+      "Defence Colony",
+      "Hauz Khas",
+      "New Friends Colony",
+      "Panchsheel Park",
+      "Green Park",
+      "Jor Bagh"
+    ],
+    "nearbyCities": [
+      "Gurugram",
+      "Noida",
+      "Ghaziabad"
+    ],
+    "schoolsMentioned": [
+      "The British School New Delhi",
+      "American Embassy School",
+      "DPS International Saket"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "cityOverview": [
+      "Delhi's IB tutoring demand is shaped by a mix of embassy communities, international school families, central and south Delhi residential pockets, and students who travel across NCR for school. Many parents want academic support that can be arranged without turning every weekday into a commute problem.",
+      "The most common Delhi needs include DP subject depth, English and humanities writing, Math AA or Math AI confidence, and assignment planning for students who are balancing school deadlines with extracurricular commitments. Some families prefer home tutoring in South Delhi or central locations, while others choose online tutoring to access a stronger subject specialist.",
+      "A Delhi tutoring plan also needs to respect how different school calendars and family routines work. Some students need early help before an MYP submission becomes stressful; others wait until mock papers expose gaps in Physics HL/SL, Chemistry HL/SL or Economics essay structure. The right match is usually the tutor who can combine IB assessment language with a schedule the family can actually sustain.",
+      "IB Gram helps parents think beyond the phrase tutor near me. The match is based on programme, subject, level, assessment requirement, timing, mode and learning style so the recommendation is useful for the student rather than simply nearby."
+    ],
+    "cityAcademicIntro": [
+      "Delhi's academic map is spread out, and that affects tutoring. A student in Vasant Vihar may need a home tutor twice a week, while a DP student in Greater Kailash may do better with an online Math AA specialist from a wider network. IB Gram treats location as one matching factor, not the only factor.",
+      "The first priority is academic fit. For PYP, that can mean patient foundation support. For MYP, it can mean help with criteria, research habits and written reflection. For DP, it usually means subject-level expertise, assessment planning and a revision rhythm that protects school deadlines.",
+      "Parents can use this page to understand Delhi coverage, subject availability, school ecosystem considerations and the safer no-overclaim approach IB Gram follows when recommending tutors."
+    ],
+    "premiumAreas": [
+      {
+        "name": "Vasant Vihar",
+        "description": "A high-demand pocket for international school and embassy-community families who often prefer discreet, structured home or hybrid lessons."
+      },
+      {
+        "name": "Greater Kailash",
+        "description": "Useful for South Delhi families seeking DP Math, sciences and English support with flexible evening schedules."
+      },
+      {
+        "name": "Saket",
+        "description": "A practical base for school support, MYP foundations and online backup for students across South Delhi."
+      },
+      {
+        "name": "Chanakyapuri",
+        "description": "Often relevant for families connected with diplomatic and international school communities."
+      }
+    ],
+    "schoolsMentioned": [
+      "The British School New Delhi",
+      "American Embassy School",
+      "DPS International Saket"
+    ],
+    "subjectsDetail": [
+      {
+        "name": "Math AA HL",
+        "level": "HL and SL pathways",
+        "note": "Math AA demand in Delhi is high among students planning quantitative university pathways."
+      },
+      {
+        "name": "Math AI HL",
+        "level": "HL and SL pathways",
+        "note": "AI tutoring is useful for students who need applied question practice and calculator fluency."
+      },
+      {
+        "name": "Physics",
+        "level": "HL and SL",
+        "note": "Delhi physics requests often come from students who need consistent practice between school tests."
+      },
+      {
+        "name": "Chemistry",
+        "level": "HL and SL",
+        "note": "Chemistry support is often paired with revision planning before school mock exams."
+      },
+      {
+        "name": "Economics",
+        "level": "HL and SL",
+        "note": "Delhi humanities students often need help turning strong opinions into precise IB responses."
+      },
+      {
+        "name": "English A",
+        "level": "HL and SL",
+        "note": "English tutoring is frequently requested for thesis building, close reading and sharper commentary."
+      }
+    ],
+    "cityName": "Delhi",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Gurugram",
+      "Noida",
+      "Ghaziabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

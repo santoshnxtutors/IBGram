@@ -1,0 +1,99 @@
+{
+  "url": "https://ibgram.com/ib-tutors/ahmedabad/math-ai-hl/",
+  "routeKey": "/ib-tutors/ahmedabad/math-ai-hl/",
+  "pageType": "subject",
+  "citySlug": "ahmedabad",
+  "cityName": "Ahmedabad",
+  "slug": "math-ai-hl",
+  "pageId": "IBG_AHMEDABAD_SUBJECT_MATH_AI_HL_MATH_AI_HL",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "subject",
+    "cityName": "Ahmedabad",
+    "citySlug": "ahmedabad",
+    "primaryKeyword": "IB Math AI HL tutor in Ahmedabad",
+    "secondaryKeywords": [
+      "IB Math AI HL HL tutor Ahmedabad",
+      "IB Math AI HL SL tutor Ahmedabad",
+      "IB Math AI HL online tutor",
+      "Math AI HL IB home tutor Ahmedabad"
+    ],
+    "serviceFocus": "Math AI HL",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AI HL"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "SG Highway",
+      "Satellite",
+      "Bodakdev",
+      "Prahlad Nagar",
+      "Thaltej"
+    ],
+    "nearbyAreas": [
+      "Vastrapur",
+      "Jodhpur",
+      "Makarba",
+      "Science City",
+      "Sola",
+      "Ambli",
+      "Shela"
+    ],
+    "nearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Math AI HL",
+    "subjectLevel": "HL and SL pathways",
+    "subjectDescription": "Statistics, modelling, probability, technology use, calculus applications, data interpretation and IA planning for Applications and Interpretation students.",
+    "subjectCityNote": "Math AI HL support in Ahmedabad often focuses on modelling, statistics, technology use and IA data interpretation.",
+    "premiumAreas": [
+      "SG Highway",
+      "Satellite",
+      "Bodakdev",
+      "Prahlad Nagar",
+      "Thaltej"
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "cityName": "Ahmedabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

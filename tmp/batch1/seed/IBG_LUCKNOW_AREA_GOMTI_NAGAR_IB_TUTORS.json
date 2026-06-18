@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/lucknow/areas/gomti-nagar/",
+  "routeKey": "/ib-tutors/lucknow/areas/gomti-nagar/",
+  "pageType": "area",
+  "citySlug": "lucknow",
+  "cityName": "Lucknow",
+  "slug": "gomti-nagar",
+  "pageId": "IBG_LUCKNOW_AREA_GOMTI_NAGAR_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Lucknow",
+    "citySlug": "lucknow",
+    "parentLocation": "Lucknow",
+    "microLocationName": "Gomti Nagar",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Gomti Nagar Lucknow",
+    "secondaryKeywords": [
+      "IB home tutor Gomti Nagar",
+      "IB DP tutor near Gomti Nagar",
+      "IB Math AA tutor Gomti Nagar",
+      "IB online tutors Lucknow"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Gomti Nagar",
+      "Hazratganj",
+      "Indira Nagar",
+      "Aliganj",
+      "Sushant Golf City"
+    ],
+    "nearbyAreas": [
+      "Vibhuti Khand",
+      "Vikas Nagar",
+      "Jankipuram",
+      "Mahanagar",
+      "Faizabad Road",
+      "Shaheed Path",
+      "Viram Khand"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Ghaziabad",
+      "Dehradun"
+    ],
+    "schoolsMentioned": [
+      "Gomti Nagar premium learner cluster",
+      "Central Lucknow academic corridor",
+      "Shaheed Path and new residential school families"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Key premium residential area for IB tutor requests, especially Math, English and MYP foundations.",
+    "nearbyLandmarks": [
+      "Vibhuti Khand",
+      "Viram Khand"
+    ],
+    "nearbyAreas": [
+      "Vibhuti Khand",
+      "Vikas Nagar",
+      "Jankipuram",
+      "Mahanagar",
+      "Faizabad Road",
+      "Shaheed Path",
+      "Viram Khand"
+    ],
+    "schoolsMentioned": [
+      "Gomti Nagar premium learner cluster",
+      "Central Lucknow academic corridor",
+      "Shaheed Path and new residential school families"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Lucknow",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Ghaziabad",
+      "Dehradun"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

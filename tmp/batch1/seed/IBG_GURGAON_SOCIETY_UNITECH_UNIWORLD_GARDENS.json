@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/societies/unitech-uniworld-gardens/",
+  "routeKey": "/ib-tutors/gurugram/societies/unitech-uniworld-gardens/",
+  "pageType": "society",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "unitech-uniworld-gardens",
+  "pageId": "IBG_GURGAON_SOCIETY_UNITECH_UNIWORLD_GARDENS",
+  "reusedPageId": true,
+  "input": {
+    "pageType": "society",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "Unitech Uniworld Gardens",
+    "microLocationType": "society",
+    "primaryKeyword": "IB tutors near Unitech Uniworld Gardens Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor Unitech Uniworld Gardens",
+      "IB DP tutor near Unitech Uniworld Gardens",
+      "IB Math AA tutor Unitech Uniworld Gardens",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA",
+      "Math AI",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Economics",
+      "English"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Sector 49",
+      "Sector 50",
+      "Sector 51",
+      "Nirvana Country",
+      "South City 2",
+      "Sohna Road",
+      "Nirvana Country",
+      "Unitech Fresco",
+      "Unitech The Close"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "societyType": "premium residential society/condominium",
+    "nearbyAreas": [
+      "Sector 49",
+      "Sector 50",
+      "Sector 51",
+      "Nirvana Country",
+      "South City 2",
+      "Sohna Road",
+      "Nirvana Country",
+      "Unitech Fresco",
+      "Unitech The Close"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "Local IB tutoring support near Unitech Uniworld Gardens, Gurugram, often searched as Gurgaon, for PYP, MYP and DP families who want programme-aware subject help, practical tutor matching and safe home, online or hybrid scheduling. Availability depends on subject, grade level, exact location, schedule and preferred tutoring mode.",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

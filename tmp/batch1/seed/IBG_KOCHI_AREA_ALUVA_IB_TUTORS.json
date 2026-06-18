@@ -1,0 +1,112 @@
+{
+  "url": "https://ibgram.com/ib-tutors/kochi/areas/aluva/",
+  "routeKey": "/ib-tutors/kochi/areas/aluva/",
+  "pageType": "area",
+  "citySlug": "kochi",
+  "cityName": "Kochi",
+  "slug": "aluva",
+  "pageId": "IBG_KOCHI_AREA_ALUVA_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Kochi",
+    "citySlug": "kochi",
+    "parentLocation": "Kochi",
+    "microLocationName": "Aluva",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Aluva Kochi",
+    "secondaryKeywords": [
+      "IB home tutor Aluva",
+      "IB DP tutor near Aluva",
+      "IB Math AA tutor Aluva",
+      "IB online tutors Kochi"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Kakkanad",
+      "Panampilly Nagar",
+      "Edappally",
+      "Aluva",
+      "Marine Drive"
+    ],
+    "nearbyAreas": [
+      "Kadavanthra",
+      "Palarivattom",
+      "Kalamassery",
+      "Thevara",
+      "Vyttila",
+      "Thrippunithura",
+      "Fort Kochi"
+    ],
+    "nearbyCities": [
+      "Coimbatore",
+      "Chennai",
+      "Bangalore"
+    ],
+    "schoolsMentioned": [
+      "Kakkanad international learner cluster",
+      "Central Kochi premium school families",
+      "Edappally and Aluva school routes"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Important northern corridor where online support can reduce travel pressure for specialist DP subjects.",
+    "nearbyLandmarks": [
+      "Airport Road",
+      "Kalamassery"
+    ],
+    "nearbyAreas": [
+      "Kadavanthra",
+      "Palarivattom",
+      "Kalamassery",
+      "Thevara",
+      "Vyttila",
+      "Thrippunithura",
+      "Fort Kochi"
+    ],
+    "schoolsMentioned": [
+      "Kakkanad international learner cluster",
+      "Central Kochi premium school families",
+      "Edappally and Aluva school routes"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Kochi",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Coimbatore",
+      "Chennai",
+      "Bangalore"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/areas/udyog-vihar/",
+  "routeKey": "/ib-tutors/gurugram/areas/udyog-vihar/",
+  "pageType": "area",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "udyog-vihar",
+  "pageId": "IBG_GURGAON_AREA_UDYOG_VIHAR",
+  "reusedPageId": true,
+  "input": {
+    "pageType": "area",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "Udyog Vihar",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Udyog Vihar Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor Udyog Vihar",
+      "IB DP tutor near Udyog Vihar",
+      "IB Math AA tutor Udyog Vihar",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA",
+      "Math AI",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Economics",
+      "English"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Sector 18",
+      "Sector 19",
+      "Sector 21",
+      "Sector 22",
+      "DLF Phase 3",
+      "MG Road",
+      "Dwarka Expressway",
+      "Ambience Caitriona",
+      "Heritage City",
+      "DLF Phase 3 residences"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Families around Udyog Vihar often need tutoring that is local enough for routine lessons but specialist enough for IB assessment, IA deadlines and exam revision. This page is built for parents comparing ib tutor availability around udyog vihar with home, online and hybrid options. It keeps the Gurugram locality context visible without claiming guaranteed availability or any official school, builder, RWA or community association.",
+    "nearbyLandmarks": [],
+    "nearbyAreas": [
+      "Sector 18",
+      "Sector 19",
+      "Sector 21",
+      "Sector 22",
+      "DLF Phase 3",
+      "MG Road",
+      "Dwarka Expressway",
+      "Ambience Caitriona",
+      "Heritage City",
+      "DLF Phase 3 residences"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "Local IB tutoring support near Udyog Vihar, Gurugram, often searched as Gurgaon, for PYP, MYP and DP families who want programme-aware subject help, practical tutor matching and safe home, online or hybrid scheduling. Availability depends on subject, grade level, exact location, schedule and preferred tutoring mode.",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

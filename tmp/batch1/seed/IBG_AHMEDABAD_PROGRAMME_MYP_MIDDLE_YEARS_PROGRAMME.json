@@ -1,0 +1,104 @@
+{
+  "url": "https://ibgram.com/ib-tutors/ahmedabad/myp/",
+  "routeKey": "/ib-tutors/ahmedabad/myp/",
+  "pageType": "programme",
+  "citySlug": "ahmedabad",
+  "cityName": "Ahmedabad",
+  "slug": "myp",
+  "pageId": "IBG_AHMEDABAD_PROGRAMME_MYP_MIDDLE_YEARS_PROGRAMME",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "programme",
+    "cityName": "Ahmedabad",
+    "citySlug": "ahmedabad",
+    "primaryKeyword": "IB Middle Years Programme tutors in Ahmedabad",
+    "secondaryKeywords": [
+      "IB Middle Years Programme tutor Ahmedabad",
+      "IB Middle Years Programme home tutor Ahmedabad",
+      "IB Middle Years Programme online tutoring"
+    ],
+    "serviceFocus": "Middle Years Programme",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "SG Highway",
+      "Satellite",
+      "Bodakdev",
+      "Prahlad Nagar",
+      "Thaltej"
+    ],
+    "nearbyAreas": [
+      "Vastrapur",
+      "Jodhpur",
+      "Makarba",
+      "Science City",
+      "Sola",
+      "Ambli",
+      "Shela"
+    ],
+    "nearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "subjectName": "Middle Years Programme",
+    "subjectLevel": "",
+    "subjectDescription": "Subject foundations, criterion-based assignments, interdisciplinary thinking and personal project planning.",
+    "subjectCityNote": "MYP students in Ahmedabad usually need help converting class ideas into evidence, reflection and criteria-aware work.",
+    "premiumAreas": [
+      "SG Highway",
+      "Satellite",
+      "Bodakdev",
+      "Prahlad Nagar",
+      "Thaltej"
+    ],
+    "schoolsMentioned": [
+      "SG Highway international learner corridor",
+      "Satellite and Bodakdev school families",
+      "Prahlad Nagar and western Ahmedabad cluster"
+    ],
+    "cityName": "Ahmedabad",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "Biology",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Vadodara",
+      "Surat",
+      "Jaipur"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

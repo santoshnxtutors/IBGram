@@ -1,0 +1,103 @@
+{
+  "url": "https://ibgram.com/ib-tutors/delhi/areas/greater-kailash/",
+  "routeKey": "/ib-tutors/delhi/areas/greater-kailash/",
+  "pageType": "area",
+  "citySlug": "delhi",
+  "cityName": "Delhi",
+  "slug": "greater-kailash",
+  "pageId": "IBG_DELHI_AREA_GREATER_KAILASH_IB_TUTORS",
+  "reusedPageId": false,
+  "input": {
+    "pageType": "area",
+    "cityName": "Delhi",
+    "citySlug": "delhi",
+    "parentLocation": "Delhi",
+    "microLocationName": "Greater Kailash",
+    "microLocationType": "area",
+    "primaryKeyword": "IB tutors near Greater Kailash Delhi",
+    "secondaryKeywords": [
+      "IB home tutor Greater Kailash",
+      "IB DP tutor near Greater Kailash",
+      "IB Math AA tutor Greater Kailash",
+      "IB online tutors Delhi"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Vasant Vihar",
+      "Greater Kailash",
+      "Saket"
+    ],
+    "nearbyAreas": [
+      "Defence Colony",
+      "Hauz Khas",
+      "New Friends Colony",
+      "Panchsheel Park",
+      "Green Park",
+      "Jor Bagh"
+    ],
+    "nearbyCities": [
+      "Gurugram",
+      "Noida",
+      "Ghaziabad"
+    ],
+    "schoolsMentioned": [
+      "The British School New Delhi",
+      "American Embassy School",
+      "DPS International Saket"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "areaDescription": "Useful for South Delhi families seeking DP Math, sciences and English support with flexible evening schedules.",
+    "nearbyLandmarks": [],
+    "nearbyAreas": [
+      "Defence Colony",
+      "Hauz Khas",
+      "New Friends Colony",
+      "Panchsheel Park",
+      "Green Park",
+      "Jor Bagh"
+    ],
+    "schoolsMentioned": [
+      "The British School New Delhi",
+      "American Embassy School",
+      "DPS International Saket"
+    ],
+    "existingHeroSubtitle": "",
+    "cityName": "Delhi",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Gurugram",
+      "Noida",
+      "Ghaziabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}

@@ -1,7 +1,6 @@
 import { ComparisonView } from "@/components/tutor-compare/ComparisonView";
 import { CompareBackButton } from "@/components/tutor-compare/CompareBackButton";
 import { CompareUrlCleaner } from "@/components/tutor-compare/CompareUrlCleaner";
-import { allTutors } from "@/lib/tutor-data";
 import { getPublicTutorsFromDb } from "@/lib/cms/public-tutors";
 
 type TutorComparePageContentProps = {
@@ -10,7 +9,7 @@ type TutorComparePageContentProps = {
 
 export async function TutorComparePageContent({ tutorIds }: TutorComparePageContentProps) {
   const dbTutors = await getPublicTutorsFromDb();
-  const tutorPool = dbTutors ?? allTutors;
+  const tutorPool = dbTutors ?? [];
   const selectedTutors = tutorIds
     .map((id) => tutorPool.find((tutor) => String(tutor.id) === id))
     .filter((tutor): tutor is (typeof tutorPool)[number] => Boolean(tutor));

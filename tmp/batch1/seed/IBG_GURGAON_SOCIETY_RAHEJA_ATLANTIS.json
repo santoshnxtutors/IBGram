@@ -1,0 +1,110 @@
+{
+  "url": "https://ibgram.com/ib-tutors/gurugram/societies/raheja-atlantis/",
+  "routeKey": "/ib-tutors/gurugram/societies/raheja-atlantis/",
+  "pageType": "society",
+  "citySlug": "gurugram",
+  "cityName": "Gurugram",
+  "slug": "raheja-atlantis",
+  "pageId": "IBG_GURGAON_SOCIETY_RAHEJA_ATLANTIS",
+  "reusedPageId": true,
+  "input": {
+    "pageType": "society",
+    "cityName": "Gurugram",
+    "citySlug": "gurugram",
+    "parentLocation": "Gurugram",
+    "microLocationName": "Raheja Atlantis",
+    "microLocationType": "society",
+    "primaryKeyword": "IB tutors near Raheja Atlantis Gurugram",
+    "secondaryKeywords": [
+      "IB home tutor Raheja Atlantis",
+      "IB DP tutor near Raheja Atlantis",
+      "IB Math AA tutor Raheja Atlantis",
+      "IB online tutors Gurugram"
+    ],
+    "serviceFocus": "IB tutors",
+    "programmes": [
+      "PYP",
+      "MYP",
+      "DP"
+    ],
+    "subjects": [
+      "Math AA",
+      "Math AI",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Economics",
+      "English"
+    ],
+    "tutoringModes": [
+      "home",
+      "online",
+      "hybrid"
+    ],
+    "premiumAreas": [
+      "Golf Course Road",
+      "DLF Phase 5",
+      "Sector 57",
+      "Sohna Road"
+    ],
+    "nearbyAreas": [
+      "Sector 45",
+      "Sector 46",
+      "Sector 47",
+      "Sector Road / HUDA sectors cluster",
+      "Sohna Road",
+      "Mayfield Garden",
+      "Malibu Towne",
+      "Suncity"
+    ],
+    "nearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "ctaFocus": "Book a free academic consultation",
+    "publishMode": "publish",
+    "indexPreference": "index"
+  },
+  "writerBrief": {
+    "societyType": "premium residential society/condominium",
+    "nearbyAreas": [
+      "Sector 45",
+      "Sector 46",
+      "Sector 47",
+      "Sector Road / HUDA sectors cluster",
+      "Sohna Road",
+      "Mayfield Garden",
+      "Malibu Towne",
+      "Suncity"
+    ],
+    "schoolsMentioned": [
+      "Lancers International School",
+      "Scottish High International School",
+      "Pathways World School",
+      "GD Goenka World School"
+    ],
+    "existingHeroSubtitle": "Local IB tutoring support near Raheja Atlantis, Gurugram, often searched as Gurgaon, for PYP, MYP and DP families who want programme-aware subject help, practical tutor matching and safe home, online or hybrid scheduling. Availability depends on subject, grade level, exact location, schedule and preferred tutoring mode.",
+    "cityName": "Gurugram",
+    "citySubjects": [
+      "Math AA HL",
+      "Math AI HL",
+      "Physics",
+      "Chemistry",
+      "Economics",
+      "English A"
+    ],
+    "cityNearbyCities": [
+      "Delhi",
+      "Noida",
+      "Faridabad"
+    ],
+    "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated."
+  }
+}
