@@ -1,6 +1,6 @@
 # IB Gram — AI-readable site context
 # llms.txt specification: https://llmstxt.org
-# Last updated: 2026-05-31
+# Last updated: 2026-06-18
 
 > IB Gram is an independent tutoring platform for IB (International Baccalaureate) and IGCSE families in India.
 > We help parents find verified subject tutors for PYP, MYP, Diploma Programme, Career-related Programme, Cambridge IGCSE and Pearson Edexcel International GCSE.
@@ -35,57 +35,57 @@ Active tutor inventory: Gurugram (canonical; also known as Gurgaon), Delhi, Noid
 - Internal Assessment (IA) support — topic scoping, criterion review, draft feedback
 - GDC / calculator strategy
 - Past-paper practice (May/June and November series)
-- URL: https://ibgram.com/courses/ib/mathematics/
+- URL: https://www.ibgram.com/courses/ib/mathematics/
 
 ### IB Sciences
 - Physics, Chemistry, Biology at HL and SL
 - Internal Assessment — research question, methodology, data analysis, evaluation
 - Command-term coaching, mark-scheme literacy
-- URL: https://ibgram.com/courses/ib/sciences/
+- URL: https://www.ibgram.com/courses/ib/sciences/
 
 ### IB Individuals & Societies
 - Economics, Business Management, History, Psychology, Global Politics, Geography
 - HL and SL; IA planning across all subjects
-- URL: https://ibgram.com/courses/ib/individuals/
+- URL: https://www.ibgram.com/courses/ib/individuals/
 
 ### IB English
 - English A: Language and Literature (HL/SL)
 - English A: Literature (HL/SL)
 - English B (HL/SL)
 - Individual Oral, HL essay coaching
-- URL: https://ibgram.com/courses/ib/english/
+- URL: https://www.ibgram.com/courses/ib/english/
 
 ### IB Language Acquisition
 - Language B (Spanish, French, Mandarin, Hindi, German) at HL and SL
 - Language ab initio (SL only)
 - Grammar repair, written production, oral rehearsal
-- URL: https://ibgram.com/courses/ib/language/
+- URL: https://www.ibgram.com/courses/ib/language/
 
 ### IGCSE Mathematics
 - Cambridge IGCSE 0580 (Core and Extended)
 - Cambridge IGCSE 0606 Additional Mathematics
 - Pearson Edexcel International GCSE 4MA1 (Foundation and Higher)
-- URL: https://ibgram.com/courses/igcse/mathematics/
+- URL: https://www.ibgram.com/courses/igcse/mathematics/
 
 ### IGCSE Sciences
 - Cambridge 0625 Physics, 0620 Chemistry, 0610 Biology
 - Pearson Edexcel 4PH1, 4CH1, 4BI1
-- URL: https://ibgram.com/courses/igcse/sciences/
+- URL: https://www.ibgram.com/courses/igcse/sciences/
 
 ### IGCSE Humanities
 - Economics (0455 / 4EC1), Business (0450 / 4BS1), History (0470 / 4HI1), Geography (0460 / 4GE1)
-- URL: https://ibgram.com/courses/igcse/individuals/
+- URL: https://www.ibgram.com/courses/igcse/individuals/
 
 ### IGCSE English
 - Cambridge First Language English (0500, 0524), Literature (0475)
 - Pearson Edexcel English Language (4EA1), Literature (4ET1)
-- URL: https://ibgram.com/courses/igcse/english/
+- URL: https://www.ibgram.com/courses/igcse/english/
 
 ### IGCSE Languages
 - Cambridge Foreign Languages (Spanish, French, German, Mandarin)
 - Cambridge Hindi as a Second Language (0549)
 - Cambridge English as a Second Language (0510 / 0511 / 0991)
-- URL: https://ibgram.com/courses/igcse/language/
+- URL: https://www.ibgram.com/courses/igcse/language/
 
 ---
 
@@ -93,11 +93,11 @@ Active tutor inventory: Gurugram (canonical; also known as Gurgaon), Delhi, Noid
 
 | Programme | URL |
 |---|---|
-| IB Programmes hub | https://ibgram.com/programmes/ |
-| Primary Years Programme (PYP) | https://ibgram.com/programmes/pyp/ |
-| Middle Years Programme (MYP) | https://ibgram.com/programmes/myp/ |
-| Diploma Programme (DP) | https://ibgram.com/programmes/dp/ |
-| Career-related Programme (CP) | https://ibgram.com/programmes/cp/ |
+| IB Programmes hub | https://www.ibgram.com/programmes/ |
+| Primary Years Programme (PYP) | https://www.ibgram.com/programmes/pyp/ |
+| Middle Years Programme (MYP) | https://www.ibgram.com/programmes/myp/ |
+| Diploma Programme (DP) | https://www.ibgram.com/programmes/dp/ |
+| Career-related Programme (CP) | https://www.ibgram.com/programmes/cp/ |
 
 ---
 
@@ -105,16 +105,16 @@ Active tutor inventory: Gurugram (canonical; also known as Gurgaon), Delhi, Noid
 
 | City | URL | Priority areas |
 |---|---|---|
-| Gurugram | https://ibgram.com/ib-tutors/gurugram/ | Golf Course Road, DLF Phases 1–5, Sushant Lok, Sector 43, 50, 56 |
-| Delhi | https://ibgram.com/ib-tutors/delhi/ | Vasant Vihar, Vasant Kunj, Saket, Greater Kailash, Defence Colony |
-| Noida | https://ibgram.com/ib-tutors/noida/ | Sector 44, 50, 62, 93, Noida Expressway |
-| Mumbai | https://ibgram.com/ib-tutors/mumbai/ | Bandra, Khar, Juhu, BKC, South Mumbai |
-| Bangalore | https://ibgram.com/ib-tutors/bangalore/ | Indiranagar, Koramangala, HSR Layout, Whitefield, Sarjapur |
-| Pune | https://ibgram.com/ib-tutors/pune/ | |
-| Hyderabad | https://ibgram.com/ib-tutors/hyderabad/ | |
-| Chennai | https://ibgram.com/ib-tutors/chennai/ | |
+| Gurugram | https://www.ibgram.com/ib-tutors/gurugram/ | Golf Course Road, DLF Phases 1–5, Sushant Lok, Sector 43, 50, 56 |
+| Delhi | https://www.ibgram.com/ib-tutors/delhi/ | Vasant Vihar, Vasant Kunj, Saket, Greater Kailash, Defence Colony |
+| Noida | https://www.ibgram.com/ib-tutors/noida/ | Sector 44, 50, 62, 93, Noida Expressway |
+| Mumbai | https://www.ibgram.com/ib-tutors/mumbai/ | Bandra, Khar, Juhu, BKC, South Mumbai |
+| Bangalore | https://www.ibgram.com/ib-tutors/bangalore/ | Indiranagar, Koramangala, HSR Layout, Whitefield, Sarjapur |
+| Pune | https://www.ibgram.com/ib-tutors/pune/ | |
+| Hyderabad | https://www.ibgram.com/ib-tutors/hyderabad/ | |
+| Chennai | https://www.ibgram.com/ib-tutors/chennai/ | |
 
-IB Tutor hub (all cities): https://ibgram.com/ib-tutors/
+IB Tutor hub (all cities): https://www.ibgram.com/ib-tutors/
 
 ---
 
@@ -122,16 +122,16 @@ IB Tutor hub (all cities): https://ibgram.com/ib-tutors/
 
 | City | URL |
 |---|---|
-| Gurugram | https://ibgram.com/igcse-pages/gurugram/ |
-| Delhi | https://ibgram.com/igcse-pages/delhi/ |
-| Noida | https://ibgram.com/igcse-pages/noida/ |
-| Mumbai | https://ibgram.com/igcse-pages/mumbai/ |
-| Bangalore | https://ibgram.com/igcse-pages/bangalore/ |
-| Pune | https://ibgram.com/igcse-pages/pune/ |
-| Hyderabad | https://ibgram.com/igcse-pages/hyderabad/ |
-| Chennai | https://ibgram.com/igcse-pages/chennai/ |
+| Gurugram | https://www.ibgram.com/igcse-pages/gurugram/ |
+| Delhi | https://www.ibgram.com/igcse-pages/delhi/ |
+| Noida | https://www.ibgram.com/igcse-pages/noida/ |
+| Mumbai | https://www.ibgram.com/igcse-pages/mumbai/ |
+| Bangalore | https://www.ibgram.com/igcse-pages/bangalore/ |
+| Pune | https://www.ibgram.com/igcse-pages/pune/ |
+| Hyderabad | https://www.ibgram.com/igcse-pages/hyderabad/ |
+| Chennai | https://www.ibgram.com/igcse-pages/chennai/ |
 
-IGCSE hub (all cities): https://ibgram.com/igcse-pages/
+IGCSE hub (all cities): https://www.ibgram.com/igcse-pages/
 
 ---
 
@@ -139,17 +139,17 @@ IGCSE hub (all cities): https://ibgram.com/igcse-pages/
 
 | Page | URL |
 |---|---|
-| Homepage | https://ibgram.com/ |
-| IB home | https://ibgram.com/ |
-| IGCSE guide | https://ibgram.com/igcse/ |
-| All tutors | https://ibgram.com/tutors/ |
-| About IB Gram | https://ibgram.com/about-us/ |
-| Contact / book a tutor | https://ibgram.com/contact-us/ |
-| Admissions support | https://ibgram.com/admissions/ |
-| Admissions test prep | https://ibgram.com/admissions/test-prep/ |
-| Admissions success stories | https://ibgram.com/admissions/success-stories/ |
-| Blog | https://ibgram.com/blog/ |
-| Sitemap | https://ibgram.com/sitemap.xml |
+| Homepage | https://www.ibgram.com/ |
+| IB home | https://www.ibgram.com/ |
+| IGCSE guide | https://www.ibgram.com/igcse/ |
+| All tutors | https://www.ibgram.com/tutors/ |
+| About IB Gram | https://www.ibgram.com/about-us/ |
+| Contact / book a tutor | https://www.ibgram.com/contact-us/ |
+| Admissions support | https://www.ibgram.com/admissions/ |
+| Admissions test prep | https://www.ibgram.com/admissions/test-prep/ |
+| Admissions success stories | https://www.ibgram.com/admissions/success-stories/ |
+| Blog | https://www.ibgram.com/blog/ |
+| Sitemap | https://www.ibgram.com/sitemap.xml |
 
 ---
 

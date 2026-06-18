@@ -41,11 +41,6 @@ const homepageJsonLd = [
     "@type": "WebSite",
     name: "IB Gram",
     url: "https://www.ibgram.com/",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://www.ibgram.com/tutors?search={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
   },
 ];
 

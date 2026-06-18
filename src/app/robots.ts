@@ -34,19 +34,27 @@ const PRIVATE_DISALLOWS = [
   "/*&utm_",
 ];
 
+// Per the robots.txt spec a crawler obeys ONLY the most specific user-agent
+// group that matches its name and ignores the wildcard `*` group entirely.
+// So every named bot must repeat the private disallows, otherwise admin/API/
+// auth/search URLs become crawlable for that bot even though `*` blocks them.
+const NAMED_BOTS = [
+  "Googlebot",
+  "Googlebot-Image",
+  "bingbot",
+  "GPTBot",
+  "ChatGPT-User",
+  "OAI-SearchBot",
+  "ClaudeBot",
+  "Claude-Web",
+  "PerplexityBot",
+  "Google-Extended",
+  "Applebot",
+];
+
 const BASE_RULES: RobotsRule[] = [
   { userAgent: "*", allow: "/", disallow: PRIVATE_DISALLOWS },
-  { userAgent: "Googlebot", allow: "/" },
-  { userAgent: "Googlebot-Image", allow: "/" },
-  { userAgent: "bingbot", allow: "/" },
-  { userAgent: "GPTBot", allow: "/" },
-  { userAgent: "ChatGPT-User", allow: "/" },
-  { userAgent: "OAI-SearchBot", allow: "/" },
-  { userAgent: "ClaudeBot", allow: "/" },
-  { userAgent: "Claude-Web", allow: "/" },
-  { userAgent: "PerplexityBot", allow: "/" },
-  { userAgent: "Google-Extended", allow: "/" },
-  { userAgent: "Applebot", allow: "/" },
+  ...NAMED_BOTS.map((userAgent) => ({ userAgent, allow: "/", disallow: PRIVATE_DISALLOWS })),
 ];
 
 const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
