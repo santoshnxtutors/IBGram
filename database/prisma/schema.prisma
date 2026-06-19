@@ -1249,6 +1249,35 @@ model JobApplication {
   @@index([createdAt])
 }
 
+enum ContactLeadStatus {
+  new
+  reviewing
+  contacted
+  closed
+  spam
+}
+
+/// Public contact-form / enquiry submissions ("leads") shown in the admin panel.
+model ContactLead {
+  id          String            @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  inquiryType String?
+  message     String
+  status      ContactLeadStatus @default(new)
+  sourcePage  String?
+  ipAddress   String?
+  userAgent   String?
+  adminNotes  String?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([email])
+}
+
 model FaqItem {
   id         String        @id @default(cuid())
   question   String
