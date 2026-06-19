@@ -2,6 +2,7 @@ import "server-only";
 
 import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/db";
+import { isStaticSafeSlug } from "@/lib/seo/slug-utils";
 
 export const TUTOR_REACH_CACHE_TAG = "cms:tutor-reach";
 
@@ -166,7 +167,9 @@ export async function getPublishedTutorReachSlugs(): Promise<string[]> {
       select: { slug: true },
       take: 2000,
     });
-    return rows.map((r) => r.slug);
+    // Skip slugs with filesystem-illegal characters so the static build never
+    // emits a prerendered file that breaks the deploy artifact upload.
+    return rows.map((r) => r.slug).filter(isStaticSafeSlug);
   } catch {
     return [];
   }
@@ -195,6 +198,7 @@ export async function getTutorReachSitemapEntries(): Promise<Array<{ slug: strin
     const now = Date.now();
     return rows
       .filter((r) => !r.publishedAt || new Date(r.publishedAt).getTime() <= now)
+      .filter((r) => isStaticSafeSlug(r.slug))
       .map((r) => ({ slug: r.slug, lastModified: r.updatedAt.toISOString() }));
   } catch {
     return [];

@@ -2,6 +2,7 @@ import "server-only";
 
 import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/db";
+import { isStaticSafeSlug } from "@/lib/seo/slug-utils";
 
 export const BLOG_CACHE_TAG = "blog";
 
@@ -206,7 +207,10 @@ export async function getPublishedBlogSlugs(): Promise<string[]> {
       select: { slug: true },
       take: 500,
     });
-    return rows.map((r) => r.slug);
+    // Drop slugs that would prerender to a filename with illegal characters
+    // (e.g. a slug accidentally set to a title containing ":" or spaces), which
+    // crashes `actions/upload-artifact` during deploy.
+    return rows.map((r) => r.slug).filter(isStaticSafeSlug);
   } catch {
     return [];
   }
@@ -223,6 +227,7 @@ export async function getBlogSitemapEntries(): Promise<Array<{ slug: string; las
     const now = Date.now();
     return rows
       .filter((r) => !r.publishedAt || new Date(r.publishedAt).getTime() <= now)
+      .filter((r) => isStaticSafeSlug(r.slug))
       .map((r) => ({ slug: r.slug, lastModified: r.updatedAt.toISOString() }));
   } catch {
     return [];

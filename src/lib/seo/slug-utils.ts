@@ -14,6 +14,20 @@ export function normalizeSlug(value: string): string {
     .replace(/-{2,}/g, "-");
 }
 
+// Characters that are illegal in file names on common filesystems (NTFS) and so
+// break `actions/upload-artifact` when Next prerenders `<slug>.html`. Also rejects
+// whitespace and control chars. Valid kebab-case slugs pass.
+const UNSAFE_SLUG_CHARS = /[<>:"/\\|?*]|\s/;
+
+/**
+ * True when a slug is safe to use as a static-route param (and therefore as a
+ * prerendered file name). Guards generateStaticParams/sitemap against malformed
+ * slugs (e.g. a blog slug accidentally set to the full title with a colon).
+ */
+export function isStaticSafeSlug(slug: string | null | undefined): slug is string {
+  return typeof slug === "string" && slug.length > 0 && !UNSAFE_SLUG_CHARS.test(slug);
+}
+
 export function ensureTrailingSlash(path: string): string {
   if (path === "") return "/";
   if (/\.[a-zA-Z0-9]+(?:[?#].*)?$/.test(path)) return path;
