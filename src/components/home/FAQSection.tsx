@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ChevronDown, MessageCircleQuestion } from "lucide-react";
 
 export interface FAQSectionProps {
@@ -78,12 +79,12 @@ export function FAQSection({ location = { country: "India", cities: "Mumbai, Del
             </h2>
           </div>
 
-          <a
-            href="/contact-us"
+          <Link
+            href="/contact-us/"
             className="px-6 py-2.5 rounded-full border border-white/10 hover:border-primary/40 bg-white/[0.04] text-sm font-bold text-foreground transition-all duration-300 w-fit"
           >
             Talk to an academic advisor
-          </a>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">

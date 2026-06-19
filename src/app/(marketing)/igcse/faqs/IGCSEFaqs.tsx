@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, MessageCircleQuestion } from "lucide-react";
 import { igcseFaqs } from "../content";
@@ -21,12 +22,12 @@ export function IGCSEFaqs() {
               Questions IGCSE families usually ask
             </h2>
           </div>
-          <a
-            href="/contact-us"
+          <Link
+            href="/contact-us/"
             className="w-fit rounded-full border border-white/10 bg-white/[0.04] px-6 py-2.5 text-sm font-bold text-foreground transition-all hover:border-primary/40"
           >
             Talk to an academic advisor
-          </a>
+          </Link>
         </div>
 
         <div className="grid gap-x-8 gap-y-4 md:grid-cols-2">
