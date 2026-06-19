@@ -16,6 +16,7 @@ import {
   getIgcseTutorSocietyStaticParams,
 } from "@/lib/tutors/igcse-route-helpers";
 import { cambridgeSubjects, edexcelSubjects } from "@/app/(marketing)/igcse/data";
+import { getGurgaonSeoSitemapEntries } from "@/lib/gurgaon-seo";
 
 const LAST_MODIFIED = "2026-05-08";
 const COURSE_SUBJECT_SLUGS = ["pyp", "myp", "dp", "cp", "mathematics", "sciences", "individuals", "individuals-and-societies", "english", "language"];
@@ -33,6 +34,7 @@ export function getSeoSitemapEntries(): MetadataRoute.Sitemap {
     ...getIndexableCourseSitemapEntries(),
     ...getIndexableTutorProfileSitemapEntries(),
     ...getIndexableGeneratedSitemapEntries(),
+    ...getGurgaonSeoSitemapEntries(),
   ]);
 }
 
