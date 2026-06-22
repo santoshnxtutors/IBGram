@@ -5,8 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+// `loading` keeps the 64px header reserved while the real Header chunk loads.
+// Without it, the dynamic(ssr:false) import renders null for a frame, collapsing
+// the header to 0px and shifting all content (a ~0.18 CLS on mobile).
 const Header = dynamic(() => import("./Header").then((mod) => mod.Header), {
   ssr: false,
+  loading: () => <StaticHeader />,
 });
 
 function scheduleHeader(callback: () => void) {
