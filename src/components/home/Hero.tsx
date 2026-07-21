@@ -17,7 +17,7 @@ export function Hero() {
                 className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3.5 py-1.5 text-sm font-semibold text-primary shadow-sm glassmorphism"
               >
                 <span className="flex h-2 w-2 rounded-full bg-primary mr-2" />
-                IB and IGCSE tutor matching for families in India and overseas
+                Trusted IB and IGCSE tutor matching for families worldwide
               </div>
 
             </div>

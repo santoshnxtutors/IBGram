@@ -1,7 +1,7 @@
 import type { RequestHandler } from "express";
 import { successResponse } from "../../utils/api-response";
 import { asyncHandler } from "../../utils/async-handler";
-import { changePassword, handleGoogleCallback, login, logout, redirectToGoogle, register } from "./auth.service";
+import { changePassword, getSafeUserById, handleGoogleCallback, login, logout, redirectToGoogle, register } from "./auth.service";
 
 export const loginController: RequestHandler = asyncHandler(async (req, res) => {
   const result = await login(req.body, req, res);
@@ -18,9 +18,11 @@ export const logoutController: RequestHandler = asyncHandler(async (req, res) =>
   res.json(successResponse({ loggedOut: true }, req.requestId ?? ""));
 });
 
-export const meController: RequestHandler = (req, res) => {
-  res.json(successResponse({ user: { id: req.auth!.userId, ...req.auth } }, req.requestId ?? ""));
-};
+export const meController: RequestHandler = asyncHandler(async (req, res) => {
+  const user = await getSafeUserById(req.auth!.userId);
+  // Merge session-scoped claims (roles/permissions/sessionId) with the full user record.
+  res.json(successResponse({ user: { ...req.auth, ...user, id: req.auth!.userId } }, req.requestId ?? ""));
+});
 
 export const changePasswordController: RequestHandler = asyncHandler(async (req, res) => {
   await changePassword(req.auth!.userId, req.body.currentPassword, req.body.newPassword, req);

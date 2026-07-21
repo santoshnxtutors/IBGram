@@ -6,6 +6,8 @@ import { usersRoutes } from "../modules/users/users.routes";
 import { rolesRoutes } from "../modules/roles/roles.routes";
 import { auditRoutes } from "../modules/audit/audit.routes";
 import { dashboardRoutes } from "../modules/dashboard/dashboard.routes";
+import { bookingsRoutes, tutorsRoutes } from "../modules/bookings/bookings.routes";
+import { tutorProfileRoutes } from "../modules/tutor-profile/tutor-profile.routes";
 
 export const apiRoutes = Router();
 
@@ -16,3 +18,6 @@ apiRoutes.use("/", rolesRoutes);
 apiRoutes.use("/users", usersRoutes);
 apiRoutes.use("/audit-logs", auditRoutes);
 apiRoutes.use("/dashboard", dashboardRoutes);
+apiRoutes.use("/tutors", tutorsRoutes);
+apiRoutes.use("/bookings", bookingsRoutes);
+apiRoutes.use("/tutor-profile", tutorProfileRoutes);

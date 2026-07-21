@@ -3,6 +3,10 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ClientChart } from "@/components/dashboard/ClientChart";
+import { DemoRequests } from "@/components/dashboard/DemoRequests";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useCurrentUser } from "@/lib/auth/useCurrentUser";
 import { Users, Clock, Calendar as CalendarIcon, Wallet, Star, AlertCircle, Video } from "lucide-react";
 import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
@@ -28,11 +32,21 @@ const revenueData = [
 ];
 
 export default function TutorDashboard() {
+  const router = useRouter();
+  const { user } = useCurrentUser();
+
+  // Students who land here are routed to their own dashboard.
+  useEffect(() => {
+    if (user?.accountType === "student") router.replace("/student");
+  }, [user, router]);
+
+  const firstName = user?.firstName || "there";
+
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Welcome back, Dr. Alex! 👨‍🏫</h1>
+          <h1 className="text-3xl font-bold text-foreground">Welcome back, {firstName}! 👨‍🏫</h1>
           <p className="text-muted-foreground mt-1">Your students are thriving. You have 3 classes scheduled today.</p>
         </div>
         <div className="flex gap-3">
@@ -44,6 +58,9 @@ export default function TutorDashboard() {
           </Button>
         </div>
       </div>
+
+      {/* Live: incoming demo bookings from students */}
+      <DemoRequests />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="bg-background/60 backdrop-blur-md shadow-sm border-border/50 transition-all hover:bg-muted/20">

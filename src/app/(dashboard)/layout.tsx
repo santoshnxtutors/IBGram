@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { Sidebar } from "@/components/dashboard/Sidebar";
+import { redirect } from "next/navigation";
+import { DashboardShell } from "@/components/dashboard/DashboardShell";
+import { getServerUser } from "@/lib/auth/server";
 
 export const metadata: Metadata = {
   robots: {
@@ -8,17 +10,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function DashboardLayout({
+export const dynamic = "force-dynamic";
+
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="flex h-screen overflow-hidden bg-muted/20">
-      <Sidebar />
-      <main className="flex-1 overflow-y-auto w-full p-8">
-        {children}
-      </main>
-    </div>
-  );
+  // Gate the whole dashboard: signed-out users go to login.
+  const user = await getServerUser();
+  if (!user) redirect("/login");
+
+  return <DashboardShell>{children}</DashboardShell>;
 }

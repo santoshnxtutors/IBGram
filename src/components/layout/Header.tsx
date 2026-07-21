@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { MapPin, ChevronDown, Menu, UserCircle, X } from "lucide-react";
+import { MapPin, ChevronDown, Menu, UserCircle, X, LayoutDashboard, LogOut } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { useCurrentUser, logoutCurrentUser } from "@/lib/auth/useCurrentUser";
+import { dashboardPathForUser } from "@/lib/auth/types";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,10 +15,6 @@ import {
 import { LocalizationModal } from "./LocalizationModal";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { useEffect, useState } from "react";
-
-// Login / Sign up are deferred to phase 2. Flip this to `true` to bring the
-// auth entry points back across desktop + mobile navigation.
-const AUTH_ENABLED = false;
 
 const PROGRAMS = [
   { name: "Primary Years (PYP)", slug: "pyp" },
@@ -37,6 +35,13 @@ export function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const isIgcse = pathname?.startsWith('/igcse');
+  const { user } = useCurrentUser();
+
+  const handleLogout = async () => {
+    await logoutCurrentUser();
+    // Hard navigation so the gated dashboard layout + server state fully reset.
+    window.location.href = "/";
+  };
 
   const [locationLabel, setLocationLabel] = useState<{ country: string; city: string } | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -202,26 +207,38 @@ export function Header() {
         {/* Right: Auth Dropdown */}
         <div className="hidden lg:flex items-center gap-4">
           <ThemeSwitcher />
-          {/* Auth (Login / Sign up) — deferred to phase 2 */}
-          {AUTH_ENABLED && (
-            <DropdownMenu>
-              <DropdownMenuTrigger aria-label="User Account Options" className={buttonVariants({ variant: "ghost", size: "icon", className: "rounded-full hover:bg-muted/50 transition-all cursor-pointer" })}>
-                <UserCircle className="size-8 text-foreground/80 hover:text-primary transition-colors" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48 border-white/10 bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-[1.5rem] shadow-2xl transition-all">
-                <Link href="/login" prefetch={false} aria-label="Login">
-                  <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-primary transition-all focus:bg-white/10 outline-none">
-                    Login
+          <DropdownMenu>
+            <DropdownMenuTrigger aria-label="User Account Options" className={buttonVariants({ variant: "ghost", size: "icon", className: "rounded-full hover:bg-muted/50 transition-all cursor-pointer" })}>
+              <UserCircle className="size-8 text-foreground/80 hover:text-primary transition-colors" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48 border-white/10 bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-[1.5rem] shadow-2xl transition-all">
+              {user ? (
+                <>
+                  <Link href={dashboardPathForUser(user)} prefetch={false} aria-label="Dashboard">
+                    <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-primary transition-all focus:bg-white/10 outline-none">
+                      <LayoutDashboard className="mr-2 size-4" /> Dashboard
+                    </DropdownMenuItem>
+                  </Link>
+                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-destructive transition-all focus:bg-white/10 outline-none">
+                    <LogOut className="mr-2 size-4" /> Log out
                   </DropdownMenuItem>
-                </Link>
-                <Link href="/signup" prefetch={false} aria-label="Sign up">
-                  <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-primary transition-all focus:bg-white/10 outline-none">
-                    Sign up
-                  </DropdownMenuItem>
-                </Link>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
+                </>
+              ) : (
+                <>
+                  <Link href="/login" prefetch={false} aria-label="Login">
+                    <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-primary transition-all focus:bg-white/10 outline-none">
+                      Login
+                    </DropdownMenuItem>
+                  </Link>
+                  <Link href="/signup" prefetch={false} aria-label="Sign up">
+                    <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-primary transition-all focus:bg-white/10 outline-none">
+                      Sign up
+                    </DropdownMenuItem>
+                  </Link>
+                </>
+              )}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         {/* Mobile Menu Toggle & Theme Switcher */}
@@ -338,21 +355,37 @@ export function Header() {
             </Link>
           </nav>
 
-          {/* Auth (Login / Sign up) — deferred to phase 2 */}
-          {AUTH_ENABLED && (
-            <div className="mt-auto pt-10 border-t border-border/50 flex flex-col gap-4">
-              <Link href="/login" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full py-6 text-lg rounded-2xl font-bold bg-primary text-primary-foreground">
-                  Login
+          <div className="mt-auto pt-10 border-t border-border/50 flex flex-col gap-4">
+            {user ? (
+              <>
+                <Link href={dashboardPathForUser(user)} prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button className="w-full py-6 text-lg rounded-2xl font-bold bg-primary text-primary-foreground">
+                    Go to Dashboard
+                  </Button>
+                </Link>
+                <Button
+                  variant="outline"
+                  onClick={() => { setIsMobileMenuOpen(false); handleLogout(); }}
+                  className="w-full py-6 text-lg rounded-2xl font-bold border-primary/20 hover:bg-primary/5"
+                >
+                  Log out
                 </Button>
-              </Link>
-              <Link href="/signup" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="outline" className="w-full py-6 text-lg rounded-2xl font-bold border-primary/20 hover:bg-primary/5">
-                  Sign Up
-                </Button>
-              </Link>
-            </div>
-          )}
+              </>
+            ) : (
+              <>
+                <Link href="/login" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button className="w-full py-6 text-lg rounded-2xl font-bold bg-primary text-primary-foreground">
+                    Login
+                  </Button>
+                </Link>
+                <Link href="/signup" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button variant="outline" className="w-full py-6 text-lg rounded-2xl font-bold border-primary/20 hover:bg-primary/5">
+                    Sign Up
+                  </Button>
+                </Link>
+              </>
+            )}
+          </div>
         </div>
       )}
     </>

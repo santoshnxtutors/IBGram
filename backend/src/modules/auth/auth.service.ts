@@ -80,12 +80,19 @@ function mapUser(user: NonNullable<UserWithRoles>): SafeAuthUser {
     lastName: user.lastName,
     avatarUrl: user.avatarUrl,
     status: user.status,
+    accountType: user.accountType ?? null,
     lastLoginAt: user.lastLoginAt,
     createdAt: user.createdAt,
     updatedAt: user.updatedAt,
     roles,
     permissions,
   };
+}
+
+/** Full, safe (no password) user by id — used by /me so the client gets names + accountType. */
+export async function getSafeUserById(userId: string): Promise<SafeAuthUser | null> {
+  const user = await getUserWithRolesById(userId);
+  return user ? mapUser(user) : null;
 }
 
 export async function getUserWithRolesById(userId: string) {
@@ -287,6 +294,7 @@ export async function register(
       passwordHash,
       firstName: input.firstName.trim(),
       lastName: input.lastName?.trim() || null,
+      accountType: input.role === "tutor" ? "tutor" : "student",
       status: "active",
     },
     select: { id: true },
@@ -441,6 +449,7 @@ export async function handleGoogleCallback(req: Request, res: Response): Promise
           firstName: googleUser.given_name?.trim() || googleUser.name?.trim() || null,
           lastName: googleUser.family_name?.trim() || null,
           avatarUrl: googleUser.picture ?? null,
+          accountType: parsedState.role === "tutor" ? "tutor" : "student",
           status: "active",
         },
         select: { id: true },

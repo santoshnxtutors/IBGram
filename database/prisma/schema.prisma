@@ -86,6 +86,10 @@ model User {
   lastName        String?
   avatarUrl       String?
   status          UserStatus     @default(invited)
+  accountType     String?        // "student" | "tutor" for public signups (null for staff/admin)
+  headline        String?        // short tutor tagline shown on the find-a-tutor cards
+  bio             String?
+  subjects        String[]       @default([]) // subjects a tutor teaches
   lastLoginAt     DateTime?
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
@@ -106,9 +110,40 @@ model User {
   auditLogs       AuditLog[]            @relation("AuditActor")
   canonicalRules  CanonicalRule[]       @relation("CanonicalRuleCreatedBy")
   redirectRules   RedirectRule[]        @relation("RedirectRuleCreatedBy")
+  demosAsStudent  DemoBooking[]         @relation("DemoStudent")
+  demosAsTutor    DemoBooking[]         @relation("DemoTutor")
+  tutorProfile    Tutor?                @relation("TutorOwner")
 
   @@index([status])
   @@index([deletedAt])
+}
+
+enum DemoBookingStatus {
+  requested
+  confirmed
+  completed
+  cancelled
+}
+
+/// A student-requested demo class with a tutor. Both are Users; the booking
+/// surfaces on the student's "My demos" and the tutor's "Demo requests".
+model DemoBooking {
+  id          String            @id @default(cuid())
+  studentId   String
+  tutorId     String
+  subject     String
+  scheduledAt DateTime
+  status      DemoBookingStatus @default(requested)
+  notes       String?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  student     User              @relation("DemoStudent", fields: [studentId], references: [id], onDelete: Cascade)
+  tutor       User              @relation("DemoTutor", fields: [tutorId], references: [id], onDelete: Cascade)
+
+  @@index([studentId])
+  @@index([tutorId])
+  @@index([status])
+  @@index([scheduledAt])
 }
 
 model Role {
@@ -591,6 +626,7 @@ model School {
 model Tutor {
   id              String          @id @default(cuid())
   slug            String          @unique
+  userId          String?         @unique // linked login account (tutor self-service dashboard)
   displayName     String
   email           String?
   phone           String?
@@ -610,6 +646,7 @@ model Tutor {
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
   deletedAt       DateTime?
+  owner           User?           @relation("TutorOwner", fields: [userId], references: [id], onDelete: SetNull)
   profile         TutorProfile?
   subjects        TutorSubject[]
   curriculums     TutorCurriculum[]

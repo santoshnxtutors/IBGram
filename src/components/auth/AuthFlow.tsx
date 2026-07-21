@@ -8,14 +8,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 interface AuthFlowProps {
   initialAuthType: "login" | "signup";
 }
 
 export function AuthFlow({ initialAuthType }: AuthFlowProps) {
-  const router = useRouter();
   // Login directly goes to form. Signup goes to role selection first.
   const [authType, setAuthType] = useState<"login" | "signup">(initialAuthType);
   const [step, setStep] = useState<"role" | "form">(initialAuthType === "login" ? "form" : "role");
@@ -59,7 +57,7 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
     setIsSubmitting(true);
 
     try {
-      const endpoint = authType === "login" ? "/api/auth/login" : "/api/auth/register";
+      const endpoint = authType === "login" ? "/api/auth/login/" : "/api/auth/register/";
       const payload =
         authType === "login"
           ? { usernameOrEmail: email, password }
@@ -77,8 +75,12 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
         throw new Error(body?.error?.message ?? "Authentication failed.");
       }
 
-      router.push("/");
-      router.refresh();
+      // Route to the right dashboard by account type (falls back to the chosen role).
+      const user = body?.data?.user;
+      const accountType = user?.accountType ?? role ?? "student";
+      const destination = accountType === "tutor" ? "/tutor" : "/student";
+      // Hard navigation so the gated dashboard layout reads the fresh session cookie.
+      window.location.href = destination;
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Authentication failed.");
     } finally {

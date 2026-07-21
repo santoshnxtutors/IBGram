@@ -8,6 +8,7 @@ export type SafeAuthUser = {
   lastName: string | null;
   avatarUrl: string | null;
   status: UserStatus;
+  accountType: string | null;
   lastLoginAt: Date | null;
   createdAt: Date;
   updatedAt: Date;

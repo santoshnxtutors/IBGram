@@ -4,7 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ClientChart } from "@/components/dashboard/ClientChart";
-import { ArrowRight, BookOpen, Clock, Calendar as CalendarIcon, Target, Trophy, Flame } from "lucide-react";
+import { useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useCurrentUser } from "@/lib/auth/useCurrentUser";
+import { ArrowRight, BookOpen, Clock, Calendar as CalendarIcon, Target, Trophy, Flame, Users } from "lucide-react";
 import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip
@@ -28,18 +32,33 @@ const lineData = [
 ];
 
 export default function StudentDashboard() {
+  const router = useRouter();
+  const { user } = useCurrentUser();
+
+  // Tutors who land here are routed to their own dashboard.
+  useEffect(() => {
+    if (user?.accountType === "tutor") router.replace("/tutor");
+  }, [user, router]);
+
+  const firstName = user?.firstName || "there";
+
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Welcome back, Sarah! 👋</h1>
+          <h1 className="text-3xl font-bold text-foreground">Welcome back, {firstName}! 👋</h1>
           <p className="text-muted-foreground mt-1">You are consistently improving. Keep up the momentum!</p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
+          <Link href="/student/tutors">
+            <Button className="h-10 bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm">
+              <Users className="ml-0 mr-2 size-4" /> Find a Tutor
+            </Button>
+          </Link>
           <Button variant="outline" className="h-10 bg-background shadow-sm hover:text-primary">
             <BookOpen className="ml-0 mr-2 size-4" /> View Syllabus
           </Button>
-          <Button className="h-10 bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm">
+          <Button variant="outline" className="h-10 bg-background shadow-sm hover:text-primary">
             <Target className="ml-0 mr-2 size-4" /> Start AI Test
           </Button>
         </div>
