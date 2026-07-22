@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { z } from "zod";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import { getAffectedPathsForTutor } from "@/lib/cache/affected-paths";
 import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
@@ -62,6 +63,8 @@ const patchSchema = z.object({
   methodology: z.string().max(4000).optional().nullable(),
   // Per-tutor FAQs shown on the public tutor profile.
   faqs: z.array(z.object({ question: z.string().min(1), answer: z.string().min(1) })).optional(),
+  // Per-tutor "Qualifications & Background" cards (title + editable description).
+  qualifications: z.array(z.object({ title: z.string().min(1), description: z.string().max(600).default("") })).optional(),
 });
 
 function uniqueClean(values: string[] | undefined): string[] {
@@ -77,15 +80,17 @@ function buildLocationRows(
   modes: string[] | undefined,
   notes: string | null | undefined,
 ) {
-  const modeSet = new Set((modes ?? []).map((mode) => mode.trim().toLowerCase()).filter(Boolean));
+  // Substring match so free-text modes like "online(usa/canada/australia)"
+  // still register as online for the matching engine.
+  const modeText = (modes ?? []).join(" ").toLowerCase();
   const base = {
     tutorId,
     cityId: city.id,
     cityName: city.name,
     citySlug: city.slug,
-    homeTutoringAvailable: modeSet.has("home"),
-    onlineTutoringAvailable: modeSet.has("online") || modeSet.size === 0,
-    hybridTutoringAvailable: modeSet.has("hybrid"),
+    homeTutoringAvailable: modeText.includes("home"),
+    onlineTutoringAvailable: modeText.includes("online") || !modeText.trim(),
+    hybridTutoringAvailable: modeText.includes("hybrid"),
     notes: notes ?? null,
     isActive: true,
   };
@@ -124,9 +129,11 @@ function isTransientDbError(err: unknown): boolean {
     msg.includes("connection terminated") ||
     msg.includes("can't reach database server") ||
     msg.includes("server has closed the connection") ||
+    msg.includes("unable to start a transaction") ||
     msg.includes("p1001") ||
     msg.includes("p1002") ||
     msg.includes("p2024") ||
+    msg.includes("p2028") ||
     msg.includes("p2037")
   );
 }
@@ -216,6 +223,15 @@ export async function PATCH(
         });
 
         // 2c. Upsert TutorProfile with tags / languages / education / methodology / etc.
+        // metadata is a shared JSON bucket (qualifications + verbatim teachingModes).
+        // The admin form always submits BOTH fields together, so write them directly
+        // — no extra in-transaction read (keeps the tx short so the single DB
+        // connection is held for less time, which matters on a small pool).
+        const metadataChanged = data.qualifications !== undefined || data.teachingModes !== undefined;
+        const nextMetadata: Prisma.InputJsonValue | undefined = metadataChanged
+          ? { qualifications: data.qualifications ?? [], teachingModes: data.teachingModes ?? [] }
+          : undefined;
+
         if (
           data.tags !== undefined ||
           data.languages !== undefined ||
@@ -223,7 +239,8 @@ export async function PATCH(
           data.methodology !== undefined ||
           data.successRate !== undefined ||
           data.responseTime !== undefined ||
-          data.availabilityText !== undefined
+          data.availabilityText !== undefined ||
+          metadataChanged
         ) {
           await tx.tutorProfile.upsert({
             where: { tutorId: existing.id },
@@ -236,6 +253,7 @@ export async function PATCH(
               ...(data.successRate !== undefined ? { successRate: data.successRate } : {}),
               ...(data.responseTime !== undefined ? { responseTime: data.responseTime } : {}),
               ...(data.availabilityText !== undefined ? { availabilityText: data.availabilityText } : {}),
+              ...(nextMetadata ? { metadata: nextMetadata as Prisma.InputJsonValue } : {}),
             },
             update: {
               ...(data.tags !== undefined ? { tags: data.tags } : {}),
@@ -245,6 +263,7 @@ export async function PATCH(
               ...(data.successRate !== undefined ? { successRate: data.successRate } : {}),
               ...(data.responseTime !== undefined ? { responseTime: data.responseTime } : {}),
               ...(data.availabilityText !== undefined ? { availabilityText: data.availabilityText } : {}),
+              ...(nextMetadata ? { metadata: nextMetadata as Prisma.InputJsonValue } : {}),
             },
           });
         }
@@ -383,7 +402,7 @@ export async function PATCH(
         }
 
         return { notFound: false as const, id: existing.id, slug: data.slug ?? existing.slug };
-      }, { timeout: 15_000, maxWait: 8_000 }),
+      }, { timeout: 20_000, maxWait: 20_000 }),
     );
 
     if (result.notFound) {

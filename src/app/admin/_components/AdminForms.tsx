@@ -59,6 +59,41 @@ function faqsToText(faqs: Array<{ question: string; answer: string }> | undefine
   return faqs.map((f) => `${f.question}\n${f.answer}`).join("\n\n");
 }
 
+// "Qualifications & Background" cards: title on the first line, its description
+// on the next line(s), a BLANK line between each. A title with no description
+// line renders as a title-only card. Same block format as the FAQ editor.
+function textToQualifications(value: FormDataEntryValue | null): Array<{ title: string; description: string }> {
+  if (typeof value !== "string") return [];
+  const text = value.replace(/\r\n/g, "\n").trim();
+  if (!text) return [];
+
+  const items: Array<{ title: string; description: string }> = [];
+  for (const block of text.split(/\n\s*\n/)) {
+    const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
+    if (lines.length === 0) continue;
+
+    // "Title :: Description" on a single line.
+    const sep = lines[0].indexOf("::");
+    if (lines.length === 1 && sep !== -1) {
+      const title = lines[0].slice(0, sep).trim();
+      const description = lines[0].slice(sep + 2).trim();
+      if (title) items.push({ title, description });
+      continue;
+    }
+
+    // First line = title, remaining lines = description (description optional).
+    const title = lines[0];
+    const description = lines.slice(1).join(" ").trim();
+    if (title) items.push({ title, description });
+  }
+  return items;
+}
+
+function qualificationsToText(items: Array<{ title: string; description: string }> | undefined): string {
+  if (!items?.length) return "";
+  return items.map((q) => (q.description ? `${q.title}\n${q.description}` : q.title)).join("\n\n");
+}
+
 export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
@@ -115,6 +150,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       availabilityText: (fd.get("availabilityText") as string) || null,
       methodology: (fd.get("methodology") as string) || null,
       faqs: textToFaqs(fd.get("faqsText")),
+      qualifications: textToQualifications(fd.get("qualificationsText")),
       verified: fd.get("verified") === "true",
       approved: fd.get("approved") === "true",
       avatarUrl,
@@ -271,6 +307,11 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
         name="faqsText"
         label="Teacher FAQs (shown on the public profile) — write the question on one line, the answer on the next, and leave a BLANK line between each FAQ"
         defaultValue={faqsToText(tutor?.faqs)}
+      />
+      <Textarea
+        name="qualificationsText"
+        label="Qualifications & Background (shown on the public profile) — write the qualification title on one line, its description on the next, and leave a BLANK line between each. Description is optional. Each tutor can have its own."
+        defaultValue={qualificationsToText(tutor?.qualifications)}
       />
 
       <label className="flex items-center gap-2 text-sm font-bold text-slate-300">

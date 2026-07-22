@@ -111,10 +111,10 @@ export default async function TutorReachPage({ params }: Props) {
 
       <article className="container mx-auto max-w-3xl px-4 pt-8 md:px-6 md:pt-10">
         <Link
-          href="/tutors/"
+          href={`/tutor-profile/${page.tutor.slug}/`}
           className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-muted-foreground transition-colors hover:text-primary"
         >
-          <ArrowLeft className="size-4" /> All tutors
+          <ArrowLeft className="size-4" /> Back to {page.tutor.displayName}
         </Link>
 
         <div className="mb-5 flex flex-wrap items-center gap-2">

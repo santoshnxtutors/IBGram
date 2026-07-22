@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -21,23 +22,43 @@ export type TutorReachLink = {
    city: string | null;
 };
 
+// Keep the "Qualifications & Background" cards a uniform size: cap each
+// description at 30 words and scale the font to the length so short and long
+// entries fill their card evenly (equal-height grid, not small-and-big).
+const QUALIFICATION_WORD_LIMIT = 30;
+
+function capWords(text: string, limit: number): string {
+   const words = text.trim().split(/\s+/).filter(Boolean);
+   return words.length <= limit ? text.trim() : `${words.slice(0, limit).join(" ")}…`;
+}
+
+function qualificationFontClass(text: string): string {
+   const count = text.trim().split(/\s+/).filter(Boolean).length;
+   if (count <= 14) return "text-base";
+   if (count <= 22) return "text-sm";
+   return "text-xs";
+}
+
 export default function TutorProfileClient({
    tutor,
    reviews = [],
+   reachPages = [],
 }: {
    tutor: Tutor;
    reviews?: PublicTutorReview[];
    reachPages?: TutorReachLink[];
 }) {
-   return <TutorProfileContent tutor={tutor} reviews={reviews} />;
+   return <TutorProfileContent tutor={tutor} reviews={reviews} reachPages={reachPages} />;
 }
 
 function TutorProfileContent({
    tutor,
    reviews,
+   reachPages,
 }: {
    tutor: Tutor;
    reviews: PublicTutorReview[];
+   reachPages: TutorReachLink[];
 }) {
    const router = useRouter();
    const [demoOpen, setDemoOpen] = useState(false);
@@ -75,7 +96,7 @@ function TutorProfileContent({
 
    return (
       <div className="min-h-screen bg-background text-foreground">
-         <div className="h-24 md:h-32" />
+         <div className="h-6 md:h-20" />
 
          <div className="container max-w-6xl mx-auto px-4 md:px-6">
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
@@ -243,18 +264,31 @@ function TutorProfileContent({
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
                            <Award className="size-6 text-primary" /> Qualifications & Background
                         </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                           {tutor.tags.map((tag, idx) => (
-                              <div key={idx} className="flex items-start gap-4 p-5 rounded-2xl bg-card border border-border">
-                                 <div className="size-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
-                                    <CheckCircle2 className="size-5 text-primary" />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+                           {(tutor.qualifications?.length
+                              ? tutor.qualifications
+                              : tutor.tags.map((tag) => ({
+                                   title: tag,
+                                   description: "Reviewed for profile quality, subject familiarity and teaching reliability.",
+                                }))
+                           ).map((item, idx) => {
+                              const description = capWords(item.description, QUALIFICATION_WORD_LIMIT);
+                              return (
+                                 <div key={idx} className="h-full p-5 rounded-2xl bg-card border border-border">
+                                    <div className="mb-2 flex items-center gap-3">
+                                       <div className="size-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                                          <CheckCircle2 className="size-5 text-primary" />
+                                       </div>
+                                       <h4 className="font-bold text-foreground text-lg">{item.title}</h4>
+                                    </div>
+                                    {description ? (
+                                       <p className={`${qualificationFontClass(description)} text-muted-foreground font-medium leading-relaxed`}>
+                                          {description}
+                                       </p>
+                                    ) : null}
                                  </div>
-                                 <div>
-                                    <h4 className="font-bold text-foreground text-lg mb-1">{tag}</h4>
-                                    <p className="text-sm text-muted-foreground font-medium">Reviewed for profile quality, subject familiarity and teaching reliability.</p>
-                                 </div>
-                              </div>
-                           ))}
+                              );
+                           })}
                         </div>
                      </section>
 
@@ -337,6 +371,29 @@ function TutorProfileContent({
                </motion.div>
             </div>
          </div>
+
+         {reachPages.length > 0 && (
+            <footer className="mt-10 border-t border-border/60 bg-card/20">
+               <div className="container max-w-6xl mx-auto px-4 py-8 md:px-6">
+                  <h3 className="mb-4 text-xs font-black uppercase tracking-[0.18em] text-muted-foreground">
+                     Explore {tutor.name} Tutoring Services
+                  </h3>
+                  <ul className="grid grid-cols-1 gap-x-8 gap-y-0.5 sm:grid-cols-2 lg:grid-cols-3">
+                     {reachPages.map((page) => (
+                        <li key={page.slug} className="min-w-0">
+                           <Link
+                              href={`/tutor/${page.slug}/`}
+                              title={`${[page.board, page.subject, page.mode].filter(Boolean).join(" ")} Tutor`}
+                              className="block truncate py-1 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                           >
+                              {[page.board, page.subject, page.mode].filter(Boolean).join(" ")} Tutor
+                           </Link>
+                        </li>
+                     ))}
+                  </ul>
+               </div>
+            </footer>
+         )}
 
          <BookDemoModal
             open={demoOpen}

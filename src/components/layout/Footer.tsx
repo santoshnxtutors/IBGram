@@ -134,10 +134,10 @@ export function Footer() {
 
         <div className="border-t border-border pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-semibold text-muted-foreground">
           <p>©(2018-2026) IB Gram. All rights reserved.</p>
-          <div className="flex gap-4">
-            <span>Independent tutoring platform</span>
+          <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4 text-center">
+            <span className="whitespace-nowrap">Independent tutoring platform</span>
             <span className="hidden md:inline">|</span>
-            <span>Availability varies by subject, level and mode</span>
+            <span className="whitespace-nowrap">Availability varies by subject, level and mode</span>
           </div>
         </div>
       </div>

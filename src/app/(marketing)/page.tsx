@@ -9,6 +9,7 @@ import { BlogInsights } from "@/components/home/BlogInsights";
 import { getPublicHomepageReviews, getPublicSuccessStories } from "@/lib/cms/public-reviews";
 import { getPublicHomepageFaqs } from "@/lib/cms/public-faqs";
 import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
+import { CONTACT } from "@/lib/contact";
 
 const CourseExplorer = nextDynamic(() => import("@/components/home/CourseExplorer").then((mod) => mod.CourseExplorer));
 const TutorDiscovery = nextDynamic(() => import("@/components/home/TutorDiscovery").then((mod) => mod.TutorDiscovery));
@@ -27,20 +28,53 @@ export const metadata: Metadata = {
 const homepageJsonLd = [
   {
     "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
+    "@type": ["EducationalOrganization", "LocalBusiness"],
+    "@id": "https://www.ibgram.com/#organization",
     name: "IB Gram",
+    alternateName: "IB Gram — IB & IGCSE Tutors in Gurugram (Gurgaon)",
     url: "https://www.ibgram.com/",
     logo: "https://www.ibgram.com/ibgramlogo.png",
+    image: "https://www.ibgram.com/ibgramlogo.png",
     description:
-      "IB Gram helps families connect with IB and IGCSE tutors for PYP, MYP, DP and IGCSE subjects across home, online and hybrid learning.",
-    areaServed: ["India", "United Arab Emirates", "Singapore", "United Kingdom", "United States"],
-    sameAs: ["https://www.ibgram.com/"],
+      "IB Gram connects families with verified IB and IGCSE tutors for PYP, MYP, DP and IGCSE subjects across home, online and hybrid learning — based in Gurugram (Gurgaon) and serving families across India.",
+    telephone: CONTACT.phoneTel,
+    email: CONTACT.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: `${CONTACT.addressLine1}, ${CONTACT.addressLine2}`,
+      addressLocality: CONTACT.addressCity,
+      addressRegion: CONTACT.addressState,
+      postalCode: CONTACT.addressPostal,
+      addressCountry: CONTACT.addressCountry,
+    },
+    hasMap: CONTACT.mapUrl,
+    areaServed: [
+      { "@type": "City", name: "Gurugram" },
+      { "@type": "City", name: "Gurgaon" },
+      "Delhi NCR",
+      "India",
+      "United Arab Emirates",
+      "Singapore",
+      "United Kingdom",
+    ],
+    priceRange: "₹₹",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: CONTACT.phoneTel,
+      email: CONTACT.email,
+      contactType: "customer service",
+      areaServed: "IN",
+      availableLanguage: ["English", "Hindi"],
+    },
+    sameAs: [CONTACT.mapUrl, "https://www.ibgram.com/"],
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://www.ibgram.com/#website",
     name: "IB Gram",
     url: "https://www.ibgram.com/",
+    publisher: { "@id": "https://www.ibgram.com/#organization" },
   },
 ];
 

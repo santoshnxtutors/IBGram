@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { MapPin, Globe2, ChevronRight, Search, X, LocateFixed } from "lucide-react";
@@ -248,6 +248,31 @@ function SearchableSelect({
 }
 
 // ─── Modal ────────────────────────────────────────────────────────────────────
+// Runs at most once per page load (LocalizationModal is mounted twice — desktop
+// + mobile header — so guard against a double IP lookup).
+let autoDetectAttempted = false;
+
+/**
+ * IP-based location lookup — no browser permission prompt, so it can run
+ * silently on first visit. Returns the nearest supported city or null on any
+ * failure (network, CORS, rate limit) so the visitor can still pick manually.
+ */
+async function detectCityByIp(): Promise<DetectableLocation | null> {
+  try {
+    const res = await fetch("https://get.geojs.io/v1/ip/geo.json", { cache: "no-store" });
+    if (!res.ok) return null;
+    const data = (await res.json()) as { latitude?: string | number; longitude?: string | number };
+    const lat = Number(data.latitude);
+    const lon = Number(data.longitude);
+    if (Number.isFinite(lat) && Number.isFinite(lon)) {
+      return findNearestSupportedLocation(lat, lon) ?? null;
+    }
+  } catch {
+    // Ignore — auto-detect is best-effort; manual selection still works.
+  }
+  return null;
+}
+
 export function LocalizationModal({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [country, setCountry] = useState("");
@@ -296,6 +321,26 @@ export function LocalizationModal({ children }: { children: React.ReactNode }) {
     localStorage.setItem("ibgram_city", nextCity);
     window.dispatchEvent(new Event("ibgram_location_updated"));
   };
+
+  // Auto-detect the visitor's nearest supported city on first visit (IP-based,
+  // no permission prompt). Skips if a location is already saved so a returning
+  // visitor's manual choice is always respected.
+  useEffect(() => {
+    if (autoDetectAttempted) return;
+    autoDetectAttempted = true;
+    if (localStorage.getItem("ibgram_city")) return;
+
+    let cancelled = false;
+    void (async () => {
+      const detected = await detectCityByIp();
+      if (cancelled || !detected) return;
+      if (localStorage.getItem("ibgram_city")) return; // guard a manual pick mid-lookup
+      saveLocation(detected.country, toCityValue(detected.city));
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const handleSave = () => {
     if (country && city) {

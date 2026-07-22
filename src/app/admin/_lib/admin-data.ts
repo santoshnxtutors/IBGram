@@ -3,7 +3,7 @@ import "server-only";
 import { existsSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 
-import { allTutors } from "@/lib/tutor-data";
+import { allTutors, parseTutorModes, parseTutorQualifications } from "@/lib/tutor-data";
 import { getAllCitySeoPages } from "@/lib/seo/city-pages";
 import { getAllIgcseCityPages } from "@/lib/seo/igcse-city-pages";
 import { CITY_CONTENT_PAGE_SLUGS } from "@/lib/seo/internal-links";
@@ -283,13 +283,16 @@ async function getTutorsFromDb(): Promise<AdminTutorRecord[] | null> {
         ibSubjects: tutor.subjects.filter((s) => s.curriculum === "IB").map((s) => s.subjectName),
         igcseSubjects: tutor.subjects.filter((s) => s.curriculum === "IGCSE").map((s) => s.subjectName),
         subjectLevels: unique(tutor.subjects.map((s) => s.level)),
-        teachingModes: primaryLocation
-          ? [
-              primaryLocation.homeTutoringAvailable ? "home" : "",
-              primaryLocation.onlineTutoringAvailable ? "online" : "",
-              primaryLocation.hybridTutoringAvailable ? "hybrid" : "",
-            ].filter(Boolean)
-          : [],
+        teachingModes:
+          parseTutorModes(tutor.profile?.metadata).length > 0
+            ? parseTutorModes(tutor.profile?.metadata)
+            : primaryLocation
+              ? [
+                  primaryLocation.homeTutoringAvailable ? "home" : "",
+                  primaryLocation.onlineTutoringAvailable ? "online" : "",
+                  primaryLocation.hybridTutoringAvailable ? "hybrid" : "",
+                ].filter(Boolean)
+              : [],
         primaryCity: primaryLocation?.cityName ?? "",
         availableCities: unique(tutor.locations.map((l) => l.cityName)),
         availableAreas: unique(tutor.locations.map((l) => l.areaName)),
@@ -313,6 +316,7 @@ async function getTutorsFromDb(): Promise<AdminTutorRecord[] | null> {
         methodology: tutor.profile?.methodology ?? null,
         tags: tutor.profile?.tags ?? [],
         languages: tutor.profile?.languages ?? [],
+        qualifications: parseTutorQualifications(tutor.profile?.metadata),
         lastUpdated: tutor.updatedAt.toISOString().slice(0, 10),
       } satisfies AdminTutorRecord;
     });

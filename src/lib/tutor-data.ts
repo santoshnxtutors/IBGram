@@ -3,6 +3,42 @@
   answer: string;
 }
 
+export interface TutorQualification {
+  title: string;
+  description: string;
+}
+
+/**
+ * Parse per-tutor "Qualifications & Background" entries out of the
+ * TutorProfile.metadata JSON column. Accepts either the raw array or the
+ * `{ qualifications: [...] }` wrapper. Drops entries without a title.
+ */
+export function parseTutorQualifications(value: unknown): TutorQualification[] {
+  const arr =
+    value && typeof value === "object" && !Array.isArray(value)
+      ? (value as { qualifications?: unknown }).qualifications
+      : value;
+  if (!Array.isArray(arr)) return [];
+  return arr
+    .filter((q): q is { title?: unknown; description?: unknown } => typeof q === "object" && q !== null)
+    .map((q) => ({ title: String(q.title ?? "").trim(), description: String(q.description ?? "").trim() }))
+    .filter((q) => q.title);
+}
+
+/**
+ * Read the raw teaching-modes list a tutor saved (verbatim, e.g.
+ * "online(usa/canada/australia)") out of the TutorProfile.metadata JSON.
+ * Used for DISPLAY only — matching still uses the home/online/hybrid booleans.
+ */
+export function parseTutorModes(value: unknown): string[] {
+  const arr =
+    value && typeof value === "object" && !Array.isArray(value)
+      ? (value as { teachingModes?: unknown }).teachingModes
+      : undefined;
+  if (!Array.isArray(arr)) return [];
+  return arr.map((m) => String(m).trim()).filter(Boolean);
+}
+
 export interface Tutor {
   id: number | string;
   slug?: string;
@@ -25,6 +61,7 @@ export interface Tutor {
   methodology: string;
   curriculum: "IB" | "IGCSE" | "Both";
   faqs?: TutorFaq[];
+  qualifications?: TutorQualification[];
 }
 
 export type TutorCurriculum = "IB" | "IGCSE";
@@ -89,6 +126,8 @@ export interface Tutor {
   homeTutoringAvailable: boolean;
   onlineTutoringAvailable: boolean;
   hybridTutoringAvailable: boolean;
+  /** Verbatim teaching-modes text the admin typed, shown on the card as-is. */
+  displayModes?: string[];
   travelNotes: string;
   locationAvailabilityNotes: string;
   locations: TutorLocation[];

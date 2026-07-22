@@ -107,6 +107,7 @@ export interface AdminTutorRecord {
   methodology?: string | null;
   tags?: string[];
   languages?: string[];
+  qualifications?: { title: string; description: string }[];
   lastUpdated: string;
 }
 

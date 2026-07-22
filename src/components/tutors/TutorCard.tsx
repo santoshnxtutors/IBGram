@@ -23,6 +23,7 @@ export type TutorCardProfile = {
   homeTutoringAvailable?: boolean;
   onlineTutoringAvailable?: boolean;
   hybridTutoringAvailable?: boolean;
+  displayModes?: string[];
 };
 
 type TutorCardProps = {
@@ -46,17 +47,20 @@ function getCurriculumLine(tutor: TutorCardProfile) {
 }
 
 function getModeLine(tutor: TutorCardProfile) {
-  const modes = [
+  // Show exactly what the admin saved when present; otherwise fall back to the
+  // home/online/hybrid availability flags.
+  if (tutor.displayModes?.length) return tutor.displayModes.join(" / ");
+  return [
     tutor.homeTutoringAvailable ? "Home" : null,
     tutor.onlineTutoringAvailable ? "Online" : null,
     tutor.hybridTutoringAvailable ? "Hybrid" : null,
-  ].filter(Boolean);
-  return modes.length ? `${modes.join(" / ")} availability reviewed` : "Online availability reviewed";
+  ]
+    .filter(Boolean)
+    .join(" / ");
 }
 
 function getLocationLine(tutor: TutorCardProfile) {
-  if (!tutor.primaryCity) return "Availability reviewed by location";
-  return `${tutor.primaryCity}${tutor.availableAreas?.length ? `, ${tutor.availableAreas[0]}` : ""}`;
+  return [tutor.primaryCity, tutor.availableAreas?.[0]].filter(Boolean).join(", ");
 }
 
 export function TutorCard({
@@ -148,8 +152,9 @@ export function TutorCard({
 
           <motion.div layoutId={`stats-${scopedId}`} className="mb-6 flex flex-wrap items-center gap-2.5 text-sm font-bold sm:gap-3">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary/15 px-2.5 py-1 text-white/90">
+              {formatRating(tutor.rating)}
               <Star className="size-4 fill-current text-secondary" />
-              {formatRating(tutor.rating)} <span className="font-medium text-white/70">profile reviews</span>
+              <span className="font-medium text-white/70">rating</span>
             </span>
             {tutor.experience ? (
               <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/15 px-2.5 py-1 text-white/90">

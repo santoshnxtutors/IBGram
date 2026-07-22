@@ -67,6 +67,9 @@ export async function POST(request: NextRequest) {
           availabilityText: data.availabilityText ?? null,
           languages: data.languages ?? [],
           tags: data.tags ?? [],
+          ...(data.qualifications || data.teachingModes
+            ? { metadata: { qualifications: data.qualifications ?? [], teachingModes: data.teachingModes ?? [] } }
+            : {}),
         },
       });
 
@@ -165,6 +168,7 @@ const createTutorSchema = z.object({
   availabilityText: z.string().max(500).optional().nullable(),
   methodology: z.string().max(4000).optional().nullable(),
   faqs: z.array(z.object({ question: z.string().min(1), answer: z.string().min(1) })).optional(),
+  qualifications: z.array(z.object({ title: z.string().min(1), description: z.string().max(600).default("") })).optional(),
 });
 
 function buildCurriculumRows(tutorId: string, curriculums: string[] = ["IB"], ibProgrammes: string[] = []) {
@@ -200,15 +204,17 @@ function buildLocationRows(
   modes: string[] | undefined,
   notes: string | null | undefined,
 ) {
-  const modeSet = new Set((modes ?? []).map((mode) => mode.trim().toLowerCase()).filter(Boolean));
+  // Substring match so free-text modes like "online(usa/canada/australia)"
+  // still register as online for the matching engine.
+  const modeText = (modes ?? []).join(" ").toLowerCase();
   const base = {
     tutorId,
     cityId: city.id,
     cityName: city.name,
     citySlug: city.slug,
-    homeTutoringAvailable: modeSet.has("home"),
-    onlineTutoringAvailable: modeSet.has("online") || modeSet.size === 0,
-    hybridTutoringAvailable: modeSet.has("hybrid"),
+    homeTutoringAvailable: modeText.includes("home"),
+    onlineTutoringAvailable: modeText.includes("online") || !modeText.trim(),
+    hybridTutoringAvailable: modeText.includes("hybrid"),
     notes: notes ?? null,
     isActive: true,
   };

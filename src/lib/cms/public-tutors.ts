@@ -1,7 +1,7 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/db";
-import type { Tutor, TutorFaq, TutorLocation as StaticTutorLocation } from "@/lib/tutor-data";
+import { parseTutorModes, parseTutorQualifications, type Tutor, type TutorFaq, type TutorLocation as StaticTutorLocation } from "@/lib/tutor-data";
 
 type AnyTutorId = Tutor["id"];
 
@@ -16,6 +16,40 @@ function parsePublicFaqs(value: unknown): TutorFaq[] {
 
 function uniq<T>(values: Array<T | null | undefined>): T[] {
   return [...new Set(values.filter((v): v is T => v !== null && v !== undefined && v !== ""))];
+}
+
+/** True for transient DB pool / connection errors worth retrying. */
+function isTransientDbError(err: unknown): boolean {
+  const msg = (err instanceof Error ? err.message : String(err)).toLowerCase();
+  return (
+    msg.includes("too many database connections") ||
+    msg.includes("remaining connection slots") ||
+    msg.includes("timed out fetching a new connection") ||
+    msg.includes("connection terminated") ||
+    msg.includes("can't reach database server") ||
+    msg.includes("server has closed the connection") ||
+    msg.includes("unable to start a transaction") ||
+    msg.includes("p1001") ||
+    msg.includes("p1002") ||
+    msg.includes("p2024") ||
+    msg.includes("p2028") ||
+    msg.includes("p2037")
+  );
+}
+
+/** Retry a DB read a few times so a transient pool blip doesn't blank the page. */
+async function queryWithRetry<T>(op: () => Promise<T>, attempts = 3, baseMs = 300): Promise<T> {
+  let lastErr: unknown;
+  for (let attempt = 0; attempt < attempts; attempt++) {
+    try {
+      return await op();
+    } catch (err) {
+      lastErr = err;
+      if (!isTransientDbError(err) || attempt === attempts - 1) throw err;
+      await new Promise((resolve) => setTimeout(resolve, baseMs * 2 ** attempt));
+    }
+  }
+  throw lastErr;
 }
 
 /**
@@ -52,16 +86,18 @@ function normaliseImageUrl(value: string | null | undefined): string {
 export const getPublicTutorsFromDb = unstable_cache(
   async (): Promise<Tutor[] | null> => {
     try {
-      const rows = await prisma.tutor.findMany({
-        where: { deletedAt: null, status: "active", approved: true },
-        include: {
-          profile: true,
-          subjects: true,
-          curriculums: true,
-          locations: { orderBy: { priority: "asc" } },
-        },
-        orderBy: [{ rating: "desc" }, { displayName: "asc" }],
-      });
+      const rows = await queryWithRetry(() =>
+        prisma.tutor.findMany({
+          where: { deletedAt: null, status: "active", approved: true },
+          include: {
+            profile: true,
+            subjects: true,
+            curriculums: true,
+            locations: { orderBy: { priority: "asc" } },
+          },
+          orderBy: [{ rating: "desc" }, { displayName: "asc" }],
+        }),
+      );
       return rows.map(mapPrismaToTutor);
     } catch {
       return null;
@@ -140,6 +176,8 @@ export function mapPrismaToTutor(row: Awaited<ReturnType<typeof prisma.tutor.fin
     methodology: row.profile?.methodology ?? "",
     curriculum: curriculumLabel,
     faqs: parsePublicFaqs(row.faqs),
+    qualifications: parseTutorQualifications(row.profile?.metadata),
+    displayModes: parseTutorModes(row.profile?.metadata),
 
     // Enriched fields used by the matching engine
     isActive: row.status === "active",

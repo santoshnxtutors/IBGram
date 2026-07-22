@@ -65,6 +65,32 @@ export function SubjectPageView({ curriculum, subject, content, visibleTutors }:
     url: pageUrl,
     inLanguage: "en",
     educationalCredentialAwarded: content.curriculumLabel,
+    // hasCourseInstance is REQUIRED by Google for Course rich results (2023+).
+    // Tutoring is delivered as flexible one-to-one sessions across modes.
+    hasCourseInstance: [
+      {
+        "@type": "CourseInstance",
+        courseMode: ["Online", "Onsite", "Blended"],
+        courseWorkload: "PT1H30M",
+        location: {
+          "@type": "Place",
+          name: "Home tutoring, online and hybrid across India",
+          address: { "@type": "PostalAddress", addressCountry: "IN" },
+        },
+        instructor: {
+          "@type": "Organization",
+          name: "IB Gram verified tutors",
+          url: absoluteUrl("/tutors/"),
+        },
+      },
+    ],
+    offers: {
+      "@type": "Offer",
+      category: "Paid",
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+      url: pageUrl,
+    },
   };
 
   const graphSchema = {
