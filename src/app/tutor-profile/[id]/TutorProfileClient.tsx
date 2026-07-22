@@ -376,7 +376,7 @@ function TutorProfileContent({
             <footer className="mt-10 border-t border-border/60 bg-card/20">
                <div className="container max-w-6xl mx-auto px-4 py-8 md:px-6">
                   <h3 className="mb-4 text-xs font-black uppercase tracking-[0.18em] text-muted-foreground">
-                     Explore {tutor.name} Tutoring Services
+                     Explore More About {tutor.name} Expertise
                   </h3>
                   <ul className="grid grid-cols-1 gap-x-8 gap-y-0.5 sm:grid-cols-2 lg:grid-cols-3">
                      {reachPages.map((page) => (
