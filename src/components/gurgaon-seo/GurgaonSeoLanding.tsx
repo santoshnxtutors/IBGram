@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BookOpenCheck, CheckCircle2, MapPin, MessageCircleQuestion, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, MapPin, MessageCircleQuestion, ShieldCheck } from "lucide-react";
 import { HeroHighlights } from "@/components/shared/HeroHighlights";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
 import { JsonLd } from "@/components/seo-city/JsonLd";

@@ -17,6 +17,8 @@ const AGENT_DIR = path.join(ROOT, "tmp", "seo", "agent-out");
 const OUT_DIR = path.join(ROOT, "tmp", "seo", "out");
 const SITE = "https://www.ibgram.com";
 
+// These scripts walk untyped JSON from the content pipeline; a loose bag is the point.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Any = Record<string, any>;
 
 const briefIndex: Any[] = JSON.parse(readFileSync(path.join(ROOT, "tmp", "seo", "brief-index.json"), "utf8"));
@@ -169,7 +171,7 @@ function finalize(key: string): { ok: boolean; note: string } {
     type: b.type,
     heading: String(b.heading ?? "").trim(),
     body: String(b.body ?? "").trim(),
-    items: Array.isArray(b.items) ? b.items.map((i: any) => String(i).trim()).filter(Boolean) : [],
+    items: Array.isArray(b.items) ? b.items.map((i: unknown) => String(i).trim()).filter(Boolean) : [],
   }));
   const faqs = (agent.faqs ?? []).map((f: Any) => ({ question: String(f.question ?? "").trim(), answer: String(f.answer ?? "").trim() }));
 

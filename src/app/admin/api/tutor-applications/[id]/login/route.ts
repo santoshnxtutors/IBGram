@@ -16,7 +16,6 @@ async function uniqueUsername(seed: string): Promise<string> {
   const base = seed.split("@")[0].toLowerCase().replace(/[^a-z0-9]+/g, "").slice(0, 24) || "tutor";
   let username = base;
   let i = 1;
-  // eslint-disable-next-line no-await-in-loop
   while (await prisma.user.findUnique({ where: { username }, select: { id: true } })) {
     i += 1;
     username = `${base}${i}`;

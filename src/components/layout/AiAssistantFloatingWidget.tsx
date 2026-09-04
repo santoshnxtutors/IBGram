@@ -8,10 +8,9 @@ type AiAssistantFloatingWidgetProps = {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   /** Hide the built-in round launcher when something else (the rail) opens this. */
-  hideLauncher?: boolean;
 };
 
-export function AiAssistantFloatingWidget({ open, onOpenChange, hideLauncher = false }: AiAssistantFloatingWidgetProps = {}) {
+export function AiAssistantFloatingWidget({ open, onOpenChange }: AiAssistantFloatingWidgetProps = {}) {
   const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
   const isOpen = open ?? uncontrolledOpen;
   const setIsOpen = (next: boolean) => (onOpenChange ? onOpenChange(next) : setUncontrolledOpen(next));

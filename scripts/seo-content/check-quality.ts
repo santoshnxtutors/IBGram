@@ -66,6 +66,8 @@ function isNegated(text: string, index: number, matchLength: number): boolean {
   return NEGATORS.test(before) || NEGATORS.test(after) || REPUDIATORS.test(before) || REPUDIATORS.test(after);
 }
 
+// These scripts walk untyped JSON from the content pipeline; a loose bag is the point.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Any = Record<string, any>;
 
 function pageText(p: Any): string {

@@ -38,7 +38,6 @@ async function uniqueTutorSlug(base: string): Promise<string> {
   const root = slugify(base);
   let slug = root;
   let i = 1;
-  // eslint-disable-next-line no-await-in-loop
   while (await prisma.tutor.findUnique({ where: { slug }, select: { id: true } })) {
     i += 1;
     slug = `${root}-${i}`;

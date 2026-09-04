@@ -11,6 +11,8 @@ const ROOT = process.cwd();
 const CTX = path.join(ROOT, "tmp", "seo", "url-context.json");
 const OUT_DIR = path.join(ROOT, "tmp", "seo", "briefs");
 
+// These scripts walk untyped JSON from the content pipeline; a loose bag is the point.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Any = Record<string, any>;
 
 /** Distinct opening angles - rotated so neighbouring pages never read alike. */
