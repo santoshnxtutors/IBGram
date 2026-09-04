@@ -120,67 +120,67 @@ export const igcseFaqs: GeneratedFaq[] = [
   {
     question: "Do IGCSE tutors support both Cambridge and Pearson Edexcel?",
     answer:
-      "Yes. Tutor matching can consider Cambridge IGCSE and Pearson Edexcel International GCSE requirements, including syllabus code, subject, tier, paper route and school timeline.",
+      "Yes. Matching considers the exact board, syllabus code, tier and paper route your school has entered the student for. This matters more than it sounds: Cambridge and Edexcel reward different answer structures, so a tutor who knows one board's mark scheme is not automatically the right fit for the other.",
   },
   {
-    question: "Can a tutor help decide between Core and Extended or Foundation and Higher?",
+    question: "Can a tutor help decide between Core and Extended, or Foundation and Higher?",
     answer:
-      "A tutor can review current performance, school guidance and exam goals, then help families understand the tradeoffs. Final entry decisions should be confirmed with the school.",
+      "A tutor can assess current accuracy under timed conditions and explain what each tier caps or unlocks, including the grade ceiling on Core and Foundation papers. The final entry decision sits with the school, and entry deadlines are firm, so it is worth resolving this early in Grade 10 rather than close to the exam series.",
   },
   {
-    question: "Do you provide IGCSE home tutors?",
+    question: "Do you work with IGCSE families outside India?",
     answer:
-      "Home tutoring depends on city, subject, tutor travel feasibility and schedule. Online tutoring is usually easier to arrange, while hybrid support may be possible in selected areas.",
+      "Yes. IGCSE is taught in over 150 countries, and IB Gram works with families across the UAE, Singapore, the UK, Malaysia, Hong Kong, Europe, North America and India. Online lessons are scheduled in your own time zone around the school day. Home and hybrid lessons depend on a tutor being genuinely local to you.",
   },
   {
     question: "Can tutors help with past papers and mark schemes?",
     answer:
-      "Yes. Strong IGCSE support often uses past papers, examiner-style questions, mark schemes and error logs to improve topic recall, timing and answer structure.",
+      "Yes, and this is usually where the marks are. Sessions can cover timed past-paper practice, mark-scheme interpretation, command-word recognition, and the difference between knowing content and presenting it the way an examiner can credit. Many students lose marks on material they actually understand.",
   },
   {
     question: "Is support available for mocks and final exam revision?",
     answer:
-      "Yes. Families can request short-term mock preparation, full-year subject support or a focused revision plan for Maths, Sciences, English, Economics, Business and other subjects.",
+      "Yes. Revision plans are usually built backwards from the school's mock dates and the May/June or October/November series, prioritising the topics with the widest gap between current and target performance. Starting in the final weeks limits what is realistically achievable, so earlier planning gives more room.",
   },
   {
     question: "Will the tutor write coursework or assignments?",
     answer:
-      "No. Tutors may explain requirements, review planning, teach skills and give feedback, but assessed work must remain student-owned.",
+      "No. Tutors can explain requirements, help plan structure, and review a student's own draft for clarity and technique. They will not write or rewrite assessed work. Coursework submitted under a student's name must be their own, and boards treat malpractice seriously.",
   },
   {
     question: "How are IGCSE tutors shortlisted?",
     answer:
-      "Shortlisting looks at subject fit, board familiarity, level, location, teaching mode, availability, communication style and profile review signals.",
+      "Profiles are reviewed for subject depth against real exam questions, board and paper familiarity, teaching ability assessed separately from subject knowledge, and identity checks before any in-home session. You then compare a short list rather than a long directory, and a trial session confirms fit before any commitment.",
   },
   {
-    question: "Is IB Gram officially affiliated with Cambridge, Pearson or schools?",
+    question: "What does IGCSE tutoring usually cost?",
     answer:
-      "No. IB Gram is an independent tutoring platform. Board and school names are used only to describe curriculum or local context unless an official relationship is specifically stated.",
+      "Fees vary by subject, tier, tutor experience and lesson mode, with sciences and Extended-tier Mathematics typically higher than earlier-years support. Rates are confirmed before you commit, not after a trial. Matching and comparing tutors is free.",
   },
   {
-    question: "Can I find IGCSE tutors in Gurugram, Delhi or Noida?",
+    question: "When in Grade 9 or Grade 10 should we start?",
     answer:
-      "Yes. IGCSE tutor inventory is strongest in central Gurugram (Golf Course Road, DLF Phase 5, Sushant Lok), South Delhi (Vasant Vihar, Saket, Greater Kailash, Defence Colony) and central Noida (Sector 50, Sector 62, Sector 44). For families along the Noida Expressway or in Dwarka and Rohini, online-led lessons usually match a stronger subject specialist than insisting on long-commute home tuition.",
+      "Grade 9 is the cheaper time to fix foundations, particularly in Mathematics and the sciences where Grade 10 content assumes them. Grade 10 support tends to be technique-led: paper timing, mark schemes and tier confirmation. Starting after the mocks is still useful, but the realistic goal narrows.",
   },
   {
     question: "How does board choice change the tutoring approach?",
     answer:
-      "Cambridge IGCSE and Pearson Edexcel International GCSE differ on syllabus codes, paper structure, grading scale and option subjects. Tutors familiar with one board are not always equally effective on the other, especially in Maths, Sciences and Business. We confirm the board explicitly before a match so the right paper style and command-term coaching is applied from week one.",
+      "Cambridge and Edexcel differ in paper combinations, tier structures, coursework availability and the phrasing of command terms. A tutor working to the wrong board can teach correct content in a form that scores poorly. Confirming the syllabus code at the start prevents that.",
   },
   {
-    question: "When in Grade 9 or Grade 10 should we start IGCSE tutoring?",
+    question: "Can the same tutor help with the transition to A-Levels or IB DP?",
     answer:
-      "Two common entry points: late Grade 9 (to consolidate foundations before the heavier Grade 10 calendar) and the start of Grade 10 (to map the year against mocks and final exam windows). Short-cycle mock revision in the four to six weeks before each mock window is also common, especially in Mathematics and the Sciences.",
+      "Often, yes. Some tutors cover both IGCSE and the next stage, whether that is Cambridge or Edexcel A-Level or the IB Diploma. If continuity matters to you, say so during matching so it can be weighed alongside subject fit.",
   },
   {
-    question: "Are there IGCSE tutors who can also help with the Edexcel International A-Level transition?",
+    question: "Can I change the tutor if the fit is not right?",
     answer:
-      "Some IGCSE Sciences and Maths specialists also support the Edexcel International A-Level pathway in Year 12 and Year 13. If you anticipate continuing with the same board into A-Levels, mention that early so the tutor match can plan the bridge.",
+      "Yes, and it is treated as normal. Subject fit and personality fit both matter at this age. Tell IB Gram what did not work and alternative tutors can be reviewed where availability allows.",
   },
   {
-    question: "What does an IGCSE tutoring engagement usually cost?",
+    question: "Is IB Gram officially affiliated with Cambridge, Pearson or any school?",
     answer:
-      "Indicative fees are listed per tutor profile after a discovery conversation. Pricing reflects subject, level, lesson mode (home, online or hybrid) and the tutor's documented examiner or marker experience. There is no fixed contract length — engagements are reviewed every few weeks and most families adjust cadence around mocks and finals.",
+      "No. IB Gram is an independent tutoring platform and is not affiliated with Cambridge Assessment International Education, Pearson Edexcel, the IB Organization or any school unless explicitly stated. School names appear only to describe local academic context. Syllabus content, tier rules and grading are set by the boards.",
   },
 ];
 

@@ -34,7 +34,7 @@ import type {
 import { countWordsAdmin, pathFromUrl, slugifyAdmin } from "./admin-url";
 
 const DOMAIN = "https://ibgram.com";
-const COURSE_SUBJECT_SLUGS = ["pyp", "myp", "dp", "cp", "mathematics", "sciences", "individuals", "individuals-and-societies", "english", "language"];
+const COURSE_SUBJECT_SLUGS = ["pyp", "myp", "dp", "cp", "mathematics", "sciences", "individuals", "individuals-and-societies", "english", "language", "arts"];
 const PUBLIC_PAGE_PRIORITY: Record<AdminPageRecord["source"], number> = {
   generated: 5,
   "city-seo": 4,

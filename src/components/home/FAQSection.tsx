@@ -15,7 +15,7 @@ export interface FAQSectionProps {
   }>;
 }
 
-export function FAQSection({ location = { country: "India", cities: "Mumbai, Delhi NCR, Bangalore, Pune, and Hyderabad" }, items }: FAQSectionProps) {
+export function FAQSection({ location = { country: "15+ countries", cities: "the UAE, Singapore, the UK, the US and India" }, items }: FAQSectionProps) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   const toggleFaq = (idx: number) => {
@@ -25,50 +25,62 @@ export function FAQSection({ location = { country: "India", cities: "Mumbai, Del
   const faqs = items?.length ? items : [
     {
       question: "How does IB Gram match a tutor?",
-      answer: "We look at the curriculum, subject, level, weak areas, school timeline, preferred tutoring mode, schedule and budget. The goal is to help families review a smaller, more relevant set of tutor options instead of a long generic list.",
+      answer: "Matching starts from specifics, not a general request. IB Gram looks at the curriculum, subject, level (SL or HL, Core or Extended), the topics actually going wrong, your school's assessment calendar, your target exam session, preferred lesson mode, time zone and budget. You then compare a short list of relevant tutors rather than scrolling a long generic directory.",
+    },
+    {
+      question: "Do you work with families outside India?",
+      answer: `Yes. IB Gram works with IB and IGCSE families in ${location.country}, including ${location.cities}. Online lessons are scheduled in your own time zone and around your school day, so a student in Dubai, Singapore, London or Toronto is taught at a sensible local hour. Home and hybrid lessons depend on whether a suitable tutor is local to you.`,
     },
     {
       question: "Can I find a tutor for Math AA HL or Math AI HL?",
-      answer: "Yes. IB Gram supports IB Mathematics Analysis and Approaches and Applications and Interpretation at SL and HL, subject to tutor availability and schedule fit.",
+      answer: "Yes. IB Gram covers Mathematics: Analysis and Approaches and Mathematics: Applications and Interpretation at both SL and HL, subject to tutor availability and schedule fit. AA and AI reward different skills, so the match is made against the exact course your school has entered the student for, not 'IB Maths' in general.",
     },
     {
-      question: "Do you support IA, EE and TOK?",
-      answer: "Tutors may help students understand requirements, plan timelines, review structure and practise academic thinking. They must not write assessed work for the student.",
-    },
-    {
-      question: "Can I choose home, online or hybrid tutoring?",
-      answer: `Yes, depending on the subject, city and tutor schedule. Online tutoring is available widely, while home and hybrid tutoring depend on local availability in ${location.country}, including areas such as ${location.cities}.`,
+      question: "Do you support the IA, Extended Essay and TOK?",
+      answer: "Tutors can help a student understand the criteria, choose a workable research question, plan a realistic timeline, structure an argument and review drafts for clarity and command-term use. They will not write, co-write or edit assessed work for the student. That would breach IB academic integrity rules and put the student's diploma at risk.",
     },
     {
       question: "Do you support both IB and IGCSE?",
-      answer: "Yes. Families can look for support across PYP, MYP, DP and IGCSE subjects including Math, Physics, Chemistry, Biology, Economics, Business Management and English.",
+      answer: "Yes. Support spans IB PYP, MYP, DP and CP, plus Cambridge IGCSE and Pearson Edexcel International GCSE. Subjects include Mathematics, Physics, Chemistry, Biology, Economics, Business Management, Computer Science, English and languages. Families with siblings on different tracks often use the same platform for both.",
+    },
+    {
+      question: "Can I choose home, online or hybrid tutoring?",
+      answer: "Online is available worldwide and is usually the strongest option for rare HL subjects, IA review and exam-season continuity, because it removes travel from the equation. Home tutoring depends on a tutor being genuinely local to you and able to travel reliably. Hybrid combines in-person accountability with online specialist access.",
+    },
+    {
+      question: "What happens in the first session?",
+      answer: "The first session is diagnostic rather than a sales call. The tutor works through a real topic, not small talk, so you can see how they explain a concept, how they handle a wrong answer, and whether the pace suits your child. Most families decide from that session rather than from a profile description.",
+    },
+    {
+      question: "How much does tutoring cost?",
+      answer: "Fees vary by subject, level, tutor experience and lesson mode, and HL or specialist subjects typically sit higher than earlier-years support. IB Gram confirms the rate with you before any commitment rather than after a trial. There is no charge for being matched or for comparing tutor options.",
     },
     {
       question: "How quickly can a tutor be arranged?",
-      answer: "Timelines depend on the subject, level, schedule and tutoring mode. Some online matches can be reviewed quickly, while home tutoring may take longer because location and travel feasibility matter.",
+      answer: "Online matches can often be reviewed quickly because time zone is the only scheduling constraint. Home tutoring takes longer, since travel feasibility and local availability both have to work. Exam season and the weeks before IA deadlines are the busiest periods, so starting earlier gives you more choice.",
     },
     {
-      question: "Are tutors verified?",
-      answer: "Tutor profiles are reviewed for identity, subject familiarity, teaching experience, communication and reliability signals. Verification supports safer selection, but it is not a guarantee of results.",
+      question: "Are tutors verified, and what does that actually mean?",
+      answer: "Profiles are reviewed for identity, subject background, exam-board familiarity, teaching experience and reliability signals, and identity checks are required before any in-home session. Verification supports a safer, better-informed choice. It is not a guarantee of a particular grade, and any platform promising one should be treated with caution.",
     },
     {
       question: "Will the tutor communicate progress to parents?",
-      answer: "Parents can ask for concise updates after sessions, including what was covered, what needs practice, homework set and the next academic priority.",
+      answer: "Yes. You can ask for a short update after each session covering what was taught, what the student found difficult, what was set as practice and the next priority. A reasonable checkpoint is four weeks in: by then you should see clearer explanations from your child, not just more hours logged.",
     },
     {
       question: "Can I change the tutor if the fit is not right?",
-      answer: "Yes. If the first match does not feel right, share what did not work and IB Gram can help review alternate tutor options where available.",
+      answer: "Yes, and it is treated as normal rather than as a complaint. Level and personality fit both matter, and a mismatch is better corrected early than tolerated. Tell IB Gram what did not work, and alternative tutors can be reviewed where availability allows.",
     },
     {
-      question: "Is IB Gram officially affiliated with schools?",
-      answer: "IB Gram is an independent tutoring platform and is not officially affiliated with schools unless specifically stated. School names may appear only to describe local context or student requirements.",
+      question: "Is IB Gram affiliated with the IB Organization, Cambridge or any school?",
+      answer: "No. IB Gram is an independent tutoring platform and is not officially affiliated with the International Baccalaureate Organization, Cambridge Assessment International Education, Pearson Edexcel or any school unless explicitly stated. School names appear only to describe local academic context. Syllabus and assessment rules are set by the boards, not by IB Gram.",
     },
   ];
 
   return (
-    <section id="faq" className="py-16 md:py-24 relative overflow-hidden bg-background scroll-mt-24">
+    <section id="faq" className="py-12 md:py-16 relative overflow-hidden bg-background scroll-mt-24">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <MessageCircleQuestion className="size-5 text-secondary" />

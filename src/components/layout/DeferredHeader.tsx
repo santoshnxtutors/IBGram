@@ -56,7 +56,7 @@ function StaticHeader() {
         <div className="flex items-center gap-4 md:gap-6">
           <Link href="/" prefetch={false} className="flex items-center gap-1">
             <span className="text-2xl font-bold tracking-tight text-foreground">
-              IB<span className="text-primary">Gram</span>
+              IBGram
             </span>
           </Link>
           <span className="hidden text-sm font-semibold text-foreground/80 md:inline">Select Location</span>

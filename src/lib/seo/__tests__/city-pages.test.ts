@@ -42,7 +42,7 @@ const NEW_CITY_SLUGS = [
 describe("city SEO slug lookup", () => {
   it("normalizes city slugs and finds seeded pages", () => {
     expect(normalizeSlug(" Golf Course Road ")).toBe("golf-course-road");
-    expect(absoluteUrl("/globe.svg")).toBe("https://www.ibgram.com/globe.svg");
+    expect(absoluteUrl("/logo-512.png")).toBe("https://www.ibgram.com/logo-512.png");
     EXISTING_CITY_SLUGS.forEach((slug) => {
       expect(getCitySeoPageBySlug(slug)?.citySlug).toBe(slug);
     });

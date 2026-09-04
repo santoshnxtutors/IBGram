@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import type { GeneratedSeoPage } from "./types";
 import { getGeneratedIndexingDecision } from "@/lib/seo/indexing";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
+import { resolvePageTitle } from "@/lib/seo/page-title";
 
 export function buildGeneratedMetadata(page: GeneratedSeoPage): Metadata {
   const indexing = getGeneratedIndexingDecision(page);
   return {
-    title: page.metaTitle,
+    title: resolvePageTitle(page.metaTitle),
     description: page.metaDescription,
     keywords: [page.primaryKeyword, ...page.secondaryKeywords],
     alternates: {

@@ -233,7 +233,7 @@ export function buildAdditionalIndianIbCityPage(config: AdditionalCityConfig): C
       schemaUrl: absoluteUrl(buildCityPath(config.citySlug)),
       schemaBreadcrumbs: ["Home", "IB Tutors", config.cityName],
       schemaOrganizationName: "IB Gram",
-      schemaLogoUrl: absoluteUrl("/globe.svg"),
+      schemaLogoUrl: absoluteUrl("/logo-512.png"),
       schemaContactPhone: CONTACT_PHONE,
       schemaContactEmail: CONTACT_EMAIL,
       schemaServiceName: `IB Tutoring Services in ${config.cityName}`,

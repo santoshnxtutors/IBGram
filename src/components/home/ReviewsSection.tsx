@@ -42,11 +42,10 @@ const fallbackReviews: Review[] = [
 export function ReviewsSection({ items }: { items?: Review[] }) {
   const reviews = items && items.length > 0 ? items : fallbackReviews;
   return (
-    <section className="py-20 md:py-24 relative overflow-hidden bg-background">
+    <section className="py-12 md:py-16 relative overflow-hidden bg-background">
       <div className="container mx-auto px-4 md:px-6 relative">
-        <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="h-px w-8 bg-primary/50" />
+        <div className="max-w-2xl text-left mb-8 md:mb-10">
+          <div className="flex items-center gap-2 mb-4">
             <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px]">Student and parent reviews</span>
             <div className="h-px w-8 bg-primary/50" />
           </div>

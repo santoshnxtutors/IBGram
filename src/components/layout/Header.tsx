@@ -29,6 +29,7 @@ const COURSE_GROUPS = [
   { name: "IB Individuals & Societies", slug: "individuals" },
   { name: "IB English", slug: "english" },
   { name: "IB Language", slug: "language" },
+  { name: "IB Arts", slug: "arts" },
 ];
 
 export function Header() {
@@ -103,7 +104,7 @@ export function Header() {
         <div className="flex items-center">
           <Link href="/" prefetch={false} className="flex items-center gap-1">
             <span className="text-2xl font-bold tracking-tight text-foreground">
-              IB<span className="text-primary">Gram</span>
+              IBGram
             </span>
           </Link>
 
@@ -264,7 +265,7 @@ export function Header() {
         >
           <div className="flex items-center justify-between mb-8">
             <span className="text-2xl font-bold tracking-tight text-foreground">
-              IB<span className="text-primary">Gram</span>
+              IBGram
             </span>
             <Button 
               variant="ghost" 

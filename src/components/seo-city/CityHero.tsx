@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, MapPin, SearchCheck, ShieldCheck, Sparkles } from "lucide-react";
+import { BookDemoButton } from "@/components/booking/BookDemoButton";
 import type { CitySeoPage } from "@/lib/seo/city-page-types";
 
 export function CityHero({ page }: { page: CitySeoPage }) {
@@ -30,13 +31,15 @@ export function CityHero({ page }: { page: CitySeoPage }) {
             </div>
 
             <div className="flex flex-col gap-3 pt-2 sm:flex-row">
-              <Link
-                href="/contact-us/"
-                className="shimmer-btn inline-flex h-14 items-center justify-center rounded-xl border border-primary/30 bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
-              >
-                {page.primaryCtaText}
-                <ArrowRight className="ml-2 size-5" />
-              </Link>
+              <BookDemoButton
+                className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-primary/30 bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+                label={
+                  <>
+                    Book a Demo
+                    <ArrowRight className="size-5" />
+                  </>
+                }
+              />
               <Link
                 href="/tutors/"
                 className="inline-flex h-14 items-center justify-center rounded-xl border border-border bg-background/50 px-7 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"

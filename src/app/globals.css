@@ -225,6 +225,26 @@
     animation: reviews-marquee 40s linear infinite;
   }
 
+  @keyframes flags-slide {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+
+  .animate-flags-slide {
+    animation: flags-slide 45s linear infinite;
+  }
+
+  @keyframes hero-flags-slide {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+
+  .animate-hero-flags-slide {
+    display: flex;
+    width: max-content;
+    animation: hero-flags-slide 28s linear infinite;
+  }
+
   @keyframes ai-widget-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -256,5 +276,51 @@
     opacity: 0.03;
     pointer-events: none;
     z-index: 9999;
+  }
+
+  /* Blog body figures (src/components/blog/Figures.tsx) */
+  @keyframes ibg-bar-grow {
+    from { width: 0; }
+    to { width: var(--ibg-w, 100%); }
+  }
+
+  @keyframes ibg-rise-in {
+    from { opacity: 0; transform: translate3d(0, 12px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+
+  @keyframes ibg-pulse-soft {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes ibg-draw-stroke {
+    from { stroke-dashoffset: 1; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  .ibg-bar {
+    width: var(--ibg-w, 100%);
+    animation: ibg-bar-grow 1s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+
+  .ibg-rise {
+    animation: ibg-rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+
+  .ibg-pulse {
+    animation: ibg-pulse-soft 2.4s ease-in-out infinite;
+  }
+
+  .ibg-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: ibg-draw-stroke 2.6s ease-in-out backwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ibg-bar, .ibg-rise, .ibg-pulse, .ibg-draw {
+      animation: none !important;
+    }
   }
 }

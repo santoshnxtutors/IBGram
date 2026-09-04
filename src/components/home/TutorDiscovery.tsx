@@ -30,6 +30,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
   const portalTarget = typeof document !== "undefined" ? document.body : null;
   const sourceTutors = tutors ?? [];
+  const visibleTutors = sourceTutors.slice(0, 3);
 
   const toggleCompare = (id: AnyTutorId) => {
     setCompareIds(prev => {
@@ -69,28 +70,32 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
     };
   }, [selectedTutor]);
 
+  // Nothing to show (empty DB / query failure): skip the section rather than
+  // leaving a heading over an empty grid.
+  if (visibleTutors.length === 0) return null;
+
   return (
-    <section className="py-16 md:py-20 relative overflow-hidden">
+    <section className="py-12 md:py-16 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-foreground">
-              Meet tutors matched by <span className="text-primary">subject, level and learning need</span>
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Browse a small sample of IB and IGCSE tutors. Matching considers syllabus fit, preferred tutoring mode, schedule and the kind of support the student needs.
+        <div className="mb-8">
+          <h2 className="text-3xl md:text-4xl xl:text-[2.35rem] font-bold tracking-tight mb-4 text-foreground xl:whitespace-nowrap">
+            IB and IGCSE tutors matched by <span className="text-primary">subject, level and learning need</span>
+          </h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <p className="text-lg text-muted-foreground max-w-4xl">
+              Browse a sample of verified IB and IGCSE tutors for PYP, MYP, DP and IGCSE subjects. Matching considers syllabus fit, HL or SL level, preferred tutoring mode, schedule and the kind of support the student needs.
             </p>
+            <Link
+              href="/tutors"
+              className="shrink-0 flex items-center text-sm font-bold text-primary hover:text-primary/80 transition-colors group"
+            >
+              Explore IB tutor options <ArrowRight className="ml-1.5 size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
-          <Link
-            href="/tutors"
-            className="shrink-0 flex items-center text-sm font-bold text-primary hover:text-primary/80 transition-colors group"
-          >
-            Explore IB tutor options <ArrowRight className="ml-1.5 size-4 transition-transform group-hover:translate-x-1" />
-          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sourceTutors.slice(0, 3).map((tutor) => (
+          {visibleTutors.map((tutor) => (
             <TutorCard
               key={tutor.id}
               tutor={tutor}

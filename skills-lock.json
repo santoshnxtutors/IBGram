@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "skills": {
+    "ai-image-generation": {
+      "source": "prime-skills/runcomfy-agent-skills",
+      "sourceType": "github",
+      "skillPath": "ai-image-generation/SKILL.md",
+      "computedHash": "06f41b40b32a080bc38536156b80a7d4a3175e1b1eeece55fc125e54bee467f3"
+    },
+    "entity-seo": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "skillPath": "skills/seo/entity-seo/SKILL.md",
+      "computedHash": "b93a7ec7e38ca2ef535b6e3bd40a92716708fa4e870432d50ab92ea26e568be0"
+    },
+    "local-seo": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "skillPath": "skills/seo/local/SKILL.md",
+      "computedHash": "7ebddef17d2547c96543b08f2db54c153bd914a7c69ee30630bf58469d15100c"
+    },
+    "programmatic-seo": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "skillPath": "skills/seo/programmatic-seo/SKILL.md",
+      "computedHash": "a5e17f51f9811f354e135b953101e22f5d02e763c20a2f3c4d72d5668845fc93"
+    },
+    "seo": {
+      "source": "agricidaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo/SKILL.md",
+      "computedHash": "0efe00429adf5a22d30235f8bc0baaa5f9fb44648c8b4cf505ff805563862395"
+    },
+    "seo-content": {
+      "source": "agricidaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-content/SKILL.md",
+      "computedHash": "a71b5cf8e294feec76de1373a995be9024eabf8e725e4d1b7d665958029c99f4"
+    },
+    "seo-content-brief": {
+      "source": "agricidaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-content-brief/SKILL.md",
+      "computedHash": "d1d29ce79f14af2c3765f5621bb9500f147f35946e7905444623cfaf49c0b2d8"
+    }
+  }
+}

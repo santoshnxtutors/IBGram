@@ -126,7 +126,14 @@ export function mapPrismaToTutor(row: Awaited<ReturnType<typeof prisma.tutor.fin
   const ibProgrammes = uniq(
     row.curriculums.filter((c) => c.curriculum === "IB").map((c) => c.programme),
   ) as Array<"PYP" | "MYP" | "DP">;
-  const curriculumKinds = uniq(row.curriculums.map((c) => c.curriculum)) as Array<"IB" | "IGCSE">;
+  // Derive from the subjects a tutor actually teaches as well as their curriculum rows.
+  // Curriculum rows exist mainly to carry IB programmes (PYP/MYP/DP), so a tutor with
+  // IGCSE subjects but only an IB curriculum row used to be labelled "IB" and was then
+  // filtered out of the IGCSE page entirely, which silently hid that whole section.
+  const curriculumKinds = uniq([
+    ...row.curriculums.map((c) => c.curriculum),
+    ...row.subjects.map((s) => s.curriculum),
+  ]).filter((kind): kind is "IB" | "IGCSE" => kind === "IB" || kind === "IGCSE");
   const curriculumLabel: Tutor["curriculum"] =
     curriculumKinds.length === 2 ? "Both" : curriculumKinds[0] ?? "IB";
   const primaryLoc = row.locations[0];

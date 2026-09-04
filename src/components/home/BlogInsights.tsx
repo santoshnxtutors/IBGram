@@ -15,9 +15,9 @@ export async function BlogInsights() {
   if (posts.length === 0) return null;
 
   return (
-    <section className="border-t border-border/40 bg-background py-24">
+    <section className="border-t border-border/40 bg-background py-12 md:py-16">
       <div className="container mx-auto max-w-7xl px-4 md:px-6">
-        <div className="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row">
+        <div className="mb-10 flex flex-col items-end justify-between gap-6 md:flex-row">
           <div className="max-w-2xl">
             <h2 className="mb-4 text-3xl font-black tracking-tight text-foreground md:text-5xl">
               Study insights and <span className="text-gradient">family resources</span>

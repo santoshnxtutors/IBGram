@@ -4,7 +4,7 @@ import { igcseLearningPlan, igcseStudyTracks } from "../content";
 
 export function IGCSELearningPlan() {
   return (
-    <section className="bg-background py-16 md:py-24" id="learning-plan">
+    <section className="bg-background py-12 md:py-16" id="learning-plan">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mb-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div>

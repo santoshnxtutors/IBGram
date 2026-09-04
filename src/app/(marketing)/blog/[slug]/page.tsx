@@ -27,7 +27,7 @@ function formatDate(iso: string | null): string {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
-  if (!post) return { title: "Article not found | IB Gram", robots: { index: false, follow: false } };
+  if (!post) return { title: "Article not found", robots: { index: false, follow: false } };
 
   const url = absoluteUrl(`/blog/${post.slug}/`);
   const title = post.metaTitle ?? post.title;
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImages = absoluteSocialImage ? [absoluteSocialImage] : undefined;
 
   return {
-    title: `${title} | IB Gram`,
+    title,
     description,
     keywords: post.metaKeywords.length ? post.metaKeywords : post.tags,
     alternates: { canonical: url },
@@ -79,6 +79,14 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
+  // Absolute image URL for BlogPosting.image (rich results require absolute).
+  const schemaImageSource = post.featuredImageUrl ?? post.ogImageUrl;
+  const schemaImage = schemaImageSource
+    ? schemaImageSource.startsWith("http")
+      ? schemaImageSource
+      : `${SITE_URL}${schemaImageSource.startsWith("/") ? "" : "/"}${schemaImageSource}`
+    : null;
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -87,7 +95,11 @@ export default async function BlogPostPage({ params }: Props) {
     url,
     datePublished: post.publishedAt ?? undefined,
     dateModified: post.updatedAt,
-    author: { "@type": "Organization", name: post.authorName ?? "IB Gram Editorial" },
+    // A named byline is a Person; the editorial fallback stays an Organization.
+    author: post.authorName
+      ? { "@type": "Person", name: post.authorName }
+      : { "@type": "Organization", name: "IB Gram Editorial" },
+    ...(schemaImage ? { image: [schemaImage] } : {}),
     publisher: {
       "@type": "Organization",
       name: "IB Gram",
@@ -145,7 +157,14 @@ export default async function BlogPostPage({ params }: Props) {
         {post.featuredImageUrl && (
           <div className="mt-8 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={post.featuredImageUrl} alt={post.title} className="size-full object-cover" />
+            <img
+              src={post.featuredImageUrl}
+              alt={post.featuredImageAlt ?? post.title}
+              width={1600}
+              height={900}
+              fetchPriority="high"
+              className="size-full object-cover"
+            />
           </div>
         )}
 

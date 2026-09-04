@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
+import { getGeneratedPageForRoute } from "@/lib/generated-pages/routes";
 import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 
@@ -10,6 +11,8 @@ export const revalidate = 3600;
 export async function generateMetadata(): Promise<Metadata> {
   const dbPage = await getDbGeneratedSeoPageByPath("/programmes/cp/", ["programme"]);
   if (dbPage) return buildGeneratedMetadata(dbPage);
+  const localPage = getGeneratedPageForRoute("/programmes/cp/", ["programme"]);
+  if (localPage) return buildGeneratedMetadata(localPage);
   return {
     title: "IB CP Tutor — Career-related Programme Support | IB Gram",
     description: "IB CP tutoring for DP subjects within the CP plan, Reflective Project mentoring and core support.",
@@ -24,13 +27,18 @@ import { TutorDiscovery } from "@/components/home/TutorDiscovery";
 
 export default async function CPPage() {
   const visibleTutors = await getVisibleTutorsForPage("/programmes/cp/");
-  const dbPage = await getDbGeneratedSeoPageByPath("/programmes/cp/", ["programme"]);
+  const dbPage = await getDbGeneratedSeoPageByPath("/programmes/cp/", ["programme"])
+    ?? getGeneratedPageForRoute("/programmes/cp/", ["programme"]);
   if (dbPage) {
     return (
-      <>
-        <GeneratedPageRenderer page={dbPage} />
-        <TutorDiscovery tutors={visibleTutors ?? undefined} />
-      </>
+      // Real tutors sit in the renderer's tutor slot, directly under the intro. The
+      // built-in matching block is suppressed so the page does not also show an
+      // empty "no match found" state further up.
+      <GeneratedPageRenderer
+        page={dbPage}
+        hideTutorMatching
+        tutorSection={<TutorDiscovery tutors={visibleTutors ?? undefined} />}
+      />
     );
   }
 

@@ -1,0 +1,21 @@
+import { PrismaClient } from "@prisma/client";
+const p = new PrismaClient();
+(async () => {
+  const total = await p.generatedPage.count();
+  console.log("GeneratedPage rows:", total);
+  const by = await p.generatedPage.groupBy({ by: ["status", "indexFlag"], _count: { _all: true } });
+  console.log("status x indexFlag:", JSON.stringify(by));
+  const sm = await p.generatedPage.count({ where: { status: "published", indexFlag: "index", sitemapIncluded: true, contentWordCount: { gte: 800 }, canonicalTarget: null } });
+  console.log("sitemap-eligible rows:", sm);
+  const shells = await p.generatedPage.count({ where: { status: "published", blocks: { none: {} } } });
+  console.log("published rows with ZERO blocks (shells):", shells);
+  const shellsInSitemap = await p.generatedPage.count({ where: { status: "published", indexFlag: "index", sitemapIncluded: true, contentWordCount: { gte: 800 }, canonicalTarget: null, blocks: { none: {} } } });
+  console.log("SHELLS that are sitemap-eligible:", shellsInSitemap);
+  const wc = await p.generatedPage.aggregate({ _min: { contentWordCount: true }, _max: { contentWordCount: true }, _avg: { contentWordCount: true } });
+  console.log("wordcount min/max/avg:", JSON.stringify(wc));
+  const q = await p.generatedPage.aggregate({ _min: { qualityScore: true }, _max: { qualityScore: true }, _avg: { qualityScore: true } });
+  console.log("qualityScore min/max/avg:", JSON.stringify(q));
+  const sample = await p.generatedPage.findMany({ where: { fullPath: { contains: "/subjects/" } }, select: { fullPath: true, status: true, indexFlag: true, sitemapIncluded: true, contentWordCount: true }, take: 15 });
+  console.log("/subjects/ rows:", JSON.stringify(sample, null, 1));
+  await p.$disconnect();
+})().catch((e) => { console.error("DBERR", String(e).slice(0, 400)); process.exit(1); });

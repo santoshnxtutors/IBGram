@@ -24,6 +24,7 @@ export type PublicBlogPost = {
   updatedAt: string;
   indexFlag: string;
   featuredImageUrl: string | null;
+  featuredImageAlt: string | null;
   ogImageUrl: string | null;
 };
 
@@ -64,7 +65,7 @@ function toPublic(row: {
   publishedAt: Date | string | null;
   updatedAt: Date | string;
   category: { name: string; slug: string } | null;
-  featuredImage?: { url: string } | null;
+  featuredImage?: { url: string; altText?: string | null } | null;
   ogImage?: { url: string } | null;
 }): PublicBlogPost {
   const toIso = (v: Date | string | null | undefined): string | null => {
@@ -89,6 +90,7 @@ function toPublic(row: {
     updatedAt: toIso(row.updatedAt) ?? new Date().toISOString(),
     indexFlag: row.indexFlag,
     featuredImageUrl: normaliseImageUrl(row.featuredImage?.url ?? null),
+    featuredImageAlt: row.featuredImage?.altText?.trim() || null,
     ogImageUrl: normaliseImageUrl(row.ogImage?.url ?? null),
   };
 }

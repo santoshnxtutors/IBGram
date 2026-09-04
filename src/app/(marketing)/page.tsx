@@ -2,7 +2,7 @@ import nextDynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { TrustIndicators } from "@/components/home/TrustIndicators";
-import { AIToolsShowcase } from "@/components/home/AIToolsShowcase";
+import { CourseCards } from "@/components/home/CourseCards";
 import { ReviewsSection } from "@/components/home/ReviewsSection";
 import { SEOPlatformInfo } from "@/components/home/SEOPlatformInfo";
 import { BlogInsights } from "@/components/home/BlogInsights";
@@ -14,6 +14,7 @@ import { CONTACT } from "@/lib/contact";
 const CourseExplorer = nextDynamic(() => import("@/components/home/CourseExplorer").then((mod) => mod.CourseExplorer));
 const TutorDiscovery = nextDynamic(() => import("@/components/home/TutorDiscovery").then((mod) => mod.TutorDiscovery));
 const SuccessStories = nextDynamic(() => import("@/components/home/SuccessStories").then((mod) => mod.SuccessStories));
+const GlobalReach = nextDynamic(() => import("@/components/home/GlobalReach").then((mod) => mod.GlobalReach));
 const FAQSection = nextDynamic(() => import("@/components/home/FAQSection").then((mod) => mod.FAQSection));
 
 export const dynamic = "force-static";
@@ -101,7 +102,7 @@ export default async function Home() {
         <TutorDiscovery tutors={visibleTutors ?? undefined} />
       </div>
       <div className="cv-auto-section">
-        <AIToolsShowcase />
+        <CourseCards />
       </div>
       <div className="cv-auto-section">
         <ReviewsSection items={reviewItems ?? undefined} />
@@ -114,6 +115,9 @@ export default async function Home() {
       </div>
       <div className="cv-auto-section">
         <BlogInsights />
+      </div>
+      <div className="cv-auto-section">
+        <GlobalReach />
       </div>
       <div className="cv-auto-section">
         <FAQSection items={faqItems ?? undefined} />

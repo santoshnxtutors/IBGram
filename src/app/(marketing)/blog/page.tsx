@@ -9,7 +9,7 @@ export const revalidate = 600;
 const pageUrl = absoluteUrl("/blog/");
 
 export const metadata: Metadata = {
-  title: "IB & IGCSE Blog — Strategies, Study Guides & Parent Insights | IB Gram",
+  title: "IB & IGCSE Blog — Strategies, Study Guides & Parent Insights",
   description:
     "Expert IB and IGCSE articles from IB Gram: subject strategy, IA and Extended Essay guides, revision habits, board comparisons and parent guidance. Updated regularly.",
   keywords: [

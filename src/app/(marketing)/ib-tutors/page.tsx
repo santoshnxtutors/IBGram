@@ -37,7 +37,7 @@ const ogImage = absoluteUrl("/images/ib-gram-city-og.svg");
 const pageUrl = absoluteUrl("/ib-tutors/");
 
 export const metadata: Metadata = {
-  title: "IB Tutors in India: PYP, MYP & Diploma Programme Help by City | IB Gram",
+  title: "IB Tutors in India: PYP, MYP & Diploma Programme Help by City",
   description:
     "Find verified IB tutors across Gurugram, Delhi, Noida, Mumbai and Bangalore for PYP, MYP and Diploma Programme support. Home, online and hybrid tutoring with parent-led shortlists and no fixed contracts.",
   keywords: ibTutorsMetaKeywords,

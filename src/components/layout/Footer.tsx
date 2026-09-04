@@ -127,6 +127,8 @@ export function Footer() {
               <li><Link href="/#faq" className="hover:text-primary transition-colors">FAQs</Link></li>
               <li><Link href="/#how-it-works" className="hover:text-primary transition-colors">How {isIgcsePage ? "IGCSE Prep" : "IBGram"} Works</Link></li>
               <li><Link href="/jobs" className="hover:text-primary transition-colors">Jobs</Link></li>
+              <li><Link href="/privacy-policy/" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-and-conditions/" className="hover:text-primary transition-colors">Terms &amp; Conditions</Link></li>
             </ul>
           </div>
 
@@ -135,9 +137,11 @@ export function Footer() {
         <div className="border-t border-border pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-semibold text-muted-foreground">
           <p>©(2018-2026) IB Gram. All rights reserved.</p>
           <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4 text-center">
-            <span className="whitespace-nowrap">Independent tutoring platform</span>
+            <Link href="/privacy-policy/" className="whitespace-nowrap hover:text-primary transition-colors">Privacy Policy</Link>
             <span className="hidden md:inline">|</span>
-            <span className="whitespace-nowrap">Availability varies by subject, level and mode</span>
+            <Link href="/terms-and-conditions/" className="whitespace-nowrap hover:text-primary transition-colors">Terms &amp; Conditions</Link>
+            <span className="hidden md:inline">|</span>
+            <span className="whitespace-nowrap">Independent tutoring platform</span>
           </div>
         </div>
       </div>

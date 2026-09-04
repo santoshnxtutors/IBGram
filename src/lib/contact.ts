@@ -31,3 +31,11 @@ export const CONTACT = {
   // Google Maps short link
   mapUrl: "https://maps.app.goo.gl/QG4hQQHKx84zMHnH8",
 } as const;
+
+/**
+ * Click-to-chat URL carrying a prefilled message, so an enquiry arrives already
+ * saying which page it came from instead of a bare "Hi".
+ */
+export function buildWhatsAppUrl(message: string): string {
+  return `https://wa.me/${CONTACT.whatsappDigits}?text=${encodeURIComponent(message)}`;
+}

@@ -270,7 +270,7 @@ export function buildIgcsePagesHubSchema(page: IgcsePagesHubData): JsonLdObject 
         "@id": organizationId,
         name: "IB Gram",
         url: SITE_URL,
-        logo: `${SITE_URL}/globe.svg`,
+        logo: `${SITE_URL}/logo-512.png`,
         email: "ibgram24@gmail.com",
       },
       {
@@ -390,7 +390,7 @@ export function buildIgcseCityPageSchema(page: IgcseCitySeoPage): JsonLdObject {
         "@id": organizationId,
         name: "IB Gram",
         url: SITE_URL,
-        logo: `${SITE_URL}/globe.svg`,
+        logo: `${SITE_URL}/logo-512.png`,
         email: "ibgram24@gmail.com",
       },
       {
@@ -480,7 +480,7 @@ export function buildTutorLandingPageSchema(input: TutorLandingPageSchemaInput):
       "@id": organizationId,
       name: "IB Gram",
       url: SITE_URL,
-      logo: `${SITE_URL}/globe.svg`,
+      logo: `${SITE_URL}/logo-512.png`,
       email: "ibgram24@gmail.com",
     },
     {

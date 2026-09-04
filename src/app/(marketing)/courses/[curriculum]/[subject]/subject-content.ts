@@ -1,5 +1,5 @@
 // Per-(curriculum, subject) long-form SEO content for the courses dropdown.
-// 10 pages: IB Mathematics / Sciences / Individuals / English / Language
+// 11 pages: IB Mathematics / Sciences / Individuals / English / Language / Arts
 //        + IGCSE Mathematics / Sciences / Individuals / English / Language
 // Humanized, parent-facing copy — no fake claims, no invented partnerships,
 // no guaranteed scores or admissions promises.
@@ -15,6 +15,22 @@ export type CourseBlogTeaser = {
   category: string;
   readTime: string;
   date: string;
+};
+
+export type CoursePageBlock = {
+  type:
+    | "intro"
+    | "programmes"
+    | "subjects"
+    | "local_areas"
+    | "schools"
+    | "verification"
+    | "tutoring_modes"
+    | "trust"
+    | "cta";
+  heading: string;
+  body: string;
+  items: string[];
 };
 
 export type CourseSubjectContent = {
@@ -34,6 +50,8 @@ export type CourseSubjectContent = {
   blogs: CourseBlogTeaser[];
   faqs: CourseFaq[];
   ctaCopy: string;
+  /** Long-form blocks rendered in the compiled-page layout. Falls back to the fields above. */
+  pageBlocks?: CoursePageBlock[];
 };
 
 const CITY_NOTES_IB: CourseCityNote[] = [
@@ -915,6 +933,306 @@ const ibLanguage: CourseSubjectContent = {
 };
 
 // -----------------------------------------------------------------------------
+// IB ARTS (GROUP 6)
+// -----------------------------------------------------------------------------
+const ibArts: CourseSubjectContent = {
+  curriculumLabel: "IB Diploma Programme",
+  subjectLabel: "The Arts",
+  pageTitle: "IB Arts Tutor — Visual Arts, Music, Theatre, Dance & Film (HL/SL)",
+  heroEyebrow: "IB DP Group 6",
+  heroSummary:
+    "Verified tutors for IB Group 6 — Visual Arts, Music, Theatre, Dance and Film at Higher and Standard Level. Portfolio direction, coursework structure, written commentary and submission planning, without anyone else making the student’s work.",
+  metaTitle: "IB Arts Tutor — Visual Arts, Music, Theatre, Dance & Film (HL/SL) | IB Gram",
+  metaDescription:
+    "IB DP Group 6 tutoring for Visual Arts, Music, Theatre, Dance and Film at HL and SL. Support with the art-making inquiries portfolio, exhibition and curatorial rationale, music portfolios, theatre notebooks, the world dance investigation and the film comparative study.",
+  metaKeywords: [
+    "IB Arts tutor",
+    "IB Group 6 tutor",
+    "IB Visual Arts tutor",
+    "IB Visual Arts HL",
+    "IB Visual Arts SL",
+    "IB Music tutor",
+    "IB Music HL",
+    "IB Theatre tutor",
+    "IB Dance tutor",
+    "IB Film tutor",
+    "IB Visual Arts comparative study",
+    "IB Visual Arts process portfolio",
+    "IB art-making inquiries portfolio",
+    "IB Visual Arts exhibition",
+    "IB curatorial rationale",
+    "IB Music exploring music in context",
+    "IB Music experimenting with music",
+    "IB Music presenting music",
+    "IB contemporary music-maker",
+    "IB Theatre research presentation",
+    "IB Theatre collaborative project",
+    "IB world dance investigation",
+    "IB Film comparative study",
+    "IB Film textual analysis",
+    "IB Arts tutor Gurugram",
+    "IB Arts tutor Delhi",
+    "IB Visual Arts tutor Mumbai",
+    "IB Arts tutor Bangalore",
+    "IB Arts tutor online",
+  ],
+  introParagraphs: [
+    "Group 6 — The Arts — is the sixth subject slot in the IB Diploma Programme. Students may take Visual Arts, Music, Theatre, Dance or Film at HL or SL, or replace the arts slot with a second subject from Groups 1–4. Families often assume the arts are the lighter option in the Diploma. In practice these are among the most coursework-heavy subjects in the DP: almost all the marks come from portfolios, recorded performances, exhibitions and extended written commentary produced across eighteen months, not from a paper written in a single morning. Deadline discipline and documentation habits matter more here than exam cramming.",
+    "The commonest reason families look for an IB Arts tutor is not talent — it is structure. Students who make strong work still lose marks when the process is not evidenced, when the written rationale drifts away from the assessment criteria, or when a recording is submitted at the wrong length or format. Group 6 tutoring is therefore mostly about intention, documentation and criteria literacy: articulating an artistic intention, keeping a journal or portfolio that shows genuine experimentation, and writing about the work in the register the markbands actually reward.",
+    "Both Visual Arts and Music have been restructured. Visual Arts moves to a new guide with first assessment in 2027, replacing the comparative study, process portfolio and exhibition with an art-making inquiries portfolio, a connections study at SL or an artist project at HL, and resolved or selected artworks. Music is now built around three musical processes — exploring music in context, experimenting with music and presenting music — with the contemporary music-maker as the HL extension. Tutors are matched to the guide version the student is actually sitting, confirmed with the school, because coursework advice written for an outgoing structure can cost real marks.",
+    "Most Group 6 students work well with one weekly session tracking their coursework calendar, increasing around exhibition, recording and submission windows. Online matching is common and works well: the strongest IB Visual Arts, Theatre, Dance or Film specialist for a particular guide version rarely lives in the same city, and portfolios, scores, edits and drafts review perfectly well over screen share.",
+  ],
+  syllabusTracks: [
+    {
+      name: "Visual Arts (HL/SL)",
+      body: "Studio practice plus written and curatorial work. Under the guide first assessed in 2027 this runs as an art-making inquiries portfolio, a connections study at SL or artist project at HL, and resolved (SL) or selected (HL) artworks. Students on the outgoing guide are supported on the comparative study, process portfolio and exhibition instead.",
+      items: ["Art-making inquiries portfolio", "Connections study / Artist project", "Exhibition & curatorial rationale", "Artistic intention writing"],
+    },
+    {
+      name: "Music (HL/SL)",
+      body: "Built around exploring music in context, experimenting with music and presenting music, submitted as recordings, scores and written commentary rather than a single terminal exam. HL adds the contemporary music-maker project.",
+      items: ["Exploring music in context", "Experimenting with music", "Presenting music portfolio", "Contemporary music-maker (HL)"],
+    },
+    {
+      name: "Theatre (HL/SL)",
+      body: "Four assessment tasks — the solo theatre piece or research presentation, the director’s notebook, the collaborative project and the production proposal — with HL carrying longer word counts and deeper theorist research.",
+      items: ["Research presentation", "Director’s notebook", "Collaborative project", "Production proposal"],
+    },
+    {
+      name: "Dance (HL/SL)",
+      body: "Performance, composition and analysis, and the world dance investigation — 1,500 words at SL against 2,500 at HL. HL also requires longer choreographed work and a fuller analytical statement.",
+      items: ["Performance", "Composition & analysis", "World dance investigation", "Analytical statement"],
+    },
+    {
+      name: "Film (HL/SL)",
+      body: "Textual analysis of a prescribed film extract, a comparative study video essay, and a film portfolio evidencing production roles. HL adds the collaborative film project with its production rationale.",
+      items: ["Textual analysis", "Comparative study", "Film portfolio", "Collaborative film (HL)"],
+    },
+    {
+      name: "Group 6 or a second Group 1–4 subject",
+      body: "The arts slot may be swapped for another Language, Individuals and Societies, Science or Mathematics subject. Tutors help families weigh workload, university course requirements and portfolio ambitions before the choice is locked in DP1.",
+      items: ["Workload comparison", "University requirements", "Portfolio pathways", "DP1 subject review"],
+    },
+  ],
+  studyApproach: [
+    {
+      title: "Documentation from day one",
+      body: "The journal, workbook or portfolio is where most Group 6 marks are won or lost. Tutors build the habit of recording experiments, failures and decisions as they happen, rather than reconstructing a process months later.",
+    },
+    {
+      title: "Artistic intention before technique",
+      body: "Markbands reward work driven by a stated intention and a coherent line of inquiry. Sessions start by clarifying what the student is actually investigating, then let the technical work follow.",
+    },
+    {
+      title: "Writing to the criteria, not around them",
+      body: "Rationales, commentaries and investigations are marked against published descriptors. Tutors read drafts against those descriptors so the writing evidences what markers are looking for.",
+    },
+    {
+      title: "Submission logistics rehearsed early",
+      body: "Recording lengths, file formats, image counts and word limits cause avoidable losses every session. Tutors work backwards from the school’s internal deadlines so nothing is trimmed in a panic.",
+    },
+  ],
+  cityNotes: CITY_NOTES_IB,
+  reviews: [
+    {
+      quote:
+        "Our daughter could always make the work — the problem was writing about it. Weekly sessions on the portfolio and rationale changed how she talks about her own practice.",
+      label: "Parent of a DP2 Visual Arts HL student",
+      location: "Mumbai",
+    },
+    {
+      quote:
+        "Theatre coursework felt impossible to plan around. The tutor mapped every task to the school deadlines and the panic went out of it.",
+      label: "Parent of a DP1 Theatre SL student",
+      location: "Gurugram",
+    },
+    {
+      quote:
+        "Online Film tutoring worked better than we expected. Screen sharing the comparative study edit was completely fine, and the specialist knowledge was worth it.",
+      label: "Parent of a DP2 Film HL student",
+      location: "Bangalore",
+    },
+  ],
+  blogs: [
+    {
+      title: "Is IB Visual Arts really an easy sixth subject?",
+      excerpt: "Why Group 6 is one of the most coursework-heavy choices in the Diploma, and how to judge the workload honestly before DP1.",
+      category: "Course Choice",
+      readTime: "6 min read",
+      date: "May 2026",
+    },
+    {
+      title: "Keeping a Visual Arts journal markers actually reward",
+      excerpt: "What genuine evidence of experimentation looks like in an art-making inquiries portfolio, and the habits that make it painless.",
+      category: "Coursework",
+      readTime: "5 min read",
+      date: "May 2026",
+    },
+    {
+      title: "Group 6 deadlines: working backwards from the exhibition",
+      excerpt: "A practical way to plan recordings, exhibitions and written rationales around a school’s internal submission calendar.",
+      category: "Planning",
+      readTime: "4 min read",
+      date: "May 2026",
+    },
+  ],
+  faqs: [
+    {
+      question: "Which IB Group 6 Arts subjects does IB Gram cover?",
+      answer:
+        "Visual Arts, Music, Theatre, Dance and Film at both Higher and Standard Level. Availability is deepest in Visual Arts, Music and Film; Theatre and Dance are matched subject to current tutor inventory and the guide version the student is sitting.",
+    },
+    {
+      question: "Is IB Visual Arts an easier subject than a science or maths option?",
+      answer:
+        "Not in workload terms. Group 6 subjects are dominated by coursework produced across eighteen months — portfolios, exhibitions, recordings and extended written commentary — rather than by a single exam session. Students who enjoy the making usually cope well; students choosing it to reduce effort generally do not.",
+    },
+    {
+      question: "Has the IB Visual Arts syllabus changed?",
+      answer:
+        "Yes. A new Visual Arts guide with first assessment in 2027 replaces the comparative study, process portfolio and exhibition with an art-making inquiries portfolio, a connections study at SL or an artist project at HL, and resolved or selected artworks. Confirm with the school which guide the cohort sits, since coursework advice is not interchangeable between the two.",
+    },
+    {
+      question: "What is the difference between HL and SL in Group 6?",
+      answer:
+        "HL generally means more work, longer word counts and an additional component. Dance HL requires a 2,500-word world dance investigation against 1,500 at SL; Theatre HL carries longer notebooks and deeper research; Film HL adds the collaborative film project; Music HL adds the contemporary music-maker. The criteria are broadly shared, the volume and depth are not.",
+    },
+    {
+      question: "Can a tutor help with my child’s artwork, composition or film?",
+      answer:
+        "No — and no credible tutor should. Group 6 coursework must be the student’s own authentic work. Tutors help with artistic intention, criteria interpretation, process documentation, structure, feedback on drafts and submission logistics. They do not make, edit, compose or write assessed work.",
+    },
+    {
+      question: "Can Group 6 be replaced with another subject?",
+      answer:
+        "Yes. Students may take a second subject from Groups 1 to 4 instead of an arts subject. That decision is usually driven by university course requirements and workload rather than interest alone, and is worth reviewing properly before it is locked in during DP1.",
+    },
+    {
+      question: "Do online IB Arts tutors work for practical subjects?",
+      answer:
+        "For most Group 6 work, yes. Portfolios, journals, scripts, scores, edits and written rationales all review well over screen share, and the strongest specialist for a given subject and guide version often lives in another city. Purely physical coaching — dance technique, instrumental technique — is usually better in person where a local match exists.",
+    },
+    COMMON_PRICING_FAQ,
+    COMMON_MATCHING_FAQ,
+    COMMON_DISCLAIMER_FAQ,
+  ],
+  ctaCopy:
+    "Share the Group 6 subject (Visual Arts, Music, Theatre, Dance or Film), the level, which guide version the school is sitting and the next submission deadline. The advisor team replies with a small shortlist that matches the subject, the guide and the timing window.",
+  pageBlocks: [
+    {
+      type: "intro",
+      heading: "The Gap Between Making the Work and Evidencing It",
+      body:
+        "Almost every family that asks for an IB Arts tutor describes the same situation: the student can make the work, and the marks still do not reflect it. That gap is rarely about talent. Group 6 is assessed on evidence — a portfolio that shows how an idea developed, a rationale that explains an artistic intention, a recording submitted at the right length in the right format, a written investigation that answers the criterion instead of describing the piece. A student can spend eighty hours on a body of artwork and lose marks because the journal was written in the last fortnight, or because the exhibition text reads as a diary rather than a curatorial statement. Tutoring in the arts is therefore not about teaching someone to draw, act, compose or edit. It is about making the assessment legible: separating what the student is investigating from what they happened to produce, building documentation habits early enough that they are honest rather than reconstructed, and reading every draft against the published descriptors rather than against taste. Schools cover the syllabus and run the deadlines; what a class of twenty-five rarely gets is an hour a week where one student's intention, evidence and written voice are examined in detail. That hour is what changes a 4 into a 6.",
+      items: [
+        "Portfolios, rationales and recordings carry almost the whole grade.",
+        "Strong work still loses marks when the process is not evidenced.",
+        "Sessions read drafts against published criteria, not against taste.",
+        "Documentation built weekly beats a journal reconstructed in April.",
+      ],
+    },
+    {
+      type: "programmes",
+      heading: "Where the Arts Sit Inside PYP, MYP and the Diploma",
+      body:
+        "The arts run through all three IB programmes, and the support each stage needs is different. In the PYP the arts are part of transdisciplinary inquiry: students respond to units through making, and tutoring is mostly about confidence, vocabulary for talking about work, and comfort presenting to an audience. In the MYP, Arts becomes one of the eight subject groups with its own criteria A to D — investigating, developing, creating and evaluating — and this is where most students first meet the idea that the process journal is assessed as heavily as the outcome. Students who learn to document in MYP arrive in DP1 already fluent in the habit that decides Group 6 grades. At Diploma level the arts occupy the sixth subject slot, and students may take Visual Arts, Music, Theatre, Dance or Film at Higher or Standard Level, or replace the slot entirely with a second subject from Groups 1 to 4. That substitution decision deserves a proper conversation rather than a default: it is driven by university course requirements and honest workload assessment, not by which subject sounds lighter. Group 6 is not the easy option, and families who choose it for that reason usually discover the truth around the first portfolio deadline.",
+      items: [
+        "PYP: responding to units of inquiry through making and presenting.",
+        "MYP Arts: criteria A to D, with the process journal formally assessed.",
+        "DP: Visual Arts, Music, Theatre, Dance or Film at HL or SL.",
+        "The sixth slot can be swapped for a second Group 1-4 subject.",
+        "Substitution is a university-requirements decision, not a workload shortcut.",
+      ],
+    },
+    {
+      type: "subjects",
+      heading: "What Visual Arts, Music, Theatre, Dance and Film Tutoring Covers",
+      body:
+        "Each Group 6 subject is assessed through its own combination of practical work, recorded submission and extended writing, so tutoring is matched to the subject and the guide version, never to a generic idea of the arts. Visual Arts under the guide first assessed in 2027 runs as an art-making inquiries portfolio, a connections study at SL or an artist project at HL, and resolved or selected artworks; students still finishing on the outgoing guide are supported on the comparative study, process portfolio and exhibition instead, because advice written for one structure can cost marks in the other. Music is built around exploring music in context, experimenting with music and presenting music, submitted as recordings, scores and written commentary, with the contemporary music-maker as the HL extension. Theatre carries four tasks — the solo or research presentation, the director's notebook, the collaborative project and the production proposal — with HL demanding longer word counts and deeper theorist research. Dance combines performance and composition with the world dance investigation, 1,500 words at SL against 2,500 at HL. Film covers textual analysis of a prescribed extract, the comparative study video essay and the film portfolio, with HL adding the collaborative film and its production rationale. Sessions work on whichever of these the student is actually sitting this session.",
+      items: [
+        "Visual Arts: art-making inquiries portfolio, connections study or artist project.",
+        "Music: exploring, experimenting and presenting, plus HL contemporary music-maker.",
+        "Theatre: research presentation, director's notebook, collaborative project, production proposal.",
+        "Dance: performance, composition and the world dance investigation.",
+        "Film: textual analysis, comparative study, portfolio and HL collaborative film.",
+      ],
+    },
+    {
+      type: "tutoring_modes",
+      heading: "Online, Home or Hybrid for a Practical Subject",
+      body:
+        "Parents reasonably assume a practical subject needs a tutor in the room, and for part of the work that is true. Instrumental technique, dance technique and physical rehearsal benefit from being physically present, so where a local specialist exists those sessions are best matched in person. But most of what decides a Group 6 grade is not physical. Portfolios, journals, scores, scripts, edits, exhibition texts, rationales and written investigations all review perfectly well over a screen share, often better: the student and tutor look at the same page, annotate the same draft, and the session can be recorded for the student to revisit before a deadline. That matters because Group 6 specialists are thin on the ground. The strongest Theatre tutor familiar with the current guide, or the Film tutor who has actually supervised a comparative study, rarely lives in the same city as the family, and forcing a local match usually means accepting a generalist. Most families settle on a hybrid rhythm: online weekly for documentation and written work, with occasional in-person blocks around exhibition installation, recording sessions or the run-up to a performance. Sessions are scheduled around the school's internal deadlines rather than a fixed weekly slot that ignores them.",
+      items: [
+        "Online works for portfolios, rationales, scores, edits and written investigations.",
+        "In-person suits instrumental and dance technique where a local tutor exists.",
+        "Hybrid is the common default: weekly online, in-person around key deadlines.",
+        "Specialist subject fit usually beats proximity for Group 6.",
+      ],
+    },
+    {
+      type: "local_areas",
+      heading: "Reaching Group 6 Students Across Cities and Time Zones",
+      body:
+        "Arts tutor density is uneven in a way it simply is not for Maths or Physics. A city may have twenty credible IB Maths tutors and one person who has genuinely supervised a Visual Arts exhibition under the current guide. IB Gram matches on that reality rather than pretending otherwise. In-person availability is strongest in the established international-school clusters: Golf Course Road, DLF Phases 1 to 5, Sushant Lok and the South City sectors in Gurugram; Vasant Vihar, Vasant Kunj, Saket, Greater Kailash and the Diplomatic Enclave in Delhi; Sector 44, Sector 50, Sector 62 and the Noida Expressway corridor in Noida; Bandra, Khar, Juhu, BKC and South Mumbai; and Indiranagar, Koramangala, HSR Layout, Whitefield and Sarjapur Road in Bangalore. Families in Pune, Hyderabad, Chennai, Ahmedabad, Chandigarh and the newer Gurugram and Greater Noida corridors are usually matched online, and for Group 6 that is a fair trade rather than a compromise. Sessions also run for families abroad in their own time zone, which matters when a submission window and a school holiday collide. What does not change by location is the matching standard: the subject, the level and the guide version are confirmed before a shortlist is built.",
+      items: [
+        "Strongest in-person density in the established international-school clusters.",
+        "Online-led matching for cities where Group 6 specialists are scarce.",
+        "Sessions scheduled in the family's own time zone where needed.",
+        "Subject, level and guide version confirmed before any shortlist.",
+      ],
+    },
+    {
+      type: "schools",
+      heading: "Different Schools, Different Guide Versions, One Consistent Approach",
+      body:
+        "Two students can both be taking IB Visual Arts HL and be sitting genuinely different courses. The guide first assessed in 2027 replaced the comparative study, process portfolio and exhibition with an art-making inquiries portfolio, a connections study at SL or artist project at HL, and resolved or selected artworks; Music has been restructured around its three musical processes. Schools also differ in how they run the arts internally: some timetable studio time generously and set early internal deadlines, others compress everything into DP2 and leave students documenting under pressure. Some require a specific medium or set a house style for the exhibition; others leave it open. A tutor who assumes the structure they taught three years ago will give advice that is quietly wrong, and in coursework subjects wrong advice is expensive because there is no exam to recover it in. So the first conversation confirms the school, the subject, the level, the guide version and the internal deadline calendar before anything else is planned. Tutoring then runs alongside the school's teaching rather than in competition with it: the teacher owns the course, the tutor works on the student's specific evidence, intention and written voice within it.",
+      items: [
+        "Visual Arts and Music both run on restructured guides.",
+        "Schools differ sharply on internal deadlines and studio time.",
+        "Coursework advice written for the wrong guide costs real marks.",
+        "Tutoring runs alongside the school's teaching, never against it.",
+      ],
+    },
+    {
+      type: "verification",
+      heading: "What Gets Checked Before a Tutor Ever Meets a Student",
+      body:
+        "Arts tutoring attracts a wide range of backgrounds, and a strong practising artist is not automatically a strong IB Group 6 tutor. Before a profile is shortlisted, IB Gram checks identity and qualifications, the specific Group 6 subjects and levels the tutor has taught, how many complete cohorts they have taken through to submission, and which guide version that experience sits on. Examiner, moderator or classroom-teaching background is recorded where it exists and left blank where it does not, rather than being implied. Tutors are asked directly how they handle academic honesty in coursework subjects, because that is where the real risk sits: a tutor willing to redraft a rationale or edit a student's film is a liability, not an asset. References are checked, and a short subject conversation confirms that the tutor can talk fluently about criteria and markbands rather than only about their own practice. Families see profiles with the relevant experience stated plainly, including its limits. If nobody currently available genuinely fits the subject, level and guide version, IB Gram says so instead of substituting a nearby generalist and hoping the family does not notice the difference until DP2.",
+      items: [
+        "Identity, qualifications and subject-level teaching history verified.",
+        "Guide version and number of completed cohorts recorded explicitly.",
+        "Academic-honesty approach checked before any shortlist is built.",
+        "No fit available is said plainly, not covered with a generalist.",
+      ],
+    },
+    {
+      type: "trust",
+      heading: "What a Tutor Will Not Do With Group 6 Coursework",
+      body:
+        "This is the line that matters most in the arts, and it is worth stating without euphemism. Group 6 coursework must be the student's own authentic work. A tutor does not make the artwork, compose the piece, edit the film, choreograph the sequence or write the rationale, investigation or notebook. Any tutor who offers to is putting the student's diploma at risk, not helping them. What a tutor legitimately does is substantial enough on its own: helping articulate an artistic intention, questioning whether a line of inquiry actually holds together, interpreting criteria and markbands in plain language, giving feedback on drafts the student then rewrites themselves, checking that documentation genuinely evidences the process, and rehearsing submission logistics so nothing is lost to a word limit or file format. IB Gram also does not promise grades. Nobody can, and in a subject assessed largely on internally marked and externally moderated coursework, anyone who does is selling certainty they do not have. What is offered instead is a tutor matched to the actual subject, level and guide version, an honest account of what they have and have not taught, and a fee structure explained before anything is booked.",
+      items: [
+        "No tutor makes, edits, composes or writes assessed work.",
+        "Feedback happens on drafts the student then rewrites themselves.",
+        "No score guarantees, in a subject moderated on coursework.",
+        "Tutor experience is stated with its limits, not implied.",
+      ],
+    },
+    {
+      type: "cta",
+      heading: "Starting With One Focused Conversation",
+      body:
+        "The most useful first message names five things: the Group 6 subject, the level, the school, which guide version the cohort is sitting, and the next real deadline. That is usually enough for an advisor to say honestly whether a genuine specialist is available now, or whether the closest fit is a strong generalist with an important caveat attached. Families are not asked to commit to a term upfront. Most start with a single diagnostic session where the tutor looks at the actual evidence — the journal so far, a draft rationale, a rough cut, a recording — and reports back on where the marks are currently being lost. That conversation is often clarifying on its own, and a fair number of families act on it without booking a long plan. Where sessions do continue, a weekly rhythm through DP1 with intensity around exhibition, recording and submission windows is the pattern that works most often. Fees are shared per tutor profile after that first conversation, broken down by session type, so home, online and any deadline-intensive blocks are priced separately. There are no long contracts and no pressure follow-ups.",
+      items: [
+        "Share subject, level, school, guide version and the next deadline.",
+        "Most families start with one diagnostic session on real evidence.",
+        "Weekly through DP1, intensive around submission windows.",
+        "Fees shared per profile after the first conversation, no long contracts.",
+      ],
+    },
+  ],
+};
+
+// -----------------------------------------------------------------------------
 // IGCSE MATHEMATICS
 // -----------------------------------------------------------------------------
 const igcseMathematics: CourseSubjectContent = {
@@ -1752,6 +2070,7 @@ const SUBJECT_CONTENT: Record<string, Record<string, CourseSubjectContent>> = {
     "individuals-and-societies": ibIndividuals,
     english: ibEnglish,
     language: ibLanguage,
+    arts: ibArts,
   },
   igcse: {
     mathematics: igcseMathematics,

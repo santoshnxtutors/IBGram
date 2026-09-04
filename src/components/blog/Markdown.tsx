@@ -1,9 +1,12 @@
 import React from "react";
+import { BlogFigure, isKnownFigure } from "./Figures";
 
 /**
  * Minimal, dependency-free Markdown renderer for admin-authored blog bodies.
  * Supports: # ## ### #### headings, paragraphs, - / * and 1. lists,
  * **bold**, *italic*, `code`, [links](url), > blockquotes, --- rules.
+ * GFM pipe tables, and `:::figure <name>:::` blocks for the animated inline
+ * figures in ./Figures.tsx.
  * All text is rendered through React (auto-escaped), so it is XSS-safe even
  * though the content is admin-authored.
  */
@@ -13,6 +16,8 @@ type Token =
   | { type: "ul" | "ol"; items: string[] }
   | { type: "quote"; text: string }
   | { type: "hr" }
+  | { type: "table"; head: string[]; rows: string[][] }
+  | { type: "figure"; name: string; caption?: string }
   | { type: "p"; text: string };
 
 function tokenize(md: string): Token[] {
@@ -32,7 +37,12 @@ function tokenize(md: string): Token[] {
     list = null;
   };
 
-  for (const raw of lines) {
+  const isTableRow = (v: string) => /^\s*\|.*\|\s*$/.test(v);
+  const splitRow = (v: string) =>
+    v.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map((c) => c.trim());
+
+  for (let li = 0; li < lines.length; li++) {
+    const raw = lines[li];
     const line = raw.trimEnd();
     if (!line.trim()) {
       flushPara();
@@ -51,6 +61,28 @@ function tokenize(md: string): Token[] {
     } else if (/^#\s+/.test(line)) {
       flushPara(); flushList();
       tokens.push({ type: "h1", text: line.replace(/^#\s+/, "") });
+    } else if (/^:::figure\s+[a-z0-9-]+\s*(\|[^:]*)?:::\s*$/i.test(line)) {
+      flushPara(); flushList();
+      const m = line.match(/^:::figure\s+([a-z0-9-]+)\s*(?:\|\s*([^:]*?))?\s*:::\s*$/i);
+      const name = (m?.[1] ?? "").toLowerCase();
+      if (isKnownFigure(name)) tokens.push({ type: "figure", name, caption: m?.[2]?.trim() || undefined });
+    } else if (
+      isTableRow(line) &&
+      li + 1 < lines.length &&
+      /^\s*\|[\s:|-]+\|\s*$/.test(lines[li + 1])
+    ) {
+      flushPara(); flushList();
+      const head = splitRow(line);
+      const rows: string[][] = [];
+      li += 2;
+      while (li < lines.length && isTableRow(lines[li])) {
+        const cells = splitRow(lines[li]);
+        while (cells.length < head.length) cells.push("");
+        rows.push(cells.slice(0, head.length));
+        li++;
+      }
+      li--;
+      tokens.push({ type: "table", head, rows });
     } else if (/^(---|\*\*\*|___)\s*$/.test(line)) {
       flushPara(); flushList();
       tokens.push({ type: "hr" });
@@ -175,6 +207,42 @@ export function Markdown({ content, className }: { content: string; className?: 
               <blockquote key={k} className="my-6 border-l-4 border-primary/40 bg-muted/20 py-3 pl-5 pr-4 text-base italic leading-relaxed text-foreground/90">
                 {renderInline(tok.text, k)}
               </blockquote>
+            );
+          case "figure":
+            return <BlogFigure key={k} name={tok.name} caption={tok.caption} />;
+          case "table":
+            return (
+              <div key={k} className="my-7 overflow-x-auto rounded-2xl border border-border/60">
+                <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
+                  <thead>
+                    <tr className="bg-muted/30">
+                      {tok.head.map((h, j) => (
+                        <th
+                          key={`${k}-h-${j}`}
+                          scope="col"
+                          className="border-b border-border/60 px-4 py-3 text-xs font-black uppercase tracking-[0.12em] text-foreground"
+                        >
+                          {renderInline(h, `${k}-h-${j}`)}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tok.rows.map((row, ri) => (
+                      <tr key={`${k}-r-${ri}`} className="border-b border-border/40 last:border-0 even:bg-muted/10">
+                        {row.map((c, ci) => (
+                          <td
+                            key={`${k}-r-${ri}-${ci}`}
+                            className="px-4 py-3 align-top font-medium leading-relaxed text-muted-foreground"
+                          >
+                            {renderInline(c, `${k}-r-${ri}-${ci}`)}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             );
           case "hr":
             return <hr key={k} className="my-8 border-border/50" />;

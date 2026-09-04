@@ -1,210 +1,116 @@
-"use client";
-
 import Link from "next/link";
-import {
-  FlaskConical,
-  Briefcase,
-  BookOpen,
-  Languages,
-  Variable,
-  ArrowRight
-} from "lucide-react";
-import { useState, useMemo } from "react";
+import { Baby, Blocks, GraduationCap, Briefcase, ArrowRight } from "lucide-react";
 
 const PROGRAMS = [
   {
     id: "pyp",
-    title: "Primary Years Programme (PYP)",
+    title: "IB PYP Tutoring",
+    subtitle: "Primary Years Programme",
     age: "Ages 3-12",
-    description: "Early inquiry support for reading, numeracy, unit work and confidence with school routines.",
+    icon: Baby,
+    description:
+      "One-to-one IB PYP tutoring for the Primary Years Programme, where learning runs through transdisciplinary units of inquiry rather than separate subjects. Tutors strengthen early reading, phonics, writing and numeracy, help students research and present their unit work, and guide the PYP Exhibition in Grade 5 from question to final presentation — all while building the IB learner profile attributes and the independent work habits the MYP will expect.",
+    highlights: ["Units of inquiry", "PYP Exhibition", "Reading & numeracy", "Learner profile"],
   },
   {
     id: "myp",
-    title: "Middle Years Programme (MYP)",
+    title: "IB MYP Tutoring",
+    subtitle: "Middle Years Programme",
     age: "Ages 11-16",
-    description: "Subject foundations, project support and steady preparation before DP or IGCSE choices.",
+    icon: Blocks,
+    description:
+      "IB MYP tutoring across all eight subject groups — Maths, Sciences, Individuals and Societies, Language and Literature, Language Acquisition, Arts, Design and Physical and Health Education. Sessions decode the criterion A-D rubrics so students know exactly what moves a 4 to a 7, build the investigation and reflection skills the MYP Personal Project demands, prepare for MYP eAssessments and on-screen exams, and make the DP or IGCSE subject choice at the end of MYP 5 a considered one.",
+    highlights: ["Criteria A-D", "Personal Project", "eAssessment prep", "DP/IGCSE choices"],
   },
   {
     id: "dp",
-    title: "Diploma Programme (DP)",
+    title: "IB DP Tutoring",
+    subtitle: "Diploma Programme",
     age: "Ages 16-19",
-    description: "Focused help across HL and SL subjects, IA direction, exam practice and the DP Core.",
+    icon: GraduationCap,
+    description:
+      "IB Diploma Programme tutoring at Higher and Standard Level across Maths AA and AI, Physics, Chemistry, Biology, Economics, Business Management, Psychology, History and English A. Tutors teach the syllabus content, then drill the paper technique and command terms each exam actually rewards, and mentor every piece of coursework — subject Internal Assessments, the 4,000-word Extended Essay, TOK exhibition and essay, and CAS planning — with structured past-paper practice through to the May and November sessions.",
+    highlights: ["HL & SL subjects", "Internal Assessments", "Extended Essay & TOK", "Past papers"],
   },
   {
     id: "cp",
-    title: "Career-related Programme (CP)",
+    title: "IB CP Tutoring",
+    subtitle: "Career-related Programme",
     age: "Ages 16-19",
-    description: "Academic tutoring alongside career-related study demands and practical deadlines.",
-  }
-];
-
-const CATEGORIES = [
-  {
-    id: "mathematics",
-    title: "IB Mathematics",
-    icon: Variable,
-    courses: [
-      { name: "Math Analysis & Approaches (AA)", levels: ["SL", "HL"] },
-      { name: "Math Applications & Interpretation (AI)", levels: ["SL", "HL"] },
-    ]
-  },
-  {
-    id: "sciences",
-    title: "IB Sciences",
-    icon: FlaskConical,
-    courses: [
-      { name: "Biology", levels: ["SL", "HL"] },
-      { name: "Chemistry", levels: ["SL", "HL"] },
-      { name: "Physics", levels: ["SL", "HL"] },
-      { name: "Computer Science", levels: ["SL", "HL"] },
-      { name: "Design Technology", levels: ["SL", "HL"] },
-    ]
-  },
-  {
-    id: "individuals",
-    title: "IB Individuals & Societies",
     icon: Briefcase,
-    courses: [
-      { name: "Business Management", levels: ["SL", "HL"] },
-      { name: "Economics", levels: ["SL", "HL"] },
-      { name: "Psychology", levels: ["SL", "HL"] },
-      { name: "History", levels: ["SL", "HL"] },
-      { name: "Philosophy", levels: ["SL", "HL"] },
-      { name: "Geography", levels: ["SL", "HL"] },
-    ]
+    description:
+      "IB CP tutoring for Career-related Programme students carrying DP subjects alongside a career-related study pathway. Tutors support the two or more DP courses at HL or SL, guide the Reflective Project through its ethical dilemma, research and referencing, and back the CP core — Personal and Professional Skills, service learning and language development — with realistic scheduling around placement and portfolio deadlines.",
+    highlights: ["DP course support", "Reflective Project", "PPS core", "Deadline planning"],
   },
-  {
-    id: "english",
-    title: "IB English",
-    icon: BookOpen,
-    courses: [
-      { name: "English A: Language & Literature", levels: ["SL", "HL"] },
-      { name: "English A: Literature", levels: ["SL", "HL"] },
-    ]
-  },
-  {
-    id: "language",
-    title: "IB Language",
-    icon: Languages,
-    courses: [
-      { name: "French B / ab initio", levels: ["SL", "HL"] },
-      { name: "Spanish B / ab initio", levels: ["SL", "HL"] },
-      { name: "German B / ab initio", levels: ["SL", "HL"] },
-      { name: "Hindi B", levels: ["SL", "HL"] },
-    ]
-  }
 ];
 
 export function CourseExplorer() {
-  const [selectedCourseId, setSelectedCourseId] = useState<string>(CATEGORIES[0].id);
-  const activeCategory = useMemo(() =>
-    CATEGORIES.find(c => c.id === selectedCourseId) || CATEGORIES[0]
-    , [selectedCourseId]);
-
   return (
-    <section className="pt-16 pb-6 px-4 bg-background overflow-hidden" id="curriculum">
+    <section className="pt-12 pb-6 px-4 bg-background overflow-hidden" id="curriculum">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-8 text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4">
             Curriculum navigator
           </div>
           <h2 className="text-2xl md:text-6xl font-black text-foreground mb-4 tracking-tight leading-none">
-            Explore IB <span className="text-primary italic">programmes and subjects</span>
+            IB tutoring for every <span className="text-primary italic">IB programme</span>
           </h2>
-          <p className="text-muted-foreground font-medium max-w-2xl text-base md:text-lg leading-relaxed">
-            Find the right support by programme, subject and level, from PYP and MYP foundations to DP Math AA, Math AI, sciences and humanities.
+          <p className="text-muted-foreground font-medium max-w-3xl text-base md:text-lg leading-relaxed">
+            The International Baccalaureate runs as four connected programmes, and each one is assessed
+            differently — PYP through units of inquiry, MYP against criteria A-D, DP through Internal
+            Assessments and final exams, CP through the Reflective Project. Pick the programme your child is
+            in to see how our IB tutors teach it, which subjects we cover at Standard and Higher Level, and
+            what the coursework actually asks for.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Column 1: Core IB Programs */}
-          <div className="lg:col-span-5">
-            <h3 className="text-xl font-black text-foreground mb-6 flex items-center gap-2">
-              Core IB Programmes
-            </h3>
-            <div className="grid gap-3">
-              {PROGRAMS.map((program) => (
-                <Link
-                  href={`/programmes/${program.id}`}
-                  key={program.id}
-                  className="block p-5 rounded-2xl bg-muted/10 border border-border/60 hover:bg-muted/20 hover:border-primary/40 transition-all duration-300 group backdrop-blur-sm"
-                >
-                  <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-1">
-                    <h4 className="text-sm md:text-base font-black text-foreground group-hover:text-primary transition-colors break-words">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {PROGRAMS.map((program) => (
+            <Link
+              href={`/programmes/${program.id}`}
+              key={program.id}
+              className="flex flex-col p-6 md:p-7 rounded-3xl bg-muted/10 border border-border/60 hover:bg-muted/20 hover:border-primary/40 transition-all duration-300 group backdrop-blur-sm"
+            >
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="flex items-center gap-3">
+                  <span className="grid place-items-center size-10 rounded-2xl bg-primary/10 border border-primary/20 text-primary shrink-0">
+                    <program.icon className="size-5" />
+                  </span>
+                  <div>
+                    <h3 className="text-base md:text-xl font-black text-foreground group-hover:text-primary transition-colors leading-tight">
                       {program.title}
-                    </h4>
-                    <span className="text-[10px] font-black px-2.5 py-1 rounded-full bg-muted/50 text-muted-foreground border border-border/40 whitespace-nowrap">
-                      {program.age}
-                    </span>
+                    </h3>
+                    <p className="text-[11px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider mt-0.5">
+                      {program.subtitle}
+                    </p>
                   </div>
-                  <p className="text-[13px] md:text-sm text-muted-foreground leading-relaxed font-medium">
-                    {program.description}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
+                </div>
+                <span className="text-[10px] font-black px-2.5 py-1 rounded-full bg-muted/50 text-muted-foreground border border-border/40 whitespace-nowrap">
+                  {program.age}
+                </span>
+              </div>
 
-          {/* Column 2: Core IB Courses (Interactive) */}
-          <div className="lg:col-span-7">
-            <h3 className="text-xl font-black text-foreground mb-6 flex items-center gap-2">
-              IB subject areas
-            </h3>
+              <p className="text-[13px] md:text-sm text-muted-foreground leading-relaxed font-medium mb-5">
+                {program.description}
+              </p>
 
-            <div className="flex flex-col md:flex-row gap-6">
-              {/* Category Selector */}
-              <div className="w-full md:w-56 space-y-2">
-                {CATEGORIES.map((cat) => (
-                  <button
-                    key={cat.id}
-                    onClick={() => setSelectedCourseId(cat.id)}
-                    className={`w-full flex items-center gap-3 px-4 py-4 rounded-2xl text-left transition-all font-black text-sm border-2 ${selectedCourseId === cat.id
-                        ? "bg-primary text-primary-foreground border-primary"
-                        : "bg-muted/10 text-muted-foreground hover:bg-muted/20 hover:text-foreground border-transparent"
-                      }`}
+              <div className="flex flex-wrap gap-2 mb-5">
+                {program.highlights.map((item) => (
+                  <span
+                    key={item}
+                    className="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-muted/30 text-muted-foreground border border-border/50 group-hover:border-primary/30 group-hover:text-primary transition-all"
                   >
-                    <cat.icon className="size-4 shrink-0" />
-                    <span className="truncate">{cat.title}</span>
-                  </button>
+                    {item}
+                  </span>
                 ))}
               </div>
 
-              {/* Subject Detail View */}
-              <div className="flex-1 p-5 md:p-6 rounded-3xl bg-muted/5 border border-border/50 backdrop-blur-md">
-                <div key={selectedCourseId} className="space-y-6">
-                    <div className="pb-4 border-b border-border/40 flex items-center justify-between gap-4">
-                      <h4 className="text-lg md:text-xl font-black text-foreground break-words tracking-tight">
-                        {activeCategory.title} Subjects
-                      </h4>
-                      <Link 
-                        href={`/courses/ib/${activeCategory.id}`}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs md:text-sm font-bold text-primary hover:bg-primary/20 transition-all group/link whitespace-nowrap shrink-0"
-                      >
-                        Full curriculum
-                        <ArrowRight className="size-3.5 transition-transform group-hover/link:translate-x-0.5" />
-                      </Link>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {activeCategory.courses.map((course, i) => (
-                        <div key={i} className="p-3.5 rounded-xl bg-muted/30 border border-border/50 group hover:bg-muted/50 hover:border-primary/40 transition-all duration-300">
-                          <p className="text-sm md:text-base font-black text-foreground mb-1 group-hover:text-primary transition-colors">
-                            {course.name}
-                          </p>
-                          <div className="flex gap-2">
-                            {course.levels.map(level => (
-                              <span key={level} className="text-[10px] font-black px-2 py-0.5 rounded-md bg-muted/50 text-muted-foreground border border-border/40 group-hover:bg-primary/20 group-hover:text-primary group-hover:border-primary/30 transition-all">
-                                {level}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
+              <span className="mt-auto inline-flex items-center gap-2 text-xs md:text-sm font-black text-primary">
+                Explore {program.id.toUpperCase()} tutoring
+                <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

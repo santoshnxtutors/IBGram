@@ -4,6 +4,7 @@ import { IgcseTutorAvailabilityPage } from "@/components/tutors/IgcseTutorAvaila
 import { buildIgcseTutorMetadataTitle, getIgcsePlaceName, getIgcseTutorCityPage } from "@/lib/tutors/igcse-route-helpers";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
+import { getGeneratedPageForRoute } from "@/lib/generated-pages/routes";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 
 type IgcseTutorSubjectProps = {
@@ -18,6 +19,8 @@ export async function generateMetadata({ params }: IgcseTutorSubjectProps): Prom
   const dbPath = `/igcse-tutors/${citySlug}/${subjectSlug}/`;
   const dbPage = await getDbGeneratedSeoPageByPath(dbPath, ["subject"]);
   if (dbPage) return buildGeneratedMetadata(dbPage);
+  const localPage = getGeneratedPageForRoute(dbPath, ["subject", "programme"]);
+  if (localPage) return buildGeneratedMetadata(localPage);
 
   const page = getIgcseTutorCityPage(citySlug);
   if (!page) notFound();
@@ -35,6 +38,8 @@ export default async function IgcseTutorSubjectPage({ params }: IgcseTutorSubjec
   const dbPath = `/igcse-tutors/${citySlug}/${subjectSlug}/`;
   const dbPage = await getDbGeneratedSeoPageByPath(dbPath, ["subject"]);
   if (dbPage) return <GeneratedPageRenderer page={dbPage} />;
+  const localPage = getGeneratedPageForRoute(dbPath, ["subject", "programme"]);
+  if (localPage) return <GeneratedPageRenderer page={localPage} />;
 
   const page = getIgcseTutorCityPage(citySlug);
   if (!page) notFound();

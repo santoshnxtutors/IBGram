@@ -3,8 +3,18 @@ import { normalizeJsonLdUrls, stripUndefinedFromJsonLd, type JsonLdObject } from
 import { SITE_URL } from "@/lib/seo/slug-utils";
 import type { GeneratedSeoPage } from "./types";
 
+// The curriculum and hub were hardcoded to IB, so every IGCSE page built by the admin
+// generator emitted serviceType "IB tutoring" and a breadcrumb pointing at /ib-tutors/
+// with the wrong URL. Derive both from the canonical path instead.
+function curriculumOf(canonical: string): { label: "IB" | "IGCSE"; hubPath: string; hubName: string } {
+  if (/\/igcse-tutors\//i.test(canonical)) return { label: "IGCSE", hubPath: "/igcse-tutors/", hubName: "IGCSE Tutors" };
+  if (/\/igcse-pages\//i.test(canonical)) return { label: "IGCSE", hubPath: "/igcse-pages/", hubName: "IGCSE Pages" };
+  return { label: "IB", hubPath: "/ib-tutors/", hubName: "IB Tutors" };
+}
+
 export function buildGeneratedPageSchema(page: GeneratedSeoPage): JsonLdObject {
   const canonical = canonicalUrl(page.canonicalUrl);
+  const curriculum = curriculumOf(canonical);
   const organizationId = `${SITE_URL}/#organization`;
   const webpageId = `${canonical}#webpage`;
   const breadcrumbId = `${canonical}#breadcrumb`;
@@ -25,21 +35,21 @@ export function buildGeneratedPageSchema(page: GeneratedSeoPage): JsonLdObject {
     {
       "@type": "BreadcrumbList",
       "@id": breadcrumbId,
-      itemListElement: buildBreadcrumbItems(page),
+      itemListElement: buildBreadcrumbItems(page, curriculum),
     },
     {
       "@type": "EducationalOrganization",
       "@id": organizationId,
       name: "IB Gram",
       url: SITE_URL,
-      logo: `${SITE_URL}/globe.svg`,
+      logo: `${SITE_URL}/logo-512.png`,
       email: "ibgram24@gmail.com",
     },
     {
       "@type": "Service",
       "@id": serviceId,
       name: page.serviceFocus,
-      serviceType: "IB tutoring",
+      serviceType: `${curriculum.label} tutoring`,
       provider: { "@id": organizationId },
       areaServed: [page.cityName, page.microLocationName, ...page.nearbyAreas, ...page.nearbyCities]
         .filter(Boolean)
@@ -48,17 +58,17 @@ export function buildGeneratedPageSchema(page: GeneratedSeoPage): JsonLdObject {
         "@type": "EducationalAudience",
         educationalRole: "student",
       },
-      educationalLevel: page.programmes.join(", ") || "IB PYP, MYP and DP",
+      educationalLevel: page.programmes.join(", ") || (curriculum.label === "IB" ? "IB PYP, MYP and DP" : "IGCSE Grade 9 and Grade 10"),
       description: page.metaDescription,
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "IB tutoring support",
+        name: `${curriculum.label} tutoring support`,
         itemListElement: page.subjects.map((subject) => ({
           "@type": "Offer",
           itemOffered: {
             "@type": "Course",
             name: subject,
-            description: `${subject} support for IB students in ${page.cityName}.`,
+            description: `${subject} support for ${curriculum.label} students in ${page.cityName}.`,
           },
         })),
       },
@@ -82,11 +92,11 @@ export function buildGeneratedPageSchema(page: GeneratedSeoPage): JsonLdObject {
   return normalizeJsonLdUrls(stripUndefinedFromJsonLd({ "@context": "https://schema.org", "@graph": graph })) as JsonLdObject;
 }
 
-function buildBreadcrumbItems(page: GeneratedSeoPage): JsonLdObject[] {
+function buildBreadcrumbItems(page: GeneratedSeoPage, curriculum: ReturnType<typeof curriculumOf>): JsonLdObject[] {
   const items: JsonLdObject[] = [
     { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-    { "@type": "ListItem", position: 2, name: "IB Tutors", item: `${SITE_URL}/ib-tutors/` },
-    { "@type": "ListItem", position: 3, name: page.cityName, item: `${SITE_URL}/ib-tutors/${page.citySlug}/` },
+    { "@type": "ListItem", position: 2, name: curriculum.hubName, item: `${SITE_URL}${curriculum.hubPath}` },
+    { "@type": "ListItem", position: 3, name: page.cityName, item: `${SITE_URL}${curriculum.hubPath}${page.citySlug}/` },
   ];
 
   if (page.pageType !== "city") {

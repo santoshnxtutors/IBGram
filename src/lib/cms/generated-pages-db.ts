@@ -2,6 +2,8 @@ import "server-only";
 import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/db";
 import { dbBundleToGeneratedSeoPage, type DbPageWithChildren } from "./generated-page-adapter";
+import { getGeneratedPageByPath } from "@/lib/generated-pages/store";
+import { getGeneratedIndexingDecision } from "@/lib/seo/indexing";
 import type { GeneratedPageType, GeneratedSeoPage } from "@/lib/page-generator/types";
 
 /**
@@ -67,10 +69,34 @@ export async function getDbGeneratedSeoPageByPath(
   path: string,
   allowedTypes?: GeneratedPageType[],
 ): Promise<GeneratedSeoPage | null> {
+  // The compiled code store is the source of truth for pipeline-written pages: it
+  // ships in the bundle, renders statically, and carries the full-length content.
+  // The DB holds older, thinner copies of many of the same paths (and 1,322 empty
+  // shells with no blocks at all), so a DB hit would otherwise shadow real content.
+  // Deferring here makes every caller store-first without touching 18 route files.
+  const staticPage = getGeneratedPageByPath(path);
+  if (staticPage && staticPage.status === "published") {
+    if (!allowedTypes || allowedTypes.includes(staticPage.pageType)) return null;
+  }
+
   const bundle = await getDbGeneratedPageByPath(path);
   if (!bundle) return null;
   if (allowedTypes && !allowedTypes.includes(bundle.pageType as GeneratedPageType)) return null;
-  return dbBundleToGeneratedSeoPage(bundle as unknown as DbPageWithChildren);
+  // A published row with no content blocks is an empty shell that renders a bare
+  // hero and nothing else. Treat it as a miss so the static fallback runs instead.
+  if (bundle.blocks.length === 0) return null;
+
+  const page = dbBundleToGeneratedSeoPage(bundle as unknown as DbPageWithChildren);
+  // Same reason one step further. 27 rows carry a few blocks but only 209-492
+  // words and a qualityScore of 62-69, which is under the index bar, so
+  // buildGeneratedMetadata renders them `noindex, follow` — while the sitemap
+  // still advertises the URL. That contradiction is what Search Console counts
+  // as "Excluded by 'noindex' tag". The static fallback renders the same path
+  // in full, so a row too thin to index must not shadow it. A row an operator
+  // deliberately flagged noindex is honoured and still served.
+  if (bundle.indexFlag === "index" && !getGeneratedIndexingDecision(page).index) return null;
+
+  return page;
 }
 
 /**

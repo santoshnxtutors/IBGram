@@ -31,6 +31,7 @@ export const tutorVisibilityPageOptions: TutorVisibilityOption[] = [
   { label: "IB English course", path: "/courses/ib/english/" },
   { label: "IB Language course", path: "/courses/ib/language/" },
   { label: "IB Individuals and Societies course", path: "/courses/ib/individuals-and-societies/" },
+  { label: "IB Arts course", path: "/courses/ib/arts/" },
   { label: "IGCSE Mathematics course", path: "/courses/igcse/mathematics/" },
   { label: "IGCSE Sciences course", path: "/courses/igcse/sciences/" },
   { label: "IGCSE English course", path: "/courses/igcse/english/" },
@@ -119,6 +120,12 @@ export const getVisibleTutorsForPage = unstable_cache(
         .sort((a, b) => a.placement.sortOrder - b.placement.sortOrder || a.row.displayName.localeCompare(b.row.displayName))
         .slice(0, 3)
         .map(({ row }) => mapPrismaToTutor(row));
+
+      // No admin-assigned placements for this page: fall back to top-rated tutors
+      // so the section is never rendered empty.
+      if (selected.length === 0) {
+        return rows.slice(0, 3).map((row) => mapPrismaToTutor(row));
+      }
 
       return selected;
     } catch {

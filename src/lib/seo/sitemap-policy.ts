@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { canonicalPath, canonicalUrl, getCanonicalTargetForDuplicate, normalizePath } from "./canonical";
 import { getRobotsForPublicPage, isPrivateOrUtilityPath } from "./indexing-policy";
+import { getGeneratedIndexingDecision } from "./indexing";
+import { getGeneratedPageByPath } from "@/lib/generated-pages/store";
 import { SITE_URL } from "./slug-utils";
 
 export type SitemapLikeEntry = MetadataRoute.Sitemap[number];
@@ -19,6 +21,16 @@ export function shouldIncludeInSitemap(entry: Pick<SitemapLikeEntry, "url">): bo
 
   const robots = getRobotsForPublicPage({ path });
   if (!robots.index) return false;
+
+  // getRobotsForPublicPage only sees the path, so it answers "index" for any
+  // public-looking URL. The page itself decides from its own content, and the
+  // two disagreed: sitemap emitters that fan out over static params (city x
+  // subject, city x area) advertised URLs whose page rendered `noindex, follow`.
+  // Google reports that contradiction as "Excluded by 'noindex' tag" and indexes
+  // none of them. Asking the store for the page's real decision closes the gap
+  // for every emitter at once, since all of them funnel through this guard.
+  const generatedPage = getGeneratedPageByPath(path);
+  if (generatedPage && !getGeneratedIndexingDecision(generatedPage).index) return false;
 
   return true;
 }

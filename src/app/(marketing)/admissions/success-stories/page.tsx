@@ -2,7 +2,7 @@
 import SuccessStoriesPage from "../successstories";
 
 export const metadata: Metadata = {
-  title: "Success Stories | IB Gram",
+  title: "Success Stories",
   description:
     "Admissions success stories from students IB Gram has supported — their programmes and the universities they joined.",
   alternates: {

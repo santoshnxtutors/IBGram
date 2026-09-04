@@ -46,7 +46,7 @@ describe("GSC JSON-LD safety", () => {
       stripUndefinedFromJsonLd({
         "@id": "https://ibgram.com/ib-tutors/gurugram/#webpage",
         url: "https://ibgram.com/ib-tutors/gurugram/",
-        logo: "/globe.svg",
+        logo: "/logo-512.png",
         missing: undefined,
       }),
     ) as Record<string, unknown>;
@@ -54,7 +54,7 @@ describe("GSC JSON-LD safety", () => {
     expect(schema).toEqual({
       "@id": "https://www.ibgram.com/ib-tutors/gurugram/#webpage",
       url: "https://www.ibgram.com/ib-tutors/gurugram/",
-      logo: "https://www.ibgram.com/globe.svg",
+      logo: "https://www.ibgram.com/logo-512.png",
     });
   });
 });

@@ -121,9 +121,9 @@ export function SuccessStories({ items }: { items?: Story[] }) {
   };
 
   return (
-    <section className="py-14 md:py-20 relative overflow-hidden bg-background" aria-labelledby="success-heading">
+    <section className="py-12 md:py-16 relative overflow-hidden bg-background" aria-labelledby="success-heading">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-left mb-10 max-w-4xl">
+        <div className="text-left mb-8 max-w-4xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black uppercase tracking-[0.2em] mb-4">
             success stories
           </div>

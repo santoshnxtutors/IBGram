@@ -14,7 +14,7 @@ export async function IGCSEBlogs() {
   if (posts.length === 0) return null;
 
   return (
-    <section className="border-t border-border/40 bg-background py-16 md:py-24" id="igcse-blogs">
+    <section className="border-t border-border/40 bg-background py-12 md:py-16" id="igcse-blogs">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">

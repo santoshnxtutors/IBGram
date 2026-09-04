@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { TutorDiscovery } from "@/components/home/TutorDiscovery";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
+import { getGeneratedPageForRoute } from "@/lib/generated-pages/routes";
 import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 
@@ -15,6 +16,8 @@ export const revalidate = 3600;
 export async function generateMetadata(): Promise<Metadata> {
   const dbPage = await getDbGeneratedSeoPageByPath("/programmes/myp/", ["programme"]);
   if (dbPage) return buildGeneratedMetadata(dbPage);
+  const localPage = getGeneratedPageForRoute("/programmes/myp/", ["programme"]);
+  if (localPage) return buildGeneratedMetadata(localPage);
   return {
     title: "IB MYP Tutor — Middle Years Programme Support | IB Gram",
     description: "MYP tutoring for criterion-based assessment, Personal Project mentoring and eAssessment preparation. Home, online and hybrid.",
@@ -24,13 +27,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function MYPPage() {
   const visibleTutors = await getVisibleTutorsForPage("/programmes/myp/");
-  const dbPage = await getDbGeneratedSeoPageByPath("/programmes/myp/", ["programme"]);
+  const dbPage = await getDbGeneratedSeoPageByPath("/programmes/myp/", ["programme"])
+    ?? getGeneratedPageForRoute("/programmes/myp/", ["programme"]);
   if (dbPage) {
     return (
-      <>
-        <GeneratedPageRenderer page={dbPage} />
-        <TutorDiscovery tutors={visibleTutors ?? undefined} />
-      </>
+      // Real tutors sit in the renderer's tutor slot, directly under the intro. The
+      // built-in matching block is suppressed so the page does not also show an
+      // empty "no match found" state further up.
+      <GeneratedPageRenderer
+        page={dbPage}
+        hideTutorMatching
+        tutorSection={<TutorDiscovery tutors={visibleTutors ?? undefined} />}
+      />
     );
   }
 

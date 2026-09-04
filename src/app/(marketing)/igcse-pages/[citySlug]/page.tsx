@@ -15,7 +15,11 @@ import {
   Sigma,
   Sparkles,
 } from "lucide-react";
+import { BookDemoButton } from "@/components/booking/BookDemoButton";
 import { JsonLd } from "@/components/seo-city/JsonLd";
+import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
+import { getGeneratedPageForRoute } from "@/lib/generated-pages/routes";
+import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { buildIgcseCityMetadata } from "@/lib/seo/metadata";
 import { buildIgcseCityPageSchema } from "@/lib/seo/schema";
 import { getIgcseCityPageBySlug, getLiveIgcseCityPages } from "@/lib/seo/igcse-city-pages";
@@ -35,6 +39,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: IgcseCityPageProps): Promise<Metadata> {
   const { citySlug } = await params;
+  const localPage = getGeneratedPageForRoute(`/igcse-pages/${citySlug}/`, ["city"]);
+  if (localPage) return buildGeneratedMetadata(localPage);
+
   const page = getIgcseCityPageBySlug(citySlug);
 
   if (!page || page.status !== "live") {
@@ -46,6 +53,9 @@ export async function generateMetadata({ params }: IgcseCityPageProps): Promise<
 
 export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
   const { citySlug } = await params;
+  const localPage = getGeneratedPageForRoute(`/igcse-pages/${citySlug}/`, ["city"]);
+  if (localPage) return <GeneratedPageRenderer page={localPage} />;
+
   const page = getIgcseCityPageBySlug(citySlug);
 
   if (!page || page.status !== "live") {
@@ -86,13 +96,16 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
               </div>
 
               <div className="flex flex-col gap-3 pt-2 sm:flex-row">
-                <Link
-                  href="/contact-us/"
-                  className="shimmer-btn inline-flex h-14 items-center justify-center rounded-xl border border-primary/30 bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
-                >
-                  Book an IGCSE Consultation
-                  <ArrowRight className="ml-2 size-5" />
-                </Link>
+                <BookDemoButton
+                  defaultCurriculum="IGCSE"
+                  className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+                  label={
+                    <>
+                      Book a Demo
+                      <ArrowRight className="size-5" />
+                    </>
+                  }
+                />
                 <Link
                   href="/igcse/#subjects"
                   className="inline-flex h-14 items-center justify-center rounded-xl border border-border bg-background/50 px-7 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"

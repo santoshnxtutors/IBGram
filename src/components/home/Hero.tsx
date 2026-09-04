@@ -1,36 +1,49 @@
 import Link from "next/link";
-import { ArrowRight, Star, ClipboardCheck, Target, CalendarCheck, MessageCircle } from "lucide-react";
+import { ArrowRight, Star, ClipboardCheck, Target, CalendarCheck, MessageCircle, ShieldCheck, Laptop, CheckCircle2 } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import { BookDemoButton } from "@/components/booking/BookDemoButton";
+import { HeroFlagSlider } from "./HeroFlagSlider";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-4 pb-16 lg:pt-6 lg:pb-20 bg-background">
+    <section className="relative overflow-hidden pt-4 pb-10 lg:pt-6 lg:pb-12 bg-background">
 
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+      {/* Wider than the default container and padded asymmetrically so the headline
+          sits further left instead of being centred with equal gutters. */}
+      <div className="relative z-10 mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:pl-8 xl:pl-12 lg:pr-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-7 md:space-y-8">
-            <div className="flex flex-wrap items-center gap-4">
-              <div
-                className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3.5 py-1.5 text-sm font-semibold text-primary shadow-sm glassmorphism"
-              >
-                <span className="flex h-2 w-2 rounded-full bg-primary mr-2" />
-                Trusted IB and IGCSE tutor matching for families worldwide
+            {/* Badge, headline and intro are grouped with explicit margins instead of the
+                column's wider space-y rhythm, so each gap can be tuned on its own. */}
+            <div>
+              <div className="flex flex-wrap items-center gap-4">
+                <div
+                  className="inline-flex items-center whitespace-nowrap rounded-full border border-primary/20 bg-primary/5 px-2.5 py-1 text-[10px] font-semibold text-primary shadow-sm glassmorphism sm:px-3.5 sm:py-1.5 sm:text-xs md:text-sm"
+                >
+                  <span className="flex h-1.5 w-1.5 rounded-full bg-primary mr-1.5 sm:h-2 sm:w-2 sm:mr-2" />
+                  Trusted IB and IGCSE tutor matching for families worldwide
+                </div>
               </div>
 
+              <h1 className="mt-3 text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.06] max-w-5xl">
+                Find IB and IGCSE tutors worldwide who know your syllabus and school.
+              </h1>
+
+              <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-none lg:pr-4 leading-relaxed">
+                IB Gram connects families across 15+ countries with IB and IGCSE tutors for PYP, MYP and DP, covering Math AA and AI, Physics, Chemistry, Biology, Economics and English at HL and SL. Online lessons run in your time zone, with home and hybrid options where tutors are local, plus IA, Extended Essay, TOK and past-paper revision before the May and November sessions.
+              </p>
+
+              <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-semibold text-muted-foreground">
+                <span className="flex items-center gap-2"><ShieldCheck className="size-4 text-primary" /> Verified tutor profiles</span>
+                <span className="flex items-center gap-2"><Laptop className="size-4 text-primary" /> Home · Online · Hybrid</span>
+                <span className="flex items-center gap-2"><CheckCircle2 className="size-4 text-primary" /> Subject-first matching</span>
+              </div>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.06] max-w-5xl">
-              Find <span className="text-primary md:text-gradient md:bg-300% md:animate-gradient">IB and IGCSE tutors</span> who understand your syllabus, school and goals.
-            </h1>
-
-            <p className="text-lg md:text-xl text-muted-foreground max-w-[680px] leading-relaxed">
-              IB Gram helps families connect with tutors for PYP, MYP, DP and IGCSE subjects, with support for home, online and hybrid learning.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Link
                 href="/tutors"
                 prefetch={false}
@@ -43,32 +56,12 @@ export function Hero() {
                 Find a tutor for my child
                 <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link
-                href="/#curriculum"
-                prefetch={false}
-                className={buttonVariants({
-                  size: "lg",
-                  variant: "outline",
-                  className:
-                    "h-14 px-8 text-base md:text-lg rounded-xl glassmorphism-heavy group hover:border-secondary hover:bg-white/5 transition-all font-bold",
-                })}
-              >
-                Explore IB subjects
-              </Link>
+              <BookDemoButton className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 text-base font-bold text-[#25D366] transition-all hover:bg-[#25D366]/20 md:text-lg" />
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6 pt-10 border-t border-border/50">
-              <div className="flex -space-x-4">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="size-10 rounded-full border-2 border-background bg-muted flex items-center justify-center overflow-hidden cursor-pointer"
-                  >
-                    <UserAvatarFallback />
-                  </div>
-                ))}
-              </div>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5 pt-8 border-t border-border/50">
+              <HeroFlagSlider />
               <div>
                 <div className="flex items-center gap-1 text-secondary">
                   {[1, 2, 3, 4, 5].map((i) => (
@@ -77,8 +70,8 @@ export function Hero() {
                     </span>
                   ))}
                 </div>
-                <p className="text-sm font-medium text-foreground mt-1">
-                  Trusted by families preparing for IB and IGCSE assessments across India and overseas.
+                <p className="text-sm font-medium text-foreground mt-1 leading-snug">
+                  Trusted by families preparing for <strong className="font-semibold text-foreground">IB and IGCSE assessments</strong> across Asia, the Middle East, Europe, North America and Oceania in <span className="font-bold text-primary">15+ countries</span>.
                 </p>
               </div>
             </div>
@@ -91,14 +84,14 @@ export function Hero() {
             <div className="space-y-6">
               <div className="mb-8">
                 <h2 className="text-xs font-black uppercase tracking-[0.3em] text-primary/80 mb-2">Why IBGram?</h2>
-                <p className="text-2xl md:text-3xl font-black text-foreground leading-tight">Support built around how <span className="text-primary italic">IB and IGCSE</span> students actually study</p>
+                <p className="text-2xl md:text-3xl font-black text-foreground leading-tight">Support built around how <span className="text-primary italic">IB and IGCSE</span> students study, wherever they are</p>
               </div>
 
               <div className="grid gap-4">
                 {[
-                  { title: "Subject-level tutor matching", icon: Target, desc: "Match by programme, subject, level, weak areas and school timeline." },
-                  { title: "Syllabus-aware tutoring", icon: ClipboardCheck, desc: "Support for Math AA, Math AI, Physics, Chemistry, Economics, English and more." },
-                  { title: "Flexible learning modes", icon: CalendarCheck, desc: "Home, online and hybrid options are reviewed by availability and location." },
+                  { title: "Subject-level tutor matching", icon: Target, desc: "Matched by programme, subject, level, weak areas and your school's calendar." },
+                  { title: "Syllabus-aware tutoring", icon: ClipboardCheck, desc: "Math AA, Math AI, Physics, Chemistry, Economics, English and more, to the current syllabus." },
+                  { title: "Lessons in your time zone", icon: CalendarCheck, desc: "Online worldwide around school hours, with home and hybrid options where tutors are local." },
                   { title: "Parent communication", icon: MessageCircle, desc: "Clear updates on what was covered, what needs practice and the next step." }
                 ].map((item, i) => (
                   <div
@@ -117,17 +110,9 @@ export function Hero() {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
-  );
-}
-
-// Simple fallback component to mimic the user images without needing actual image assets loaded
-function UserAvatarFallback() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor" fillOpacity="0.4" />
-    </svg>
   );
 }

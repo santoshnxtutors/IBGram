@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
+import { getGeneratedPageForRoute } from "@/lib/generated-pages/routes";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
 import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
+import { resolvePageTitle } from "@/lib/seo/page-title";
 import CoursePageClient from "./course-page-client";
 import { CourseTutorSection } from "./course-tutor-section";
 import { getCourseSubjectContent } from "./subject-content";
-import { SubjectPageView } from "./SubjectPageView";
+import { courseContentToGeneratedPage } from "./subject-content-page";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -34,11 +36,13 @@ export async function generateMetadata({ params }: CourseProps): Promise<Metadat
   const { curriculum, subject } = await params;
   const dbPage = await getDbGeneratedSeoPageByPath(pathFor(curriculum, subject), ["subject"]);
   if (dbPage && isRichDbPage(dbPage)) return buildGeneratedMetadata(dbPage);
+  const localPage = getGeneratedPageForRoute(pathFor(curriculum, subject), ["subject", "programme"]);
+  if (localPage) return buildGeneratedMetadata(localPage);
 
   const content = getCourseSubjectContent(curriculum, subject);
   if (content) {
     return {
-      title: content.metaTitle,
+      title: resolvePageTitle(content.metaTitle),
       description: content.metaDescription,
       keywords: content.metaKeywords,
       alternates: { canonical: pathFor(curriculum, subject) },
@@ -59,7 +63,7 @@ export async function generateMetadata({ params }: CourseProps): Promise<Metadat
   }
 
   return {
-    title: `${subject.replace(/-/g, " ")} tutor (${curriculum.toUpperCase()}) | IB Gram`,
+    title: `${subject.replace(/-/g, " ")} tutor (${curriculum.toUpperCase()})`,
     description: `Verified ${curriculum.toUpperCase()} ${subject.replace(/-/g, " ")} tutors with home, online and hybrid options.`,
     alternates: { canonical: pathFor(curriculum, subject) },
   };
@@ -71,18 +75,31 @@ export default async function CoursePage({ params }: CourseProps) {
   const visibleTutors = await getVisibleTutorsForPage(pagePath);
 
   const dbPage = await getDbGeneratedSeoPageByPath(pagePath, ["subject"]);
-  if (dbPage && isRichDbPage(dbPage)) {
+  const richPage = dbPage && isRichDbPage(dbPage) ? dbPage : getGeneratedPageForRoute(pagePath, ["subject", "programme"]);
+  if (richPage) {
     return (
       <>
-        <GeneratedPageRenderer page={dbPage} />
-        <CourseTutorSection curriculum={curriculum} subjectSlug={subject} tutors={visibleTutors ?? undefined} />
+        {/* Real tutor cards go directly under the hero. The generic tutor block in the
+            renderer is suppressed so the page does not show two tutor sections, one of
+            which is an empty "no match" state. */}
+        <GeneratedPageRenderer page={richPage} hideTutorMatching tutorSection={
+          <CourseTutorSection curriculum={curriculum} subjectSlug={subject} tutors={visibleTutors ?? undefined} />
+        } />
       </>
     );
   }
 
+  // No generated page for this subject yet: render the static content module through the
+  // same layout so it does not look like a different site section.
   const content = getCourseSubjectContent(curriculum, subject);
   if (content) {
-    return <SubjectPageView curriculum={curriculum} subject={subject} content={content} visibleTutors={visibleTutors ?? undefined} />;
+    return (
+      <GeneratedPageRenderer
+        page={courseContentToGeneratedPage(curriculum, subject, content)}
+        hideTutorMatching
+        tutorSection={<CourseTutorSection curriculum={curriculum} subjectSlug={subject} tutors={visibleTutors ?? undefined} />}
+      />
+    );
   }
 
   return <CoursePageClient visibleTutors={visibleTutors ?? undefined} />;

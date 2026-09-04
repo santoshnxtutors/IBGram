@@ -3,8 +3,18 @@
 import { X, Bot, MoreVertical, ArrowUp, Sparkles } from "lucide-react";
 import { useState } from "react";
 
-export function AiAssistantFloatingWidget() {
-  const [isOpen, setIsOpen] = useState(false);
+type AiAssistantFloatingWidgetProps = {
+  /** Controlled open state. Omit to keep the widget self-managed. */
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  /** Hide the built-in round launcher when something else (the rail) opens this. */
+  hideLauncher?: boolean;
+};
+
+export function AiAssistantFloatingWidget({ open, onOpenChange, hideLauncher = false }: AiAssistantFloatingWidgetProps = {}) {
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
+  const isOpen = open ?? uncontrolledOpen;
+  const setIsOpen = (next: boolean) => (onOpenChange ? onOpenChange(next) : setUncontrolledOpen(next));
   const [isHovered, setIsHovered] = useState(false);
   const currentTime = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 

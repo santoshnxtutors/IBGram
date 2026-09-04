@@ -6,6 +6,7 @@ import type { IgcseCitySeoPage } from "@/lib/seo/igcse-city-pages";
 import { buildTutorLandingPageSchema } from "@/lib/seo/schema";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
 import { JsonLd } from "@/components/generated-pages/JsonLd";
+import { BookDemoButton } from "@/components/booking/BookDemoButton";
 
 type IgcseTutorAvailabilityPageProps = {
   page: IgcseCitySeoPage;
@@ -87,6 +88,25 @@ export function IgcseTutorAvailabilityPage({
               <p className="mt-5 max-w-3xl text-lg font-medium leading-relaxed text-muted-foreground">
                 Compare Cambridge and Pearson Edexcel IGCSE tutors by city, locality, subject fit and tutoring mode. Availability is reviewed safely without claiming guaranteed tutor placement.
               </p>
+
+              <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+                <BookDemoButton
+                  defaultCurriculum="IGCSE"
+                  className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+                  label={
+                    <>
+                      Book a Demo
+                      <ArrowRight className="size-5" />
+                    </>
+                  }
+                />
+                <Link
+                  href="/tutors/"
+                  className="inline-flex h-14 items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-7 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
+                >
+                  View Tutors
+                </Link>
+              </div>
             </div>
 
             <aside className="lg:col-span-4">

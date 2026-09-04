@@ -3,7 +3,7 @@ import { igcseReviews } from "../content";
 
 export function IGCSEReviews() {
   return (
-    <section className="bg-background py-16 md:py-24" id="igcse-reviews">
+    <section className="bg-background py-12 md:py-16" id="igcse-reviews">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <div className="mb-4 flex items-center justify-center gap-2">

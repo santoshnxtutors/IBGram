@@ -10,10 +10,13 @@ import {
   Laptop,
   ShieldCheck,
   Sparkles,
+  Star,
   Target,
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BookDemoButton } from "@/components/booking/BookDemoButton";
+import { HeroFlagSlider } from "@/components/home/HeroFlagSlider";
 import { IGCSETutors } from "./tutor";
 import { IGCSESubjectExplorer } from "./subject-explorer";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
@@ -31,7 +34,7 @@ export const revalidate = 3600;
 const CANONICAL = absoluteUrl("/igcse/");
 
 export const metadata: Metadata = {
-  title: "IGCSE Tutors in India — Cambridge & Edexcel Support | IB Gram",
+  title: "IGCSE Tutors in India — Cambridge & Edexcel Support",
   description:
     "Find verified Cambridge IGCSE and Pearson Edexcel International GCSE tutors across Gurugram, Delhi, Noida, Mumbai and online. Subject-first matching by syllabus code, tier, paper route and exam timeline.",
   keywords: [
@@ -216,45 +219,104 @@ export default async function IGCSEPage() {
       />
 
       {/* ───── Hero ───── */}
-      <section className="relative overflow-hidden pt-12 pb-16 md:pt-16 md:pb-20 noise-overlay">
+      <section className="relative overflow-hidden pt-4 pb-12 md:pt-6 md:pb-14 noise-overlay">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 -right-1/4 h-[600px] w-[600px] rounded-full bg-primary/5 blur-[100px]" />
           <div className="absolute bottom-1/4 -left-1/4 h-[400px] w-[400px] rounded-full bg-secondary/5 blur-[80px]" />
         </div>
 
-        <div className="container relative z-10 mx-auto max-w-6xl px-4">
-          <div className="flex flex-col items-center space-y-6 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-              <GraduationCap className="size-4" />
-              <span>Cambridge IGCSE · Pearson Edexcel International GCSE</span>
+        {/* Same two-column shape as the IB hero on the homepage: left-aligned badge,
+            headline, intro and CTAs, with a "Why IBGram?" panel on the right. */}
+        <div className="relative z-10 mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:pl-8 xl:pl-12 lg:pr-10">
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
+
+            {/* Left Column */}
+            <div className="space-y-7 md:space-y-8 lg:col-span-7">
+              <div>
+                <div className="flex flex-wrap items-center gap-4">
+                  <div className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-[10px] font-semibold text-primary sm:px-4 sm:py-1.5 sm:text-xs md:text-sm">
+                    <GraduationCap className="size-3.5 sm:size-4" />
+                    <span>Cambridge IGCSE · Pearson Edexcel International GCSE</span>
+                  </div>
+                </div>
+
+                <h1 className="mt-3 max-w-5xl text-4xl font-extrabold leading-[1.06] tracking-tight text-foreground md:text-6xl lg:text-7xl">
+                  Verified IGCSE tutors matched by subject, board and lesson mode
+                </h1>
+
+                <p className="mt-4 max-w-none text-lg leading-relaxed text-muted-foreground lg:pr-4 md:text-xl">
+                  Find IGCSE tutoring that fits your child&apos;s exam route: Cambridge or Pearson Edexcel, Core or Extended, Grade 9 foundations or Grade 10 finals. IB Gram is an independent platform helping families across 15+ countries compare verified subject specialists by paper style, syllabus code and examiner familiarity. Online lessons run in your time zone, with home and hybrid options where tutors are local.
+                </p>
+
+                <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-semibold text-muted-foreground">
+                  <span className="flex items-center gap-2"><ShieldCheck className="size-4 text-primary" /> Verified tutor profiles</span>
+                  <span className="flex items-center gap-2"><Laptop className="size-4 text-primary" /> Home · Online · Hybrid</span>
+                  <span className="flex items-center gap-2"><CheckCircle2 className="size-4 text-primary" /> Subject-first matching</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                <Link href="/tutors">
+                  <Button size="lg" className="group h-14 rounded-xl px-8 text-base font-bold md:text-lg">
+                    Find an IGCSE tutor <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+                <BookDemoButton
+                  defaultCurriculum="IGCSE"
+                  className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 text-base font-bold text-[#25D366] transition-all hover:bg-[#25D366]/20 md:text-lg"
+                />
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-col gap-4 border-t border-border/50 pt-8 sm:flex-row sm:items-center sm:gap-5">
+                <HeroFlagSlider />
+                <div>
+                  <div className="flex items-center gap-1 text-secondary">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <span key={i}>
+                        <Star className="size-4 fill-current" />
+                      </span>
+                    ))}
+                  </div>
+                  <p className="mt-1 text-sm font-medium leading-snug text-foreground">
+                    Trusted by families preparing for <strong className="font-semibold text-foreground">Cambridge and Edexcel IGCSE exams</strong> across Asia, the Middle East, Europe, North America and Oceania in <span className="font-bold text-primary">15+ countries</span>.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <h1 className="text-4xl font-extrabold tracking-tight text-foreground md:text-6xl">
-              Verified <span className="text-gradient">IGCSE tutors</span> matched by subject, board and lesson mode
-            </h1>
+            {/* Right Column - Why IB Gram for IGCSE */}
+            <div className="relative lg:col-span-5">
+              <div className="space-y-6">
+                <div className="mb-8">
+                  <h2 className="mb-2 text-xs font-black uppercase tracking-[0.3em] text-primary/80">Why IBGram?</h2>
+                  <p className="text-2xl font-black leading-tight text-foreground md:text-3xl">Support built around how <span className="italic text-primary">IGCSE</span> students are actually examined</p>
+                </div>
 
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Find IGCSE tutoring support that actually fits your child&apos;s exam route — Cambridge or Pearson Edexcel, Core or Extended, Grade 9 foundations or Grade 10 finals. IB Gram is an independent tutoring platform helping families across Gurugram (Gurgaon), Delhi, Noida and online compare verified subject specialists by paper style, examiner experience and realistic local availability.
-            </p>
-
-            <div className="flex flex-col gap-3 pt-2 sm:flex-row">
-              <Link href="/tutors">
-                <Button size="lg" className="group h-12 rounded-full px-8 text-base font-bold">
-                  Find an IGCSE tutor <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-              <Link href="#subjects">
-                <Button size="lg" variant="outline" className="glassmorphism h-12 rounded-full px-8 text-base">
-                  Browse IGCSE subjects
-                </Button>
-              </Link>
+                <div className="grid gap-4">
+                  {[
+                    { title: "Board and syllabus-aware matching", icon: Target, desc: "Cambridge or Edexcel, Core or Extended, matched to your school's registered syllabus code." },
+                    { title: "Paper-level subject depth", icon: BookOpen, desc: "Maths 0580 and 0607, Physics 0625, Chemistry 0620, Biology 0610, English 0500, Economics 0455 and more." },
+                    { title: "Lessons in your time zone", icon: CalendarClock, desc: "Online worldwide around school hours, with home and hybrid options where tutors are local." },
+                    { title: "Parent communication", icon: Users, desc: "Clear updates on what was covered, what needs practice and the next step." }
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className="group flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-all hover:border-primary/30 hover:bg-white/[0.06]"
+                    >
+                      <div className="grid size-10 shrink-0 place-items-center rounded-xl border border-primary/10 bg-primary/5 text-primary transition-colors group-hover:bg-primary/10">
+                        <item.icon className="size-5" />
+                      </div>
+                      <div>
+                        <h3 className="mb-1 text-sm font-bold text-foreground transition-colors group-hover:text-primary">{item.title}</h3>
+                        <p className="text-xs leading-relaxed text-muted-foreground">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-3 text-xs font-semibold text-muted-foreground">
-              <span className="flex items-center gap-2"><ShieldCheck className="size-4 text-primary" /> Verified tutor profiles</span>
-              <span className="flex items-center gap-2"><Laptop className="size-4 text-primary" /> Home · Online · Hybrid</span>
-              <span className="flex items-center gap-2"><CheckCircle2 className="size-4 text-primary" /> Subject-first matching</span>
-            </div>
           </div>
         </div>
       </section>
@@ -262,7 +324,7 @@ export default async function IGCSEPage() {
       <IGCSETrustSignals />
 
       {/* ───── Cambridge vs Edexcel deep-dive ───── */}
-      <section className="border-y border-border/50 bg-muted/5 py-16">
+      <section className="border-y border-border/50 bg-muted/5 py-12 md:py-16">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-10 max-w-3xl space-y-3">
             <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-secondary">
@@ -319,14 +381,14 @@ export default async function IGCSEPage() {
       <IGCSELearningPlan />
 
       {/* ───── Subject directory ───── */}
-      <section className="bg-background py-20" id="subjects">
+      <section className="bg-background py-12 md:py-16" id="subjects">
         <div className="container mx-auto max-w-7xl px-4">
           <IGCSESubjectExplorer />
         </div>
       </section>
 
       {/* ───── Subject deep-dive prose ───── */}
-      <section className="bg-muted/5 py-20">
+      <section className="bg-muted/5 py-12 md:py-16">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-10 max-w-3xl space-y-3">
             <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary">
@@ -361,7 +423,7 @@ export default async function IGCSEPage() {
       </section>
 
       {/* ───── Tutor matching process ───── */}
-      <section className="bg-background py-20">
+      <section className="bg-background py-12 md:py-16">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-10 max-w-3xl space-y-3">
             <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-secondary">
@@ -391,7 +453,7 @@ export default async function IGCSEPage() {
       </section>
 
       {/* ───── Learning modes ───── */}
-      <section className="bg-background py-20">
+      <section className="bg-background py-12 md:py-16">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-10 max-w-3xl space-y-3">
             <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-secondary">
@@ -441,7 +503,7 @@ export default async function IGCSEPage() {
       <IGCSEReviews />
 
       {/* ───── Assessment & grading ───── */}
-      <section className="bg-muted/10 py-20" id="assessment">
+      <section className="bg-muted/10 py-12 md:py-16" id="assessment">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-12 max-w-3xl space-y-3">
             <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary">
@@ -489,7 +551,7 @@ export default async function IGCSEPage() {
       </section>
 
       {/* ───── Why IB Gram for IGCSE ───── */}
-      <section className="bg-background py-20">
+      <section className="bg-background py-12 md:py-16">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-10 max-w-3xl space-y-3">
             <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-secondary">
@@ -529,7 +591,7 @@ export default async function IGCSEPage() {
       <IGCSEFaqs />
 
       {/* ───── Final CTA ───── */}
-      <section className="relative overflow-hidden py-20 md:py-24">
+      <section className="relative overflow-hidden py-12 md:py-16">
         <div className="absolute inset-0 -z-10 bg-primary/10" />
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <div className="glassmorphism space-y-6 rounded-[2.5rem] border-primary/20 p-8 md:p-12">

@@ -19,7 +19,10 @@ export function resolveIndexFlag(args: {
 }): GeneratedIndexFlag {
   if (args.status !== "published") return "noindex";
   if (args.preference === "noindex") return "noindex";
-  if (args.preference === "index" && args.quality.recommendedIndexFlag === "index") return "index";
-  if (args.preference === "index") return "noindex";
+  // An explicit "index" preference is an operator override and wins. It used to
+  // fall through to the quality score in every branch, which made the admin's
+  // index/auto choice identical and left no way to publish a reviewed page the
+  // scorer under-rates. "auto" still defers to the scorer.
+  if (args.preference === "index") return "index";
   return args.quality.recommendedIndexFlag;
 }

@@ -74,9 +74,12 @@ export const metadata: Metadata = {
     "best IB tutor in Gurgaon",
   ],
   icons: {
-    icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
-    shortcut: ["/favicon.ico"],
-    apple: [{ url: "/ibgramlogo.png", type: "image/png" }],
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "any" },
+    ],
+    shortcut: ["/icon.png"],
+    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
@@ -131,7 +134,7 @@ export default function RootLayout({
             })();
           `}
         </Script>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="96x96" />
         {/* AI / LLM crawler discovery — https://llmstxt.org */}
         <link rel="llms" type="text/plain" href="/llms.txt" />
         <link rel="llms-full" type="text/plain" href="/llms-full.txt" />

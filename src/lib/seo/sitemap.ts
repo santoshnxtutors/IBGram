@@ -19,7 +19,7 @@ import { cambridgeSubjects, edexcelSubjects } from "@/app/(marketing)/igcse/data
 import { getGurgaonSeoSitemapEntries } from "@/lib/gurgaon-seo";
 
 const LAST_MODIFIED = "2026-05-08";
-const COURSE_SUBJECT_SLUGS = ["pyp", "myp", "dp", "cp", "mathematics", "sciences", "individuals", "individuals-and-societies", "english", "language"];
+const COURSE_SUBJECT_SLUGS = ["pyp", "myp", "dp", "cp", "mathematics", "sciences", "individuals", "individuals-and-societies", "english", "language", "arts"];
 
 export function getSeoSitemapEntries(): MetadataRoute.Sitemap {
   return dedupeSitemapEntries([
@@ -64,6 +64,8 @@ export function getCorePublicSitemapEntries(): MetadataRoute.Sitemap {
     ["/igcse-pages/", "weekly", 0.86],
     ["/ib-tutors/", "weekly", 0.88],
     ["/jobs/", "monthly", 0.58],
+    ["/privacy-policy/", "yearly", 0.4],
+    ["/terms-and-conditions/", "yearly", 0.4],
     ["/programmes/", "monthly", 0.78],
     ["/programmes/pyp/", "monthly", 0.74],
     ["/programmes/myp/", "monthly", 0.74],

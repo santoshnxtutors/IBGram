@@ -21,6 +21,7 @@ import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPag
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { SchoolDisclaimer } from "@/components/seo-city/SchoolDisclaimer";
 import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
+import { getGeneratedPageForRoute } from "@/lib/generated-pages/routes";
 import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { CONTACT } from "@/lib/contact";
@@ -46,6 +47,8 @@ const pageUrl = absoluteUrl("/programmes/dp/");
 export async function generateMetadata(): Promise<Metadata> {
   const dbPage = await getDbGeneratedSeoPageByPath("/programmes/dp/", ["programme"]);
   if (dbPage) return buildGeneratedMetadata(dbPage);
+  const localPage = getGeneratedPageForRoute("/programmes/dp/", ["programme"]);
+  if (localPage) return buildGeneratedMetadata(localPage);
   return {
     title: "IB DP Tutor — Diploma Programme Subject, IA, EE & TOK Support | IB Gram",
     description:
@@ -70,13 +73,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function DPPage() {
   const visibleTutors = await getVisibleTutorsForPage("/programmes/dp/");
-  const dbPage = await getDbGeneratedSeoPageByPath("/programmes/dp/", ["programme"]);
+  const dbPage = await getDbGeneratedSeoPageByPath("/programmes/dp/", ["programme"])
+    ?? getGeneratedPageForRoute("/programmes/dp/", ["programme"]);
   if (dbPage) {
     return (
-      <>
-        <GeneratedPageRenderer page={dbPage} />
-        <TutorDiscovery tutors={visibleTutors ?? undefined} />
-      </>
+      // Real tutors sit in the renderer's tutor slot, directly under the intro. The
+      // built-in matching block is suppressed so the page does not also show an
+      // empty "no match found" state further up.
+      <GeneratedPageRenderer
+        page={dbPage}
+        hideTutorMatching
+        tutorSection={<TutorDiscovery tutors={visibleTutors ?? undefined} />}
+      />
     );
   }
 

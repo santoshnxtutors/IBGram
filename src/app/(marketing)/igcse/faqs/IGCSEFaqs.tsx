@@ -10,7 +10,7 @@ export function IGCSEFaqs() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-background py-16 md:py-24" id="igcse-faqs">
+    <section className="bg-background py-12 md:py-16" id="igcse-faqs">
       <div className="container relative z-10 mx-auto max-w-7xl px-4">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
