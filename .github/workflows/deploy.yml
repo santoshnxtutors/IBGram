@@ -260,7 +260,7 @@ jobs:
           SSHPASS: ${{ secrets.VPS_SSH_PASSWORD }}
         run: |
           set -euo pipefail
-          ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes"
+          ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=120 -o TCPKeepAlive=yes"
           if [ -f ~/.ssh/ibgram_deploy_key ]; then
             ssh_options="-i ${HOME}/.ssh/ibgram_deploy_key ${ssh_options}"
           fi
@@ -307,7 +307,7 @@ jobs:
           SSHPASS: ${{ secrets.VPS_SSH_PASSWORD }}
         run: |
           set -euo pipefail
-          ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes"
+          ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=120 -o TCPKeepAlive=yes"
           if [ -f ~/.ssh/ibgram_deploy_key ]; then
             ssh_options="-i ${HOME}/.ssh/ibgram_deploy_key ${ssh_options}"
           fi
@@ -375,7 +375,7 @@ jobs:
           LOG_LEVEL: ${{ secrets.LOG_LEVEL || 'info' }}
         run: |
           set -euo pipefail
-          ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes"
+          ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=120 -o TCPKeepAlive=yes"
           if [ -f ~/.ssh/ibgram_deploy_key ]; then
             ssh_options="-i ${HOME}/.ssh/ibgram_deploy_key ${ssh_options}"
           fi
