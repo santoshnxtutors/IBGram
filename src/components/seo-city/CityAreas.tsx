@@ -8,7 +8,7 @@ export function CityAreas({ page }: { page: CitySeoPage }) {
     <section className="bg-background py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 max-w-3xl">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-secondary">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
             <MapPinned className="size-3.5" />
             Areas covered
           </div>
@@ -43,7 +43,7 @@ export function CityAreas({ page }: { page: CitySeoPage }) {
           })}
         </div>
 
-        <div className="mt-8 rounded-2xl border border-border/50 bg-[#0B0F19]/50 p-5">
+        <div className="mt-8 rounded-2xl border border-border/50 bg-card p-5">
           <h3 className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-primary">Nearby areas parents ask about</h3>
           <div className="flex flex-wrap gap-2">
             {page.nearbyAreas.map((area) => (

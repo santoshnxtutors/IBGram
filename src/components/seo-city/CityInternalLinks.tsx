@@ -19,10 +19,10 @@ export function CityInternalLinks({ page }: { page: CitySeoPage }) {
   const groupedLinks = groupInternalLinksByContext(page.internalLinksOut);
 
   return (
-    <section className="bg-[#0B0F19]/35 py-16 md:py-24">
+    <section className="bg-muted/60 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 max-w-3xl">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-primary">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
             <Network className="size-3.5" />
             Explore next
           </div>

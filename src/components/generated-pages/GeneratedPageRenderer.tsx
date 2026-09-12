@@ -6,6 +6,7 @@ import { GeneratedInternalLinks } from "./GeneratedInternalLinks";
 import { GeneratedIntro } from "./GeneratedIntro";
 import { GeneratedLocalAreas } from "./GeneratedLocalAreas";
 import { GeneratedPrograms } from "./GeneratedPrograms";
+import { GeneratedSchoolStrip } from "./GeneratedSchoolStrip";
 import { GeneratedSchools } from "./GeneratedSchools";
 import { GeneratedSubjects } from "./GeneratedSubjects";
 import { GeneratedTrustBar } from "./GeneratedTrustBar";
@@ -13,7 +14,7 @@ import { GeneratedTutorMatching } from "./GeneratedTutorMatching";
 import { GeneratedVerification } from "./GeneratedVerification";
 import { JsonLd } from "./JsonLd";
 import { GeneratedBlockSection, GeneratedRemainingBlocks } from "./GeneratedSection";
-import { Laptop } from "lucide-react";
+import { GitBranch, Laptop } from "lucide-react";
 
 export function GeneratedPageRenderer({
   page,
@@ -31,10 +32,20 @@ export function GeneratedPageRenderer({
       <JsonLd data={page.schema} />
       <GeneratedHero page={page} />
       <GeneratedTrustBar page={page} />
+      <GeneratedSchoolStrip page={page} />
       <GeneratedIntro page={page} />
       {/* Tutors sit directly under the intro: finding a tutor is why the visitor is
           here, so it should not be buried below the subject and programme sections. */}
-      {tutorSection ?? (!hideTutorMatching && <GeneratedTutorMatching page={page} />)}
+      {/* A caller's tutor section replaces the built-in tutor list, not the matching_process
+          prose, which no other section renders. */}
+      {tutorSection ? (
+        <>
+          <GeneratedBlockSection page={page} type="matching_process" icon={GitBranch} eyebrow="Matching" fallbackTitle="Tutor Matching Process" tinted />
+          {tutorSection}
+        </>
+      ) : (
+        !hideTutorMatching && <GeneratedTutorMatching page={page} />
+      )}
       <GeneratedPrograms page={page} />
       <GeneratedSubjects page={page} />
       <GeneratedLocalAreas page={page} />

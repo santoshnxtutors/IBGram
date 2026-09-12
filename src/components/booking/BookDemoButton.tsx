@@ -2,16 +2,16 @@
 
 import { useState, type ReactNode } from "react";
 import { QuickDemoModal } from "./QuickDemoModal";
-import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
+import { Send } from "lucide-react";
 
 /**
- * Opens the short demo-booking form; submitting it hands the details to WhatsApp.
+ * Opens the short enquiry form; submitting it stores a lead for the admin dashboard.
  * Thin client wrapper so server-rendered heroes can drop in the button without
  * becoming client components themselves.
  */
 export function BookDemoButton({
   className,
-  label = "Book a Demo",
+  label = "Send a Query",
   defaultCurriculum,
 }: {
   className?: string;
@@ -27,10 +27,10 @@ export function BookDemoButton({
         onClick={() => setOpen(true)}
         className={
           className ??
-          "inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 text-base font-bold text-[#25D366] transition-all hover:bg-[#25D366]/20 md:text-lg"
+          "inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-border bg-background/50 px-6 text-base font-bold text-foreground transition-all hover:border-primary/50 hover:bg-muted/30 md:text-lg"
         }
       >
-        <WhatsAppIcon className="size-5" />
+        <Send className="size-5" />
         {label}
       </button>
       <QuickDemoModal open={open} onClose={() => setOpen(false)} defaultCurriculum={defaultCurriculum} />

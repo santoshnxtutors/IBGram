@@ -1,6 +1,6 @@
 import { Quote, ShieldCheck, Star } from "lucide-react";
 
-type Review = {
+export type Review = {
   id: number | string;
   name: string;
   location: string;
@@ -8,7 +8,7 @@ type Review = {
   text: string;
 };
 
-const fallbackReviews: Review[] = [
+export const fallbackReviews: Review[] = [
   {
     id: 1,
     name: "Parent of a DP Math AA student",
@@ -39,21 +39,31 @@ const fallbackReviews: Review[] = [
   },
 ];
 
-export function ReviewsSection({ items }: { items?: Review[] }) {
+export function ReviewsSection({
+  items,
+  heading,
+  intro,
+}: {
+  items?: Review[];
+  /** Single-colour heading override. Country/city pages pass a location-specific one. */
+  heading?: string;
+  intro?: string;
+}) {
   const reviews = items && items.length > 0 ? items : fallbackReviews;
   return (
     <section className="py-12 md:py-16 relative overflow-hidden bg-background">
       <div className="container mx-auto px-4 md:px-6 relative">
         <div className="max-w-2xl text-left mb-8 md:mb-10">
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px]">Student and parent reviews</span>
+            <span className="text-primary font-black uppercase tracking-[0.3em] text-[11px]">Student and parent reviews</span>
             <div className="h-px w-8 bg-primary/50" />
           </div>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-foreground leading-tight">
-            Stories from families using <span className="text-gradient bg-300% animate-gradient">IB Gram</span>
+            {heading ?? "Stories from families using IB Gram"}
           </h2>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-            Short, practical feedback from students and parents about tutor fit, revision structure and communication.
+            {intro ??
+              "Short, practical feedback from students and parents about tutor fit, revision structure and communication."}
           </p>
         </div>
 
@@ -61,7 +71,7 @@ export function ReviewsSection({ items }: { items?: Review[] }) {
           {reviews.map((review) => (
             <article
               key={review.id}
-              className="h-full rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:p-7 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-white/[0.06]"
+              className="h-full rounded-3xl border border-border bg-card p-6 md:p-7 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/5"
             >
               <div className="mb-6 flex items-start justify-between gap-4">
                 <div className="size-11 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
@@ -78,7 +88,7 @@ export function ReviewsSection({ items }: { items?: Review[] }) {
                 &ldquo;{review.text}&rdquo;
               </p>
 
-              <div className="mt-7 border-t border-white/10 pt-5">
+              <div className="mt-7 border-t border-border pt-5">
                 <div className="font-black text-sm text-foreground">{review.name}</div>
                 <div className="mt-1 flex items-center gap-1.5 text-xs font-bold text-muted-foreground">
                   <ShieldCheck className="size-3.5 text-primary" />

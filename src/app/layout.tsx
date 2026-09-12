@@ -12,8 +12,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ibgram.com"),
   title: {
-    default: "IB Gram | IB and IGCSE Tutors for Home and Online Learning",
-    template: "%s | IB Gram",
+    default: "IBGram | IB and IGCSE Tutors for Home and Online Learning",
+    template: "%s | IBGram",
   },
   description: "Find IB and IGCSE tutors for PYP, MYP, DP, Math AA, Math AI, Physics, Chemistry, Economics and English with home, online and hybrid support.",
   keywords: [
@@ -85,13 +85,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.ibgram.com",
-    title: "IB Gram | IB and IGCSE Tutors for Home and Online Learning",
+    title: "IBGram | IB and IGCSE Tutors for Home and Online Learning",
     description: "Find IB and IGCSE tutors for PYP, MYP, DP and core subjects with practical matching support for families.",
-    siteName: "IB Gram",
+    siteName: "IBGram",
   },
   twitter: {
     card: "summary_large_image",
-    title: "IB Gram | IB and IGCSE Tutors for Home and Online Learning",
+    title: "IBGram | IB and IGCSE Tutors for Home and Online Learning",
     description: "Tutor matching for IB and IGCSE families across home, online and hybrid learning.",
   },
 };

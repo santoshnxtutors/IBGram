@@ -20,7 +20,7 @@ export async function BlogInsights() {
         <div className="mb-10 flex flex-col items-end justify-between gap-6 md:flex-row">
           <div className="max-w-2xl">
             <h2 className="mb-4 text-3xl font-black tracking-tight text-foreground md:text-5xl">
-              Study insights and <span className="text-gradient">family resources</span>
+              Study insights and family resources
             </h2>
             <p className="text-lg font-medium text-muted-foreground md:text-xl">
               Calm, practical reading for IB and IGCSE families thinking through subjects, revision, deadlines and
@@ -51,7 +51,7 @@ export async function BlogInsights() {
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center bg-muted/10">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/30">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
                       IB Gram
                     </span>
                   </div>

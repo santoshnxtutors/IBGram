@@ -50,39 +50,124 @@
 }
 
 :root {
-  /* Deep Blue/Grey Enterprise dark mode - Forced Global */
-  --background: oklch(0.18 0.02 260); /* #111827 / #0B1220 deep */
+  /* Light edtech theme in the IBGram logo colours: blue "gram", orange "ib", sky-blue book. */
+  --background: #f7f9fc;
+  --foreground: #0b1530;
+  --card: #ffffff;
+  --card-foreground: #0b1530;
+  --popover: #ffffff;
+  --popover-foreground: #0b1530;
+
+  --primary: #1c47a8;
+  --primary-foreground: #ffffff;
+
+  --secondary: #e8780c;
+  /* navy, not white: white on this orange is only ~3:1 */
+  --secondary-foreground: #0b1530;
+
+  --muted: #eef2f8;
+  --muted-foreground: #2a3550;
+  --accent: #eaf1ff;
+  --accent-foreground: #0b1530;
+
+  --destructive: #c62828;
+  --destructive-foreground: #ffffff;
+
+  --border: #dde4ef;
+  --input: #c9d3e2;
+  --ring: #2b8ad8;
+
+  --radius: 0.75rem;
+
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(31, 79, 184, 0.12);
+}
+
+/* Admin panel keeps the original dark palette. :has() also reaches its portalled dialogs and menus. */
+:root:has(.admin-dark) {
+  --background: oklch(0.18 0.02 260);
   --foreground: oklch(0.98 0 0);
   --card: oklch(0.22 0.02 260);
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.22 0.02 260);
   --popover-foreground: oklch(0.98 0 0);
-  
-  /* Vibrant Glowing Green for actions (Revision Village interactive style) */
-  --primary: oklch(0.68 0.18 145); /* #10B981 / Neon Green */
-  --primary-foreground: oklch(0.15 0 0); /* Dark text on vibrant green */
-  
-  /* Vivid Orange / Action Accent */
-  --secondary: oklch(0.78 0.16 65); /* #F59E0B */
+  --primary: oklch(0.68 0.18 145);
+  --primary-foreground: oklch(0.15 0 0);
+  --secondary: oklch(0.78 0.16 65);
   --secondary-foreground: oklch(0.98 0 0);
-  
   --muted: oklch(0.25 0.02 260);
-  --muted-foreground: oklch(0.75 0 0); /* Slightly brighter for better contrast */
+  --muted-foreground: oklch(0.75 0 0);
   --accent: oklch(0.28 0.03 260);
   --accent-foreground: oklch(0.98 0 0);
-  
   --destructive: oklch(0.6 0.15 20);
   --destructive-foreground: oklch(0.98 0 0);
-  
   --border: oklch(0.32 0.01 260);
   --input: oklch(0.32 0.01 260);
-  --ring: oklch(0.68 0.18 145); /* Glowing green ring */
-  
-  --radius: 0.75rem;
-
-  /* Glassmorphism Variables tailored for Dark Mode */
+  --ring: oklch(0.68 0.18 145);
   --glass-bg: rgba(17, 24, 39, 0.6);
   --glass-border: rgba(255, 255, 255, 0.08);
+  /* Tailwind default text sizes (the public site bumps these by 1px) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+}
+
+/* Dark surfaces (navy footer, captions over photos, live class room): re-point tokens so text stays readable. */
+.surface-navy,
+.on-dark {
+  --foreground: #ffffff;
+  --card-foreground: #ffffff;
+  --muted-foreground: #c9d4ea;
+  --primary: #f7a035;
+  --primary-foreground: #0e1d3d;
+  --secondary: #5aaeef;
+  --border: rgba(255, 255, 255, 0.14);
+  color: var(--foreground);
+}
+
+.surface-navy {
+  background-color: #13254a;
+}
+
+/* Multicolour edtech accents: cards in a grid take turns re-pointing --primary, so their icons,
+   chips, numbers and links cycle blue / orange / green / purple / pink / teal. Every shade is
+   ~7:1 on white, so it stays readable for colour-blind readers too. Admin excluded.
+   ponytail: matches cards by tag or rounded+border classes; give a grid an explicit class if one misfires. */
+.grid > :is(article, li, a, div[class*="rounded"][class*="border"]):not(.admin-dark *):nth-child(6n + 2) { --primary: #9a3412; }
+.grid > :is(article, li, a, div[class*="rounded"][class*="border"]):not(.admin-dark *):nth-child(6n + 3) { --primary: #166534; }
+.grid > :is(article, li, a, div[class*="rounded"][class*="border"]):not(.admin-dark *):nth-child(6n + 4) { --primary: #7e22ce; }
+.grid > :is(article, li, a, div[class*="rounded"][class*="border"]):not(.admin-dark *):nth-child(6n + 5) { --primary: #9d174d; }
+.grid > :is(article, li, a, div[class*="rounded"][class*="border"]):not(.admin-dark *):nth-child(6n + 6) { --primary: #115e59; }
+
+/* Reading comfort on the public site: body text 1px larger (headings use text-xl and up, so they
+   keep their size), slightly heavier with a soft ink edge, and underlined in-text links so they
+   don't rely on colour alone. The admin block above restores the default sizes. */
+:root {
+  --text-xs: 0.8125rem;   /* 13px */
+  --text-sm: 0.9375rem;   /* 15px */
+  --text-base: 1.0625rem; /* 17px */
+  --text-lg: 1.1875rem;   /* 19px */
+}
+
+body:not(:has(.admin-dark)) {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 0.6px color-mix(in srgb, currentColor 45%, transparent);
+}
+
+body:not(:has(.admin-dark)) :is(p, li) > a:not([class]) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+/* The sticky site header keeps its original sizing so the desktop nav stays on one line at 1024px. */
+header.sticky {
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  letter-spacing: normal;
 }
 
 /* Theme Definitions */

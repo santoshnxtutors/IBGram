@@ -5,10 +5,10 @@ import { buildCitySchoolPath } from "@/lib/seo/slug-utils";
 
 export function CitySchools({ page }: { page: CitySeoPage }) {
   return (
-    <section className="bg-[#0B0F19]/35 py-16 md:py-24">
+    <section className="bg-muted/60 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 max-w-3xl">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-primary">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
             <Building2 className="size-3.5" />
             School ecosystem
           </div>
@@ -33,7 +33,7 @@ export function CitySchools({ page }: { page: CitySeoPage }) {
                 <p className="mb-4 text-sm font-medium leading-relaxed text-muted-foreground">{school.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {school.typicalNeeds.map((need) => (
-                    <span key={need} className="rounded-lg border border-primary/20 bg-primary/10 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-primary">
+                    <span key={need} className="rounded-lg border border-primary/20 bg-primary/10 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-primary">
                       {need}
                     </span>
                   ))}
@@ -54,7 +54,7 @@ export function CitySchools({ page }: { page: CitySeoPage }) {
         <div className="mt-8 grid gap-4 lg:grid-cols-2">
           {page.schoolAreaMapping.map((mapping) => (
             <div key={mapping.area} className="rounded-2xl border border-border/50 bg-muted/10 p-5">
-              <h3 className="mb-2 text-sm font-black uppercase tracking-[0.18em] text-secondary">{mapping.area}</h3>
+              <h3 className="mb-2 text-sm font-black uppercase tracking-[0.18em] text-amber-800">{mapping.area}</h3>
               <p className="mb-3 text-sm font-semibold text-foreground/90">{mapping.schools.join(", ")}</p>
               <p className="text-sm font-medium leading-relaxed text-muted-foreground">{mapping.note}</p>
             </div>

@@ -1315,6 +1315,39 @@ model ContactLead {
   @@index([email])
 }
 
+enum PaymentStatus {
+  pending
+  paid
+  failed
+}
+
+/// Online payments from the public /payment page (Cashfree). Status is synced
+/// from Cashfree on return and via webhook; listed in admin under Payments.
+model Payment {
+  id            String        @id @default(cuid())
+  orderId       String        @unique
+  status        PaymentStatus @default(pending)
+  amount        Decimal
+  currency      String
+  customerName  String
+  customerEmail String
+  customerPhone String
+  tutorId       String?
+  tutorName     String?
+  note          String?
+  cfPaymentId   String?
+  paymentMethod String?
+  bankReference String?
+  paidAt        DateTime?
+  ipAddress     String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([customerEmail])
+}
+
 model FaqItem {
   id         String        @id @default(cuid())
   question   String

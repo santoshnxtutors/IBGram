@@ -20,7 +20,6 @@ const buildWhatsAppUrl = (message: string) => {
 
 export function WhatsAppFloatingWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const pathname = usePathname();
 
   if (pathname?.startsWith("/admissions")) {
@@ -34,11 +33,10 @@ export function WhatsAppFloatingWidget() {
     const message = [
       "New IBGram enquiry",
       `Name: ${formData.get("name") || ""}`,
-      `Number: ${formData.get("number") || ""}`,
-      `Subject: ${formData.get("subject") || ""}`,
-      `Course: ${formData.get("course") || ""}`,
+      `Curriculum: ${formData.get("curriculum") || ""}`,
+      `Mode: ${formData.get("mode") || ""}`,
       `Location: ${formData.get("location") || ""}`,
-      `Query: ${formData.get("query") || ""}`,
+      `Message: ${formData.get("message") || ""}`,
     ].join("\n");
 
     window.open(buildWhatsAppUrl(message), "_blank", "noopener,noreferrer");
@@ -65,44 +63,45 @@ export function WhatsAppFloatingWidget() {
           </div>
 
           <form className="space-y-3 px-4 py-4" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-2 gap-3">
-              <label className="block space-y-1 text-xs font-medium text-muted-foreground">
-                <span>Name</span>
-                <input
-                  name="name"
-                  required
-                  autoComplete="name"
-                  className="w-full rounded-xl border border-border/70 bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-[#25D366]"
-                />
-              </label>
-              <label className="block space-y-1 text-xs font-medium text-muted-foreground">
-                <span>Number</span>
-                <input
-                  name="number"
-                  required
-                  type="tel"
-                  autoComplete="tel"
-                  className="w-full rounded-xl border border-border/70 bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-[#25D366]"
-                />
-              </label>
-            </div>
+            <label className="block space-y-1 text-xs font-medium text-muted-foreground">
+              <span>Name</span>
+              <input
+                name="name"
+                required
+                autoComplete="name"
+                placeholder="Student or parent name"
+                className="w-full rounded-xl border border-border/70 bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-[#25D366]"
+              />
+            </label>
 
             <div className="grid grid-cols-2 gap-3">
               <label className="block space-y-1 text-xs font-medium text-muted-foreground">
-                <span>Subject</span>
-                <input
-                  name="subject"
-                  required
+                <span>Curriculum</span>
+                <select
+                  name="curriculum"
+                  defaultValue="IB"
                   className="w-full rounded-xl border border-border/70 bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-[#25D366]"
-                />
+                >
+                  {["IB", "IGCSE", "Both"].map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
               </label>
               <label className="block space-y-1 text-xs font-medium text-muted-foreground">
-                <span>Course</span>
-                <input
-                  name="course"
-                  required
+                <span>Mode</span>
+                <select
+                  name="mode"
+                  defaultValue="Online"
                   className="w-full rounded-xl border border-border/70 bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-[#25D366]"
-                />
+                >
+                  {["Online", "Home Tuition", "Either"].map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
               </label>
             </div>
 
@@ -112,16 +111,18 @@ export function WhatsAppFloatingWidget() {
                 name="location"
                 required
                 autoComplete="address-level2"
+                placeholder="City or area"
                 className="w-full rounded-xl border border-border/70 bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-[#25D366]"
               />
             </label>
 
             <label className="block space-y-1 text-xs font-medium text-muted-foreground">
-              <span>Query</span>
+              <span>Message</span>
               <textarea
-                name="query"
+                name="message"
                 required
                 rows={3}
+                placeholder="Subject, level, and what you need help with"
                 className="w-full resize-none rounded-xl border border-border/70 bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-[#25D366]"
               />
             </label>
@@ -137,17 +138,15 @@ export function WhatsAppFloatingWidget() {
         </div>
       )}
 
-      <div
-        className="relative"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {!isOpen && isHovered && (
-          <div className="pointer-events-none absolute right-[calc(100%+0.75rem)] top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-xl border border-border/60 bg-card/95 px-3 py-2 shadow-xl backdrop-blur sm:block">
-            <p className="text-[11px] font-semibold text-foreground">
-              Send your query on <span className="italic text-[#25D366]">WhatsApp</span>
-            </p>
-          </div>
+      <div className="relative">
+        {!isOpen && (
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            className="absolute right-[calc(100%+0.75rem)] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-xl border border-border bg-[#13254A] px-3.5 py-2 text-sm font-bold text-white shadow-xl transition-colors hover:border-[#25D366]/60"
+          >
+            Send Query on WhatsApp
+          </button>
         )}
 
         <button

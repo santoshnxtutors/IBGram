@@ -1,0 +1,391 @@
+- generic [active] [ref=f1e1]:
+  - link "Skip to main content" [ref=f1e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - main [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - generic [ref=f1e6]:
+        - generic [ref=f1e7]:
+          - link "IBGram" [ref=f1e8] [cursor=pointer]:
+            - /url: /
+          - button "IB curriculum switcher" [ref=f1e11]:
+            - generic [ref=f1e12]: IB
+        - button "Toggle Mobile Menu" [ref=f1e16]
+      - main [ref=f1e17]:
+        - main [ref=f1e18]:
+          - generic [ref=f1e20]:
+            - link "Consulting" [ref=f1e21] [cursor=pointer]:
+              - /url: /admissions/
+            - link "Test Prep" [ref=f1e22] [cursor=pointer]:
+              - /url: /admissions/test-prep/
+            - link "Success Stories" [ref=f1e23] [cursor=pointer]:
+              - /url: /admissions/success-stories/
+          - generic [ref=f1e26]:
+            - generic [ref=f1e27]:
+              - generic [ref=f1e28]: Admissions Consulting
+              - generic [ref=f1e29]:
+                - heading "Admissions planning with more clarity." [level=1] [ref=f1e30]:
+                  - generic [ref=f1e31]: Admissions planning
+                  - generic [ref=f1e32]: with more clarity.
+                - paragraph [ref=f1e33]: A focused roadmap for students and parents.
+              - paragraph [ref=f1e34]: From university shortlisting to essays, SOPs, interviews and final submission, IBGram helps families build a practical application plan across global admissions systems.
+              - generic [ref=f1e35]:
+                - button "Book a consultation" [ref=f1e36]
+                - link [ref=f1e37] [cursor=pointer]:
+                  - /url: "#admissions-mentors"
+                  - button "Explore admissions mentors" [ref=f1e38]
+              - generic [ref=f1e39]:
+                - generic [ref=f1e40]: Profile-led planning
+                - generic [ref=f1e42]: Multi-country applications
+                - generic [ref=f1e44]: Essay and SOP review
+                - generic [ref=f1e46]: Parent-friendly roadmap
+            - generic [ref=f1e48]:
+              - generic [ref=f1e52]:
+                - paragraph [ref=f1e53]: Application planning across
+                - paragraph [ref=f1e54]: US / UK / Europe / Canada
+              - generic [ref=f1e55]:
+                - generic [ref=f1e56]:
+                  - generic [ref=f1e57]: 1:1
+                  - paragraph [ref=f1e58]: Profile-led planning for each student
+                - generic [ref=f1e59]:
+                  - generic [ref=f1e60]: Multi-country
+                  - paragraph [ref=f1e61]: Shortlisting across different admissions systems
+                - generic [ref=f1e62]:
+                  - generic [ref=f1e63]: Essays
+                  - paragraph [ref=f1e64]: Planning, structure, review and refinement support
+                - generic [ref=f1e65]:
+                  - generic [ref=f1e66]: Final review
+                  - paragraph [ref=f1e67]: Checklist-led support before submission
+          - generic [ref=f1e70]:
+            - generic [ref=f1e71]:
+              - generic [ref=f1e72]: US
+              - text: US applications
+              - generic [ref=f1e73]: /
+            - generic [ref=f1e74]:
+              - generic [ref=f1e75]: UK
+              - text: UK applications
+              - generic [ref=f1e76]: /
+            - generic [ref=f1e77]:
+              - generic [ref=f1e78]: CA
+              - text: Canada planning
+              - generic [ref=f1e79]: /
+            - generic [ref=f1e80]:
+              - generic [ref=f1e81]: EU
+              - text: Europe pathways
+              - generic [ref=f1e82]: /
+            - generic [ref=f1e83]:
+              - generic [ref=f1e84]: SG
+              - text: Singapore options
+              - generic [ref=f1e85]: /
+            - generic [ref=f1e86]:
+              - generic [ref=f1e87]: AU
+              - text: Australia options
+              - generic [ref=f1e88]: /
+            - generic [ref=f1e89]:
+              - generic [ref=f1e90]: BIZ
+              - text: Business programmes
+              - generic [ref=f1e91]: /
+            - generic [ref=f1e92]:
+              - generic [ref=f1e93]: STEM
+              - text: STEM pathways
+              - generic [ref=f1e94]: /
+            - generic [ref=f1e95]:
+              - generic [ref=f1e96]: ART
+              - text: Design portfolios
+              - generic [ref=f1e97]: /
+            - generic [ref=f1e98]:
+              - generic [ref=f1e99]: MED
+              - text: Medicine routes
+              - generic [ref=f1e100]: /
+            - generic [ref=f1e101]:
+              - generic [ref=f1e102]: FIN
+              - text: Scholarship timelines
+              - generic [ref=f1e103]: /
+            - generic [ref=f1e104]:
+              - generic [ref=f1e105]: INT
+              - text: Interview prep
+              - generic [ref=f1e106]: /
+            - generic [ref=f1e107]:
+              - generic [ref=f1e108]: US
+              - text: US applications
+              - generic [ref=f1e109]: /
+            - generic [ref=f1e110]:
+              - generic [ref=f1e111]: UK
+              - text: UK applications
+              - generic [ref=f1e112]: /
+            - generic [ref=f1e113]:
+              - generic [ref=f1e114]: CA
+              - text: Canada planning
+              - generic [ref=f1e115]: /
+            - generic [ref=f1e116]:
+              - generic [ref=f1e117]: EU
+              - text: Europe pathways
+              - generic [ref=f1e118]: /
+            - generic [ref=f1e119]:
+              - generic [ref=f1e120]: SG
+              - text: Singapore options
+              - generic [ref=f1e121]: /
+            - generic [ref=f1e122]:
+              - generic [ref=f1e123]: AU
+              - text: Australia options
+              - generic [ref=f1e124]: /
+            - generic [ref=f1e125]:
+              - generic [ref=f1e126]: BIZ
+              - text: Business programmes
+              - generic [ref=f1e127]: /
+            - generic [ref=f1e128]:
+              - generic [ref=f1e129]: STEM
+              - text: STEM pathways
+              - generic [ref=f1e130]: /
+            - generic [ref=f1e131]:
+              - generic [ref=f1e132]: ART
+              - text: Design portfolios
+              - generic [ref=f1e133]: /
+            - generic [ref=f1e134]:
+              - generic [ref=f1e135]: MED
+              - text: Medicine routes
+              - generic [ref=f1e136]: /
+            - generic [ref=f1e137]:
+              - generic [ref=f1e138]: FIN
+              - text: Scholarship timelines
+              - generic [ref=f1e139]: /
+            - generic [ref=f1e140]:
+              - generic [ref=f1e141]: INT
+              - text: Interview prep
+              - generic [ref=f1e142]: /
+          - generic [ref=f1e144]:
+            - generic [ref=f1e145]:
+              - paragraph [ref=f1e146]: Application Planning
+              - heading "Clearer Decisions Before Deadlines" [level=2] [ref=f1e147]
+              - paragraph [ref=f1e148]: Admissions support is most useful when every choice, document and deadline has a reason behind it.
+            - generic [ref=f1e149]:
+              - generic [ref=f1e150]:
+                - generic [ref=f1e151]: Support area
+                - generic [ref=f1e152]: Profile Review
+                - paragraph [ref=f1e153]: Grades, subjects, activities, intended major and application readiness.
+              - generic [ref=f1e154]:
+                - generic [ref=f1e155]: Support area
+                - generic [ref=f1e156]: Country Strategy
+                - paragraph [ref=f1e157]: Different requirements for US, UK, Canada, Europe, Singapore and beyond.
+              - generic [ref=f1e158]:
+                - generic [ref=f1e159]: Support area
+                - generic [ref=f1e160]: Writing Support
+                - paragraph [ref=f1e161]: Personal statement, SOP and supplement review with student-owned voice.
+              - generic [ref=f1e162]:
+                - generic [ref=f1e163]: Support area
+                - generic [ref=f1e164]: Submission Checks
+                - paragraph [ref=f1e165]: Document, deadline and form review before the family submits.
+            - paragraph [ref=f1e166]: Outcomes vary by student profile, academic record, deadlines, university requirements and application quality.
+          - generic [ref=f1e168]:
+            - generic [ref=f1e170]:
+              - paragraph [ref=f1e171]: Our Mentors
+              - heading "Advisors Built For Global Admissions" [level=2] [ref=f1e172]
+              - paragraph [ref=f1e173]: Strategy, operations, profile building, documentation and final submission support from specialists who understand international admissions.
+            - generic [ref=f1e174]:
+              - article [ref=f1e175]:
+                - generic [ref=f1e176]:
+                  - img "Jyoti Singh" [ref=f1e177]
+                  - generic [ref=f1e178]:
+                    - paragraph [ref=f1e179]: Student Success & Mentorship Specialist
+                    - heading "Jyoti Singh" [level=3] [ref=f1e180]
+                - generic [ref=f1e181]:
+                  - paragraph [ref=f1e182]: Student journey, parent communication and application coordination
+                  - generic [ref=f1e183]:
+                    - generic [ref=f1e184]: US
+                    - generic [ref=f1e185]: UK
+                    - generic [ref=f1e186]: Canada
+                    - generic [ref=f1e187]: Europe
+                  - paragraph [ref=f1e188]: Supports students and families through the study-abroad journey with steady communication and clear next steps.
+                  - button "View profile" [ref=f1e189]
+              - article [ref=f1e193]:
+                - generic [ref=f1e194]:
+                  - img "Aditi Sahoo" [ref=f1e195]
+                  - generic [ref=f1e196]:
+                    - paragraph [ref=f1e197]: Admissions Operations Expert
+                    - heading "Aditi Sahoo" [level=3] [ref=f1e198]
+                - generic [ref=f1e199]:
+                  - paragraph [ref=f1e200]: Documentation, submissions, offer tracking and university coordination
+                  - generic [ref=f1e201]:
+                    - generic [ref=f1e202]: UK
+                    - generic [ref=f1e203]: USA
+                    - generic [ref=f1e204]: Australia
+                    - generic [ref=f1e205]: Hong Kong
+                  - paragraph [ref=f1e206]: Helps families keep documents, deadlines, university requirements and submission steps organised.
+                  - button "View profile" [ref=f1e207]
+              - article [ref=f1e211]:
+                - generic [ref=f1e212]:
+                  - img "Akanksha Sridhara" [ref=f1e213]
+                  - generic [ref=f1e214]:
+                    - paragraph [ref=f1e215]: Senior Admissions Consultant
+                    - heading "Akanksha Sridhara" [level=3] [ref=f1e216]
+                - generic [ref=f1e217]:
+                  - paragraph [ref=f1e218]: Research-led profile building and selective university strategy
+                  - generic [ref=f1e219]:
+                    - generic [ref=f1e220]: US
+                    - generic [ref=f1e221]: UK
+                    - generic [ref=f1e222]: Europe
+                  - paragraph [ref=f1e223]: Works on academic positioning, profile depth and application narratives for selective pathways.
+                  - button "View profile" [ref=f1e224]
+              - article [ref=f1e228]:
+                - generic [ref=f1e229]:
+                  - img "Manik Kubba" [ref=f1e230]
+                  - generic [ref=f1e231]:
+                    - paragraph [ref=f1e232]: Study Abroad And Career Counselling Leader
+                    - heading "Manik Kubba" [level=3] [ref=f1e233]
+                - generic [ref=f1e234]:
+                  - paragraph [ref=f1e235]: Shortlisting, scholarships, partnerships and long-term planning
+                  - generic [ref=f1e236]:
+                    - generic [ref=f1e237]: Global
+                    - generic [ref=f1e238]: Canada
+                    - generic [ref=f1e239]: Singapore
+                    - generic [ref=f1e240]: UK
+                  - paragraph [ref=f1e241]: Brings broad study-abroad perspective across admissions planning, scholarships and career-linked decisions.
+                  - button "View profile" [ref=f1e242]
+          - generic [ref=f1e247]:
+            - generic [ref=f1e249]:
+              - paragraph [ref=f1e250]: Our Services
+              - heading "Application support from planning to submission" [level=2] [ref=f1e251]
+              - paragraph [ref=f1e252]: Specific admissions help for families who want structure, honest trade-offs and careful execution.
+            - generic [ref=f1e253]:
+              - article [ref=f1e254]:
+                - generic [ref=f1e256]:
+                  - generic [ref=f1e262]: "01"
+                  - heading "University Shortlisting" [level=3] [ref=f1e263]
+                  - paragraph [ref=f1e264]: Build a balanced list around academic fit, country preferences, programme requirements, cost and timeline.
+              - article [ref=f1e265]:
+                - generic [ref=f1e267]:
+                  - generic [ref=f1e275]: "02"
+                  - heading "Application Timeline" [level=3] [ref=f1e276]
+                  - paragraph [ref=f1e277]: Turn deadlines, documents, tests and recommendation steps into a clear weekly roadmap for the family.
+              - article [ref=f1e278]:
+                - generic [ref=f1e280]:
+                  - generic [ref=f1e285]: "03"
+                  - heading "Essays, SOPs And Supplements" [level=3] [ref=f1e286]
+                  - paragraph [ref=f1e287]: Help students plan, structure, review and refine their own writing while keeping their voice intact.
+              - article [ref=f1e288]:
+                - generic [ref=f1e290]:
+                  - generic [ref=f1e294]: "04"
+                  - heading "Interview And Final Review" [level=3] [ref=f1e295]
+                  - paragraph [ref=f1e296]: Practice clear responses and check application forms, uploads and submission details before deadlines.
+          - generic [ref=f1e299]:
+            - generic [ref=f1e300]:
+              - generic [ref=f1e301]:
+                - paragraph [ref=f1e302]: Our Process
+                - heading "A clearer roadmap from profile to submission" [level=2] [ref=f1e303]
+                - paragraph [ref=f1e304]: A disciplined workflow helps families understand what matters now, what can wait and what needs careful review.
+              - generic [ref=f1e305]:
+                - generic [ref=f1e306]: Realistic planning
+                - paragraph [ref=f1e310]: The process adapts to each student's grades, goals, country mix, deadlines and writing readiness.
+            - generic [ref=f1e311]:
+              - generic [ref=f1e313]:
+                - generic [ref=f1e314]: "01"
+                - generic [ref=f1e316]:
+                  - heading "Assess" [level=3] [ref=f1e317]
+                  - paragraph [ref=f1e318]: Review academic record, goals, intended major, extracurricular depth, tests, deadlines and constraints.
+              - generic [ref=f1e320]:
+                - generic [ref=f1e321]: "02"
+                - generic [ref=f1e323]:
+                  - heading "Plan" [level=3] [ref=f1e324]
+                  - paragraph [ref=f1e325]: Build a realistic university list and application calendar across reach, target and likely-fit options.
+              - generic [ref=f1e327]:
+                - generic [ref=f1e328]: "03"
+                - generic [ref=f1e330]:
+                  - heading "Build" [level=3] [ref=f1e331]
+                  - paragraph [ref=f1e332]: Work on profile presentation, activity descriptions, essays, SOPs, recommendations and documentation.
+              - generic [ref=f1e334]:
+                - generic [ref=f1e335]: "04"
+                - generic [ref=f1e337]:
+                  - heading "Review" [level=3] [ref=f1e338]
+                  - paragraph [ref=f1e339]: Check forms, writing, uploads and deadline readiness so families can submit with fewer surprises.
+          - generic [ref=f1e341]:
+            - generic [ref=f1e343]:
+              - paragraph [ref=f1e344]: Global Systems
+              - heading "Admissions support across major application routes" [level=2] [ref=f1e345]
+              - paragraph [ref=f1e346]: Country-specific planning helps families avoid treating every application system the same way.
+            - generic [ref=f1e347]:
+              - article [ref=f1e348]:
+                - generic [ref=f1e349]: United States
+                - list [ref=f1e355]:
+                  - listitem [ref=f1e356]: University list strategy
+                  - listitem [ref=f1e360]: Common App planning
+                  - listitem [ref=f1e364]: Supplement review
+                  - listitem [ref=f1e368]: Scholarship-aware timelines
+              - article [ref=f1e372]:
+                - generic [ref=f1e373]: United Kingdom
+                - list [ref=f1e379]:
+                  - listitem [ref=f1e380]: UCAS planning
+                  - listitem [ref=f1e384]: Personal statement review
+                  - listitem [ref=f1e388]: Course fit checks
+                  - listitem [ref=f1e392]: Interview preparation where relevant
+              - article [ref=f1e396]:
+                - generic [ref=f1e397]: Europe And Asia
+                - list [ref=f1e403]:
+                  - listitem [ref=f1e404]: Country-specific requirements
+                  - listitem [ref=f1e408]: English-taught programmes
+                  - listitem [ref=f1e412]: Documentation checklists
+                  - listitem [ref=f1e416]: Deadline tracking
+          - generic [ref=f1e422]:
+            - generic [ref=f1e423]:
+              - generic [ref=f1e424]:
+                - paragraph [ref=f1e425]: Why IBGram
+                - heading "Clearer planning, fewer last-minute surprises" [level=2] [ref=f1e426]
+              - list [ref=f1e427]:
+                - listitem [ref=f1e428]:
+                  - generic [ref=f1e433]: A structured roadmap that students and parents can follow without last-minute confusion.
+                - listitem [ref=f1e434]:
+                  - generic [ref=f1e439]: Shortlisting grounded in fit, requirements, timelines and the student profile.
+                - listitem [ref=f1e440]:
+                  - generic [ref=f1e445]: Essay and SOP guidance that supports student-owned writing instead of replacing it.
+                - listitem [ref=f1e446]:
+                  - generic [ref=f1e451]: Coordination between admissions planning, test prep and academic workload where needed.
+            - complementary [ref=f1e452]:
+              - generic [ref=f1e453]:
+                - generic [ref=f1e454]: How the team helps
+                - generic [ref=f1e458]:
+                  - generic [ref=f1e459]: Profile-led planning across academics, activities, essays, tests and deadlines.
+                  - generic [ref=f1e461]: Country-specific guidance for families comparing different application systems.
+                  - generic [ref=f1e463]: Parent-friendly communication that makes requirements, timelines and trade-offs easier to understand.
+                  - generic [ref=f1e465]: Final review support focused on completeness, clarity and submission readiness.
+                - paragraph [ref=f1e468]: Admissions support should make the process clearer, not louder. The focus is on better decisions, stronger organisation and student-owned applications.
+          - generic [ref=f1e470]:
+            - generic [ref=f1e472]:
+              - paragraph [ref=f1e473]: FAQs
+              - heading "Common Questions, Answered" [level=2] [ref=f1e474]
+            - generic [ref=f1e475]:
+              - article [ref=f1e476]:
+                - heading "Who is this admissions support for?" [level=3] [ref=f1e477]
+                - paragraph [ref=f1e478]: Students and families who want a clearer application plan for undergraduate pathways across one or more countries.
+              - article [ref=f1e479]:
+                - heading "Can you help if we are applying to more than one country?" [level=3] [ref=f1e480]
+                - paragraph [ref=f1e481]: Yes. The plan can cover different admissions systems, deadlines, document requirements and test expectations.
+              - article [ref=f1e482]:
+                - heading "Do you write essays for students?" [level=3] [ref=f1e483]
+                - paragraph [ref=f1e484]: No. We help students plan, structure, review and refine their own work so the application stays authentic.
+              - article [ref=f1e485]:
+                - heading "Can this work alongside tutoring?" [level=3] [ref=f1e486]
+                - paragraph [ref=f1e487]: Yes. Admissions planning can be coordinated with IB, IGCSE or test prep support so timelines stay realistic.
+              - article [ref=f1e488]:
+                - heading "How early should we start?" [level=3] [ref=f1e489]
+                - paragraph [ref=f1e490]: Earlier is better, but the first consultation can still help families clarify priorities, deadlines and next steps.
+              - article [ref=f1e491]:
+                - heading "What should I prepare before the consultation?" [level=3] [ref=f1e492]
+                - paragraph [ref=f1e493]: Bring current grades, intended subjects, target countries, test plans, activity history and any urgent deadlines.
+          - button "Saurabh Taluja Partnership Partnership with Ethos Education View collaboration" [ref=f1e496]:
+            - img "Saurabh Taluja" [ref=f1e498]
+            - generic [ref=f1e499]:
+              - generic [ref=f1e500]: Partnership
+              - heading "Partnership with Ethos Education" [level=3] [ref=f1e501]
+              - generic [ref=f1e502]: View collaboration
+          - generic [ref=f1e508]:
+            - generic [ref=f1e509]: Admissions Consultation
+            - heading "Ready to plan your applications with more clarity?" [level=2] [ref=f1e510]: Ready to plan yourapplications with more clarity?
+            - paragraph [ref=f1e511]: Start with a focused conversation about your student profile, country options, timelines and next steps.
+            - button "Discuss my application plan" [ref=f1e513]
+          - button "Chat with us" [ref=f1e515]
+  - button "Open Next.js Dev Tools" [ref=f1e524] [cursor=pointer]:
+    - generic [ref=f1e527]:
+      - text: Compiling
+      - generic [ref=f1e528]:
+        - generic [ref=f1e529]: .
+        - generic [ref=f1e530]: .
+        - generic [ref=f1e531]: .
+  - alert [ref=f1e532]

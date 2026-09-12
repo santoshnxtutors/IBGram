@@ -82,7 +82,7 @@ function ThreePhaseSystem({ caption }: FigureProps) {
               <span className="mt-1 block text-xs font-medium leading-snug text-muted-foreground">{p.detail}</span>
             </div>
             {i < phases.length - 1 && (
-              <span aria-hidden className="ibg-pulse self-center text-xl font-black text-primary/50 motion-reduce:!animate-none">
+              <span aria-hidden className="ibg-pulse self-center text-xl font-black text-primary motion-reduce:!animate-none">
                 <span className="hidden md:inline">→</span>
                 <span className="md:hidden">↓</span>
               </span>

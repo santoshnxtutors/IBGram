@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Check, AlertTriangle, Loader2 } from "lucide-react";
 import type { AdminLocationRecord, AdminTutorRecord } from "../_types/admin";
 import { MediaPicker } from "./MediaPicker";
+import { ALL_COUNTRIES, COUNTRIES, countryFlagSrc } from "@/lib/countries";
 
 function csvToArray(value: FormDataEntryValue | null): string[] {
   if (typeof value !== "string") return [];
@@ -89,6 +90,98 @@ function textToQualifications(value: FormDataEntryValue | null): Array<{ title: 
   return items;
 }
 
+/**
+ * Countries a tutor covers. Writes a hidden comma-separated input so the
+ * existing FormData-based submit path picks it up like any other field.
+ * "All countries" is exclusive — selecting it clears the individual picks.
+ */
+function CountriesField({ defaultValue }: { defaultValue?: string[] }) {
+  const initial = defaultValue?.length ? defaultValue : [];
+  const [selected, setSelected] = useState<string[]>(initial);
+  const [query, setQuery] = useState("");
+
+  const all = selected.includes(ALL_COUNTRIES);
+  const visible = query.trim()
+    ? COUNTRIES.filter((c) => c.name.toLowerCase().includes(query.trim().toLowerCase()))
+    : COUNTRIES;
+
+  const toggle = (code: string) => {
+    setSelected((prev) =>
+      prev.includes(code) ? prev.filter((c) => c !== code) : [...prev.filter((c) => c !== ALL_COUNTRIES), code],
+    );
+  };
+
+  return (
+    <div className="md:col-span-2">
+      <input type="hidden" name="countriesCovered" value={selected.join(", ")} />
+
+      <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+        <span className="text-xs font-black uppercase tracking-[0.16em] text-slate-400">
+          Countries covered (shown on the tutor card)
+        </span>
+        <span className="text-xs font-bold text-slate-500">
+          {all ? "All countries" : `${selected.length} selected`}
+        </span>
+      </div>
+
+      <div className="rounded-lg border border-white/10 bg-black/30 p-3">
+        <label className="mb-3 flex items-center gap-2 rounded-md border border-emerald-400/30 bg-emerald-400/10 px-3 py-2 text-sm font-bold text-emerald-200">
+          <input
+            type="checkbox"
+            className="size-4"
+            checked={all}
+            onChange={(e) => setSelected(e.target.checked ? [ALL_COUNTRIES] : [])}
+          />
+          All countries (worldwide online)
+        </label>
+
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search countries..."
+          disabled={all}
+          className="mb-3 w-full rounded-md border border-white/10 bg-black/40 px-3 py-2 text-sm text-white outline-none placeholder:text-slate-500 focus:border-emerald-400/50 disabled:opacity-40"
+        />
+
+        <div
+          className={`grid max-h-56 grid-cols-2 gap-1 overflow-y-auto md:grid-cols-3 lg:grid-cols-4 ${
+            all ? "pointer-events-none opacity-40" : ""
+          }`}
+        >
+          {visible.map((country) => (
+            <label
+              key={country.code}
+              className="flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm font-semibold text-slate-300 hover:bg-white/5"
+            >
+              <input
+                type="checkbox"
+                className="size-3.5 shrink-0"
+                checked={selected.includes(country.code)}
+                onChange={() => toggle(country.code)}
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={countryFlagSrc(country.code)}
+                alt=""
+                width={16}
+                height={16}
+                className="size-4 shrink-0 rounded-full object-cover"
+              />
+              <span className="truncate">{country.name}</span>
+            </label>
+          ))}
+          {visible.length === 0 ? (
+            <p className="col-span-full px-2 py-3 text-sm font-semibold text-slate-500">
+              No country matches &ldquo;{query}&rdquo;.
+            </p>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function qualificationsToText(items: Array<{ title: string; description: string }> | undefined): string {
   if (!items?.length) return "";
   return items.map((q) => (q.description ? `${q.title}\n${q.description}` : q.title)).join("\n\n");
@@ -132,6 +225,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       ibSubjects: csvToArray(fd.get("ibSubjects")),
       igcseSubjects: csvToArray(fd.get("igcseSubjects")),
       teachingModes: csvToArray(fd.get("teachingModes")),
+      countriesCovered: csvToArray(fd.get("countriesCovered")),
       primaryCitySlug: (fd.get("primaryCitySlug") as string) || null,
       areas: csvToArray(fd.get("areas")),
       sectors: csvToArray(fd.get("sectors")),
@@ -140,7 +234,6 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       tags: csvToArray(fd.get("tags")),
       languages: csvToArray(fd.get("languages")),
       rating: parseNumberOrNull("rating"),
-      reviewCount: parseNumberOrNull("reviewCount"),
       experienceYears: parseNumberOrNull("experienceYears"),
       hourlyRate: parseNumberOrNull("hourlyRate"),
       currency: (fd.get("currency") as string) || null,
@@ -294,7 +387,6 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       <Field name="tags" label="Tags (comma-separated — e.g. Examiner, Oxford Alumni)" defaultValue={(tutor?.tags ?? []).join(", ")} />
       <Field name="languages" label="Languages (comma-separated)" defaultValue={(tutor?.languages ?? []).join(", ")} />
       <Field name="rating" label="Rating (0.0–5.0)" type="number" defaultValue={String(tutor?.rating ?? "")} />
-      <Field name="reviewCount" label="Reviews count" type="number" defaultValue={String(tutor?.reviews ?? "")} />
       <Field name="experienceYears" label="Experience (years)" type="number" defaultValue={tutor?.experienceYears != null ? String(tutor.experienceYears) : ""} />
       <Field name="hourlyRate" label="Hourly rate (number, e.g. 85)" type="number" defaultValue={tutor?.hourlyRate != null ? String(tutor.hourlyRate) : ""} />
       <Field name="currency" label="Currency (INR / USD)" defaultValue={tutor?.currency ?? "INR"} />
@@ -327,6 +419,7 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       <Field name="ibSubjects" label="IB subjects" defaultValue={tutor?.ibSubjects.join(", ")} />
       <Field name="igcseSubjects" label="IGCSE subjects" defaultValue={tutor?.igcseSubjects.join(", ")} />
       <Field name="teachingModes" label="Teaching modes (home, online, hybrid)" defaultValue={tutor?.teachingModes.join(", ")} />
+      <CountriesField defaultValue={tutor?.countriesCovered} />
       <Field name="primaryCitySlug" label="Primary city" defaultValue={tutor?.primaryCity} />
       <Field name="areas" label="Areas" defaultValue={tutor?.availableAreas.join(", ")} />
       <Field name="sectors" label="Sectors" defaultValue={tutor?.availableSectors.join(", ")} />

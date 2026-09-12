@@ -96,7 +96,7 @@ export function WhyIBGram() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
               transition={{ delay: 0.1, duration: 0.4 }}
-              className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-card/95 backdrop-blur-2xl border border-white/10 rounded-[2rem] shadow-[0_0_80px_rgba(0,0,0,0.6)] p-4 md:p-6 hide-scrollbar mt-12 md:mt-16"
+              className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-card/95 backdrop-blur-2xl border border-border rounded-[2rem] shadow-[0_12px_40px_rgba(19,37,74,0.16)] p-4 md:p-6 hide-scrollbar mt-12 md:mt-16"
             >
               <button
                 onClick={() => setIsOpen(false)}
@@ -144,7 +144,7 @@ export function WhyIBGram() {
                 </div>
 
                 <div className="text-center pt-3 border-t border-border/50">
-                  <p className="text-[10px] md:text-xs text-muted-foreground/60 font-semibold uppercase tracking-[0.2em]">Support depends on subject, level, schedule and tutor availability.</p>
+                  <p className="text-[11px] md:text-xs text-muted-foreground font-semibold uppercase tracking-[0.2em]">Support depends on subject, level, schedule and tutor availability.</p>
                 </div>
               </div>
             </motion.article>

@@ -289,7 +289,7 @@ export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaul
           </Field>
 
           {error && (
-            <p className="text-sm text-red-500" role="alert">{error}</p>
+            <p className="text-sm text-red-700" role="alert">{error}</p>
           )}
 
           <div className="flex gap-2 pt-2">

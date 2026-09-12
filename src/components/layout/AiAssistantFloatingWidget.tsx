@@ -44,7 +44,7 @@ export function AiAssistantFloatingWidget({ open, onOpenChange }: AiAssistantFlo
 
         {!isOpen && isHovered && (
           <div className="pointer-events-none absolute right-[calc(100%+0.75rem)] top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-xl border border-border/60 bg-card/95 px-3 py-2 shadow-xl backdrop-blur sm:block">
-            <p className="flex items-center gap-1.5 text-[11px] font-semibold text-foreground">
+            <p className="flex items-center gap-1.5 text-[12px] font-semibold text-foreground">
               <span>Ask</span>
               <span className="italic text-primary">IBGram AI</span>
             </p>
@@ -75,7 +75,7 @@ export function AiAssistantFloatingWidget({ open, onOpenChange }: AiAssistantFlo
             </div>
 
             <div className="flex-1 space-y-6 overflow-y-auto bg-background/70 px-5 py-6">
-              <div className="text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-muted-foreground/80">
+              <div className="text-center text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground/80">
                 {currentTime}
               </div>
 
@@ -84,7 +84,7 @@ export function AiAssistantFloatingWidget({ open, onOpenChange }: AiAssistantFlo
                   <Bot className="size-4" />
                 </div>
                 <div className="min-w-0 flex-1 space-y-3">
-                  <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
+                  <p className="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
                     IBGram AI <Sparkles className="size-3 text-primary" />
                   </p>
                   <div className="max-w-[88%] rounded-3xl rounded-tl-md border border-border/60 bg-card px-4 py-3 text-[15px] leading-7 text-foreground shadow-sm">
@@ -117,7 +117,7 @@ export function AiAssistantFloatingWidget({ open, onOpenChange }: AiAssistantFlo
                 </button>
               </div>
 
-              <div className="mt-3 flex items-center justify-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.24em] text-muted-foreground/70">
+              <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-muted-foreground/70">
                 <Bot className="size-3" />
                 <span>Built with IBGram AI</span>
               </div>

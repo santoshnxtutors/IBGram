@@ -153,16 +153,16 @@ export function MentorsCarousel() {
             >
               <div className="relative h-72 bg-muted sm:h-80">
                 <Image src={mentor.image} alt={mentor.name} fill sizes="360px" className="object-cover object-[center_25%]" />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5">
-                  <p className="text-[10px] font-black uppercase tracking-[0.18em] text-primary">{mentor.role}</p>
+                <div className="on-dark absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-5 pt-10">
+                  <p className="text-[11px] font-black uppercase tracking-[0.18em] text-primary">{mentor.role}</p>
                   <h3 className="mt-2 text-2xl font-black tracking-tight text-white">{mentor.name}</h3>
                 </div>
               </div>
               <div className="flex flex-1 flex-col space-y-4 p-5">
-                <p className="text-sm font-semibold leading-6 text-white/80">{mentor.focus}</p>
+                <p className="text-sm font-semibold leading-6 text-foreground">{mentor.focus}</p>
                 <div className="flex flex-wrap gap-2">
                   {mentor.regions.slice(0, 4).map((region) => (
-                    <span key={region} className="rounded-full border border-primary/15 bg-primary/5 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-primary">
+                    <span key={region} className="rounded-full border border-primary/15 bg-primary/5 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.14em] text-primary">
                       {region}
                     </span>
                   ))}
@@ -192,7 +192,7 @@ export function MentorsCarousel() {
           <div className="flex h-[calc(100dvh-1.5rem)] w-full max-w-3xl flex-col overflow-hidden rounded-[1.5rem] border border-border/70 bg-card shadow-2xl sm:h-auto sm:max-h-[92vh] sm:rounded-[1.75rem]">
             <div className="flex shrink-0 items-start justify-between gap-3 border-b border-border/60 p-4 sm:gap-4 sm:p-5">
               <div className="min-w-0">
-                <p className="text-[10px] font-black uppercase leading-4 tracking-[0.22em] text-primary sm:text-xs">{activeMentor.role}</p>
+                <p className="text-[11px] font-black uppercase leading-4 tracking-[0.22em] text-primary sm:text-xs">{activeMentor.role}</p>
                 <h3 className="mt-1 text-xl font-black tracking-tight text-foreground sm:text-2xl">{activeMentor.name}</h3>
                 <p className="mt-1 text-xs leading-5 text-muted-foreground sm:text-sm">{activeMentor.focus}</p>
               </div>

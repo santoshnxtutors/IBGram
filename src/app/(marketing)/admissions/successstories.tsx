@@ -17,19 +17,19 @@ export default function SuccessStoriesPage() {
         <div className="inline-flex items-center rounded-full border border-border/50 bg-background p-1">
           <Link
             href="/admissions"
-            className="px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.22em] rounded-full text-muted-foreground transition-all hover:text-foreground sm:px-7 sm:text-xs"
+            className="px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.22em] rounded-full text-muted-foreground transition-all hover:text-foreground sm:px-7 sm:text-xs"
           >
             Consulting
           </Link>
           <Link
             href="/admissions/test-prep"
-            className="px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.22em] rounded-full text-muted-foreground transition-all hover:text-foreground sm:px-7 sm:text-xs"
+            className="px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.22em] rounded-full text-muted-foreground transition-all hover:text-foreground sm:px-7 sm:text-xs"
           >
             Test Prep
           </Link>
           <Link
             href="/admissions/success-stories"
-            className="px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.22em] rounded-full bg-card text-foreground transition-all sm:px-7 sm:text-xs"
+            className="px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.22em] rounded-full bg-card text-foreground transition-all sm:px-7 sm:text-xs"
           >
             Success Stories
           </Link>
@@ -38,7 +38,7 @@ export default function SuccessStoriesPage() {
 
       {/* Header */}
       <section className="container mx-auto px-4 pt-6 pb-10 text-center md:px-6 md:pt-10">
-        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary sm:text-xs">
+        <p className="text-[11px] font-black uppercase tracking-[0.3em] text-primary sm:text-xs">
           Admissions success stories through the IBGram × Ethos Education collaboration.
         </p>
         <h1 className="mx-auto mt-4 max-w-3xl text-3xl font-black tracking-tight text-foreground sm:text-4xl md:text-5xl">

@@ -4,114 +4,117 @@ import { useEffect, useId, useMemo, useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { MapPin, Globe2, ChevronRight, Search, X, LocateFixed } from "lucide-react";
+import { DIAL_CODES } from "@/lib/payment-options";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
-const COUNTRY_CITY_MAP: Record<string, { label: string; cities: string[] }> = {
-  india: {
-    label: "India 🇮🇳",
-    cities: ["Gurugram", "Delhi", "Noida", "Mumbai", "Bengaluru", "Chennai", "Hyderabad", "Pune", "Kolkata", "Ahmedabad", "Jaipur", "Surat"],
-  },
-  china: {
-    label: "China 🇨🇳",
-    cities: ["Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Chengdu", "Hangzhou", "Wuhan", "Xi'an", "Tianjin", "Nanjing"],
-  },
-  usa: {
-    label: "United States 🇺🇸",
-    cities: ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "San Francisco", "Seattle", "Boston", "Miami", "Dallas"],
-  },
-  australia: {
-    label: "Australia 🇦🇺",
-    cities: ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Gold Coast", "Canberra", "Hobart", "Darwin", "Newcastle"],
-  },
-  uae: {
-    label: "United Arab Emirates 🇦🇪",
-    cities: ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"],
-  },
-  singapore: {
-    label: "Singapore 🇸🇬",
-    cities: ["Central Region", "North Region", "East Region", "West Region", "North-East Region"],
-  },
-  uk: {
-    label: "United Kingdom 🇬🇧",
-    cities: ["London", "Manchester", "Birmingham", "Leeds", "Edinburgh", "Glasgow", "Liverpool", "Bristol", "Oxford", "Cambridge"],
-  },
+const regionName = new Intl.DisplayNames(["en"], { type: "region" });
+const countryName = (code: string) => regionName.of(code.toUpperCase()) ?? code.toUpperCase();
+const flag = (code: string) => String.fromCodePoint(...[...code.toUpperCase()].map((c) => 0x1f1a5 + c.charCodeAt(0)));
+
+// City suggestions for the main markets. Any other city, in any country, can be typed in.
+const CITY_SUGGESTIONS: Record<string, string[]> = {
+  in: ["Gurugram", "Delhi", "Noida", "Mumbai", "Bengaluru", "Chennai", "Hyderabad", "Pune", "Kolkata", "Ahmedabad", "Jaipur", "Surat"],
+  cn: ["Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Chengdu", "Hangzhou", "Wuhan", "Xi'an", "Tianjin", "Nanjing"],
+  us: ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "San Francisco", "Seattle", "Boston", "Miami", "Dallas"],
+  au: ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Gold Coast", "Canberra", "Hobart", "Darwin", "Newcastle"],
+  ae: ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"],
+  sg: ["Central Region", "North Region", "East Region", "West Region", "North-East Region"],
+  gb: ["London", "Manchester", "Birmingham", "Leeds", "Edinburgh", "Glasgow", "Liverpool", "Bristol", "Oxford", "Cambridge"],
 };
 
-type DetectableLocation = {
-  country: string;
-  city: string;
-  latitude: number;
-  longitude: number;
-};
+// Country keys saved by older versions of this modal (and CityHubLocationPrompt).
+const LEGACY_COUNTRY_KEYS: Record<string, string> = { india: "in", china: "cn", usa: "us", australia: "au", uae: "ae", singapore: "sg", uk: "gb" };
+
+// Main markets first, then every other country alphabetically.
+const COUNTRY_OPTIONS = [
+  ...Object.keys(CITY_SUGGESTIONS),
+  ...Object.keys(DIAL_CODES)
+    .map((code) => code.toLowerCase())
+    .filter((code) => !(code in CITY_SUGGESTIONS))
+    .sort((a, b) => countryName(a).localeCompare(countryName(b))),
+].map((code) => ({ value: code, label: `${countryName(code)} ${flag(code)}` }));
 
 type DetectionStatus = "idle" | "checking" | "detected" | "unavailable";
+type DetectedPlace = { countryCode: string; city: string };
 
-const DETECTABLE_LOCATIONS: DetectableLocation[] = [
-  { country: "india", city: "Gurugram", latitude: 28.4595, longitude: 77.0266 },
-  { country: "india", city: "Delhi", latitude: 28.6139, longitude: 77.209 },
-  { country: "india", city: "Noida", latitude: 28.5355, longitude: 77.391 },
-  { country: "india", city: "Mumbai", latitude: 19.076, longitude: 72.8777 },
-  { country: "india", city: "Bengaluru", latitude: 12.9716, longitude: 77.5946 },
-  { country: "india", city: "Chennai", latitude: 13.0827, longitude: 80.2707 },
-  { country: "india", city: "Hyderabad", latitude: 17.385, longitude: 78.4867 },
-  { country: "india", city: "Pune", latitude: 18.5204, longitude: 73.8567 },
-  { country: "india", city: "Kolkata", latitude: 22.5726, longitude: 88.3639 },
-  { country: "india", city: "Ahmedabad", latitude: 23.0225, longitude: 72.5714 },
-  { country: "india", city: "Jaipur", latitude: 26.9124, longitude: 75.7873 },
-  { country: "india", city: "Surat", latitude: 21.1702, longitude: 72.8311 },
-  { country: "china", city: "Beijing", latitude: 39.9042, longitude: 116.4074 },
-  { country: "china", city: "Shanghai", latitude: 31.2304, longitude: 121.4737 },
-  { country: "china", city: "Guangzhou", latitude: 23.1291, longitude: 113.2644 },
-  { country: "china", city: "Shenzhen", latitude: 22.5431, longitude: 114.0579 },
-  { country: "china", city: "Chengdu", latitude: 30.5728, longitude: 104.0668 },
-  { country: "china", city: "Hangzhou", latitude: 30.2741, longitude: 120.1551 },
-  { country: "china", city: "Wuhan", latitude: 30.5928, longitude: 114.3055 },
-  { country: "china", city: "Xi'an", latitude: 34.3416, longitude: 108.9398 },
-  { country: "china", city: "Tianjin", latitude: 39.3434, longitude: 117.3616 },
-  { country: "china", city: "Nanjing", latitude: 32.0603, longitude: 118.7969 },
-  { country: "usa", city: "New York", latitude: 40.7128, longitude: -74.006 },
-  { country: "usa", city: "Los Angeles", latitude: 34.0522, longitude: -118.2437 },
-  { country: "usa", city: "Chicago", latitude: 41.8781, longitude: -87.6298 },
-  { country: "usa", city: "Houston", latitude: 29.7604, longitude: -95.3698 },
-  { country: "usa", city: "Phoenix", latitude: 33.4484, longitude: -112.074 },
-  { country: "usa", city: "San Francisco", latitude: 37.7749, longitude: -122.4194 },
-  { country: "usa", city: "Seattle", latitude: 47.6062, longitude: -122.3321 },
-  { country: "usa", city: "Boston", latitude: 42.3601, longitude: -71.0589 },
-  { country: "usa", city: "Miami", latitude: 25.7617, longitude: -80.1918 },
-  { country: "usa", city: "Dallas", latitude: 32.7767, longitude: -96.797 },
-  { country: "australia", city: "Sydney", latitude: -33.8688, longitude: 151.2093 },
-  { country: "australia", city: "Melbourne", latitude: -37.8136, longitude: 144.9631 },
-  { country: "australia", city: "Brisbane", latitude: -27.4698, longitude: 153.0251 },
-  { country: "australia", city: "Perth", latitude: -31.9523, longitude: 115.8613 },
-  { country: "australia", city: "Adelaide", latitude: -34.9285, longitude: 138.6007 },
-  { country: "australia", city: "Gold Coast", latitude: -28.0167, longitude: 153.4 },
-  { country: "australia", city: "Canberra", latitude: -35.2809, longitude: 149.13 },
-  { country: "australia", city: "Hobart", latitude: -42.8821, longitude: 147.3272 },
-  { country: "australia", city: "Darwin", latitude: -12.4634, longitude: 130.8456 },
-  { country: "australia", city: "Newcastle", latitude: -32.9283, longitude: 151.7817 },
-  { country: "uae", city: "Dubai", latitude: 25.2048, longitude: 55.2708 },
-  { country: "uae", city: "Abu Dhabi", latitude: 24.4539, longitude: 54.3773 },
-  { country: "uae", city: "Sharjah", latitude: 25.3463, longitude: 55.4209 },
-  { country: "uae", city: "Ajman", latitude: 25.4052, longitude: 55.5136 },
-  { country: "uae", city: "Ras Al Khaimah", latitude: 25.8007, longitude: 55.9762 },
-  { country: "uae", city: "Fujairah", latitude: 25.1288, longitude: 56.3265 },
-  { country: "uae", city: "Umm Al Quwain", latitude: 25.5647, longitude: 55.5552 },
-  { country: "singapore", city: "Central Region", latitude: 1.3521, longitude: 103.8198 },
-  { country: "singapore", city: "North Region", latitude: 1.4304, longitude: 103.8354 },
-  { country: "singapore", city: "East Region", latitude: 1.3526, longitude: 103.9447 },
-  { country: "singapore", city: "West Region", latitude: 1.3496, longitude: 103.7068 },
-  { country: "singapore", city: "North-East Region", latitude: 1.3824, longitude: 103.8925 },
-  { country: "uk", city: "London", latitude: 51.5074, longitude: -0.1278 },
-  { country: "uk", city: "Manchester", latitude: 53.4808, longitude: -2.2426 },
-  { country: "uk", city: "Birmingham", latitude: 52.4862, longitude: -1.8904 },
-  { country: "uk", city: "Leeds", latitude: 53.8008, longitude: -1.5491 },
-  { country: "uk", city: "Edinburgh", latitude: 55.9533, longitude: -3.1883 },
-  { country: "uk", city: "Glasgow", latitude: 55.8642, longitude: -4.2518 },
-  { country: "uk", city: "Liverpool", latitude: 53.4084, longitude: -2.9916 },
-  { country: "uk", city: "Bristol", latitude: 51.4545, longitude: -2.5879 },
-  { country: "uk", city: "Oxford", latitude: 51.752, longitude: -1.2577 },
-  { country: "uk", city: "Cambridge", latitude: 52.2053, longitude: 0.1218 },
-];
+// ─── Saved location ──────────────────────────────────────────────────────────
+function toCityValue(cityName: string): string {
+  return cityName.trim().toLowerCase().replace(/\s+/g, "-");
+}
+
+/** "manual" = picked in this modal; silent auto-detection never overrides it. */
+function saveLocation(countryCode: string, city: string, source: "auto" | "manual") {
+  localStorage.setItem("ibgram_country", countryCode);
+  localStorage.setItem("ibgram_city", toCityValue(city));
+  localStorage.setItem("ibgram_city_label", city);
+  localStorage.setItem("ibgram_location_source", source);
+  window.dispatchEvent(new Event("ibgram_location_updated"));
+}
+
+/** Display name of the saved city ("New Delhi"): the exact name if it matches the saved slug, else the prettified slug. */
+export function readSavedCityLabel(): string | null {
+  const slug = localStorage.getItem("ibgram_city");
+  if (!slug) return null;
+  const label = localStorage.getItem("ibgram_city_label");
+  if (label && toCityValue(label) === slug) return label;
+  return slug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+// ─── Detection ───────────────────────────────────────────────────────────────
+/** BigDataCloud's free client endpoint: reverse-geocodes coordinates, or locates the visitor by IP when none are given. */
+async function lookupBigDataCloud(coords?: GeolocationCoordinates): Promise<DetectedPlace | null> {
+  const params = new URLSearchParams({ localityLanguage: "en" });
+  if (coords) {
+    params.set("latitude", String(coords.latitude));
+    params.set("longitude", String(coords.longitude));
+  }
+  const res = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?${params}`, { cache: "no-store" });
+  if (!res.ok) return null;
+  const data = (await res.json()) as { countryCode?: string; city?: string; locality?: string; principalSubdivision?: string };
+  const city = data.city || data.locality || data.principalSubdivision;
+  return data.countryCode && city ? { countryCode: data.countryCode.toLowerCase(), city } : null;
+}
+
+async function lookupGeoJs(): Promise<DetectedPlace | null> {
+  const res = await fetch("https://get.geojs.io/v1/ip/geo.json", { cache: "no-store" });
+  if (!res.ok) return null;
+  const data = (await res.json()) as { country_code?: string; city?: string; region?: string };
+  const city = data.city || data.region;
+  return data.country_code && city ? { countryCode: data.country_code.toLowerCase(), city } : null;
+}
+
+function getBrowserPosition(): Promise<GeolocationCoordinates> {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      reject(new Error("Geolocation is not available"));
+      return;
+    }
+    navigator.geolocation.getCurrentPosition((position) => resolve(position.coords), reject, {
+      maximumAge: 1000 * 60 * 30,
+      timeout: 8000,
+    });
+  });
+}
+
+/** Silent detection that never prompts: precise location if already allowed, otherwise IP (two providers). */
+async function detectPlace(): Promise<DetectedPlace | null> {
+  const attempts: (() => Promise<DetectedPlace | null>)[] = [
+    async () => {
+      const permission = await navigator.permissions?.query({ name: "geolocation" });
+      return permission?.state === "granted" ? lookupBigDataCloud(await getBrowserPosition()) : null;
+    },
+    lookupGeoJs,
+    () => lookupBigDataCloud(),
+  ];
+  for (const attempt of attempts) {
+    const place = await attempt().catch(() => null);
+    if (place) return place;
+  }
+  return null;
+}
 
 // ─── Searchable Combobox ──────────────────────────────────────────────────────
 function SearchableSelect({
@@ -120,6 +123,7 @@ function SearchableSelect({
   value,
   onChange,
   disabled = false,
+  allowCustom = false,
   icon,
 }: {
   placeholder: string;
@@ -127,6 +131,8 @@ function SearchableSelect({
   value: string;
   onChange: (val: string) => void;
   disabled?: boolean;
+  /** Also accept a typed value that is not in the list (used for cities). */
+  allowCustom?: boolean;
   icon?: React.ReactNode;
 }) {
   const listboxId = useId();
@@ -138,7 +144,10 @@ function SearchableSelect({
     [options, query]
   );
 
-  const selected = options.find((o) => o.value === value);
+  const typed = query.trim();
+  const customOption =
+    allowCustom && typed && !options.some((o) => o.label.toLowerCase() === typed.toLowerCase()) ? typed : "";
+  const selected = options.find((o) => o.value === value) ?? (allowCustom && value ? { value, label: value } : undefined);
 
   const handleSelect = (val: string) => {
     onChange(val);
@@ -182,15 +191,28 @@ function SearchableSelect({
         <div className="flex-shrink-0 text-muted-foreground group-hover:text-primary transition-colors">
           {icon}
         </div>
-        
+
         {open ? (
           <input
             autoFocus
-            aria-label={`Search ${placeholder.toLowerCase()}`}
+            aria-label={placeholder}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onClick={(e) => e.stopPropagation()}
-            placeholder={`Search ${placeholder.toLowerCase()}...`}
+            onKeyDown={(e) => {
+              // Keep typing keys (like space) away from the trigger's open/close shortcut.
+              e.stopPropagation();
+              if (e.key === "Escape") {
+                setOpen(false);
+                setQuery("");
+              }
+              if (e.key === "Enter") {
+                e.preventDefault();
+                const pick = filtered[0]?.value ?? customOption;
+                if (pick) handleSelect(pick);
+              }
+            }}
+            placeholder={placeholder}
             className="flex-1 bg-transparent outline-none text-sm font-medium text-foreground placeholder:text-muted-foreground"
           />
         ) : (
@@ -209,7 +231,7 @@ function SearchableSelect({
               <X className="size-3.5" />
             </button>
           )}
-          <Search className="size-4 text-muted-foreground/50 shrink-0" />
+          <Search className="size-4 text-muted-foreground shrink-0" />
         </div>
       </div>
 
@@ -222,23 +244,35 @@ function SearchableSelect({
             role="listbox"
             className="absolute z-[100] mt-1 w-full max-h-52 overflow-y-auto rounded-xl border border-border bg-popover shadow-xl ring-1 ring-foreground/10"
           >
-            {filtered.length === 0 ? (
-              <div className="px-4 py-3 text-sm text-muted-foreground text-center">No results found</div>
-            ) : (
-              filtered.map((opt) => (
-                <button
-                  key={opt.value}
-                  type="button"
-                  role="option"
-                  aria-selected={value === opt.value}
-                  onClick={() => handleSelect(opt.value)}
-                  className={`w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-primary/10 hover:text-primary ${
-                    value === opt.value ? "bg-primary/15 text-primary font-medium" : "text-foreground"
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))
+            {filtered.map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                role="option"
+                aria-selected={value === opt.value}
+                onClick={() => handleSelect(opt.value)}
+                className={`w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-primary/10 hover:text-primary ${
+                  value === opt.value ? "bg-primary/15 text-primary font-medium" : "text-foreground"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+            {customOption && (
+              <button
+                type="button"
+                role="option"
+                aria-selected={false}
+                onClick={() => handleSelect(customOption)}
+                className="w-full text-left px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-primary/10"
+              >
+                Use &ldquo;{customOption}&rdquo;
+              </button>
+            )}
+            {filtered.length === 0 && !customOption && (
+              <div className="px-4 py-3 text-sm text-muted-foreground text-center">
+                {allowCustom ? "Type your city name" : "No results found"}
+              </div>
             )}
           </div>
         </>
@@ -249,29 +283,8 @@ function SearchableSelect({
 
 // ─── Modal ────────────────────────────────────────────────────────────────────
 // Runs at most once per page load (LocalizationModal is mounted twice — desktop
-// + mobile header — so guard against a double IP lookup).
+// + mobile header — so guard against a double lookup).
 let autoDetectAttempted = false;
-
-/**
- * IP-based location lookup — no browser permission prompt, so it can run
- * silently on first visit. Returns the nearest supported city or null on any
- * failure (network, CORS, rate limit) so the visitor can still pick manually.
- */
-async function detectCityByIp(): Promise<DetectableLocation | null> {
-  try {
-    const res = await fetch("https://get.geojs.io/v1/ip/geo.json", { cache: "no-store" });
-    if (!res.ok) return null;
-    const data = (await res.json()) as { latitude?: string | number; longitude?: string | number };
-    const lat = Number(data.latitude);
-    const lon = Number(data.longitude);
-    if (Number.isFinite(lat) && Number.isFinite(lon)) {
-      return findNearestSupportedLocation(lat, lon) ?? null;
-    }
-  } catch {
-    // Ignore — auto-detect is best-effort; manual selection still works.
-  }
-  return null;
-}
 
 export function LocalizationModal({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -280,23 +293,14 @@ export function LocalizationModal({ children }: { children: React.ReactNode }) {
   const [detectionStatus, setDetectionStatus] = useState<DetectionStatus>("idle");
   const [detectionMessage, setDetectionMessage] = useState("");
 
-  const countryOptions = Object.entries(COUNTRY_CITY_MAP).map(([val, { label }]) => ({ value: val, label }));
-  const cityOptions = country
-    ? COUNTRY_CITY_MAP[country]?.cities.map((c) => ({ value: toCityValue(c), label: c })) ?? []
-    : [];
+  const cityOptions = (CITY_SUGGESTIONS[country] ?? []).map((c) => ({ value: c, label: c }));
 
   const syncSavedLocation = () => {
-    const savedCountry = localStorage.getItem("ibgram_country") ?? "";
-    const savedCity = localStorage.getItem("ibgram_city") ?? "";
-
-    if (savedCountry && COUNTRY_CITY_MAP[savedCountry]) {
-      setCountry(savedCountry);
-      if (COUNTRY_CITY_MAP[savedCountry].cities.some((item) => toCityValue(item) === savedCity)) {
-        setCity(savedCity);
-      } else {
-        setCity("");
-      }
-    }
+    const saved = localStorage.getItem("ibgram_country") ?? "";
+    const savedCountry = LEGACY_COUNTRY_KEYS[saved] ?? saved;
+    if (!COUNTRY_OPTIONS.some((option) => option.value === savedCountry)) return;
+    setCountry(savedCountry);
+    setCity(readSavedCityLabel() ?? "");
   };
 
   const handleOpenChange = (nextOpen: boolean) => {
@@ -316,83 +320,56 @@ export function LocalizationModal({ children }: { children: React.ReactNode }) {
     setDetectionMessage("");
   };
 
-  const saveLocation = (nextCountry: string, nextCity: string) => {
-    localStorage.setItem("ibgram_country", nextCountry);
-    localStorage.setItem("ibgram_city", nextCity);
-    window.dispatchEvent(new Event("ibgram_location_updated"));
-  };
-
-  // Auto-detect the visitor's nearest supported city on first visit (IP-based,
-  // no permission prompt). Skips if a location is already saved so a returning
-  // visitor's manual choice is always respected.
+  // Silent auto-detect once per browser session, for any country and city. A city picked manually is
+  // always respected; an auto-detected one is refreshed each session so it stays current.
   useEffect(() => {
     if (autoDetectAttempted) return;
     autoDetectAttempted = true;
-    if (localStorage.getItem("ibgram_city")) return;
+    if (localStorage.getItem("ibgram_location_source") === "manual" || sessionStorage.getItem("ibgram_location_detected")) return;
 
-    let cancelled = false;
-    void (async () => {
-      const detected = await detectCityByIp();
-      if (cancelled || !detected) return;
-      if (localStorage.getItem("ibgram_city")) return; // guard a manual pick mid-lookup
-      saveLocation(detected.country, toCityValue(detected.city));
-    })();
-    return () => {
-      cancelled = true;
-    };
+    // No cancel flag on purpose: this only writes storage and fires an event, which is safe after unmount,
+    // and a cancel flag would drop the result under React Strict Mode's double effect run.
+    void detectPlace().then((place) => {
+      if (!place || localStorage.getItem("ibgram_location_source") === "manual") return;
+      saveLocation(place.countryCode, place.city, "auto");
+      sessionStorage.setItem("ibgram_location_detected", "1");
+    });
   }, []);
 
   const handleSave = () => {
-    if (country && city) {
-      saveLocation(country, city);
+    if (country && city.trim()) {
+      saveLocation(country, city.trim(), "manual");
       setOpen(false);
       // Note: no routing - city/country pages are future feature
     }
   };
 
-  const handleAutoDetect = () => {
-    if (!navigator.geolocation) {
+  const handleAutoDetect = async () => {
+    setDetectionStatus("checking");
+    setDetectionMessage("Detecting your location...");
+
+    // Ask for precise location; if it is blocked or unavailable, fall back to the IP lookup.
+    const place = (await getBrowserPosition().then(lookupBigDataCloud).catch(() => null)) ?? (await detectPlace());
+    if (!place) {
       setDetectionStatus("unavailable");
-      setDetectionMessage("Auto detection is not available in this browser. Please choose your country and city manually.");
+      setDetectionMessage("We could not detect your location. Please choose your country and city manually.");
       return;
     }
 
-    setDetectionStatus("checking");
-    setDetectionMessage("Detecting your nearest supported city...");
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const detectedLocation = findNearestSupportedLocation(position.coords.latitude, position.coords.longitude);
-
-        if (!detectedLocation) {
-          setDetectionStatus("unavailable");
-          setDetectionMessage("We could not match your location to a supported city. Please choose it manually.");
-          return;
-        }
-
-        const detectedCityValue = toCityValue(detectedLocation.city);
-
-        setCountry(detectedLocation.country);
-        setCity(detectedCityValue);
-        saveLocation(detectedLocation.country, detectedCityValue);
-        setDetectionStatus("detected");
-        setDetectionMessage(`Detected nearest supported city: ${detectedLocation.city}. Preferences saved.`);
-      },
-      () => {
-        setDetectionStatus("unavailable");
-        setDetectionMessage("Location permission was blocked or timed out. Please choose your location manually.");
-      },
-      { enableHighAccuracy: false, maximumAge: 1000 * 60 * 30, timeout: 8000 },
-    );
+    setCountry(place.countryCode);
+    setCity(place.city);
+    saveLocation(place.countryCode, place.city, "auto");
+    setDetectionStatus("detected");
+    setDetectionMessage(`Detected ${place.city}, ${countryName(place.countryCode)}. Preferences saved.`);
   };
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[360px] bg-background/95 backdrop-blur-2xl border-white/5 shadow-[0_0_50px_rgba(0,0,0,0.5)] p-6 gap-4">
+      <DialogContent className="sm:max-w-[360px] bg-background/95 backdrop-blur-2xl border-border shadow-[0_12px_40px_rgba(19,37,74,0.16)] p-6 gap-4">
         <DialogHeader className="space-y-2">
           <div className="flex items-center justify-between gap-3">
-            <DialogTitle className="text-xl font-black italic tracking-tighter text-[#f8f9fa]">select location</DialogTitle>
+            <DialogTitle className="text-xl font-black italic tracking-tighter text-foreground">select location</DialogTitle>
             <Button
               type="button"
               variant="outline"
@@ -406,24 +383,25 @@ export function LocalizationModal({ children }: { children: React.ReactNode }) {
             </Button>
           </div>
           <DialogDescription className="sr-only">
-            Choose your country and city manually, or use browser location detection to save your nearest supported city.
+            Choose any country and type or pick your city, or auto detect your location.
           </DialogDescription>
         </DialogHeader>
 
         <div className="flex flex-col gap-3">
           <SearchableSelect
             placeholder="Search country..."
-            options={countryOptions}
+            options={COUNTRY_OPTIONS}
             value={country}
             onChange={handleCountryChange}
             icon={<Globe2 className="size-4" />}
           />
           <SearchableSelect
-            placeholder={country ? "Search city..." : "Select country first"}
+            placeholder={!country ? "Select country first" : cityOptions.length ? "Search or type your city..." : "Type your city..."}
             options={cityOptions}
             value={city}
             onChange={setCity}
             disabled={!country}
+            allowCustom
             icon={<MapPin className="size-4" />}
           />
         </div>
@@ -440,7 +418,7 @@ export function LocalizationModal({ children }: { children: React.ReactNode }) {
 
         <Button
           onClick={handleSave}
-          disabled={!country || !city}
+          disabled={!country || !city.trim()}
           className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
         >
           Save Preferences <ChevronRight className="size-4 ml-2" />
@@ -448,37 +426,4 @@ export function LocalizationModal({ children }: { children: React.ReactNode }) {
       </DialogContent>
     </Dialog>
   );
-}
-
-function toCityValue(cityName: string): string {
-  return cityName.toLowerCase().replace(/\s+/g, "-");
-}
-
-function findNearestSupportedLocation(latitude: number, longitude: number): DetectableLocation | undefined {
-  return DETECTABLE_LOCATIONS.reduce<DetectableLocation | undefined>((nearest, location) => {
-    if (!nearest) return location;
-
-    const currentDistance = distanceInKm(latitude, longitude, location.latitude, location.longitude);
-    const nearestDistance = distanceInKm(latitude, longitude, nearest.latitude, nearest.longitude);
-
-    return currentDistance < nearestDistance ? location : nearest;
-  }, undefined);
-}
-
-function distanceInKm(latA: number, lonA: number, latB: number, lonB: number): number {
-  const earthRadiusKm = 6371;
-  const deltaLat = toRadians(latB - latA);
-  const deltaLon = toRadians(lonB - lonA);
-  const startLat = toRadians(latA);
-  const endLat = toRadians(latB);
-
-  const a =
-    Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
-    Math.cos(startLat) * Math.cos(endLat) * Math.sin(deltaLon / 2) * Math.sin(deltaLon / 2);
-
-  return earthRadiusKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
-
-function toRadians(degrees: number): number {
-  return (degrees * Math.PI) / 180;
 }

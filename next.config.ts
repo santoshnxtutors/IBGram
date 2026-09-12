@@ -30,6 +30,27 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // One-hop 301s for dead URLs that still earn Google impressions (GSC "Not found (404)").
+  // Sources end in "/" because trailingSlash adds it before these rules run.
+  async redirects() {
+    return [
+      { source: "/blog/choose-right-ib-tutor/", destination: "/blog/how-to-choose-ib-tutor-gurgaon/", permanent: true },
+      { source: "/blog/how-to-score-a-7-ib-math-aa-hl/", destination: "/blog/how-to-score-7-ib-math-aa-hl/", permanent: true },
+      { source: "/blog/igcse-science-study-tips-physics-chemistry-biology/", destination: "/blog/igcse-science-tutoring-guide/", permanent: true },
+      { source: "/blog/igcse-subject-choices-how-to-pick-right-subjects/", destination: "/igcse/", permanent: true },
+      // Remove this if the IB sector-56 generated page is ever published.
+      { source: "/ib-tutors/gurugram/sectors/sector-56/", destination: "/blog/ib-tutors-sector-56-gurgaon/", permanent: true },
+      { source: "/ib-tutors/gurugram/subjects/math-aa/", destination: "/ib-tutors/gurugram/math-aa-hl/", permanent: true },
+      { source: "/ib-tutors/gurugram/subjects/math-ai/", destination: "/ib-tutors/gurugram/math-ai-hl/", permanent: true },
+      { source: "/ib-tutors/gurugram/subjects/:subject(chemistry|economics|physics)/", destination: "/ib-tutors/gurugram/:subject/", permanent: true },
+      { source: "/ib-tutors/gurugram/subjects/:rest*", destination: "/ib-tutors/gurugram/", permanent: true },
+      // Same place listed under two taxonomies with identical titles; keep the specific one.
+      { source: "/igcse-tutors/gurugram/areas/nirvana-country/", destination: "/igcse-tutors/gurugram/societies/nirvana-country/", permanent: true },
+      { source: "/igcse-tutors/gurugram/areas/sector-57/", destination: "/igcse-tutors/gurugram/sectors/sector-57/", permanent: true },
+      { source: "/tutor-profile/8403/", destination: "/tutors/", permanent: true },
+      { source: "/tutor-profile/ck-gaurav-ib-igcse-maths-tutor/", destination: "/tutors/", permanent: true },
+    ];
+  },
   async headers() {
     const isProd = process.env.NODE_ENV === "production";
     // In dev (http://localhost) we cannot send `upgrade-insecure-requests` —
@@ -38,9 +59,10 @@ const nextConfig: NextConfig = {
     // Also widen `connect-src` to localhost variants so devtools / sourcemaps
     // / HMR don't get blocked.
     // Live class engine (Jitsi) needs its embed script + iframe allowed.
+    // Cashfree checkout (/payment): SDK script, its hidden ping iframe, and the form POST to its hosted page.
     const csp = isProd
-      ? "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://meet.jit.si; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://images.unsplash.com https://randomuser.me https://res.cloudinary.com https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' https: wss:; frame-src 'self' https://meet.jit.si https://*.jit.si; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
-      : "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://meet.jit.si; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://images.unsplash.com https://randomuser.me https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' http: https: ws: wss:; frame-src 'self' https://meet.jit.si https://*.jit.si; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';";
+      ? "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://meet.jit.si https://sdk.cashfree.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://images.unsplash.com https://randomuser.me https://res.cloudinary.com https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' https: wss:; frame-src 'self' https://meet.jit.si https://*.jit.si https://*.cashfree.com; object-src 'none'; base-uri 'self'; form-action 'self' https://*.cashfree.com; frame-ancestors 'none'; upgrade-insecure-requests;"
+      : "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://meet.jit.si https://sdk.cashfree.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://images.unsplash.com https://randomuser.me https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' http: https: ws: wss:; frame-src 'self' https://meet.jit.si https://*.jit.si https://*.cashfree.com; object-src 'none'; base-uri 'self'; form-action 'self' https://*.cashfree.com; frame-ancestors 'none';";
 
     const baseHeaders = [
       { key: "Content-Security-Policy", value: csp },

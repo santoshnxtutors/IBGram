@@ -126,7 +126,6 @@ export async function getTutorReviewsForPublic(idOrSlug: string): Promise<Public
         const rows = await prisma.tutorReview.findMany({
           where: { tutorId, status: "published" },
           orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }],
-          take: 30,
         });
         return rows.map((row) => ({
           id: row.id,

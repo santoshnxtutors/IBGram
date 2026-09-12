@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { z } from "zod";
+import { normaliseCountryCodes } from "@/lib/countries";
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import { getAffectedPathsForTutor } from "@/lib/cache/affected-paths";
@@ -39,6 +40,7 @@ const patchSchema = z.object({
   ibSubjects: z.array(z.string()).optional(),
   igcseSubjects: z.array(z.string()).optional(),
   teachingModes: z.array(z.string()).optional(),
+  countriesCovered: z.array(z.string()).optional(),
   areas: z.array(z.string()).optional(),
   sectors: z.array(z.string()).optional(),
   societies: z.array(z.string()).optional(),
@@ -182,6 +184,7 @@ export async function PATCH(
         // 1. Lookup by cuid or slug
         const existing = await tx.tutor.findFirst({
           where: { OR: [{ id }, { slug: id }] },
+          include: { profile: { select: { metadata: true } } },
         });
         if (!existing) {
           return { notFound: true as const };
@@ -223,13 +226,29 @@ export async function PATCH(
         });
 
         // 2c. Upsert TutorProfile with tags / languages / education / methodology / etc.
-        // metadata is a shared JSON bucket (qualifications + verbatim teachingModes).
-        // The admin form always submits BOTH fields together, so write them directly
-        // — no extra in-transaction read (keeps the tx short so the single DB
-        // connection is held for less time, which matters on a small pool).
-        const metadataChanged = data.qualifications !== undefined || data.teachingModes !== undefined;
+        // metadata is a SHARED JSON bucket: qualifications, verbatim teachingModes,
+        // countriesCovered and the tutor-visibility placements written elsewhere.
+        // Merge onto whatever is already stored — rebuilding the object from just the
+        // submitted keys silently dropped `visibilityPlacements` on every tutor save.
+        const metadataChanged =
+          data.qualifications !== undefined ||
+          data.teachingModes !== undefined ||
+          data.countriesCovered !== undefined;
+        const currentMetadata =
+          existing.profile?.metadata &&
+          typeof existing.profile.metadata === "object" &&
+          !Array.isArray(existing.profile.metadata)
+            ? (existing.profile.metadata as Record<string, unknown>)
+            : {};
         const nextMetadata: Prisma.InputJsonValue | undefined = metadataChanged
-          ? { qualifications: data.qualifications ?? [], teachingModes: data.teachingModes ?? [] }
+          ? ({
+              ...currentMetadata,
+              ...(data.qualifications !== undefined ? { qualifications: data.qualifications } : {}),
+              ...(data.teachingModes !== undefined ? { teachingModes: data.teachingModes } : {}),
+              ...(data.countriesCovered !== undefined
+                ? { countriesCovered: normaliseCountryCodes(data.countriesCovered) }
+                : {}),
+            } as Prisma.InputJsonValue)
           : undefined;
 
         if (

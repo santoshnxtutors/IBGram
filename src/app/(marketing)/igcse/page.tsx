@@ -14,7 +14,7 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
 import { HeroFlagSlider } from "@/components/home/HeroFlagSlider";
 import { IGCSETutors } from "./tutor";
@@ -234,7 +234,7 @@ export default async function IGCSEPage() {
             <div className="space-y-7 md:space-y-8 lg:col-span-7">
               <div>
                 <div className="flex flex-wrap items-center gap-4">
-                  <div className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-[10px] font-semibold text-primary sm:px-4 sm:py-1.5 sm:text-xs md:text-sm">
+                  <div className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-[11px] font-semibold text-primary sm:px-4 sm:py-1.5 sm:text-xs md:text-sm">
                     <GraduationCap className="size-3.5 sm:size-4" />
                     <span>Cambridge IGCSE · Pearson Edexcel International GCSE</span>
                   </div>
@@ -256,14 +256,21 @@ export default async function IGCSEPage() {
               </div>
 
               <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                <Link href="/tutors">
-                  <Button size="lg" className="group h-14 rounded-xl px-8 text-base font-bold md:text-lg">
-                    Find an IGCSE tutor <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
-                  </Button>
+                <Link
+                  href="/tutors"
+                  prefetch={false}
+                  className={buttonVariants({
+                    size: "lg",
+                    className:
+                      "h-14 px-10 text-base md:text-lg rounded-xl bg-primary text-primary-foreground group hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all font-bold",
+                  })}
+                >
+                  View all IGCSE tutors
+                  <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <BookDemoButton
                   defaultCurriculum="IGCSE"
-                  className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 text-base font-bold text-[#25D366] transition-all hover:bg-[#25D366]/20 md:text-lg"
+                  className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-border bg-background/50 px-8 text-base font-bold text-foreground transition-all hover:border-primary/50 hover:bg-muted/30 md:text-lg"
                 />
               </div>
 
@@ -290,7 +297,7 @@ export default async function IGCSEPage() {
               <div className="space-y-6">
                 <div className="mb-8">
                   <h2 className="mb-2 text-xs font-black uppercase tracking-[0.3em] text-primary/80">Why IBGram?</h2>
-                  <p className="text-2xl font-black leading-tight text-foreground md:text-3xl">Support built around how <span className="italic text-primary">IGCSE</span> students are actually examined</p>
+                  <p className="text-2xl font-black leading-tight text-foreground md:text-3xl">Support built around how IGCSE students are actually examined</p>
                 </div>
 
                 <div className="grid gap-4">
@@ -302,7 +309,7 @@ export default async function IGCSEPage() {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="group flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-all hover:border-primary/30 hover:bg-white/[0.06]"
+                      className="group flex gap-4 rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/30 hover:bg-primary/5"
                     >
                       <div className="grid size-10 shrink-0 place-items-center rounded-xl border border-primary/10 bg-primary/5 text-primary transition-colors group-hover:bg-primary/10">
                         <item.icon className="size-5" />
@@ -327,7 +334,7 @@ export default async function IGCSEPage() {
       <section className="border-y border-border/50 bg-muted/5 py-12 md:py-16">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-10 max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-secondary">
+            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-amber-800">
               <Target className="size-4" />
               <span>Board comparison</span>
             </div>
@@ -356,7 +363,7 @@ export default async function IGCSEPage() {
 
             <div className="rounded-2xl border border-border/50 bg-card/40 p-6 md:p-8">
               <div className="flex items-center gap-3 pb-4">
-                <div className="grid size-10 place-items-center rounded-xl bg-secondary/15 text-secondary font-black">P</div>
+                <div className="grid size-10 place-items-center rounded-xl bg-secondary/15 text-amber-800 font-black">P</div>
                 <h3 className="text-xl font-bold">Pearson Edexcel International GCSE (9–1)</h3>
               </div>
               <p className="text-sm leading-relaxed text-muted-foreground">
@@ -372,7 +379,7 @@ export default async function IGCSEPage() {
           </div>
 
           <div className="mt-8 rounded-2xl border border-secondary/20 bg-secondary/5 p-5 text-sm font-medium leading-relaxed text-foreground/85">
-            <span className="font-black uppercase tracking-wider text-secondary text-[10px] block mb-1">Practical guidance</span>
+            <span className="font-black uppercase tracking-wider text-amber-800 text-[11px] block mb-1">Practical guidance</span>
             Tutors familiar with Cambridge are not always equally effective on Edexcel, especially in Mathematics, Sciences and Business. IB Gram confirms the board explicitly before a match so the right paper style and command-term coaching is applied from week one.
           </div>
         </div>
@@ -411,7 +418,7 @@ export default async function IGCSEPage() {
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.summary}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {s.bullets.map((b) => (
-                    <li key={b} className="rounded-full border border-border/50 bg-background/60 px-3 py-1 text-[11px] font-bold text-foreground/80">
+                    <li key={b} className="rounded-full border border-border/50 bg-background/60 px-3 py-1 text-[12px] font-bold text-foreground/80">
                       {b}
                     </li>
                   ))}
@@ -426,7 +433,7 @@ export default async function IGCSEPage() {
       <section className="bg-background py-12 md:py-16">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-10 max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-secondary">
+            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-amber-800">
               <Compass className="size-4" />
               <span>How matching works</span>
             </div>
@@ -456,7 +463,7 @@ export default async function IGCSEPage() {
       <section className="bg-background py-12 md:py-16">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-10 max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-secondary">
+            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-amber-800">
               <Laptop className="size-4" />
               <span>Lesson modes</span>
             </div>
@@ -554,7 +561,7 @@ export default async function IGCSEPage() {
       <section className="bg-background py-12 md:py-16">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-10 max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-secondary">
+            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-amber-800">
               <ShieldCheck className="size-4" />
               <span>Why IB Gram</span>
             </div>
@@ -581,7 +588,7 @@ export default async function IGCSEPage() {
           </div>
 
           <p className="mt-8 rounded-2xl border border-secondary/20 bg-secondary/5 p-5 text-sm font-medium leading-relaxed text-foreground/85">
-            <span className="font-black uppercase tracking-wider text-secondary text-[10px] block mb-1">Important</span>
+            <span className="font-black uppercase tracking-wider text-amber-800 text-[11px] block mb-1">Important</span>
             IB Gram is an independent tutoring platform and is not officially affiliated with any school mentioned unless specifically stated.
           </p>
         </div>
@@ -602,7 +609,7 @@ export default async function IGCSEPage() {
             <div className="flex flex-col justify-center gap-3 pt-2 sm:flex-row">
               <Link href="/tutors">
                 <Button size="lg" className="group h-14 rounded-full px-10 text-base font-bold">
-                  Find an IGCSE tutor <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
+                  View all IGCSE tutors <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
               <Link href="/contact-us">

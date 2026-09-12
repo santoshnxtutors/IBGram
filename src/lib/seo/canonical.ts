@@ -5,6 +5,11 @@ const DUPLICATE_PATH_RULES: Array<{ pattern: RegExp; replacement: string }> = [
   { pattern: /^\/igcse-tutors\/gurgaon(\/|$)/i, replacement: "/igcse-tutors/gurugram$1" },
   { pattern: /^\/igcse-pages\/gurgaon(\/|$)/i, replacement: "/igcse-pages/gurugram$1" },
   { pattern: /^\/tutor-pages\/([^/?#]+)\/?$/i, replacement: "/tutor/$1/" },
+  // No /subjects/ route exists; DB sitemap rows advertised these as 404s. Mapping
+  // them as duplicates drops them from every sitemap emitter (next.config 301s them).
+  { pattern: /^\/ib-tutors\/([^/]+)\/subjects(\/.*)?$/i, replacement: "/ib-tutors/$1/" },
+  { pattern: /^\/igcse-tutors\/gurugram\/areas\/nirvana-country\/$/i, replacement: "/igcse-tutors/gurugram/societies/nirvana-country/" },
+  { pattern: /^\/igcse-tutors\/gurugram\/areas\/sector-57\/$/i, replacement: "/igcse-tutors/gurugram/sectors/sector-57/" },
 ];
 
 export function normalizePath(pathOrUrl: string): string {

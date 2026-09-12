@@ -16,9 +16,24 @@ import {
 
 describe("Gurgaon local SEO generated pages", () => {
   it("resolves Gurugram area, sector and society routes through the existing generated renderer store", () => {
-    expect(getGeneratedPageForRoute("/ib-tutors/gurugram/areas/golf-course-road/", ["area"])?.pageId).toContain("GURGAON_AREA");
-    expect(getGeneratedPageForRoute("/ib-tutors/gurugram/sectors/sector-56/", ["sector"])?.pageId).toContain("GURGAON_SECTOR");
-    expect(getGeneratedPageForRoute("/ib-tutors/gurugram/societies/the-aralias/", ["society"])?.pageId).toContain("GURGAON_SOCIETY");
+    // Asserts the route resolves to a published page of the right type, not which
+    // provider built it. These paths used to be served by the gurgaon-seo template
+    // pages (pageId "IBG_GURGAON_*"); the seo-content pipeline now supplies far
+    // richer copy for the same URLs and wins in the store merge, so pinning the
+    // pageId prefix would just re-assert whichever source happens to be winning.
+    const cases = [
+      { path: "/ib-tutors/gurugram/areas/golf-course-road/", type: "area" as const },
+      { path: "/ib-tutors/gurugram/sectors/sector-56/", type: "sector" as const },
+      { path: "/ib-tutors/gurugram/societies/the-aralias/", type: "society" as const },
+    ];
+
+    cases.forEach(({ path, type }) => {
+      const page = getGeneratedPageForRoute(path, [type]);
+      expect(page, path).toBeDefined();
+      expect(page!.pageType, path).toBe(type);
+      expect(page!.status, path).toBe("published");
+      expect(page!.canonicalUrl, path).toContain(path);
+    });
   });
 
   it("keeps unknown Gurugram localities out of the generated route store", () => {

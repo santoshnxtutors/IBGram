@@ -9,9 +9,9 @@ import { fetchMyBookings, updateBooking, type Booking } from "@/lib/bookings/api
 
 function statusBadge(status: Booking["status"]) {
   const map: Record<Booking["status"], string> = {
-    requested: "bg-amber-400/15 text-amber-600 dark:text-amber-300",
-    confirmed: "bg-emerald-400/15 text-emerald-600 dark:text-emerald-300",
-    completed: "bg-sky-400/15 text-sky-600 dark:text-sky-300",
+    requested: "bg-amber-400/15 text-amber-800 dark:text-amber-300",
+    confirmed: "bg-emerald-400/15 text-emerald-800 dark:text-emerald-300",
+    completed: "bg-sky-400/15 text-sky-800 dark:text-sky-300",
     cancelled: "bg-rose-400/15 text-rose-600 dark:text-rose-300",
   };
   return map[status];
@@ -73,7 +73,7 @@ export function DemoRequests() {
                         <p className="font-bold text-foreground truncate">{b.student.name}</p>
                         <p className="text-xs text-muted-foreground truncate">{b.subject}</p>
                       </div>
-                      <span className={`ml-1 shrink-0 rounded px-2 py-0.5 text-[10px] font-black uppercase tracking-wider ${statusBadge(b.status)}`}>
+                      <span className={`ml-1 shrink-0 rounded px-2 py-0.5 text-[11px] font-black uppercase tracking-wider ${statusBadge(b.status)}`}>
                         {b.status}
                       </span>
                     </div>

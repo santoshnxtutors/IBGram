@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { z } from "zod";
+import { normaliseCountryCodes } from "@/lib/countries";
 import { prisma } from "@/lib/db";
 import { getAffectedPathsForTutor } from "@/lib/cache/affected-paths";
 import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
@@ -67,8 +68,14 @@ export async function POST(request: NextRequest) {
           availabilityText: data.availabilityText ?? null,
           languages: data.languages ?? [],
           tags: data.tags ?? [],
-          ...(data.qualifications || data.teachingModes
-            ? { metadata: { qualifications: data.qualifications ?? [], teachingModes: data.teachingModes ?? [] } }
+          ...(data.qualifications || data.teachingModes || data.countriesCovered
+            ? {
+                metadata: {
+                  qualifications: data.qualifications ?? [],
+                  teachingModes: data.teachingModes ?? [],
+                  countriesCovered: normaliseCountryCodes(data.countriesCovered ?? []),
+                },
+              }
             : {}),
         },
       });
@@ -146,6 +153,7 @@ const createTutorSchema = z.object({
   ibSubjects: z.array(z.string()).optional(),
   igcseSubjects: z.array(z.string()).optional(),
   teachingModes: z.array(z.string()).optional(),
+  countriesCovered: z.array(z.string()).optional(),
   areas: z.array(z.string()).optional(),
   sectors: z.array(z.string()).optional(),
   societies: z.array(z.string()).optional(),

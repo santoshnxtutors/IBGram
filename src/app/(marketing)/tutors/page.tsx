@@ -13,9 +13,9 @@ const CANONICAL = absoluteUrl("/tutors/");
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Find IB & IGCSE Tutors — Home, Online & Hybrid Across India | IB Gram",
+  title: "Find IB & IGCSE Tutors Worldwide — Online, Home & Hybrid | IB Gram",
   description:
-    "Search verified IB and IGCSE tutors by curriculum, subject, level and learning mode. Home, online and hybrid lessons across Gurugram, Delhi, Mumbai, Bangalore and more.",
+    "Search verified IB and IGCSE tutors by curriculum, subject, level and learning mode. Online lessons worldwide in your time zone, plus home and hybrid options where tutors are local.",
   keywords: [
     "IB tutors",
     "IGCSE tutors",
@@ -25,22 +25,24 @@ export const metadata: Metadata = {
     "IB Physics tutor",
     "IGCSE Math tutor",
     "IB DP tutor",
+    "online IB tutor",
+    "IB tutors worldwide",
+    "IGCSE tutor online",
     "IB tutors in Gurugram",
-    "IB tutors in Gurgaon",
   ],
   alternates: { canonical: CANONICAL },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     url: CANONICAL,
-    title: "Find IB & IGCSE Tutors — Home, Online & Hybrid",
-    description: "Browse verified IB PYP, MYP, DP and IGCSE tutors across India. Subject-first matching for home, online and hybrid lessons.",
+    title: "Find IB & IGCSE Tutors Worldwide — Online, Home & Hybrid",
+    description: "Browse verified IB PYP, MYP, DP and IGCSE tutors worldwide. Subject-first matching for online, home and hybrid lessons.",
     siteName: "IB Gram",
   },
   twitter: {
     card: "summary_large_image",
     title: "Find IB & IGCSE Tutors — IB Gram",
-    description: "Verified IB and IGCSE tutor directory for home, online and hybrid lessons.",
+    description: "Verified IB and IGCSE tutor directory for online, home and hybrid lessons worldwide.",
   },
 };
 
@@ -58,7 +60,7 @@ const FAQS = [
   {
     question: "Are IB and IGCSE tutors available for home, online and hybrid lessons?",
     answer:
-      "Yes. Most subjects have specialists available across all three modes. We recommend online or hybrid when a stronger subject specialist is not realistically local, so the subject fit is protected.",
+      "Online lessons are available worldwide and are the default outside India. Home and hybrid lessons run where a tutor is genuinely local. We recommend online whenever a stronger subject specialist is not realistically nearby, so subject fit is never traded away for proximity.",
   },
   {
     question: "Which IB DP subjects are most requested?",
@@ -73,7 +75,17 @@ const FAQS = [
   {
     question: "How long does it take to be matched with a tutor?",
     answer:
-      "Common subjects are typically matched within one working day. Specialist HL-only requests may take 2–3 working days to confirm the right verified profile.",
+      "Common subjects are typically matched within one working day. Specialist HL-only requests may take 2–3 working days to confirm the right verified profile. Requests that need a specific time-zone window can take slightly longer.",
+  },
+  {
+    question: "Which countries do you tutor students in?",
+    answer:
+      "Online lessons are available in any country. Tutors list the countries they actively cover on their profile card, and many cover every country. Common regions include India, the UAE and wider Gulf, Singapore and South East Asia, the UK and Europe, and the US, Canada and Australia.",
+  },
+  {
+    question: "How do lessons work across different time zones?",
+    answer:
+      "Sessions are booked in your local clock, not ours, and the confirmation names the zone in full. Tutors are matched partly on whether their availability genuinely overlaps your school week, so most families settle on weekday evenings or weekend mornings in their own time zone.",
   },
   {
     question: "Is IB Gram affiliated with IB or IGCSE schools?",
@@ -135,21 +147,25 @@ export default async function TutorsPage() {
       <section className="container mx-auto px-4 pt-6 md:pt-10 md:px-6">
         <Breadcrumb items={BREADCRUMB} className="mb-6" />
 
-        <header className="mx-auto max-w-4xl text-center">
-          <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-500">Verified tutor directory</p>
-          <h1 className="mt-3 text-4xl font-black tracking-tight text-foreground md:text-6xl">
-            Find IB &amp; IGCSE tutors for home, online and hybrid lessons
+        <header className="max-w-5xl">
+          <div className="mb-4 flex items-center gap-2.5">
+            <span className="text-[11px] font-black uppercase tracking-[0.28em] text-primary">Verified tutor directory</span>
+            <span className="h-px w-8 bg-primary/40" />
+          </div>
+          <h1 className="text-4xl font-black leading-[1.08] tracking-tight text-foreground md:text-6xl">
+            Find IB &amp; IGCSE tutors worldwide for online, home and hybrid lessons
           </h1>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Search verified IB PYP, MYP, DP and IGCSE tutors across India. Filter by curriculum, subject, level and learning mode. Indicative
-            fees, lesson modes, areas covered and verified badges are shown on every tutor card.
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            Search verified IB PYP, MYP, DP and IGCSE tutors and filter by curriculum, subject, level and learning mode. Online lessons run in
+            your own time zone anywhere in the world; home and hybrid lessons are available where tutors are local. Indicative fees, lesson
+            modes, countries covered and verified badges are shown on every tutor card.
           </p>
         </header>
       </section>
 
       <TutorsClient tutors={tutorsForClient} />
 
-      <section className="container mx-auto mt-16 max-w-4xl space-y-10 px-4 md:px-6">
+      <section className="container mx-auto mt-16 space-y-10 px-4 md:px-6">
         <article>
           <h2 className="text-2xl font-black tracking-tight text-foreground md:text-3xl">
             How IB Gram matches IB and IGCSE tutors to your family
@@ -158,7 +174,7 @@ export default async function TutorsPage() {
             <p>
               IB Gram is an independent tutoring platform. Our matching review starts with the student&apos;s curriculum stage (IB PYP, MYP, DP or
               IGCSE Grade 9 / Grade 10), subject and HL or SL choice, school timeline and lesson-mode preference. Only then do we filter by
-              realistic geographic availability. This keeps subject specialist fit at the centre of the match instead of trading it away for the
+              realistic availability — time-zone overlap for online lessons, travel range for in-person ones. This keeps subject specialist fit at the centre of the match instead of trading it away for the
               nearest available tutor.
             </p>
             <p>
@@ -194,18 +210,24 @@ export default async function TutorsPage() {
 
         <article>
           <h2 className="text-2xl font-black tracking-tight text-foreground md:text-3xl">
-            Local tutoring across Gurugram, Delhi, Mumbai, Bangalore and more
+            Where IB Gram tutors work: online worldwide, in person in India
           </h2>
           <div className="mt-5 space-y-4 text-base font-medium leading-relaxed text-muted-foreground">
             <p>
-              IB Gram supports IB and IGCSE families across major Indian cities. In Gurugram (still widely searched as Gurgaon), the most
-              requested areas include Golf Course Road, DLF Phase 5, Sector 57, Sushant Lok and Sohna Road. Similar dense availability exists
-              across South Delhi, Vasant Vihar, Mumbai BKC and Powai, and Bangalore Indiranagar, Whitefield and Sarjapur.
+              Online tutoring is available in any country, scheduled to the student&apos;s own time zone. Families come to us from India, the
+              UAE and the wider Gulf, Singapore and South East Asia, the UK and Europe, and the United States, Canada and Australia. Every
+              tutor card lists the countries that tutor actively covers, so you can see the fit before you enquire.
             </p>
             <p>
-              Each city hub page lists the realistic IB and IGCSE programme availability, the strongest subject inventory and the local areas
-              that have area-specific tutor guides. Browse the{" "}
-              <Link href="/ib-tutors/" className="font-bold text-primary underline-offset-4 hover:underline">IB tutors hub</Link> or jump straight to{" "}
+              In-person home and hybrid lessons run in India, where our tutor network is physically based. In Gurugram (still widely searched
+              as Gurgaon) the most requested areas include Golf Course Road, DLF Phase 5, Sector 57, Sushant Lok and Sohna Road, with similar
+              depth across South Delhi, Mumbai BKC and Powai, and Bangalore Indiranagar, Whitefield and Sarjapur.
+            </p>
+            <p>
+              Country pages set out how the IB and IGCSE actually run in each school system, while city hub pages list local programme
+              availability and area-specific tutor guides. Browse{" "}
+              <Link href="/usa/" className="font-bold text-primary underline-offset-4 hover:underline">IB &amp; IGCSE tutors in the USA</Link>, the{" "}
+              <Link href="/ib-tutors/" className="font-bold text-primary underline-offset-4 hover:underline">IB tutors hub</Link>, or jump straight to{" "}
               <Link href="/ib-tutors/gurugram/" className="font-bold text-primary underline-offset-4 hover:underline">IB tutors in Gurugram</Link>{" "}
               and{" "}
               <Link href="/igcse-tutors/gurugram/" className="font-bold text-primary underline-offset-4 hover:underline">IGCSE tutors in Gurugram</Link>.
@@ -215,9 +237,12 @@ export default async function TutorsPage() {
 
         <article>
           <h2 className="text-2xl font-black tracking-tight text-foreground md:text-3xl">Frequently asked questions</h2>
-          <div className="mt-5 space-y-5">
+          <div className="mt-5 grid gap-4 lg:grid-cols-2">
             {FAQS.map((faq) => (
-              <details key={faq.question} className="rounded-2xl border border-border/50 bg-card/40 p-5">
+              <details
+                key={faq.question}
+                className="h-fit rounded-xl border border-border/50 bg-card/40 p-5 transition-colors open:border-primary/30"
+              >
                 <summary className="cursor-pointer text-base font-black text-foreground">{faq.question}</summary>
                 <p className="mt-3 text-sm font-medium leading-relaxed text-muted-foreground">{faq.answer}</p>
               </details>

@@ -21,7 +21,7 @@ export function Hero() {
             <div>
               <div className="flex flex-wrap items-center gap-4">
                 <div
-                  className="inline-flex items-center whitespace-nowrap rounded-full border border-primary/20 bg-primary/5 px-2.5 py-1 text-[10px] font-semibold text-primary shadow-sm glassmorphism sm:px-3.5 sm:py-1.5 sm:text-xs md:text-sm"
+                  className="inline-flex items-center whitespace-nowrap rounded-full border border-primary/20 bg-primary/5 px-2.5 py-1 text-[11px] font-semibold text-primary shadow-sm glassmorphism sm:px-3.5 sm:py-1.5 sm:text-xs md:text-sm"
                 >
                   <span className="flex h-1.5 w-1.5 rounded-full bg-primary mr-1.5 sm:h-2 sm:w-2 sm:mr-2" />
                   Trusted IB and IGCSE tutor matching for families worldwide
@@ -50,13 +50,13 @@ export function Hero() {
                 className={buttonVariants({
                   size: "lg",
                   className:
-                    "h-14 px-8 text-base md:text-lg rounded-xl bg-primary text-primary-foreground group hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all font-bold",
+                    "h-14 px-10 text-base md:text-lg rounded-xl bg-primary text-primary-foreground group hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all font-bold",
                 })}
               >
-                Find a tutor for my child
+                View all IB tutors
                 <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <BookDemoButton className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 text-base font-bold text-[#25D366] transition-all hover:bg-[#25D366]/20 md:text-lg" />
+              <BookDemoButton className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-border bg-background/50 px-8 text-base font-bold text-foreground transition-all hover:border-primary/50 hover:bg-muted/30 md:text-lg" />
             </div>
 
             {/* Trust Indicators */}
@@ -84,7 +84,7 @@ export function Hero() {
             <div className="space-y-6">
               <div className="mb-8">
                 <h2 className="text-xs font-black uppercase tracking-[0.3em] text-primary/80 mb-2">Why IBGram?</h2>
-                <p className="text-2xl md:text-3xl font-black text-foreground leading-tight">Support built around how <span className="text-primary italic">IB and IGCSE</span> students study, wherever they are</p>
+                <p className="text-2xl md:text-3xl font-black text-foreground leading-tight">Support built around how IB and IGCSE students study, wherever they are</p>
               </div>
 
               <div className="grid gap-4">
@@ -96,7 +96,7 @@ export function Hero() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="group p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-primary/30 hover:bg-white/[0.06] transition-all flex gap-4"
+                    className="group p-5 rounded-2xl bg-card border border-border hover:border-primary/30 hover:bg-primary/5 transition-all flex gap-4"
                   >
                     <div className="size-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary border border-primary/10 group-hover:bg-primary/10 transition-colors shrink-0">
                       <item.icon className="size-5" />

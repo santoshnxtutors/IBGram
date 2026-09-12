@@ -29,7 +29,7 @@ export function GeneratedRemainingBlocks({ page }: { page: GeneratedSeoPage }) {
           <div key={`${block.type}-${block.heading}`} className="grid gap-8 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-7">
               <h2 className="text-3xl font-black tracking-tight text-foreground md:text-4xl">{block.heading}</h2>
-              <p className="mt-4 text-base font-medium leading-relaxed text-muted-foreground md:text-lg">{block.body}</p>
+              <p className="mt-4 whitespace-pre-line text-base font-medium leading-relaxed text-muted-foreground md:text-lg">{block.body}</p>
             </div>
             {block.items.length > 0 && (
               <div className="flex flex-col gap-3 lg:col-span-5">
@@ -66,18 +66,18 @@ export function GeneratedBlockSection({
   if (!block) return null;
 
   return (
-    <section className={`${tinted ? "bg-[#0B0F19]/35" : "bg-background"} py-10 md:py-14`}>
+    <section className={`${tinted ? "bg-muted/60" : "bg-background"} py-10 md:py-14`}>
       {/* Prose left, points stacked right. A full-width heading with a 3-across grid
           under it left a large empty band whenever the item count was not a multiple
           of three, which is most pages. */}
       <div className="container mx-auto grid gap-8 px-4 md:px-6 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-secondary">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
             <Icon className="size-3.5" />
             {eyebrow}
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground md:text-4xl">{block.heading || fallbackTitle}</h2>
-          <p className="mt-4 text-base font-medium leading-relaxed text-muted-foreground md:text-lg">{block.body}</p>
+          <p className="mt-4 whitespace-pre-line text-base font-medium leading-relaxed text-muted-foreground md:text-lg">{block.body}</p>
         </div>
         {block.items.length > 0 && (
           <div className="flex flex-col gap-3 lg:col-span-5">

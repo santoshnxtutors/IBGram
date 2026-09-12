@@ -67,7 +67,7 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
           <div
             className={cn(
               "size-10 rounded-full flex items-center justify-center relative overflow-hidden",
-              isTutor ? "bg-secondary/10 text-secondary" : "bg-primary/20 text-primary",
+              isTutor ? "bg-secondary/10 text-amber-800" : "bg-primary/20 text-primary",
             )}
           >
             {isTutor ? <BookOpen className="size-5 z-10" /> : <GraduationCap className="size-5 z-10" />}

@@ -67,7 +67,7 @@ export function ComparisonView({ tutors }: ComparisonViewProps) {
         <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-3 md:gap-6">
           <TutorSummary tutor={comparedTutors[0]} />
           <div className="flex items-center justify-center">
-            <div className="grid size-9 place-items-center rounded-full border border-border bg-background text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+            <div className="grid size-9 place-items-center rounded-full border border-border bg-background text-[11px] font-black uppercase tracking-widest text-muted-foreground">
               vs
             </div>
           </div>
@@ -119,7 +119,7 @@ function TutorSummary({ tutor }: { tutor: Tutor }) {
       <h2 className="mt-4 max-w-full text-balance text-lg font-black leading-tight tracking-tight text-foreground md:text-2xl">
         {tutor.name}
       </h2>
-      <p className="mt-2 rounded-full border border-border bg-muted/35 px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-muted-foreground">
+      <p className="mt-2 rounded-full border border-border bg-muted/35 px-3 py-1 text-[11px] font-black uppercase tracking-[0.14em] text-muted-foreground">
         {tutor.grade || tutor.curriculum}
       </p>
       <p className="mt-3 line-clamp-2 text-xs font-semibold leading-5 text-muted-foreground md:text-sm">
@@ -156,14 +156,14 @@ function TutorAvatar({ tutor }: { tutor: Tutor }) {
 function CompareRowItem({ row, tutors }: { row: CompareRow; tutors: Tutor[] }) {
   return (
     <div className="border-b border-border/50 p-4 last:border-b-0 md:grid md:grid-cols-[190px_1fr_1fr] md:gap-5 md:px-5 md:py-4">
-      <div className="mb-3 flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-muted-foreground md:mb-0">
+      <div className="mb-3 flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.16em] text-muted-foreground md:mb-0">
         <row.icon className="size-3.5 shrink-0" />
         <span>{row.label}</span>
       </div>
       <div className="grid grid-cols-2 gap-3 md:contents">
         {tutors.map((tutor) => (
           <div key={tutor.id} className="min-w-0 rounded-2xl bg-card/35 p-3 text-sm font-bold leading-5 text-foreground md:rounded-none md:bg-transparent md:p-0">
-            <span className="mb-1 block truncate text-[10px] font-black uppercase tracking-[0.12em] text-muted-foreground md:hidden">
+            <span className="mb-1 block truncate text-[11px] font-black uppercase tracking-[0.12em] text-muted-foreground md:hidden">
               {shortName(tutor.name)}
             </span>
             {cleanValue(row.getValue(tutor))}

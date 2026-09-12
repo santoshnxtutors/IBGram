@@ -8,7 +8,7 @@ export function IGCSELearningPlan() {
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mb-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-secondary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
               <ClipboardList className="size-3.5" />
               realistic study planning
             </div>
@@ -23,7 +23,7 @@ export function IGCSELearningPlan() {
         </div>
 
         <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 md:p-7">
+          <div className="rounded-3xl border border-border bg-card p-5 md:p-7">
             <div className="mb-6 flex items-center gap-3">
               <div className="flex size-11 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
                 <Target className="size-5" />
@@ -36,7 +36,7 @@ export function IGCSELearningPlan() {
                   <div className="flex size-9 items-center justify-center rounded-full bg-primary/10 text-sm font-black text-primary">
                     {index + 1}
                   </div>
-                  <div className="border-b border-white/10 pb-4 last:border-b-0 last:pb-0">
+                  <div className="border-b border-border pb-4 last:border-b-0 last:pb-0">
                     <h4 className="font-black text-foreground">{item.step}</h4>
                     <p className="mt-2 text-sm font-medium leading-6 text-muted-foreground">{item.detail}</p>
                   </div>
@@ -49,7 +49,7 @@ export function IGCSELearningPlan() {
             {igcseStudyTracks.map((track) => (
               <article
                 key={track.title}
-                className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 transition-all hover:border-primary/30 hover:bg-white/[0.06] md:p-6"
+                className="rounded-3xl border border-border bg-card p-5 transition-all hover:border-primary/30 hover:bg-primary/5 md:p-6"
               >
                 <h3 className="text-xl font-black text-foreground">{track.title}</h3>
                 <p className="mt-3 text-sm font-medium leading-6 text-muted-foreground">{track.body}</p>

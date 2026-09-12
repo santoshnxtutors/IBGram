@@ -1,8 +1,17 @@
+import type { Metadata } from "next";
 import { Briefcase } from "lucide-react";
 import { getPublishedJobs } from "@/lib/jobs";
 import { JobsClient, type PublicJob } from "./JobsClient";
 
 export const dynamic = "force-dynamic";
+
+// Without this the page inherited the homepage title and had no canonical.
+export const metadata: Metadata = {
+  title: { absolute: "Tutor Jobs & Careers at IB Gram | IB and IGCSE Teaching Roles" },
+  description:
+    "Open tutoring roles at IB Gram for IB and IGCSE tutors: home, online and hybrid teaching positions. See current openings and apply.",
+  alternates: { canonical: "/jobs" },
+};
 
 export default async function JobsPage() {
   let jobs: PublicJob[] = [];
@@ -42,7 +51,7 @@ export default async function JobsPage() {
 
         {dbError ? (
           <div className="rounded-lg border border-border/60 bg-card p-8 text-center">
-            <Briefcase className="mx-auto mb-4 size-10 text-muted-foreground/40" />
+            <Briefcase className="mx-auto mb-4 size-10 text-muted-foreground" />
             <h2 className="text-xl font-black text-foreground">Jobs database is not reachable</h2>
             <p className="mx-auto mt-2 max-w-2xl text-sm font-medium leading-6 text-muted-foreground">{dbError}</p>
           </div>

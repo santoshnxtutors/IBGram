@@ -3,13 +3,16 @@ import { ArrowRight, CheckCircle2, MapPin, MessageCircleQuestion, ShieldCheck } 
 import { HeroHighlights } from "@/components/shared/HeroHighlights";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
 import { JsonLd } from "@/components/seo-city/JsonLd";
-import { buildGurgaonSeoSchema } from "@/lib/gurgaon-seo";
+import { SchoolStrip } from "@/components/shared/SchoolStrip";
+import { getGurgaonNearbySchools } from "@/lib/local-seo/gurgaon/gurgaon-schools";
+import { buildGurgaonSeoSchema, GURGAON_SEO_LAST_UPDATED } from "@/lib/gurgaon-seo";
 import type { GurgaonSeoPage } from "@/lib/gurgaon-seo/types";
 
 type RelatedLink = { label: string; href: string };
 
 export function GurgaonSeoLanding({ page, related }: { page: GurgaonSeoPage; related: RelatedLink[] }) {
   const { content } = page;
+  const nearbySchools = getGurgaonNearbySchools(page.localContext.schools, 5);
   const hubLinks: RelatedLink[] = [
     { label: "IB Tutors in Gurugram", href: "/ib-tutors/gurugram/" },
     { label: "IGCSE Tutors in Gurugram", href: "/igcse-tutors/gurugram/" },
@@ -26,7 +29,7 @@ export function GurgaonSeoLanding({ page, related }: { page: GurgaonSeoPage; rel
         <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-primary/10 blur-[120px]" />
         <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-secondary/10 blur-[120px]" />
         <div className="container relative z-10 mx-auto px-4 md:px-6">
-          <div className="grid items-center gap-10 lg:grid-cols-12">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="space-y-6 lg:col-span-7">
               <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-primary glassmorphism">
                 <span className="mr-2 flex size-2 rounded-full bg-primary" />
@@ -44,19 +47,19 @@ export function GurgaonSeoLanding({ page, related }: { page: GurgaonSeoPage; rel
                   {content.heroIntro}
                 </p>
               </div>
-              <div className="flex flex-col items-start gap-3 pt-2 sm:flex-row sm:items-center">
+              <div className="grid w-fit gap-3 pt-2 sm:grid-cols-2 sm:items-center">
                 <BookDemoButton
-                  className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+                  className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-8 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
                   label={
                     <>
-                      Book a Demo
+                      Send a Query
                       <ArrowRight className="size-5" />
                     </>
                   }
                 />
                 <Link
                   href="/tutors/"
-                  className="inline-flex h-14 items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-7 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
+                  className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
                 >
                   View Tutors
                 </Link>
@@ -78,8 +81,44 @@ export function GurgaonSeoLanding({ page, related }: { page: GurgaonSeoPage; rel
         </div>
       </section>
 
-      {/* Body sections */}
-      <article className="bg-background py-10 md:py-12">
+      {/* At a glance: the page's checkable facts as a definition list, high on the page.
+          AI answers (AI Overviews, ChatGPT, Perplexity) lift self-contained fact blocks. */}
+      <section className="border-b border-border/50 bg-background py-6">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-xs font-bold uppercase tracking-wide text-primary">
+            {page.subject} tutoring in {page.locality} at a glance
+          </h2>
+          <dl className="mt-3 grid gap-x-8 gap-y-3 text-sm sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ["Board", page.board === "IB + IGCSE" ? "International Baccalaureate (IB) and IGCSE" : page.board === "IB" ? "International Baccalaureate (IB)" : "IGCSE (Cambridge / Pearson Edexcel)"],
+              ["Subject and level", `${page.subject} · ${page.level}`],
+              ["Area", `${page.locality}, Gurugram (Gurgaon), Haryana`],
+              ["Also covering", page.localContext.nearbyAreas.join(", ")],
+              ["Lesson modes", "Home, online or hybrid, subject to tutor availability"],
+              ["Exam sessions", page.board === "IGCSE" ? "Cambridge: May–June and October–November; Pearson Edexcel: January and May–June" : page.board === "IB" ? "May and November" : "IB: May and November; IGCSE: May–June and October–November"],
+            ].map(([term, value]) => (
+              <div key={term}>
+                <dt className="font-bold text-foreground">{term}</dt>
+                <dd className="text-muted-foreground">{value}</dd>
+              </div>
+            ))}
+            <div>
+              <dt className="font-bold text-foreground">Last updated</dt>
+              <dd className="text-muted-foreground">
+                <time dateTime={page.lastUpdated ?? GURGAON_SEO_LAST_UPDATED}>
+                  {new Date(page.lastUpdated ?? GURGAON_SEO_LAST_UPDATED).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
+                </time>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <SchoolStrip schools={nearbySchools} place={page.locality} />
+
+      {/* Body sections. Spacing matches the generated city pages (py-10 md:py-14) so the
+          Gurgaon landing pages and the city pages read as one site. */}
+      <article className="bg-background py-10 md:py-14">
         {/* Prose left, points stacked right — same two-column shape as the generated
             pages, so the bullets use the side space instead of a band underneath. */}
         <div className="container mx-auto px-4 md:px-6">
@@ -113,7 +152,7 @@ export function GurgaonSeoLanding({ page, related }: { page: GurgaonSeoPage; rel
         <section className="bg-background py-10 md:py-14" id="faq">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mb-8">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-secondary">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
                 <MessageCircleQuestion className="size-3.5" />
                 FAQs
               </div>
@@ -123,7 +162,7 @@ export function GurgaonSeoLanding({ page, related }: { page: GurgaonSeoPage; rel
             </div>
             <div className="grid gap-4 md:grid-cols-2">
               {content.faqs.map((faq) => (
-                <details key={faq.question} className="group rounded-2xl border border-border/50 bg-[#0B0F19]/60 p-5 open:border-primary/30 open:bg-[#0f1422]">
+                <details key={faq.question} className="group rounded-2xl border border-border/50 bg-card p-5 open:border-primary/30 open:bg-card">
                   <summary className="cursor-pointer list-none text-base font-black leading-relaxed text-foreground marker:hidden">
                     <span className="flex items-start justify-between gap-4">
                       <span>{faq.question}</span>
@@ -139,7 +178,7 @@ export function GurgaonSeoLanding({ page, related }: { page: GurgaonSeoPage; rel
       )}
 
       {/* Internal links */}
-      <section className="border-t border-border/40 bg-background py-10 md:py-12">
+      <section className="border-t border-border/40 bg-background py-10 md:py-14">
         <div className="container mx-auto max-w-4xl px-4 md:px-6">
           <h2 className="mb-6 text-xl font-black tracking-tight text-foreground md:text-2xl">Explore more IB &amp; IGCSE tutoring</h2>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -158,7 +197,7 @@ export function GurgaonSeoLanding({ page, related }: { page: GurgaonSeoPage; rel
       </section>
 
       {/* Final CTA */}
-      <section className="bg-background pb-12 md:pb-16">
+      <section className="bg-background py-10 md:py-14">
         <div className="container mx-auto max-w-4xl px-4 md:px-6">
           <div className="rounded-[2rem] border border-primary/20 bg-gradient-to-br from-primary/10 to-secondary/5 p-8 text-center md:p-12">
             <h2 className="mb-4 text-2xl font-black tracking-tight text-foreground md:text-3xl">

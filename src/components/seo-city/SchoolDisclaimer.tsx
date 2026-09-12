@@ -20,9 +20,9 @@ export function SchoolDisclaimer({ text, schoolName, className }: SchoolDisclaim
     <aside
       role="note"
       aria-label="Independent platform disclosure"
-      className={`mt-8 flex items-start gap-3 rounded-2xl border border-amber-500/30 bg-amber-500/5 p-4 text-sm font-medium leading-relaxed text-amber-200/90 ${className ?? ""}`}
+      className={`mt-8 flex items-start gap-3 rounded-2xl border border-amber-500/30 bg-amber-500/5 p-4 text-sm font-medium leading-relaxed text-amber-900 ${className ?? ""}`}
     >
-      <Info className="mt-0.5 size-4 shrink-0 text-amber-300" aria-hidden />
+      <Info className="mt-0.5 size-4 shrink-0 text-amber-800" aria-hidden />
       <p>{body}</p>
     </aside>
   );

@@ -136,7 +136,7 @@ export function BlogListClient({
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-muted-foreground/30 p-4">
-                        <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground/40">
+                        <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
                           IB Gram Insights
                         </span>
                       </div>
@@ -189,7 +189,7 @@ export function BlogListClient({
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center bg-muted/10">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/30">
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
                           IB Gram
                         </span>
                       </div>
@@ -200,7 +200,7 @@ export function BlogListClient({
                       </div>
                     )}
                   </div>
-                  <div className="mb-4 flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                  <div className="mb-4 flex items-center gap-4 text-[11px] font-black uppercase tracking-widest text-muted-foreground">
                     <span className="flex items-center gap-1.5 text-primary">
                       <Clock className="size-3.5" /> {blog.readingTimeMinutes} min read
                     </span>

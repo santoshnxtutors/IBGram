@@ -9,10 +9,10 @@ export function CityTutorMatching({ page }: { page: CitySeoPage }) {
 
   return (
     <>
-      <section className="bg-[#0B0F19]/35 py-16 md:py-24">
+      <section className="bg-muted/60 py-16 md:py-24">
         <div className="container mx-auto grid gap-10 px-4 md:px-6 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-primary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
               <ClipboardCheck className="size-3.5" />
               Matching process
             </div>

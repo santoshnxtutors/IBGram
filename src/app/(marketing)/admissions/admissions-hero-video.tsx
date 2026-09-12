@@ -29,7 +29,7 @@ export function AdmissionsHeroVideo() {
         <MobileHeroVideo />
       </div>
       <div className="absolute inset-x-0 bottom-0 rounded-b-[1.35rem] bg-[#0b0f17]/95 px-3 py-2.5 shadow-none sm:rounded-b-[1.75rem] sm:px-4 sm:py-3">
-        <p className="text-[11px] font-semibold text-white/60 sm:text-xs">Application planning across</p>
+        <p className="text-[12px] font-semibold text-white/60 sm:text-xs">Application planning across</p>
         <p className="mt-0.5 text-xs font-black leading-5 text-white sm:text-sm">
           US / UK / Europe / Canada <span className="hidden sm:inline">/ Singapore / Australia</span>
         </p>

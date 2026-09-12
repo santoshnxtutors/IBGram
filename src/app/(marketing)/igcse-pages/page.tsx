@@ -163,7 +163,7 @@ export default function IgcsePagesHubPage() {
               </div>
               <div className="min-w-0">
                 <div className="text-lg font-black leading-none text-foreground sm:text-xl md:text-2xl">{label}</div>
-                <div className="mt-1 text-[10px] font-black uppercase tracking-[0.16em] text-muted-foreground">
+                <div className="mt-1 text-[11px] font-black uppercase tracking-[0.16em] text-muted-foreground">
                   {value}
                 </div>
               </div>
@@ -173,7 +173,7 @@ export default function IgcsePagesHubPage() {
       </section>
 
       {/* CITY GRID */}
-      <section className="bg-[#0B0F19]/35 py-12 md:py-16">
+      <section className="bg-muted/60 py-12 md:py-16">
         <div className="container mx-auto space-y-8 px-4 md:px-6">
           <CityHubLocationPrompt cities={citySummaries} />
 
@@ -199,7 +199,7 @@ export default function IgcsePagesHubPage() {
                   {["Cambridge", "Edexcel", "Maths", "Sciences"].map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-primary"
+                      className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[12px] font-black uppercase tracking-[0.12em] text-primary"
                     >
                       {tag}
                     </span>
@@ -215,7 +215,7 @@ export default function IgcsePagesHubPage() {
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <Compass className="size-4" />
               Choosing an IGCSE tutor
             </div>
@@ -273,7 +273,7 @@ export default function IgcsePagesHubPage() {
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <BookOpenCheck className="size-4" />
               Subject coverage
             </div>
@@ -293,7 +293,7 @@ export default function IgcsePagesHubPage() {
                   {track.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-secondary/30 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-secondary"
+                      className="rounded-full border border-secondary/30 bg-secondary/10 px-3 py-1 text-[12px] font-black uppercase tracking-[0.12em] text-amber-800"
                     >
                       {tag}
                     </span>
@@ -324,7 +324,7 @@ export default function IgcsePagesHubPage() {
           <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-2">
             {igcsePagesMockTimeline.map((item) => (
               <article key={item.label} className="rounded-3xl border border-border/50 bg-background/60 p-6">
-                <div className="text-xs font-black uppercase tracking-[0.18em] text-secondary">{item.label}</div>
+                <div className="text-xs font-black uppercase tracking-[0.18em] text-amber-800">{item.label}</div>
                 <p className="mt-3 text-sm font-medium leading-relaxed text-muted-foreground">{item.detail}</p>
               </article>
             ))}
@@ -336,7 +336,7 @@ export default function IgcsePagesHubPage() {
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <MapPinned className="size-4" />
               City availability notes
             </div>
@@ -382,7 +382,7 @@ export default function IgcsePagesHubPage() {
       <section className="py-12 md:py-20">
         <div className="container mx-auto grid gap-10 px-4 md:px-6 lg:grid-cols-12">
           <div className="space-y-5 lg:col-span-5">
-            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-secondary">
+            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-amber-800">
               <BookOpenCheck className="size-4" />
               Parent workflow
             </div>
@@ -411,7 +411,7 @@ export default function IgcsePagesHubPage() {
       <section className="bg-muted/10 py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <Quote className="size-4" />
               Parent voices
             </div>
@@ -460,12 +460,12 @@ export default function IgcsePagesHubPage() {
                 key={blog.title}
                 className="flex h-full flex-col rounded-3xl border border-border/50 bg-background/60 p-6"
               >
-                <span className="inline-flex w-fit items-center rounded-full border border-secondary/30 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.14em] text-secondary">
+                <span className="inline-flex w-fit items-center rounded-full border border-secondary/30 bg-secondary/10 px-3 py-1 text-[12px] font-black uppercase tracking-[0.14em] text-amber-800">
                   {blog.category}
                 </span>
                 <h3 className="mt-4 text-lg font-black leading-snug text-foreground">{blog.title}</h3>
                 <p className="mt-3 text-sm font-medium leading-relaxed text-muted-foreground">{blog.excerpt}</p>
-                <div className="mt-5 flex items-center justify-between text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+                <div className="mt-5 flex items-center justify-between text-[12px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
                   <span>{blog.date}</span>
                   <span>{blog.readTime}</span>
                 </div>
@@ -479,7 +479,7 @@ export default function IgcsePagesHubPage() {
       <section className="bg-muted/10 py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <MessageSquare className="size-4" />
               Frequently asked questions
             </div>

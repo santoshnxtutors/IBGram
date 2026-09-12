@@ -37,6 +37,7 @@ describe("GSC sitemap policy", () => {
 
     expect(entries.map((entry) => entry.url)).toEqual(["https://www.ibgram.com/", "https://www.ibgram.com/ib-tutors/gurugram/"]);
     expect(shouldIncludeInSitemap({ url: "https://www.ibgram.com/signup/" })).toBe(false);
+    expect(shouldIncludeInSitemap({ url: "https://www.ibgram.com/ib-tutors/gurugram/subjects/math-aa/" })).toBe(false);
   });
 });
 

@@ -52,9 +52,13 @@ const NAMED_BOTS = [
   "Applebot",
 ];
 
+// `/api/media/` serves public blog/tutor images. Longest match wins, so this
+// beats `Disallow: /api/` and lets Google fetch and index those images.
+const PUBLIC_ALLOWS = ["/", "/api/media/"];
+
 const BASE_RULES: RobotsRule[] = [
-  { userAgent: "*", allow: "/", disallow: PRIVATE_DISALLOWS },
-  ...NAMED_BOTS.map((userAgent) => ({ userAgent, allow: "/", disallow: PRIVATE_DISALLOWS })),
+  { userAgent: "*", allow: PUBLIC_ALLOWS, disallow: PRIVATE_DISALLOWS },
+  ...NAMED_BOTS.map((userAgent) => ({ userAgent, allow: PUBLIC_ALLOWS, disallow: PRIVATE_DISALLOWS })),
 ];
 
 const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
@@ -84,7 +88,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     const baseDisallow = userAgent === "*" ? PRIVATE_DISALLOWS : [];
     dbRules.push({
       userAgent,
-      allow: bucket.allow.length ? bucket.allow : userAgent === "*" ? "/" : undefined,
+      allow: bucket.allow.length ? bucket.allow : userAgent === "*" ? PUBLIC_ALLOWS : undefined,
       disallow: [...new Set([...baseDisallow, ...bucket.disallow])],
       ...(bucket.crawlDelay ? { crawlDelay: bucket.crawlDelay } : {}),
     });

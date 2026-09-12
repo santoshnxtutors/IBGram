@@ -90,11 +90,11 @@ export function JobsClient({ jobs }: { jobs: PublicJob[] }) {
             >
               <div className="flex min-w-0 flex-col gap-4">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-primary">
+                  <span className="text-[11px] font-black uppercase tracking-widest text-primary">
                     {job.department}
                   </span>
                   <span className="size-1 rounded-full bg-border" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                  <span className="text-[11px] font-black uppercase tracking-widest text-muted-foreground">
                     {formatPosted(job.publishedAt)}
                   </span>
                 </div>

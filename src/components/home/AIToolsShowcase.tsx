@@ -5,7 +5,7 @@ function LaunchingSoonNote({ className = "" }: { className?: string }) {
     <div
       className={`flex items-center gap-3 rounded-2xl border border-secondary/30 bg-background/95 px-4 py-3 ${className}`}
     >
-      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary/15 text-secondary">
+      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary/15 text-amber-800">
         <Rocket className="size-4" />
       </span>
       <span className="text-sm font-bold leading-snug text-foreground">
@@ -20,11 +20,11 @@ export function AIToolsShowcase() {
   // (no click): inline under each button on mobile, and as a centered banner below
   // the cards on larger screens.
   return (
-    <section className="py-20 md:py-24 bg-background relative border-y border-white/5 shadow-2xl">
+    <section className="py-20 md:py-24 bg-background relative border-y border-border shadow-2xl">
       <div className="container mx-auto px-4 md:px-6">
 
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-amber-800 text-sm font-semibold mb-6">
             Study support between sessions
           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">
@@ -40,7 +40,7 @@ export function AIToolsShowcase() {
 
           {/* AI Test Generator Card */}
           <div
-            className="group relative rounded-3xl overflow-hidden bg-white/[0.04] border border-white/10 p-7 md:p-8 transition-colors hover:border-primary/50 hover:bg-white/[0.06] cursor-pointer"
+            className="group relative rounded-3xl overflow-hidden bg-card border border-border p-7 md:p-8 transition-colors hover:border-primary/50 hover:bg-primary/5 cursor-pointer"
           >
             <div className="relative z-10">
               <div className="size-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
@@ -69,10 +69,10 @@ export function AIToolsShowcase() {
 
            {/* Smart Study Planner Card */}
            <div
-            className="group relative rounded-3xl overflow-hidden bg-white/[0.04] border border-white/10 p-7 md:p-8 transition-colors hover:border-secondary/50 hover:bg-white/[0.06] cursor-pointer"
+            className="group relative rounded-3xl overflow-hidden bg-card border border-border p-7 md:p-8 transition-colors hover:border-secondary/50 hover:bg-primary/5 cursor-pointer"
           >
             <div className="relative z-10">
-              <div className="size-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 text-secondary">
+              <div className="size-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 text-amber-800">
                 <BookOpenCheck className="size-7" />
               </div>
               <h3 className="text-2xl font-bold mb-3">Study planner and weak-area tracker</h3>
@@ -81,13 +81,13 @@ export function AIToolsShowcase() {
               </p>
               <div className="mb-8 flex flex-wrap gap-2">
                 {["Exam dates", "IA deadlines", "Weak areas"].map((item) => (
-                  <span key={item} className="rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-bold text-secondary">
+                  <span key={item} className="rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-bold text-amber-800">
                     {item}
                   </span>
                 ))}
               </div>
 
-              <button type="button" className="inline-flex w-full sm:w-auto h-12 items-center justify-center rounded-xl bg-secondary px-4 font-bold text-background hover:bg-secondary/90">
+              <button type="button" className="inline-flex w-full sm:w-auto h-12 items-center justify-center rounded-xl bg-secondary px-4 font-bold text-foreground hover:bg-secondary/90">
                 Create a study plan <ArrowRight className="ml-2 size-4" />
               </button>
 

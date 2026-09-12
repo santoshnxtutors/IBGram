@@ -11,9 +11,9 @@ import { createBooking, fetchMyBookings, fetchTutors, type Booking, type Tutor }
 
 function statusBadge(status: Booking["status"]) {
   const map: Record<Booking["status"], string> = {
-    requested: "bg-amber-400/15 text-amber-600 dark:text-amber-300",
-    confirmed: "bg-emerald-400/15 text-emerald-600 dark:text-emerald-300",
-    completed: "bg-sky-400/15 text-sky-600 dark:text-sky-300",
+    requested: "bg-amber-400/15 text-amber-800 dark:text-amber-300",
+    confirmed: "bg-emerald-400/15 text-emerald-800 dark:text-emerald-300",
+    completed: "bg-sky-400/15 text-sky-800 dark:text-sky-300",
     cancelled: "bg-rose-400/15 text-rose-600 dark:text-rose-300",
   };
   return map[status];
@@ -78,7 +78,7 @@ export default function FindTutorsPage() {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-bold text-foreground truncate">{b.subject}</span>
-                    <span className={`shrink-0 rounded px-2 py-0.5 text-[10px] font-black uppercase tracking-wider ${statusBadge(b.status)}`}>
+                    <span className={`shrink-0 rounded px-2 py-0.5 text-[11px] font-black uppercase tracking-wider ${statusBadge(b.status)}`}>
                       {b.status}
                     </span>
                   </div>
@@ -133,7 +133,7 @@ export default function FindTutorsPage() {
                   {t.subjects.length > 0 && (
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       {t.subjects.slice(0, 4).map((s) => (
-                        <span key={s} className="rounded-full bg-muted/40 px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
+                        <span key={s} className="rounded-full bg-muted/40 px-2 py-0.5 text-[12px] font-semibold text-muted-foreground">
                           {s}
                         </span>
                       ))}

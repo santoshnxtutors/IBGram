@@ -3,7 +3,7 @@ import "server-only";
 import { existsSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 
-import { allTutors, parseTutorModes, parseTutorQualifications } from "@/lib/tutor-data";
+import { allTutors, parseTutorModes, parseTutorCountries, parseTutorQualifications } from "@/lib/tutor-data";
 import { getAllCitySeoPages } from "@/lib/seo/city-pages";
 import { getAllIgcseCityPages } from "@/lib/seo/igcse-city-pages";
 import { CITY_CONTENT_PAGE_SLUGS } from "@/lib/seo/internal-links";
@@ -317,6 +317,7 @@ async function getTutorsFromDb(): Promise<AdminTutorRecord[] | null> {
         tags: tutor.profile?.tags ?? [],
         languages: tutor.profile?.languages ?? [],
         qualifications: parseTutorQualifications(tutor.profile?.metadata),
+        countriesCovered: parseTutorCountries(tutor.profile?.metadata),
         lastUpdated: tutor.updatedAt.toISOString().slice(0, 10),
       } satisfies AdminTutorRecord;
     });

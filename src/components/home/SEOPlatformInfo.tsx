@@ -53,12 +53,12 @@ export function SEOPlatformInfo() {
             </div>
 
             {/* Division Line for Mobile */}
-            <div className="w-full h-px bg-white/5 lg:hidden" />
+            <div className="w-full h-px bg-border lg:hidden" />
 
             {/* Right Column - How it Works */}
             <div className="flex-1 w-full relative">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-2xl bg-secondary/10 text-secondary border border-secondary/20">
+                <div className="p-2.5 rounded-2xl bg-secondary/10 text-amber-800 border border-secondary/20">
                   <Target className="size-5" />
                 </div>
                 <h2 className="text-xl md:text-2xl font-black text-foreground leading-tight">

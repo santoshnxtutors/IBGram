@@ -17,7 +17,7 @@ export async function TutorComparePageContent({ tutorIds }: TutorComparePageCont
   return (
     <div className="relative min-h-screen bg-background pb-24 pt-20">
       <CompareUrlCleaner />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_20%_10%,rgba(34,197,94,0.12),transparent_35%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_20%_10%,rgba(27,63,139,0.12),transparent_35%)]" />
 
       <div className="container relative mx-auto mb-8 px-4 md:px-6">
         <div className="mx-auto max-w-5xl">

@@ -31,7 +31,7 @@ export function IGCSESubjectExplorer() {
   return (
     <div className="grid items-start gap-5 xl:grid-cols-[minmax(260px,0.58fr)_minmax(0,1.25fr)_minmax(320px,0.78fr)] 2xl:grid-cols-[280px_minmax(0,1.35fr)_360px]">
       <div className="rounded-[2rem] border border-border/50 bg-card/30 p-6 backdrop-blur-sm lg:p-7 xl:sticky xl:top-24 xl:self-start">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+        <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.28em] text-primary">
           <BookOpen className="size-3.5" />
           Cambridge IGCSE
         </div>
@@ -97,7 +97,7 @@ export function IGCSESubjectExplorer() {
                         onClick={() => setActiveTitle(subject.title)}
                         className={`w-full rounded-[1.35rem] border px-4 py-3 text-left transition-all ${
                           isActive
-                            ? "border-primary/40 bg-primary text-primary-foreground shadow-[0_12px_35px_rgba(34,197,94,0.16)]"
+                            ? "border-primary/40 bg-primary text-primary-foreground shadow-[0_12px_35px_rgba(27,63,139,0.16)]"
                             : "border-border/50 bg-background/45 text-foreground hover:border-primary/20 hover:bg-background/70"
                         }`}
                       >

@@ -36,7 +36,7 @@ export function CityTrustBar({ page }: { page: CitySeoPage }) {
               </div>
               <div>
                 <div className="text-xl font-black leading-none text-foreground md:text-3xl">{stat.value}</div>
-                <div className="mt-1 text-[10px] font-black uppercase tracking-[0.16em] text-muted-foreground">{stat.label}</div>
+                <div className="mt-1 text-[11px] font-black uppercase tracking-[0.16em] text-muted-foreground">{stat.label}</div>
               </div>
             </div>
           ))}

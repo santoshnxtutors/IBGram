@@ -132,7 +132,7 @@ export default async function DPPage() {
       {/* HERO */}
       <section className="relative w-full pt-10 sm:pt-12 pb-10 sm:pb-12 flex flex-col items-center justify-center text-center px-4">
         <div className="max-w-4xl mx-auto flex flex-col items-center space-y-4 md:space-y-6">
-          <span className="inline-flex items-center px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs font-bold text-primary bg-primary/10 rounded-full uppercase tracking-widest">
+          <span className="inline-flex items-center px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-bold text-primary bg-primary/10 rounded-full uppercase tracking-widest">
             Ages 16–19 · DP1 and DP2
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-foreground">
@@ -173,7 +173,7 @@ export default async function DPPage() {
 
       {/* INTRO */}
       <section className="container max-w-3xl mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
           <Compass className="size-4" /> What the DP is
         </div>
         <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
@@ -252,7 +252,7 @@ export default async function DPPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {dpYearByYearTimeline.map((phase) => (
             <article key={phase.label} className="rounded-2xl border border-border/50 bg-card/40 p-5">
-              <div className="text-xs font-black uppercase tracking-[0.18em] text-secondary">{phase.label}</div>
+              <div className="text-xs font-black uppercase tracking-[0.18em] text-amber-800">{phase.label}</div>
               <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">{phase.detail}</p>
             </article>
           ))}
@@ -340,7 +340,7 @@ export default async function DPPage() {
 
       {/* FAQ */}
       <section className="container max-w-4xl mx-auto px-4 md:px-6 py-12 md:py-16">
-        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
           <MessageSquare className="size-4" /> Frequently asked questions
         </div>
         <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">

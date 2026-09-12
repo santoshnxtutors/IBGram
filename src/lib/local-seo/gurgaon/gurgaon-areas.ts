@@ -1,4 +1,5 @@
 import type { GurgaonLocalPlace } from "./gurgaon.types";
+import { GURGAON_SCHOOL_ECOSYSTEM } from "./gurgaon-schools";
 
 type GurgaonAreaRow = [string, string, string, string[], string[], string[]];
 
@@ -34,7 +35,7 @@ export const gurgaonAreaPlaces: GurgaonLocalPlace[] = gurgaonAreaRows.map(([name
   nearbyAreas,
   nearbySectors,
   nearbySocieties,
-  schoolEcosystem: ["Lancers International School", "Scottish High International School", "Pathways World School", "GD Goenka World School"],
+  schoolEcosystem: [...GURGAON_SCHOOL_ECOSYSTEM],
   indexFlag: "index",
   indexReason: "strong-local-depth",
   duplicateRisk: "low",

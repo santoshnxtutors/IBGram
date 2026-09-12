@@ -43,6 +43,21 @@ function statusClass(status: string) {
   return "bg-amber-400/15 text-amber-200";
 }
 
+/**
+ * Enquiry forms send "Label: value" lines; the free-text contact form does not.
+ * Split the two so structured enquiries render as a field list instead of a blob.
+ */
+function parseMessage(message: string) {
+  const fields: { label: string; value: string }[] = [];
+  const rest: string[] = [];
+  for (const line of message.split("\n")) {
+    const match = /^([A-Za-z][A-Za-z ]{1,24}):\s*(.+)$/.exec(line.trim());
+    if (match && rest.length === 0) fields.push({ label: match[1], value: match[2] });
+    else if (line.trim()) rest.push(line);
+  }
+  return { fields, rest: rest.join("\n") };
+}
+
 export function LeadsClient({ items }: { items: LeadItem[] }) {
   const router = useRouter();
   const { toast, busy, submit, remove } = useCrudForm<LeadItem>("/admin/api/leads", router);
@@ -143,10 +158,25 @@ export function LeadsClient({ items }: { items: LeadItem[] }) {
                 </div>
               </div>
 
-              <div className="mt-4 rounded-md border border-white/10 bg-white/[0.02] p-3 text-sm leading-6 text-slate-200">
-                <p className="text-[10px] font-black uppercase tracking-[0.16em] text-slate-500">Message</p>
-                <p className="mt-1 whitespace-pre-wrap">{item.message}</p>
-              </div>
+              {(() => {
+                const { fields, rest } = parseMessage(item.message);
+                return (
+                  <div className="mt-4 rounded-md border border-white/10 bg-white/[0.02] p-3 text-sm leading-6 text-slate-200">
+                    <p className="text-[10px] font-black uppercase tracking-[0.16em] text-slate-500">Enquiry</p>
+                    {fields.length > 0 && (
+                      <dl className="mt-2 grid gap-x-6 gap-y-1 sm:grid-cols-[auto_1fr]">
+                        {fields.map((f) => (
+                          <div key={f.label} className="contents">
+                            <dt className="text-xs font-black uppercase tracking-[0.12em] text-slate-500">{f.label}</dt>
+                            <dd className="whitespace-pre-wrap text-slate-200">{f.value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    )}
+                    {rest && <p className="mt-2 whitespace-pre-wrap">{rest}</p>}
+                  </div>
+                );
+              })()}
 
               {item.adminNotes && (
                 <div className="mt-3 rounded-md border border-emerald-300/20 bg-emerald-300/10 p-3 text-sm leading-6 text-emerald-50">

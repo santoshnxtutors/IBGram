@@ -16,7 +16,7 @@ export function IGCSEFaqs() {
           <div>
             <div className="mb-3 flex items-center gap-2">
               <MessageCircleQuestion className="size-5 text-secondary" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary">IGCSE FAQs</span>
+              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-amber-800">IGCSE FAQs</span>
             </div>
             <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
               Questions IGCSE families usually ask
@@ -24,7 +24,7 @@ export function IGCSEFaqs() {
           </div>
           <Link
             href="/contact-us/"
-            className="w-fit rounded-full border border-white/10 bg-white/[0.04] px-6 py-2.5 text-sm font-bold text-foreground transition-all hover:border-primary/40"
+            className="w-fit rounded-full border border-border bg-card px-6 py-2.5 text-sm font-bold text-foreground transition-all hover:border-primary/40"
           >
             Talk to an academic advisor
           </Link>
@@ -42,15 +42,15 @@ export function IGCSEFaqs() {
                   aria-expanded={isOpen}
                   className={`w-full overflow-hidden rounded-2xl border text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 ${
                     isOpen
-                      ? "border-primary/30 bg-[#0f1422] shadow-lg"
-                      : "border-white/10 bg-white/[0.04] hover:border-white/20 hover:bg-white/[0.06]"
+                      ? "border-primary/30 bg-card shadow-lg"
+                      : "border-border bg-card hover:border-primary/30 hover:bg-primary/5"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-4 p-4 md:p-5">
                     <h3 className={`text-sm font-semibold transition-colors md:text-base ${isOpen ? "text-primary" : "text-foreground/90"}`}>
                       {faq.question}
                     </h3>
-                    <span className={`rounded-full p-1 transition-colors ${isOpen ? "bg-primary/20" : "bg-white/5"}`}>
+                    <span className={`rounded-full p-1 transition-colors ${isOpen ? "bg-primary/20" : "bg-muted"}`}>
                       <ChevronDown className={`size-4 transition-transform duration-300 ${isOpen ? "rotate-180 text-primary" : "text-muted-foreground"}`} />
                     </span>
                   </div>
@@ -63,7 +63,7 @@ export function IGCSEFaqs() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.25, ease: "easeInOut" }}
                       >
-                        <div className="border-t border-white/5 px-4 pb-5 pt-3 text-sm leading-relaxed text-muted-foreground md:px-5 md:text-base">
+                        <div className="border-t border-border px-4 pb-5 pt-3 text-sm leading-relaxed text-muted-foreground md:px-5 md:text-base">
                           {faq.answer}
                         </div>
                       </motion.div>

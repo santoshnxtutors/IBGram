@@ -97,12 +97,12 @@ export default function TutorDashboard() {
           <CardContent className="p-6">
             <div className="flex justify-between items-center mb-4">
               <h3 className="font-semibold text-muted-foreground text-sm">Average Rating</h3>
-              <div className="size-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+              <div className="size-8 rounded-full bg-secondary/10 flex items-center justify-center text-amber-800">
                 <Star className="size-4 fill-secondary" />
               </div>
             </div>
             <div className="text-3xl font-bold text-foreground mb-1">4.9 <span className="text-muted-foreground text-lg font-medium">/ 5.0</span></div>
-            <p className="text-xs text-secondary font-medium">
+            <p className="text-xs text-amber-800 font-medium">
               Based on 142 reviews
             </p>
           </CardContent>
@@ -202,7 +202,7 @@ export default function TutorDashboard() {
 
               <div className="p-4 rounded-xl border border-border bg-muted/40 cursor-pointer hover:bg-muted/60 transition-colors">
                 <div className="flex justify-between items-start mb-2">
-                  <span className="text-xs font-bold px-2 py-1 bg-primary/20 text-primary-foreground rounded-full">1:1 Tutoring</span>
+                  <span className="text-xs font-bold px-2 py-1 bg-primary/15 text-primary rounded-full">1:1 Tutoring</span>
                   <span className="text-xs font-semibold text-muted-foreground flex items-center"><Clock className="size-3 mr-1" /> 16:30 (1hr)</span>
                 </div>
                 <h4 className="font-semibold text-foreground mb-1">IA Draft Review</h4>
@@ -211,7 +211,7 @@ export default function TutorDashboard() {
 
               <div className="p-4 rounded-xl border border-border bg-muted/40 cursor-pointer hover:bg-muted/60 transition-colors">
                 <div className="flex justify-between items-start mb-2">
-                  <span className="text-xs font-bold px-2 py-1 bg-primary/20 text-primary-foreground rounded-full">1:1 Tutoring</span>
+                  <span className="text-xs font-bold px-2 py-1 bg-primary/15 text-primary rounded-full">1:1 Tutoring</span>
                   <span className="text-xs font-semibold text-muted-foreground flex items-center"><Clock className="size-3 mr-1" /> 18:00 (1.5hr)</span>
                 </div>
                 <h4 className="font-semibold text-foreground mb-1">Vectors Sprint</h4>
@@ -241,7 +241,7 @@ export default function TutorDashboard() {
               </div>
               
               <div className="flex gap-4 items-start p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer border border-transparent hover:border-border">
-                <div className="size-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0 mt-1">
+                <div className="size-10 rounded-full bg-secondary/10 text-amber-800 flex items-center justify-center shrink-0 mt-1">
                   <Star className="size-5" />
                 </div>
                 <div className="flex-1">

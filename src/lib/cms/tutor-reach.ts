@@ -81,11 +81,12 @@ type RowWithTutor = {
     headline: string | null;
     avatarUrl: string | null;
     rating: number | null;
-    reviewCount: number;
+    _count: { reviews: number };
   };
 };
 
 function toPublic(row: RowWithTutor): PublicTutorReachPage {
+  const { _count, ...tutor } = row.tutor;
   return {
     id: row.id,
     slug: row.slug,
@@ -105,7 +106,7 @@ function toPublic(row: RowWithTutor): PublicTutorReachPage {
     wordCount: row.wordCount,
     publishedAt: toIso(row.publishedAt),
     updatedAt: toIso(row.updatedAt) ?? new Date().toISOString(),
-    tutor: row.tutor,
+    tutor: { ...tutor, reviewCount: _count.reviews },
   };
 }
 
@@ -116,7 +117,7 @@ const tutorSelect = {
   headline: true,
   avatarUrl: true,
   rating: true,
-  reviewCount: true,
+  _count: { select: { reviews: { where: { status: "published" } } } },
 } as const;
 
 /** Single published tutor-reach page by slug. */

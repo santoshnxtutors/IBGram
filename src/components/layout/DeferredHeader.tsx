@@ -55,8 +55,8 @@ function StaticHeader() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-4 md:gap-6">
           <Link href="/" prefetch={false} className="flex items-center gap-1">
-            <span className="text-2xl font-bold tracking-tight text-foreground">
-              IBGram
+            <span className="text-2xl font-bold tracking-tight text-primary">
+              <span className="text-secondary">IB</span>Gram
             </span>
           </Link>
           <span className="hidden text-sm font-semibold text-foreground/80 md:inline">Select Location</span>
@@ -78,9 +78,14 @@ function StaticHeader() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-2">
-          <span className="hidden rounded-full border border-border/60 bg-card/40 px-4 py-2 text-sm font-bold text-foreground lg:inline-flex">
-            Default
+        <div className="flex items-center gap-2 lg:gap-4">
+          {/* Placeholders match Header.tsx (Join as tutor button, then the account icon) so
+              the pre-hydration header is the same width and swapping it in does not shift the layout. */}
+          <span className="hidden rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground lg:inline-flex">
+            Join as tutor
+          </span>
+          <span className="hidden size-9 items-center justify-center lg:inline-flex" aria-hidden>
+            <span className="size-7 rounded-full border-2 border-foreground" />
           </span>
           <span className="flex size-10 items-center justify-center rounded-full text-foreground lg:hidden" aria-hidden>
             <span className="block h-0.5 w-6 rounded bg-current shadow-[0_7px_0_currentColor,0_-7px_0_currentColor]" />

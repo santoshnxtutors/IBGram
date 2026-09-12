@@ -18,7 +18,7 @@ export function GeneratedTrustBar({ page }: { page: GeneratedSeoPage }) {
   ];
 
   return (
-    <section className="border-y border-border/50 bg-[#0B0F19]/35 py-5">
+    <section className="border-y border-border/50 bg-muted/60 py-5">
       <div className="container mx-auto grid gap-3 px-4 md:grid-cols-4 md:px-6">
         {items.map(({ icon: Icon, label }) => (
           <div key={label} className="flex items-center gap-2.5 text-sm font-bold text-foreground/90">

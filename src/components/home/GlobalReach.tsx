@@ -140,7 +140,7 @@ export function GlobalReach() {
         <div className="ibg-rise">
           <div className="flex items-center gap-2 mb-4 text-secondary">
             <Globe2 className="size-4" />
-            <span className="text-[11px] font-black tracking-[0.2em] uppercase">
+            <span className="text-[12px] font-black tracking-[0.2em] uppercase">
               Worldwide coverage
             </span>
           </div>
@@ -160,7 +160,7 @@ export function GlobalReach() {
           {regions.map((region, i) => (
             <article
               key={region.name}
-              className="ibg-rise rounded-2xl border border-white/5 bg-white/[0.02] p-6 transition-colors hover:border-primary/25 hover:bg-white/[0.04]"
+              className="ibg-rise rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/25 hover:bg-primary/5"
               style={{ animationDelay: `${0.08 * (i + 1)}s` }}
             >
               <div className="flex items-center gap-2 mb-3">
@@ -174,7 +174,7 @@ export function GlobalReach() {
                     width={22}
                     height={22}
                     loading="lazy"
-                    className="size-5 rounded-full border border-white/15 object-cover"
+                    className="size-5 rounded-full border border-border object-cover"
                   />
                 ))}
               </div>
@@ -186,7 +186,7 @@ export function GlobalReach() {
                 {region.cities.map((city) => (
                   <li
                     key={city}
-                    className="inline-flex items-center gap-1 rounded-full border border-white/5 bg-white/[0.03] px-2.5 py-1 text-[11px] font-semibold text-foreground/75"
+                    className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-2.5 py-1 text-[12px] font-semibold text-foreground/75"
                   >
                     <MapPin className="size-3 text-secondary/70" />
                     {city}
@@ -223,7 +223,7 @@ export function GlobalReach() {
               <div
                 key={`${country.code}-${idx}`}
                 title={country.name}
-                className="flex items-center gap-2 rounded-full border border-white/5 bg-white/[0.03] px-3 py-1.5 shrink-0"
+                className="flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 shrink-0"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

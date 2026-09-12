@@ -30,7 +30,7 @@ export default function CoursePageClient({ visibleTutors }: CoursePageClientProp
           <Button
             variant="ghost"
             onClick={() => router.back()}
-            className="mb-6 rounded-full px-4 hover:bg-white/5"
+            className="mb-6 rounded-full px-4 hover:bg-muted"
           >
             <ArrowLeft className="mr-2 size-4" /> Back
           </Button>
@@ -44,7 +44,7 @@ export default function CoursePageClient({ visibleTutors }: CoursePageClientProp
               <div className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-primary">
                 {curriculum} Curriculum
               </div>
-              <div className="rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-secondary">
+              <div className="rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-amber-800">
                 Subject-fit tutors
               </div>
             </motion.div>
@@ -74,14 +74,14 @@ export default function CoursePageClient({ visibleTutors }: CoursePageClientProp
               transition={{ delay: 0.3 }}
               className="mb-10 grid gap-6 md:grid-cols-2"
             >
-              <div className="rounded-[2rem] border border-white/5 bg-card p-6 transition-colors hover:border-primary/20">
+              <div className="rounded-[2rem] border border-border bg-card p-6 transition-colors hover:border-primary/20">
                 <BookOpen className="mb-4 size-8 text-primary" />
                 <h3 className="mb-2 text-xl font-bold">Comprehensive Syllabus</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   We cover the full {curriculum} {subject} syllabus with structured lessons, topic sequencing, and exam-ready practice.
                 </p>
               </div>
-              <div className="rounded-[2rem] border border-white/5 bg-card p-6 transition-colors hover:border-secondary/20">
+              <div className="rounded-[2rem] border border-border bg-card p-6 transition-colors hover:border-secondary/20">
                 <GraduationCap className="mb-4 size-8 text-secondary" />
                 <h3 className="mb-2 text-xl font-bold">Result-Oriented Approach</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">

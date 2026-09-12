@@ -95,20 +95,20 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
                 </p>
               </div>
 
-              <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+              <div className="grid w-fit gap-3 pt-2 sm:grid-cols-2 sm:items-center">
                 <BookDemoButton
                   defaultCurriculum="IGCSE"
-                  className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+                  className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-8 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
                   label={
                     <>
-                      Book a Demo
+                      Send a Query
                       <ArrowRight className="size-5" />
                     </>
                   }
                 />
                 <Link
                   href="/igcse/#subjects"
-                  className="inline-flex h-14 items-center justify-center rounded-xl border border-border bg-background/50 px-7 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
+                  className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
                 >
                   Browse IGCSE Subjects
                 </Link>
@@ -125,7 +125,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
             </div>
 
             <aside className="lg:col-span-5">
-              <div className="rounded-[2rem] border border-white/10 bg-[#0B0F19]/60 p-6 shadow-2xl backdrop-blur-xl">
+              <div className="rounded-[2rem] border border-border bg-card p-6 shadow-2xl backdrop-blur-xl">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex size-11 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
                     <SearchCheck className="size-5" />
@@ -146,7 +146,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
                     ["Exam focus", "Mocks and final papers"],
                   ].map(([label, value]) => (
                     <div key={label} className="rounded-2xl border border-border/50 bg-muted/10 p-4">
-                      <dt className="mb-1 text-[10px] font-black uppercase tracking-[0.2em] text-primary">{label}</dt>
+                      <dt className="mb-1 text-[11px] font-black uppercase tracking-[0.2em] text-primary">{label}</dt>
                       <dd className="text-sm font-semibold leading-relaxed text-foreground/90">{value}</dd>
                     </div>
                   ))}
@@ -171,7 +171,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
               </div>
               <div>
                 <div className="text-xl font-black leading-none text-foreground md:text-2xl">{label}</div>
-                <div className="mt-1 text-[10px] font-black uppercase tracking-[0.16em] text-muted-foreground">{value}</div>
+                <div className="mt-1 text-[11px] font-black uppercase tracking-[0.16em] text-muted-foreground">{value}</div>
               </div>
             </div>
           ))}
@@ -181,7 +181,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
       <section className="py-16 md:py-24">
         <div className="container mx-auto grid gap-10 px-4 md:px-6 lg:grid-cols-12">
           <div className="space-y-5 lg:col-span-5">
-            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-secondary">
+            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-amber-800">
               <BookOpenCheck className="size-4" />
               Local academic context
             </div>
@@ -199,10 +199,10 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
         </div>
       </section>
 
-      <section className="bg-[#0B0F19]/35 py-16 md:py-24">
+      <section className="bg-muted/60 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-10 max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-secondary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
               <ClipboardCheck className="size-3.5" />
               Boards
             </div>
@@ -221,7 +221,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
       <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-10 max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-primary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
               <Sigma className="size-3.5" />
               Subject support
             </div>
@@ -243,10 +243,10 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
         </div>
       </section>
 
-      <section className="bg-[#0B0F19]/35 py-16 md:py-24">
+      <section className="bg-muted/60 py-16 md:py-24">
         <div className="container mx-auto grid gap-10 px-4 md:px-6 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-primary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
               <SearchCheck className="size-3.5" />
               Tutor matching
             </div>
@@ -278,7 +278,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
       <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-10 max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-secondary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
               <MapPinned className="size-3.5" />
               Areas covered
             </div>
@@ -297,7 +297,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
               </article>
             ))}
           </div>
-          <div className="mt-8 rounded-2xl border border-border/50 bg-[#0B0F19]/50 p-5">
+          <div className="mt-8 rounded-2xl border border-border/50 bg-card p-5">
             <h3 className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-primary">Nearby areas parents ask about</h3>
             <div className="flex flex-wrap gap-2">
               {page.nearbyAreas.map((area) => (
@@ -310,10 +310,10 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
         </div>
       </section>
 
-      <section className="bg-[#0B0F19]/35 py-16 md:py-24">
+      <section className="bg-muted/60 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-10 max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-primary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
               <School className="size-3.5" />
               School ecosystem
             </div>
@@ -330,7 +330,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
                 <p className="mt-3 text-sm font-medium leading-relaxed text-muted-foreground">{school.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {school.typicalNeeds.map((need) => (
-                    <span key={need} className="rounded-lg border border-primary/20 bg-primary/10 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-primary">
+                    <span key={need} className="rounded-lg border border-primary/20 bg-primary/10 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-primary">
                       {need}
                     </span>
                   ))}
@@ -347,7 +347,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
       <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto grid gap-10 px-4 md:px-6 lg:grid-cols-2">
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-secondary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
               <Home className="size-3.5" />
               Modes
             </div>
@@ -362,14 +362,14 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
           </div>
 
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-primary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
               <ShieldCheck className="size-3.5" />
               Verification
             </div>
             <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">{page.verificationTitle}</h2>
             <div className="mt-8 grid gap-4">
               {page.tutorVerificationProcess.map((item) => (
-                <div className="rounded-2xl border border-border/50 bg-[#0B0F19]/50 p-5" key={item}>
+                <div className="rounded-2xl border border-border/50 bg-card p-5" key={item}>
                   <p className="text-sm font-semibold leading-relaxed text-foreground/90">{item}</p>
                 </div>
               ))}
@@ -378,10 +378,10 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
         </div>
       </section>
 
-      <section className="bg-[#0B0F19]/35 py-16 md:py-24">
+      <section className="bg-muted/60 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-10 max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-secondary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
               <Sparkles className="size-3.5" />
               Local proof
             </div>
@@ -402,7 +402,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
       <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-10 max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-secondary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
               <Network className="size-3.5" />
               Explore next
             </div>
@@ -425,7 +425,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
         </div>
       </section>
 
-      <section className="bg-[#0B0F19]/45 py-16 md:py-24">
+      <section className="bg-muted/60 py-16 md:py-24">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <div className="mb-10 space-y-4 text-center">
             <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">IGCSE FAQ for {page.cityName}</h2>

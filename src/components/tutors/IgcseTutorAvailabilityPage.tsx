@@ -74,7 +74,7 @@ export function IgcseTutorAvailabilityPage({
 
           <div className="grid gap-8 lg:grid-cols-12">
             <div className="lg:col-span-8">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-primary">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
                 <SearchCheck className="size-3.5" />
                 IGCSE tutor availability
               </div>
@@ -89,20 +89,20 @@ export function IgcseTutorAvailabilityPage({
                 Compare Cambridge and Pearson Edexcel IGCSE tutors by city, locality, subject fit and tutoring mode. Availability is reviewed safely without claiming guaranteed tutor placement.
               </p>
 
-              <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+              <div className="mt-7 grid w-fit gap-3 sm:grid-cols-2 sm:items-center">
                 <BookDemoButton
                   defaultCurriculum="IGCSE"
-                  className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+                  className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-8 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
                   label={
                     <>
-                      Book a Demo
+                      Send a Query
                       <ArrowRight className="size-5" />
                     </>
                   }
                 />
                 <Link
                   href="/tutors/"
-                  className="inline-flex h-14 items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-7 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
+                  className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
                 >
                   View Tutors
                 </Link>
@@ -111,7 +111,7 @@ export function IgcseTutorAvailabilityPage({
 
             <aside className="lg:col-span-4">
               <div className="rounded-2xl border border-secondary/20 bg-secondary/10 p-5">
-                <h2 className="text-sm font-black uppercase tracking-[0.18em] text-secondary">Matching note</h2>
+                <h2 className="text-sm font-black uppercase tracking-[0.18em] text-amber-800">Matching note</h2>
                 <p className="mt-3 text-sm font-semibold leading-relaxed text-foreground/90">
                   Exact local matches appear first, then city-level tutors, then online fallback tutors for the same curriculum and subject where available.
                 </p>

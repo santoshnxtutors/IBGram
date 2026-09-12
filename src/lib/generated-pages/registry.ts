@@ -7,11 +7,15 @@ import shard0 from "./pages/ib-area.json";
 import shard1 from "./pages/ib-city.json";
 import shard2 from "./pages/ib-programme.json";
 import shard3 from "./pages/ib-school.json";
-import shard4 from "./pages/ib-subject.json";
-import shard5 from "./pages/igcse-area.json";
-import shard6 from "./pages/igcse-city.json";
-import shard7 from "./pages/igcse-school.json";
-import shard8 from "./pages/igcse-subject.json";
+import shard4 from "./pages/ib-sector.json";
+import shard5 from "./pages/ib-society.json";
+import shard6 from "./pages/ib-subject.json";
+import shard7 from "./pages/igcse-area.json";
+import shard8 from "./pages/igcse-city.json";
+import shard9 from "./pages/igcse-school.json";
+import shard10 from "./pages/igcse-sector.json";
+import shard11 from "./pages/igcse-society.json";
+import shard12 from "./pages/igcse-subject.json";
 
 export const seoContentPages: GeneratedSeoPage[] = [
   ...(shard0 as unknown as GeneratedSeoPage[]),
@@ -23,4 +27,8 @@ export const seoContentPages: GeneratedSeoPage[] = [
   ...(shard6 as unknown as GeneratedSeoPage[]),
   ...(shard7 as unknown as GeneratedSeoPage[]),
   ...(shard8 as unknown as GeneratedSeoPage[]),
+  ...(shard9 as unknown as GeneratedSeoPage[]),
+  ...(shard10 as unknown as GeneratedSeoPage[]),
+  ...(shard11 as unknown as GeneratedSeoPage[]),
+  ...(shard12 as unknown as GeneratedSeoPage[]),
 ];

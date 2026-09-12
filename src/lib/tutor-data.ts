@@ -1,4 +1,6 @@
-﻿export interface TutorFaq {
+﻿import { normaliseCountryCodes } from "@/lib/countries";
+
+export interface TutorFaq {
   question: string;
   answer: string;
 }
@@ -39,6 +41,18 @@ export function parseTutorModes(value: unknown): string[] {
   return arr.map((m) => String(m).trim()).filter(Boolean);
 }
 
+/**
+ * Read the countries a tutor covers out of the TutorProfile.metadata JSON.
+ * Values are ISO alpha-2 codes, or the single sentinel "all".
+ */
+export function parseTutorCountries(value: unknown): string[] {
+  const arr =
+    value && typeof value === "object" && !Array.isArray(value)
+      ? (value as { countriesCovered?: unknown }).countriesCovered
+      : undefined;
+  return normaliseCountryCodes(arr);
+}
+
 export interface Tutor {
   id: number | string;
   slug?: string;
@@ -62,6 +76,8 @@ export interface Tutor {
   curriculum: "IB" | "IGCSE" | "Both";
   faqs?: TutorFaq[];
   qualifications?: TutorQualification[];
+  /** ISO alpha-2 codes, or ["all"] when the tutor covers every country. */
+  countriesCovered?: string[];
 }
 
 export type TutorCurriculum = "IB" | "IGCSE";
@@ -638,7 +654,7 @@ const tutorSeeds: TutorSeed[] = [
     rate: "$65/hr",
     image: "/tutor_james_avatar_1775559651647.png",
     tags: ["Interactive", "Fast Replies", "Lead Teacher"],
-    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    accent: "bg-secondary/10 text-amber-700 border-secondary/20",
     education: "M.Sc. in Physics, Imperial College London",
     successRate: "96%",
     availability: "Flexible (10+ slots)",
@@ -698,7 +714,7 @@ const tutorSeeds: TutorSeed[] = [
     rate: "$75/hr",
     image: "/tutor_elena_avatar_1775559725738.png",
     tags: ["IB Specialist", "Essay Coach"],
-    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    accent: "bg-secondary/10 text-amber-700 border-secondary/20",
     education: "M.A. in English Literature, University of Cambridge",
     successRate: "97%",
     availability: "Moderate (5 slots)",
@@ -718,7 +734,7 @@ const tutorSeeds: TutorSeed[] = [
     rate: "$65/hr",
     image: "",
     tags: ["Interactive", "Fast Replies", "Lead Teacher"],
-    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    accent: "bg-secondary/10 text-amber-700 border-secondary/20",
     education: "M.Sc. in Physics, Imperial College London",
     successRate: "96%",
     availability: "Flexible (10+ slots)",
@@ -738,7 +754,7 @@ const tutorSeeds: TutorSeed[] = [
     rate: "$65/hr",
     image: "",
     tags: ["Interactive", "Fast Replies", "Lead Teacher"],
-    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    accent: "bg-secondary/10 text-amber-700 border-secondary/20",
     education: "M.Sc. in Physics, Imperial College London",
     successRate: "96%",
     availability: "Flexible (10+ slots)",
@@ -778,7 +794,7 @@ const tutorSeeds: TutorSeed[] = [
     rate: "$68/hr",
     image: "",
     tags: ["Concept Clarity", "AA Specialist", "Fast Replies"],
-    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    accent: "bg-secondary/10 text-amber-700 border-secondary/20",
     education: "B.Sc. in Applied Mathematics, University of Warwick",
     successRate: "95%",
     availability: "Moderate (6 slots)",
@@ -818,7 +834,7 @@ const tutorSeeds: TutorSeed[] = [
     rate: "$65/hr",
     image: "/tutor_james_avatar_1775559651647.png",
     tags: ["Interactive", "Fast Replies", "Lead Teacher"],
-    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    accent: "bg-secondary/10 text-amber-700 border-secondary/20",
     education: "M.Sc. in Physics, Imperial College London",
     successRate: "96%",
     availability: "Flexible (10+ slots)",
@@ -858,7 +874,7 @@ const tutorSeeds: TutorSeed[] = [
     rate: "$63/hr",
     image: "",
     tags: ["Data Analysis", "HL Biology", "Patient"],
-    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    accent: "bg-secondary/10 text-amber-700 border-secondary/20",
     education: "M.Sc. in Molecular Biology, University of Edinburgh",
     successRate: "95%",
     availability: "Flexible (7 slots)",
@@ -898,7 +914,7 @@ const tutorSeeds: TutorSeed[] = [
     rate: "$69/hr",
     image: "",
     tags: ["Case Analysis", "IA Support", "Exam Focused"],
-    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    accent: "bg-secondary/10 text-amber-700 border-secondary/20",
     education: "MBA, University of Bath",
     successRate: "95%",
     availability: "Moderate (6 slots)",
@@ -938,7 +954,7 @@ const tutorSeeds: TutorSeed[] = [
     rate: "$75/hr",
     image: "/tutor_elena_avatar_1775559725738.png",
     tags: ["IB Specialist", "Essay Coach", "Close Reading"],
-    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    accent: "bg-secondary/10 text-amber-700 border-secondary/20",
     education: "M.A. in English Literature, University of Cambridge",
     successRate: "97%",
     availability: "Moderate (5 slots)",
@@ -978,7 +994,7 @@ const tutorSeeds: TutorSeed[] = [
     rate: "$66/hr",
     image: "",
     tags: ["Paper 1", "Paper 2", "Textual Analysis"],
-    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    accent: "bg-secondary/10 text-amber-700 border-secondary/20",
     education: "M.A. in Comparative Literature, Durham University",
     successRate: "95%",
     availability: "Moderate (6 slots)",
@@ -1018,7 +1034,7 @@ const tutorSeeds: TutorSeed[] = [
     rate: "$60/hr",
     image: "",
     tags: ["Speaking Focus", "Grammar Support", "Patient"],
-    accent: "bg-secondary/10 text-secondary border-secondary/20",
+    accent: "bg-secondary/10 text-amber-700 border-secondary/20",
     education: "M.A. in French Language Teaching, Sorbonne University",
     successRate: "94%",
     availability: "Moderate (7 slots)",

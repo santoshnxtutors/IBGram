@@ -43,19 +43,19 @@ export function GeneratedHero({ page }: { page: GeneratedSeoPage }) {
               )}
             </div>
 
-            <div className="flex flex-col items-start gap-3 pt-1 sm:flex-row sm:items-center">
+            <div className="grid w-fit gap-3 pt-1 sm:grid-cols-2 sm:items-center">
               <BookDemoButton
-                className="shimmer-btn inline-flex h-14 w-full max-w-xs items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20 sm:w-auto"
+                className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-8 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
                 label={
                   <>
-                    Book a Demo
+                    Send a Query
                     <ArrowRight className="size-5" />
                   </>
                 }
               />
               <Link
                 href="/tutors/"
-                className="inline-flex h-14 w-full max-w-xs items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-7 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30 sm:w-auto"
+                className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
               >
                 View Tutors
               </Link>

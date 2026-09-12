@@ -42,7 +42,7 @@ export function HeroHighlights({ heading }: { heading?: string }) {
         {HIGHLIGHTS.map(({ title, icon: Icon, desc }) => (
           <div
             key={title}
-            className="group flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition-all hover:border-primary/30 hover:bg-white/[0.06]"
+            className="group flex gap-4 rounded-2xl border border-border bg-card p-4 transition-all hover:border-primary/30 hover:bg-primary/5"
           >
             <div className="grid size-10 shrink-0 place-items-center rounded-xl border border-primary/10 bg-primary/5 text-primary transition-colors group-hover:bg-primary/10">
               <Icon className="size-5" />

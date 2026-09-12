@@ -142,23 +142,21 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
   return (
     <div className="min-h-screen bg-background pt-8 pb-12 space-y-10">
       <section className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto mb-8 max-w-4xl text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-6 text-4xl font-black tracking-tight text-foreground md:text-6xl"
-          >
-            Find Your <span className="bg-300% text-gradient animate-gradient text-primary">Perfect Tutor</span>
-          </motion.h1>
-          <p className="text-xl leading-relaxed text-muted-foreground">
-            Search IB and IGCSE tutors by subject, curriculum, level and preferred learning mode.
+        {/* The page-level <h1> lives in page.tsx; this is the search panel's own
+            label, so the route keeps exactly one H1. */}
+        <div className="mb-5 max-w-3xl">
+          <h2 className="text-xl font-black tracking-tight text-foreground md:text-2xl">
+            Search the tutor directory
+          </h2>
+          <p className="mt-1.5 text-base leading-relaxed text-muted-foreground">
+            Filter by subject, curriculum, level and preferred learning mode.
           </p>
         </div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="relative z-20 mx-auto flex w-full max-w-5xl flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-2 rounded-[2rem] lg:rounded-full border border-border/40 bg-card/30 p-3 lg:p-2 shadow-2xl backdrop-blur-3xl"
+          className="relative z-20 flex w-full max-w-5xl flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-2 rounded-[2rem] lg:rounded-full border border-border/40 bg-card/30 p-3 lg:p-2 shadow-2xl backdrop-blur-3xl"
         >
           <div className="flex w-full flex-col md:flex-row flex-1 items-stretch gap-3 md:gap-0 lg:h-14">
             <div className="relative flex h-12 lg:h-full flex-1 items-center justify-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent md:border-r border-border/20">
@@ -167,13 +165,13 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
                   <SelectValue placeholder="Curriculum" />
                 </SelectTrigger>
                 <SelectContent className="min-w-[160px] rounded-2xl border-border bg-card/95 p-2 shadow-2xl backdrop-blur-2xl">
-                  <SelectItem value="Curriculum" className="rounded-xl text-center md:text-left font-bold focus:bg-primary/10">
+                  <SelectItem value="Curriculum" className="rounded-xl text-left font-bold focus:bg-primary/10">
                     Curriculum
                   </SelectItem>
-                  <SelectItem value="IB" className="rounded-xl text-center md:text-left font-bold focus:bg-primary/10">
+                  <SelectItem value="IB" className="rounded-xl text-left font-bold focus:bg-primary/10">
                     IB
                   </SelectItem>
-                  <SelectItem value="IGCSE" className="rounded-xl text-center md:text-left font-bold focus:bg-primary/10">
+                  <SelectItem value="IGCSE" className="rounded-xl text-left font-bold focus:bg-primary/10">
                     IGCSE
                   </SelectItem>
                 </SelectContent>
@@ -258,6 +256,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
               >
                 <TutorCard
                   tutor={tutor}
+                  variant="directory"
                   selectedForCompare={compareIds.some((item) => sameId(item, tutor.id))}
                   onCompareToggle={toggleCompare}
                   onOpen={(tutor) => setSelectedId(tutor.id)}
@@ -284,7 +283,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
         {displayTutors.length === 0 && (
           <div className="glassmorphism-heavy rounded-[3rem] border-2 border-dashed border-border/50 py-24 text-center">
             <h3 className="mb-4 text-3xl font-black text-muted-foreground">No tutors represent this search.</h3>
-            <p className="mx-auto mb-8 max-w-md font-medium text-muted-foreground/60">
+            <p className="mx-auto mb-8 max-w-md font-medium text-muted-foreground">
               Try broadening your subject choice or curriculum grade to find more suitable tutor options.
             </p>
             <Button
@@ -310,7 +309,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            className="glassmorphism-heavy fixed bottom-6 left-1/2 z-[110] flex w-fit max-w-[90vw] -translate-x-1/2 items-center justify-between gap-6 overflow-hidden rounded-[2rem] border border-white/10 p-2 pl-8 shadow-[0_0_40px_rgba(0,0,0,0.5)]"
+            className="glassmorphism-heavy fixed bottom-6 left-1/2 z-[110] flex w-fit max-w-[90vw] -translate-x-1/2 items-center justify-between gap-6 overflow-hidden rounded-[2rem] border border-border p-2 pl-8 shadow-[0_12px_40px_rgba(19,37,74,0.16)]"
           >
             <div className="flex items-center gap-3 text-sm font-bold">
               <div className="flex -space-x-3">
@@ -414,17 +413,17 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
                   <motion.div layoutId={`stats-${tutor.id}`} className="mb-8 flex items-center gap-6">
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.rating}</div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-tighter text-muted-foreground">Rating</div>
+                      <div className="text-[11px] font-extrabold uppercase tracking-tighter text-muted-foreground">Rating</div>
                     </div>
                     <div className="h-8 w-px bg-border" />
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.experience}</div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-tighter text-muted-foreground">Exp</div>
+                      <div className="text-[11px] font-extrabold uppercase tracking-tighter text-muted-foreground">Exp</div>
                     </div>
                     <div className="h-8 w-px bg-border" />
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.rate}</div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-tighter text-muted-foreground">Rate</div>
+                      <div className="text-[11px] font-extrabold uppercase tracking-tighter text-muted-foreground">Rate</div>
                     </div>
                   </motion.div>
 

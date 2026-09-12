@@ -107,7 +107,7 @@ export default function SubscriptionPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-8 rounded-[2rem] bg-[#0B0F19]/60 border border-white/5 hover:border-primary/20 transition-all group"
+              className="p-8 rounded-[2rem] bg-card border border-border hover:border-primary/20 transition-all group"
             >
               <div className="size-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                 <benefit.icon className="size-6" />
@@ -143,7 +143,7 @@ export default function SubscriptionPage() {
                 : "bg-background border-border"
               }`}>
                 {plan.highlight && (
-                  <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-widest px-6 py-2 rounded-bl-2xl">
+                  <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-[11px] font-black uppercase tracking-widest px-6 py-2 rounded-bl-2xl">
                     Most Popular
                   </div>
                 )}
@@ -162,7 +162,7 @@ export default function SubscriptionPage() {
                   </div>
 
                   {plan.savings && (
-                    <div className="px-3 py-1 bg-green-500/10 text-green-500 text-xs font-black rounded-lg w-fit mb-8">
+                    <div className="px-3 py-1 bg-green-500/10 text-green-800 text-xs font-black rounded-lg w-fit mb-8">
                       {plan.savings}
                     </div>
                   )}
@@ -200,7 +200,7 @@ export default function SubscriptionPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto rounded-[3rem] p-12 bg-[#0B0F19]/60 border border-white/5 relative overflow-hidden text-center"
+          className="max-w-4xl mx-auto rounded-[3rem] p-12 bg-card border border-border relative overflow-hidden text-center"
         >
           <h2 className="text-2xl md:text-3xl font-black mb-4">Need help choosing a plan?</h2>
           <p className="text-muted-foreground mb-8 font-medium">Speak with our academic advisors to find the perfect fit for your child&apos;s goals.</p>

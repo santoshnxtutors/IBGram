@@ -123,7 +123,7 @@ export default async function ProgrammesHubPage() {
       {/* HERO */}
       <section className="relative w-full pt-10 sm:pt-12 pb-10 sm:pb-12 flex flex-col items-center justify-center text-center px-4">
         <div className="max-w-4xl mx-auto flex flex-col items-center space-y-4 md:space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest border border-primary/20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-black uppercase tracking-widest border border-primary/20">
             <Compass className="size-3" /> The IB continuum
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-foreground">
@@ -158,7 +158,7 @@ export default async function ProgrammesHubPage() {
 
       {/* INTRO LONG-FORM */}
       <section className="container max-w-3xl mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
           <BookOpen className="size-4" /> Understanding the continuum
         </div>
         <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
@@ -279,12 +279,12 @@ export default async function ProgrammesHubPage() {
               >
                 <div className="flex items-center justify-between mb-3 gap-2 flex-wrap">
                   <h3 className="text-lg font-bold tracking-tight text-foreground">{p.title}</h3>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20 whitespace-nowrap">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20 whitespace-nowrap">
                     {p.age}
                   </span>
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-5">{p.description}</p>
-                <div className="flex items-center gap-2 text-primary font-bold text-[13px]">
+                <div className="flex items-center gap-2 text-primary font-bold text-[14px]">
                   <span>Explore Programme</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -330,7 +330,7 @@ export default async function ProgrammesHubPage() {
 
       {/* FAQ */}
       <section className="container max-w-4xl mx-auto px-4 md:px-6 py-12 md:py-16">
-        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
           <MessageSquare className="size-4" /> Frequently asked questions
         </div>
         <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
@@ -368,7 +368,7 @@ export default async function ProgrammesHubPage() {
           <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 w-full lg:w-auto shrink-0">
             <Link href="/tutors/" className="w-full sm:w-auto">
               <Button size="lg" className="w-full rounded-full px-6 text-[15px] font-bold h-12">
-                Find Your IB Tutor
+                View all tutors
               </Button>
             </Link>
             <div className="flex gap-3 w-full sm:w-auto">

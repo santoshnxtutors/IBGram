@@ -61,11 +61,11 @@ export function CourseCards() {
     <section className="bg-background px-4 py-12 md:py-14" id="courses">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-8 text-left">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-primary">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-primary">
             IB courses
           </div>
           <h2 className="mb-4 text-2xl font-black leading-none tracking-tight text-foreground md:text-5xl">
-            Explore IB <span className="italic text-primary">subject tutoring</span>
+            Explore IB subject tutoring
           </h2>
           <p className="max-w-3xl text-base font-medium leading-relaxed text-muted-foreground md:text-lg">
             Every IB subject group we tutor, with the exact courses, levels and assessment components
@@ -91,7 +91,7 @@ export function CourseCards() {
                 </h3>
               </div>
 
-              <p className="mb-5 text-[13px] font-medium leading-relaxed text-muted-foreground md:text-sm">
+              <p className="mb-5 text-[14px] font-medium leading-relaxed text-muted-foreground md:text-sm">
                 {description}
               </p>
 
@@ -99,7 +99,7 @@ export function CourseCards() {
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-lg border border-border/50 bg-muted/30 px-2.5 py-1 text-[11px] font-bold text-muted-foreground transition-all group-hover:border-primary/30 group-hover:text-primary"
+                    className="rounded-lg border border-border/50 bg-muted/30 px-2.5 py-1 text-[12px] font-bold text-muted-foreground transition-all group-hover:border-primary/30 group-hover:text-primary"
                   >
                     {tag}
                   </span>

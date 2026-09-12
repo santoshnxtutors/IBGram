@@ -20,9 +20,15 @@ const sameId = (a: AnyTutorId | null | undefined, b: AnyTutorId | null | undefin
 
 type TutorDiscoveryProps = {
   tutors?: Tutor[];
+  /** Overrides the section heading. Country/city pages pass a single-colour, location-specific heading. */
+  heading?: string;
+  /** Overrides the paragraph under the heading. */
+  intro?: string;
+  /** Overrides the "Explore IB tutor options" link text. */
+  linkLabel?: string;
 };
 
-export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
+export function TutorDiscovery({ tutors, heading, intro, linkLabel }: TutorDiscoveryProps = {}) {
   const router = useRouter();
   const pathname = usePathname();
   const currentPath = pathname;
@@ -78,18 +84,19 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
     <section className="py-12 md:py-16 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-8">
-          <h2 className="text-3xl md:text-4xl xl:text-[2.35rem] font-bold tracking-tight mb-4 text-foreground xl:whitespace-nowrap">
-            IB and IGCSE tutors matched by <span className="text-primary">subject, level and learning need</span>
+          <h2 className={`text-3xl md:text-4xl xl:text-[2.35rem] font-bold tracking-tight mb-4 text-foreground${heading ? "" : " xl:whitespace-nowrap"}`}>
+            {heading ?? "IB and IGCSE tutors matched by subject, level and learning need"}
           </h2>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <p className="text-lg text-muted-foreground max-w-4xl">
-              Browse a sample of verified IB and IGCSE tutors for PYP, MYP, DP and IGCSE subjects. Matching considers syllabus fit, HL or SL level, preferred tutoring mode, schedule and the kind of support the student needs.
+              {intro ??
+                "Browse a sample of verified IB and IGCSE tutors for PYP, MYP, DP and IGCSE subjects. Matching considers syllabus fit, HL or SL level, preferred tutoring mode, schedule and the kind of support the student needs."}
             </p>
             <Link
               href="/tutors"
               className="shrink-0 flex items-center text-sm font-bold text-primary hover:text-primary/80 transition-colors group"
             >
-              Explore IB tutor options <ArrowRight className="ml-1.5 size-4 transition-transform group-hover:translate-x-1" />
+              {linkLabel ?? "Explore IB tutor options"} <ArrowRight className="ml-1.5 size-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
@@ -114,7 +121,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
                   initial={{ opacity: 0, y: 50, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 50, scale: 0.9 }}
-                  className="glassmorphism-heavy fixed bottom-6 left-1/2 z-[120] flex w-fit max-w-[90vw] -translate-x-1/2 items-center justify-between gap-6 overflow-hidden rounded-[2rem] border border-white/10 p-2 pl-8 shadow-[0_0_40px_rgba(0,0,0,0.5)]"
+                  className="glassmorphism-heavy fixed bottom-6 left-1/2 z-[120] flex w-fit max-w-[90vw] -translate-x-1/2 items-center justify-between gap-6 overflow-hidden rounded-[2rem] border border-border p-2 pl-8 shadow-[0_12px_40px_rgba(19,37,74,0.16)]"
                 >
                   <div className="flex items-center gap-3 text-sm font-bold">
                     <div className="flex -space-x-3">
@@ -225,17 +232,17 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
                   <motion.div layoutId={`stats-${tutor.id}`} className="flex items-center gap-6 mb-8">
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.rating}</div>
-                      <div className="text-[10px] uppercase tracking-tighter text-muted-foreground font-extrabold">Rating</div>
+                      <div className="text-[11px] uppercase tracking-tighter text-muted-foreground font-extrabold">Rating</div>
                     </div>
                     <div className="w-px h-8 bg-border" />
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.reviews}</div>
-                      <div className="text-[10px] uppercase tracking-tighter text-muted-foreground font-extrabold">Reviews</div>
+                      <div className="text-[11px] uppercase tracking-tighter text-muted-foreground font-extrabold">Reviews</div>
                     </div>
                     <div className="w-px h-8 bg-border" />
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.rate}</div>
-                      <div className="text-[10px] uppercase tracking-tighter text-muted-foreground font-extrabold">Price</div>
+                      <div className="text-[11px] uppercase tracking-tighter text-muted-foreground font-extrabold">Price</div>
                     </div>
                   </motion.div>
 
@@ -251,7 +258,7 @@ export function TutorDiscovery({ tutors }: TutorDiscoveryProps = {}) {
 
                     <div className="flex flex-wrap gap-2">
                       {tutor.tags.map(tag => (
-                        <span key={tag} className={`text-[10px] uppercase tracking-widest font-black px-4 py-1.5 rounded-xl border border-current/20 ${tutor.accent}`}>
+                        <span key={tag} className={`text-[11px] uppercase tracking-widest font-black px-4 py-1.5 rounded-xl border border-current/20 ${tutor.accent}`}>
                           {tag}
                         </span>
                       ))}

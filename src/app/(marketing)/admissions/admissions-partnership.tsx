@@ -67,7 +67,7 @@ export function AdmissionsPartnership() {
           </div>
 
           <div className="flex min-h-full flex-col justify-center p-5 sm:p-7">
-            <div className="inline-flex w-fit rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-primary">
+            <div className="inline-flex w-fit rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-primary">
               Partnership
             </div>
             <h3 className="mt-4 text-xl font-black tracking-tight text-foreground sm:text-3xl">

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { MapPin, ChevronDown, Menu, UserCircle, X, LayoutDashboard, LogOut } from "lucide-react";
+import { ArrowRight, MapPin, ChevronDown, Menu, UserCircle, X, LayoutDashboard, LogOut } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { useCurrentUser, logoutCurrentUser } from "@/lib/auth/useCurrentUser";
 import { dashboardPathForUser } from "@/lib/auth/types";
@@ -12,8 +12,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LocalizationModal } from "./LocalizationModal";
+import { LocalizationModal, readSavedCityLabel } from "./LocalizationModal";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { JoinAsTutorButton } from "./JoinAsTutorButton";
 import { useEffect, useState } from "react";
 
 const PROGRAMS = [
@@ -31,6 +32,11 @@ const COURSE_GROUPS = [
   { name: "IB Language", slug: "language" },
   { name: "IB Arts", slug: "arts" },
 ];
+
+// The site owner asked to keep these controls rather than delete them.
+// Theme switcher: hidden (the site uses one fixed theme). Account/login menu: shown.
+const SHOW_THEME_SWITCHER = false;
+const SHOW_ACCOUNT_CONTROLS = true;
 
 export function Header() {
   const pathname = usePathname();
@@ -76,15 +82,9 @@ export function Header() {
 
   useEffect(() => {
     const load = () => {
-      const country = localStorage.getItem("ibgram_country");
-      const city = localStorage.getItem("ibgram_city");
-      if (country && city) {
-        // Capitalise first letter for display
-        const fmt = (s: string) => s.charAt(0).toUpperCase() + s.slice(1).replace(/-/g, " ");
-        setLocationLabel({ country: fmt(country), city: fmt(city) });
-      } else {
-        setLocationLabel(null);
-      }
+      // Any detected or typed city, e.g. "New Delhi" or "Munich".
+      const city = readSavedCityLabel();
+      setLocationLabel(city ? { country: localStorage.getItem("ibgram_country") ?? "", city } : null);
     };
     load();
     window.addEventListener("ibgram_location_updated", load);
@@ -103,8 +103,8 @@ export function Header() {
         {/* Left: Logo & Location (desktop) */}
         <div className="flex items-center">
           <Link href="/" prefetch={false} className="flex items-center gap-1">
-            <span className="text-2xl font-bold tracking-tight text-foreground">
-              IBGram
+            <span className="text-2xl font-bold tracking-tight text-primary">
+              <span className="text-secondary">IB</span>Gram
             </span>
           </Link>
 
@@ -116,12 +116,12 @@ export function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-32 border-border bg-background mt-2">
                 {isIgcse ? (
-                  <DropdownMenuItem className="cursor-pointer hover:bg-muted text-secondary" onClick={() => router.push('/')}>
-                    <span className="w-full font-medium text-secondary">IB</span>
+                  <DropdownMenuItem className="cursor-pointer hover:bg-muted text-amber-800" onClick={() => router.push('/')}>
+                    <span className="w-full font-medium text-amber-800">IB</span>
                   </DropdownMenuItem>
                 ) : (
-                  <DropdownMenuItem className="cursor-pointer hover:bg-muted text-secondary" onClick={() => router.push('/igcse')}>
-                    <span className="w-full font-medium text-secondary">IGCSE</span>
+                  <DropdownMenuItem className="cursor-pointer hover:bg-muted text-amber-800" onClick={() => router.push('/igcse')}>
+                    <span className="w-full font-medium text-amber-800">IGCSE</span>
                   </DropdownMenuItem>
                 )}
               </DropdownMenuContent>
@@ -150,12 +150,12 @@ export function Header() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-40 border-border bg-background mt-2">
               {isIgcse ? (
-                <DropdownMenuItem className="cursor-pointer hover:bg-muted text-secondary" onClick={() => router.push('/')}>
-                  <span className="w-full font-medium text-secondary">IB</span>
+                <DropdownMenuItem className="cursor-pointer hover:bg-muted text-amber-800" onClick={() => router.push('/')}>
+                  <span className="w-full font-medium text-amber-800">IB</span>
                 </DropdownMenuItem>
               ) : (
-                <DropdownMenuItem className="cursor-pointer hover:bg-muted text-secondary" onClick={() => router.push('/igcse')}>
-                  <span className="w-full font-medium text-secondary">IGCSE</span>
+                <DropdownMenuItem className="cursor-pointer hover:bg-muted text-amber-800" onClick={() => router.push('/igcse')}>
+                  <span className="w-full font-medium text-amber-800">IGCSE</span>
                 </DropdownMenuItem>
               )}
             </DropdownMenuContent>
@@ -165,7 +165,7 @@ export function Header() {
             <DropdownMenuTrigger aria-label="Programmes" className="flex items-center gap-1 hover:text-primary transition-colors focus:outline-none">
               Programmes <ChevronDown className="size-4" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="center" className="w-52 border-white/10 bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-2xl shadow-2xl">
+            <DropdownMenuContent align="center" className="w-52 border-border bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-2xl shadow-2xl">
               <Link href="/programmes" prefetch={false} className="w-full">
                 <DropdownMenuItem className="cursor-pointer rounded-xl py-1.5 px-4 font-bold text-primary hover:bg-primary/10 transition-all mb-1">
                   All Programmes Hub
@@ -186,7 +186,7 @@ export function Header() {
             <DropdownMenuTrigger aria-label="Courses" className="flex items-center gap-1 hover:text-primary transition-colors focus:outline-none">
               Courses <ChevronDown className="size-4" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="center" className="w-56 border-white/10 bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-2xl shadow-2xl">
+            <DropdownMenuContent align="center" className="w-56 border-border bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-2xl shadow-2xl">
               {COURSE_GROUPS.map(course => (
                 <Link href={`/courses/${isIgcse ? 'igcse' : 'ib'}/${course.slug}`} key={course.slug} prefetch={false} className="w-full">
                   <DropdownMenuItem className="cursor-pointer rounded-xl py-2 px-4 font-bold text-foreground hover:bg-primary/10 hover:text-primary transition-all">
@@ -205,46 +205,48 @@ export function Header() {
           </Link>
         </nav>
 
-        {/* Right: Auth Dropdown */}
+        {/* Right: Join as tutor CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <ThemeSwitcher />
-          <DropdownMenu>
-            <DropdownMenuTrigger aria-label="User Account Options" className={buttonVariants({ variant: "ghost", size: "icon", className: "rounded-full hover:bg-muted/50 transition-all cursor-pointer" })}>
-              <UserCircle className="size-8 text-foreground/80 hover:text-primary transition-colors" />
+          <JoinAsTutorButton />
+          {SHOW_THEME_SWITCHER && <ThemeSwitcher />}
+          {/* Account / login menu, to the right of Join as tutor. */}
+          {SHOW_ACCOUNT_CONTROLS && <DropdownMenu>
+            <DropdownMenuTrigger aria-label="User Account Options" className={buttonVariants({ variant: "ghost", size: "icon", className: "rounded-full text-foreground hover:bg-primary/10 hover:text-primary transition-all cursor-pointer" })}>
+              <UserCircle className="size-8 transition-colors" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48 border-white/10 bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-[1.5rem] shadow-2xl transition-all">
+            <DropdownMenuContent align="end" className="w-48 border-border bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-[1.5rem] shadow-2xl transition-all">
               {user ? (
                 <>
                   <Link href={dashboardPathForUser(user)} prefetch={false} aria-label="Dashboard">
-                    <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-primary transition-all focus:bg-white/10 outline-none">
+                    <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-muted hover:text-primary transition-all focus:bg-muted outline-none">
                       <LayoutDashboard className="mr-2 size-4" /> Dashboard
                     </DropdownMenuItem>
                   </Link>
-                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-destructive transition-all focus:bg-white/10 outline-none">
+                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-muted hover:text-destructive transition-all focus:bg-muted outline-none">
                     <LogOut className="mr-2 size-4" /> Log out
                   </DropdownMenuItem>
                 </>
               ) : (
                 <>
                   <Link href="/login" prefetch={false} aria-label="Login">
-                    <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-primary transition-all focus:bg-white/10 outline-none">
+                    <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-muted hover:text-primary transition-all focus:bg-muted outline-none">
                       Login
                     </DropdownMenuItem>
                   </Link>
                   <Link href="/signup" prefetch={false} aria-label="Sign up">
-                    <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-white/10 hover:text-primary transition-all focus:bg-white/10 outline-none">
+                    <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-muted hover:text-primary transition-all focus:bg-muted outline-none">
                       Sign up
                     </DropdownMenuItem>
                   </Link>
                 </>
               )}
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu>}
         </div>
 
-        {/* Mobile Menu Toggle & Theme Switcher */}
+        {/* Mobile Menu Toggle */}
         <div className="lg:hidden flex items-center gap-2">
-          <ThemeSwitcher />
+          {SHOW_THEME_SWITCHER && <ThemeSwitcher />}
           <Button 
             variant="ghost" 
             size="icon" 
@@ -260,12 +262,11 @@ export function Header() {
     {/* Mobile Menu Overlay — rendered OUTSIDE header to escape its stacking context */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 z-[9999] flex flex-col p-6 lg:hidden"
-          style={{ backgroundColor: 'oklch(0.18 0.02 260)' }}
+          className="fixed inset-0 z-[9999] flex flex-col p-6 lg:hidden bg-background"
         >
           <div className="flex items-center justify-between mb-8">
-            <span className="text-2xl font-bold tracking-tight text-foreground">
-              IBGram
+            <span className="text-2xl font-bold tracking-tight text-primary">
+              <span className="text-secondary">IB</span>Gram
             </span>
             <Button 
               variant="ghost" 
@@ -354,10 +355,16 @@ export function Header() {
             >
               Admissions & Test Prep
             </Link>
+            <Link href="/join-as-tutor" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button className="w-full gap-2 rounded-2xl bg-primary py-6 text-lg font-bold text-primary-foreground hover:bg-primary/90">
+                Join as Tutor
+                <ArrowRight className="size-5" />
+              </Button>
+            </Link>
           </nav>
 
           <div className="mt-auto pt-10 border-t border-border/50 flex flex-col gap-4">
-            {user ? (
+            {SHOW_ACCOUNT_CONTROLS && (user ? (
               <>
                 <Link href={dashboardPathForUser(user)} prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
                   <Button className="w-full py-6 text-lg rounded-2xl font-bold bg-primary text-primary-foreground">
@@ -385,7 +392,7 @@ export function Header() {
                   </Button>
                 </Link>
               </>
-            )}
+            ))}
           </div>
         </div>
       )}

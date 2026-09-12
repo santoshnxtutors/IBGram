@@ -18,8 +18,8 @@ import {
 function StatusBanner({ status }: { status: TutorProfileStatus }) {
   if (status === "none") return null;
   const map = {
-    pending: { icon: Clock, cls: "border-amber-400/30 bg-amber-400/10 text-amber-700 dark:text-amber-300", text: "Your profile is under review. Once an admin approves it, you will appear on the Find a Tutor page." },
-    approved: { icon: BadgeCheck, cls: "border-emerald-400/30 bg-emerald-400/10 text-emerald-700 dark:text-emerald-300", text: "Your profile is approved and live. Students can find and book demos with you." },
+    pending: { icon: Clock, cls: "border-amber-400/30 bg-amber-400/10 text-amber-800 dark:text-amber-300", text: "Your profile is under review. Once an admin approves it, you will appear on the Find a Tutor page." },
+    approved: { icon: BadgeCheck, cls: "border-emerald-400/30 bg-emerald-400/10 text-emerald-800 dark:text-emerald-300", text: "Your profile is approved and live. Students can find and book demos with you." },
     rejected: { icon: AlertCircle, cls: "border-rose-400/30 bg-rose-400/10 text-rose-700 dark:text-rose-300", text: "Your profile was not approved. Update the details below and save to resubmit." },
     none: { icon: Clock, cls: "", text: "" },
   } as const;
@@ -114,7 +114,7 @@ export default function TutorProfilePage() {
 
       {view && <StatusBanner status={view.status} />}
       {saved && (
-        <div className="flex items-center gap-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-sm font-medium text-emerald-700 dark:text-emerald-300">
+        <div className="flex items-center gap-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-sm font-medium text-emerald-800 dark:text-emerald-300">
           <CheckCircle2 className="size-4" /> Saved. {view?.status === "approved" ? "Your changes are live." : "Sent for admin review."}
         </div>
       )}

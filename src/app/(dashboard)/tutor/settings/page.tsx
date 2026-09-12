@@ -55,7 +55,7 @@ export default function TutorSettingsPage() {
         </CardHeader>
         <CardContent>
           {done && (
-            <div className="mb-4 flex items-center gap-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-sm font-medium text-emerald-700 dark:text-emerald-300">
+            <div className="mb-4 flex items-center gap-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-sm font-medium text-emerald-800 dark:text-emerald-300">
               <CheckCircle2 className="size-4" /> Password updated successfully.
             </div>
           )}

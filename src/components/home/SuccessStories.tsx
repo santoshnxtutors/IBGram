@@ -35,7 +35,7 @@ const fallbackStories: Story[] = [
     focus: "Student story",
     outcome: "A student refined the IA direction with a narrower research question, cleaner data planning and steadier feedback cycles.",
     nextStep: "IA planning, data checks and paper practice",
-    accent: "text-secondary border-secondary/20 bg-secondary/10",
+    accent: "text-amber-800 border-secondary/20 bg-secondary/10",
     image: "/student_malik_dubai_review_avatar.png",
     imageAlt: "Student success story for IB Physics",
   },
@@ -57,7 +57,7 @@ const fallbackStories: Story[] = [
     focus: "Student story",
     outcome: "A student built a calmer revision plan around stoichiometry, organic chemistry and data-based questions.",
     nextStep: "Topic practice and revision checklist",
-    accent: "text-secondary border-secondary/20 bg-secondary/10",
+    accent: "text-amber-800 border-secondary/20 bg-secondary/10",
     image: "/student_sophia_usa_review_avatar.png",
     imageAlt: "Student success story for IGCSE Chemistry",
   },
@@ -124,14 +124,14 @@ export function SuccessStories({ items }: { items?: Story[] }) {
     <section className="py-12 md:py-16 relative overflow-hidden bg-background" aria-labelledby="success-heading">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-left mb-8 max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-amber-800 text-[11px] font-black uppercase tracking-[0.2em] mb-4">
             success stories
           </div>
           <h2
             id="success-heading"
             className="text-2xl md:text-5xl font-black tracking-tight text-foreground mb-4 leading-tight"
           >
-            Our Student <span className="text-secondary">Success Stories</span>
+            Our Student Success Stories
           </h2>
           <p className="text-muted-foreground text-sm md:text-base font-medium max-w-2xl leading-relaxed">
             Add real IB Gram student journeys here with approved photos, subject context and the kind of support that helped them build confidence, planning habits and stronger understanding.
@@ -156,8 +156,8 @@ export function SuccessStories({ items }: { items?: Story[] }) {
                   key={story.id}
                   className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 select-none"
                 >
-                  <article className="h-full min-h-[340px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition-all duration-300 hover:border-primary/30 hover:bg-white/[0.06] md:p-7 relative group pointer-events-none sm:pointer-events-auto">
-                    <div className="absolute right-5 top-5 h-28 w-28 overflow-hidden rounded-2xl border border-white/10 bg-muted/30 shadow-xl md:h-32 md:w-32">
+                  <article className="h-full min-h-[340px] overflow-hidden rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:bg-primary/5 md:p-7 relative group pointer-events-none sm:pointer-events-auto">
+                    <div className="absolute right-5 top-5 h-28 w-28 overflow-hidden rounded-2xl border border-border bg-muted/30 shadow-xl md:h-32 md:w-32">
                       {story.image ? (
                         <Image
                           src={story.image}
@@ -175,7 +175,7 @@ export function SuccessStories({ items }: { items?: Story[] }) {
                     </div>
 
                     <div className="mb-7 flex items-center justify-between gap-4 pr-32 md:pr-36">
-                      <span className={`rounded-full border px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] ${story.accent}`}>
+                      <span className={`rounded-full border px-3 py-1 text-[11px] font-black uppercase tracking-[0.16em] ${story.accent}`}>
                         {story.focus}
                       </span>
                     </div>

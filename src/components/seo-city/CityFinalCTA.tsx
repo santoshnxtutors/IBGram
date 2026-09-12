@@ -10,7 +10,7 @@ export function CityFinalCTA({ page }: { page: CitySeoPage }) {
           <div className="max-w-3xl">
             <div className="mb-4 flex items-center gap-2 text-primary">
               <MessageSquare className="size-5" />
-              <span className="text-[10px] font-black uppercase tracking-[0.22em]">Next step</span>
+              <span className="text-[11px] font-black uppercase tracking-[0.22em]">Next step</span>
             </div>
             <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
               Need an IB tutor in {page.cityName}?

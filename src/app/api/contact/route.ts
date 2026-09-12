@@ -6,7 +6,14 @@ export const dynamic = "force-dynamic";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(160),
-  email: z.string().trim().email("A valid email is required").max(240),
+  // Optional: the quick-query modal asks for a phone number instead.
+  email: z
+    .string()
+    .trim()
+    .max(240)
+    .optional()
+    .nullable()
+    .refine((v) => !v || /^\S+@\S+\.\S+$/.test(v), "A valid email is required"),
   phone: z.string().trim().max(40).optional().nullable(),
   inquiryType: z.string().trim().max(120).optional().nullable(),
   message: z.string().trim().min(1, "Message is required").max(5000),
@@ -42,7 +49,7 @@ export async function POST(request: NextRequest) {
     await prisma.contactLead.create({
       data: {
         name: parsed.data.name,
-        email: parsed.data.email,
+        email: parsed.data.email || "",
         phone: parsed.data.phone || null,
         inquiryType: parsed.data.inquiryType || null,
         message: parsed.data.message,

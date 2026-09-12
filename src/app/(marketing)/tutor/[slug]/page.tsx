@@ -121,7 +121,7 @@ export default async function TutorReachPage({ params }: Props) {
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-primary">
             <GraduationCap className="size-3" /> {page.board}
           </span>
-          <span className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/5 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-secondary">
+          <span className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/5 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-amber-800">
             {page.subject}
           </span>
           {page.city && (
@@ -148,7 +148,7 @@ export default async function TutorReachPage({ params }: Props) {
             {page.tutor.avatarUrl ? (
               <Image src={page.tutor.avatarUrl} alt={page.tutor.displayName} fill className="object-cover" />
             ) : (
-              <div className="flex size-full items-center justify-center text-muted-foreground/40">
+              <div className="flex size-full items-center justify-center text-muted-foreground">
                 <GraduationCap className="size-7" />
               </div>
             )}
@@ -179,7 +179,7 @@ export default async function TutorReachPage({ params }: Props) {
         {/* FAQs */}
         {page.faqs.length > 0 && (
           <section className="mt-12">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <MessageSquare className="size-4" /> Frequently asked questions
             </div>
             <h2 className="mt-3 text-2xl font-black tracking-tight text-foreground md:text-3xl">

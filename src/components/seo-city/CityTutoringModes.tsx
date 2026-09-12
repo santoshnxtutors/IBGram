@@ -41,7 +41,7 @@ export function CityTutoringModes({ page }: { page: CitySeoPage }) {
               </div>
               <h3 className="mb-2 text-xl font-black text-foreground">{mode.title}</h3>
               <p className="mb-4 text-sm font-medium leading-relaxed text-muted-foreground">{mode.text}</p>
-              <span className={`inline-flex rounded-lg border px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.14em] ${mode.enabled ? "border-primary/30 bg-primary/10 text-primary" : "border-border bg-muted/30 text-muted-foreground"}`}>
+              <span className={`inline-flex rounded-lg border px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.14em] ${mode.enabled ? "border-primary/30 bg-primary/10 text-primary" : "border-border bg-muted/30 text-muted-foreground"}`}>
                 {mode.enabled ? "available by fit" : "limited"}
               </span>
             </div>

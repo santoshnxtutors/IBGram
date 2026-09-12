@@ -19,7 +19,7 @@ const inputClass =
   "h-11 w-full rounded-xl border border-border/70 bg-background/75 px-3.5 text-sm font-medium text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:border-primary/70 focus:ring-2 focus:ring-primary/15";
 
 const labelClass =
-  "block space-y-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground";
+  "block space-y-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-muted-foreground";
 
 function value(formData: FormData, key: string) {
   return String(formData.get(key) || "").trim();
@@ -133,7 +133,7 @@ export function AdmissionsConsultationForm({
             <div className="shrink-0 border-b border-border/60 bg-card/95 px-4 py-4 sm:px-6 sm:py-5">
               <div className="flex items-start justify-between gap-4">
               <div className="min-w-0">
-                <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-primary">
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[12px] font-bold uppercase tracking-[0.12em] text-primary">
                   <span className="size-1.5 rounded-full bg-primary" />
                   Admissions
                 </div>

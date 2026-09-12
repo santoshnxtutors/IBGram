@@ -111,7 +111,7 @@ export default function AboutUsPage() {
       {/* HERO */}
       <section className="container max-w-5xl mx-auto px-4 md:px-6 mb-16 md:mb-24">
         <FadeIn className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest mb-4 border border-primary/20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-black uppercase tracking-widest mb-4 border border-primary/20">
             <Sparkles className="size-3" /> About IB Gram
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-foreground mb-6 tracking-tighter leading-[0.9]">
@@ -142,7 +142,7 @@ export default function AboutUsPage() {
 
       {/* OUR STORY */}
       <section className="container max-w-4xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
-        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
           <BookOpenCheck className="size-4" /> Our story
         </div>
         <div className="mt-3 space-y-12">
@@ -192,7 +192,7 @@ export default function AboutUsPage() {
       <section className="container max-w-6xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <Compass className="size-4" /> How we work
             </div>
             <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
@@ -230,7 +230,7 @@ export default function AboutUsPage() {
       {/* WHAT WE DO NOT */}
       <section className="container max-w-4xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
         <div className="rounded-3xl border border-amber-500/20 bg-amber-500/5 p-6 sm:p-10">
-          <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-300">
+          <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
             <ShieldCheck className="size-4" /> Boundaries we keep
           </div>
           <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
@@ -275,7 +275,7 @@ export default function AboutUsPage() {
       {/* SUBJECT COVERAGE */}
       <section className="container max-w-6xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+          <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
             <GraduationCap className="size-4" /> Subject coverage
           </div>
           <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">
@@ -310,7 +310,7 @@ export default function AboutUsPage() {
 
       {/* FAQ */}
       <section className="container max-w-4xl mx-auto px-4 md:px-6 mb-20 md:mb-28">
-        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+        <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
           <MessageSquare className="size-4" /> Frequently asked questions
         </div>
         <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground">

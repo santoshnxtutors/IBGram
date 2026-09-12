@@ -5,10 +5,10 @@ import { buildCitySubpagePath } from "@/lib/seo/slug-utils";
 
 export function CityPrograms({ page }: { page: CitySeoPage }) {
   return (
-    <section className="bg-[#0B0F19]/35 py-16 md:py-24">
+    <section className="bg-muted/60 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 max-w-3xl">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-secondary">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
             <Layers3 className="size-3.5" />
             PYP, MYP, DP
           </div>

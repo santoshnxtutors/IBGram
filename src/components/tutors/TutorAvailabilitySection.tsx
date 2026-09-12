@@ -79,7 +79,7 @@ export function TutorAvailabilitySection({
   }, [selectedId]);
 
   return (
-    <section className={`${tinted ? "bg-[#0B0F19]/35" : "bg-background"} relative overflow-hidden py-16`}>
+    <section className={`${tinted ? "bg-muted/60" : "bg-background"} relative overflow-hidden py-16`}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-12 flex flex-col items-end justify-between gap-6 md:flex-row">
           <div className="max-w-2xl">
@@ -124,7 +124,7 @@ export function TutorAvailabilitySection({
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            className="glassmorphism-heavy fixed bottom-6 left-1/2 z-[110] flex w-fit max-w-[90vw] -translate-x-1/2 items-center justify-between gap-6 overflow-hidden rounded-[2rem] border border-white/10 p-2 pl-8 shadow-[0_0_40px_rgba(0,0,0,0.5)]"
+            className="glassmorphism-heavy fixed bottom-6 left-1/2 z-[110] flex w-fit max-w-[90vw] -translate-x-1/2 items-center justify-between gap-6 overflow-hidden rounded-[2rem] border border-border p-2 pl-8 shadow-[0_12px_40px_rgba(19,37,74,0.16)]"
           >
             <div className="flex items-center gap-3 text-sm font-bold">
               <div className="flex -space-x-3">
@@ -223,17 +223,17 @@ export function TutorAvailabilitySection({
                   <div className="mb-8 flex items-center gap-6">
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.rating}</div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-tighter text-muted-foreground">Rating</div>
+                      <div className="text-[11px] font-extrabold uppercase tracking-tighter text-muted-foreground">Rating</div>
                     </div>
                     <div className="h-8 w-px bg-border" />
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.reviews}</div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-tighter text-muted-foreground">Reviews</div>
+                      <div className="text-[11px] font-extrabold uppercase tracking-tighter text-muted-foreground">Reviews</div>
                     </div>
                     <div className="h-8 w-px bg-border" />
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.rate}</div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-tighter text-muted-foreground">Price</div>
+                      <div className="text-[11px] font-extrabold uppercase tracking-tighter text-muted-foreground">Price</div>
                     </div>
                   </div>
 
@@ -247,7 +247,7 @@ export function TutorAvailabilitySection({
 
                     <div className="flex flex-wrap gap-2">
                       {tutor.tags.map((tag) => (
-                        <span key={tag} className={`rounded-xl border border-current/20 px-4 py-1.5 text-[10px] font-black uppercase tracking-widest ${tutor.accent}`}>
+                        <span key={tag} className={`rounded-xl border border-current/20 px-4 py-1.5 text-[11px] font-black uppercase tracking-widest ${tutor.accent}`}>
                           {tag}
                         </span>
                       ))}

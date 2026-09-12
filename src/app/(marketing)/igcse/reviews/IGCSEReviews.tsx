@@ -8,7 +8,7 @@ export function IGCSEReviews() {
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <div className="mb-4 flex items-center justify-center gap-2">
             <div className="h-px w-8 bg-primary/50" />
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Parent and student context</span>
+            <span className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">Parent and student context</span>
             <div className="h-px w-8 bg-primary/50" />
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
@@ -21,7 +21,7 @@ export function IGCSEReviews() {
 
         <div className="grid gap-5 md:grid-cols-3">
           {igcseReviews.map((review) => (
-            <article key={review.name} className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition-all hover:-translate-y-1 hover:border-primary/30 hover:bg-white/[0.06] md:p-7">
+            <article key={review.name} className="rounded-3xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/5 md:p-7">
               <div className="mb-6 flex items-start justify-between gap-4">
                 <div className="flex size-11 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
                   <Quote className="size-5" />
@@ -33,7 +33,7 @@ export function IGCSEReviews() {
                 </div>
               </div>
               <p className="text-base font-medium leading-relaxed text-foreground/90">&ldquo;{review.text}&rdquo;</p>
-              <div className="mt-7 border-t border-white/10 pt-5">
+              <div className="mt-7 border-t border-border pt-5">
                 <div className="text-sm font-black text-foreground">{review.name}</div>
                 <div className="mt-1 flex items-center gap-1.5 text-xs font-bold text-muted-foreground">
                   <ShieldCheck className="size-3.5 text-primary" />

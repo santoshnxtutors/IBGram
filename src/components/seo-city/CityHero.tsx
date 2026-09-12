@@ -30,19 +30,19 @@ export function CityHero({ page }: { page: CitySeoPage }) {
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+            <div className="grid w-fit gap-3 pt-2 sm:grid-cols-2 sm:items-center">
               <BookDemoButton
-                className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-primary/30 bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+                className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-8 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
                 label={
                   <>
-                    Book a Demo
+                    Send a Query
                     <ArrowRight className="size-5" />
                   </>
                 }
               />
               <Link
                 href="/tutors/"
-                className="inline-flex h-14 items-center justify-center rounded-xl border border-border bg-background/50 px-7 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
+                className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
               >
                 {page.secondaryCtaText}
               </Link>
@@ -59,7 +59,7 @@ export function CityHero({ page }: { page: CitySeoPage }) {
           </div>
 
           <aside className="lg:col-span-5">
-            <div className="rounded-[2rem] border border-white/10 bg-[#0B0F19]/60 p-6 shadow-2xl backdrop-blur-xl">
+            <div className="rounded-[2rem] border border-border bg-card p-6 shadow-2xl backdrop-blur-xl">
               <div className="mb-6 flex items-center gap-3">
                 <div className="flex size-11 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
                   <SearchCheck className="size-5" />
@@ -78,7 +78,7 @@ export function CityHero({ page }: { page: CitySeoPage }) {
                   ["Review time", page.averageMatchingTime],
                 ].map(([label, value]) => (
                   <div key={label} className="rounded-2xl border border-border/50 bg-muted/10 p-4">
-                    <dt className="mb-1 text-[10px] font-black uppercase tracking-[0.2em] text-primary">{label}</dt>
+                    <dt className="mb-1 text-[11px] font-black uppercase tracking-[0.2em] text-primary">{label}</dt>
                     <dd className="text-sm font-semibold leading-relaxed text-foreground/90">{value}</dd>
                   </div>
                 ))}

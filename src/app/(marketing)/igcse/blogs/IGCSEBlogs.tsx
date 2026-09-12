@@ -47,7 +47,7 @@ export async function IGCSEBlogs() {
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center bg-muted/10">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/30">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
                       IB Gram
                     </span>
                   </div>

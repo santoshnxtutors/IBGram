@@ -84,12 +84,12 @@ export default function StudentDashboard() {
           <CardContent className="p-6">
             <div className="flex justify-between items-center mb-4">
               <h3 className="font-semibold text-muted-foreground text-sm">Current Streak</h3>
-              <div className="size-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+              <div className="size-8 rounded-full bg-secondary/10 flex items-center justify-center text-amber-800">
                 <Flame className="size-4" />
               </div>
             </div>
             <div className="text-3xl font-bold text-foreground mb-1">12 <span className="text-muted-foreground text-lg font-medium">Days</span></div>
-            <p className="text-xs text-secondary font-medium">
+            <p className="text-xs text-amber-800 font-medium">
               4 days left for new badge!
             </p>
           </CardContent>
@@ -178,7 +178,7 @@ export default function StudentDashboard() {
 
               <div className="p-4 rounded-xl border border-border bg-muted/30 cursor-pointer hover:bg-muted/50 transition-colors">
                 <div className="flex justify-between items-start mb-2">
-                  <span className="text-xs font-bold px-2 py-1 bg-secondary/20 text-secondary rounded-full">Self Study</span>
+                  <span className="text-xs font-bold px-2 py-1 bg-secondary/20 text-amber-800 rounded-full">Self Study</span>
                   <span className="text-xs font-semibold text-muted-foreground flex items-center"><Clock className="size-3 mr-1" /> 18:30 (45m)</span>
                 </div>
                 <h4 className="font-semibold text-foreground mb-1">Vector AI Mini-Test</h4>

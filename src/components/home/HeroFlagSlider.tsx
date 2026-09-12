@@ -48,7 +48,7 @@ export function HeroFlagSlider() {
         {flags.map((country, idx) => (
           <div
             key={`${country.code}-${idx}`}
-            className="group relative size-8.5 sm:size-9 rounded-full border border-white/20 shadow-md bg-white/10 overflow-hidden shrink-0 flex items-center justify-center cursor-pointer transition-transform duration-200 hover:scale-110"
+            className="group relative size-8.5 sm:size-9 rounded-full border border-border shadow-md bg-muted overflow-hidden shrink-0 flex items-center justify-center cursor-pointer transition-transform duration-200 hover:scale-110"
             title={country.name}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}

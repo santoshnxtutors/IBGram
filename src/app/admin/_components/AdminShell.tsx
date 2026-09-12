@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  UserPlus,
   BarChart3,
   BadgeCheck,
   Bot,
@@ -26,6 +27,7 @@ import {
   Star,
   Target,
   Users,
+  CreditCard,
 } from "lucide-react";
 
 import { requireAdminSession } from "../_lib/admin-auth";
@@ -40,8 +42,10 @@ const navigation = [
   { label: "Jobs", href: "/admin/jobs", icon: Briefcase },
   { label: "Job Applications", href: "/admin/job-applications", icon: ListChecks },
   { label: "Leads & Messages", href: "/admin/leads", icon: Inbox },
+  { label: "Payments", href: "/admin/payments", icon: CreditCard },
   { label: "Tutor Visibility", href: "/admin/tutor-visibility", icon: BadgeCheck },
   { label: "Tutor Applications", href: "/admin/tutor-applications", icon: GraduationCap },
+  { label: "New Tutor Apps", href: "/admin/new-tutor-apps", icon: UserPlus },
   { label: "Tutor Reach", href: "/admin/tutor-reach", icon: Target },
   { label: "Locations", href: "/admin/locations", icon: MapPin },
   { label: "Menus", href: "/admin/menus", icon: MenuIcon },

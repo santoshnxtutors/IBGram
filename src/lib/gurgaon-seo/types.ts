@@ -51,6 +51,8 @@ export interface GurgaonSeoPageMeta {
   /** Editorial angle that keeps each page unique (from the workbook). */
   uniqueAngle: string;
   localContext: GurgaonLocalContext;
+  /** ISO date the page content was written; falls back to GURGAON_SEO_LAST_UPDATED. */
+  lastUpdated?: string;
 }
 
 /** A content section: a heading, one or more paragraphs, and optional bullet points. */

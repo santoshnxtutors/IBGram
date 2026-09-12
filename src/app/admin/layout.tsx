@@ -10,5 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default function AdminRootLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  // admin-dark keeps the admin panel on the dark palette (see globals.css).
+  return <div className="admin-dark contents">{children}</div>;
 }

@@ -115,7 +115,7 @@ function TutorProfileContent({
                         <span className="font-medium text-sm md:text-base">Back</span>
                      </button>
 
-                     <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-2xl glassmorphism border border-white/5 bg-muted">
+                     <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-2xl glassmorphism border border-border bg-muted">
                         {tutor.image ? (
                            // eslint-disable-next-line @next/next/no-img-element
                            <img
@@ -147,7 +147,7 @@ function TutorProfileContent({
                         {tutor.tags.map((tag) => (
                            <span
                               key={tag}
-                              className={`text-[11px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-current/20 ${tutor.accent}`}
+                              className={`text-[12px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-current/20 ${tutor.accent}`}
                            >
                               {tag}
                            </span>
@@ -156,12 +156,12 @@ function TutorProfileContent({
 
                      <div className="bg-card glassmorphism border border-border p-6 rounded-3xl text-center flex gap-6 justify-between items-center px-8 shadow-lg">
                         <div className="text-center">
-                           <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Hourly Rate</p>
+                           <p className="text-[11px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Hourly Rate</p>
                            <p className="text-2xl font-black text-foreground">{tutor.rate}</p>
                         </div>
                         <div className="w-px h-10 bg-border" />
                         <div className="text-center flex-1">
-                           <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Overall Rating</p>
+                           <p className="text-[11px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Overall Rating</p>
                            <div className="flex items-center justify-center gap-1.5 font-bold text-lg text-foreground">
                               <Star className="size-4 text-secondary fill-secondary" /> {tutor.rating}
                            </div>
@@ -180,7 +180,7 @@ function TutorProfileContent({
                      <div className="bg-primary/10 text-primary uppercase text-xs font-black tracking-widest px-4 py-1.5 rounded-full border border-primary/20">
                         {tutor.subject}
                      </div>
-                     <div className="bg-secondary/10 text-secondary uppercase text-xs font-black tracking-widest px-4 py-1.5 rounded-full border border-secondary/20 flex items-center gap-1.5">
+                     <div className="bg-secondary/10 text-amber-800 uppercase text-xs font-black tracking-widest px-4 py-1.5 rounded-full border border-secondary/20 flex items-center gap-1.5">
                         <Clock className="size-3.5" /> {tutor.experience} Experience
                      </div>
                   </div>
@@ -197,7 +197,7 @@ function TutorProfileContent({
                         href="#tutor-reviews"
                         className="flex items-center gap-2 transition-colors hover:text-primary"
                      >
-                        <MessageCircle className="size-4" /> {tutor.reviews} Student Reviews
+                        <MessageCircle className="size-4" /> {reviews.length} Student Reviews
                      </a>
                   </div>
 
@@ -228,7 +228,7 @@ function TutorProfileContent({
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
                            <GraduationCap className="size-6 text-primary" /> About {tutor.name.split(" ")[0]}
                         </h3>
-                        <div className="p-8 rounded-[2rem] bg-card/40 border border-white/5 glassmorphism">
+                        <div className="p-8 rounded-[2rem] bg-card/40 border border-border glassmorphism">
                            <div className="space-y-4 text-lg md:text-xl text-muted-foreground leading-[1.8] font-medium">
                               {(tutor.about?.trim() ? tutor.about : tutor.bio)
                                  .split(/\n\s*\n/)
@@ -356,15 +356,32 @@ function TutorProfileContent({
                         </div>
                      </section>
 
-                     <section className="text-center mt-10 md:mt-16 pb-10 border-t border-border pt-16">
-                        <h3 className="text-3xl md:text-4xl font-black mb-6 text-foreground">Not sure what to choose?</h3>
-                        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
-                           Every student learns differently. A short consultation helps check teaching style, pace and subject fit before committing to regular sessions.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                           <Button size="lg" className="h-16 px-12 rounded-[2rem] bg-primary hover:bg-primary/90 text-primary-foreground font-black text-xl shadow-[0_0_40px_-10px_rgba(33,197,94,0.4)] transition-all hover:-translate-y-1" onClick={handleBookDemo}>
+                     {/* Two compact cards side by side (flex, not grid: globals.css recolours rounded+border grid children). */}
+                     {/* Negative margin trims the parent's gap-14/lg:gap-16 so the cards sit ~24px below the section above. */}
+                     <section className="-mt-8 flex flex-col gap-4 sm:flex-row lg:-mt-10">
+                        <div className="flex flex-1 flex-col items-start rounded-2xl border border-border bg-card p-5">
+                           <h3 className="mb-1.5 text-xl font-black text-foreground">Not sure what to choose?</h3>
+                           <p className="mb-4 flex-1 text-sm font-medium leading-relaxed text-muted-foreground">
+                              A short consultation checks teaching style, pace and subject fit before regular sessions.
+                           </p>
+                           <Button className="h-11 rounded-full bg-primary px-6 text-base font-bold text-primary-foreground hover:bg-primary/90" onClick={handleBookDemo}>
                               Book Your Demo Now
                            </Button>
+                        </div>
+
+                        <div className="flex flex-1 flex-col items-start rounded-2xl border border-border bg-card p-5">
+                           <h3 className="mb-1.5 text-xl font-black text-foreground">Demo successfully done?</h3>
+                           <p className="mb-4 flex-1 text-sm font-medium leading-relaxed text-muted-foreground">
+                              Start regular sessions with {tutor.name}. Pay securely in INR, USD or your own currency.
+                           </p>
+                           {/* The payment page preselects this tutor from the ?tutor= param. */}
+                           <Link
+                              href={`/payment/?tutor=${encodeURIComponent(String(tutor.slug ?? tutor.id))}`}
+                              prefetch={false}
+                              className="inline-flex h-11 items-center justify-center rounded-full bg-secondary px-6 text-base font-bold text-secondary-foreground transition-colors hover:bg-secondary/90"
+                           >
+                              Make Payment
+                           </Link>
                         </div>
                      </section>
                   </div>

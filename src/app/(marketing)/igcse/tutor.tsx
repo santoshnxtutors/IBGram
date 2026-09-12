@@ -81,7 +81,7 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-foreground">
-              Subject-aware <span className="text-primary">IGCSE</span> Tutors
+              Subject-aware IGCSE Tutors
             </h2>
             <p className="text-lg text-muted-foreground">
               Master the Cambridge and Pearson Edexcel syllabuses with tutors who have achieved exceptional results.
@@ -114,7 +114,7 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-[2rem] glassmorphism-heavy border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] p-2 pl-8 flex items-center justify-between gap-6 overflow-hidden max-w-[90vw] w-fit"
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-[2rem] glassmorphism-heavy border border-border shadow-[0_12px_40px_rgba(19,37,74,0.16)] p-2 pl-8 flex items-center justify-between gap-6 overflow-hidden max-w-[90vw] w-fit"
           >
             <div className="text-sm font-bold flex items-center gap-3">
               <div className="flex -space-x-3">
@@ -218,17 +218,17 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
                   <motion.div layoutId={`stats-${tutor.id}`} className="flex items-center gap-6 mb-8">
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.rating}</div>
-                      <div className="text-[10px] uppercase tracking-tighter text-muted-foreground font-extrabold">Rating</div>
+                      <div className="text-[11px] uppercase tracking-tighter text-muted-foreground font-extrabold">Rating</div>
                     </div>
                     <div className="w-px h-8 bg-border" />
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.reviews}</div>
-                      <div className="text-[10px] uppercase tracking-tighter text-muted-foreground font-extrabold">Reviews</div>
+                      <div className="text-[11px] uppercase tracking-tighter text-muted-foreground font-extrabold">Reviews</div>
                     </div>
                     <div className="w-px h-8 bg-border" />
                     <div className="text-center">
                       <div className="text-2xl font-black">{tutor.rate}</div>
-                      <div className="text-[10px] uppercase tracking-tighter text-muted-foreground font-extrabold">Price</div>
+                      <div className="text-[11px] uppercase tracking-tighter text-muted-foreground font-extrabold">Price</div>
                     </div>
                   </motion.div>
 
@@ -244,7 +244,7 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
 
                     <div className="flex flex-wrap gap-2">
                       {tutor.tags.map(tag => (
-                        <span key={tag} className={`text-[10px] uppercase tracking-widest font-black px-4 py-1.5 rounded-xl border border-current/20 ${tutor.accent}`}>
+                        <span key={tag} className={`text-[11px] uppercase tracking-widest font-black px-4 py-1.5 rounded-xl border border-current/20 ${tutor.accent}`}>
                           {tag}
                         </span>
                       ))}

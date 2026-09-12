@@ -104,7 +104,7 @@ export function DemoRoom({ bookingId, subject, displayName, otherPartyName, back
   }, [bookingId, displayName]);
 
   return (
-    <div className="flex h-screen flex-col bg-[#0b0f19]">
+    <div className="on-dark flex h-screen flex-col bg-[#0b0f19]">
       <header className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:px-6">
         <div className="flex items-center gap-3 min-w-0">
           <button

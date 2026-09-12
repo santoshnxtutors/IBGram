@@ -6,7 +6,7 @@ export function CityFAQ({ page }: { page: CitySeoPage }) {
     <section className="bg-background py-16 md:py-24" id="faq">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 max-w-3xl">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-secondary">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
             <MessageCircleQuestion className="size-3.5" />
             FAQs
           </div>
@@ -19,7 +19,7 @@ export function CityFAQ({ page }: { page: CitySeoPage }) {
           {page.cityFaqs.map((faq) => (
             <details
               key={faq.question}
-              className="group rounded-2xl border border-border/50 bg-[#0B0F19]/60 p-5 transition-all open:border-primary/30 open:bg-[#0f1422]"
+              className="group rounded-2xl border border-border/50 bg-card p-5 transition-all open:border-primary/30 open:bg-card"
             >
               <summary className="cursor-pointer list-none text-base font-black leading-relaxed text-foreground marker:hidden">
                 <span className="flex items-start justify-between gap-4">

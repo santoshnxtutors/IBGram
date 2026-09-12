@@ -151,7 +151,7 @@ export function ContactFormClient() {
           </div>
 
           {error && (
-            <p className="rounded-2xl border border-rose-400/30 bg-rose-400/10 px-5 py-3 text-sm font-bold text-rose-200">
+            <p className="rounded-2xl border border-rose-400/30 bg-rose-400/10 px-5 py-3 text-sm font-bold text-rose-700">
               {error}
             </p>
           )}

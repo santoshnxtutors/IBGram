@@ -118,7 +118,7 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
             >
               <div className="text-center mb-10">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">
-                  Join <span className="text-primary">IB Gram</span>
+                  Join <span className="text-primary">IBGram</span>
                 </h1>
                 <p className="text-lg text-muted-foreground">Select your account type to get started</p>
               </div>
@@ -170,7 +170,7 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
               transition={{ duration: 0.4 }}
               className="w-full max-w-md relative"
             >
-              <div className="glassmorphism-heavy border border-white/10 p-8 md:p-10 rounded-[2.5rem] shadow-2xl">
+              <div className="glassmorphism-heavy border border-border p-8 md:p-10 rounded-[2.5rem] shadow-2xl">
                 
                 <div className="flex justify-between items-center mb-8">
                    {authType === "signup" ? (
@@ -184,7 +184,7 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
                      <div /> // Spacer if login
                    )}
                    {authType === "signup" && role && (
-                     <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest border border-primary/20">
+                     <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-black uppercase tracking-widest border border-primary/20">
                        {role}
                      </div>
                    )}
@@ -222,7 +222,7 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
 
                 <div className="relative mb-6 text-center flex items-center">
                   <div className="flex-grow border-t border-border/40"></div>
-                  <span className="shrink-0 px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">or email</span>
+                  <span className="shrink-0 px-3 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">or email</span>
                   <div className="flex-grow border-t border-border/40"></div>
                 </div>
 
@@ -284,7 +284,7 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
                     <div className="flex justify-between items-center">
                       <Label htmlFor="password" className="text-xs">Password</Label>
                       {authType === "login" && (
-                        <Link href="#" className="text-[10px] font-bold text-primary hover:text-primary/80 transition-colors">
+                        <Link href="#" className="text-[11px] font-bold text-primary hover:text-primary/80 transition-colors">
                           Forgot Password?
                         </Link>
                       )}

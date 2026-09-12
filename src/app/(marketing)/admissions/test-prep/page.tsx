@@ -69,8 +69,8 @@ export default function TestPrepPage() {
         }
 
         @keyframes glowPulse {
-          0%, 100% { box-shadow: 0 0 20px rgba(34,197,94,0.12); }
-          50% { box-shadow: 0 0 40px rgba(34,197,94,0.25); }
+          0%, 100% { box-shadow: 0 0 20px rgba(27,63,139,0.12); }
+          50% { box-shadow: 0 0 40px rgba(27,63,139,0.25); }
         }
 
         @keyframes float {
@@ -85,16 +85,16 @@ export default function TestPrepPage() {
         }
         .card-hover:hover {
           transform: translateY(-3px);
-          border-color: rgba(34,197,94,0.4) !important;
+          border-color: rgba(27,63,139,0.4) !important;
         }
 
         .test-card:hover .test-badge {
-          background: rgba(34,197,94,0.15);
-          border-color: rgba(34,197,94,0.4);
+          background: rgba(27,63,139,0.15);
+          border-color: rgba(27,63,139,0.4);
         }
 
         .score-badge {
-          background: linear-gradient(135deg, rgba(34,197,94,0.15) 0%, rgba(34,197,94,0.05) 100%);
+          background: linear-gradient(135deg, rgba(27,63,139,0.15) 0%, rgba(27,63,139,0.05) 100%);
         }
       `}</style>
 
@@ -105,19 +105,19 @@ export default function TestPrepPage() {
           <div className="inline-flex items-center rounded-full border border-border/50 bg-background p-1">
             <Link
               href="/admissions"
-              className="px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.22em] rounded-full text-muted-foreground transition-all hover:text-foreground sm:px-7 sm:text-xs"
+              className="px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.22em] rounded-full text-muted-foreground transition-all hover:text-foreground sm:px-7 sm:text-xs"
             >
               Consulting
             </Link>
             <Link
               href="/admissions/test-prep"
-              className="px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.22em] rounded-full bg-card text-foreground transition-all sm:px-7 sm:text-xs"
+              className="px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.22em] rounded-full bg-card text-foreground transition-all sm:px-7 sm:text-xs"
             >
               Test Prep
             </Link>
             <Link
               href="/admissions/success-stories"
-              className="px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.22em] rounded-full text-muted-foreground transition-all hover:text-foreground sm:px-7 sm:text-xs"
+              className="px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.22em] rounded-full text-muted-foreground transition-all hover:text-foreground sm:px-7 sm:text-xs"
             >
               Success Stories
             </Link>
@@ -132,15 +132,15 @@ export default function TestPrepPage() {
             <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
               {/* Left */}
               <div className="space-y-8 fade-up">
-                <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-primary">
+                <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.3em] text-primary">
                   Test Preparation
                 </div>
 
                 <div className="space-y-3">
-                  <p className="text-lg md:text-xl font-black italic text-white/40 lowercase tracking-tight">
+                  <p className="text-lg md:text-xl font-black italic text-muted-foreground lowercase tracking-tight">
                     start your test preparation journey
                   </p>
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-[#f8f9fa] leading-[1.05]">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-foreground leading-[1.05]">
                     Score Higher.<br />
                     <span className="text-primary">Get In Anywhere.</span>
                   </h1>
@@ -161,7 +161,7 @@ export default function TestPrepPage() {
 
                 <div className="flex flex-wrap gap-3 pt-2">
                   {["500+ Students Trained", "95% Hit Target Score", "10+ Tests Covered"].map((t) => (
-                    <span key={t} className="text-xs font-bold text-white/50 flex items-center gap-1.5">
+                    <span key={t} className="text-xs font-bold text-muted-foreground flex items-center gap-1.5">
                       <span className="size-1.5 rounded-full bg-primary inline-block" />
                       {t}
                     </span>
@@ -174,7 +174,7 @@ export default function TestPrepPage() {
                 {STATS.map((s) => (
                   <div key={s.label} className="glow-pulse rounded-2xl border border-primary/20 bg-primary/5 px-6 py-8 text-center card-hover">
                     <div className="text-3xl font-black text-primary">{s.value}</div>
-                    <p className="mt-2 text-xs font-semibold text-white/50 uppercase tracking-wider">{s.label}</p>
+                    <p className="mt-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -187,7 +187,7 @@ export default function TestPrepPage() {
           <div className="mx-auto max-w-7xl">
             <div className="text-center mb-14 space-y-3">
               <p className="text-xs font-black uppercase tracking-[0.28em] text-primary">Tests We Cover</p>
-              <h2 className="text-3xl md:text-5xl font-black tracking-tight text-[#f8f9fa]">
+              <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground">
                 Standardised Test Mastery
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
@@ -202,8 +202,8 @@ export default function TestPrepPage() {
                   className="test-card rounded-[1.5rem] border border-border/40 bg-card px-5 py-6 text-center card-hover cursor-default"
                 >
                   <div className="mb-2 text-sm font-black uppercase tracking-[0.18em] text-primary">{test.region}</div>
-                  <div className="text-base font-black text-[#f8f9fa]">{test.name}</div>
-                  <div className="mt-1 text-[11px] font-semibold text-muted-foreground">{test.desc}</div>
+                  <div className="text-base font-black text-foreground">{test.name}</div>
+                  <div className="mt-1 text-[12px] font-semibold text-muted-foreground">{test.desc}</div>
                 </div>
               ))}
             </div>
@@ -215,7 +215,7 @@ export default function TestPrepPage() {
           <div className="mx-auto max-w-7xl">
             <div className="text-center mb-14 space-y-3">
               <p className="text-xs font-black uppercase tracking-[0.28em] text-primary">Score Improvements</p>
-              <h2 className="text-3xl md:text-5xl font-black tracking-tight text-[#f8f9fa]">
+              <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground">
                 Our Students Score Higher
               </h2>
             </div>
@@ -244,7 +244,7 @@ export default function TestPrepPage() {
           <div className="mx-auto max-w-7xl">
             <div className="mb-14">
               <p className="text-xs font-black uppercase tracking-[0.28em] text-primary mb-4">How We Do It</p>
-              <h2 className="text-3xl md:text-5xl font-black tracking-tight text-[#f8f9fa]">
+              <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground">
                 The IBGram Test Prep Difference
               </h2>
             </div>
@@ -257,7 +257,7 @@ export default function TestPrepPage() {
                     <div className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
                       <f.icon className="size-5 text-primary" />
                     </div>
-                    <div className="text-xs font-black text-primary/50 mb-2">0{i + 1}</div>
+                    <div className="text-xs font-black text-primary mb-2">0{i + 1}</div>
                     <h3 className="text-lg font-black tracking-tight text-foreground">{f.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-muted-foreground">{f.desc}</p>
                   </div>
@@ -273,7 +273,7 @@ export default function TestPrepPage() {
             <div className="grid lg:grid-cols-2 gap-14 items-start">
               <div className="lg:sticky lg:top-24 space-y-6">
                 <p className="text-xs font-black uppercase tracking-[0.28em] text-primary">Our Method</p>
-                <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#f8f9fa]">
+                <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
                   From Diagnostic To Target Score In 4 Steps
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -282,7 +282,7 @@ export default function TestPrepPage() {
 
                 {/* Vision box */}
                 <div className="rounded-[1.5rem] border border-border/40 bg-card p-6 space-y-5">
-                  <h3 className="text-lg font-black italic tracking-tight text-[#f8f9fa] lowercase">our vision</h3>
+                  <h3 className="text-lg font-black italic tracking-tight text-foreground lowercase">our vision</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     As a student preparing for the next chapter, you need more than just a tutor. You need a navigator. Our vision is simple: we provide the expertise and the preparation to ensure your admissions success on a global scale.
                   </p>
@@ -323,7 +323,7 @@ export default function TestPrepPage() {
           <div className="mx-auto max-w-7xl">
             <div className="text-center mb-14 space-y-3">
               <p className="text-xs font-black uppercase tracking-[0.28em] text-primary">What Students Say</p>
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#f8f9fa]">
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
                 Trusted By Students Across India
               </h2>
             </div>
@@ -357,10 +357,10 @@ export default function TestPrepPage() {
         {/* CTA */}
         <section className="px-6 py-24 md:py-32 mb-16">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-primary">
+            <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.3em] text-primary">
               Start Preparing Today
             </div>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[#f8f9fa] italic">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground italic">
               ready to hit your<br />target score?
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto text-lg">

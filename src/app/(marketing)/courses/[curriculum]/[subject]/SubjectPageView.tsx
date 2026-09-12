@@ -154,7 +154,7 @@ export function SubjectPageView({ curriculum, subject, content, visibleTutors }:
                 <div className="text-sm font-black leading-tight text-foreground sm:text-base md:text-lg">
                   {stat.value}
                 </div>
-                <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground sm:text-[11px]">
+                <div className="mt-1 text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground sm:text-[12px]">
                   {stat.label}
                 </div>
               </div>
@@ -167,7 +167,7 @@ export function SubjectPageView({ curriculum, subject, content, visibleTutors }:
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <Compass className="size-4" />
               {content.curriculumLabel}
             </div>
@@ -229,7 +229,7 @@ export function SubjectPageView({ curriculum, subject, content, visibleTutors }:
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="space-y-5 lg:col-span-5">
-              <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+              <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
                 <BookOpenCheck className="size-4" />
                 How tutors actually plan the week
               </div>
@@ -290,7 +290,7 @@ export function SubjectPageView({ curriculum, subject, content, visibleTutors }:
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <Quote className="size-4" />
               Parent voices
             </div>
@@ -339,12 +339,12 @@ export function SubjectPageView({ curriculum, subject, content, visibleTutors }:
                 key={blog.title}
                 className="flex h-full flex-col rounded-3xl border border-border/50 bg-background/60 p-6"
               >
-                <span className="inline-flex w-fit items-center rounded-full border border-secondary/30 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.14em] text-secondary">
+                <span className="inline-flex w-fit items-center rounded-full border border-secondary/30 bg-secondary/10 px-3 py-1 text-[12px] font-black uppercase tracking-[0.14em] text-amber-800">
                   {blog.category}
                 </span>
                 <h3 className="mt-4 text-lg font-black leading-snug text-foreground">{blog.title}</h3>
                 <p className="mt-3 text-sm font-medium leading-relaxed text-muted-foreground">{blog.excerpt}</p>
-                <div className="mt-5 flex items-center justify-between text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+                <div className="mt-5 flex items-center justify-between text-[12px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
                   <span>{blog.date}</span>
                   <span>{blog.readTime}</span>
                 </div>
@@ -360,7 +360,7 @@ export function SubjectPageView({ curriculum, subject, content, visibleTutors }:
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <MessageSquare className="size-4" />
               Frequently asked questions
             </div>

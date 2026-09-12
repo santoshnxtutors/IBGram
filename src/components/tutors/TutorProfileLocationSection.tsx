@@ -21,14 +21,14 @@ export function TutorProfileLocationSection({ tutor }: { tutor: Tutor }) {
 
         {display.nearbySchools ? (
           <div className="mt-4 rounded-2xl border border-border/50 bg-muted/10 p-4">
-            <p className="text-[10px] font-black uppercase tracking-[0.18em] text-primary">Nearby school support area</p>
+            <p className="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Nearby school support area</p>
             <p className="mt-2 text-sm font-semibold leading-relaxed text-muted-foreground">{display.nearbySchools}</p>
           </div>
         ) : null}
 
         <div className="mt-5 flex flex-wrap gap-2">
           {display.modes.map((mode) => (
-            <span key={mode} className="inline-flex items-center gap-1.5 rounded-lg border border-primary/20 bg-primary/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-primary">
+            <span key={mode} className="inline-flex items-center gap-1.5 rounded-lg border border-primary/20 bg-primary/10 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.12em] text-primary">
               {mode.includes("Online") ? <Laptop className="size-3.5" /> : <CheckCircle2 className="size-3.5" />}
               {mode}
             </span>
@@ -47,7 +47,7 @@ function LocationDetail({ icon, label, value }: { icon: ReactNode; label: string
     <div className="rounded-2xl border border-border/50 bg-muted/10 p-4">
       <div className="mb-2 flex items-center gap-2">
         {icon}
-        <p className="text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground">{label}</p>
+        <p className="text-[11px] font-black uppercase tracking-[0.18em] text-muted-foreground">{label}</p>
       </div>
       <p className="text-sm font-semibold leading-relaxed text-foreground">{value}</p>
     </div>

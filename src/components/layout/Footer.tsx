@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { JoinAsTutorButton } from "./JoinAsTutorButton";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { CONTACT } from "@/lib/contact";
@@ -14,7 +16,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="w-full bg-[#050A15] border-t border-border mt-12 md:mt-20 pt-12 md:pt-16 pb-8 relative overflow-hidden">
+    <footer className="w-full surface-navy border-t border-border mt-12 md:mt-20 pt-12 md:pt-16 pb-8 relative overflow-hidden">
       {/* 🟢 Glow / Orange Glow Mix */}
       <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[600px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
@@ -24,10 +26,10 @@ export function Footer() {
 
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="inline-block mb-6">
-              <span className="text-2xl font-bold tracking-tight text-foreground">
-                IB<span className="text-primary drop-shadow-md">Gram</span>
-              </span>
+            <Link href="/" className="mb-6 inline-flex items-center gap-1">
+              {/* alt="" because the brand name sits right beside it inside the same link. */}
+              <Image src="/images/logo.png" alt="" width={40} height={40} className="size-10 rounded-lg" />
+              <span className="text-2xl font-bold tracking-tight text-foreground"><span className="text-primary">IB</span>Gram</span>
             </Link>
             <p className="text-sm text-muted-foreground font-medium mb-6 leading-relaxed max-w-sm">
               {isIgcsePage
@@ -112,10 +114,10 @@ export function Footer() {
             <h4 className="font-bold text-foreground mb-6 drop-shadow-sm">Platform</h4>
             <ul className="space-y-4 text-sm font-medium text-muted-foreground">
               <li><Link href="/about-us" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">AI Test Generator</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">{isIgcsePage ? "IGCSE Study Planner" : "Smart Planner"}</Link></li>
-              <li><Link href="/subscription" className="hover:text-primary transition-colors">Plans</Link></li>
+              <li><Link href="/igcse/" className="hover:text-primary transition-colors">IGCSE</Link></li>
+              <li><Link href="/admissions/" className="hover:text-primary transition-colors">Admissions &amp; Test Prep</Link></li>
               <li><Link href="/blog" className="hover:text-primary transition-colors">Blogs</Link></li>
+              <li><Link href="/payment/" className="hover:text-primary transition-colors">Payment</Link></li>
             </ul>
           </div>  
 
@@ -127,6 +129,7 @@ export function Footer() {
               <li><Link href="/#faq" className="hover:text-primary transition-colors">FAQs</Link></li>
               <li><Link href="/#how-it-works" className="hover:text-primary transition-colors">How {isIgcsePage ? "IGCSE Prep" : "IBGram"} Works</Link></li>
               <li><Link href="/jobs" className="hover:text-primary transition-colors">Jobs</Link></li>
+              <li><JoinAsTutorButton variant="link" className="text-left hover:text-primary transition-colors" /></li>
               <li><Link href="/privacy-policy/" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms-and-conditions/" className="hover:text-primary transition-colors">Terms &amp; Conditions</Link></li>
             </ul>
@@ -135,7 +138,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-semibold text-muted-foreground">
-          <p>©(2018-2026) IB Gram. All rights reserved.</p>
+          <p>©(2018-2026) IBGram. All rights reserved.</p>
           <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4 text-center">
             <Link href="/privacy-policy/" className="whitespace-nowrap hover:text-primary transition-colors">Privacy Policy</Link>
             <span className="hidden md:inline">|</span>

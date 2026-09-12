@@ -84,7 +84,7 @@ export function FAQSection({ location = { country: "15+ countries", cities: "the
           <div>
             <div className="flex items-center gap-2 mb-3">
               <MessageCircleQuestion className="size-5 text-secondary" />
-              <span className="text-secondary font-black uppercase tracking-[0.2em] text-[10px]">Support and information</span>
+              <span className="text-amber-800 font-black uppercase tracking-[0.2em] text-[11px]">Support and information</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground">
               Questions parents usually ask
@@ -93,7 +93,7 @@ export function FAQSection({ location = { country: "15+ countries", cities: "the
 
           <Link
             href="/contact-us/"
-            className="px-6 py-2.5 rounded-full border border-white/10 hover:border-primary/40 bg-white/[0.04] text-sm font-bold text-foreground transition-all duration-300 w-fit"
+            className="px-6 py-2.5 rounded-full border border-border hover:border-primary/40 bg-card text-sm font-bold text-foreground transition-all duration-300 w-fit"
           >
             Talk to an academic advisor
           </Link>
@@ -111,15 +111,15 @@ export function FAQSection({ location = { country: "15+ countries", cities: "the
                   aria-expanded={isOpen}
                   className={`w-full text-left cursor-pointer rounded-2xl border transition-all duration-300 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 ${
                     isOpen
-                      ? "bg-[#0f1422] border-primary/30 shadow-lg"
-                      : "bg-white/[0.04] border-white/10 hover:border-white/20 hover:bg-white/[0.06]"
+                      ? "bg-card border-primary/30 shadow-lg"
+                      : "bg-card border-border hover:border-primary/30 hover:bg-primary/5"
                   }`}
                 >
                   <div className="p-4 md:p-5 flex items-center justify-between gap-4">
                     <h3 className={`font-semibold text-sm md:text-base transition-colors duration-300 ${isOpen ? "text-primary" : "text-foreground/90"}`}>
                       {faq.question}
                     </h3>
-                    <span className={`p-1 rounded-full transition-colors duration-300 ${isOpen ? "bg-primary/20" : "bg-white/5"}`}>
+                    <span className={`p-1 rounded-full transition-colors duration-300 ${isOpen ? "bg-primary/20" : "bg-muted"}`}>
                       <ChevronDown
                         className={`size-4 transition-transform duration-300 ${isOpen ? "rotate-180 text-primary" : "text-muted-foreground"}`}
                       />
@@ -127,7 +127,7 @@ export function FAQSection({ location = { country: "15+ countries", cities: "the
                   </div>
 
                   {isOpen && (
-                    <div className="px-4 md:px-5 pb-5 text-sm md:text-base text-muted-foreground leading-relaxed border-t border-white/5 pt-3">
+                    <div className="px-4 md:px-5 pb-5 text-sm md:text-base text-muted-foreground leading-relaxed border-t border-border pt-3">
                       {faq.answer}
                     </div>
                   )}

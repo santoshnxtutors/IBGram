@@ -32,7 +32,7 @@ export function LegalDocument({
       <div className="container mx-auto max-w-6xl px-4 md:px-6 pt-10 md:pt-14 pb-20">
         {/* Header */}
         <header className="mb-10 max-w-4xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-4">
             <ShieldCheck className="size-3" /> {eyebrow}
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-[1.05] mb-5">
@@ -41,11 +41,11 @@ export function LegalDocument({
           <p className="text-base md:text-lg/relaxed text-muted-foreground font-medium">{intro}</p>
           <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-xs font-semibold text-muted-foreground">
             <div className="flex gap-2">
-              <dt className="text-foreground/60">Effective</dt>
+              <dt className="text-muted-foreground">Effective</dt>
               <dd>{effectiveDate}</dd>
             </div>
             <div className="flex gap-2">
-              <dt className="text-foreground/60">Last updated</dt>
+              <dt className="text-muted-foreground">Last updated</dt>
               <dd>{lastUpdated}</dd>
             </div>
           </dl>
@@ -55,15 +55,15 @@ export function LegalDocument({
           {/* Contents */}
           <nav
             aria-label="On this page"
-            className="lg:sticky lg:top-28 lg:self-start rounded-2xl border border-white/5 bg-white/[0.02] p-5"
+            className="lg:sticky lg:top-28 lg:self-start rounded-2xl border border-border bg-card p-5"
           >
-            <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-3">
+            <h2 className="text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-3">
               On this page
             </h2>
             <ol className="space-y-2 text-sm font-medium">
               {sections.map((section, i) => (
                 <li key={section.id} className="flex gap-2">
-                  <span className="text-primary/60 tabular-nums">{i + 1}.</span>
+                  <span className="text-primary tabular-nums">{i + 1}.</span>
                   <a
                     href={`#${section.id}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -104,7 +104,7 @@ export function LegalDocument({
               </section>
             ))}
 
-            <p className="rounded-2xl border border-white/5 bg-white/[0.02] p-5 text-sm/relaxed text-muted-foreground font-medium">
+            <p className="rounded-2xl border border-border bg-card p-5 text-sm/relaxed text-muted-foreground font-medium">
               {footerNote}
             </p>
 

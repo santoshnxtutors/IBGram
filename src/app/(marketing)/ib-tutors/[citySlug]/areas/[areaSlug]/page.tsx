@@ -116,7 +116,7 @@ export default async function CityAreaPage({ params }: AreaPageProps) {
 
         <section className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-primary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
               <MapPinned className="size-3.5" />
               Area page
             </div>
@@ -201,7 +201,7 @@ export default async function CityAreaPage({ params }: AreaPageProps) {
           </div>
         </section>
 
-        <section className="mt-12 rounded-2xl border border-border/50 bg-[#0B0F19]/60 p-6">
+        <section className="mt-12 rounded-2xl border border-border/50 bg-card p-6">
           <h2 className="text-2xl font-black tracking-tight text-foreground">FAQs for IB tutoring near {area.name}</h2>
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             {faqs.map((faq) => (

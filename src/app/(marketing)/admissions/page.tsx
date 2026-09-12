@@ -291,11 +291,11 @@ export default function AdmissionsPage() {
         }
         .card-hover:hover {
           transform: translateY(-3px);
-          border-color: rgba(34,197,94,0.4) !important;
+          border-color: rgba(27,63,139,0.4) !important;
         }
 
         .result-card {
-          background: linear-gradient(135deg, rgba(34,197,94,0.06) 0%, rgba(255,255,255,0.02) 100%);
+          background: linear-gradient(135deg, rgba(27,63,139,0.06) 0%, rgba(255,253,248,0.9) 100%);
         }
 
       `}</style>
@@ -307,19 +307,19 @@ export default function AdmissionsPage() {
           <div className="inline-flex min-w-max items-center rounded-full border border-border/50 bg-background p-1">
             <Link
               href="/admissions"
-              className="rounded-full bg-card px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.18em] text-foreground transition-all min-[390px]:px-5 sm:px-7 sm:text-xs"
+              className="rounded-full bg-card px-4 py-2.5 text-[11px] font-black uppercase tracking-[0.18em] text-foreground transition-all min-[390px]:px-5 sm:px-7 sm:text-xs"
             >
               Consulting
             </Link>
             <Link
               href="/admissions/test-prep"
-              className="rounded-full px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground transition-all hover:text-foreground min-[390px]:px-5 sm:px-7 sm:text-xs"
+              className="rounded-full px-4 py-2.5 text-[11px] font-black uppercase tracking-[0.18em] text-muted-foreground transition-all hover:text-foreground min-[390px]:px-5 sm:px-7 sm:text-xs"
             >
               Test Prep
             </Link>
             <Link
               href="/admissions/success-stories"
-              className="rounded-full px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground transition-all hover:text-foreground min-[390px]:px-5 sm:px-7 sm:text-xs"
+              className="rounded-full px-4 py-2.5 text-[11px] font-black uppercase tracking-[0.18em] text-muted-foreground transition-all hover:text-foreground min-[390px]:px-5 sm:px-7 sm:text-xs"
             >
               Success Stories
             </Link>
@@ -335,16 +335,16 @@ export default function AdmissionsPage() {
             <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
               {/* Left */}
               <div className="space-y-7 fade-up sm:space-y-8">
-                <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.26em] text-primary max-[380px]:tracking-[0.2em]">
+                <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.26em] text-primary max-[380px]:tracking-[0.2em]">
                   Admissions Consulting
                 </div>
 
                 <div className="space-y-4">
-                  <h1 className="text-[2.35rem] font-black leading-[1.05] tracking-tight text-[#f8f9fa] min-[390px]:text-4xl md:text-5xl lg:text-6xl">
+                  <h1 className="text-[2.35rem] font-black leading-[1.05] tracking-tight text-foreground min-[390px]:text-4xl md:text-5xl lg:text-6xl">
                     <span className="block">Admissions planning</span>
                     <span className="block text-primary">with more clarity.</span>
                   </h1>
-                  <p className="text-lg font-medium text-white/60 italic sm:text-xl">
+                  <p className="text-lg font-medium text-muted-foreground italic sm:text-xl">
                     A focused roadmap for students and parents.
                   </p>
                 </div>
@@ -365,7 +365,7 @@ export default function AdmissionsPage() {
                 {/* Quick trust signals */}
                 <div className="flex flex-wrap gap-3 pt-2">
                   {["Profile-led planning", "Multi-country applications", "Essay and SOP review", "Parent-friendly roadmap"].map((t) => (
-                    <span key={t} className="text-xs font-bold text-white/50 flex items-center gap-1.5">
+                    <span key={t} className="text-xs font-bold text-muted-foreground flex items-center gap-1.5">
                       <span className="size-1.5 rounded-full bg-primary inline-block" />
                       {t}
                     </span>
@@ -396,8 +396,8 @@ export default function AdmissionsPage() {
           <div className="flex whitespace-nowrap">
             <div className="ticker-track flex gap-8 items-center">
               {[...outcomes, ...outcomes].map((o, i) => (
-                  <span key={i} className="flex items-center gap-2 text-sm font-bold text-white/60 shrink-0">
-                  <span className="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[10px] font-black text-primary">
+                  <span key={i} className="flex items-center gap-2 text-sm font-bold text-muted-foreground shrink-0">
+                  <span className="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[11px] font-black text-primary">
                     {o.flag}
                   </span>
                   {o.university}
@@ -413,7 +413,7 @@ export default function AdmissionsPage() {
           <div className="mx-auto max-w-7xl">
             <div className="text-center mb-14 space-y-3">
               <p className="text-xs font-black uppercase tracking-[0.28em] text-primary">Application Planning</p>
-              <h2 className="text-2xl font-black tracking-tight text-[#f8f9fa] sm:text-3xl md:text-5xl">
+              <h2 className="text-2xl font-black tracking-tight text-foreground sm:text-3xl md:text-5xl">
                 Clearer Decisions Before Deadlines
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
@@ -424,7 +424,7 @@ export default function AdmissionsPage() {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {planningCards.map((card) => (
                 <div key={card.title} className="result-card rounded-[1.5rem] border border-border/40 px-5 py-6 card-hover">
-                  <div className="mb-3 inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-primary">
+                  <div className="mb-3 inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.16em] text-primary">
                     Support area
                   </div>
                   <div className="text-lg font-black text-foreground">{card.title}</div>
@@ -556,7 +556,7 @@ export default function AdmissionsPage() {
                       <div className="size-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
                         <ShieldCheck className="size-3.5 text-primary" />
                       </div>
-                      <span className="group-hover:text-white/80 transition-colors">{item}</span>
+                      <span className="group-hover:text-foreground transition-colors">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -576,7 +576,7 @@ export default function AdmissionsPage() {
                       </div>
                     ))}
                   </div>
-                  <div className="rounded-2xl border border-border/40 bg-black/20 px-5 py-4">
+                  <div className="rounded-2xl border border-border/40 bg-muted/60 px-5 py-4">
                     <p className="text-sm text-muted-foreground leading-relaxed italic">
                       Admissions support should make the process clearer, not louder. The focus is on better decisions, stronger organisation and student-owned applications.
                     </p>
@@ -612,10 +612,10 @@ export default function AdmissionsPage() {
         {/* CTA */}
         <section className="mb-16 px-4 py-20 sm:px-6 md:py-28">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.24em] text-primary">
+            <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.24em] text-primary">
               Admissions Consultation
             </div>
-            <h2 className="text-3xl font-black tracking-tight text-[#f8f9fa] sm:text-4xl md:text-6xl">
+            <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl md:text-6xl">
               Ready to plan your<br />applications with more clarity?
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto text-lg">

@@ -105,6 +105,7 @@ export const getVisibleTutorsForPage = unstable_cache(
           subjects: true,
           curriculums: true,
           locations: { orderBy: { priority: "asc" } },
+          _count: { select: { reviews: { where: { status: "published" } } } },
         },
         orderBy: [{ rating: "desc" }, { displayName: "asc" }],
       });

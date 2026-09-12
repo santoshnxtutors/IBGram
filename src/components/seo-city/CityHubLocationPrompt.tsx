@@ -116,7 +116,7 @@ export function CityHubLocationPrompt({ cities }: { cities: CityHubSummary[] }) 
     <div className="rounded-[2rem] border border-primary/20 bg-primary/10 p-5 md:p-6">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <div className="mb-2 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-primary">
+          <div className="mb-2 inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-primary">
             <MapPin className="size-3.5" />
             Location-aware city page
           </div>

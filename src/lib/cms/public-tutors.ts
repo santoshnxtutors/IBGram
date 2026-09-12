@@ -1,7 +1,14 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/db";
-import { parseTutorModes, parseTutorQualifications, type Tutor, type TutorFaq, type TutorLocation as StaticTutorLocation } from "@/lib/tutor-data";
+import {
+  parseTutorCountries,
+  parseTutorModes,
+  parseTutorQualifications,
+  type Tutor,
+  type TutorFaq,
+  type TutorLocation as StaticTutorLocation,
+} from "@/lib/tutor-data";
 
 type AnyTutorId = Tutor["id"];
 
@@ -94,6 +101,7 @@ export const getPublicTutorsFromDb = unstable_cache(
             subjects: true,
             curriculums: true,
             locations: { orderBy: { priority: "asc" } },
+            _count: { select: { reviews: { where: { status: "published" } } } },
           },
           orderBy: [{ rating: "desc" }, { displayName: "asc" }],
         }),
@@ -108,6 +116,7 @@ export const getPublicTutorsFromDb = unstable_cache(
 );
 
 export function mapPrismaToTutor(row: Awaited<ReturnType<typeof prisma.tutor.findMany>>[number] & {
+  _count: { reviews: number };
   profile: { education: string | null; methodology: string | null; successRate: string | null; responseTime: string | null; availabilityText: string | null; languages: string[]; tags: string[]; metadata?: unknown } | null;
   subjects: Array<{ subjectName: string; curriculum: string; level: string | null }>;
   curriculums: Array<{ curriculum: string; programme: string | null }>;
@@ -168,7 +177,7 @@ export function mapPrismaToTutor(row: Awaited<ReturnType<typeof prisma.tutor.fin
     subject,
     grade,
     rating: Number(row.rating ?? 0),
-    reviews: row.reviewCount,
+    reviews: row._count.reviews,
     experience: row.experienceYears ? `${row.experienceYears} Yrs` : "",
     bio: row.bio ?? "",
     about: row.about ?? "",
@@ -185,6 +194,7 @@ export function mapPrismaToTutor(row: Awaited<ReturnType<typeof prisma.tutor.fin
     faqs: parsePublicFaqs(row.faqs),
     qualifications: parseTutorQualifications(row.profile?.metadata),
     displayModes: parseTutorModes(row.profile?.metadata),
+    countriesCovered: parseTutorCountries(row.profile?.metadata),
 
     // Enriched fields used by the matching engine
     isActive: row.status === "active",

@@ -114,7 +114,7 @@ export default function ContactUsPage() {
       <div className="container max-w-6xl mx-auto px-4 md:px-6">
         {/* HERO */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 px-2 sm:px-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest mb-4 border border-primary/20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-black uppercase tracking-widest mb-4 border border-primary/20">
             <Globe className="size-3" /> Student & Parent Support
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-4 tracking-tight leading-[1.1]">
@@ -171,7 +171,7 @@ export default function ContactUsPage() {
               </div>
 
               <div className="flex gap-5 sm:gap-6 items-start">
-                <div className="size-12 sm:size-14 rounded-2xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary shrink-0">
+                <div className="size-12 sm:size-14 rounded-2xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-amber-800 shrink-0">
                   <MessageSquare className="size-5 sm:size-6" />
                 </div>
                 <div className="min-w-0">
@@ -183,7 +183,7 @@ export default function ContactUsPage() {
                     href={CONTACT.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-secondary font-black text-base sm:text-lg hover:underline transition-all"
+                    className="text-amber-800 font-black text-base sm:text-lg hover:underline transition-all"
                   >
                     Chat on WhatsApp
                   </a>
@@ -221,7 +221,7 @@ export default function ContactUsPage() {
         {/* INTRO LONG-FORM */}
         <section className="mt-16 sm:mt-20">
           <div className="mx-auto max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <Headphones className="size-4" />
               Reaching the IB Gram team
             </div>
@@ -265,7 +265,7 @@ export default function ContactUsPage() {
         <section className="mt-16 sm:mt-20 rounded-3xl border border-border/50 bg-muted/10 p-6 sm:p-10">
           <div className="grid gap-8 lg:grid-cols-12">
             <div className="space-y-4 lg:col-span-5">
-              <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+              <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
                 <BookOpenCheck className="size-4" />
                 Writing a useful brief
               </div>
@@ -321,7 +321,7 @@ export default function ContactUsPage() {
         {/* REASSURANCES */}
         <section className="mt-16 sm:mt-20">
           <div className="mx-auto max-w-3xl rounded-3xl border border-border/50 bg-muted/10 p-6 sm:p-10">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <Shield className="size-4" />
               How we treat your message
             </div>
@@ -356,12 +356,12 @@ export default function ContactUsPage() {
                 key={blog.title}
                 className="flex h-full flex-col rounded-3xl border border-border/50 bg-background/60 p-6"
               >
-                <span className="inline-flex w-fit items-center rounded-full border border-secondary/30 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.14em] text-secondary">
+                <span className="inline-flex w-fit items-center rounded-full border border-secondary/30 bg-secondary/10 px-3 py-1 text-[12px] font-black uppercase tracking-[0.14em] text-amber-800">
                   {blog.category}
                 </span>
                 <h3 className="mt-4 text-lg font-black leading-snug text-foreground">{blog.title}</h3>
                 <p className="mt-3 text-sm font-medium leading-relaxed text-muted-foreground">{blog.excerpt}</p>
-                <div className="mt-5 flex items-center justify-between text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+                <div className="mt-5 flex items-center justify-between text-[12px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
                   <span>{blog.date}</span>
                   <span>{blog.readTime}</span>
                 </div>
@@ -373,7 +373,7 @@ export default function ContactUsPage() {
         {/* FAQ */}
         <section className="mt-16 sm:mt-20">
           <div className="mx-auto max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-800">
               <MessageSquare className="size-4" />
               Frequently asked questions
             </div>

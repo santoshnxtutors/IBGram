@@ -108,6 +108,8 @@ export interface AdminTutorRecord {
   tags?: string[];
   languages?: string[];
   qualifications?: { title: string; description: string }[];
+  /** ISO alpha-2 codes, or ["all"] for every country. */
+  countriesCovered?: string[];
   lastUpdated: string;
 }
 

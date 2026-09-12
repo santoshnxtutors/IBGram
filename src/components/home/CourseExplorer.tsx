@@ -49,11 +49,11 @@ export function CourseExplorer() {
     <section className="pt-12 pb-6 px-4 bg-background overflow-hidden" id="curriculum">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-8 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-black uppercase tracking-[0.2em] mb-4">
             Curriculum navigator
           </div>
           <h2 className="text-2xl md:text-6xl font-black text-foreground mb-4 tracking-tight leading-none">
-            IB tutoring for every <span className="text-primary italic">IB programme</span>
+            IB tutoring for every IB programme
           </h2>
           <p className="text-muted-foreground font-medium max-w-3xl text-base md:text-lg leading-relaxed">
             The International Baccalaureate runs as four connected programmes, and each one is assessed
@@ -80,17 +80,17 @@ export function CourseExplorer() {
                     <h3 className="text-base md:text-xl font-black text-foreground group-hover:text-primary transition-colors leading-tight">
                       {program.title}
                     </h3>
-                    <p className="text-[11px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider mt-0.5">
+                    <p className="text-[12px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider mt-0.5">
                       {program.subtitle}
                     </p>
                   </div>
                 </div>
-                <span className="text-[10px] font-black px-2.5 py-1 rounded-full bg-muted/50 text-muted-foreground border border-border/40 whitespace-nowrap">
+                <span className="text-[11px] font-black px-2.5 py-1 rounded-full bg-muted/50 text-muted-foreground border border-border/40 whitespace-nowrap">
                   {program.age}
                 </span>
               </div>
 
-              <p className="text-[13px] md:text-sm text-muted-foreground leading-relaxed font-medium mb-5">
+              <p className="text-[14px] md:text-sm text-muted-foreground leading-relaxed font-medium mb-5">
                 {program.description}
               </p>
 
@@ -98,7 +98,7 @@ export function CourseExplorer() {
                 {program.highlights.map((item) => (
                   <span
                     key={item}
-                    className="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-muted/30 text-muted-foreground border border-border/50 group-hover:border-primary/30 group-hover:text-primary transition-all"
+                    className="text-[12px] font-bold px-2.5 py-1 rounded-lg bg-muted/30 text-muted-foreground border border-border/50 group-hover:border-primary/30 group-hover:text-primary transition-all"
                   >
                     {item}
                   </span>

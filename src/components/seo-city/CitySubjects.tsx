@@ -9,7 +9,7 @@ export function CitySubjects({ page }: { page: CitySeoPage }) {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-primary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
               <Sigma className="size-3.5" />
               Subject support
             </div>
@@ -42,7 +42,7 @@ export function CitySubjects({ page }: { page: CitySeoPage }) {
               </div>
               <p className="mb-3 text-sm font-medium leading-relaxed text-muted-foreground">{subject.description}</p>
               <p className="mb-4 text-sm font-semibold leading-relaxed text-foreground/90">{subject.cityNote}</p>
-              <span className={`inline-flex rounded-lg border px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.14em] ${inventoryClass(subject.inventory)}`}>
+              <span className={`inline-flex rounded-lg border px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.14em] ${inventoryClass(subject.inventory)}`}>
                 {subject.inventory} inventory
               </span>
             </Link>
@@ -62,7 +62,7 @@ export function CitySubjects({ page }: { page: CitySeoPage }) {
 
 function CoverageBlock({ title, text }: { title: string; text: string }) {
   return (
-    <div className="rounded-2xl border border-border/50 bg-[#0B0F19]/50 p-5">
+    <div className="rounded-2xl border border-border/50 bg-card p-5">
       <h3 className="mb-2 text-sm font-black uppercase tracking-[0.16em] text-primary">{title}</h3>
       <p className="text-sm font-medium leading-relaxed text-muted-foreground">{text}</p>
     </div>
@@ -71,6 +71,6 @@ function CoverageBlock({ title, text }: { title: string; text: string }) {
 
 function inventoryClass(inventory: InventoryStrength): string {
   if (inventory === "strong") return "border-primary/30 bg-primary/10 text-primary";
-  if (inventory === "moderate") return "border-secondary/30 bg-secondary/10 text-secondary";
+  if (inventory === "moderate") return "border-secondary/30 bg-secondary/10 text-amber-800";
   return "border-border bg-muted/30 text-muted-foreground";
 }

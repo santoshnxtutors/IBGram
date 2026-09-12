@@ -4,13 +4,14 @@
  * synonym in context, so prose stays human.
  *
  * Anything it cannot safely rewrite is reported so the page can be re-run deliberately.
- * Run: npx tsx scripts/seo-content/fix-tells.ts [--dry]
+ * Run: npx tsx scripts/seo-content/fix-tells.ts [--dry] [--dir tmp/gurgaon-500/content]
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
-const DIR = path.join(ROOT, "tmp", "seo", "agent-out");
+const dirFlag = process.argv.indexOf("--dir");
+const DIR = path.join(ROOT, dirFlag > -1 ? process.argv[dirFlag + 1] : path.join("tmp", "seo", "agent-out"));
 const DRY = process.argv.includes("--dry");
 
 /** Ordered: longer/more specific patterns first so they win over the generic fallbacks. */
@@ -29,6 +30,21 @@ const SUBS: Array<[RegExp, string]> = [
   [/\bthe key takeaway is\b/g, "what matters here is"],
   [/\bOne thing is clear:\s*/g, ""],
   [/\bone thing is clear,?\s*/g, ""],
+
+  // Essay connectives on the banned list. Replacements stay plain strings: substituteDeep wraps
+  // each one in its own callback, so a function here would be inserted as text, not called.
+  [/\bIn conclusion,\s*/g, "Overall, "],
+  [/\bin conclusion,\s*/g, "overall, "],
+  [/\bIn summary,\s*/g, "In short, "],
+  [/\bin summary,\s*/g, "in short, "],
+  [/\bMoreover,\s*/g, "Also, "],
+  [/\bmoreover,\s*/g, "also, "],
+  [/\bFurthermore,\s*/g, "On top of that, "],
+  [/\bfurthermore,\s*/g, "on top of that, "],
+  [/\bAdditionally,\s*/g, "Also, "],
+  [/\badditionally,\s*/g, "also, "],
+  [/\bFirstly,\s*/g, "First, "],
+  [/\bfirstly,\s*/g, "first, "],
 
   // "landscape" / "ecosystem" — replaced by what the sentence actually means.
   [/\bschool ecosystem\b/gi, "school cluster"],
