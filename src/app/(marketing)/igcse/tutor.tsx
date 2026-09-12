@@ -193,14 +193,14 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
                           alt={tutor.name}
                           fill
                           sizes="(max-width: 768px) 100vw, 40vw"
-                          className="object-cover"
+                          className="object-cover object-top"
                         />
                     ) : (
                       <span className="text-6xl font-bold text-muted-foreground">
                         {tutor.name.charAt(0)}
                       </span>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-r" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-l" />
                   </motion.div>
                 </div>
 

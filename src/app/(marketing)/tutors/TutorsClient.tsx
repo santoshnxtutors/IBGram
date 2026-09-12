@@ -392,11 +392,11 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
                   <motion.div layoutId={`avatar-${tutor.id}`} className="absolute inset-0 flex items-center justify-center bg-muted">
                     {tutor.image ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={tutor.image} alt={tutor.name} className="absolute inset-0 size-full object-cover" />
+                      <img src={tutor.image} alt={tutor.name} className="absolute inset-0 size-full object-cover object-top" />
                     ) : (
                       <span className="text-6xl font-bold text-muted-foreground">{tutor.name.charAt(0)}</span>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-r" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-l" />
                   </motion.div>
                 </div>
                 <div className="flex-1 p-8 md:p-12">

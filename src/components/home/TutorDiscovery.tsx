@@ -207,14 +207,14 @@ export function TutorDiscovery({ tutors, heading, intro, linkLabel }: TutorDisco
                         alt={tutor.name}
                         fill
                         sizes="(max-width: 768px) 100vw, 40vw"
-                        className="object-cover"
+                        className="object-cover object-top"
                       />
                     ) : (
                       <div className="grid h-full w-full place-items-center bg-muted text-6xl font-black text-muted-foreground">
                         {tutor.name.charAt(0)}
                       </div>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-r" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-l" />
                   </motion.div>
                 </div>
 

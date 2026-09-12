@@ -204,11 +204,11 @@ export function TutorAvailabilitySection({
                 <div className="relative flex h-64 min-h-[300px] w-full items-center justify-center border-b border-border/50 bg-muted/20 md:h-auto md:w-2/5 md:border-b-0 md:border-r">
                   <motion.div layoutId={`avatar-${tutor.id}`} className="absolute inset-0 flex items-center justify-center bg-muted">
                     {tutor.image ? (
-                      <Image src={tutor.image} alt={tutor.name} fill sizes="400px" className="object-cover" />
+                      <Image src={tutor.image} alt={tutor.name} fill sizes="400px" className="object-cover object-top" />
                     ) : (
                       <span className="text-6xl font-bold text-muted-foreground">{tutor.name.charAt(0)}</span>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-r" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-l" />
                   </motion.div>
                 </div>
 
