@@ -45,7 +45,7 @@ export function AdminLoginForm() {
           <ShieldCheck className="size-6" />
         </div>
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.2em] text-emerald-300">IBGram secure admin</p>
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-emerald-300">IB Gram secure admin</p>
           <h1 className="text-2xl font-black text-white">Sign in</h1>
         </div>
       </div>

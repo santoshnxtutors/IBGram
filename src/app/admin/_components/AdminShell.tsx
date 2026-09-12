@@ -89,7 +89,7 @@ function AdminSidebar() {
             IB
           </div>
           <div className="min-w-0">
-            <p className="text-base font-black tracking-tight">IBGram Admin</p>
+            <p className="text-base font-black tracking-tight">IB Gram Admin</p>
             <p className="text-xs font-semibold text-slate-400">Content operations</p>
           </div>
         </Link>

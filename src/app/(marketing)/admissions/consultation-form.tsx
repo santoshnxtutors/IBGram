@@ -59,7 +59,7 @@ export function AdmissionsConsultationForm({
 
     const formData = new FormData(event.currentTarget);
     const message = [
-      "New Ethos x IBGram admissions enquiry",
+      "New Ethos x IB Gram admissions enquiry",
       "",
       `Service: ${value(formData, "service") || service}`,
       `Student name: ${value(formData, "studentName")}`,

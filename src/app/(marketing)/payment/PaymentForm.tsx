@@ -179,7 +179,7 @@ export function PaymentForm({ tutors, defaultTutorId }: { tutors: { id: string; 
             256-bit SSL encrypted
           </span>
           <span>PCI DSS compliant checkout by Cashfree</span>
-          <span>IBGram never sees or stores your card details</span>
+          <span>IB Gram never sees or stores your card details</span>
         </div>
       </form>
     </>

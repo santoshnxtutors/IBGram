@@ -10,7 +10,7 @@ import { PaymentForm } from "./PaymentForm";
 
 export const metadata: Metadata = {
   title: "Payment",
-  description: "Pay IBGram securely online in INR, USD or your own currency.",
+  description: "Pay IB Gram securely online in INR, USD or your own currency.",
   robots: { index: false, follow: false },
 };
 

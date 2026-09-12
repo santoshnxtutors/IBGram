@@ -30,7 +30,7 @@ export function AiAssistantFloatingWidget({ open, onOpenChange }: AiAssistantFlo
 
           <button
             type="button"
-            aria-label={isOpen ? "Close IBGram AI assistant" : "Open IBGram AI assistant"}
+            aria-label={isOpen ? "Close IB Gram AI assistant" : "Open IB Gram AI assistant"}
             onClick={() => setIsOpen(!isOpen)}
             className={`relative z-10 flex size-12 items-center justify-center rounded-[1.5rem] shadow-2xl transition-all sm:size-14 ${
               isOpen ? "bg-muted text-foreground" : "bg-primary text-primary-foreground"
@@ -46,7 +46,7 @@ export function AiAssistantFloatingWidget({ open, onOpenChange }: AiAssistantFlo
           <div className="pointer-events-none absolute right-[calc(100%+0.75rem)] top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-xl border border-border/60 bg-card/95 px-3 py-2 shadow-xl backdrop-blur sm:block">
             <p className="flex items-center gap-1.5 text-[12px] font-semibold text-foreground">
               <span>Ask</span>
-              <span className="italic text-primary">IBGram AI</span>
+              <span className="italic text-primary">IB Gram AI</span>
             </p>
           </div>
         )}
@@ -61,7 +61,7 @@ export function AiAssistantFloatingWidget({ open, onOpenChange }: AiAssistantFlo
                 <div>
                   <h3 className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground">
                     <Bot className="size-5 text-primary" />
-                    IBGram AI Assistance
+                    IB Gram AI Assistance
                   </h3>
                   <p className="mt-1 text-sm leading-6 text-muted-foreground">
                     Ask anything about programmes, admissions, or finding the right next step.
@@ -85,13 +85,13 @@ export function AiAssistantFloatingWidget({ open, onOpenChange }: AiAssistantFlo
                 </div>
                 <div className="min-w-0 flex-1 space-y-3">
                   <p className="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
-                    IBGram AI <Sparkles className="size-3 text-primary" />
+                    IB Gram AI <Sparkles className="size-3 text-primary" />
                   </p>
                   <div className="max-w-[88%] rounded-3xl rounded-tl-md border border-border/60 bg-card px-4 py-3 text-[15px] leading-7 text-foreground shadow-sm">
                     Hello there. Looking for something? We&apos;re here to help.
                   </div>
                   <div className="max-w-[88%] rounded-3xl rounded-tl-md border border-border/60 bg-card px-4 py-3 text-[15px] leading-7 text-foreground shadow-sm">
-                    Hi there. Welcome to IBGram. I&apos;d love to help you out.
+                    Hi there. Welcome to IB Gram. I&apos;d love to help you out.
                   </div>
                   <div className="max-w-[88%] rounded-3xl rounded-tl-md border border-border/60 bg-card px-4 py-3 text-[15px] leading-7 text-foreground shadow-sm">
                     First things first, could I have your name?
@@ -104,13 +104,13 @@ export function AiAssistantFloatingWidget({ open, onOpenChange }: AiAssistantFlo
               <div className="relative flex items-center">
                 <input
                   type="text"
-                  aria-label="Ask IBGram AI"
+                  aria-label="Ask IB Gram AI"
                   placeholder="Ask me anything..."
                   className="w-full rounded-full border border-border/60 bg-background/80 py-3.5 pl-5 pr-14 text-sm text-foreground placeholder:text-muted-foreground transition-all focus:border-primary/50 focus:outline-none"
                 />
                 <button
                   type="button"
-                  aria-label="Send message to IBGram AI"
+                  aria-label="Send message to IB Gram AI"
                   className="absolute right-1.5 flex size-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md shadow-primary/20 transition-transform hover:scale-105 hover:bg-primary/90 active:scale-95"
                 >
                   <ArrowUp className="size-4" strokeWidth={3} />
@@ -119,7 +119,7 @@ export function AiAssistantFloatingWidget({ open, onOpenChange }: AiAssistantFlo
 
               <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-muted-foreground/70">
                 <Bot className="size-3" />
-                <span>Built with IBGram AI</span>
+                <span>Built with IB Gram AI</span>
               </div>
             </div>
           </div>

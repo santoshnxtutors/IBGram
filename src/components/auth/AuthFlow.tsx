@@ -118,7 +118,7 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
             >
               <div className="text-center mb-10">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">
-                  Join <span className="text-primary">IBGram</span>
+                  Join <span className="text-primary">IB Gram</span>
                 </h1>
                 <p className="text-lg text-muted-foreground">Select your account type to get started</p>
               </div>

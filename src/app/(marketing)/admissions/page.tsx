@@ -20,7 +20,7 @@ const MentorsCarousel = dynamic(() => import("./mentors-carousel").then((mod) =>
 const AdmissionsPartnership = dynamic(() => import("./admissions-partnership").then((mod) => mod.AdmissionsPartnership));
 
 export const metadata: Metadata = {
-  title: "Admissions Consulting for Global Universities | IBGram",
+  title: "Admissions Consulting for Global Universities | IB Gram",
   description:
     "Get structured admissions planning for university shortlisting, essays, SOPs, interviews and applications across US, UK, Canada, Europe and more.",
   keywords: [
@@ -35,14 +35,14 @@ export const metadata: Metadata = {
     canonical: "/admissions",
   },
   openGraph: {
-    title: "Admissions Consulting for Global Universities | IBGram",
+    title: "Admissions Consulting for Global Universities | IB Gram",
     description:
       "Structured admissions planning for university shortlisting, essays, SOPs, interviews and global applications.",
     url: "/admissions",
     type: "website",
   },
   twitter: {
-    title: "Admissions Consulting for Global Universities | IBGram",
+    title: "Admissions Consulting for Global Universities | IB Gram",
     description:
       "Plan applications with clearer shortlisting, timelines, essays, interviews and final review support.",
   },
@@ -350,7 +350,7 @@ export default function AdmissionsPage() {
                 </div>
 
                 <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                  From university shortlisting to essays, SOPs, interviews and final submission, IBGram helps families build a practical application plan across global admissions systems.
+                  From university shortlisting to essays, SOPs, interviews and final submission, IB Gram helps families build a practical application plan across global admissions systems.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -547,7 +547,7 @@ export default function AdmissionsPage() {
             <div className="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:gap-16 items-start">
               <div>
                 <SectionHeading
-                  eyebrow="Why IBGram"
+                  eyebrow="Why IB Gram"
                   title="Clearer planning, fewer last-minute surprises"
                 />
                 <ul className="mt-8 space-y-4">

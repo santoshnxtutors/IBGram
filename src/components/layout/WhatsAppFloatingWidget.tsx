@@ -31,7 +31,7 @@ export function WhatsAppFloatingWidget() {
 
     const formData = new FormData(event.currentTarget);
     const message = [
-      "New IBGram enquiry",
+      "New IB Gram enquiry",
       `Name: ${formData.get("name") || ""}`,
       `Curriculum: ${formData.get("curriculum") || ""}`,
       `Mode: ${formData.get("mode") || ""}`,
@@ -50,7 +50,7 @@ export function WhatsAppFloatingWidget() {
           <div className="flex items-center justify-between border-b border-border/60 px-4 py-3">
             <div>
               <p className="text-sm font-semibold text-foreground">WhatsApp Enquiry</p>
-              <p className="text-xs text-muted-foreground">Send your details to IBGram.</p>
+              <p className="text-xs text-muted-foreground">Send your details to IB Gram.</p>
             </div>
             <button
               type="button"

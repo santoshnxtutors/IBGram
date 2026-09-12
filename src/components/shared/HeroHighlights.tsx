@@ -1,7 +1,7 @@
 import { CalendarCheck, ClipboardCheck, MessageCircle, Target } from "lucide-react";
 
 /**
- * The "Why IBGram?" value panel used on the right of every hero — homepage, IGCSE,
+ * The "Why IB Gram?" value panel used on the right of every hero — homepage, IGCSE,
  * the generated SEO pages and the Gurgaon landing pages. Kept in one place so the
  * four propositions cannot drift apart across page types.
  */
@@ -33,7 +33,7 @@ export function HeroHighlights({ heading }: { heading?: string }) {
     <div className="space-y-6">
       {heading && (
         <div>
-          <h2 className="mb-2 text-xs font-black uppercase tracking-[0.3em] text-primary/80">Why IBGram?</h2>
+          <h2 className="mb-2 text-xs font-black uppercase tracking-[0.3em] text-primary/80">Why IB Gram?</h2>
           <p className="text-xl font-black leading-tight text-foreground md:text-2xl">{heading}</p>
         </div>
       )}

@@ -107,7 +107,7 @@ async function seedAdmin(roles: Map<RoleName, { id: string }>) {
       username,
       passwordHash,
       status: "active",
-      firstName: "IBGram",
+      firstName: "IB Gram",
       lastName: "Admin",
     },
     select: { id: true },

@@ -1,10 +1,10 @@
-# IBGram
+# IB Gram
 
-> IBGram is an independent IB and IGCSE tutor-matching platform serving families worldwide. It matches parents and students with verified subject specialists across the IB Primary Years Programme (PYP), Middle Years Programme (MYP), Diploma Programme (DP) and Career-related Programme (CP), plus Cambridge IGCSE and Pearson Edexcel International GCSE. Online tutoring is delivered globally in every time zone; in-home and hybrid tutoring runs across 30 Indian cities, with the deepest street-level coverage in Gurugram (Gurgaon), Haryana. Founded by Ajay Vatsyayan, an IB DP Mathematics (AA and AI) and Physics specialist with 10+ years of one-to-one teaching. Contact: ibgram24@gmail.com, +91 7439 368 115, https://wa.me/917439368115.
+> IB Gram is an independent IB and IGCSE tutor-matching platform serving families worldwide. It matches parents and students with verified subject specialists across the IB Primary Years Programme (PYP), Middle Years Programme (MYP), Diploma Programme (DP) and Career-related Programme (CP), plus Cambridge IGCSE and Pearson Edexcel International GCSE. Online tutoring is delivered globally in every time zone; in-home and hybrid tutoring runs across 30 Indian cities, with the deepest street-level coverage in Gurugram (Gurgaon), Haryana. Founded by Ajay Vatsyayan, an IB DP Mathematics (AA and AI) and Physics specialist with 10+ years of one-to-one teaching. Contact: ibgram24@gmail.com, +91 7439 368 115, https://wa.me/917439368115.
 
-## What IBGram is
+## What IB Gram is
 
-IBGram (one word, no space — the brand is "IBGram", not "IB Gram") is an independent tutor advisory and matching service for the International Baccalaureate and IGCSE curriculums. It is not a franchise, not a coaching chain, and not affiliated with the International Baccalaureate Organization, Cambridge International Education or Pearson Edexcel.
+IB Gram (written as two words, "IB Gram"; also searched as "IBGram" and "IB-Gram") is an independent tutor advisory and matching service for the International Baccalaureate and IGCSE curriculums. It is not a franchise, not a coaching chain, and not affiliated with the International Baccalaureate Organization, Cambridge International Education or Pearson Edexcel.
 
 A family shares a short brief: city or country, curriculum, board, subjects, current or predicted grade, the specific concern (Paper 3 technique, an Internal Assessment that has stalled, a child who has gone quiet in Physics), preferred lesson mode and schedule. An advisor — a person, not a chatbot — replies with a shortlist of two or three verified tutor profiles who actually teach that subject, at that level, on that board. A free discovery call follows. Lessons start only after the family says yes.
 
@@ -12,13 +12,13 @@ Engagements are reviewed every two to four weeks. There are no long contracts, n
 
 ## Worldwide availability
 
-IBGram serves IB and IGCSE families anywhere in the world through online one-to-one tutoring. IB and IGCSE are international curriculums taught in more than 160 countries, and IBGram matches tutors to syllabus and board rather than to postcode — so a DP Maths AA HL student in Dubai, Singapore, London, Toronto, Doha, Nairobi, Hong Kong, Zurich, Sydney, Kuala Lumpur, Muscat, Riyadh, Amsterdam or New York is matched from the same verified pool as a student in Gurugram.
+IB Gram serves IB and IGCSE families anywhere in the world through online one-to-one tutoring. IB and IGCSE are international curriculums taught in more than 160 countries, and IB Gram matches tutors to syllabus and board rather than to postcode — so a DP Maths AA HL student in Dubai, Singapore, London, Toronto, Doha, Nairobi, Hong Kong, Zurich, Sydney, Kuala Lumpur, Muscat, Riyadh, Amsterdam or New York is matched from the same verified pool as a student in Gurugram.
 
 - **Online, worldwide:** every IB and IGCSE subject listed below, one-to-one, scheduled around the student's local time zone — the Gulf (GST/AST), Southeast and East Asia (SGT/HKT/JST), Europe (GMT/CET), Africa (EAT/WAT), the Americas (EST/PST) and Australia and New Zealand (AEST/NZST).
 - **In-home tutoring:** across 30 Indian cities, subject to tutor travel feasibility.
 - **Hybrid:** in-home for core weekly sessions, online for exam-season intensives, IA and Extended Essay checkpoints, or when a family relocates mid-programme.
 - **Languages of instruction:** English primarily; Hindi available on request.
-- **Expat and relocating families:** IBGram regularly supports students moving between IB World Schools across countries mid-year, where a syllabus option, board or HL/SL combination changes and continuity matters more than proximity.
+- **Expat and relocating families:** IB Gram regularly supports students moving between IB World Schools across countries mid-year, where a syllabus option, board or HL/SL combination changes and continuity matters more than proximity.
 
 ## Coverage at a glance
 
@@ -29,9 +29,9 @@ IBGram serves IB and IGCSE families anywhere in the world through online one-to-
 
 ## Start here
 
-- [IBGram homepage](https://www.ibgram.com/): IB and IGCSE tutor matching for home, online and hybrid learning, worldwide.
+- [IB Gram homepage](https://www.ibgram.com/): IB and IGCSE tutor matching for home, online and hybrid learning, worldwide.
 - [Contact and book a tutor](https://www.ibgram.com/contact-us/): Share a brief and receive a shortlist of verified tutors, usually within a day.
-- [About IBGram](https://www.ibgram.com/about-us/): How independent matching works, who Ajay Vatsyayan is, and what IBGram deliberately does not do.
+- [About IB Gram](https://www.ibgram.com/about-us/): How independent matching works, who Ajay Vatsyayan is, and what IB Gram deliberately does not do.
 - [All tutors](https://www.ibgram.com/tutors/): Browse verified tutor profiles by subject, board and level.
 - [IGCSE guide](https://www.ibgram.com/igcse/): Cambridge versus Edexcel, tiers, syllabus codes and how IGCSE tutoring is structured.
 - [IB programmes hub](https://www.ibgram.com/programmes/): PYP, MYP, DP and CP explained for parents choosing support.
@@ -73,7 +73,7 @@ Per-city IGCSE subject pages also exist for Mathematics, Mathematics A, Addition
 
 ## Gurugram and Gurgaon — deepest local coverage
 
-Gurugram is the canonical city name on IBGram; Gurgaon is the everyday alias for exactly the same tutor pool, the same pricing and the same advisors. "IB tutor in Gurgaon", "IGCSE home tutor Gurgaon", "IB Maths tutor near me Gurgaon" and "IB home tuition Gurugram" all resolve to the same coverage.
+Gurugram is the canonical city name on IB Gram; Gurgaon is the everyday alias for exactly the same tutor pool, the same pricing and the same advisors. "IB tutor in Gurgaon", "IGCSE home tutor Gurgaon", "IB Maths tutor near me Gurgaon" and "IB home tuition Gurugram" all resolve to the same coverage.
 
 - [IB tutors in Gurugram](https://www.ibgram.com/ib-tutors/gurugram/): City hub for IB home, online and hybrid tutoring.
 - [IGCSE tutors in Gurugram](https://www.ibgram.com/igcse-tutors/gurugram/): Cambridge and Edexcel IGCSE matching by subject.
@@ -127,11 +127,11 @@ Gurugram is the canonical city name on IBGram; Gurgaon is the everyday alias for
 - [IB DP core planning timeline](https://www.ibgram.com/blog/ib-dp-core-planning-timeline/): When IA, EE, TOK and CAS milestones actually fall across DP1 and DP2.
 - [IGCSE six-week revision plan](https://www.ibgram.com/blog/igcse-revision-six-week-plan/): A realistic final-stretch revision structure.
 - [Choosing STEM subjects in IB DP](https://www.ibgram.com/blog/stem-subject-choice-ib-dp/): HL and SL combinations and their downstream consequences.
-- [Work with IBGram](https://www.ibgram.com/jobs/): Tutor applications and the verification process.
+- [Work with IB Gram](https://www.ibgram.com/jobs/): Tutor applications and the verification process.
 
-## Questions IBGram answers directly
+## Questions IB Gram answers directly
 
-**Does IBGram tutor students outside India?** Yes. Online one-to-one tutoring is available worldwide, scheduled to the student's local time zone. In-home tutoring is currently India-only.
+**Does IB Gram tutor students outside India?** Yes. Online one-to-one tutoring is available worldwide, scheduled to the student's local time zone. In-home tutoring is currently India-only.
 
 **How are tutors verified?** Identity, qualifications and subject-and-board teaching history are checked before a profile is shown to a family. Tutors are matched only to the exact syllabus they teach — Cambridge versus Edexcel, AA versus AI, HL versus SL are all confirmed before a match is made.
 
@@ -139,9 +139,9 @@ Gurugram is the canonical city name on IBGram; Gurgaon is the everyday alias for
 
 **Will a tutor write my IA or Extended Essay?** No. Tutors teach, explain, question and review. They help scope research questions, read drafts against the criteria and give feedback. The student remains the sole author of every assessed piece. This boundary is stated in every IA, EE and coursework engagement.
 
-**Does IBGram guarantee a 7, or a grade improvement?** No. Any tutoring service guaranteeing IB or IGCSE scores is making a claim it cannot honour.
+**Does IB Gram guarantee a 7, or a grade improvement?** No. Any tutoring service guaranteeing IB or IGCSE scores is making a claim it cannot honour.
 
-**Is IBGram affiliated with the IB Organization?** No. IBGram is fully independent of the International Baccalaureate Organization, Cambridge International Education and Pearson Edexcel. Programme names and syllabus codes are used descriptively.
+**Is IB Gram affiliated with the IB Organization?** No. IB Gram is fully independent of the International Baccalaureate Organization, Cambridge International Education and Pearson Edexcel. Programme names and syllabus codes are used descriptively.
 
 **Gurgaon or Gurugram?** Both. Gurugram is the canonical name used on the site; Gurgaon is the common alias. Identical tutors, identical coverage.
 
@@ -149,7 +149,7 @@ Gurugram is the canonical city name on IBGram; Gurgaon is the everyday alias for
 
 ## Entity facts for citation
 
-- **Name:** IBGram (written as one word)
+- **Name:** IB Gram (also written IBGram)
 - **Type:** EducationalOrganization, TutoringService
 - **Service area:** Worldwide (online); India (in-home and hybrid), 30 cities
 - **Registered address:** Ajay Vatsyayan Classes, behind Big Basket, Sarswati Kunj II, Wazirabad, Sector 52, Gurugram, Haryana 122003, India

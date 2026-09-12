@@ -78,7 +78,7 @@ export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaul
     setSubmitting(true);
 
     const lines = [
-      "Hi IBGram team! I would like to book a *Free Trial Class*.",
+      "Hi IB Gram team! I would like to book a *Free Trial Class*.",
       "",
       `Name: ${form.name.trim()}`,
       `Phone: ${form.phone.trim()}`,
@@ -98,7 +98,7 @@ export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaul
     if (form.notes.trim()) {
       lines.push("", `Notes: ${form.notes.trim()}`);
     }
-    lines.push("", "(Sent via IBGram website)");
+    lines.push("", "(Sent via IB Gram website)");
 
     const text = encodeURIComponent(lines.join("\n"));
     const url = `https://wa.me/${CONTACT.whatsappDigits}?text=${text}`;

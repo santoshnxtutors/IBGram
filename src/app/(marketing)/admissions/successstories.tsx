@@ -39,7 +39,7 @@ export default function SuccessStoriesPage() {
       {/* Header */}
       <section className="container mx-auto px-4 pt-6 pb-10 text-center md:px-6 md:pt-10">
         <p className="text-[11px] font-black uppercase tracking-[0.3em] text-primary sm:text-xs">
-          Admissions success stories through the IBGram × Ethos Education collaboration.
+          Admissions success stories through the IB Gram × Ethos Education collaboration.
         </p>
         <h1 className="mx-auto mt-4 max-w-3xl text-3xl font-black tracking-tight text-foreground sm:text-4xl md:text-5xl">
           Where our students <span className="text-gradient">got in</span>

@@ -245,7 +245,7 @@ export default function TestPrepPage() {
             <div className="mb-14">
               <p className="text-xs font-black uppercase tracking-[0.28em] text-primary mb-4">How We Do It</p>
               <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground">
-                The IBGram Test Prep Difference
+                The IB Gram Test Prep Difference
               </h2>
             </div>
 
@@ -331,7 +331,7 @@ export default function TestPrepPage() {
             <div className="grid md:grid-cols-3 gap-4">
               {[
                 { quote: "My SAT score went from 1380 to 1540 in 8 weeks. The structured approach and targeted drills made all the difference.", name: "Sarah Yadav", test: "SAT 1540", location: "Delhi" },
-                { quote: "IBGram's IELTS tutor knew exactly where I was losing marks. Went from 7.0 to 8.5 before my UK application deadline.", name: "Bhavya Puri", test: "IELTS 8.5", location: "Gurugram" },
+                { quote: "IB Gram's IELTS tutor knew exactly where I was losing marks. Went from 7.0 to 8.5 before my UK application deadline.", name: "Bhavya Puri", test: "IELTS 8.5", location: "Gurugram" },
                 { quote: "The GRE prep was methodical and data-driven. I could see my progress week by week. Scored 335 and got into my dream programme.", name: "Akshat Raut", test: "GRE 335", location: "Mumbai" },
               ].map((t) => (
                 <div key={t.name} className="rounded-[1.75rem] border border-border/50 bg-card px-6 py-7 card-hover">

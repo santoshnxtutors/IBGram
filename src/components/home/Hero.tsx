@@ -83,7 +83,7 @@ export function Hero() {
           >
             <div className="space-y-6">
               <div className="mb-8">
-                <h2 className="text-xs font-black uppercase tracking-[0.3em] text-primary/80 mb-2">Why IBGram?</h2>
+                <h2 className="text-xs font-black uppercase tracking-[0.3em] text-primary/80 mb-2">Why IB Gram?</h2>
                 <p className="text-2xl md:text-3xl font-black text-foreground leading-tight">Support built around how IB and IGCSE students study, wherever they are</p>
               </div>
 

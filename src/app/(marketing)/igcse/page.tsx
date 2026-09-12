@@ -226,7 +226,7 @@ export default async function IGCSEPage() {
         </div>
 
         {/* Same two-column shape as the IB hero on the homepage: left-aligned badge,
-            headline, intro and CTAs, with a "Why IBGram?" panel on the right. */}
+            headline, intro and CTAs, with a "Why IB Gram?" panel on the right. */}
         <div className="relative z-10 mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:pl-8 xl:pl-12 lg:pr-10">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
 
@@ -296,7 +296,7 @@ export default async function IGCSEPage() {
             <div className="relative lg:col-span-5">
               <div className="space-y-6">
                 <div className="mb-8">
-                  <h2 className="mb-2 text-xs font-black uppercase tracking-[0.3em] text-primary/80">Why IBGram?</h2>
+                  <h2 className="mb-2 text-xs font-black uppercase tracking-[0.3em] text-primary/80">Why IB Gram?</h2>
                   <p className="text-2xl font-black leading-tight text-foreground md:text-3xl">Support built around how IGCSE students are actually examined</p>
                 </div>
 

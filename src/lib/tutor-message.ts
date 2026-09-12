@@ -9,7 +9,7 @@ type TutorMessageDetails = {
 export function buildTutorMessageUrl(tutor: TutorMessageDetails) {
   const subjectLine = [tutor.subject, tutor.grade ? `(${tutor.grade})` : ""].filter(Boolean).join(" ");
   const lines = [
-    "Hi IBGram team,",
+    "Hi IB Gram team,",
     `I'm interested in speaking about lessons with ${tutor.name}.`,
   ];
 

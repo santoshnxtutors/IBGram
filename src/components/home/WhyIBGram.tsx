@@ -61,7 +61,7 @@ export function WhyIBGram() {
         aria-label="Why Choose IB Gram"
       >
         <span className="font-extrabold text-sm md:text-base text-foreground/80 group-hover:text-foreground tracking-wider transition-colors drop-shadow-md">
-          Why IBGram?
+          Why IB Gram?
         </span>
       </motion.button>
 

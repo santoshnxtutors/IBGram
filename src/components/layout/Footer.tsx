@@ -29,7 +29,7 @@ export function Footer() {
             <Link href="/" className="mb-6 inline-flex items-center gap-1">
               {/* alt="" because the brand name sits right beside it inside the same link. */}
               <Image src="/images/logo.png" alt="" width={40} height={40} className="size-10 rounded-lg" />
-              <span className="text-2xl font-bold tracking-tight text-foreground"><span className="text-primary">IB</span>Gram</span>
+              <span className="text-2xl font-bold tracking-tight text-foreground"><span className="text-primary">IB</span> Gram</span>
             </Link>
             <p className="text-sm text-muted-foreground font-medium mb-6 leading-relaxed max-w-sm">
               {isIgcsePage
@@ -127,7 +127,7 @@ export function Footer() {
             <ul className="space-y-4 text-sm font-medium text-muted-foreground">
               <li><Link href="/contact-us" className="hover:text-primary transition-colors">Contact Us</Link></li>
               <li><Link href="/#faq" className="hover:text-primary transition-colors">FAQs</Link></li>
-              <li><Link href="/#how-it-works" className="hover:text-primary transition-colors">How {isIgcsePage ? "IGCSE Prep" : "IBGram"} Works</Link></li>
+              <li><Link href="/#how-it-works" className="hover:text-primary transition-colors">How {isIgcsePage ? "IGCSE Prep" : "IB Gram"} Works</Link></li>
               <li><Link href="/jobs" className="hover:text-primary transition-colors">Jobs</Link></li>
               <li><JoinAsTutorButton variant="link" className="text-left hover:text-primary transition-colors" /></li>
               <li><Link href="/privacy-policy/" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
@@ -138,7 +138,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-semibold text-muted-foreground">
-          <p>©(2018-2026) IBGram. All rights reserved.</p>
+          <p>©(2018-2026) IB Gram. All rights reserved.</p>
           <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4 text-center">
             <Link href="/privacy-policy/" className="whitespace-nowrap hover:text-primary transition-colors">Privacy Policy</Link>
             <span className="hidden md:inline">|</span>

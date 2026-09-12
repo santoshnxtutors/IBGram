@@ -245,7 +245,7 @@ export function CountryLanding({
               </ul>
             </div>
 
-            {/* Mirrors the homepage "Why IBGram?" rail: eyebrow, one statement,
+            {/* Mirrors the homepage "Why IB Gram?" rail: eyebrow, one statement,
                 then standalone icon cards — no outer container card. */}
             <aside className="relative lg:col-span-5">
               <div className="space-y-6">

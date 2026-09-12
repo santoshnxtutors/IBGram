@@ -10,7 +10,7 @@ const PRINT_CSS = `@media print {
   #invoice { box-shadow: none !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }`;
 
-/** IBGram invoice. "user" is the customer's full invoice; "owner" is IBGram's short record: name, invoice number, amount. */
+/** IB Gram invoice. "user" is the customer's full invoice; "owner" is IB Gram's short record: name, invoice number, amount. */
 export function Invoice({ payment, copy = "user" }: { payment: Payment; copy?: "user" | "owner" }) {
   const owner = copy === "owner";
   const amount = formatMoney(Number(payment.amount), payment.currency);
@@ -35,7 +35,7 @@ export function Invoice({ payment, copy = "user" }: { payment: Payment; copy?: "
       <article id="invoice" className="overflow-hidden rounded-3xl border border-slate-200 bg-white text-[#0b1530] shadow-xl">
         <div className="flex flex-wrap items-center justify-between gap-4 bg-[#13254a] px-6 py-6 text-white sm:px-10">
           <div className="flex items-center gap-3">
-            <Image src="/images/logo.png" alt="IBGram logo" width={56} height={56} loading="eager" className="size-14 rounded-xl bg-white" />
+            <Image src="/images/logo.png" alt="IB Gram logo" width={56} height={56} loading="eager" className="size-14 rounded-xl bg-white" />
             <div>
               <p className="text-2xl font-black tracking-tight"><span className="text-[#f7941d]">IB</span>Gram</p>
               <p className="text-xs text-white/70">IB &amp; IGCSE Tutoring</p>
@@ -72,9 +72,9 @@ export function Invoice({ payment, copy = "user" }: { payment: Payment; copy?: "
         ) : (
           <div className="space-y-8 px-6 py-8 sm:px-10">
             <div className="rounded-2xl bg-[#fff4e6] px-5 py-4">
-              <p className="text-lg font-black text-[#13254a]">Welcome to the IBGram family!</p>
+              <p className="text-lg font-black text-[#13254a]">Welcome to the IB Gram family!</p>
               <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                Thank you for trusting IBGram{payment.tutorName ? ` and choosing ${payment.tutorName} as your tutor` : ""}.
+                Thank you for trusting IB Gram{payment.tutorName ? ` and choosing ${payment.tutorName} as your tutor` : ""}.
                 We are glad to be part of your learning journey and are here whenever you need us.
               </p>
             </div>
@@ -88,7 +88,7 @@ export function Invoice({ payment, copy = "user" }: { payment: Payment; copy?: "
               </div>
               <div className="sm:text-right">
                 <p className={label}>From</p>
-                <p className="mt-2 font-bold">IBGram</p>
+                <p className="mt-2 font-bold">IB Gram</p>
                 <p className="text-sm text-slate-600">{CONTACT.addressLine1}, {CONTACT.addressLine2}</p>
                 <p className="text-sm text-slate-600">{CONTACT.addressCity}, {CONTACT.addressState} {CONTACT.addressPostal}</p>
                 <p className="text-sm text-slate-600">{CONTACT.email} | {CONTACT.phoneDisplay}</p>
@@ -135,7 +135,7 @@ export function Invoice({ payment, copy = "user" }: { payment: Payment; copy?: "
 
         <div className="border-t border-slate-200 bg-[#f7f9fc] px-6 py-4 text-center text-xs text-slate-500 sm:px-10">
           {owner
-            ? "IBGram internal copy. Computer-generated invoice."
+            ? "IB Gram internal copy. Computer-generated invoice."
             : `This is a computer-generated invoice and does not need a signature. Questions? ${CONTACT.email} | ${CONTACT.phoneDisplay}`}
         </div>
       </article>

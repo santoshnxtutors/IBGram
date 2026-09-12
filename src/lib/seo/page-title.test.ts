@@ -7,10 +7,10 @@ describe("resolvePageTitle", () => {
   });
 
   it("rewrites the old spaced brand and suppresses the template", () => {
-    expect(resolvePageTitle("IB Maths Tutor in Gurgaon | IB Gram")).toEqual({ absolute: "IB Maths Tutor in Gurgaon | IBGram" });
+    expect(resolvePageTitle("IB Maths Tutor in Gurgaon | IB Gram")).toEqual({ absolute: "IB Maths Tutor in Gurgaon | IB Gram" });
   });
 
-  it("keeps titles that already end in IBGram", () => {
-    expect(resolvePageTitle("IGCSE Tutors | IBGram ")).toEqual({ absolute: "IGCSE Tutors | IBGram" });
+  it("keeps titles that already end in IB Gram", () => {
+    expect(resolvePageTitle("IGCSE Tutors | IB Gram ")).toEqual({ absolute: "IGCSE Tutors | IB Gram" });
   });
 });
