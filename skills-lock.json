@@ -13,6 +13,12 @@
       "skillPath": "skills/seo/entity-seo/SKILL.md",
       "computedHash": "b93a7ec7e38ca2ef535b6e3bd40a92716708fa4e870432d50ab92ea26e568be0"
     },
+    "llms-txt": {
+      "source": "thatrebeccarae/claude-marketing",
+      "sourceType": "github",
+      "skillPath": "skills/llms-txt/SKILL.md",
+      "computedHash": "4bab9aa9ee74aa64dc8ffdc420a4d15dd8f0a2705b20d99255d5b4f355176faf"
+    },
     "local-seo": {
       "source": "kostja94/marketing-skills",
       "sourceType": "github",

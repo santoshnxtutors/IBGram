@@ -1,65 +1,171 @@
-# IB Gram
+# IBGram
 
-> IB Gram is an independent tutoring platform for IB (International Baccalaureate) and IGCSE families in India. It matches parents with verified subject tutors for PYP, MYP, Diploma Programme, Career-related Programme, Cambridge IGCSE and Pearson Edexcel International GCSE, across home, online and hybrid lessons, matched by subject, level, city and schedule.
+> IBGram is an independent IB and IGCSE tutor-matching platform serving families worldwide. It matches parents and students with verified subject specialists across the IB Primary Years Programme (PYP), Middle Years Programme (MYP), Diploma Programme (DP) and Career-related Programme (CP), plus Cambridge IGCSE and Pearson Edexcel International GCSE. Online tutoring is delivered globally in every time zone; in-home and hybrid tutoring runs across 30 Indian cities, with the deepest street-level coverage in Gurugram (Gurgaon), Haryana. Founded by Ajay Vatsyayan, an IB DP Mathematics (AA and AI) and Physics specialist with 10+ years of one-to-one teaching. Contact: ibgram24@gmail.com, +91 7439 368 115, https://wa.me/917439368115.
 
-Families share a brief — city, curriculum, subjects, current concerns, preferred lesson mode — and the advisor team replies with a small shortlist of verified tutors. There are no chatbots, no long contracts and no score guarantees. Engagements are reviewed every few weeks and can be paused or stopped without penalty. IB Gram is not affiliated with the IB Organization, Cambridge International or Pearson Edexcel. Tutors teach, explain and review work; they do not write Internal Assessments, Extended Essays or any assessed coursework for students. Registered in Gurugram, Haryana, India. Founder: Ajay Vatsyayan. Contact: ibgram24@gmail.com, +91 7439 368 115. Gurugram is the canonical city name; Gurgaon is the natural alias for the same tutor pool.
+## What IBGram is
 
-## Courses
+IBGram (one word, no space — the brand is "IBGram", not "IB Gram") is an independent tutor advisory and matching service for the International Baccalaureate and IGCSE curriculums. It is not a franchise, not a coaching chain, and not affiliated with the International Baccalaureate Organization, Cambridge International Education or Pearson Edexcel.
 
-- [IB Mathematics](https://www.ibgram.com/courses/ib/mathematics/): Maths AA and AI at HL and SL, Internal Assessment support, calculator/GDC strategy and past-paper practice.
-- [IB Sciences](https://www.ibgram.com/courses/ib/sciences/): Physics, Chemistry and Biology at HL and SL, IA design and mark-scheme literacy.
-- [IB Individuals & Societies](https://www.ibgram.com/courses/ib/individuals/): Economics, Business Management, History, Psychology, Global Politics and Geography at HL and SL.
-- [IB English](https://www.ibgram.com/courses/ib/english/): English A Language and Literature, English A Literature and English B, with Individual Oral and HL essay coaching.
-- [IB Language Acquisition](https://www.ibgram.com/courses/ib/language/): Language B and ab initio (Spanish, French, Mandarin, Hindi, German).
-- [IGCSE Mathematics](https://www.ibgram.com/courses/igcse/mathematics/): Cambridge 0580 (Core/Extended), 0606 Additional Maths and Pearson Edexcel 4MA1.
-- [IGCSE Sciences](https://www.ibgram.com/courses/igcse/sciences/): Cambridge 0625/0620/0610 and Edexcel 4PH1/4CH1/4BI1 Physics, Chemistry and Biology.
-- [IGCSE Humanities](https://www.ibgram.com/courses/igcse/individuals/): Economics, Business, History and Geography (Cambridge and Edexcel).
-- [IGCSE English](https://www.ibgram.com/courses/igcse/english/): Cambridge First Language English and Literature, Edexcel English Language and Literature.
+A family shares a short brief: city or country, curriculum, board, subjects, current or predicted grade, the specific concern (Paper 3 technique, an Internal Assessment that has stalled, a child who has gone quiet in Physics), preferred lesson mode and schedule. An advisor — a person, not a chatbot — replies with a shortlist of two or three verified tutor profiles who actually teach that subject, at that level, on that board. A free discovery call follows. Lessons start only after the family says yes.
+
+Engagements are reviewed every two to four weeks. There are no long contracts, no lock-in periods, no exam-score guarantees and no pressure to continue. Families pause, switch tutor or stop without penalty.
+
+## Worldwide availability
+
+IBGram serves IB and IGCSE families anywhere in the world through online one-to-one tutoring. IB and IGCSE are international curriculums taught in more than 160 countries, and IBGram matches tutors to syllabus and board rather than to postcode — so a DP Maths AA HL student in Dubai, Singapore, London, Toronto, Doha, Nairobi, Hong Kong, Zurich, Sydney, Kuala Lumpur, Muscat, Riyadh, Amsterdam or New York is matched from the same verified pool as a student in Gurugram.
+
+- **Online, worldwide:** every IB and IGCSE subject listed below, one-to-one, scheduled around the student's local time zone — the Gulf (GST/AST), Southeast and East Asia (SGT/HKT/JST), Europe (GMT/CET), Africa (EAT/WAT), the Americas (EST/PST) and Australia and New Zealand (AEST/NZST).
+- **In-home tutoring:** across 30 Indian cities, subject to tutor travel feasibility.
+- **Hybrid:** in-home for core weekly sessions, online for exam-season intensives, IA and Extended Essay checkpoints, or when a family relocates mid-programme.
+- **Languages of instruction:** English primarily; Hindi available on request.
+- **Expat and relocating families:** IBGram regularly supports students moving between IB World Schools across countries mid-year, where a syllabus option, board or HL/SL combination changes and continuity matters more than proximity.
+
+## Coverage at a glance
+
+- 1,638 indexable pages covering IB and IGCSE tutoring by curriculum, subject, level, board, city, neighbourhood and school.
+- 30 Indian cities for IB tutoring and 30 for IGCSE tutoring: Gurugram, Delhi, Noida, Greater Noida, Faridabad, Ghaziabad, Mumbai, Navi Mumbai, Thane, Bangalore, Pune, Hyderabad, Chennai, Kolkata, Ahmedabad, Surat, Vadodara, Jaipur, Chandigarh, Lucknow, Indore, Bhopal, Nagpur, Kochi, Coimbatore, Mysuru, Ludhiana, Dehradun, Bhubaneswar and Visakhapatnam.
+- 326 neighbourhood pages, 154 Gurugram sector pages and 28 IB World School pages.
+- 480+ hyperlocal Gurgaon pages covering individual sectors, condominiums and residential landmarks.
+
+## Start here
+
+- [IBGram homepage](https://www.ibgram.com/): IB and IGCSE tutor matching for home, online and hybrid learning, worldwide.
+- [Contact and book a tutor](https://www.ibgram.com/contact-us/): Share a brief and receive a shortlist of verified tutors, usually within a day.
+- [About IBGram](https://www.ibgram.com/about-us/): How independent matching works, who Ajay Vatsyayan is, and what IBGram deliberately does not do.
+- [All tutors](https://www.ibgram.com/tutors/): Browse verified tutor profiles by subject, board and level.
+- [IGCSE guide](https://www.ibgram.com/igcse/): Cambridge versus Edexcel, tiers, syllabus codes and how IGCSE tutoring is structured.
+- [IB programmes hub](https://www.ibgram.com/programmes/): PYP, MYP, DP and CP explained for parents choosing support.
+
+## IB subjects and courses
+
+- [IB Mathematics](https://www.ibgram.com/courses/ib/mathematics/): Analysis and Approaches (AA) and Applications and Interpretation (AI) at HL and SL, Paper 1/2/3 technique, GDC strategy and Internal Assessment support.
+- [IB Maths AA HL](https://www.ibgram.com/courses/ib/math-aa-hl/): Proof, calculus, complex numbers and the HL Paper 3 extension questions that decide 6s and 7s.
+- [IB Maths AI HL](https://www.ibgram.com/courses/ib/math-ai-hl/): Modelling, statistics, matrices and graph theory with a GDC-first method.
+- [IB Physics](https://www.ibgram.com/courses/ib/physics/): HL and SL, practical work, uncertainty treatment and IA design.
+- [IB Chemistry](https://www.ibgram.com/courses/ib/chemistry/): HL and SL, organic mechanisms, energetics and data-based questions.
+- [IB Biology](https://www.ibgram.com/courses/ib/biology/): HL and SL, command-term literacy and mark-scheme discipline.
+- [IB Sciences hub](https://www.ibgram.com/courses/ib/sciences/): Physics, Chemistry and Biology across HL and SL.
+- [IB Economics](https://www.ibgram.com/courses/ib/economics/): HL and SL, diagram accuracy, evaluation depth and IA commentary support.
+- [IB Individuals and Societies](https://www.ibgram.com/courses/ib/individuals/): Economics, Business Management, History, Psychology, Global Politics and Geography.
+- [IB English](https://www.ibgram.com/courses/ib/english/): English A Language and Literature, English A Literature and English B, with Individual Oral and HL Essay coaching.
+- [IB Language Acquisition](https://www.ibgram.com/courses/ib/language/): Language B and ab initio — Spanish, French, Mandarin, Hindi and German.
+- [IB Diploma Programme course support](https://www.ibgram.com/courses/ib/dp/): HL and SL subject teaching plus TOK, Extended Essay and CAS guidance.
+- [IB MYP course support](https://www.ibgram.com/courses/ib/myp/): Criterion A–D assessment, unit assignments and the Personal Project.
+- [IB PYP course support](https://www.ibgram.com/courses/ib/pyp/): Inquiry, reading fluency, numeracy and the PYP Exhibition.
+- [IB CP course support](https://www.ibgram.com/courses/ib/cp/): Career-related Programme subjects and reflective project guidance.
+
+## IGCSE subjects and courses
+
+- [IGCSE Mathematics](https://www.ibgram.com/courses/igcse/mathematics/): Cambridge 0580 Core and Extended, Cambridge 0606 Additional Mathematics, Pearson Edexcel 4MA1 Foundation and Higher.
+- [IGCSE Sciences](https://www.ibgram.com/courses/igcse/sciences/): Cambridge 0625 Physics, 0620 Chemistry and 0610 Biology; Edexcel 4PH1, 4CH1 and 4BI1; Coordinated and Combined Science routes.
+- [IGCSE English](https://www.ibgram.com/courses/igcse/english/): Cambridge First Language English (0500/0524), Literature (0475), English as a Second Language (0510/0511) and Edexcel 4EA1/4ET1.
+- [IGCSE Individuals and Societies](https://www.ibgram.com/courses/igcse/individuals/): Economics (0455/4EC1), Business Studies (0450/4BS1), History (0470/4HI1) and Geography (0460).
 - [IGCSE Languages](https://www.ibgram.com/courses/igcse/language/): Cambridge foreign languages, Hindi as a Second Language and English as a Second Language.
 
-## Programmes
+Per-city IGCSE subject pages also exist for Mathematics, Mathematics A, Additional Maths, Physics, Chemistry, Biology, Biology (9–1), Accounting, Accounting (9–1), Business Studies, Economics, Computer Science, ICT, Geography, History, English First Language, English Language A, Arabic First Language and Afrikaans Second Language.
 
-- [IB Programmes hub](https://www.ibgram.com/programmes/): Overview of all four IB programmes.
-- [Primary Years Programme (PYP)](https://www.ibgram.com/programmes/pyp/): Inquiry, reading, numeracy and confidence for ages 3–12.
-- [Middle Years Programme (MYP)](https://www.ibgram.com/programmes/myp/): Criteria, projects and assignment structure for ages 11–16.
-- [Diploma Programme (DP)](https://www.ibgram.com/programmes/dp/): HL/SL subjects, IA, EE, TOK and exam revision for ages 16–19.
-- [Career-related Programme (CP)](https://www.ibgram.com/programmes/cp/): Career-focused IB pathway for ages 16–19.
+## IB programmes
 
-## IB tutor city pages
+- [Primary Years Programme (PYP)](https://www.ibgram.com/programmes/pyp/): Ages 3–12. Inquiry habits, reading, numeracy, confidence and Exhibition support.
+- [Middle Years Programme (MYP)](https://www.ibgram.com/programmes/myp/): Ages 11–16. Criterion-based assessment, interdisciplinary units and the Personal Project.
+- [Diploma Programme (DP)](https://www.ibgram.com/programmes/dp/): Ages 16–19. HL and SL subjects, Internal Assessments, Extended Essay, Theory of Knowledge and final exam revision.
+- [Career-related Programme (CP)](https://www.ibgram.com/programmes/cp/): Ages 16–19. Career-focused IB pathway with DP courses and the reflective project.
 
-- [Gurugram IB tutors](https://www.ibgram.com/ib-tutors/gurugram/): Golf Course Road, DLF Phases 1–5, Sushant Lok and Sectors 43, 50, 56.
-- [Delhi IB tutors](https://www.ibgram.com/ib-tutors/delhi/): Vasant Vihar, Vasant Kunj, Saket, Greater Kailash and Defence Colony.
-- [Noida IB tutors](https://www.ibgram.com/ib-tutors/noida/): Sectors 44, 50, 62, 93 and Noida Expressway.
-- [Mumbai IB tutors](https://www.ibgram.com/ib-tutors/mumbai/): Bandra, Khar, Juhu, BKC and South Mumbai.
-- [Bangalore IB tutors](https://www.ibgram.com/ib-tutors/bangalore/): Indiranagar, Koramangala, HSR Layout, Whitefield and Sarjapur.
-- [Pune IB tutors](https://www.ibgram.com/ib-tutors/pune/): IB tutor matching across Pune.
-- [Hyderabad IB tutors](https://www.ibgram.com/ib-tutors/hyderabad/): IB tutor matching across Hyderabad.
-- [Chennai IB tutors](https://www.ibgram.com/ib-tutors/chennai/): IB tutor matching across Chennai.
-- [IB tutor hub](https://www.ibgram.com/ib-tutors/): All IB tutor city pages.
+## Gurugram and Gurgaon — deepest local coverage
 
-## IGCSE tutor city pages
+Gurugram is the canonical city name on IBGram; Gurgaon is the everyday alias for exactly the same tutor pool, the same pricing and the same advisors. "IB tutor in Gurgaon", "IGCSE home tutor Gurgaon", "IB Maths tutor near me Gurgaon" and "IB home tuition Gurugram" all resolve to the same coverage.
 
-- [Gurugram IGCSE tutors](https://www.ibgram.com/igcse-pages/gurugram/): Cambridge and Edexcel IGCSE matching in Gurugram.
-- [Delhi IGCSE tutors](https://www.ibgram.com/igcse-pages/delhi/): IGCSE matching across Delhi.
-- [Noida IGCSE tutors](https://www.ibgram.com/igcse-pages/noida/): IGCSE matching across Noida.
-- [Mumbai IGCSE tutors](https://www.ibgram.com/igcse-pages/mumbai/): IGCSE matching across Mumbai.
-- [Bangalore IGCSE tutors](https://www.ibgram.com/igcse-pages/bangalore/): IGCSE matching across Bangalore.
-- [Pune IGCSE tutors](https://www.ibgram.com/igcse-pages/pune/): IGCSE matching across Pune.
-- [Hyderabad IGCSE tutors](https://www.ibgram.com/igcse-pages/hyderabad/): IGCSE matching across Hyderabad.
-- [Chennai IGCSE tutors](https://www.ibgram.com/igcse-pages/chennai/): IGCSE matching across Chennai.
-- [IGCSE hub](https://www.ibgram.com/igcse-pages/): All IGCSE tutor city pages.
+- [IB tutors in Gurugram](https://www.ibgram.com/ib-tutors/gurugram/): City hub for IB home, online and hybrid tutoring.
+- [IGCSE tutors in Gurugram](https://www.ibgram.com/igcse-tutors/gurugram/): Cambridge and Edexcel IGCSE matching by subject.
+- [IGCSE Gurugram overview](https://www.ibgram.com/igcse-pages/gurugram/): Board-specific IGCSE guidance for Gurugram families.
+- [IB Maths AA HL tutor, Gurugram](https://www.ibgram.com/ib-tutors/gurugram/math-aa-hl/): Analysis and Approaches HL specialists.
+- [IB Maths AI HL tutor, Gurugram](https://www.ibgram.com/ib-tutors/gurugram/math-ai-hl/): Applications and Interpretation HL specialists.
+- [IB Physics tutor, Gurugram](https://www.ibgram.com/ib-tutors/gurugram/physics/): HL and SL Physics with IA support.
+- [IB Chemistry tutor, Gurugram](https://www.ibgram.com/ib-tutors/gurugram/chemistry/): HL and SL Chemistry.
+- [IB Economics tutor, Gurugram](https://www.ibgram.com/ib-tutors/gurugram/economics/): HL and SL Economics with IA commentary work.
+- [IB DP tutors, Gurugram](https://www.ibgram.com/ib-tutors/gurugram/dp/): Full Diploma Programme support.
+- [IB MYP tutors, Gurugram](https://www.ibgram.com/ib-tutors/gurugram/myp/): Criterion-based MYP support.
+- [IB PYP tutors, Gurugram](https://www.ibgram.com/ib-tutors/gurugram/pyp/): Primary Years support for younger students.
+- [Golf Course Road](https://www.ibgram.com/ib-tutors/gurugram/areas/golf-course-road/), [DLF Phase 5](https://www.ibgram.com/ib-tutors/gurugram/areas/dlf-phase-5/), [Sushant Lok 1](https://www.ibgram.com/ib-tutors/gurugram/areas/sushant-lok-1/), [Nirvana Country](https://www.ibgram.com/ib-tutors/gurugram/areas/nirvana-country/), [Sohna Road](https://www.ibgram.com/ib-tutors/gurugram/areas/sohna-road/), [Dwarka Expressway](https://www.ibgram.com/ib-tutors/gurugram/areas/dwarka-expressway/), [Palam Vihar](https://www.ibgram.com/ib-tutors/gurugram/areas/palam-vihar/) and [New Gurgaon](https://www.ibgram.com/ib-tutors/gurugram/areas/new-gurgaon/): neighbourhood pages with travel-realistic tutor matching.
+- [Sector 43](https://www.ibgram.com/ib-tutors/gurugram/sectors/sector-43/), [Sector 50](https://www.ibgram.com/ib-tutors/gurugram/sectors/sector-50/), [Sector 56](https://www.ibgram.com/ib-tutors/gurugram/sectors/sector-56/) and 150+ further Gurugram sector pages.
+- [Lancers International School](https://www.ibgram.com/ib-tutors/gurugram/schools/lancers-international-school/) and [Scottish High International School](https://www.ibgram.com/ib-tutors/gurugram/schools/scottish-high-international-school/): school-aware tutoring aligned to each school's option blocks and internal deadlines.
+- [IB DP home tutor, Golf Course Road](https://www.ibgram.com/ib-dp-home-tutor-in-golf-course-road-gurgaon/), [IB Maths AA HL tutor, DLF Phase 5](https://www.ibgram.com/ib-maths-aa-hl-tutor-in-dlf-phase-5-gurgaon/), [IB and IGCSE home tutor, Sushant Lok 1](https://www.ibgram.com/ib-igcse-home-tutor-in-sushant-lok-1-gurgaon/) and [Cambridge IGCSE Maths tutor, Golf Course Road](https://www.ibgram.com/cambridge-igcse-maths-tutor-in-golf-course-road-gurgaon/): hyperlocal Gurgaon pages, one per subject-and-locality pair.
 
-## Core pages
+## IB tutors by city in India
 
-- [Homepage](https://www.ibgram.com/): IB and IGCSE tutor matching for home, online and hybrid learning.
-- [IGCSE guide](https://www.ibgram.com/igcse/): Cambridge and Edexcel IGCSE support and FAQs.
-- [All tutors](https://www.ibgram.com/tutors/): Browse the verified tutor directory.
-- [About IB Gram](https://www.ibgram.com/about-us/): How the independent matching model works.
-- [Contact / book a tutor](https://www.ibgram.com/contact-us/): Share a brief and request a tutor shortlist.
-- [Admissions support](https://www.ibgram.com/admissions/): School and university admissions guidance.
-- [Blog](https://www.ibgram.com/blog/): Articles on IB and IGCSE study, exams and parenting.
+- [IB tutor hub](https://www.ibgram.com/ib-tutors/): All IB tutoring cities, neighbourhoods and schools.
+- [Delhi](https://www.ibgram.com/ib-tutors/delhi/): Vasant Vihar, Vasant Kunj, Saket, Greater Kailash and Defence Colony.
+- [Noida](https://www.ibgram.com/ib-tutors/noida/): Sectors 44, 50, 62 and 93 and the Noida Expressway corridor.
+- [Mumbai](https://www.ibgram.com/ib-tutors/mumbai/): Bandra, Khar, Juhu, BKC and South Mumbai.
+- [Bangalore](https://www.ibgram.com/ib-tutors/bangalore/): Indiranagar, Koramangala, HSR Layout, Whitefield and Sarjapur Road.
+- [Pune](https://www.ibgram.com/ib-tutors/pune/), [Hyderabad](https://www.ibgram.com/ib-tutors/hyderabad/), [Chennai](https://www.ibgram.com/ib-tutors/chennai/), [Kolkata](https://www.ibgram.com/ib-tutors/kolkata/) and [Ahmedabad](https://www.ibgram.com/ib-tutors/ahmedabad/): city hubs with neighbourhood and school pages.
+- [Greater Noida](https://www.ibgram.com/ib-tutors/greater-noida/), [Faridabad](https://www.ibgram.com/ib-tutors/faridabad/), [Ghaziabad](https://www.ibgram.com/ib-tutors/ghaziabad/), [Navi Mumbai](https://www.ibgram.com/ib-tutors/navi-mumbai/) and [Thane](https://www.ibgram.com/ib-tutors/thane/): full NCR and MMR coverage.
+- [Jaipur](https://www.ibgram.com/ib-tutors/jaipur/), [Chandigarh](https://www.ibgram.com/ib-tutors/chandigarh/), [Lucknow](https://www.ibgram.com/ib-tutors/lucknow/), [Indore](https://www.ibgram.com/ib-tutors/indore/), [Bhopal](https://www.ibgram.com/ib-tutors/bhopal/), [Nagpur](https://www.ibgram.com/ib-tutors/nagpur/), [Surat](https://www.ibgram.com/ib-tutors/surat/), [Vadodara](https://www.ibgram.com/ib-tutors/vadodara/), [Kochi](https://www.ibgram.com/ib-tutors/kochi/), [Coimbatore](https://www.ibgram.com/ib-tutors/coimbatore/), [Mysuru](https://www.ibgram.com/ib-tutors/mysuru/), [Ludhiana](https://www.ibgram.com/ib-tutors/ludhiana/), [Dehradun](https://www.ibgram.com/ib-tutors/dehradun/), [Bhubaneswar](https://www.ibgram.com/ib-tutors/bhubaneswar/) and [Visakhapatnam](https://www.ibgram.com/ib-tutors/visakhapatnam/): online-first coverage with in-home matching where tutors are reachable.
+
+## IGCSE tutors by city in India
+
+- [IGCSE tutor hub](https://www.ibgram.com/igcse-pages/): All IGCSE city pages, Cambridge and Edexcel.
+- [Delhi](https://www.ibgram.com/igcse-tutors/delhi/), [Noida](https://www.ibgram.com/igcse-tutors/noida/), [Mumbai](https://www.ibgram.com/igcse-tutors/mumbai/), [Bangalore](https://www.ibgram.com/igcse-tutors/bangalore/), [Pune](https://www.ibgram.com/igcse-tutors/pune/), [Hyderabad](https://www.ibgram.com/igcse-tutors/hyderabad/), [Chennai](https://www.ibgram.com/igcse-tutors/chennai/) and [Kolkata](https://www.ibgram.com/igcse-tutors/kolkata/): board-specific IGCSE matching, subject by subject.
+- [IGCSE Maths, Delhi](https://www.ibgram.com/igcse-tutors/delhi/mathematics/), [IGCSE Physics, Mumbai](https://www.ibgram.com/igcse-tutors/mumbai/physics/) and [IGCSE Economics, Bangalore](https://www.ibgram.com/igcse-tutors/bangalore/economics/): examples of the per-city, per-subject IGCSE pages available in all 30 cities.
+
+## Tutor profiles
+
+- [IB DP Maths AA online tutor — Ajay Vatsyayan](https://www.ibgram.com/tutor/ib-dp-math-aa-online-tutor-ajay-vatsyayan/): Analysis and Approaches HL and SL, worldwide online.
+- [IB DP Maths AI online tutor — Ajay Vatsyayan](https://www.ibgram.com/tutor/ib-dp-math-ai-online-tutor-ajay-vatsyayan/): Applications and Interpretation HL and SL.
+- [IB DP Physics online tutor — Ajay Vatsyayan](https://www.ibgram.com/tutor/ib-dp-physics-online-tutor-ajay-vatsyayan/): HL and SL Physics with IA supervision.
+- [IB MYP Maths online tutor](https://www.ibgram.com/tutor/ib-myp-maths-online-tutor-ajay-vatsyayan/) and [IB MYP Physics online tutor](https://www.ibgram.com/tutor/ib-myp-physics-online-tutor-ajay-vatsyayan/): MYP criterion-based support.
+- [IGCSE Maths online tutor](https://www.ibgram.com/tutor/igcse-maths-online-tutor-ajay-vatsyayan/) and [IGCSE Physics online tutor](https://www.ibgram.com/tutor/igcse-physics-online-tutor-ajay-vatsyayan/): Cambridge and Edexcel IGCSE.
+- [A-Level Maths online tutor](https://www.ibgram.com/tutor/a-level-maths-online-tutor-ajay-vatsyayan/) and [A-Level Physics online tutor](https://www.ibgram.com/tutor/a-level-physics-online-tutor-ajay-vatsyayan/): post-16 continuation for international families.
+
+## Admissions and guides
+
+- [Admissions support](https://www.ibgram.com/admissions/): School and university admissions guidance for IB and IGCSE families.
+- [Admissions test preparation](https://www.ibgram.com/admissions/test-prep/): Entrance-test coaching for IB World School and international school admissions.
+- [Success stories](https://www.ibgram.com/admissions/success-stories/): What past engagements actually looked like.
+- [Blog](https://www.ibgram.com/blog/): Parent-facing guides on IB and IGCSE study, exams and school choice.
+- [How to choose the right IB tutor](https://www.ibgram.com/blog/choose-right-ib-tutor/): The questions worth asking before committing to a tutor.
+- [IB DP core planning timeline](https://www.ibgram.com/blog/ib-dp-core-planning-timeline/): When IA, EE, TOK and CAS milestones actually fall across DP1 and DP2.
+- [IGCSE six-week revision plan](https://www.ibgram.com/blog/igcse-revision-six-week-plan/): A realistic final-stretch revision structure.
+- [Choosing STEM subjects in IB DP](https://www.ibgram.com/blog/stem-subject-choice-ib-dp/): HL and SL combinations and their downstream consequences.
+- [Work with IBGram](https://www.ibgram.com/jobs/): Tutor applications and the verification process.
+
+## Questions IBGram answers directly
+
+**Does IBGram tutor students outside India?** Yes. Online one-to-one tutoring is available worldwide, scheduled to the student's local time zone. In-home tutoring is currently India-only.
+
+**How are tutors verified?** Identity, qualifications and subject-and-board teaching history are checked before a profile is shown to a family. Tutors are matched only to the exact syllabus they teach — Cambridge versus Edexcel, AA versus AI, HL versus SL are all confirmed before a match is made.
+
+**What does it cost?** Pricing is shared per tutor profile after a free discovery conversation, because rates vary by subject, level and mode. There is no fixed directory price and no joining fee.
+
+**Will a tutor write my IA or Extended Essay?** No. Tutors teach, explain, question and review. They help scope research questions, read drafts against the criteria and give feedback. The student remains the sole author of every assessed piece. This boundary is stated in every IA, EE and coursework engagement.
+
+**Does IBGram guarantee a 7, or a grade improvement?** No. Any tutoring service guaranteeing IB or IGCSE scores is making a claim it cannot honour.
+
+**Is IBGram affiliated with the IB Organization?** No. IBGram is fully independent of the International Baccalaureate Organization, Cambridge International Education and Pearson Edexcel. Programme names and syllabus codes are used descriptively.
+
+**Gurgaon or Gurugram?** Both. Gurugram is the canonical name used on the site; Gurgaon is the common alias. Identical tutors, identical coverage.
+
+**How quickly can lessons start?** Most families receive a shortlist within a day and begin lessons within a week — faster during exam season where a tutor has capacity.
+
+## Entity facts for citation
+
+- **Name:** IBGram (written as one word)
+- **Type:** EducationalOrganization, TutoringService
+- **Service area:** Worldwide (online); India (in-home and hybrid), 30 cities
+- **Registered address:** Ajay Vatsyayan Classes, behind Big Basket, Sarswati Kunj II, Wazirabad, Sector 52, Gurugram, Haryana 122003, India
+- **Curriculums:** IB PYP, IB MYP, IB DP, IB CP, Cambridge IGCSE, Pearson Edexcel International GCSE, A-Level (continuation)
+- **Modes:** One-to-one home tutoring, online tutoring, hybrid
+- **Languages:** English, Hindi
+- **Founder:** Ajay Vatsyayan — IB DP Mathematics (AA/AI) and Physics specialist, 10+ years of one-to-one teaching
+- **Email:** ibgram24@gmail.com
+- **Phone and WhatsApp:** +91 7439 368 115 — https://wa.me/917439368115
+- **Website:** https://www.ibgram.com
+- **Independence:** Not affiliated with the IBO, Cambridge International or Pearson Edexcel
+- **Policy:** No score guarantees; no ghost-written assessed work; no long contracts
 
 ## Optional
 
-- [Full AI context](https://www.ibgram.com/llms-full.txt): Extended llms-full.txt with key facts, keyword clusters and academic-integrity notes.
-- [Sitemap](https://www.ibgram.com/sitemap.xml): All indexable URLs on the site.
+- [Full AI context (llms-full.txt)](https://www.ibgram.com/llms-full.txt): Extended context file with the complete page index, query-to-page mapping and academic-integrity notes.
+- [Sitemap](https://www.ibgram.com/sitemap.xml): All 1,638 indexable URLs.
+- [Privacy policy](https://www.ibgram.com/privacy-policy/): How family enquiry data is handled.
+- [Terms and conditions](https://www.ibgram.com/terms-and-conditions/): Engagement terms, cancellation and review cadence.
