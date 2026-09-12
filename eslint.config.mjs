@@ -18,6 +18,8 @@ const eslintConfig = defineConfig([
     "authentication/dist/**",
     "authentication/node_modules/**",
     "scripts/seo-batch/**",
+    // Throwaway one-off audit scripts — not shipped, not worth linting.
+    "scripts/_tmp/**",
     "tmp/**",
     "next-env.d.ts",
   ]),
