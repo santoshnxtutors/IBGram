@@ -192,7 +192,7 @@ export function TutorAvailabilitySection({
               <motion.div
                 key="expanded"
                 layoutId={`card-${tutor.id}`}
-                className="glassmorphism-heavy relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden overflow-y-auto rounded-[2.5rem] border border-border bg-card shadow-3xl md:flex-row"
+                className="glassmorphism-heavy relative flex max-h-[85vh] w-full max-w-3xl flex-col overflow-hidden overflow-y-auto rounded-[2.5rem] border border-border bg-card shadow-3xl md:flex-row"
               >
                 <button
                   onClick={() => setSelectedId(null)}
@@ -201,18 +201,17 @@ export function TutorAvailabilitySection({
                   <X className="size-5" />
                 </button>
 
-                <div className="relative flex h-64 min-h-[300px] w-full items-center justify-center border-b border-border/50 bg-muted/20 md:h-auto md:w-2/5 md:border-b-0 md:border-r">
+                <div className="relative flex h-64 min-h-[300px] w-full items-center justify-center border-b border-border/50 bg-muted/20 md:h-auto md:w-1/2 md:border-b-0 md:border-r">
                   <motion.div layoutId={`avatar-${tutor.id}`} className="absolute inset-0 flex items-center justify-center bg-muted">
                     {tutor.image ? (
-                      <Image src={tutor.image} alt={tutor.name} fill sizes="400px" className="object-cover object-top" />
+                      <Image src={tutor.image} alt={tutor.name} fill sizes="500px" className="object-cover object-top" />
                     ) : (
                       <span className="text-6xl font-bold text-muted-foreground">{tutor.name.charAt(0)}</span>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-l" />
                   </motion.div>
                 </div>
 
-                <div className="flex-1 p-8 md:p-12">
+                <div className="flex-1 p-8 md:p-10">
                   <motion.h3 layoutId={`name-${tutor.id}`} className="mb-1 flex items-center gap-2 text-3xl font-black tracking-tight text-foreground">
                     {tutor.name} <ShieldCheck className="size-6 text-primary" />
                   </motion.h3>
@@ -242,7 +241,7 @@ export function TutorAvailabilitySection({
                       <h4 className="mb-3 flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
                         About Me
                       </h4>
-                      <p className="text-base leading-relaxed text-card-foreground">{tutor.bio}</p>
+                      <p className="text-base leading-relaxed text-card-foreground line-clamp-6">{tutor.bio}</p>
                     </div>
 
                     <div className="flex flex-wrap gap-2">

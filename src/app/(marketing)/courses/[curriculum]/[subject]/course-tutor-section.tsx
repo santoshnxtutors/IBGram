@@ -188,7 +188,7 @@ export function CourseTutorSection({ curriculum, subjectSlug, tutors }: CourseTu
             <motion.div
               key="expanded"
               layoutId={`card-${curriculum}-${subjectSlug}-${activeTutor.id}`}
-              className="glassmorphism-heavy relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-y-auto rounded-[2.5rem] border border-border bg-card shadow-3xl md:flex-row"
+              className="glassmorphism-heavy relative flex max-h-[85vh] w-full max-w-3xl flex-col overflow-y-auto rounded-[2.5rem] border border-border bg-card shadow-3xl md:flex-row"
             >
               <button
                 onClick={() => setSelectedId(null)}
@@ -198,7 +198,7 @@ export function CourseTutorSection({ curriculum, subjectSlug, tutors }: CourseTu
                 <X className="size-5" />
               </button>
 
-              <div className="relative flex h-64 min-h-[300px] w-full items-center justify-center bg-muted/20 md:h-auto md:w-2/5">
+              <div className="relative flex h-64 min-h-[300px] w-full items-center justify-center bg-muted/20 md:h-auto md:w-1/2">
                 <motion.div
                   layoutId={`avatar-${curriculum}-${subjectSlug}-${activeTutor.id}`}
                   className="absolute inset-0 flex items-center justify-center bg-muted"
@@ -208,17 +208,16 @@ export function CourseTutorSection({ curriculum, subjectSlug, tutors }: CourseTu
                       src={activeTutor.image}
                       alt={activeTutor.name}
                       fill
-                      sizes="(max-width: 768px) 100vw, 40vw"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover object-top"
                     />
                   ) : (
                     <span className="text-6xl font-bold text-muted-foreground">{activeTutor.name.charAt(0)}</span>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-l" />
                 </motion.div>
               </div>
 
-              <div className="z-10 flex-1 rounded-[2.5rem] bg-card p-8 md:p-12">
+              <div className="z-10 flex-1 rounded-[2.5rem] bg-card p-8 md:p-10">
                 <div className="mb-8">
                   <motion.h3
                     layoutId={`name-${curriculum}-${subjectSlug}-${activeTutor.id}`}
@@ -259,7 +258,7 @@ export function CourseTutorSection({ curriculum, subjectSlug, tutors }: CourseTu
                     <h4 className="mb-3 flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
                       About Me
                     </h4>
-                    <p className="text-base leading-relaxed text-card-foreground">{activeTutor.bio}</p>
+                    <p className="text-base leading-relaxed text-card-foreground line-clamp-6">{activeTutor.bio}</p>
                   </div>
 
                   <div className="flex flex-wrap gap-2">

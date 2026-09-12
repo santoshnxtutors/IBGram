@@ -97,7 +97,7 @@ export function QuickDemoModal({
     "w-full rounded-xl border border-border/70 bg-background px-3.5 py-3 text-base text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20";
 
   return createPortal(
-    <div className="fixed inset-0 z-[200] flex items-end justify-center p-0 sm:items-center sm:p-4">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
       <button
         type="button"
         aria-label="Close"
@@ -109,7 +109,7 @@ export function QuickDemoModal({
         role="dialog"
         aria-modal="true"
         aria-label="Send a query"
-        className="relative z-10 flex max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-3xl border border-border/70 bg-card/100 shadow-2xl sm:max-h-[calc(100dvh-2rem)] sm:max-w-lg sm:rounded-3xl lg:max-w-xl"
+        className="relative z-10 flex max-h-[90dvh] w-full flex-col overflow-hidden rounded-3xl border border-border/70 bg-card/100 shadow-2xl sm:max-h-[calc(100dvh-2rem)] sm:max-w-lg lg:max-w-xl"
       >
         <div className="flex shrink-0 items-start justify-between border-b border-border/60 px-5 py-4 sm:px-6 sm:py-5">
           <div>
@@ -144,7 +144,7 @@ export function QuickDemoModal({
         ) : (
           <form
             onSubmit={submit}
-            className="space-y-4 overflow-y-auto px-5 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:px-6"
+            className="space-y-3 overflow-y-auto px-5 py-4 sm:space-y-4 sm:py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:px-6"
           >
             <label className="block space-y-1 text-xs font-semibold text-muted-foreground">
               <span>Name *</span>
@@ -157,7 +157,7 @@ export function QuickDemoModal({
               />
             </label>
 
-            <div className="grid gap-4 min-[420px]:grid-cols-2">
+            <div className="grid gap-4 min-[380px]:grid-cols-2">
               <label className="block space-y-1 text-xs font-semibold text-muted-foreground">
                 <span>Phone *</span>
                 <input
@@ -193,7 +193,7 @@ export function QuickDemoModal({
               />
             </label>
 
-            <div className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 min-[380px]:grid-cols-2">
               <label className="block space-y-1 text-xs font-semibold text-muted-foreground">
                 <span>Curriculum *</span>
                 <select

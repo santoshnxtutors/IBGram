@@ -98,7 +98,7 @@ export function Header() {
         ? "border-b border-primary/20 bg-background/95 md:bg-background/60 md:backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]" 
         : "border-b border-border/40 bg-background/95 md:bg-background/80 md:backdrop-blur-md"
     }`}>
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex h-14 items-center justify-between px-4 md:h-16 md:px-6">
         
         {/* Left: Logo & Location (desktop) */}
         <div className="flex items-center">

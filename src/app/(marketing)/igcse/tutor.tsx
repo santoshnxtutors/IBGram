@@ -175,7 +175,7 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
               <motion.div
                 key="expanded"
                 layoutId={`card-${tutor.id}`}
-                className="relative w-full max-w-3xl bg-card border border-border rounded-[2.5rem] shadow-3xl overflow-hidden glassmorphism-heavy flex flex-col md:flex-row max-h-[90vh] overflow-y-auto"
+                className="relative w-full max-w-3xl bg-card border border-border rounded-[2.5rem] shadow-3xl overflow-hidden glassmorphism-heavy flex flex-col md:flex-row max-h-[85vh] overflow-y-auto"
               >
                 <button
                   onClick={() => setSelectedTutor(null)}
@@ -185,14 +185,14 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
                 </button>
 
                 {/* Profile Pic Side */}
-                <div className="w-full md:w-2/5 relative h-64 md:h-auto min-h-[300px] flex items-center justify-center bg-muted/20">
+                <div className="w-full md:w-1/2 relative h-64 md:h-auto min-h-[300px] flex items-center justify-center bg-muted/20">
                   <motion.div layoutId={`avatar-${tutor.id}`} className="absolute inset-0 flex items-center justify-center bg-muted">
                     {tutor.image ? (
                         <Image
                           src={tutor.image}
                           alt={tutor.name}
                           fill
-                          sizes="(max-width: 768px) 100vw, 40vw"
+                          sizes="(max-width: 768px) 100vw, 50vw"
                           className="object-cover object-top"
                         />
                     ) : (
@@ -200,12 +200,11 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
                         {tutor.name.charAt(0)}
                       </span>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-l" />
                   </motion.div>
                 </div>
 
                 {/* Content Side */}
-                <div className="flex-1 p-8 md:p-12 z-10 bg-card rounded-[2.5rem]">
+                <div className="flex-1 p-8 md:p-10 z-10 bg-card rounded-[2.5rem]">
                   <div className="mb-8">
                     <motion.h3 layoutId={`name-${tutor.id}`} className="text-3xl font-black text-foreground mb-1 flex items-center gap-2 tracking-tight">
                       {tutor.name} <ShieldCheck className="size-6 text-primary" />
@@ -237,7 +236,7 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
                       <h4 className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-2">
                         About Me
                       </h4>
-                      <p className="text-base text-card-foreground leading-relaxed">
+                      <p className="text-base text-card-foreground leading-relaxed line-clamp-6">
                         {tutor.bio}
                       </p>
                     </div>
