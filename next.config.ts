@@ -59,10 +59,12 @@ const nextConfig: NextConfig = {
     // Also widen `connect-src` to localhost variants so devtools / sourcemaps
     // / HMR don't get blocked.
     // Live class engine (Jitsi) needs its embed script + iframe allowed.
-    // Cashfree checkout (/payment): SDK script, its hidden ping iframe, and the form POST to its hosted page.
+    // Razorpay checkout (/payment): SDK script plus its modal iframes. `frame-src https:` is deliberate -
+    // 3-D Secure sends the card holder to their own bank's page inside that iframe, and those domains
+    // are unbounded, so a fixed allow-list silently kills card payments.
     const csp = isProd
-      ? "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://meet.jit.si https://sdk.cashfree.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://images.unsplash.com https://randomuser.me https://res.cloudinary.com https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' https: wss:; frame-src 'self' https://meet.jit.si https://*.jit.si https://*.cashfree.com; object-src 'none'; base-uri 'self'; form-action 'self' https://*.cashfree.com; frame-ancestors 'none'; upgrade-insecure-requests;"
-      : "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://meet.jit.si https://sdk.cashfree.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://images.unsplash.com https://randomuser.me https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' http: https: ws: wss:; frame-src 'self' https://meet.jit.si https://*.jit.si https://*.cashfree.com; object-src 'none'; base-uri 'self'; form-action 'self' https://*.cashfree.com; frame-ancestors 'none';";
+      ? "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://meet.jit.si https://checkout.razorpay.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://images.unsplash.com https://randomuser.me https://res.cloudinary.com https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' https: wss:; frame-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https://*.razorpay.com; frame-ancestors 'none'; upgrade-insecure-requests;"
+      : "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://meet.jit.si https://checkout.razorpay.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://images.unsplash.com https://randomuser.me https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' http: https: ws: wss:; frame-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https://*.razorpay.com; frame-ancestors 'none';";
 
     const baseHeaders = [
       { key: "Content-Security-Policy", value: csp },
