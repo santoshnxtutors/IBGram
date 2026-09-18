@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CheckCircle2, Clock, XCircle, type LucideIcon } from "lucide-react";
 import { Invoice } from "@/components/payment/Invoice";
 import { InvoiceDownloadButton } from "@/components/payment/InvoiceDownloadButton";
-import { ORDER_ID_RE, syncPayment } from "@/lib/cashfree";
+import { ORDER_ID_RE, syncPayment } from "@/lib/razorpay";
 import { CONTACT } from "@/lib/contact";
 import { prisma } from "@/lib/db";
 import { PaymentForm } from "./PaymentForm";
@@ -57,8 +57,8 @@ async function PaymentStart({ tutor }: { tutor?: string }) {
 }
 
 async function PaymentResult({ orderId }: { orderId: string }) {
-  // Status is re-checked with Cashfree server-side; the redirect alone is never trusted.
-  // If Cashfree is unreachable, fall back to what the DB already knows.
+  // Status is re-checked with Razorpay server-side; the checkout callback alone is never trusted.
+  // If Razorpay is unreachable, fall back to what the DB already knows.
   const payment = ORDER_ID_RE.test(orderId)
     ? await syncPayment(orderId).catch(() => prisma.payment.findUnique({ where: { orderId } }).catch(() => null))
     : null;

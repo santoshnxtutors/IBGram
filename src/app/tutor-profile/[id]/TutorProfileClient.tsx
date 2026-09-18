@@ -223,6 +223,23 @@ function TutorProfileContent({
                      </Button>
                   </div>
 
+                  {/* Payment CTA sits with the hero buttons; the payment page preselects this tutor from the ?tutor= param. */}
+                  <div className="mt-8 flex flex-col items-start gap-4 rounded-2xl border border-border bg-card p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+                     <div>
+                        <h3 className="mb-1.5 text-xl font-black text-foreground">Demo successfully done?</h3>
+                        <p className="text-sm font-medium leading-relaxed text-muted-foreground">
+                           Start regular sessions with {tutor.name}. Pay securely in INR, USD or your own currency.
+                        </p>
+                     </div>
+                     <Link
+                        href={`/payment/?tutor=${encodeURIComponent(String(tutor.slug ?? tutor.id))}`}
+                        prefetch={false}
+                        className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-secondary px-6 text-base font-bold text-secondary-foreground transition-colors hover:bg-secondary/90"
+                     >
+                        Make Payment
+                     </Link>
+                  </div>
+
                   <div className="flex flex-col gap-14 lg:gap-16 pt-12">
                      <section>
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
@@ -356,8 +373,8 @@ function TutorProfileContent({
                         </div>
                      </section>
 
-                     {/* Two compact cards side by side (flex, not grid: globals.css recolours rounded+border grid children). */}
-                     {/* Negative margin trims the parent's gap-14/lg:gap-16 so the cards sit ~24px below the section above. */}
+                     {/* Flex, not grid: globals.css recolours rounded+border grid children. */}
+                     {/* Negative margin trims the parent's gap-14/lg:gap-16 so the card sits ~24px below the section above. */}
                      <section className="-mt-8 flex flex-col gap-4 sm:flex-row lg:-mt-10">
                         <div className="flex flex-1 flex-col items-start rounded-2xl border border-border bg-card p-5">
                            <h3 className="mb-1.5 text-xl font-black text-foreground">Not sure what to choose?</h3>
@@ -367,21 +384,6 @@ function TutorProfileContent({
                            <Button className="h-11 rounded-full bg-primary px-6 text-base font-bold text-primary-foreground hover:bg-primary/90" onClick={handleBookDemo}>
                               Book Your Demo Now
                            </Button>
-                        </div>
-
-                        <div className="flex flex-1 flex-col items-start rounded-2xl border border-border bg-card p-5">
-                           <h3 className="mb-1.5 text-xl font-black text-foreground">Demo successfully done?</h3>
-                           <p className="mb-4 flex-1 text-sm font-medium leading-relaxed text-muted-foreground">
-                              Start regular sessions with {tutor.name}. Pay securely in INR, USD or your own currency.
-                           </p>
-                           {/* The payment page preselects this tutor from the ?tutor= param. */}
-                           <Link
-                              href={`/payment/?tutor=${encodeURIComponent(String(tutor.slug ?? tutor.id))}`}
-                              prefetch={false}
-                              className="inline-flex h-11 items-center justify-center rounded-full bg-secondary px-6 text-base font-bold text-secondary-foreground transition-colors hover:bg-secondary/90"
-                           >
-                              Make Payment
-                           </Link>
                         </div>
                      </section>
                   </div>

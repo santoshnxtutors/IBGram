@@ -2,7 +2,7 @@
 
 const POPULAR_CURRENCIES = ["INR", "USD", "EUR", "GBP", "AED", "AUD", "CAD", "SGD"];
 
-// Cashfree-supported currencies. Non-INR ones must be enabled on the Cashfree account.
+// Non-INR currencies need international payments enabled on the Razorpay account.
 export const CURRENCIES = [
   ...POPULAR_CURRENCIES,
   ..."AFN ALL DZD AOA ARS AMD AWG AZN BSD BHD BDT BBD BZD BMD BTN BOB BAM BWP BRL BND BGN BIF KHR CVE KYD XAF XPF CLP COP KMF CDF CRC CZK DKK DJF DOP XCD EGP ERN SZL ETB FKP FJD GMD GEL GHS GIP GTQ GNF GYD HTG HNL HKD HUF ISK IDR IQD JMD JPY JOD KZT KES KWD KGS LAK LBP LRD LYD MOP MKD MGA MWK MYR MVR MRU MUR MXN MDL MNT MAD MZN NAD NPR ILS TWD NZD NIO NGN NOK PGK PYG PEN PHP PLN QAR CNY OMR RON RUB RWF SHP WST SAR RSD SCR SLL SBD SOS ZAR KRW LKR SRD SEK CHF TJS TZS THB TOP TTD TND TRY TMT UGX UAH UYU UZS VUV VND XOF YER ZMW"
@@ -11,6 +11,14 @@ export const CURRENCIES = [
 ];
 
 export const ZERO_DECIMAL_CURRENCIES = new Set("BIF XAF XPF CLP DJF GNF ISK JPY KMF KRW PYG RWF UGX VUV VND XOF".split(" "));
+
+const THREE_DECIMAL_CURRENCIES = new Set("BHD IQD JOD KWD LYD OMR TND".split(" "));
+
+/** Razorpay takes the amount in the currency's smallest unit: 100 paise per rupee, 1000 fils per dinar, 1 yen per yen. */
+export function minorUnitFactor(currency: string) {
+  if (ZERO_DECIMAL_CURRENCIES.has(currency)) return 1;
+  return THREE_DECIMAL_CURRENCIES.has(currency) ? 1000 : 100;
+}
 
 // ISO country code followed by its international dialling code, e.g. "IN91".
 export const DIAL_CODES: Record<string, string> = Object.fromEntries(

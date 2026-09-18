@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Invoice } from "@/components/payment/Invoice";
 import { InvoiceDownloadButton } from "@/components/payment/InvoiceDownloadButton";
-import { ORDER_ID_RE, syncPayment } from "@/lib/cashfree";
+import { ORDER_ID_RE, syncPayment } from "@/lib/razorpay";
 import { prisma } from "@/lib/db";
 import { AdminShell } from "../../_components/AdminShell";
 import { AdminCard, AdminEmptyState, AdminPageHeader } from "../../_components/AdminPrimitives";
@@ -17,7 +17,7 @@ export default async function AdminInvoicePage({ params, searchParams }: {
   params: Promise<{ orderId: string }>;
   searchParams: Promise<{ copy?: string | string[] }>;
 }) {
-  // Auth first: opening this page also re-checks the payment with Cashfree.
+  // Auth first: opening this page also re-checks the payment with Razorpay.
   await requireAdminSession();
   const { orderId } = await params;
   const copy = (await searchParams).copy === "owner" ? "owner" : "user";
@@ -54,7 +54,7 @@ export default async function AdminInvoicePage({ params, searchParams }: {
             title={payment ? `Payment ${payment.status}` : "Payment not found"}
             detail={
               payment
-                ? "Status was just re-checked with Cashfree. The invoice becomes available once the payment is paid."
+                ? "Status was just re-checked with Razorpay. The invoice becomes available once the payment is paid."
                 : "No payment exists with this order ID."
             }
           />

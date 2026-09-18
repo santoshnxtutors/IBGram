@@ -24,9 +24,9 @@ export function Invoice({ payment, copy = "user" }: { payment: Payment; copy?: "
     ["Invoice number", payment.orderId],
     ["Payment date", date],
     ["Payment method", method],
-    ["Transaction ID", payment.cfPaymentId],
+    ["Transaction ID", payment.gatewayPaymentId],
     ["Bank reference", payment.bankReference],
-    ["Payment gateway", "Cashfree Payments"],
+    ["Payment gateway", "Razorpay"],
   ].filter((row): row is [string, string] => Boolean(row[1]));
 
   return (

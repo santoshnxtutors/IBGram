@@ -373,10 +373,9 @@ jobs:
           OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || 'gpt-5.2' }}
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           LOG_LEVEL: ${{ secrets.LOG_LEVEL || 'info' }}
-          CASHFREE_ENV: ${{ secrets.CASHFREE_ENV || 'production' }}
-          CASHFREE_APP_ID: ${{ secrets.CASHFREE_APP_ID }}
-          CASHFREE_SECRET_KEY: ${{ secrets.CASHFREE_SECRET_KEY }}
-          CASHFREE_API_VERSION: ${{ secrets.CASHFREE_API_VERSION || '2025-01-01' }}
+          RAZORPAY_KEY_ID: ${{ secrets.RAZORPAY_KEY_ID }}
+          RAZORPAY_KEY_SECRET: ${{ secrets.RAZORPAY_KEY_SECRET }}
+          RAZORPAY_WEBHOOK_SECRET: ${{ secrets.RAZORPAY_WEBHOOK_SECRET }}
         run: |
           set -euo pipefail
           ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=120 -o TCPKeepAlive=yes"
@@ -412,7 +411,7 @@ jobs:
               CLOUDINARY_CLOUD_NAME CLOUDINARY_API_KEY CLOUDINARY_API_SECRET \
               AWS_REGION AWS_S3_BUCKET AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY \
               OPENAI_API_KEY OPENAI_MODEL SENTRY_DSN LOG_LEVEL \
-              CASHFREE_ENV CASHFREE_APP_ID CASHFREE_SECRET_KEY CASHFREE_API_VERSION; do
+              RAZORPAY_KEY_ID RAZORPAY_KEY_SECRET RAZORPAY_WEBHOOK_SECRET; do
               emit_export "$key"
             done
 

@@ -1321,10 +1321,11 @@ enum PaymentStatus {
   failed
 }
 
-/// Online payments from the public /payment page (Cashfree). Status is synced
-/// from Cashfree on return and via webhook; listed in admin under Payments.
+/// Online payments from the public /payment page (Razorpay). Status is synced
+/// from Razorpay on return and via webhook; listed in admin under Payments.
 model Payment {
   id            String        @id @default(cuid())
+  /// Razorpay's own order id (order_XXXXXXXXXXXXXX); also the invoice number.
   orderId       String        @unique
   status        PaymentStatus @default(pending)
   amount        Decimal
@@ -1335,7 +1336,8 @@ model Payment {
   tutorId       String?
   tutorName     String?
   note          String?
-  cfPaymentId   String?
+  /// Razorpay payment id (pay_...). Column name kept from the Cashfree era so no migration is needed.
+  gatewayPaymentId String?    @map("cfPaymentId")
   paymentMethod String?
   bankReference String?
   paidAt        DateTime?

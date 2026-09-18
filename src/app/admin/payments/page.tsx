@@ -45,7 +45,7 @@ export default async function AdminPaymentsPage({ searchParams }: { searchParams
       <AdminPageHeader
         eyebrow="Billing"
         title="Payments"
-        description="Online payments from the /payment page (Cashfree). Click a card to filter; open an invoice to view or download it."
+        description="Online payments from the /payment page (Razorpay). Click a card to filter; open an invoice to view or download it."
       />
       <div className="mb-5 grid gap-4 md:grid-cols-3">
         {CARDS.map((card) => (

@@ -1,10 +1,9 @@
 import type { NextRequest } from "next/server";
 import { randomBytes } from "node:crypto";
 import { z } from "zod";
-import { cashfree, cashfreeMode } from "@/lib/cashfree";
 import { prisma } from "@/lib/db";
-import { CURRENCIES, DIAL_CODES, ZERO_DECIMAL_CURRENCIES } from "@/lib/payment-options";
-import { SITE_URL } from "@/lib/seo/slug-utils";
+import { CURRENCIES, DIAL_CODES, ZERO_DECIMAL_CURRENCIES, minorUnitFactor } from "@/lib/payment-options";
+import { razorpay } from "@/lib/razorpay";
 
 export const dynamic = "force-dynamic";
 
@@ -49,7 +48,9 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid payment details" }, { status: 400 });
   }
   const { name, email, country, currency, note, tutorId } = parsed.data;
-  const amount = Math.round(parsed.data.amount * 100) / 100;
+  const factor = minorUnitFactor(currency);
+  const minorAmount = Math.round(parsed.data.amount * factor);
+  const amount = minorAmount / factor;
   const dial = DIAL_CODES[country];
 
   // Accept "09876543210" or "+91 98765 43210" typed into the number box.
@@ -69,32 +70,23 @@ export async function POST(request: NextRequest) {
     tutorName = tutor.displayName;
   }
 
-  // 96 random bits keep order ids (and so invoice URLs) unguessable.
-  const orderId = `IBG-${Date.now()}-${randomBytes(12).toString("base64url")}`;
-  const live = cashfreeMode() === "production";
-  // Live Cashfree only accepts https URLs; sandbox can return to localhost.
-  const origin = live ? SITE_URL : request.nextUrl.origin;
-
-  let paymentSessionId: string;
+  // Razorpay's order id becomes our order id, so any status can be re-read from Razorpay later.
+  // The receipt is only the human reference shown in the Razorpay dashboard (max 40 chars).
+  let orderId: string;
   try {
-    const order = await cashfree<{ payment_session_id: string }>("/orders", {
-      order_id: orderId,
-      order_amount: amount,
-      order_currency: currency,
-      ...(note && note.length >= 3 ? { order_note: note } : {}),
-      customer_details: {
-        customer_id: `cust${dial}${phone}`,
+    const order = await razorpay<{ id: string }>("/orders", {
+      amount: minorAmount,
+      currency,
+      receipt: `IBG-${Date.now()}-${randomBytes(4).toString("base64url")}`,
+      notes: {
         customer_name: name,
         customer_email: email,
-        // Cashfree takes 10 digits for India and "+<code><number>" for everyone else.
-        customer_phone: country === "IN" ? phone : `+${dial}${phone}`,
-      },
-      order_meta: {
-        return_url: `${origin}/payment/?order_id=${orderId}`,
-        ...(live ? { notify_url: `${SITE_URL}/api/payment/webhook/` } : {}),
+        customer_phone: `+${dial}${phone}`,
+        ...(tutorName ? { tutor: tutorName } : {}),
+        ...(note ? { note } : {}),
       },
     });
-    paymentSessionId = order.payment_session_id;
+    orderId = order.id;
   } catch (err) {
     return Response.json({ error: err instanceof Error ? err.message : "Could not start the payment" }, { status: 502 });
   }
@@ -118,5 +110,6 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "Could not save the payment. Please try again." }, { status: 500 });
   }
 
-  return Response.json({ paymentSessionId, mode: cashfreeMode() });
+  // key_id is public by design - it only identifies the account to Razorpay Checkout.
+  return Response.json({ keyId: process.env.RAZORPAY_KEY_ID, orderId, amount: minorAmount, currency });
 }

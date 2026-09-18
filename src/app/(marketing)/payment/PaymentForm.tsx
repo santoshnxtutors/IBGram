@@ -4,7 +4,7 @@ import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Lock, Search, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CURRENCIES, DIAL_CODES, ZERO_DECIMAL_CURRENCIES } from "@/lib/payment-options";
+import { CURRENCIES, DIAL_CODES, minorUnitFactor } from "@/lib/payment-options";
 
 type Option = { value: string; label: string; pinned?: boolean };
 
@@ -19,8 +19,24 @@ const CURRENCY_OPTIONS: Option[] = CURRENCIES.map((code) => ({ value: code, labe
 
 const OTHER_TUTOR = "other";
 
-type CashfreeSdk = (opts: { mode: string }) => {
-  checkout: (opts: { paymentSessionId: string; redirectTarget: string }) => Promise<{ error?: { message?: string } } | undefined>;
+type RazorpayOptions = {
+  key: string;
+  order_id: string;
+  amount: number;
+  currency: string;
+  name: string;
+  description?: string;
+  image?: string;
+  prefill?: { name?: string; email?: string; contact?: string };
+  notes?: Record<string, string>;
+  theme?: { color: string };
+  handler: () => void;
+  modal?: { ondismiss?: () => void };
+};
+
+type RazorpayCheckout = new (options: RazorpayOptions) => {
+  open: () => void;
+  on: (event: string, handler: () => void) => void;
 };
 
 const field = "h-12 w-full rounded-xl border border-border bg-background px-4 font-semibold outline-none transition focus:border-primary";
@@ -45,7 +61,7 @@ export function PaymentForm({ tutors, defaultTutorId }: { tutors: { id: string; 
       setError("Please select your tutor.");
       return;
     }
-    const payload = Object.fromEntries(new FormData(e.currentTarget));
+    const payload = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
     setError(null);
     setLoading(true);
 
@@ -58,14 +74,34 @@ export function PaymentForm({ tutors, defaultTutorId }: { tutors: { id: string; 
       const json = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(json.error ?? "Could not start the payment.");
 
-      const Cashfree = (window as unknown as { Cashfree?: CashfreeSdk }).Cashfree;
-      if (!Cashfree) throw new Error("Payment system is still loading. Please try again.");
-      // Redirects to Cashfree's hosted checkout, which returns to /payment/?order_id=...
-      const result = await Cashfree({ mode: json.mode }).checkout({
-        paymentSessionId: json.paymentSessionId,
-        redirectTarget: "_self",
+      const Razorpay = (window as unknown as { Razorpay?: RazorpayCheckout }).Razorpay;
+      if (!Razorpay) throw new Error("Payment system is still loading. Please try again.");
+
+      // Whether it succeeds, fails or is closed, the result page re-checks the real status with Razorpay.
+      const result = `/payment/?order_id=${json.orderId}`;
+      const checkout = new Razorpay({
+        key: json.keyId,
+        order_id: json.orderId,
+        amount: json.amount,
+        currency: json.currency,
+        name: "IB Gram",
+        description: payload.note?.trim() || "IB & IGCSE tutoring",
+        image: "/images/logo.png",
+        prefill: {
+          name: payload.name,
+          email: payload.email,
+          contact: `+${DIAL_CODES[payload.country] ?? ""}${payload.phone.replace(/\D/g, "").replace(/^0+/, "")}`,
+        },
+        theme: { color: "#f7941d" },
+        handler: () => {
+          window.location.href = result;
+        },
+        modal: { ondismiss: () => setLoading(false) },
       });
-      if (result?.error) throw new Error(result.error.message ?? "Could not open checkout.");
+      checkout.on("payment.failed", () => {
+        window.location.href = result;
+      });
+      checkout.open();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not start the payment.");
       setLoading(false);
@@ -74,7 +110,7 @@ export function PaymentForm({ tutors, defaultTutorId }: { tutors: { id: string; 
 
   return (
     <>
-      <Script src="https://sdk.cashfree.com/js/v3/cashfree.js" strategy="afterInteractive" />
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
       <form onSubmit={handleSubmit} className="space-y-5 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8">
         <div className="flex flex-col gap-5 sm:flex-row">
           <label className="flex-1">
@@ -150,7 +186,7 @@ export function PaymentForm({ tutors, defaultTutorId }: { tutors: { id: string; 
               type="number"
               inputMode="decimal"
               min={1}
-              step={ZERO_DECIMAL_CURRENCIES.has(currency) ? 1 : 0.01}
+              step={1 / minorUnitFactor(currency)}
               placeholder="Enter amount"
               className={field}
             />
@@ -178,7 +214,7 @@ export function PaymentForm({ tutors, defaultTutorId }: { tutors: { id: string; 
             <ShieldCheck className="size-3.5 text-emerald-600" aria-hidden />
             256-bit SSL encrypted
           </span>
-          <span>PCI DSS compliant checkout by Cashfree</span>
+          <span>PCI DSS compliant checkout by Razorpay</span>
           <span>IB Gram never sees or stores your card details</span>
         </div>
       </form>
