@@ -21,7 +21,18 @@ type CompareRow = {
 
 const rows: CompareRow[] = [
   { label: "Expertise", icon: CheckCircle, getValue: (tutor) => tutor.subject },
-  { label: "Education", icon: GraduationCap, getValue: (tutor) => tutor.education },
+  // Education is stored one qualification per line; newlines would collapse into
+  // a run-on sentence in this table, so separate the entries explicitly.
+  {
+    label: "Education",
+    icon: GraduationCap,
+    getValue: (tutor) =>
+      (tutor.education ?? "")
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .join(" · "),
+  },
   { label: "Experience", icon: Clock, getValue: (tutor) => tutor.experience },
   { label: "Parent feedback", icon: Star, getValue: (tutor) => `${formatRating(tutor.rating)} from ${tutor.reviews} reviews` },
   { label: "Success", icon: Trophy, getValue: (tutor) => tutor.successRate },

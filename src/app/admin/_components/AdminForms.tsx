@@ -60,6 +60,17 @@ function faqsToText(faqs: Array<{ question: string; answer: string }> | undefine
   return faqs.map((f) => `${f.question}\n${f.answer}`).join("\n\n");
 }
 
+// Multi-line text fields (education background): drop CRLF and blank lines so
+// the stored value is a clean "\n"-separated list the profile can split.
+function linesToText(value: FormDataEntryValue | null): string | null {
+  if (typeof value !== "string") return null;
+  const lines = value
+    .split(/\r?\n/)
+    .map((l) => l.trim())
+    .filter(Boolean);
+  return lines.length ? lines.join("\n") : null;
+}
+
 // "Qualifications & Background" cards: title on the first line, its description
 // on the next line(s), a BLANK line between each. A title with no description
 // line renders as a title-only card. Same block format as the FAQ editor.
@@ -237,7 +248,8 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       experienceYears: parseNumberOrNull("experienceYears"),
       hourlyRate: parseNumberOrNull("hourlyRate"),
       currency: (fd.get("currency") as string) || null,
-      education: (fd.get("education") as string) || null,
+      // One qualification per line; textareas post CRLF, so normalise before saving.
+      education: linesToText(fd.get("education")),
       successRate: (fd.get("successRate") as string) || null,
       responseTime: (fd.get("responseTime") as string) || null,
       availabilityText: (fd.get("availabilityText") as string) || null,
@@ -390,7 +402,11 @@ export function AdminTutorEditor({ tutor }: { tutor?: AdminTutorRecord }) {
       <Field name="experienceYears" label="Experience (years)" type="number" defaultValue={tutor?.experienceYears != null ? String(tutor.experienceYears) : ""} />
       <Field name="hourlyRate" label="Hourly rate (number, e.g. 85)" type="number" defaultValue={tutor?.hourlyRate != null ? String(tutor.hourlyRate) : ""} />
       <Field name="currency" label="Currency (INR / USD)" defaultValue={tutor?.currency ?? "INR"} />
-      <Field name="education" label="Education (e.g. PhD Mathematics, Oxford)" defaultValue={tutor?.education ?? ""} />
+      <Textarea
+        name="education"
+        label="Education background (one qualification per line — e.g. B.Tech Computer Science, Amity University). Each line shows as its own card at the top of the public profile."
+        defaultValue={tutor?.education ?? ""}
+      />
       <Field name="successRate" label="Success rate (e.g. 99%)" defaultValue={tutor?.successRate ?? ""} />
       <Field name="responseTime" label="Response time (e.g. < 5 mins)" defaultValue={tutor?.responseTime ?? ""} />
       <Field name="availabilityText" label="Availability text (e.g. Mon–Sat 4–9pm)" defaultValue={tutor?.availabilityText ?? ""} />

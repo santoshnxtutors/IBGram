@@ -32,6 +32,15 @@ function capWords(text: string, limit: number): string {
    return words.length <= limit ? text.trim() : `${words.slice(0, limit).join(" ")}…`;
 }
 
+// Education background is stored as one qualification per line (admin textarea),
+// so older single-line values keep working as a one-item list.
+function educationEntries(education: string | undefined): string[] {
+   return (education ?? "")
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter(Boolean);
+}
+
 function qualificationFontClass(text: string): string {
    const count = text.trim().split(/\s+/).filter(Boolean).length;
    if (count <= 14) return "text-base";
@@ -62,6 +71,7 @@ function TutorProfileContent({
 }) {
    const router = useRouter();
    const [demoOpen, setDemoOpen] = useState(false);
+   const education = educationEntries(tutor.education);
 
    useEffect(() => {
       storeLegacyReturnToFromUrl("tutor-profile", ["/tutor-profile"]);
@@ -241,6 +251,24 @@ function TutorProfileContent({
                   </div>
 
                   <div className="flex flex-col gap-14 lg:gap-16 pt-12">
+                     {education.length > 0 && (
+                        <section>
+                           <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
+                              <GraduationCap className="size-6 text-primary" /> Education Background
+                           </h3>
+                           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                              {education.map((item, idx) => (
+                                 <div key={idx} className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5">
+                                    <div className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                                       <GraduationCap className="size-5 text-primary" />
+                                    </div>
+                                    <p className="text-base font-bold leading-relaxed text-foreground">{item}</p>
+                                 </div>
+                              ))}
+                           </div>
+                        </section>
+                     )}
+
                      <section>
                         <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
                            <GraduationCap className="size-6 text-primary" /> About {tutor.name.split(" ")[0]}
