@@ -124,8 +124,12 @@ function SectionHead({
 /** Long-form prose block: heading + paragraphs + optional bullet rail. */
 function ProseSection({ section, index }: { section: CountrySection; index: number }) {
   return (
-    <article className="grid gap-8 lg:grid-cols-12 lg:gap-14">
-      <div className="lg:col-span-4">
+    // grid-cols-1 is load-bearing: without a base column count the mobile track is an
+    // `auto` track floored at the child's min-content, which measured 578px inside a
+    // 328px container and clipped the text. grid-cols-1 emits minmax(0,1fr), which may
+    // shrink below min-content. Same reason for min-w-0 on the children.
+    <article className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-14">
+      <div className="min-w-0 lg:col-span-4">
         <div className="lg:sticky lg:top-28">
           <span className="mb-4 inline-flex size-11 items-center justify-center rounded-xl border border-secondary/25 bg-secondary/10 text-sm font-black text-amber-800">
             {String(index + 1).padStart(2, "0")}
@@ -145,7 +149,7 @@ function ProseSection({ section, index }: { section: CountrySection; index: numb
           ) : null}
         </div>
       </div>
-      <div className="space-y-5 lg:col-span-8">
+      <div className="min-w-0 space-y-5 lg:col-span-8">
         {section.paragraphs.map((paragraph, i) => (
           <p key={i} className="text-base leading-[1.85] text-foreground/80 md:text-[1.0625rem]">
             {paragraph}
@@ -242,8 +246,8 @@ export function CountryLanding({
             </ol>
           </nav>
 
-          <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-10">
-            <div className="space-y-6 md:space-y-7 lg:col-span-7">
+          <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-10">
+            <div className="min-w-0 space-y-6 md:space-y-7 lg:col-span-7">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="flex items-center gap-2.5 rounded-full border border-border bg-card py-1.5 pl-1.5 pr-4">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -300,7 +304,7 @@ export function CountryLanding({
 
             {/* Mirrors the homepage "Why IB Gram?" rail: eyebrow, one statement,
                 then standalone icon cards — no outer container card. */}
-            <aside className="relative lg:col-span-5">
+            <aside className="relative min-w-0 lg:col-span-5">
               <div className="space-y-6">
                 <div>
                   <h2 className="mb-2 text-xs font-black uppercase tracking-[0.3em] text-primary/80">
@@ -379,8 +383,8 @@ export function CountryLanding({
           title={page.intro.heading}
           icon={BookOpen}
         />
-        <div className="grid gap-8 lg:grid-cols-12 lg:gap-14">
-          <div className="space-y-5 lg:col-span-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-14">
+          <div className="min-w-0 space-y-5 lg:col-span-8">
             {page.intro.paragraphs.map((paragraph, i) => (
               <p key={i} className="text-base leading-[1.85] text-foreground/80 md:text-[1.0625rem]">
                 {paragraph}
@@ -388,7 +392,7 @@ export function CountryLanding({
             ))}
           </div>
           {page.intro.bullets && page.intro.bullets.length > 0 ? (
-            <div className="lg:col-span-4">
+            <div className="min-w-0 lg:col-span-4">
               <div className="rounded-2xl border border-border bg-card p-6">
                 <p className="mb-5 text-[11px] font-black uppercase tracking-[0.2em] text-primary">
                   At a glance

@@ -134,3 +134,13 @@ tmp/
 # service account credentials - never commit
 Iamuseragent.json
 *-service-account*.json
+
+# ─── Claude Code: per-machine config only ───────────────────────────────────
+# The shared skills under .claude/skills/ and .agents/skills/ stay committed;
+# only the machine-local overrides and MCP server config are ignored here.
+# (settings.local.json was previously covered by a global ~/.config/git/ignore,
+# which does not travel with a clone.)
+.claude/settings.local.json
+.claude/*.local.json
+.mcp.json
+.mcp.local.json
