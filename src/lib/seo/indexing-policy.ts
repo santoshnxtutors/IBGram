@@ -34,7 +34,6 @@ const PRIVATE_PREFIXES = [
   "/cart/",
   "/checkout/",
   "/search/",
-  "/subscription/",
   "/tutor-compare/",
 ];
 

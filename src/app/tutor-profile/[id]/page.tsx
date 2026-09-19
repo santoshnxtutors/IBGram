@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Tutor } from "@/lib/tutor-data";
 import { getPublicTutorsFromDb } from "@/lib/cms/public-tutors";
 import { getTutorReviewsForPublic } from "@/lib/cms/public-reviews";
@@ -51,9 +51,16 @@ export async function generateMetadata({ params }: TutorProfileProps): Promise<M
 
 export default async function TutorProfilePage({ params }: TutorProfileProps) {
   const { id } = await params;
-  const tutor = await findPublicTutor(decodeURIComponent(id));
+  const requested = decodeURIComponent(id);
+  const tutor = await findPublicTutor(requested);
 
   if (!tutor) notFound();
+
+  // The lookup accepts the record id as well as the slug, so /tutor-profile/<cuid>/
+  // served a second 200 for the same profile. The canonical already pointed at the
+  // slug, but Google still has to crawl and reconcile both; a 301 settles it at the
+  // edge and is what GSC's "Duplicate, Google chose different canonical" wants.
+  if (tutor.slug && requested !== tutor.slug) permanentRedirect(`/tutor-profile/${tutor.slug}/`);
 
   const reviews = (await getTutorReviewsForPublic(String(tutor.id))) ?? [];
 

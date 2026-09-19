@@ -5,9 +5,12 @@
  * Run: npx tsx scripts/gurgaon-500/claims.check.ts
  */
 import assert from "node:assert/strict";
-import { findClaims } from "./compile";
+import { findBanned, findClaims } from "./compile";
 
 const honest = [
+  "Families comparing a 1:1 tutor with a small group should ask how much speaking time each student actually gets.",
+  "Nobody can guarantee a 7 in IB Maths, and any service promising one is selling certainty it does not have.",
+  "No tutor, however experienced with Cambridge 0620 past papers and the alternative to practical paper, can guarantee a grade.",
   "Tutors affiliated with IB Gram understand this clearly, and families should expect tutors to decline requests.",
   "For Cambridge 0580, tutors will establish whether the student is on core or extended.",
   "Particularly those whose children attend schools affiliated with the Cambridge International or Edexcel assessment systems.",
@@ -25,6 +28,16 @@ const honest = [
   "Is IB Gram affiliated with the IB Organization or any Gurugram school?",
   "Parents ask for a session count that guarantees a grade improvement, and we are direct that no tutor, however experienced, can promise that.",
   "IB Gram is an independent platform and is not affiliated with the IB, Cambridge or Pearson Edexcel.",
+  "Neither mode guarantees a grade outcome on its own.",
+  "Fee levels do not track guaranteed outcomes, and any framing that suggests a higher rate buys a guaranteed grade should be treated with real scepticism.",
+  "Any tutor promising a guaranteed grade improvement in that window should be treated with caution.",
+  "A Sushant Lok 3 tutor working through varied mechanism and energetics questions helps more than recall.",
+  "A South City 2 tutor can usually reach Sohna Road families on a school night.",
+  "Tutors who mark against real assessment criteria, which is a meaningfully different promise from a guaranteed result.",
+  "Any promise of a guaranteed 9 or a guaranteed grade jump should be treated as a warning sign rather than reassurance.",
+  "Sector 26-28 tutors see multiple schools' pacing of the same topics.",
+  "No tutor should describe themselves as an authorised centre, official partner or accredited provider for the IGCSE French syllabus, and any such claim should be questioned directly.",
+  "No tutor should describe themselves as an authorised centre, official partner or accredited provider, and a Vatika Chowk family should question any such claim directly.",
 ];
 
 const dishonest = [
@@ -39,5 +52,9 @@ const dishonest = [
 
 for (const line of honest) assert.deepEqual(findClaims(line), [], `false positive on honest copy: ${line}`);
 for (const line of dishonest) assert.notDeepEqual(findClaims(line), [], `missed a real claim: ${line}`);
+
+// Banned phrases match whole phrases only.
+assert.deepEqual(findBanned("A student who writes a strong introduction and a thin conclusion loses marks."), [], "banned phrase matched inside a word");
+assert.deepEqual(findBanned("In conclusion, practise past papers."), ["in conclusion"], "missed a banned phrase");
 
 console.log(`claims check ok: ${honest.length} honest lines pass, ${dishonest.length} dishonest lines caught`);

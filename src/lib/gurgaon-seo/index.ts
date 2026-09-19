@@ -2,6 +2,8 @@ import type { Metadata, MetadataRoute } from "next";
 import { absoluteUrl, SITE_URL } from "@/lib/seo/slug-utils";
 import { resolvePageTitle } from "@/lib/seo/page-title";
 import type { JsonLdObject } from "@/lib/seo/schema";
+import { CONTACT } from "@/lib/contact";
+import type { CountrySeoPage } from "@/lib/country-seo/types";
 import { gurgaonSeoPagesMeta } from "./pages-data";
 import { gurgaonSeoExpansionMeta } from "./pages-data-expansion";
 import { gurgaonSeoContentBySlug } from "./content";
@@ -16,7 +18,11 @@ const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
  * because the workbook set is generated from a spreadsheet and the expansion from
  * scripts/gurgaon-500; everything downstream sees one list.
  */
-const allMeta: GurgaonSeoPageMeta[] = [...gurgaonSeoPagesMeta, ...gurgaonSeoExpansionMeta];
+// The original 400 workbook pages keep their root-level URLs, untouched. Only the 500-page
+// expansion lives under the /gurgaon/ hub; its generated data still carries a root path, which
+// next.config.ts 301-redirects to the path set here.
+const hubMeta: GurgaonSeoPageMeta[] = gurgaonSeoExpansionMeta.map((meta) => ({ ...meta, path: `/gurgaon/${meta.slug}/` }));
+const allMeta: GurgaonSeoPageMeta[] = [...gurgaonSeoPagesMeta, ...hubMeta];
 const allContent = { ...gurgaonSeoContentBySlug, ...gurgaonSeoExpansionContentBySlug };
 
 export const gurgaonSeoSlugs: string[] = allMeta.map((page) => page.slug);
@@ -31,9 +37,14 @@ export function getGurgaonSeoPage(slug: string): GurgaonSeoPage | undefined {
   return { ...meta, content };
 }
 
-/** Static params for the dynamic route. */
+/** Static params for the root route: the original workbook pages, which keep root-level URLs. */
 export function getGurgaonSeoStaticParams(): Array<{ gurgaonSlug: string }> {
-  return allMeta.map((page) => ({ gurgaonSlug: page.slug }));
+  return gurgaonSeoPagesMeta.map((page) => ({ gurgaonSlug: page.slug }));
+}
+
+/** Static params for /gurgaon/<slug>/: the 500-page expansion only. */
+export function getGurgaonHubStaticParams(): Array<{ slug: string }> {
+  return hubMeta.map((page) => ({ slug: page.slug }));
 }
 
 /** All landing pages, sorted by workbook ID. */
@@ -55,6 +66,188 @@ export function getGurgaonSeoRelated(slug: string, locality: string, limit = 4):
     .filter((m) => m.locality === locality && m.slug !== slug)
     .slice(0, limit)
     .map((m) => ({ label: m.h1, href: m.path }));
+}
+
+/* ------------------------------------------------------------------ */
+/* /gurgaon/ hub: the Gurgaon IB + IGCSE homepage every locality page  */
+/* hangs under. Rendered with the country layout, but its metadata and */
+/* JSON-LD are Gurgaon-specific rather than country-shaped.            */
+/* ------------------------------------------------------------------ */
+
+export const GURGAON_HUB_PATH = "/gurgaon/";
+/** Gurugram city centre, public coordinates. Describes the city, not an office. */
+const GURUGRAM_GEO = { latitude: 28.4595, longitude: 77.0266 };
+
+/** Locality -> its landing pages, largest localities first (metadata only). */
+export function getGurgaonSeoDirectory(): Array<{ name: string; links: Array<{ label: string; href: string }> }> {
+  const groups = new Map<string, Array<{ label: string; href: string }>>();
+  // allMeta, not hubMeta: the 400 root-level workbook pages had no inbound internal link
+  // anywhere on the site, so Google reported them "Discovered - currently not indexed"
+  // (referringUrls: 0). The hub directory is the one place that can adopt them.
+  for (const meta of allMeta) {
+    const links = groups.get(meta.locality) ?? [];
+    links.push({ label: meta.h1, href: meta.path });
+    groups.set(meta.locality, links);
+  }
+  return [...groups.entries()]
+    .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+    .map(([name, links]) => ({ name, links }));
+}
+
+export function buildGurgaonHubMetadata(page: CountrySeoPage): Metadata {
+  const canonical = absoluteUrl(GURGAON_HUB_PATH);
+  return {
+    title: resolvePageTitle(page.title),
+    description: page.metaDescription,
+    keywords: [page.primaryKeyword, ...page.secondaryKeywords],
+    alternates: { canonical },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    },
+    openGraph: {
+      type: "website",
+      url: canonical,
+      title: page.title,
+      description: page.metaDescription,
+      siteName: "IB Gram",
+      locale: "en_IN",
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: page.imageAltText }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.title,
+      description: page.metaDescription,
+      images: [OG_IMAGE],
+    },
+    other: {
+      "geo.region": "IN-HR",
+      "geo.placename": "Gurugram (Gurgaon), Haryana",
+      "geo.position": `${GURUGRAM_GEO.latitude};${GURUGRAM_GEO.longitude}`,
+      ICBM: `${GURUGRAM_GEO.latitude}, ${GURUGRAM_GEO.longitude}`,
+    },
+  };
+}
+
+/**
+ * Gurgaon hub graph: Organization, City (Gurugram / Gurgaon), CollectionPage, Service with
+ * every locality as areaServed and IB/IGCSE courses as an OfferCatalog, an ItemList of every
+ * locality page, BreadcrumbList and FAQPage.
+ */
+export function buildGurgaonHubSchema(page: CountrySeoPage): JsonLdObject {
+  const canonical = absoluteUrl(GURGAON_HUB_PATH);
+  const organizationId = `${SITE_URL}/#organization`;
+  const cityId = `${canonical}#city`;
+  const course = (name: string, description: string, level?: string) => ({
+    "@type": "Course",
+    name,
+    description,
+    ...(level ? { educationalLevel: level } : {}),
+    provider: { "@id": organizationId },
+  });
+
+  const graph: JsonLdObject[] = [
+    {
+      "@type": "EducationalOrganization",
+      "@id": organizationId,
+      name: "IB Gram",
+      url: SITE_URL,
+      logo: `${SITE_URL}/logo-512.png`,
+      email: CONTACT.email,
+      telephone: CONTACT.phoneTel,
+      address: { "@type": "PostalAddress", addressLocality: "Gurugram", addressRegion: "Haryana", addressCountry: "IN" },
+      areaServed: { "@id": cityId },
+    },
+    {
+      "@type": "City",
+      "@id": cityId,
+      name: "Gurugram",
+      alternateName: ["Gurgaon"],
+      containedInPlace: { "@type": "State", name: "Haryana", containedInPlace: { "@type": "Country", name: "India" } },
+      geo: { "@type": "GeoCoordinates", ...GURUGRAM_GEO },
+      sameAs: "https://en.wikipedia.org/wiki/Gurgaon",
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: page.title,
+      description: page.metaDescription,
+      inLanguage: "en-IN",
+      isPartOf: { "@type": "WebSite", name: "IB Gram", url: SITE_URL },
+      about: [{ "@id": cityId }, { "@type": "Thing", name: "International Baccalaureate" }, { "@type": "Thing", name: "IGCSE" }],
+      primaryImageOfPage: { "@type": "ImageObject", url: OG_IMAGE, caption: page.imageAltText },
+      breadcrumb: { "@id": `${canonical}#breadcrumb` },
+      mainEntity: { "@id": `${canonical}#directory` },
+      keywords: [page.primaryKeyword, ...page.secondaryKeywords].join(", "),
+      dateModified: page.lastUpdated,
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: page.primaryKeyword,
+      serviceType: "IB and IGCSE home, online and hybrid tutoring",
+      description: page.metaDescription,
+      provider: { "@id": organizationId },
+      areaServed: [
+        { "@id": cityId },
+        ...page.regions.map((region) => ({ "@type": "Place", name: `${region.name}, Gurugram`, containedInPlace: { "@id": cityId } })),
+      ],
+      audience: { "@type": "EducationalAudience", educationalRole: "student" },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "IB and IGCSE tutoring in Gurgaon",
+        itemListElement: [
+          {
+            "@type": "OfferCatalog",
+            name: "IB and IGCSE programmes",
+            itemListElement: page.programmes.map((p) => ({ "@type": "Offer", itemOffered: course(`${p.name} (${p.code}) tutoring in Gurgaon`, p.description, p.ageRange) })),
+          },
+          {
+            "@type": "OfferCatalog",
+            name: "IB and IGCSE subjects",
+            itemListElement: page.subjects.map((s) => ({ "@type": "Offer", itemOffered: course(`${s.name} tutoring in Gurgaon`, s.description, s.levels) })),
+          },
+        ],
+      },
+      url: canonical,
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${canonical}#directory`,
+      name: "IB and IGCSE home tutor pages for every Gurgaon locality",
+      numberOfItems: hubMeta.length,
+      itemListElement: hubMeta.map((meta, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: absoluteUrl(meta.path),
+        name: meta.h1,
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+        { "@type": "ListItem", position: 2, name: "IB & IGCSE Tutors in Gurgaon", item: canonical },
+      ],
+    },
+  ];
+
+  if (page.faqs.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: page.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    });
+  }
+
+  return { "@context": "https://schema.org", "@graph": graph };
 }
 
 /** Self-referencing canonical for a page. */
@@ -94,12 +287,16 @@ export function buildGurgaonSeoMetadata(meta: GurgaonSeoPageMeta): Metadata {
 
 /** Sitemap entries for all Gurgaon SEO landing pages. */
 export function getGurgaonSeoSitemapEntries(): MetadataRoute.Sitemap {
-  return allMeta.map((meta) => ({
-    url: gurgaonSeoCanonical(meta),
-    lastModified: meta.lastUpdated ?? GURGAON_SEO_LAST_UPDATED,
-    changeFrequency: "weekly",
-    priority: meta.priority === "P0" ? 0.8 : meta.priority === "P1" ? 0.74 : 0.66,
-  }));
+  return [
+    // The /gurgaon/ hub every expansion page hangs under.
+    { url: absoluteUrl(GURGAON_HUB_PATH), lastModified: "2026-09-13", changeFrequency: "weekly" as const, priority: 0.9 },
+    ...allMeta.map((meta) => ({
+      url: gurgaonSeoCanonical(meta),
+      lastModified: meta.lastUpdated ?? GURGAON_SEO_LAST_UPDATED,
+      changeFrequency: "weekly" as const,
+      priority: meta.priority === "P0" ? 0.8 : meta.priority === "P1" ? 0.74 : 0.66,
+    })),
+  ];
 }
 
 /**
@@ -121,7 +318,6 @@ export function buildGurgaonSeoSchema(page: GurgaonSeoPage): JsonLdObject {
     containedInPlace: { "@type": "State", name: "Haryana", containedInPlace: { "@type": "Country", name: "India" } },
   };
   const place = (name: string) => ({ "@type": "Place", name: `${name}, Gurugram`, containedInPlace: gurugram });
-  const hubName = page.board === "IB" ? "IB Tutors in Gurugram" : page.board === "IGCSE" ? "IGCSE Tutors in Gurugram" : "IB & IGCSE Tutors in Gurugram";
 
   const graph: JsonLdObject[] = [
     {
@@ -179,7 +375,14 @@ export function buildGurgaonSeoSchema(page: GurgaonSeoPage): JsonLdObject {
       "@id": `${canonical}#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-        { "@type": "ListItem", position: 2, name: hubName, item: absoluteUrl(page.parentPage) },
+        page.path.startsWith("/gurgaon/")
+          ? { "@type": "ListItem", position: 2, name: "IB & IGCSE Tutors in Gurgaon", item: absoluteUrl("/gurgaon/") }
+          : {
+              "@type": "ListItem",
+              position: 2,
+              name: page.board === "IB" ? "IB Tutors in Gurugram" : page.board === "IGCSE" ? "IGCSE Tutors in Gurugram" : "IB & IGCSE Tutors in Gurugram",
+              item: absoluteUrl(page.parentPage),
+            },
         { "@type": "ListItem", position: 3, name: page.h1, item: canonical },
       ],
     },

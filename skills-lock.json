@@ -13,6 +13,24 @@
       "skillPath": "skills/seo/entity-seo/SKILL.md",
       "computedHash": "b93a7ec7e38ca2ef535b6e3bd40a92716708fa4e870432d50ab92ea26e568be0"
     },
+    "find-keywords": {
+      "source": "calm-north/seojuice-skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-keywords/SKILL.md",
+      "computedHash": "ec75ec0ddd56ec0e3ec8ca9fc608d1999dfa73d00dc47ad0d3c0e6754df2996c"
+    },
+    "keyword-research": {
+      "source": "eronred/aso-skills",
+      "sourceType": "github",
+      "skillPath": "skills/keyword-research/SKILL.md",
+      "computedHash": "11f29feecef42e78616ac19285cec948f733e71d1e953ef611b92d404ae127a7"
+    },
+    "keywords": {
+      "source": "scalebrick/founder-marketing-skills",
+      "sourceType": "github",
+      "skillPath": "skills/keywords/SKILL.md",
+      "computedHash": "0262c297fceb9097a8368834c969e95c6a8b9da1fc8a101ea71d983988ba81cc"
+    },
     "llms-txt": {
       "source": "thatrebeccarae/claude-marketing",
       "sourceType": "github",
@@ -48,6 +66,30 @@
       "sourceType": "github",
       "skillPath": "skills/seo-content-brief/SKILL.md",
       "computedHash": "d1d29ce79f14af2c3765f5621bb9500f147f35946e7905444623cfaf49c0b2d8"
+    },
+    "seo-dataforseo": {
+      "source": "agricidaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-dataforseo/SKILL.md",
+      "computedHash": "930c67f7c80c4033b861cb7dfc728f40f46a92f370e27b16fc8bdf42ff81d539"
+    },
+    "seo-keyword": {
+      "source": "rampstackco/claude-skills",
+      "sourceType": "github",
+      "skillPath": "skills/seo-keyword/SKILL.md",
+      "computedHash": "b63f5f612515c1ff49a7cd250cd9a990b2ff11f55025fe7b638cd655895a1054"
+    },
+    "seo-keyword-cluster-builder": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/seo-keyword-cluster-builder/skills/seo-keyword-cluster-builder/SKILL.md",
+      "computedHash": "38bc9d30a5b164fc7700cbb9cb7e413e0b8c6595889414b9ceca99fc195419dd"
+    },
+    "seo-keyword-gap-audit": {
+      "source": "rampstackco/claude-skills",
+      "sourceType": "github",
+      "skillPath": "skills/seo-keyword-gap-audit/SKILL.md",
+      "computedHash": "431078940147dff9092e1143768b66cdfc6b2175372ff652677497b8ada6be28"
     }
   }
 }

@@ -1,4 +1,8 @@
+"use client";
+
 import { Quote, ShieldCheck, Star } from "lucide-react";
+
+import { useDragCarousel } from "@/components/home/use-drag-carousel";
 
 export type Review = {
   id: number | string;
@@ -50,6 +54,12 @@ export function ReviewsSection({
   intro?: string;
 }) {
   const reviews = items && items.length > 0 ? items : fallbackReviews;
+  const { itemsToShow, safeActiveIdx, setActiveIdx, maxIdx, dragHandlers } = useDragCarousel(reviews.length, {
+    mobile: 1,
+    tablet: 2,
+    desktop: 3,
+    wide: 4,
+  });
   return (
     <section className="py-12 md:py-16 relative overflow-hidden bg-background">
       <div className="container mx-auto px-4 md:px-6 relative">
@@ -67,11 +77,18 @@ export function ReviewsSection({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5">
+        <div
+          className="overflow-hidden cursor-grab active:cursor-grabbing"
+          {...dragHandlers}
+        >
+          <div
+            className="flex gap-4 transition-transform duration-300 ease-out md:gap-5"
+            style={{ transform: `translate3d(-${safeActiveIdx * (100 / itemsToShow)}%, 0, 0)` }}
+          >
           {reviews.map((review) => (
             <article
               key={review.id}
-              className="h-full rounded-3xl border border-border bg-card p-6 md:p-7 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/5"
+              className="w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] xl:w-[calc(25%-15px)] shrink-0 select-none h-auto rounded-3xl border border-border bg-card p-6 md:p-7 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/5"
             >
               <div className="mb-6 flex items-start justify-between gap-4">
                 <div className="size-11 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
@@ -96,6 +113,24 @@ export function ReviewsSection({
                 </div>
               </div>
             </article>
+          ))}
+          </div>
+        </div>
+
+        <div className="flex justify-start gap-2 mt-8">
+          {Array.from({ length: maxIdx + 1 }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIdx(i)}
+              className={`group flex h-6 items-center justify-center rounded-full ${safeActiveIdx === i ? "w-8" : "w-6"}`}
+              aria-label={`Reviews page ${i + 1}`}
+            >
+              <span
+                className={`h-1 rounded-full transition-all duration-500 ${
+                  safeActiveIdx === i ? "w-8 bg-secondary" : "w-1.5 bg-border group-hover:bg-secondary/40"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

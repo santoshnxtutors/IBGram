@@ -22,7 +22,6 @@ const PRIVATE_DISALLOWS = [
   "/cart/",
   "/checkout/",
   "/search",
-  "/subscription/",
   "/tutor-compare/",
   "/jobs/*/apply/",
   "/*?q=",

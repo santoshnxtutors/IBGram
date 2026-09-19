@@ -85,6 +85,27 @@ export default async function BlogListingPage() {
         ) : (
           <BlogListClient posts={posts} categories={categories} />
         )}
+
+        {/* BlogListClient is a client component that renders PAGE_SIZE=9 posts and reveals
+            the rest behind a "load more" click, so only 9 of the published posts ever reach
+            the server HTML. Googlebot does not press the button: the remaining posts had no
+            crawlable link anywhere on the site and Search Console reported them
+            "Discovered - currently not indexed" with referringUrls: 0. This archive keeps
+            every post one crawlable hop from /blog/. */}
+        {posts.length > 0 && (
+          <nav aria-label="All articles" className="mt-16 border-t border-border/60 pt-8">
+            <h2 className="mb-4 text-lg font-bold tracking-tight text-foreground">All articles</h2>
+            <ul className="grid gap-x-8 gap-y-2 text-sm sm:grid-cols-2 lg:grid-cols-3">
+              {posts.map((p) => (
+                <li key={p.slug}>
+                  <a href={`/blog/${p.slug}/`} className="text-muted-foreground transition-colors hover:text-primary">
+                    {p.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </div>
     </div>
   );

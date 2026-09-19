@@ -25,6 +25,16 @@ import { buildCountrySeoSchema } from "@/lib/country-seo";
 import type { CountrySeoPage, CountrySection } from "@/lib/country-seo/types";
 import type { Tutor } from "@/lib/tutor-data";
 import type { PublicReview } from "@/lib/cms/public-reviews";
+import type { JsonLdObject } from "@/lib/seo/schema";
+import { SchoolStrip } from "@/components/shared/SchoolStrip";
+
+/** Grouped internal-link directory rendered before the closing CTA (city hubs). */
+export type LandingDirectory = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  groups: Array<{ name: string; links: Array<{ label: string; href: string }> }>;
+};
 
 const TutorDiscovery = nextDynamic(() =>
   import("@/components/home/TutorDiscovery").then((mod) => mod.TutorDiscovery),
@@ -141,6 +151,41 @@ function ProseSection({ section, index }: { section: CountrySection; index: numb
             {paragraph}
           </p>
         ))}
+        {section.table ? (
+          <div className="overflow-x-auto rounded-2xl border border-border bg-card">
+            <table className="w-full min-w-[36rem] text-left text-sm">
+              <caption className="border-b border-border px-5 py-3 text-left text-[11px] font-black uppercase tracking-[0.18em] text-primary">
+                {section.table.caption}
+              </caption>
+              <thead>
+                <tr>
+                  {section.table.columns.map((column) => (
+                    <th key={column} scope="col" className="border-b border-border bg-muted/60 px-5 py-3 font-black text-foreground">
+                      {column}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {section.table.rows.map((row, r) => (
+                  <tr key={r} className="border-b border-border align-top last:border-0">
+                    {row.map((cell, c) =>
+                      c === 0 ? (
+                        <th key={c} scope="row" className="px-5 py-3 font-bold text-foreground">
+                          {cell}
+                        </th>
+                      ) : (
+                        <td key={c} className="px-5 py-3 leading-relaxed text-foreground/75">
+                          {cell}
+                        </td>
+                      ),
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : null}
       </div>
     </article>
   );
@@ -154,10 +199,18 @@ export function CountryLanding({
   page,
   tutors,
   reviews,
+  schema,
+  directory,
+  schoolStrip,
 }: {
   page: CountrySeoPage;
   tutors?: Tutor[];
   reviews?: PublicReview[];
+  /** Replaces the country JSON-LD graph (city hubs supply their own). */
+  schema?: JsonLdObject;
+  directory?: LandingDirectory;
+  /** Sliding school-name strip under the stats, the same one the Gurgaon locality pages use. */
+  schoolStrip?: { schools: readonly string[]; place: string };
 }) {
   const flagSrc = `/images/Countryflag/${page.flagCode}.svg`;
   // CMS reviews when available, otherwise the same seed the homepage falls back to.
@@ -165,7 +218,7 @@ export function CountryLanding({
 
   return (
     <div className="relative isolate overflow-hidden bg-background">
-      <JsonLd data={buildCountrySeoSchema(page)} />
+      <JsonLd data={schema ?? buildCountrySeoSchema(page)} />
 
       {/* Continuous ambient wash behind every band — keeps the page one dark surface. */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -317,6 +370,8 @@ export function CountryLanding({
         </div>
       </section>
 
+      {schoolStrip ? <SchoolStrip schools={schoolStrip.schools} place={schoolStrip.place} /> : null}
+
       {/* ---------------- Intro ---------------- */}
       <Band>
         <SectionHead
@@ -388,7 +443,7 @@ export function CountryLanding({
       <Band>
         <SectionHead
           eyebrow="Subject coverage"
-          title="IB and IGCSE subjects we tutor"
+          title={page.igcseSubjects ? "IB subjects we tutor" : "IB and IGCSE subjects we tutor"}
           lead={page.subjectsIntro}
           icon={ListChecks}
         />
@@ -405,6 +460,25 @@ export function CountryLanding({
           ))}
         </div>
       </Band>
+
+      {/* ---------------- IGCSE subjects (hubs that split IB and IGCSE) ---------------- */}
+      {page.igcseSubjects ? (
+        <Band tone="sunken">
+          <SectionHead eyebrow="IGCSE coverage" title="IGCSE subjects we tutor" lead={page.igcseSubjectsIntro} icon={BookOpen} />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {page.igcseSubjects.map((subject) => (
+              <article
+                key={subject.name}
+                className="rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-secondary/30 hover:bg-primary/5"
+              >
+                <h3 className="mb-1.5 text-base font-black tracking-tight text-foreground">{subject.name}</h3>
+                <p className="mb-3 text-[12px] font-bold uppercase tracking-[0.12em] text-amber-800">{subject.levels}</p>
+                <p className="text-sm leading-relaxed text-foreground/70">{subject.description}</p>
+              </article>
+            ))}
+          </div>
+        </Band>
+      ) : null}
 
       {/* ---------------- Formats ---------------- */}
       <Band tone="raised">
@@ -452,7 +526,7 @@ export function CountryLanding({
           <TutorDiscovery
             tutors={tutors}
             heading={`IB and IGCSE tutors available to students in ${page.countryName}`}
-            intro={`A sample of verified tutors covering IB PYP, MYP, DP and IGCSE subjects. Matching weighs syllabus fit, HL or SL level, exam session, and the ${page.timezoneLabel.split(",")[0].trim()} to ${page.timezoneLabel.split("and").pop()?.trim() ?? ""} scheduling window your family needs.`}
+            intro={page.tutorsIntro ?? `A sample of verified tutors covering IB PYP, MYP, DP and IGCSE subjects. Matching weighs syllabus fit, HL or SL level, exam session, and the ${page.timezoneLabel.split(",")[0].trim()} to ${page.timezoneLabel.split("and").pop()?.trim() ?? ""} scheduling window your family needs.`}
           />
         </div>
       ) : null}
@@ -475,7 +549,7 @@ export function CountryLanding({
       <Band>
         <SectionHead
           eyebrow="Where we tutor"
-          title={`States, metros and time zones across ${page.countryName}`}
+          title={page.regionsTitle ?? `States, metros and time zones across ${page.countryName}`}
           lead={page.regionsIntro}
           icon={MapPin}
         />
@@ -643,6 +717,31 @@ export function CountryLanding({
       </Band>
 
       {/* ---------------- Final CTA ---------------- */}
+      {directory ? (
+        <Band tone="raised">
+          <SectionHead eyebrow={directory.eyebrow} icon={MapPin} title={directory.title} lead={directory.lead} />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {directory.groups.map((group) => (
+              <div key={group.name} className="rounded-2xl border border-border bg-background/40 p-5">
+                <h3 className="mb-3 text-base font-black text-foreground">{group.name}</h3>
+                <ul className="space-y-2">
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-sm font-medium leading-snug text-muted-foreground transition-colors hover:text-primary"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Band>
+      ) : null}
+
       <section className="relative border-t border-border bg-muted/60">
         <div className="container mx-auto px-4 py-10 sm:py-14 md:px-6 md:py-20">
           <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 text-center sm:rounded-[2rem] sm:p-10 md:p-14">

@@ -53,6 +53,14 @@ export interface GeneratedFaq {
   answer: string;
 }
 
+export interface GeneratedComparison {
+  heading: string;
+  intro: string;
+  /** Options compared; the first is the page's own offer. */
+  columns: string[];
+  rows: Array<{ label: string; cells: string[] }>;
+}
+
 export interface GeneratedInternalLink {
   linkId: string;
   sourcePageId: string;
@@ -127,6 +135,8 @@ export interface GeneratedSeoPage extends GeneratedMetadataFields {
   quality: GeneratedQualityScore;
   finalCta: string;
   schoolDisclaimer?: string;
+  /** Home tutor vs coaching centre vs online table (Gurgaon hub keyword pages). */
+  comparison?: GeneratedComparison;
   lastUpdated: string;
 }
 

@@ -40,7 +40,6 @@ const SHOULD_NOINDEX_PATHS = [
   "/api/",
   "/login/",
   "/signup/",
-  "/subscription/",
   "/tutor-compare/",
   "/student/",
   "/preview/",

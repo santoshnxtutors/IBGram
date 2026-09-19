@@ -5,15 +5,26 @@ import { BookDemoButton } from "@/components/booking/BookDemoButton";
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { SchoolStrip } from "@/components/shared/SchoolStrip";
 import { getGurgaonNearbySchools } from "@/lib/local-seo/gurgaon/gurgaon-schools";
-import { buildGurgaonSeoSchema, GURGAON_SEO_LAST_UPDATED } from "@/lib/gurgaon-seo";
+import { buildGurgaonSeoSchema } from "@/lib/gurgaon-seo";
 import type { GurgaonSeoPage } from "@/lib/gurgaon-seo/types";
 
 type RelatedLink = { label: string; href: string };
 
-export function GurgaonSeoLanding({ page, related }: { page: GurgaonSeoPage; related: RelatedLink[] }) {
+export function GurgaonSeoLanding({
+  page,
+  related,
+  tutorSection,
+}: {
+  page: GurgaonSeoPage;
+  related: RelatedLink[];
+  /** Board-matched tutor cards (the /gurgaon/ expansion pages pass it; original pages do not). */
+  tutorSection?: React.ReactNode;
+}) {
   const { content } = page;
   const nearbySchools = getGurgaonNearbySchools(page.localContext.schools, 5);
   const hubLinks: RelatedLink[] = [
+    // Only the /gurgaon/<slug>/ expansion pages link up to the hub; the original pages are unchanged.
+    ...(page.path.startsWith("/gurgaon/") ? [{ label: "All IB & IGCSE home tutors in Gurgaon", href: "/gurgaon/" }] : []),
     { label: "IB Tutors in Gurugram", href: "/ib-tutors/gurugram/" },
     { label: "IGCSE Tutors in Gurugram", href: "/igcse-tutors/gurugram/" },
     { label: "Browse all tutors", href: "/tutors/" },
@@ -81,40 +92,34 @@ export function GurgaonSeoLanding({ page, related }: { page: GurgaonSeoPage; rel
         </div>
       </section>
 
-      {/* At a glance: the page's checkable facts as a definition list, high on the page.
-          AI answers (AI Overviews, ChatGPT, Perplexity) lift self-contained fact blocks. */}
-      <section className="border-b border-border/50 bg-background py-6">
+      {/* At a glance: the page's checkable facts as a row of small cards styled like the school pills. AI answers (AI Overviews,
+          ChatGPT, Perplexity) lift self-contained fact blocks; the heading stays for them, visually hidden. */}
+      <section className="border-b border-border/50 bg-background py-4">
         <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-xs font-bold uppercase tracking-wide text-primary">
+          <h2 className="sr-only">
             {page.subject} tutoring in {page.locality} at a glance
           </h2>
-          <dl className="mt-3 grid gap-x-8 gap-y-3 text-sm sm:grid-cols-2 lg:grid-cols-3">
+          <dl className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-6">
             {[
-              ["Board", page.board === "IB + IGCSE" ? "International Baccalaureate (IB) and IGCSE" : page.board === "IB" ? "International Baccalaureate (IB)" : "IGCSE (Cambridge / Pearson Edexcel)"],
+              ["Board", page.board === "IB + IGCSE" ? "IB and IGCSE" : page.board === "IB" ? "International Baccalaureate (IB)" : "IGCSE (Cambridge / Edexcel)"],
               ["Subject and level", `${page.subject} · ${page.level}`],
-              ["Area", `${page.locality}, Gurugram (Gurgaon), Haryana`],
+              ["Area", `${page.locality}, Gurugram`],
               ["Also covering", page.localContext.nearbyAreas.join(", ")],
-              ["Lesson modes", "Home, online or hybrid, subject to tutor availability"],
-              ["Exam sessions", page.board === "IGCSE" ? "Cambridge: May–June and October–November; Pearson Edexcel: January and May–June" : page.board === "IB" ? "May and November" : "IB: May and November; IGCSE: May–June and October–November"],
+              ["Lesson modes", "Home · Online · Hybrid"],
+              ["Exam sessions", page.board === "IGCSE" ? "May–Jun, Oct–Nov (Cambridge); Jan, May–Jun (Edexcel)" : page.board === "IB" ? "May and November" : "IB: May, Nov; IGCSE: May–Jun, Oct–Nov"],
             ].map(([term, value]) => (
-              <div key={term}>
-                <dt className="font-bold text-foreground">{term}</dt>
-                <dd className="text-muted-foreground">{value}</dd>
+              <div key={term} className="min-w-0 rounded-xl border border-secondary/25 bg-secondary/10 px-3 py-2">
+                <dt className="text-[10px] font-bold uppercase tracking-wide text-primary">{term}</dt>
+                <dd className="mt-0.5 text-[13px] font-semibold leading-snug text-foreground/90">{value}</dd>
               </div>
             ))}
-            <div>
-              <dt className="font-bold text-foreground">Last updated</dt>
-              <dd className="text-muted-foreground">
-                <time dateTime={page.lastUpdated ?? GURGAON_SEO_LAST_UPDATED}>
-                  {new Date(page.lastUpdated ?? GURGAON_SEO_LAST_UPDATED).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
-                </time>
-              </dd>
-            </div>
           </dl>
         </div>
       </section>
 
       <SchoolStrip schools={nearbySchools} place={page.locality} />
+
+      {tutorSection}
 
       {/* Body sections. Spacing matches the generated city pages (py-10 md:py-14) so the
           Gurgaon landing pages and the city pages read as one site. */}

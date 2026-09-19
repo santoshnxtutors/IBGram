@@ -37,6 +37,7 @@ node_modules/
 .env.local
 .env.production
 .env.staging
+.env.local
 
 # ─── Uploads & user media (never commit; serve from Cloudinary/S3/local disk) ─
 /public/uploads/

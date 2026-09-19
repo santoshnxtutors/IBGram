@@ -20,6 +20,18 @@ export function getAllCountrySeoPages(): CountrySeoPage[] {
   return countrySeoPages;
 }
 
+/**
+ * Slug + display name + flag for the footer country strip. Returns plain data so the client
+ * Footer never imports the country content modules (3MB) into the browser bundle.
+ */
+export function getCountryFooterLinks(): Array<{ slug: string; name: string; flagCode: string }> {
+  return countrySeoPages.map((page) => ({
+    slug: page.slug,
+    name: page.countryName.replace(/^the\s+/i, ""),
+    flagCode: page.flagCode,
+  }));
+}
+
 export function countrySeoPath(page: CountrySeoPage): string {
   return `/${page.slug}/`;
 }
@@ -28,13 +40,27 @@ export function countrySeoCanonical(page: CountrySeoPage): string {
   return absoluteUrl(countrySeoPath(page));
 }
 
+/** English for that country, e.g. "en-GB"; used for inLanguage and hreflang. */
+function countryLanguageTag(page: CountrySeoPage): string {
+  return `en-${page.countryCode}`;
+}
+
+/** "the United Arab Emirates" → "United Arab Emirates" for schema names. */
+function countryProperName(page: CountrySeoPage): string {
+  return page.countryNameLong.replace(/^the\s+/i, "");
+}
+
 export function buildCountrySeoMetadata(page: CountrySeoPage): Metadata {
   const canonical = countrySeoCanonical(page);
+  // Every country page lists the whole set, so hreflang tags are reciprocal.
+  const languages = Object.fromEntries(
+    countrySeoPages.map((other) => [countryLanguageTag(other), countrySeoCanonical(other)]),
+  );
   return {
     title: resolvePageTitle(page.title),
     description: page.metaDescription,
     keywords: [page.primaryKeyword, ...page.secondaryKeywords],
-    alternates: { canonical },
+    alternates: { canonical, ...(countrySeoPages.length > 1 ? { languages } : {}) },
     robots: {
       index: true,
       follow: true,
@@ -46,7 +72,7 @@ export function buildCountrySeoMetadata(page: CountrySeoPage): Metadata {
       title: page.title,
       description: page.metaDescription,
       siteName: "IB Gram",
-      locale: "en_US",
+      locale: countryLanguageTag(page).replace("-", "_"),
       images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: page.imageAltText }],
     },
     twitter: {
@@ -73,6 +99,11 @@ export function getCountrySeoSitemapEntries(): MetadataRoute.Sitemap {
  */
 export function buildCountrySeoSchema(page: CountrySeoPage): JsonLdObject {
   const canonical = countrySeoCanonical(page);
+  const country = {
+    "@type": "Country",
+    name: countryProperName(page),
+    identifier: page.countryCode,
+  };
   const provider = {
     "@type": "EducationalOrganization",
     "@id": `${absoluteUrl("/")}#organization`,
@@ -90,7 +121,9 @@ export function buildCountrySeoSchema(page: CountrySeoPage): JsonLdObject {
       url: canonical,
       name: page.title,
       description: page.metaDescription,
-      inLanguage: "en-US",
+      inLanguage: countryLanguageTag(page),
+      about: country,
+      keywords: [page.primaryKeyword, ...page.secondaryKeywords].join(", "),
       isPartOf: { "@type": "WebSite", name: "IB Gram", url: absoluteUrl("/") },
       breadcrumb: { "@id": `${canonical}#breadcrumb` },
       dateModified: page.lastUpdated,
@@ -102,13 +135,21 @@ export function buildCountrySeoSchema(page: CountrySeoPage): JsonLdObject {
       name: page.primaryKeyword,
       serviceType: "IB and IGCSE online tutoring",
       provider,
-      areaServed: { "@type": "Country", name: page.countryName },
+      areaServed: country,
       availableChannel: {
         "@type": "ServiceChannel",
         serviceUrl: canonical,
         availableLanguage: ["English"],
       },
-      audience: { "@type": "EducationalAudience", educationalRole: "student" },
+      audience: { "@type": "EducationalAudience", educationalRole: "student", geographicArea: country },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: `IB programmes and IGCSE tutored online for students in ${page.countryName}`,
+        itemListElement: page.programmes.map((programme) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: `IB ${programme.name} (${programme.code}) tutoring` },
+        })),
+      },
       url: canonical,
     },
     {

@@ -27,6 +27,7 @@ import { IGCSEReviews } from "./reviews/IGCSEReviews";
 import { IGCSETrustSignals } from "./trust/IGCSETrustSignals";
 import { igcseFaqs } from "./content";
 import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
+import { getIgcseSubjectGroups, igcseSubjectPath } from "@/lib/igcse-subjects";
 
 export const dynamic = "force-static";
 export const revalidate = 3600;
@@ -84,45 +85,6 @@ export const metadata: Metadata = {
   },
 };
 
-const SUBJECT_DEPTH = [
-  {
-    title: "IGCSE Mathematics",
-    summary:
-      "Cambridge IGCSE Mathematics (0580 / 0607 / 0980) and Pearson Edexcel Mathematics A and B. Core and Extended tier coaching, algebra and graphs depth, transformation geometry, statistics, calculator-policy practice and timed paper drills.",
-    bullets: ["Algebra and graphs", "Trigonometry and vectors", "Statistics and probability", "Past-paper timing"],
-  },
-  {
-    title: "IGCSE Sciences",
-    summary:
-      "Cambridge Physics (0625 / 0972), Chemistry (0620 / 0971), Biology (0610 / 0970) and the Edexcel International GCSE equivalents. Command-term-aware extended response, practical and alternative-to-practical preparation, data-handling rigour and clean diagram drills.",
-    bullets: ["Concept clarity", "Practical and ATP", "Data questions", "Command-term writing"],
-  },
-  {
-    title: "IGCSE English",
-    summary:
-      "Cambridge First Language English (0500 / 0990), Literature in English (0475 / 0992) and Edexcel English Language A. Reading-comprehension techniques, directed-writing structure, unseen literary analysis and coursework planning where the school route allows.",
-    bullets: ["Reading skills", "Writing accuracy", "Unseen analysis", "Coursework planning"],
-  },
-  {
-    title: "IGCSE Business & Economics",
-    summary:
-      "Cambridge Business Studies (0450), Economics (0455) and Edexcel International GCSE equivalents. Case-material analysis, source-skills work, definition rigour, concise extended-response structure and command-word-aware exam practice.",
-    bullets: ["Case studies", "Definition rigour", "Essay structure", "Calculation accuracy"],
-  },
-  {
-    title: "IGCSE Humanities",
-    summary:
-      "History (0470), Geography (0460), Global Perspectives (0457) and other humanities specs. Source skills, evidence handling, case-study depth, clear paragraph structure and command-term recognition across paper styles.",
-    bullets: ["Source analysis", "Case studies", "Essay technique", "Evidence handling"],
-  },
-  {
-    title: "IGCSE ICT & Computer Science",
-    summary:
-      "Cambridge ICT (0417 / 0983) and Computer Science (0478 / 0984) plus Edexcel equivalents. Algorithms, pseudocode, practical task walkthroughs, command-term-aware theory writing and exam-paper question style.",
-    bullets: ["Algorithms", "Pseudocode", "Practical tasks", "Theory writing"],
-  },
-];
-
 const MATCHING_STEPS = [
   {
     title: "Confirm the board and the subject",
@@ -144,6 +106,7 @@ const MATCHING_STEPS = [
 
 export default async function IGCSEPage() {
   const visibleTutors = await getVisibleTutorsForPage("/igcse/");
+  const subjectGroups = getIgcseSubjectGroups();
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -404,22 +367,31 @@ export default async function IGCSEPage() {
             </div>
             <h2 className="text-3xl font-bold md:text-4xl">Subject-by-subject IGCSE tutoring focus</h2>
             <p className="leading-relaxed text-muted-foreground">
-              Each IGCSE subject has its own examiner habits, paper structure and pitfalls. The summaries below show what a tutor typically prioritises in each area, across both Cambridge and Pearson Edexcel routes where relevant.
+              Each IGCSE subject has its own examiner habits, paper structure and pitfalls. Open a subject below for its Cambridge and Pearson Edexcel routes, syllabus codes, what a tutor prioritises and the tutors currently matched to it.
             </p>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {SUBJECT_DEPTH.map((s) => (
+            {subjectGroups.map((group) => (
               <article
-                key={s.title}
+                key={group.key}
                 className="rounded-2xl border border-border/50 bg-card/40 p-6 transition-all hover:border-primary/30 hover:bg-card/60"
               >
-                <h3 className="text-lg font-bold text-foreground">{s.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.summary}</p>
+                <div className="flex items-baseline justify-between gap-3">
+                  <h3 className="text-lg font-bold text-foreground">{group.label}</h3>
+                  <span className="shrink-0 text-[12px] font-bold text-muted-foreground">
+                    {group.entries.length} subject{group.entries.length === 1 ? "" : "s"}
+                  </span>
+                </div>
                 <ul className="mt-4 flex flex-wrap gap-2">
-                  {s.bullets.map((b) => (
-                    <li key={b} className="rounded-full border border-border/50 bg-background/60 px-3 py-1 text-[12px] font-bold text-foreground/80">
-                      {b}
+                  {group.entries.map((entry) => (
+                    <li key={entry.slug}>
+                      <Link
+                        href={igcseSubjectPath(entry.slug)}
+                        className="block rounded-full border border-border/50 bg-background/60 px-3 py-1 text-[12px] font-bold text-foreground/80 transition-colors hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
+                      >
+                        {entry.shortLabel}
+                      </Link>
                     </li>
                   ))}
                 </ul>

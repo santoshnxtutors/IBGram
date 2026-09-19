@@ -77,7 +77,7 @@ export function IGCSETutors({ tutors }: IGCSETutorsProps = {}) {
 
   return (
     <section className="py-12 relative overflow-hidden bg-background border-t border-border/50" id="igcse-tutors">
-      <div className="container px-4 mx-auto max-w-6xl">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-foreground">

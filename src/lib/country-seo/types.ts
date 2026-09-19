@@ -43,11 +43,19 @@ export interface CountryMode {
   bullets: string[];
 }
 
-/** Generic long-form body section: heading + paragraphs (+ optional bullets). */
+/** Data table rendered under a prose section. The first cell of each row is its row header. */
+export interface CountryTable {
+  caption: string;
+  columns: string[];
+  rows: string[][];
+}
+
+/** Generic long-form body section: heading + paragraphs (+ optional bullets and table). */
 export interface CountrySection {
   heading: string;
   paragraphs: string[];
   bullets?: string[];
+  table?: CountryTable;
 }
 
 export interface CountryProcessStep {
@@ -120,4 +128,13 @@ export interface CountrySeoPage {
   internalLinks: CountryInternalLink[];
   closingHeading: string;
   closingBody: string;
+
+  // ---- Optional overrides for city hubs rendered with this layout (e.g. /gurgaon/) ----
+  /** Replaces the "States, metros and time zones" regions heading. */
+  regionsTitle?: string;
+  /** Replaces the time-zone based intro above the tutor cards. */
+  tutorsIntro?: string;
+  /** A second subject grid for IGCSE, so `subjects` can hold IB only. */
+  igcseSubjects?: CountrySubject[];
+  igcseSubjectsIntro?: string;
 }

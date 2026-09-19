@@ -1,7 +1,9 @@
 import { MessageCircleQuestion } from "lucide-react";
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
+import { localCityLabel } from "./city-label";
 
 export function GeneratedFAQ({ page }: { page: GeneratedSeoPage }) {
+  const cityLabel = localCityLabel(page.cityName);
   return (
     <section className="bg-background py-10 md:py-14" id="faq">
       <div className="container mx-auto px-4 md:px-6">
@@ -10,7 +12,9 @@ export function GeneratedFAQ({ page }: { page: GeneratedSeoPage }) {
             <MessageCircleQuestion className="size-3.5" />
             FAQs
           </div>
-          <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">{page.canonicalUrl.includes("igcse") ? "IGCSE" : "IB"} tutoring FAQs for {page.cityName}</h2>
+          <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
+            {page.canonicalUrl.includes("igcse") ? "IGCSE" : "IB"} tutoring FAQs{cityLabel ? ` for ${cityLabel}` : ""}
+          </h2>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           {page.faqs.map((faq) => (

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { GurgaonSeoLanding } from "@/components/gurgaon-seo/GurgaonSeoLanding";
 import { CountryLanding } from "@/components/country-seo/CountryLanding";
-import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
-import { TutorDiscovery } from "@/components/home/TutorDiscovery";
+import { GurgaonSeoLanding } from "@/components/gurgaon-seo/GurgaonSeoLanding";
 import {
   buildGurgaonSeoMetadata,
-  getGurgaonSeoRelated,
   getGurgaonSeoPage,
+  getGurgaonSeoRelated,
   getGurgaonSeoStaticParams,
 } from "@/lib/gurgaon-seo";
+import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
+import { TutorDiscovery } from "@/components/home/TutorDiscovery";
 import { getGurgaonKeywordPage, gurgaonKeywordSlugs } from "@/lib/gurgaon-keywords";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { buildCountrySeoMetadata, countrySeoSlugs, getCountrySeoPage } from "@/lib/country-seo";
@@ -18,8 +18,9 @@ import { getPublicHomepageReviews } from "@/lib/cms/public-reviews";
 
 // This is the site's only root-level dynamic segment, so it serves every
 // top-level SEO slug: country landing pages (/usa/), the Gurgaon keyword pages
-// (/ib-tutor-in-gurgaon/) and the hyperlocal Gurgaon landing pages
-// (/ib-igcse-home-tutor-in-golf-course-road-gurgaon/).
+// (/ib-tutor-in-gurgaon/) and the original hyperlocal Gurgaon landing pages
+// (/ib-igcse-home-tutor-in-golf-course-road-gurgaon/). The 500-page expansion lives
+// under /gurgaon/<slug>/ with its own route.
 // The param keeps its original name because Next.js requires one slug name per
 // dynamic path position.
 type PageProps = { params: Promise<{ gurgaonSlug: string }> };
@@ -30,7 +31,9 @@ export const revalidate = 86400;
 
 export function generateStaticParams() {
   return [
-    ...countrySeoSlugs.map((slug) => ({ gurgaonSlug: slug })),
+    // "india" is excluded: /india/ has its own static route, which also lists the
+    // /india/<slug>/ keyword pages.
+    ...countrySeoSlugs.filter((slug) => slug !== "india").map((slug) => ({ gurgaonSlug: slug })),
     ...gurgaonKeywordSlugs.map((slug) => ({ gurgaonSlug: slug })),
     ...getGurgaonSeoStaticParams(),
   ];
@@ -46,8 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (keywordPage) return buildGeneratedMetadata(keywordPage);
 
   const page = getGurgaonSeoPage(gurgaonSlug);
-  if (!page) return {};
-  return buildGurgaonSeoMetadata(page);
+  return page && !page.path.startsWith("/gurgaon/") ? buildGurgaonSeoMetadata(page) : {};
 }
 
 export default async function RootSeoLandingPage({ params }: PageProps) {
@@ -81,11 +83,9 @@ export default async function RootSeoLandingPage({ params }: PageProps) {
     return <GeneratedPageRenderer page={keywordPage} tutorSection={tutorSection} />;
   }
 
+  // Original workbook pages only; the 500-page expansion lives under /gurgaon/<slug>/.
   const page = getGurgaonSeoPage(gurgaonSlug);
-  if (!page) notFound();
+  if (!page || page.path.startsWith("/gurgaon/")) notFound();
 
-  // Related links: other pages in the same locality (different subject/board), capped at 4.
-  const related = getGurgaonSeoRelated(page.slug, page.locality, 4);
-
-  return <GurgaonSeoLanding page={page} related={related} />;
+  return <GurgaonSeoLanding page={page} related={getGurgaonSeoRelated(page.slug, page.locality, 4)} />;
 }

@@ -124,6 +124,9 @@ jobs:
       - name: Build Next.js
         run: npm run build
         env:
+          # The generated-page stores (Gurgaon ~19MB + India ~5MB of JSON) push the
+          # build past Node's default heap; without this it dies with an OOM.
+          NODE_OPTIONS: --max-old-space-size=8192
           NODE_ENV: production
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
           NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}

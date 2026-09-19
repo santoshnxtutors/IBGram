@@ -1,5 +1,6 @@
 import { DeferredHeader } from "@/components/layout/DeferredHeader";
 import { Footer } from "@/components/layout/Footer";
+import { getCountryFooterLinks } from "@/lib/country-seo";
 import { MarketingDeferredWidgets } from "@/components/layout/MarketingDeferredWidgets";
 
 export default function MarketingLayout({
@@ -11,7 +12,7 @@ export default function MarketingLayout({
     <div className="flex flex-col min-h-screen">
       <DeferredHeader />
       <main className="flex-1">{children}</main>
-      <Footer />
+      <Footer countries={getCountryFooterLinks()} />
       <MarketingDeferredWidgets />
     </div>
   );

@@ -18,13 +18,17 @@ import { gurgaonSeoExpansionContentBySlug } from "../../src/lib/gurgaon-seo/cont
 import { validateGeneratedSeoPage } from "../../src/lib/page-generator/validators";
 import type { GeneratedSeoPage } from "../../src/lib/page-generator/types";
 import { buildTutorLandingPageSchema } from "../../src/lib/seo/schema";
+import { gurgaonIbIgcseSchools } from "../../src/lib/country-seo/countries/gurgaon";
 import { CORRIDORS, KEYWORD_PAGES, ROOT, TMP, schoolsFor, type BlockType, type KeywordPage } from "./plan";
+import { HUB_PAGES } from "./plan-hub";
+import { HUB2_PAGES } from "./plan-hub2";
 
 const SITE = "https://www.ibgram.com";
 const AGENT_OUT = path.join(TMP, "agent-out");
 const OUT = path.join(ROOT, "src", "lib", "gurgaon-keywords", "pages.json");
 // ponytail: one date for the set; switch to per-page dates if pages get rewritten individually.
 const LAST_UPDATED = "2026-09-11";
+const HUB_LAST_UPDATED = "2026-09-14";
 const MIN_WORDS = 4000;
 const MAX_SIBLING_SIMILARITY = 0.3;
 const MAX_CORPUS_SIMILARITY = 0.4;
@@ -54,9 +58,13 @@ interface Out {
   contentBlocks: Block[];
   faqs: Array<{ question: string; answer: string }>;
   finalCta: string;
+  /** Hub pages only. */
+  comparison?: { heading: string; intro: string; columns: string[]; rows: Array<{ label: string; cells: string[] }> };
 }
 
-const bySlug = new Map(KEYWORD_PAGES.map((e) => [e.slug, e]));
+/** The 40 root-level pages (plan.ts) plus both waves of /gurgaon/ hub pages. */
+const PAGES = [...KEYWORD_PAGES, ...HUB_PAGES, ...HUB2_PAGES];
+const bySlug = new Map(PAGES.map((e) => [e.slug, e]));
 const words = (text: string) => text.split(/\s+/).filter(Boolean).length;
 const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
@@ -66,13 +74,16 @@ function bodyText(o: Out): string {
 }
 
 function allText(o: Out): string {
-  return [o.heroTitle, bodyText(o), ...o.contentBlocks.map((b) => b.heading), ...o.faqs.map((f) => f.question)].join("\n");
+  const c = o.comparison;
+  const table = c ? [c.heading, c.intro, ...(c.rows ?? []).flatMap((r) => [r.label, ...(r.cells ?? [])])] : [];
+  return [o.heroTitle, bodyText(o), ...o.contentBlocks.map((b) => b.heading), ...o.faqs.map((f) => f.question), ...table].join("\n");
 }
 
 /** "ib tutor near me gurgaon" also matches "IB tutors near me in Gurgaon". */
 function keywordRe(keyword: string, flags = "gi"): RegExp {
   const tokens = keyword.toLowerCase().split(/\s+/).map((t) => `${escapeRe(t)}s?`);
-  return new RegExp(`\\b${tokens.join("\\W+(?:(?:in|for|at|the)\\W+)?")}\\b`, flags);
+  // "and" included so an ib-igcse page's keyword matches its natural form, "IB and IGCSE tutor in Gurgaon".
+  return new RegExp(`\\b${tokens.join("\\W+(?:(?:in|for|at|the|and)\\W+)?")}\\b`, flags);
 }
 
 function check(e: KeywordPage, o: Out): string[] {
@@ -142,6 +153,30 @@ function check(e: KeywordPage, o: Out): string[] {
   const named = (n: string) => new RegExp(`\\b${escapeRe(n)}\\b`, "i").test(all);
   const missing = e.corridors.filter((k) => ![CORRIDORS[k].name.replace(/\s*\(.*\)/, ""), ...CORRIDORS[k].areas].some(named));
   if (missing.length) problems.push(`corridors not covered: ${missing.map((k) => CORRIDORS[k].name).join("; ")}`);
+  if (e.hub) problems.push(...checkComparison(e, o));
+  return problems;
+}
+
+/** The hub pages' comparison table: fixed columns from the plan, 7-10 rows of short cells. */
+function checkComparison(e: KeywordPage, o: Out): string[] {
+  const c = o.comparison;
+  if (!c || !Array.isArray(c.columns) || !Array.isArray(c.rows)) return ["missing comparison {heading, intro, columns, rows}"];
+  const problems: string[] = [];
+  if (c.columns.join("|") !== (e.comparison ?? []).join("|")) problems.push(`comparison.columns must be exactly ${JSON.stringify(e.comparison)}`);
+  if (!/gurgaon|gurugram/i.test(c.heading ?? "")) problems.push("comparison.heading must name Gurgaon");
+  const introWords = words(c.intro ?? "");
+  if (introWords < 40 || introWords > 100) problems.push(`comparison.intro is ${introWords} words, needs 40-100`);
+  if (c.rows.length < 7 || c.rows.length > 10) problems.push(`comparison has ${c.rows.length} rows, needs 7-10`);
+  for (const r of c.rows) {
+    if (!r.label?.trim() || !Array.isArray(r.cells) || r.cells.length !== c.columns.length) {
+      problems.push(`comparison row "${r.label}" needs a label and ${c.columns.length} cells`);
+      continue;
+    }
+    for (const cell of r.cells) {
+      const w = words(cell ?? "");
+      if (w < 3 || w > 30) problems.push(`comparison cell in "${r.label}" is ${w} words, needs 3-30`);
+    }
+  }
   return problems;
 }
 
@@ -180,7 +215,8 @@ const pageIdFor = (slug: string) => `IBG_GURGAON_KEYWORD_${slug.toUpperCase().re
 const labelFor = (e: KeywordPage) => e.title.split(" | ")[0];
 
 function toPage(e: KeywordPage, o: Out, uniquenessScore: number): GeneratedSeoPage {
-  const canonicalUrl = `${SITE}/${e.slug}/`;
+  const canonicalUrl = e.hub ? `${SITE}/gurgaon/${e.slug}/` : `${SITE}/${e.slug}/`;
+  const lastUpdated = e.hub ? HUB_LAST_UPDATED : LAST_UPDATED;
   const label = labelFor(e);
   const corridorNames = e.corridors.map((k) => CORRIDORS[k].name);
   const nearbyAreas = e.corridors.flatMap((k) => CORRIDORS[k].areas.slice(0, 3));
@@ -204,7 +240,7 @@ function toPage(e: KeywordPage, o: Out, uniquenessScore: number): GeneratedSeoPa
     premiumAreas: corridorNames,
     nearbyAreas,
     nearbyCities: ["Delhi", "Faridabad", "Noida"],
-    schoolsMentioned: schoolsFor(e.board),
+    schoolsMentioned: e.hub ? [...gurgaonIbIgcseSchools] : schoolsFor(e.board),
     metaTitle: e.title,
     metaDescription: e.description,
     ogTitle: e.title,
@@ -222,19 +258,20 @@ function toPage(e: KeywordPage, o: Out, uniquenessScore: number): GeneratedSeoPa
     // No "Related IB Gram pages" section on these pages, at the user's request.
     internalLinks: [],
     relatedPageSuggestions: [],
-    // Standalone pages: the breadcrumb is Home > page, no city tier.
+    comparison: e.hub ? o.comparison : undefined,
+    // Root pages: Home > page. Hub pages: Home > Gurgaon > page.
     schema: buildTutorLandingPageSchema({
       canonicalUrl,
       title: e.title,
       description: e.description,
-      breadcrumbItems: [{ name: "Home", url: `${SITE}/` }, { name: label, url: canonicalUrl }],
+      breadcrumbItems: [{ name: "Home", url: `${SITE}/` }, ...(e.hub ? [{ name: "Gurgaon", url: `${SITE}/gurgaon/` }] : []), { name: label, url: canonicalUrl }],
       serviceName: label,
       serviceType: `${e.board} tutoring`,
       areaServed: ["Gurugram", ...corridorNames, ...nearbyAreas],
       subjects: e.subjects,
       educationalLevel: e.level,
       faqs,
-      dateModified: LAST_UPDATED,
+      dateModified: lastUpdated,
     }) as unknown as Record<string, unknown>,
     quality: {
       wordCount: words(bodyText(o)),
@@ -249,7 +286,7 @@ function toPage(e: KeywordPage, o: Out, uniquenessScore: number): GeneratedSeoPa
     },
     finalCta: o.finalCta,
     schoolDisclaimer: "IB Gram is an independent tutoring platform and is not officially affiliated with any school named on this page, the International Baccalaureate, Cambridge International Education or Pearson Edexcel.",
-    lastUpdated: LAST_UPDATED,
+    lastUpdated,
   });
 }
 
@@ -262,7 +299,7 @@ function main(): void {
   const issues = new Map<string, string[]>();
   const add = (slug: string, problem: string) => issues.set(slug, [...(issues.get(slug) ?? []), problem]);
 
-  for (const e of KEYWORD_PAGES) {
+  for (const e of PAGES) {
     const file = path.join(AGENT_OUT, `${e.slug}.json`);
     if (!existsSync(file)) continue;
     try {
@@ -272,7 +309,7 @@ function main(): void {
     }
   }
 
-  const targets = checkSlugs ?? KEYWORD_PAGES.map((e) => e.slug).filter((s) => written.has(s) || issues.has(s));
+  const targets = checkSlugs ?? PAGES.map((e) => e.slug).filter((s) => written.has(s) || issues.has(s));
   for (const slug of targets) {
     const e = bySlug.get(slug);
     if (!e) {
@@ -330,14 +367,14 @@ function main(): void {
   }
 
   const passing = targets.filter((s) => written.has(s) && !issues.get(s)?.length);
-  const pending = KEYWORD_PAGES.map((e) => e.slug).filter((s) => !passing.includes(s));
+  const pending = PAGES.map((e) => e.slug).filter((s) => !passing.includes(s));
   const counts = passing.map((s) => words(bodyText(written.get(s) as Out)));
   writeFileSync(
     path.join(TMP, "quality-report.json"),
-    JSON.stringify({ total: KEYWORD_PAGES.length, written: written.size, passing: passing.length, issues: Object.fromEntries(issues) }, null, 1),
+    JSON.stringify({ total: PAGES.length, written: written.size, passing: passing.length, issues: Object.fromEntries(issues) }, null, 1),
   );
   writeFileSync(path.join(TMP, "retry-keys.txt"), `${pending.join("\n")}\n`);
-  console.log(`plan ${KEYWORD_PAGES.length} | written ${written.size} | passing ${passing.length} | not passing ${pending.length}`);
+  console.log(`plan ${PAGES.length} | written ${written.size} | passing ${passing.length} | not passing ${pending.length}`);
   if (counts.length) console.log(`words: min ${Math.min(...counts)} avg ${Math.round(counts.reduce((a, b) => a + b, 0) / counts.length)} max ${Math.max(...counts)}`);
   for (const [slug, problems] of issues) console.log(`  ${slug}: ${problems.slice(0, 4).join("; ")}`);
 
@@ -348,7 +385,7 @@ function main(): void {
 
   // A page already live that fails today keeps its live version until its rewrite passes.
   const existing: GeneratedSeoPage[] = existsSync(OUT) ? JSON.parse(readFileSync(OUT, "utf8")) : [];
-  const pages = KEYWORD_PAGES.flatMap((e) =>
+  const pages = PAGES.flatMap((e) =>
     passing.includes(e.slug)
       ? [toPage(e, written.get(e.slug) as Out, Math.round((1 - (worst.get(e.slug) ?? 0)) * 100))]
       : existing.filter((pg) => pg.slug === e.slug),

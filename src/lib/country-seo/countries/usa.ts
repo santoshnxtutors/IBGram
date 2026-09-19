@@ -17,7 +17,7 @@ export const usa: CountrySeoPage = {
   region: "North America",
   timezoneLabel: "ET, CT, MT, PT, AKT and HST",
   schedulingNote: "Weekday evenings and weekend mornings in your local US time zone",
-  lastUpdated: "2026-09-09",
+  lastUpdated: "2026-09-16",
 
   title: "IB Tutors in the USA | Online IB DP, MYP & IGCSE Tutoring",
   metaDescription: "Online IB and IGCSE tutors for students in the USA. One-to-one IB DP, MYP, PYP and IGCSE tuition scheduled in your local time zone, from Pacific to Eastern.",
@@ -33,6 +33,20 @@ export const usa: CountrySeoPage = {
     "Cambridge IGCSE tutor USA",
     "IB HL tutor online",
     "IB exam prep USA",
+    "IB tutor New York",
+    "IB tutor California",
+    "IB tutor Texas",
+    "IB tutor Florida",
+    "IB tutor Chicago",
+    "online IB tutor Virginia",
+    "IB Math AA HL tutor",
+    "IB internal assessment tutor USA",
+    "IB Extended Essay help USA",
+    "online IGCSE tuition United States",
+    "Cambridge AICE tutor Florida",
+    "IB MYP tutor USA",
+    "IB vs AP tutoring",
+    "IB tutoring cost USA",
   ],
 
   heroTrustPoints: [
@@ -115,6 +129,8 @@ export const usa: CountrySeoPage = {
     { name: "Environmental Systems & Societies (ESS)", levels: "HL · SL · IGCSE Environmental Management", description: "ESS is the interdisciplinary option that counts for both Group 3 and Group 4, which suits students juggling a tight US school schedule. Tutors cover systems diagrams, environmental value systems, and the HL lenses added in the current syllabus." },
   ],
 
+  regionsTitle: "States, metros and time zones we tutor across the USA",
+  tutorsIntro: "A sample of verified tutors covering IB PYP, MYP, DP and Cambridge or Edexcel IGCSE subjects. Matching weighs the exact syllabus and level, the exam session your school sits, and whether the tutor already holds a weekday-evening slot in your zone, from Eastern through Hawaii.",
   regionsIntro: "IB Gram tutors work online with families across all six US time zones — Eastern, Central, Mountain, Pacific, Alaska and Hawaii-Aleutian. Sessions are booked in your local clock, not ours, so a 5 pm weekday slot in Boston and a 5 pm slot in Seattle are both normal working hours for the tutor assigned to you. Most families choose weekday evenings after school or weekend mornings; DP students approaching the May exam session often add a second weekly slot. Daylight saving shifts are handled on our side — your session time stays where you set it.",
   regions: [
     { name: "New York & New Jersey", note: "Eastern Time. IB DP and MYP run in New York City public schools and in northern New Jersey districts, alongside independent schools offering IGCSE. Weeknight slots from 4 pm ET onward suit students commuting home late from school." },
@@ -269,6 +285,18 @@ export const usa: CountrySeoPage = {
     },
     {
       heading: "IB vs AP in US high schools: grading, workload and college credit",
+      table: {
+        caption: "IB Diploma, Advanced Placement and Cambridge compared for US high school students",
+        columns: ["Feature", "IB Diploma Programme", "Advanced Placement", "Cambridge IGCSE and AICE"],
+        rows: [
+          ["Structure", "Fixed two-year package: six subjects, TOK, Extended Essay and CAS", "Chosen course by course, in any combination the school offers", "Modular subjects; the AICE Diploma needs a set spread of credits"],
+          ["Grade scale", "1-7 a subject, 45 points maximum including core points", "1-5 an exam", "A*-G or 9-1 at IGCSE, A-E at AS and A Level"],
+          ["Coursework counted", "Internal assessment in every subject, teacher-marked and IB-moderated", "Usually none: the May exam decides the score", "Practical or coursework components in sciences, languages and design"],
+          ["Exam timing", "The May session at northern-hemisphere schools", "May, with a late-testing window", "May/June and again in October/November"],
+          ["Usual US grades", "Grades 11 and 12", "Grades 9 through 12", "IGCSE in Grades 9-10, AS and A Level in 11-12"],
+          ["College credit", "Often for Higher Level scores of 5 and above, set by each institution", "Often for scores of 3, 4 or 5, set by each institution", "AICE results can carry credit, and in Florida affect scholarship eligibility"],
+        ],
+      },
       paragraphs: [
         "The simplest way to hold the difference: AP is a menu, IB is a meal. Advanced Placement courses are chosen one at a time, and a student can take one, four, or none, in whatever combination the school offers. The Diploma Programme is a two-year package with rules — six subjects across defined groups, three or four at Higher Level, plus Theory of Knowledge, a 4,000-word Extended Essay, and CAS. AP is administered by the College Board, a US organization; IB is run by an international foundation based in Geneva, with its assessment center in Cardiff, Wales. That difference in origin explains most of the rest, including why IB assessment looks less American than parents expect.",
         "Assessment is where the two feel most different day to day. An AP course usually ends in one exam in May, largely multiple choice and free response, graded 1 to 5, and the year's classwork does not count toward that score. IB subjects are graded 1 to 7 from a combination of final papers and internal assessment: a science investigation, a math exploration, an oral in language, a history essay marked by the teacher and moderated by the IB. Roughly a fifth to a third of the subject grade is earned before exam week. For a student who tests badly but works steadily, that structure is a gift; for a procrastinator it is a trap.",
@@ -287,6 +315,18 @@ export const usa: CountrySeoPage = {
     },
     {
       heading: "IGCSE in the USA: Cambridge and Edexcel tiers, grades and exam series",
+      table: {
+        caption: "Cambridge IGCSE and Pearson Edexcel International GCSE, side by side",
+        columns: ["Point of difference", "Cambridge IGCSE", "Pearson Edexcel International GCSE"],
+        rows: [
+          ["Tiers", "Core and Extended in many subjects, entered months before the papers", "Foundation and Higher in some subjects, single-tier in others"],
+          ["Grades", "A*-G, with 9-1 on some UK-facing syllabuses", "9-1 on most International GCSE subjects"],
+          ["Exam series", "May/June and October/November", "January and May/June"],
+          ["Science practicals", "A practical test or the alternative-to-practical written paper", "A written practical-skills paper in most sciences"],
+          ["Syllabus code", "Four digits, such as 0580 Mathematics", "Codes beginning with 4, such as 4MA1 Mathematics"],
+          ["Read in the USA as", "Pre-university background; any graduation credit is a district decision", "The same: districts decide what credit transfers"],
+        ],
+      },
       paragraphs: [
         "Cambridge IGCSE is more common in the United States than most parents expect — Cambridge International lists several hundred authorized schools across the country. It shows up in three main places: private international schools in cities with large diplomatic and corporate communities, families posted to the USA on multi-year assignments who want their child kept on a curriculum recognized in London, Singapore or Dubai, and homeschooling families who prefer an externally examined qualification to a portfolio. A fourth group is growing: American families who know a move abroad is coming in two or three years and want their child to arrive with transferable credentials. Each group chooses Cambridge for a different reason, and each needs tutoring shaped around that reason rather than a generic homework club.",
         "Cambridge Upper Secondary usually maps onto US Grades 9 and 10. Students typically begin IGCSE courses at around age 14, sit written examinations at 16, and finish before the American junior year starts. That timing matters. A student who completes IGCSE at the end of Grade 10 can move into IB Diploma Programme years one and two, Cambridge AS and A Level, or an Advanced Placement pathway, depending on what the school offers and where the family expects to be living. If your child transfers into a US public school mid-course, the registrar will usually place them by age and credits earned rather than by Cambridge stage, so keep syllabus codes and completed coursework records.",
@@ -306,6 +346,17 @@ export const usa: CountrySeoPage = {
     },
     {
       heading: "IB internal assessments, TOK and the May exam session in US schools",
+      table: {
+        caption: "How a DP Year 2 year usually runs at a US school sitting the May session",
+        columns: ["Window", "What the school expects", "Where tutoring time goes"],
+        rows: [
+          ["August to October", "Internal assessments start; Extended Essay drafting; early college applications", "Narrowing research questions to something finishable, and data a student can actually gather"],
+          ["November to December", "Extended Essay final draft, TOK exhibition, first-semester finals", "Reading each draft against the published criteria, then sending the student back to rewrite"],
+          ["January to February", "School mocks, final IA submissions, the TOK essay on a prescribed title", "Timed papers and mark-scheme reading, with an error log kept from every mock"],
+          ["March to April", "Predicted grades confirmed, last internal deadlines, revision blocks", "Topic repair driven by that error log, plus command-term drill"],
+          ["May", "IB papers run across several weeks while classes continue", "Paper-specific technique, timing and question choice"],
+        ],
+      },
       paragraphs: [
         "In the United States the IB Diploma runs on the northern-hemisphere calendar, which means the May examination session sits at the end of a school year that started in August or September. For a DP2 student that creates a compressed spring: internal assessment final drafts, the Extended Essay, TOK components and school-based mocks all land within a few months of each other, usually while AP-style testing, SAT or ACT sittings and college deposits are also in play. An IB DP tutor working with families across the United States plans backwards from those dates rather than week to week, so your child works to a calendar that reflects what their school has actually set, not a generic syllabus schedule.",
         "Internal assessments are set and marked inside the school, then moderated by the IB, and their weight varies by subject — around a fifth of the final grade in several sciences and mathematics, more in language, arts and performance courses. That structure rewards process: a physics student needs a controlled variable they can actually manipulate, a history student needs sources they can reach from a US library or database, and a math student needs a question narrow enough to finish. Tutoring here is mostly diagnostic. A tutor reads the published assessment criteria with your child, asks where the current draft loses marks against each strand, and sends them back to their own writing with a specific revision to make.",
@@ -342,6 +393,18 @@ export const usa: CountrySeoPage = {
     },
     {
       heading: "How online IB tutoring works across US time zones",
+      table: {
+        caption: "Weekday session windows by US time zone, with the matching hour for tutors in India (daylight saving in effect)",
+        columns: ["Time zone", "Cities", "Usual weekday slots, local", "Same hours in India"],
+        rows: [
+          ["Eastern", "New York, Boston, Washington DC, Atlanta, Miami", "4 pm to 9 pm", "1:30 am to 6:30 am, next day"],
+          ["Central", "Chicago, Houston, Dallas, Minneapolis", "4 pm to 9 pm", "2:30 am to 7:30 am, next day"],
+          ["Mountain", "Denver, Salt Lake City, Albuquerque", "4 pm to 9 pm", "3:30 am to 8:30 am, next day"],
+          ["Pacific", "Los Angeles, San Francisco, Seattle, San Diego", "4 pm to 9 pm", "4:30 am to 9:30 am, next day"],
+          ["Arizona, no daylight saving", "Phoenix, Tucson", "4 pm to 9 pm", "4:30 am to 9:30 am in summer, an hour earlier in winter"],
+          ["Alaska and Hawaii", "Anchorage, Honolulu", "4 pm to 8 pm, plus weekend mornings", "Confirmed slot by slot when you book"],
+        ],
+      },
       paragraphs: [
         "Every US session is scheduled in your local time, not ours. Our tutors work from India, which means an IB DP tutor supporting a student in the United States starts their teaching day when your child gets home from school: 7pm Eastern is 4pm Pacific and early morning in Gurugram, and tutors are rostered specifically for those hours. Weekday evenings between roughly 4pm and 9pm local, plus Saturday and Sunday mornings, are the blocks most American families use. When you book, you confirm your zone — Eastern, Central, Mountain, Pacific, Alaska or Hawaii — and every invitation, reminder and reschedule is issued in that zone. Every invitation carries the zone and the date in full — \"7:00 pm ET, Tuesday\" — so nobody in the household is converting times in their head, and a reschedule request quotes the same format back.",
         "A first session is diagnostic. The tutor asks what your child is actually being assessed on this term, works through two or three problems while the student narrates their thinking, and finds where the reasoning breaks rather than where the answer went wrong. Regular sessions run 60 or 90 minutes; 90 suits IB DP internal assessment work and IGCSE past-paper practice, 60 suits weekly maintenance. Each session has a stated agenda, a worked section where the student holds the pen, and a short task before the next meeting. Frequency is usually once or twice weekly, rising ahead of mock examinations. Nothing is open-ended: if a topic is closed, we say so and move on.",
@@ -358,6 +421,34 @@ export const usa: CountrySeoPage = {
         "Tutors coach technique and question reasoning; they do not write internal assessments, extended essays or coursework.",
         "Start with a trial session: bring marked work and the syllabus, then decide on a regular schedule.",
       ],
+    },
+    {
+      heading: "What does IB and IGCSE tutoring cost in the USA, and what should parents check first?",
+      paragraphs: [
+        "There is no single hourly figure, because the same hour costs differently depending on what it contains. A Higher Level science session with a specialist who marks to the current criteria is priced above general homework help at MYP level, and a small group costs less per student than one-to-one. We quote a rate in writing before anything is booked, so the first invoice holds no surprises, and you can ask about currency and payment method in the same message. What we do not do is publish a single headline price on this page: it would be true for one family and misleading for the next.",
+        "The variable most parents underestimate is frequency. One session a week through an ordinary term is maintenance work: the student keeps pace, the tutor catches misconceptions before they harden, and the cost is predictable. An exam block is a different purchase. Three sessions a week through February and March, each with marked past-paper work in between, costs several times as much across those weeks but is finite. Families who plan both at the start of DP Year 2, rather than reacting in April, usually spend less overall, because late bookings tend to buy more hours to fix problems that a slower schedule would have caught.",
+        "Before you compare providers on price, compare them on match. Ask which exact syllabus the tutor has taught, not whether they know the subject: Mathematics Analysis and Approaches at Higher Level is a different teaching job from Applications and Interpretation at Standard Level, and Cambridge 0580 is not Edexcel 4MA1. Ask what happens in the first session, what you receive afterward, and what the provider does when a pairing is not working. A tutor who cannot name the assessment criteria for your child's internal assessment will cost you less per hour and more per grade.",
+        "Ask the academic honesty question directly, and listen to the answer. The IB requires that every internal assessment, Extended Essay and TOK submission is the student's own work, confirmed by the student and the supervisor and checked for similarity. A tutor may explain a criterion, question a weak inference, model a parallel problem and check referencing. A tutor may not write, ghost-edit into a finished draft, or supply text to paste. Any provider who offers to hand over completed coursework is selling something that can cost a US student the diploma, and no price makes that a good trade.",
+        "Finally, check the practical fit that looks trivial in September and matters in January. Does the slot survive the sports season, the school play and the SAT date? Is the time booked in your zone in writing, including what happens when the clocks change in March and November? Does someone answer when you need to move a session? Start with a trial lesson, send your child's most recent marked work and the syllabus, and judge the answers against your own household calendar rather than against a rate card.",
+      ],
+      bullets: [
+        "Rates depend on programme stage, subject, level, format and weekly frequency, and are quoted in writing before booking.",
+        "Plan the exam block early: late bookings usually buy more hours than a steady schedule would have needed.",
+        "Ask which exact syllabus and level a tutor has taught, and which criteria they mark against.",
+        "Any offer to write or ghost-edit coursework is a reason to walk away, whatever the rate.",
+        "Confirm the slot, the zone and the daylight saving handling in writing before the first paid session.",
+      ],
+      table: {
+        caption: "What moves the cost and shape of a tutoring plan",
+        columns: ["Factor", "Lighter end", "Heavier end"],
+        rows: [
+          ["Programme stage", "PYP or MYP support in 30 to 45 minute sessions", "Diploma Higher Level in 60 to 90 minute sessions"],
+          ["Format", "A group of two to four students at the same level", "One-to-one with a single subject specialist"],
+          ["Frequency", "One session a week through the term", "Two or three a week through an exam block"],
+          ["Scope", "One subject, kept ticking over", "Two subjects plus Extended Essay or IA mentoring"],
+          ["Timing", "Booked weeks ahead in an ordinary term", "Added in April, when evening slots are already thin"],
+        ],
+      },
     },
   ],
 

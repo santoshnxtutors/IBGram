@@ -152,7 +152,7 @@ function buildLocalities(): Locality[] {
     out.push({
       name: p.name,
       slug: p.slug,
-      corridor: p.cluster ?? `${p.name} corridor`,
+      corridor: p.locationCluster ?? `${p.name} corridor`,
       nearbyAreas: [...(p.nearbyAreas ?? [])],
       nearbySectors: [...(p.nearbySectors ?? [])],
       nearbySocieties: [...(p.nearbySocieties ?? [])],
@@ -165,7 +165,7 @@ function buildLocalities(): Locality[] {
     out.push({
       name: p.name,
       slug: p.slug,
-      corridor: p.cluster ?? `${p.name} pocket`,
+      corridor: p.locationCluster ?? `${p.name} pocket`,
       nearbyAreas: [...(p.nearbyAreas ?? [])],
       nearbySectors: [...(p.nearbySectors ?? [])],
       nearbySocieties: [...(p.nearbySocieties ?? [])],

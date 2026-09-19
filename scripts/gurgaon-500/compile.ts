@@ -74,14 +74,15 @@ export const BANNED = [
 ];
 
 /** Words that flip an unverifiable claim into the honest copy we require, or frame it as a warning. */
-const NEGATORS = /\b(no|not|never|without|cannot|can't|don't|does not|doesn't|isn't|is not|aren't|are not|rather than|instead of|whether|cautious of|wary of|beware|promises? about)\b[^.]{0,60}$/i;
+// 120 characters, not 60: "No tutor, however experienced with 0620 past papers, can guarantee a grade."
+const NEGATORS = /\b(no|not|never|neither|nor|nobody|no one|without|cannot|can't|don't|does not|doesn't|isn't|is not|aren't|are not|rather than|instead of|whether|cautious of|wary of|beware|promises? about|different (?:\w+ )?from)\b[^.]{0,120}$/i;
 
 const CLAIM_PATTERNS: Array<[RegExp, string]> = [
   // [ \t] not \s: prose is joined with newlines, so "Sector 28\nTutor pool..." must not match.
   // Lookbehind skips grade labels: "a Year 5 or 6 tutor", "a Class 10 tutor".
   // A count starts 1-9 and only takes a comma before three digits, so syllabus codes ("0580, tutors")
   // and list fragments ("Sushant Lok 1, tutors") never match; "1,200 verified tutors" still does.
-  [/(?<!\b(?:year|years|class|grade|group|sector|phase|level|paper|myp|dp|or|and|to)[ \t])\b[1-9]\d{0,2}(?:,\d{3})*\+?[ \t]+(verified[ \t]+)?tutors?\b/gi, "tutor count"],
+  [/(?<!\b(?:year|years|class|grade|group|sector|phase|lok|city|level|paper|myp|dp|or|and|to)[ \t])(?<!\d[-–:])\b[1-9]\d{0,2}(?:,\d{3})*\+?[ \t]+(verified[ \t]+)?tutors?\b/gi, "tutor count"],
   [/\b(guarantee[sd]?|guaranteed)\s+(a\s+)?(grade|score|result|7|a\*|improvement)/gi, "outcome guarantee"],
   [/\bguaranteed\s+(results?|success|grades?)/gi, "outcome guarantee"],
   [/\b\d{1,3}%\s+(of\s+)?(our\s+)?(students?|success|pass|improvement)/gi, "fabricated statistic"],
@@ -136,6 +137,12 @@ interface Issue {
   problems: string[];
 }
 
+/** Banned phrases present as whole phrases: "in conclusion" must not match inside "a thin conclusion". */
+export function findBanned(prose: string): string[] {
+  const lower = prose.toLowerCase();
+  return BANNED.filter((b) => new RegExp(`(?<![a-z])${b.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`).test(lower));
+}
+
 /**
  * Unverifiable claims (tutor counts, guarantees, fake stats, board affiliation, rupee prices)
  * that are actually asserted — negated, questioned or warned-against wording is the honest copy
@@ -147,7 +154,7 @@ export function findClaims(prose: string): string[] {
     re.lastIndex = 0;
     let m: RegExpExecArray | null;
     while ((m = re.exec(prose)) !== null) {
-      const before = prose.slice(Math.max(0, m.index - 70), m.index);
+      const before = prose.slice(Math.max(0, m.index - 140), m.index);
       if (NEGATORS.test(before)) continue;
       // A parent's FAQ question ("Is IB Gram affiliated with the IB?") asserts nothing.
       const after = prose.slice(m.index, m.index + 200);
@@ -156,6 +163,8 @@ export function findClaims(prose: string): string[] {
       if (/^[^.!?;\n]{0,80}\b(isn't|is not|aren't|are not|cannot|can't|won't|will not|never|nobody|no one|no tutor)\b/i.test(after)) continue;
       // "schools affiliated with the Cambridge ... systems" describes the schools, not IB Gram.
       if (label === "affiliation claim" && /\bschools?\b[^.]{0,25}$/i.test(before)) continue;
+      // Warned against later in the sentence: "...buys a guaranteed grade should be treated with real scepticism."
+      if (/^[^.!?;\n]{0,140}\b(scepticism|skepticism|sceptical|skeptical|caution|cautious|wary|suspicion|suspicious|red flag|warning sign|misleading|questioned|question (?:any|such|that|this) (?:such )?claim|dishonest|worth scrutinis|worth scrutiniz)/i.test(after)) continue;
       problems.push(`${label}: "${m[0].trim()}"`);
       break;
     }
@@ -181,10 +190,7 @@ function checkOne(entry: PlanEntry, c: Content): string[] {
   const wc = words(prose);
   if (wc < MIN_WORDS) problems.push(`${wc} words, needs ${MIN_WORDS}+`);
 
-  const lower = prose.toLowerCase();
-  for (const b of BANNED) {
-    if (lower.includes(b)) problems.push(`banned phrase: "${b}"`);
-  }
+  for (const b of findBanned(prose)) problems.push(`banned phrase: "${b}"`);
 
   problems.push(...findClaims(prose));
 
@@ -218,7 +224,7 @@ function checkOne(entry: PlanEntry, c: Content): string[] {
   if (/mathematics/i.test(entry.subject)) subjectWords.push("math");
   const subjectHit = /multiple subjects/i.test(entry.subject)
     ? /\b(ib|igcse)\b/.test(head)
-    : subjectWords.some((w) => head.includes(w));
+    : subjectWords.some((w) => head.includes(w)) || (/theory of knowledge/i.test(entry.subject) && /\btok\b/.test(head)) || (/revision/i.test(entry.subject) && /crash course/.test(head));
   if (!hasLocality(head)) problems.push("locality missing from first 60 words of heroIntro");
   if (!subjectHit) problems.push("subject missing from first 60 words of heroIntro");
 

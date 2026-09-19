@@ -79,7 +79,7 @@ export function CourseTutorSection({ curriculum, subjectSlug, tutors }: CourseTu
 
   return (
     <section className="relative overflow-hidden border-t border-border/50 bg-background py-16">
-      <div className="container mx-auto max-w-6xl px-4">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-5xl">

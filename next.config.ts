@@ -1,4 +1,16 @@
 import type { NextConfig } from "next";
+import { gurgaonSeoExpansionMeta } from "./src/lib/gurgaon-seo/pages-data-expansion";
+
+// Only the 500-page Gurgaon expansion moved from /<slug>/ to /gurgaon/<slug>/ (2026-09-13). One
+
+
+const gurgaonLocalityRedirects = gurgaonSeoExpansionMeta.map((meta) => ({
+  source: `/${meta.slug}/`,
+  destination: `/gurgaon/${meta.slug}/`,
+  permanent: true,
+}));
+
+
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
@@ -6,11 +18,6 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // Keep Prisma OUT of the Turbopack/webpack bundle. When bundled, Turbopack
   // emits a content-hashed module name (e.g. "@prisma/client-2c3a283f...")
-  // that only exists in the build machine's node_modules. A prebuilt .next
-  // shipped to the server then fails with "Cannot find module
-  // @prisma/client-<hash>" on every DB-backed page (the admin 500).
-  // Marking it external makes Next.js require("@prisma/client") normally from
-  // the server's node_modules at runtime.
   serverExternalPackages: ["@prisma/client", "prisma", ".prisma/client"],
   experimental: {
     optimizePackageImports: ["lucide-react", "recharts", "framer-motion"],
@@ -30,16 +37,18 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
+
   // One-hop 301s for dead URLs that still earn Google impressions (GSC "Not found (404)").
-  // Sources end in "/" because trailingSlash adds it before these rules run.
+
+
   async redirects() {
     return [
+      ...gurgaonLocalityRedirects,
       { source: "/blog/choose-right-ib-tutor/", destination: "/blog/how-to-choose-ib-tutor-gurgaon/", permanent: true },
       { source: "/blog/how-to-score-a-7-ib-math-aa-hl/", destination: "/blog/how-to-score-7-ib-math-aa-hl/", permanent: true },
       { source: "/blog/igcse-science-study-tips-physics-chemistry-biology/", destination: "/blog/igcse-science-tutoring-guide/", permanent: true },
       { source: "/blog/igcse-subject-choices-how-to-pick-right-subjects/", destination: "/igcse/", permanent: true },
-      // Remove this if the IB sector-56 generated page is ever published.
-      { source: "/ib-tutors/gurugram/sectors/sector-56/", destination: "/blog/ib-tutors-sector-56-gurgaon/", permanent: true },
       { source: "/ib-tutors/gurugram/subjects/math-aa/", destination: "/ib-tutors/gurugram/math-aa-hl/", permanent: true },
       { source: "/ib-tutors/gurugram/subjects/math-ai/", destination: "/ib-tutors/gurugram/math-ai-hl/", permanent: true },
       { source: "/ib-tutors/gurugram/subjects/:subject(chemistry|economics|physics)/", destination: "/ib-tutors/gurugram/:subject/", permanent: true },

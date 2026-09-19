@@ -1,4 +1,5 @@
 import type {
+  GeneratedComparison,
   GeneratedContentBlock,
   GeneratedFaq,
   GeneratedIndexFlag,
@@ -141,6 +142,7 @@ export function validateGeneratedSeoPage(value: unknown): GeneratedSeoPage {
     },
     finalCta: requiredString(page.finalCta, "finalCta"),
     schoolDisclaimer: optionalString(page.schoolDisclaimer),
+    comparison: comparison(page.comparison),
     lastUpdated: optionalString(page.lastUpdated) || new Date().toISOString().slice(0, 10),
   };
 
@@ -152,6 +154,21 @@ export function validateGeneratedSeoPage(value: unknown): GeneratedSeoPage {
   }
 
   return result;
+}
+
+function comparison(value: unknown): GeneratedComparison | undefined {
+  if (value === undefined || value === null) return undefined;
+  const item = asRecord(value, "comparison");
+  const rows = Array.isArray(item.rows) ? item.rows : [];
+  return {
+    heading: requiredString(item.heading, "comparison.heading"),
+    intro: requiredString(item.intro, "comparison.intro"),
+    columns: stringArray(item.columns),
+    rows: rows.map((row, index) => {
+      const record = asRecord(row, `comparison.rows.${index}`);
+      return { label: requiredString(record.label, `comparison.rows.${index}.label`), cells: stringArray(record.cells) };
+    }),
+  };
 }
 
 function contentBlocks(value: unknown): GeneratedContentBlock[] {

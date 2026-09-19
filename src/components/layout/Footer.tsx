@@ -3,11 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { JoinAsTutorButton } from "./JoinAsTutorButton";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Globe, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { CONTACT } from "@/lib/contact";
 
-export function Footer() {
+export function Footer({ countries = [] }: { countries?: Array<{ slug: string; name: string; flagCode: string }> }) {
   const pathname = usePathname();
   const isIgcsePage = pathname?.startsWith("/igcse");
 
@@ -115,6 +115,10 @@ export function Footer() {
             <ul className="space-y-4 text-sm font-medium text-muted-foreground">
               <li><Link href="/about-us" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/igcse/" className="hover:text-primary transition-colors">IGCSE</Link></li>
+              {/* The /gurgaon/ hub is the only page linking the ~700 Gurgaon landing pages; without a
+                  sitewide link the whole tree is orphaned and Google leaves it "Discovered - not indexed". */}
+              <li><Link href="/gurgaon/" className="hover:text-primary transition-colors">Tutors in Gurgaon</Link></li>
+              <li><Link href="/india/" className="hover:text-primary transition-colors">Tutors in India</Link></li>
               <li><Link href="/admissions/" className="hover:text-primary transition-colors">Admissions &amp; Test Prep</Link></li>
               <li><Link href="/blog" className="hover:text-primary transition-colors">Blogs</Link></li>
               <li><Link href="/payment/" className="hover:text-primary transition-colors">Payment</Link></li>
@@ -137,13 +141,45 @@ export function Footer() {
 
         </div>
 
+        {countries.length > 0 && (
+          <div className="border-t border-border pt-8 pb-6">
+            <div>
+              <span className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
+                <Globe className="size-4" aria-hidden />
+                Global Tutoring
+              </span>
+              <h3 className="mt-2 text-xl font-black text-foreground">Find IB &amp; IGCSE Tutors by Country</h3>
+            </div>
+            {/* Fixed columns, not flex-wrap: equal-width cells keep the rows aligned instead of ragged. */}
+            <ul className="mt-4 grid grid-cols-5 gap-x-2 gap-y-1 sm:grid-cols-6 md:grid-cols-8 md:gap-x-4 lg:grid-cols-10">
+              {countries.map((country) => (
+                <li key={country.slug}>
+                  <Link
+                    href={`/${country.slug}/`}
+                    className="flex items-center gap-1 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:text-primary md:gap-1.5 md:text-xs"
+                  >
+                    <Image
+                      src={`/images/Countryflag/${country.flagCode}.svg`}
+                      alt=""
+                      width={16}
+                      height={12}
+                      className="h-3 w-4 shrink-0 rounded-[2px] object-cover"
+                    />
+                    <span className="truncate">{country.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         <div className="border-t border-border pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-semibold text-muted-foreground">
           <p>©(2018-2026) IB Gram. All rights reserved.</p>
-          <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4 text-center">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-[11px] md:gap-x-4 md:text-sm">
             <Link href="/privacy-policy/" className="whitespace-nowrap hover:text-primary transition-colors">Privacy Policy</Link>
-            <span className="hidden md:inline">|</span>
+            <span>|</span>
             <Link href="/terms-and-conditions/" className="whitespace-nowrap hover:text-primary transition-colors">Terms &amp; Conditions</Link>
-            <span className="hidden md:inline">|</span>
+            <span>|</span>
             <span className="whitespace-nowrap">Independent tutoring platform</span>
           </div>
         </div>

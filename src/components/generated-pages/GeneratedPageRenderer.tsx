@@ -1,4 +1,5 @@
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
+import { GeneratedComparison } from "./GeneratedComparison";
 import { GeneratedFAQ } from "./GeneratedFAQ";
 import { GeneratedFinalCTA } from "./GeneratedFinalCTA";
 import { GeneratedHero } from "./GeneratedHero";
@@ -51,6 +52,7 @@ export function GeneratedPageRenderer({
       <GeneratedLocalAreas page={page} />
       <GeneratedSchools page={page} />
       <GeneratedBlockSection page={page} type="tutoring_modes" icon={Laptop} eyebrow="Modes" fallbackTitle="Home and Online Tutoring Options" tinted />
+      <GeneratedComparison page={page} />
       <GeneratedVerification page={page} />
       <GeneratedRemainingBlocks page={page} />
       {page.schoolDisclaimer && (

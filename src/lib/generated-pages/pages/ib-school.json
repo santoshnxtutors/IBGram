@@ -24,7 +24,10 @@
    "IB Science tutor near Canadian International School Bangalore",
    "IB tutors in Bangalore",
    "IB coaching near Canadian International School Bangalore",
-   "IB tuition centre near Canadian International School Bangalore"
+   "IB tuition centre near Canadian International School Bangalore",
+   "IB tutor in Bangalore",
+   "IB home tutor in Bangalore",
+   "IB online tutor in Bangalore"
   ],
   "serviceFocus": "IB tutors in Canadian International School Bangalore Bangalore",
   "programmes": [
@@ -379,6 +382,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_BANGALORE_SCHOOLS_CANADIAN_INTERNATIONAL_SCHOOL_BANGALORE_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_BANGALORE_SCHOOLS_CANADIAN_INTERNATIONAL_SCHOOL_BANGALORE",
+    "targetPageId": "IBG_PROGRAMMES_DP",
+    "targetUrl": "https://www.ibgram.com/programmes/dp/",
+    "anchorText": "IA and Extended Essay support",
+    "linkContext": "Programme hub for DP families in Bangalore.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -659,7 +675,7 @@
   },
   "finalCta": "If your child at Canadian International School Bangalore needs support with a specific DP subject, English writing structure, or closing a predicted-to-final grade gap, share the subject, grade and current concern, along with your preferred mode: home in North Bangalore, online, or hybrid. IB Gram will review tutor availability and suggest a realistic plan.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_BANGALORE_SCHOOLS_INDUS_INTERNATIONAL_SCHOOL_BANGALORE",
@@ -686,7 +702,10 @@
    "an IB Science tutor for Indus International School Bangalore",
    "IB tutors across Bangalore",
    "IB coaching for Indus International School Bangalore students",
-   "IB tuition options near Indus International School Bangalore"
+   "IB tuition options near Indus International School Bangalore",
+   "IB tutor in Bangalore",
+   "IB tutors in Bangalore",
+   "IB home tutor in Bangalore"
   ],
   "serviceFocus": "IB tutors in Indus International School Bangalore Bangalore",
   "programmes": [
@@ -1051,6 +1070,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_BANGALORE_SCHOOLS_INDUS_INTERNATIONAL_SCHOOL_BANGALORE_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_BANGALORE_SCHOOLS_INDUS_INTERNATIONAL_SCHOOL_BANGALORE",
+    "targetPageId": "IBG_PROGRAMMES_DP",
+    "targetUrl": "https://www.ibgram.com/programmes/dp/",
+    "anchorText": "IB DP tutors",
+    "linkContext": "Programme hub for DP families in Bangalore.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -1331,7 +1363,7 @@
   },
   "finalCta": "Share the grade, programme stage and the most recent feedback your Indus International School Bangalore student received, and get matched with an IB tutor suited to that exact gap, home, online or hybrid. No guaranteed grades, no generic tutor list, just a match built around what the school's own assessment already told you.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_BANGALORE_SCHOOLS_STONEHILL_INTERNATIONAL_SCHOOL",
@@ -1358,7 +1390,10 @@
    "IB Maths tutor for Stonehill International School students",
    "IB Science tutor for Stonehill International School students",
    "IB tutors in Bangalore for North Bangalore families",
-   "IB coaching support near Stonehill International School"
+   "IB coaching support near Stonehill International School",
+   "IB tutor in Bangalore",
+   "IB tutors in Bangalore",
+   "IB home tutor in Bangalore"
   ],
   "serviceFocus": "IB tutors in Stonehill International School Bangalore",
   "programmes": [
@@ -1709,6 +1744,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_BANGALORE_SCHOOLS_STONEHILL_INTERNATIONAL_SCHOOL_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_BANGALORE_SCHOOLS_STONEHILL_INTERNATIONAL_SCHOOL",
+    "targetPageId": "IBG_PROGRAMMES_DP",
+    "targetUrl": "https://www.ibgram.com/programmes/dp/",
+    "anchorText": "DP tutoring support",
+    "linkContext": "Programme hub for DP families in Bangalore.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -1981,7 +2029,7 @@
   },
   "finalCta": "Wherever in the academic year a Stonehill-connected student actually is, that is the right place to start, not some ideal earlier moment. IB Gram proposes tutors matched to the current subject, timeline and preferred mode, home visits reviewed for North Bangalore and nearby corridors, or online elsewhere, and IB Gram remains independent of Stonehill International School throughout.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_DELHI_SCHOOLS_AMERICAN_EMBASSY_SCHOOL",
@@ -2008,7 +2056,10 @@
    "IB Physics and Chemistry tutor near American Embassy School",
    "IB tutors across Delhi for Diploma Programme subjects",
    "IB coaching support near American Embassy School",
-   "IB tuition centre alternative near American Embassy School"
+   "IB tuition centre alternative near American Embassy School",
+   "IB tutor in Delhi",
+   "IB tutors in Delhi",
+   "IB home tutor in Delhi"
   ],
   "serviceFocus": "IB tutors in American Embassy School Delhi",
   "programmes": [
@@ -2363,6 +2414,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_DELHI_SCHOOLS_AMERICAN_EMBASSY_SCHOOL_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_DELHI_SCHOOLS_AMERICAN_EMBASSY_SCHOOL",
+    "targetPageId": "IBG_PROGRAMMES_PYP",
+    "targetUrl": "https://www.ibgram.com/programmes/pyp/",
+    "anchorText": "PYP reading and maths help",
+    "linkContext": "Programme hub for PYP families in Delhi.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -2643,7 +2707,7 @@
   },
   "finalCta": "If a student connected to American Embassy School needs Math, Physics, Chemistry, Economics, English A or EE and TOK support, describe the subject, grade and current situation, and IB Gram will propose a match — home tutoring across parts of South Delhi, online tutoring anywhere, or both — reviewed against actual availability before anything is confirmed.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_DELHI_SCHOOLS_DPS_INTERNATIONAL_SAKET",
@@ -2670,7 +2734,10 @@
    "IB tutor near me for DPS International Saket families",
    "IB home tuition across South Delhi",
    "IB online tutor for Delhi students",
-   "IB tutors across Delhi for MYP and DP"
+   "IB tutors across Delhi for MYP and DP",
+   "IB tutor in Delhi",
+   "IB tutors in Delhi",
+   "IB home tutor in Delhi"
   ],
   "serviceFocus": "IB tutors in DPS International Saket Delhi",
   "programmes": [
@@ -3030,6 +3097,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_DELHI_SCHOOLS_DPS_INTERNATIONAL_SAKET_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_DELHI_SCHOOLS_DPS_INTERNATIONAL_SAKET",
+    "targetPageId": "IBG_PROGRAMMES_PYP",
+    "targetUrl": "https://www.ibgram.com/programmes/pyp/",
+    "anchorText": "IB PYP tutors",
+    "linkContext": "Programme hub for PYP families in Delhi.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -3310,7 +3390,7 @@
   },
   "finalCta": "If your child is at DPS International Saket or nearby in South Delhi and needs MYP writing support, DP Math confidence or focused Science revision before mocks, tell IB Gram the grade, subject and preferred mode. A shortlist matched to that specific request follows, with home or online sessions arranged around your actual schedule.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_DELHI_SCHOOLS_THE_BRITISH_SCHOOL_NEW_DELHI",
@@ -3337,7 +3417,10 @@
    "IB Science tutor near The British School New Delhi",
    "IB tutors Delhi",
    "IB coaching near The British School New Delhi",
-   "IB tuition centre near The British School New Delhi"
+   "IB tuition centre near The British School New Delhi",
+   "IB tutor in Delhi",
+   "IB tutors in Delhi",
+   "IB home tutor in Delhi"
   ],
   "serviceFocus": "IB tutors in The British School New Delhi Delhi",
   "programmes": [
@@ -3697,6 +3780,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_DELHI_SCHOOLS_THE_BRITISH_SCHOOL_NEW_DELHI_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_DELHI_SCHOOLS_THE_BRITISH_SCHOOL_NEW_DELHI",
+    "targetPageId": "IBG_PROGRAMMES_MYP",
+    "targetUrl": "https://www.ibgram.com/programmes/myp/",
+    "anchorText": "MYP criterion marking support",
+    "linkContext": "Programme hub for MYP families in Delhi.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -3969,7 +4065,7 @@
   },
   "finalCta": "To start, share the student's grade, subject and the specific concern, whether that's a subject gap, an upcoming mock, or the May 2026 or November 2026 exam session, along with a preference for home tutoring near Chanakyapuri, online sessions, or a hybrid mix. A small set of matching tutors is suggested from there, starting with a diagnostic first session.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_GURUGRAM_SCHOOLS_LANCERS_INTERNATIONAL_SCHOOL",
@@ -3996,7 +4092,10 @@
    "IB science tutor Lancers International School",
    "IB tutors Gurugram",
    "IB coaching near Lancers International School",
-   "IB tuition centre near Lancers International School"
+   "IB tuition centre near Lancers International School",
+   "IB tutor in Gurgaon",
+   "IB tutors in Gurgaon",
+   "IB home tutor in Gurgaon"
   ],
   "serviceFocus": "IB tutors in Lancers International School Gurugram",
   "programmes": [
@@ -4043,12 +4142,12 @@
    "Scottish High International School",
    "GD Goenka World School"
   ],
-  "metaTitle": "IB Tutors Near Lancers International School, Gurugram",
+  "metaTitle": "IB Tutors Near Lancers International School, Gurgaon | IB Gram",
   "metaDescription": "IB tutoring for Lancers International School families on Golf Course Road: PYP, MYP and DP support, IA guidance, home or online. IB Gram is not affiliated.",
-  "ogTitle": "IB Tutors for Lancers International School Families, Gurugram",
+  "ogTitle": "IB Tutors Near Lancers International School, Gurgaon | IB Gram",
   "ogDescription": "PYP inquiry habits, MYP foundations, DP sciences and mathematics. Home sessions across Sector 53, Sector 54 and DLF Phase 5, or online for rarer subjects.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IB Tutors for Lancers International School Families, Gurugram",
+  "twitterTitle": "IB Tutors Near Lancers International School, Gurgaon | IB Gram",
   "twitterDescription": "PYP inquiry habits, MYP foundations, DP sciences and mathematics. Home sessions across Sector 53, Sector 54 and DLF Phase 5, or online for rarer subjects.",
   "breadcrumbTitle": "Lancers International School",
   "h1": "IB Tutors in Lancers International School Gurugram: Golf Course Road Support",
@@ -4358,6 +4457,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_GURUGRAM_SCHOOLS_LANCERS_INTERNATIONAL_SCHOOL_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_GURUGRAM_SCHOOLS_LANCERS_INTERNATIONAL_SCHOOL",
+    "targetPageId": "IBG_PROGRAMMES_MYP",
+    "targetUrl": "https://www.ibgram.com/programmes/myp/",
+    "anchorText": "IB MYP tutors",
+    "linkContext": "Programme hub for MYP families in Gurgaon.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -4630,7 +4742,7 @@
   },
   "finalCta": "Tell IB Gram the grade, programme, subject and level, along with the sector you live in near Golf Course Road and the deadline that is closest. The request is reviewed for home, online or hybrid fit, subject to tutor availability, and a short list of options follows with a first session before anything longer is arranged.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_GURUGRAM_SCHOOLS_PATHWAYS_WORLD_SCHOOL",
@@ -4657,7 +4769,10 @@
    "IB science tutor for Physics and Chemistry",
    "IB tutors in Gurugram",
    "IB coaching for Pathways World School students",
-   "IB tuition options near Pathways World School"
+   "IB tuition options near Pathways World School",
+   "IB tutor in Gurgaon",
+   "IB tutors in Gurgaon",
+   "IB home tutor in Gurgaon"
   ],
   "serviceFocus": "IB tutors in Pathways World School Gurugram",
   "programmes": [
@@ -4704,13 +4819,13 @@
    "Scottish High International School",
    "GD Goenka World School"
   ],
-  "metaTitle": "IB Tutors for Pathways World School Students, Gurugram",
-  "metaDescription": "Independent IB tutoring for Pathways World School families in Gurugram: DP subject specialists, IA and EE planning, mock-script diagnosis, home or online sessions.",
-  "ogTitle": "IB Tutors in Pathways World School, Gurugram | IB Gram",
-  "ogDescription": "Matched by programme level and assessment need, not subject label. DP, MYP and PYP support for Pathways World School families across Gurugram.",
+  "metaTitle": "IB Tutors for Pathways World School Students, Gurgaon | IB Gram",
+  "metaDescription": "Independent IB tutoring for Pathways World School families in Gurgaon: DP subject specialists, IA and EE planning, mock-script diagnosis, home or online sessions.",
+  "ogTitle": "IB Tutors for Pathways World School Students, Gurgaon | IB Gram",
+  "ogDescription": "Independent IB tutoring for Pathways World School families in Gurgaon: DP subject specialists, IA and EE planning, mock-script diagnosis, home or online sessions.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IB Tutors in Pathways World School, Gurugram | IB Gram",
-  "twitterDescription": "Matched by programme level and assessment need, not subject label. DP, MYP and PYP support for Pathways World School families across Gurugram.",
+  "twitterTitle": "IB Tutors for Pathways World School Students, Gurgaon | IB Gram",
+  "twitterDescription": "Independent IB tutoring for Pathways World School families in Gurgaon: DP subject specialists, IA and EE planning, mock-script diagnosis, home or online sessions.",
   "breadcrumbTitle": "Pathways World School",
   "h1": "IB Tutors in Pathways World School, Gurugram",
   "heroTitle": "IB Tutors for Pathways World School Families",
@@ -5025,6 +5140,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_GURUGRAM_SCHOOLS_PATHWAYS_WORLD_SCHOOL_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_GURUGRAM_SCHOOLS_PATHWAYS_WORLD_SCHOOL",
+    "targetPageId": "IBG_PROGRAMMES_MYP",
+    "targetUrl": "https://www.ibgram.com/programmes/myp/",
+    "anchorText": "MYP tutoring support",
+    "linkContext": "Programme hub for MYP families in Gurgaon.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -5305,7 +5433,7 @@
   },
   "finalCta": "Send the year group, the subjects with their levels, and the two or three time windows that actually work in your week. An advisor checks who is free at that level right now, shares a short list with teaching background and availability, and arranges a trial session at a time you pick. You decide after the trial, not before it.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_GURUGRAM_SCHOOLS_SCOTTISH_HIGH_INTERNATIONAL_SCHOOL",
@@ -5332,7 +5460,10 @@
    "IB science tutor near Sector 57",
    "IB tutors in Gurugram",
    "IB coaching near Scottish High International School",
-   "IB tuition centre options near Sector 57"
+   "IB tuition centre options near Sector 57",
+   "IB tutor in Gurgaon",
+   "IB tutors in Gurgaon",
+   "IB home tutor in Gurgaon"
   ],
   "serviceFocus": "IB tutors in Scottish High International School Gurugram",
   "programmes": [
@@ -5379,12 +5510,12 @@
    "Scottish High International School",
    "GD Goenka World School"
   ],
-  "metaTitle": "IB Tutors near Scottish High International School, Gurugram",
+  "metaTitle": "IB Tutors near Scottish High International School, Gurgaon | IB Gram",
   "metaDescription": "How to compare two IB tutors for a Scottish High International School student in Sector 57: subject depth, criteria literacy, trial sessions and honest fees.",
-  "ogTitle": "IB Tutors for Scottish High International School Families | IB Gram",
+  "ogTitle": "IB Tutors near Scottish High International School, Gurgaon | IB Gram",
   "ogDescription": "Sector 57 families comparing IB tutors: what to ask, what to watch in a trial, and when online beats a tutor at your door. An independent platform.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IB Tutors for Scottish High International School Families | IB Gram",
+  "twitterTitle": "IB Tutors near Scottish High International School, Gurgaon | IB Gram",
   "twitterDescription": "Sector 57 families comparing IB tutors: what to ask, what to watch in a trial, and when online beats a tutor at your door. An independent platform.",
   "breadcrumbTitle": "Scottish High School",
   "h1": "IB Tutors in Scottish High International School, Gurugram",
@@ -5700,6 +5831,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_GURUGRAM_SCHOOLS_SCOTTISH_HIGH_INTERNATIONAL_SCHOOL_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_GURUGRAM_SCHOOLS_SCOTTISH_HIGH_INTERNATIONAL_SCHOOL",
+    "targetPageId": "IBG_PROGRAMMES_MYP",
+    "targetUrl": "https://www.ibgram.com/programmes/myp/",
+    "anchorText": "IB MYP tutor for Gurgaon families",
+    "linkContext": "Programme hub for MYP families in Gurgaon.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -5980,7 +6124,7 @@
   },
   "finalCta": "Write down the year group, the subjects with levels, the problem in one sentence, and the hours that are genuinely free each week. An advisor checks who teaches at that level and has room, shares two or three profiles with availability, and sets up a trial session. Decide after you have watched one.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_MUMBAI_SCHOOLS_DHIRUBHAI_AMBANI_INTERNATIONAL_SCHOOL",
@@ -6007,7 +6151,10 @@
    "an IB Science tutor for the DAIS cohort",
    "IB tutors across Mumbai",
    "IB coaching support for Dhirubhai Ambani International School families",
-   "an IB tuition centre alternative near Dhirubhai Ambani International School"
+   "an IB tuition centre alternative near Dhirubhai Ambani International School",
+   "IB tutor in Mumbai",
+   "IB tutors in Mumbai",
+   "IB home tutor in Mumbai"
   ],
   "serviceFocus": "IB tutors in Dhirubhai Ambani International School Mumbai",
   "programmes": [
@@ -6372,6 +6519,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_MUMBAI_SCHOOLS_DHIRUBHAI_AMBANI_INTERNATIONAL_SCHOOL_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_MUMBAI_SCHOOLS_DHIRUBHAI_AMBANI_INTERNATIONAL_SCHOOL",
+    "targetPageId": "IBG_PROGRAMMES_MYP",
+    "targetUrl": "https://www.ibgram.com/programmes/myp/",
+    "anchorText": "MYP subject-group help",
+    "linkContext": "Programme hub for MYP families in Mumbai.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -6652,7 +6812,7 @@
   },
   "finalCta": "If your child connected to Dhirubhai Ambani International School needs an IB tutor — for DP Math AA proofs, an Economics IA rewrite, or Paper 2 essay structure — tell IB Gram the subject, grade and weekly schedule. A matched tutor and a diagnostic first session follow, subject to availability, home or online.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_MUMBAI_SCHOOLS_ECOLE_MONDIALE_WORLD_SCHOOL",
@@ -6679,7 +6839,10 @@
    "IB Science tutor near Ecole Mondiale World School",
    "IB tutors across Mumbai",
    "IB coaching support near Ecole Mondiale World School",
-   "IB tuition centre alternative near Ecole Mondiale World School"
+   "IB tuition centre alternative near Ecole Mondiale World School",
+   "IB tutor in Mumbai",
+   "IB tutors in Mumbai",
+   "IB home tutor in Mumbai"
   ],
   "serviceFocus": "IB tutors in Ecole Mondiale World School Mumbai",
   "programmes": [
@@ -7044,6 +7207,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_MUMBAI_SCHOOLS_ECOLE_MONDIALE_WORLD_SCHOOL_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_MUMBAI_SCHOOLS_ECOLE_MONDIALE_WORLD_SCHOOL",
+    "targetPageId": "IBG_PROGRAMMES_DP",
+    "targetUrl": "https://www.ibgram.com/programmes/dp/",
+    "anchorText": "IA and Extended Essay support",
+    "linkContext": "Programme hub for DP families in Mumbai.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -7324,7 +7500,7 @@
   },
   "finalCta": "Share your child's grade, whether the focus is Math AI, DP English or another subject, and whether Juhu traffic realistically allows for a home tutor or points you toward online. IB Gram will match two or three relevant tutor profiles and start with a diagnostic first session, subject to tutor availability at the time you reach out.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_MUMBAI_SCHOOLS_OBEROI_INTERNATIONAL_SCHOOL",
@@ -7351,7 +7527,10 @@
    "IB Science tutor near Oberoi International School",
    "IB tutors across Mumbai",
    "IB coaching for Oberoi International School students",
-   "IB tuition centres near Oberoi International School vs home tutoring"
+   "IB tuition centres near Oberoi International School vs home tutoring",
+   "IB tutor in Mumbai",
+   "IB tutors in Mumbai",
+   "IB home tutor in Mumbai"
   ],
   "serviceFocus": "IB tutors in Oberoi International School Mumbai",
   "programmes": [
@@ -7716,6 +7895,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_MUMBAI_SCHOOLS_OBEROI_INTERNATIONAL_SCHOOL_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_MUMBAI_SCHOOLS_OBEROI_INTERNATIONAL_SCHOOL",
+    "targetPageId": "IBG_PROGRAMMES_DP",
+    "targetUrl": "https://www.ibgram.com/programmes/dp/",
+    "anchorText": "IB DP tutors",
+    "linkContext": "Programme hub for DP families in Mumbai.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -7996,7 +8188,7 @@
   },
   "finalCta": "Tell IB Gram the exact subject and level, the real weekly time window around Oberoi's schedule, and whether home, online or hybrid suits your family, and a shortlist matched to that will follow. Availability depends on subject rarity and tutor schedule, so specifics beat a general enquiry every time.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_NOIDA_SCHOOLS_GENESIS_GLOBAL_SCHOOL",
@@ -8023,7 +8215,10 @@
    "IB Science tutor near Genesis Global School",
    "IB tutors across Noida",
    "IB coaching support near Genesis Global School",
-   "IB tuition centre alternatives near Genesis Global School"
+   "IB tuition centre alternatives near Genesis Global School",
+   "IB tutor in Noida",
+   "IB tutors in Noida",
+   "IB home tutor in Noida"
   ],
   "serviceFocus": "IB tutors in Genesis Global School Noida",
   "programmes": [
@@ -8069,12 +8264,12 @@
    "Genesis Global School",
    "Step by Step School"
   ],
-  "metaTitle": "IB Tutors in Genesis Global School Noida | Hybrid & DP Support",
+  "metaTitle": "IB Tutors in Genesis Global School Noida | IB Gram",
   "metaDescription": "Find IB tutors for Genesis Global School Noida students on the Expressway, matched for MYP foundations or DP revision, with hybrid home-and-online plans built.",
-  "ogTitle": "IB Tutors in Genesis Global School Noida",
+  "ogTitle": "IB Tutors in Genesis Global School Noida | IB Gram",
   "ogDescription": "IB tutors for Genesis Global School Noida families, matched for MYP foundations or DP revision, with hybrid plans built around Expressway travel and school timings.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IB Tutors in Genesis Global School Noida",
+  "twitterTitle": "IB Tutors in Genesis Global School Noida | IB Gram",
   "twitterDescription": "IB tutors for Genesis Global School Noida families, matched for MYP foundations or DP revision, with hybrid plans built around Expressway travel and school timings.",
   "breadcrumbTitle": "Genesis Global School",
   "h1": "IB Tutors for Genesis Global School Students in Noida",
@@ -8365,6 +8560,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_NOIDA_SCHOOLS_GENESIS_GLOBAL_SCHOOL_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_NOIDA_SCHOOLS_GENESIS_GLOBAL_SCHOOL",
+    "targetPageId": "IBG_PROGRAMMES_DP",
+    "targetUrl": "https://www.ibgram.com/programmes/dp/",
+    "anchorText": "DP tutoring support",
+    "linkContext": "Programme hub for DP families in Noida.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -8645,7 +8853,7 @@
   },
   "finalCta": "Tell IB Gram the subject, the grade and what your Genesis Global School child's last assessment actually showed, along with your location on or near the Expressway. You'll get tutors matched on subject and IB experience, home, online or hybrid, with a diagnostic first session and a four-week review.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  },
  {
   "pageId": "IBG_IB_TUTORS_NOIDA_SCHOOLS_PATHWAYS_SCHOOL_NOIDA",
@@ -8672,7 +8880,10 @@
    "IB science tutoring for Pathways School Noida students",
    "IB tutors across Noida",
    "IB coaching support for Pathways School Noida families",
-   "IB tuition alternative to a Pathways School Noida coaching centre"
+   "IB tuition alternative to a Pathways School Noida coaching centre",
+   "IB tutor in Noida",
+   "IB tutors in Noida",
+   "IB home tutor in Noida"
   ],
   "serviceFocus": "IB tutors in Pathways School Noida Noida",
   "programmes": [
@@ -8718,7 +8929,7 @@
    "Genesis Global School",
    "Step by Step School"
   ],
-  "metaTitle": "IB Tutors for Pathways School Noida | Home & Online",
+  "metaTitle": "IB Tutors for Pathways School Noida | IB Gram",
   "metaDescription": "Find IB tutors for Pathways School Noida students in Noida, for home or online sessions matched to IA deadlines, mock exams and school-set assignments.",
   "ogTitle": "IB Tutors for Pathways School Noida | IB Gram",
   "ogDescription": "IB Gram matches Pathways School Noida families with IB tutors for home, online or hybrid sessions built around actual IA deadlines and mock exam dates.",
@@ -9024,6 +9235,19 @@
     "followStatus": "follow",
     "isCrawlable": true,
     "linkStatus": "active"
+   },
+   {
+    "linkId": "IBG_IB_TUTORS_NOIDA_SCHOOLS_PATHWAYS_SCHOOL_NOIDA_PL1",
+    "sourcePageId": "IBG_IB_TUTORS_NOIDA_SCHOOLS_PATHWAYS_SCHOOL_NOIDA",
+    "targetPageId": "IBG_PROGRAMMES_PYP",
+    "targetUrl": "https://www.ibgram.com/programmes/pyp/",
+    "anchorText": "PYP tutoring support",
+    "linkContext": "Programme hub for PYP families in Noida.",
+    "linkType": "related",
+    "priority": "medium",
+    "followStatus": "follow",
+    "isCrawlable": true,
+    "linkStatus": "active"
    }
   ],
   "relatedPageSuggestions": [],
@@ -9304,6 +9528,6 @@
   },
   "finalCta": "If your Pathways School Noida child has a test, an IA or a mock coming up, tell IB Gram the actual date along with the subject and programme level. A tutor is suggested from real availability across Noida's sectors or online, matched to that specific deadline rather than a generic package.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-05"
+  "lastUpdated": "2026-09-16"
  }
 ]

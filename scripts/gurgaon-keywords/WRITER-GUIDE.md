@@ -205,3 +205,50 @@ peace of mind
 Also avoid: rule-of-three lists as a habit; three sentences in a row starting the same way;
 rhetorical questions as paragraph openers; more than 8 em dashes on the whole page; summarising a
 section at its end.
+
+## Pages under /gurgaon/ (brief.hub is true)
+
+These pages live at `brief.path` (for example `/gurgaon/ib-maths-home-tutor/`). Every rule
+above applies, plus the following.
+
+### Your lane is `brief.intent`
+
+Many siblings share almost the same words ("home tutor", "tutor at home", "home tuition"). What
+separates them is the question each one answers. Build every section around your intent, and keep a
+sibling's topic to a sentence or two. `brief.siblings` includes root-level pages such as
+`/ib-tutor-in-gurgaon/`: never echo their framing or examples.
+
+### Required extra key: `comparison`
+
+```json
+"comparison": {
+  "heading": "An H2 naming Gurgaon, ideally a question: How does IB Maths home tuition compare with a coaching centre in Gurgaon?",
+  "intro": "40-100 words that read on their own: who each option suits and the one trade-off that decides it.",
+  "columns": ["exactly brief.comparison, same order, same spelling"],
+  "rows": [{ "label": "Attention per student", "cells": ["one cell per column, 3-30 words each"] }]
+}
+```
+
+- 7-10 rows. Pick from: attention per student, syllabus fit (name this board's real structure:
+  HL/SL, AA/AI, Core/Extended, syllabus codes), travel and time in Gurgaon, scheduling
+  flexibility, coursework or IA help within academic integrity rules, feedback to parents, how the
+  tutor or teacher is chosen and checked, trial before committing, cost structure (words only, never
+  an amount), who it suits best.
+- Be fair. Every other column must honestly win at least one row: a batch usually costs less per
+  hour, a group gives peer discussion, a recorded course is always available.
+- Never name a real business, never disparage, no statistics. The table is gated for claims like the
+  rest of the page but does not count toward the 4,000 words.
+
+### What ranks in Gurgaon today, and how to beat it
+
+Competing pages are thin (roughly 500-4,000 words), reuse templates, make unverifiable claims ("No.1",
+tutor counts, success rates, testimonials, fee figures), skip syllabus codes, list areas loosely,
+never explain vetting or matching, and never lay out a structured comparison. Only one has a real FAQ.
+Win on exact syllabus structure from `brief.facts`, corridor and sector detail, school-calendar
+timing, a transparent step-by-step matching process, the comparison table, and 10-12 genuinely useful
+FAQs. Never copy their claims.
+
+FAQs parents ask in these searches (use only those that fit your intent): switching from CBSE or ICSE
+mid-course; whether the tutor follows the school's pacing; how many sessions a week; what the free
+demo covers; how soon a tutor can start; replacing a tutor who is not working out; revision before
+mocks; progress updates to parents; a tutor travelling to their sector on weekday evenings.

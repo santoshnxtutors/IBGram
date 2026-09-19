@@ -1,8 +1,9 @@
 "use client";
 
-import { PointerEvent, useEffect, useRef, useState } from "react";
 import { BookOpenCheck, GraduationCap, Target } from "lucide-react";
 import Image from "next/image";
+
+import { useDragCarousel } from "@/components/home/use-drag-carousel";
 
 type Story = {
   id: number | string;
@@ -65,60 +66,12 @@ const fallbackStories: Story[] = [
 
 export function SuccessStories({ items }: { items?: Story[] }) {
   const stories = items && items.length > 0 ? items : fallbackStories;
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [itemsToShow, setItemsToShow] = useState(3);
-  const dragStartX = useRef<number | null>(null);
   const total = stories.length;
-
-  useEffect(() => {
-    const mobileQuery = window.matchMedia("(max-width: 767px)");
-    const tabletQuery = window.matchMedia("(max-width: 1023px)");
-
-    const syncItemsToShow = () => {
-      if (mobileQuery.matches) {
-        setItemsToShow(1);
-        return;
-      }
-
-      if (tabletQuery.matches) {
-        setItemsToShow(2);
-        return;
-      }
-
-      setItemsToShow(3);
-    };
-
-    syncItemsToShow();
-    mobileQuery.addEventListener("change", syncItemsToShow);
-    tabletQuery.addEventListener("change", syncItemsToShow);
-
-    return () => {
-      mobileQuery.removeEventListener("change", syncItemsToShow);
-      tabletQuery.removeEventListener("change", syncItemsToShow);
-    };
-  }, []);
-
-  const maxIdx = total - itemsToShow;
-  const safeActiveIdx = Math.min(activeIdx, maxIdx >= 0 ? maxIdx : 0);
-
-  const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
-    dragStartX.current = event.clientX;
-  };
-
-  const handlePointerUp = (event: PointerEvent<HTMLDivElement>) => {
-    if (dragStartX.current === null) {
-      return;
-    }
-
-    const offset = event.clientX - dragStartX.current;
-    dragStartX.current = null;
-
-    if (offset < -50 && safeActiveIdx < total - itemsToShow) {
-      setActiveIdx((prev) => prev + 1);
-    } else if (offset > 50 && safeActiveIdx > 0) {
-      setActiveIdx((prev) => prev - 1);
-    }
-  };
+  const { itemsToShow, safeActiveIdx, setActiveIdx, maxIdx, dragHandlers } = useDragCarousel(total, {
+    mobile: 1,
+    tablet: 2,
+    desktop: 3,
+  });
 
   return (
     <section className="py-12 md:py-16 relative overflow-hidden bg-background" aria-labelledby="success-heading">
@@ -141,11 +94,7 @@ export function SuccessStories({ items }: { items?: Story[] }) {
         <div className="relative max-w-full group/carousel">
           <div
             className="overflow-hidden cursor-grab active:cursor-grabbing"
-            onPointerDown={handlePointerDown}
-            onPointerUp={handlePointerUp}
-            onPointerCancel={() => {
-              dragStartX.current = null;
-            }}
+            {...dragHandlers}
           >
             <div
               className="flex gap-4 transition-transform duration-300 ease-out md:gap-6"
@@ -206,7 +155,7 @@ export function SuccessStories({ items }: { items?: Story[] }) {
         </div>
 
         <div className="flex justify-start gap-2 mt-8">
-          {Array.from({ length: total - itemsToShow + 1 }).map((_, i) => (
+          {Array.from({ length: maxIdx + 1 }).map((_, i) => (
             <button
               key={i}
               onClick={() => setActiveIdx(i)}
