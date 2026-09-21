@@ -468,6 +468,9 @@ jobs:
             mkdir -p public/uploads /home/ibgram/logs
             rm -f .env
 
+            # CloudPanel's nginx serves /.well-known/ from the vhost root, not via Next.js.
+            cp -r public/.well-known .
+
             echo "Installing dependencies..."
             npm ci --include=dev --legacy-peer-deps
 
