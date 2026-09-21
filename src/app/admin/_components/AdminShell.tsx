@@ -32,6 +32,7 @@ import {
 
 import { requireAdminSession } from "../_lib/admin-auth";
 import { LogoutButton } from "./LogoutButton";
+import { MobileAdminNav } from "./MobileAdminNav";
 
 const navigation = [
   { label: "Dashboard", href: "/admin/dashboard", icon: BarChart3 },
@@ -83,7 +84,15 @@ export async function AdminShell({ children }: { children: React.ReactNode }) {
 function AdminSidebar() {
   return (
     <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-white/10 bg-[#080d16]/95 shadow-2xl shadow-black/30 backdrop-blur-xl lg:flex lg:flex-col">
-      <div className="shrink-0 p-4 pb-3">
+      <AdminNavContent />
+    </aside>
+  );
+}
+
+function AdminNavContent() {
+  return (
+    <>
+      <div className="shrink-0 p-4 pb-3 pr-14 lg:pr-4">
         <Link href="/admin/dashboard" className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-3 shadow-lg shadow-black/20 transition hover:border-emerald-300/30 hover:bg-white/[0.06]">
           <div className="grid size-11 place-items-center rounded-lg bg-gradient-to-br from-emerald-300 to-teal-500 text-sm font-black tracking-tight text-slate-950 shadow-lg shadow-emerald-950/30">
             IB
@@ -109,7 +118,7 @@ function AdminSidebar() {
           </Link>
         ))}
       </nav>
-    </aside>
+    </>
   );
 }
 
@@ -117,7 +126,10 @@ function AdminTopbar() {
   return (
     <header className="sticky top-0 z-20 border-b border-white/10 bg-[#070b12]/85 px-4 py-3 backdrop-blur-xl sm:px-6 lg:px-8">
       <div className="flex items-center justify-between gap-3">
-        <div className="min-w-0">
+        <MobileAdminNav>
+          <AdminNavContent />
+        </MobileAdminNav>
+        <div className="min-w-0 flex-1">
           <AdminBreadcrumbs />
           <p className="mt-1 truncate text-sm font-semibold text-slate-400">Admin session active</p>
         </div>
