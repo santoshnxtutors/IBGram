@@ -13,11 +13,13 @@ import { TutorDiscovery } from "@/components/home/TutorDiscovery";
 import { getGurgaonKeywordPage, gurgaonKeywordSlugs } from "@/lib/gurgaon-keywords";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { buildCountrySeoMetadata, countrySeoSlugs, getCountrySeoPage } from "@/lib/country-seo";
+import { buildCitySeoMetadata, buildCitySeoSchema, citySeoSlugs, getCitySeoPage } from "@/lib/india-cities";
+import { getPublicTutorsFromDb } from "@/lib/cms/public-tutors";
 import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 import { getPublicHomepageReviews } from "@/lib/cms/public-reviews";
 
 // This is the site's only root-level dynamic segment, so it serves every
-// top-level SEO slug: country landing pages (/usa/), the Gurgaon keyword pages
+// top-level SEO slug: country landing pages (/usa/), Indian city pages (/mumbai/), the Gurgaon keyword pages
 // (/ib-tutor-in-gurgaon/) and the original hyperlocal Gurgaon landing pages
 // (/ib-igcse-home-tutor-in-golf-course-road-gurgaon/). The 500-page expansion lives
 // under /gurgaon/<slug>/ with its own route.
@@ -34,6 +36,7 @@ export function generateStaticParams() {
     // "india" is excluded: /india/ has its own static route, which also lists the
     // /india/<slug>/ keyword pages.
     ...countrySeoSlugs.filter((slug) => slug !== "india").map((slug) => ({ gurgaonSlug: slug })),
+    ...citySeoSlugs.map((slug) => ({ gurgaonSlug: slug })),
     ...gurgaonKeywordSlugs.map((slug) => ({ gurgaonSlug: slug })),
     ...getGurgaonSeoStaticParams(),
   ];
@@ -44,6 +47,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const countryPage = getCountrySeoPage(gurgaonSlug);
   if (countryPage) return buildCountrySeoMetadata(countryPage);
+
+  const cityPage = getCitySeoPage(gurgaonSlug);
+  if (cityPage) return buildCitySeoMetadata(cityPage);
 
   const keywordPage = getGurgaonKeywordPage(gurgaonSlug);
   if (keywordPage) return buildGeneratedMetadata(keywordPage);
@@ -62,6 +68,23 @@ export default async function RootSeoLandingPage({ params }: PageProps) {
       getPublicHomepageReviews(),
     ]);
     return <CountryLanding page={countryPage} tutors={tutors ?? undefined} reviews={reviews ?? undefined} />;
+  }
+
+  // Indian city pages (/mumbai/): the /gurgaon/ layout, with tutors based in that city when there
+  // are any and the homepage tutors otherwise.
+  const cityPage = getCitySeoPage(gurgaonSlug);
+  if (cityPage) {
+    const [allTutors, homepageTutors, reviews] = await Promise.all([getPublicTutorsFromDb(), getVisibleTutorsForPage("/"), getPublicHomepageReviews()]);
+    const localTutors = (allTutors ?? []).filter((tutor) => [tutor.primaryCitySlug, ...tutor.availableCitySlugs].includes(cityPage.slug)).slice(0, 6);
+    return (
+      <CountryLanding
+        page={cityPage}
+        tutors={(localTutors.length > 0 ? localTutors : homepageTutors) ?? undefined}
+        reviews={reviews ?? undefined}
+        schema={buildCitySeoSchema(cityPage)}
+        schoolStrip={cityPage.stripSchools.length > 0 ? { schools: cityPage.stripSchools, place: cityPage.countryName } : undefined}
+      />
+    );
   }
 
   const keywordPage = getGurgaonKeywordPage(gurgaonSlug);

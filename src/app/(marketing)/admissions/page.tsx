@@ -16,7 +16,6 @@ import { Button } from "@/components/ui/button";
 import { AdmissionsConsultationForm } from "./consultation-form";
 import { AdmissionsHeroVideo } from "./admissions-hero-video";
 
-const MentorsCarousel = dynamic(() => import("./mentors-carousel").then((mod) => mod.MentorsCarousel));
 const AdmissionsPartnership = dynamic(() => import("./admissions-partnership").then((mod) => mod.AdmissionsPartnership));
 
 export const metadata: Metadata = {
@@ -438,9 +437,6 @@ export default function AdmissionsPage() {
             </p>
           </div>
         </section>
-
-        {/* MENTORS */}
-        <MentorsCarousel />
 
         {/* WHAT WE DO */}
         <section className="border-b border-border/30 px-4 py-16 sm:px-6 md:py-24">

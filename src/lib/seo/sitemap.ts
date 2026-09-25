@@ -21,6 +21,7 @@ import { getGurgaonKeywordSitemapEntries } from "@/lib/gurgaon-keywords";
 import { getCountrySeoSitemapEntries } from "@/lib/country-seo";
 import { getIgcseSubjectSitemapEntries } from "@/lib/igcse-subjects";
 import { getIndiaKeywordSitemapEntries } from "@/lib/india-keywords";
+import { getCitySeoSitemapEntries } from "@/lib/india-cities";
 
 const LAST_MODIFIED = "2026-09-04";
 const COURSE_SUBJECT_SLUGS = ["pyp", "myp", "dp", "cp", "mathematics", "sciences", "individuals", "individuals-and-societies", "english", "language", "arts"];
@@ -43,6 +44,7 @@ export function getSeoSitemapEntries(): MetadataRoute.Sitemap {
     ...getCountrySeoSitemapEntries(),
     ...getIgcseSubjectSitemapEntries(),
     ...getIndiaKeywordSitemapEntries(),
+    ...getCitySeoSitemapEntries(),
   ]);
 }
 

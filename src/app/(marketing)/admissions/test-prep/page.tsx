@@ -4,7 +4,6 @@ import Link from "next/link";
 import { CheckCircle2, BookOpen, Clock, Target, TrendingUp, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AdmissionsConsultationForm } from "../consultation-form";
-import { MentorsCarousel } from "../mentors-carousel";
 
 const TESTS = [
   { name: "SAT", desc: "College Admission", region: "US" },
@@ -235,9 +234,6 @@ export default function TestPrepPage() {
             </div>
           </div>
         </section>
-
-        {/* MENTORS */}
-        <MentorsCarousel />
 
         {/* FEATURES */}
         <section className="px-6 py-20 md:py-28 border-b border-border/30">

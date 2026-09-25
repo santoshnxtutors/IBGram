@@ -4,6 +4,7 @@ import { CountryLanding } from "@/components/country-seo/CountryLanding";
 import { buildCountrySeoMetadata } from "@/lib/country-seo";
 import { india } from "@/lib/country-seo/countries/india";
 import { getIndiaKeywordDirectory } from "@/lib/india-keywords";
+import { getCityDirectoryLinks } from "@/lib/india-cities";
 import { getPublicHomepageReviews } from "@/lib/cms/public-reviews";
 import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 
@@ -21,7 +22,8 @@ export function generateMetadata(): Metadata {
 export default async function IndiaHubPage() {
   const [tutors, reviews] = await Promise.all([getVisibleTutorsForPage("/india/"), getPublicHomepageReviews()]);
   // Flattened: the grid runs as one continuous column flow rather than per-group cards.
-  const links = getIndiaKeywordDirectory().flatMap((group) => group.links);
+  // City pages first: they are the main internal links the /<city>/ pages get.
+  const links = [...getCityDirectoryLinks(), ...getIndiaKeywordDirectory().flatMap((group) => group.links)];
 
   return (
     <>

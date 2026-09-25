@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
@@ -33,8 +34,9 @@ export function MobileAdminNav({ children }: { children: React.ReactNode }) {
       >
         <Menu className="size-5" />
       </button>
-      {open && (
-        <div className="fixed inset-0 z-50">
+      {/* Portal: the topbar's backdrop-blur would otherwise trap this fixed drawer inside the header. */}
+      {open && createPortal(
+        <div className="fixed inset-0 z-50 lg:hidden">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
           <aside className="absolute inset-y-0 left-0 flex w-72 max-w-[85vw] flex-col border-r border-white/10 bg-[#080d16] shadow-2xl shadow-black/40">
             <button
@@ -47,7 +49,8 @@ export function MobileAdminNav({ children }: { children: React.ReactNode }) {
             </button>
             {children}
           </aside>
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );
