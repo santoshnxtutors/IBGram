@@ -37,6 +37,11 @@ they miss (thin copy, no tables, no FAQs, no school context, no exam calendar, u
 must cover every genuine topic they cover and add what they miss. Do not name competitors on the page.
 Use at most ~6 searches per city in total, including school fact checks.
 
+**WebSearch has one small quota shared by all 20 parallel writers and it runs out fast.** Verify schools with
+WebFetch instead (`https://schoolmykids.com`, `https://www.edustoke.com`, the school's own site, Wikipedia,
+`ibo.org/programmes/find-an-ib-school/`, `cambridgeinternational.org`), and keep WebSearch for the competitor
+check only. If both are exhausted, say so in the competitor note and name no school you cannot confirm.
+
 ## Hard facts about IB Gram (never contradict)
 
 - **In-person home tuition exists only in Gurugram and parts of Delhi NCR.** If `homeTuition` is `false`,
