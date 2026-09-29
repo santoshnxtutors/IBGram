@@ -5,6 +5,7 @@ import type { JsonLdObject } from "@/lib/seo/schema";
 import { CONTACT } from "@/lib/contact";
 import { citySeoPages } from "./cities";
 import type { CitySeoPage } from "./types";
+import { ALL_INDIA_CITIES } from "./all-cities";
 
 const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
 const pagesBySlug = new Map(citySeoPages.map((page) => [page.slug, page]));
@@ -18,6 +19,21 @@ export function getCitySeoPage(slug: string): CitySeoPage | undefined {
 /** Plain links for directories (the /india/ strip, neighbouring cities); never ships page bodies. */
 export function getCityDirectoryLinks(): Array<{ label: string; href: string }> {
   return citySeoPages.map((page) => ({ label: `IB & IGCSE Tutors in ${page.countryName}`, href: `/${page.slug}/` }));
+}
+
+/**
+ * Every Indian city we cover, for the "Cities we serve" list on /india/. `href` is null until that
+ * city's page is written, so the list stays complete without linking to a page that would 404.
+ */
+export function getCitySeoCityNames(): Array<{ name: string; href: string | null }> {
+  const published = new Set(citySeoSlugs);
+  return [
+    { name: "Gurgaon", href: "/gurgaon/" },
+    ...ALL_INDIA_CITIES.map((city) => ({
+      name: city.name,
+      href: published.has(city.slug) ? `/${city.slug}/` : null,
+    })),
+  ];
 }
 
 const canonicalOf = (page: CitySeoPage) => absoluteUrl(`/${page.slug}/`);

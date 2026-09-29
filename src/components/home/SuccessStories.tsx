@@ -65,7 +65,7 @@ const fallbackStories: Story[] = [
 ];
 
 export function SuccessStories({ items }: { items?: Story[] }) {
-  const stories = items && items.length > 0 ? items : fallbackStories;
+  const stories = Array.isArray(items) && items.length > 0 ? items : fallbackStories;
   const total = stories.length;
   const { itemsToShow, safeActiveIdx, setActiveIdx, maxIdx, dragHandlers } = useDragCarousel(total, {
     mobile: 1,

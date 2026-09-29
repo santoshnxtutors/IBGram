@@ -48,7 +48,7 @@ function normaliseImageUrl(value: string | null | undefined): string {
  * (kind=review) marked `useOnHomepage`. Returns null if DB unreachable so the
  * frontend can fall back to its static seed array.
  */
-export const getPublicHomepageReviews = unstable_cache(
+const getCachedHomepageReviews = unstable_cache(
   async (): Promise<PublicReview[] | null> => {
     try {
       const rows = await prisma.testimonial.findMany({
@@ -76,6 +76,16 @@ export const getPublicHomepageReviews = unstable_cache(
   ["public-homepage-reviews"],
   { tags: ["cms:testimonials"], revalidate: 300 },
 );
+
+/**
+ * The cache layer can hand back a restored value that is no longer a real array, which then
+ * breaks any consumer that spreads it. Callers get an array or null, never anything else.
+ */
+export async function getPublicHomepageReviews(): Promise<PublicReview[] | null> {
+  const rows = await getCachedHomepageReviews();
+  if (Array.isArray(rows)) return rows.length > 0 ? rows : null;
+  return rows ? (Object.values(rows) as PublicReview[]) : null;
+}
 
 /**
  * Homepage "Our Student Success Stories" — pulls published SuccessStory rows.

@@ -13,7 +13,7 @@ export default async function AdminTutorsPage() {
         <AdminDataTable columns={["Tutor", "Curriculum", "Subjects", "Primary city", "Areas", "Modes", "Rating", "Status", "Actions"]} rows={tutors.map((tutor) => [
           <Link key={tutor.id} href={`/admin/tutors/${tutor.id}`} className="font-black text-white hover:text-emerald-300">{tutor.name}</Link>,
           tutor.curriculums,
-          [...tutor.ibSubjects, ...tutor.igcseSubjects].slice(0, 4).join(", "),
+          [...new Set([...tutor.ibSubjects, ...tutor.igcseSubjects])].slice(0, 4).join(", "),
           tutor.primaryCity,
           tutor.availableAreas.slice(0, 3).join(", ") || "-",
           tutor.teachingModes.join(", "),

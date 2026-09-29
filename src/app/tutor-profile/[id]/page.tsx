@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: TutorProfileProps): Promise<M
   const tutor = await findPublicTutor(decodeURIComponent(id));
 
   if (!tutor) {
-    return { title: "Tutor not found | IB Gram", robots: { index: false, follow: false } };
+    return { title: "Tutor not found", robots: { index: false, follow: false } };
   }
 
   const profileUrl = getTutorProfileUrl(tutor);
@@ -28,7 +28,8 @@ export async function generateMetadata({ params }: TutorProfileProps): Promise<M
   const image = tutor.image ? absoluteUrl(tutor.image) : undefined;
 
   return {
-    title: `${tutor.name} | ${tutor.subject} Tutor | IB Gram`,
+    // The root layout's title template appends "| IB Gram".
+    title: `${tutor.name} | ${tutor.subject} Tutor`,
     description,
     alternates: { canonical: profileUrl },
     robots: { index: true, follow: true },

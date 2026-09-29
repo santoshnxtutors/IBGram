@@ -21,7 +21,7 @@ export interface CityPlan {
 }
 
 /** City pages may only link to other cities up to this rank: raise it as each batch publishes. */
-export const MAX_LINK_RANK = 181;
+export const MAX_LINK_RANK = 241;
 
 const STATE_CODES: Record<string, string> = {
   "Andhra Pradesh": "IN-AP", "Arunachal Pradesh": "IN-AR", Assam: "IN-AS", Bihar: "IN-BR", Chhattisgarh: "IN-CT", Goa: "IN-GA",

@@ -18,7 +18,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
-import { fallbackReviews } from "@/components/home/ReviewsSection";
+import { fallbackReviews } from "@/components/home/review-data";
 import { buttonVariants } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { buildCountrySeoSchema } from "@/lib/country-seo";
@@ -218,7 +218,7 @@ export function CountryLanding({
 }) {
   const flagSrc = `/images/Countryflag/${page.flagCode}.svg`;
   // CMS reviews when available, otherwise the same seed the homepage falls back to.
-  const reviewItems = reviews && reviews.length > 0 ? reviews : fallbackReviews;
+  const reviewItems = Array.isArray(reviews) && reviews.length > 0 ? reviews : fallbackReviews;
 
   return (
     <div className="relative isolate overflow-hidden bg-background">

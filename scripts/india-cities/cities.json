@@ -61,13 +61,13 @@
  },
  {
   "rank": 11,
-  "name": "Lucknow ",
+  "name": "Lucknow",
   "state": "Uttar Pradesh",
   "verified": true
  },
  {
   "rank": 12,
-  "name": "Kanpur ",
+  "name": "Kanpur",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -133,7 +133,7 @@
  },
  {
   "rank": 23,
-  "name": "Agra ",
+  "name": "Agra",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -163,7 +163,7 @@
  },
  {
   "rank": 28,
-  "name": "Meerut ",
+  "name": "Meerut",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -211,7 +211,7 @@
  },
  {
   "rank": 36,
-  "name": "Raipur ",
+  "name": "Raipur",
   "state": "Chhattisgarh",
   "verified": true
  },
@@ -271,13 +271,13 @@
  },
  {
   "rank": 46,
-  "name": "Amroha ",
+  "name": "Amroha",
   "state": "Uttar Pradesh",
   "verified": true
  },
  {
   "rank": 47,
-  "name": "Moradabad ",
+  "name": "Moradabad",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -289,7 +289,7 @@
  },
  {
   "rank": 49,
-  "name": "Aligarh ",
+  "name": "Aligarh",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -355,7 +355,7 @@
  },
  {
   "rank": 60,
-  "name": "Saharanpur ",
+  "name": "Saharanpur",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -379,7 +379,7 @@
  },
  {
   "rank": 64,
-  "name": "Noida ",
+  "name": "Noida",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -421,7 +421,7 @@
  },
  {
   "rank": 71,
-  "name": "Dehradun ",
+  "name": "Dehradun",
   "state": "Uttarakhand",
   "verified": true
  },
@@ -463,13 +463,13 @@
  },
  {
   "rank": 78,
-  "name": "Loni ",
+  "name": "Loni",
   "state": "Uttar Pradesh",
   "verified": true
  },
  {
   "rank": 79,
-  "name": "Jhansi ",
+  "name": "Jhansi",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -601,7 +601,7 @@
  },
  {
   "rank": 101,
-  "name": "Korba ",
+  "name": "Korba",
   "state": "Chhattisgarh",
   "verified": true
  },
@@ -649,13 +649,13 @@
  },
  {
   "rank": 109,
-  "name": "Bilaspur ",
+  "name": "Bilaspur",
   "state": "Chhattisgarh",
   "verified": true
  },
  {
   "rank": 110,
-  "name": "Shahjahanpur ",
+  "name": "Shahjahanpur",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -757,7 +757,7 @@
  },
  {
   "rank": 127,
-  "name": "Rampur ",
+  "name": "Rampur",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -775,13 +775,13 @@
  },
  {
   "rank": 130,
-  "name": "Modinagar ",
+  "name": "Modinagar",
   "state": "Uttar Pradesh",
   "verified": true
  },
  {
   "rank": 131,
-  "name": "Durg ",
+  "name": "Durg",
   "state": "Chhattisgarh",
   "verified": true
  },
@@ -799,7 +799,7 @@
  },
  {
   "rank": 134,
-  "name": "Hapur ",
+  "name": "Hapur",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -835,7 +835,7 @@
  },
  {
   "rank": 140,
-  "name": "Etawah ",
+  "name": "Etawah",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -937,7 +937,7 @@
  },
  {
   "rank": 157,
-  "name": "Sambhal ",
+  "name": "Sambhal",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -1063,13 +1063,13 @@
  },
  {
   "rank": 178,
-  "name": "Orai ",
+  "name": "Orai",
   "state": "Uttar Pradesh",
   "verified": true
  },
  {
   "rank": 179,
-  "name": "Bahraich ",
+  "name": "Bahraich",
   "state": "Uttar Pradesh",
   "verified": true
  },
@@ -1089,6198 +1089,6198 @@
   "rank": 182,
   "name": "Singrauli",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 183,
   "name": "Khammam",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 184,
   "name": "Mahesana",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 185,
   "name": "Silchar",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 186,
   "name": "Sambalpur",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 187,
   "name": "Rewa",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 188,
-  "name": "nnao ",
+  "name": "Unnao",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 189,
-  "name": "Hugli-hinsurah",
+  "name": "Hugli-Chinsurah",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 190,
   "name": "Raiganj",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 191,
   "name": "Phusro",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 192,
   "name": "Adityapur",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 193,
-  "name": "Alappuha",
+  "name": "Alappuzha",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 194,
   "name": "Bahadurgarh",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 195,
   "name": "Machilipatnam",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 196,
-  "name": "Rae Bareli ",
+  "name": "Rae Bareli",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 197,
   "name": "Jalpaiguri",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 198,
   "name": "Bharuch",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 199,
   "name": "Pathankot",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 200,
   "name": "Hoshiarpur",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 201,
-  "name": "Baramula",
+  "name": "Baramulla",
   "state": "Jammu and Kashmir",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 202,
   "name": "Adoni",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 203,
   "name": "Jind",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 204,
   "name": "Tonk",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 205,
   "name": "Tenali",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 206,
   "name": "Kancheepuram",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 207,
-  "name": "api",
+  "name": "Vapi",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 208,
   "name": "Sirsa",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 209,
   "name": "Navsari",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 210,
   "name": "Mahbubnagar",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 211,
   "name": "Puri",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 212,
   "name": "Robertson Pet",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 213,
   "name": "Erode",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 214,
   "name": "Batala",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 215,
-  "name": "Haldwani-cum-Kathgodam ",
+  "name": "Haldwani-cum-Kathgodam",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 216,
-  "name": "idisha",
+  "name": "Vidisha",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 217,
   "name": "Saharsa",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 218,
   "name": "Thanesar",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 219,
-  "name": "hioor",
+  "name": "Chittoor",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 220,
-  "name": "eraval",
+  "name": "Veraval",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 221,
-  "name": "Lakhimpur ",
+  "name": "Lakhimpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 222,
-  "name": "Sitapur ",
+  "name": "Sitapur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 223,
   "name": "Hindupur",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 224,
   "name": "Santipur",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 225,
   "name": "Balurghat",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 226,
   "name": "Ganjbasoda",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 227,
   "name": "Moga",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 228,
   "name": "Proddatur",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 229,
-  "name": "Srinagar ",
+  "name": "Srinagar",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 230,
   "name": "Medinipur",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 231,
   "name": "Habra",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 232,
   "name": "Sasaram",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 233,
   "name": "Hajipur",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 234,
   "name": "Bhuj",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 235,
   "name": "Shivpuri",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 236,
   "name": "Ranaghat",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 237,
   "name": "Shimla",
   "state": "Himachal Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 238,
   "name": "Tiruvannamalai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 239,
   "name": "Kaithal",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 240,
-  "name": "Rajnandgaon ",
+  "name": "Rajnandgaon",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 241,
   "name": "Godhra",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 242,
-  "name": "Haaribag",
+  "name": "Hazaribag",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 243,
   "name": "Bhimavaram",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 244,
   "name": "Mandsaur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 245,
   "name": "Dibrugarh",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 246,
   "name": "Kolar",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 247,
   "name": "Bankura",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 248,
   "name": "Mandya",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 249,
   "name": "Dehri-on-Sone",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 250,
   "name": "Madanapalle",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 251,
   "name": "Malerkotla",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 252,
-  "name": "Lalitpur ",
+  "name": "Lalitpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 253,
   "name": "Bettiah",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 254,
   "name": "Pollachi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 255,
   "name": "Khanna",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 256,
   "name": "Neemuch",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 257,
   "name": "Palwal",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 258,
   "name": "Palanpur",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 259,
   "name": "Guntakal",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 260,
   "name": "Nabadwip",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 261,
-  "name": "dupi",
+  "name": "Udupi",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 262,
-  "name": "Jagdalpur ",
+  "name": "Jagdalpur",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 263,
   "name": "Motihari",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 264,
-  "name": "Pilibhit ",
+  "name": "Pilibhit",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 265,
   "name": "Dimapur",
   "state": "Nagaland",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 266,
   "name": "Mohali",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 267,
   "name": "Sadulpur",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 268,
   "name": "Rajapalayam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 269,
   "name": "Dharmavaram",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 270,
-  "name": "Kashipur ",
+  "name": "Kashipur",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 271,
   "name": "Sivakasi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 272,
   "name": "Darjiling",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 273,
-  "name": "hikkamagaluru",
+  "name": "Chikkamagaluru",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 274,
   "name": "Gudivada",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 275,
   "name": "Baleshwar Town",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 276,
   "name": "Mancherial",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 277,
   "name": "Srikakulam",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 278,
   "name": "Adilabad",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 279,
-  "name": "@avatmal",
+  "name": "Yavatmal",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 280,
   "name": "Barnala",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 281,
   "name": "Nagaon",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 282,
   "name": "Narasaraopet",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 283,
-  "name": "Raigarh ",
+  "name": "Raigarh",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 284,
-  "name": "Roorkee ",
+  "name": "Roorkee",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 285,
-  "name": "alsad",
+  "name": "Valsad",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 286,
-  "name": "Ambikapur ",
+  "name": "Ambikapur",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 287,
   "name": "Giridih",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 288,
-  "name": "handausi ",
+  "name": "Chandausi",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 289,
   "name": "Purulia",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 290,
   "name": "Patan",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 291,
   "name": "Bagaha",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 292,
-  "name": "Hardoi ",
+  "name": "Hardoi",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 293,
   "name": "Achalpur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 294,
   "name": "Osmanabad",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 295,
   "name": "Deesa",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 296,
   "name": "Nandurbar",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 297,
-  "name": "Aamgarh ",
+  "name": "Azamgarh",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 298,
   "name": "Ramgarh",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 299,
-  "name": "iropur",
+  "name": "Firozpur",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 300,
   "name": "Baripada Town",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 301,
   "name": "Karwar",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 302,
   "name": "Siwan",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 303,
   "name": "Rajampet",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 304,
-  "name": "Pudukkoai",
+  "name": "Pudukkottai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 305,
   "name": "Anantnag",
   "state": "Jammu and Kashmir",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 306,
   "name": "Tadpatri",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 307,
   "name": "Satara",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 308,
   "name": "Bhadrak",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 309,
   "name": "Kishanganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 310,
   "name": "Suryapet",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 311,
   "name": "Wardha",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 312,
   "name": "Ranebennuru",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 313,
   "name": "Amreli",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 314,
-  "name": "Neyveli >TS?",
+  "name": "Neyveli (TS)",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 315,
   "name": "Jamalpur",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 316,
   "name": "Marmagao",
   "state": "Goa",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 317,
-  "name": "dgir",
+  "name": "Udgir",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 318,
   "name": "Tadepalligudem",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 319,
   "name": "Nagapattinam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 320,
-  "name": "Buar",
+  "name": "Buxar",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 321,
   "name": "Aurangabad",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 322,
   "name": "Jehanabad",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 323,
   "name": "Phagwara",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 324,
-  "name": "Khair ",
+  "name": "Khair",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 325,
   "name": "Sawai Madhopur",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 326,
   "name": "Kapurthala",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 327,
-  "name": "hilakaluripet",
+  "name": "Chilakaluripet",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 328,
   "name": "Aurangabad",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 329,
   "name": "Malappuram",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 330,
   "name": "Rewari",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 331,
   "name": "Nagaur",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 332,
-  "name": "Sultanpur ",
+  "name": "Sultanpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 333,
   "name": "Nagda",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 334,
-  "name": "Port Blair Andaman and Nicobar slands",
-  "state": "?",
-  "verified": false
+  "name": "Port Blair",
+  "state": "Andaman and Nicobar Islands",
+  "verified": true
  },
  {
   "rank": 335,
   "name": "Lakhisarai",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 336,
   "name": "Panaji",
   "state": "Goa",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 337,
   "name": "Tinsukia",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 338,
-  "name": "tarsi",
+  "name": "Itarsi",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 339,
   "name": "Kohima",
   "state": "Nagaland",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 340,
   "name": "Balangir",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 341,
   "name": "Nawada",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 342,
   "name": "Jharsuguda",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 343,
   "name": "Jagtial",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 344,
-  "name": "iluppuram",
+  "name": "Viluppuram",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 345,
   "name": "Amalner",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 346,
-  "name": "irakpur",
+  "name": "Zirakpur",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 347,
-  "name": "Tanda ",
+  "name": "Tanda",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 348,
   "name": "Tiruchengode",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 349,
-  "name": "Nagina ",
+  "name": "Nagina",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 350,
-  "name": "@emmiganur",
+  "name": "Yemmiganur",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 351,
-  "name": "aniyambadi",
+  "name": "Vaniyambadi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 352,
   "name": "Sarni",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 353,
   "name": "Theni Allinagaram",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 354,
   "name": "Margao",
   "state": "Goa",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 355,
   "name": "Akot",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 356,
   "name": "Sehore",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 357,
-  "name": "Mhow antonment",
+  "name": "Mhow Cantonment",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 358,
   "name": "Kot Kapura",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 359,
   "name": "Makrana",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 360,
   "name": "Pandharpur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 361,
   "name": "Miryalaguda",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 362,
-  "name": "Shamli ",
+  "name": "Shamli",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 363,
   "name": "Seoni",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 364,
   "name": "Ranibennur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 365,
   "name": "Kadiri",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 366,
   "name": "Shrirampur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 367,
-  "name": "Rudrapur ",
+  "name": "Rudrapur",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 368,
   "name": "Parli",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 369,
-  "name": "Najibabad ",
+  "name": "Najibabad",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 370,
   "name": "Nirmal",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 371,
-  "name": "dhagamandalam",
+  "name": "Udhagamandalam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 372,
-  "name": "Shikohabad ",
+  "name": "Shikohabad",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 373,
   "name": "Jhumri Tilaiya",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 374,
-  "name": "Aruppukkoai",
+  "name": "Aruppukkottai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 375,
   "name": "Ponnani",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 376,
   "name": "Jamui",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 377,
   "name": "Sitamarhi",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 378,
-  "name": "hirala",
+  "name": "Chirala",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 379,
   "name": "Anjar",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 380,
   "name": "Karaikal",
   "state": "Puducherry",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 381,
   "name": "Hansi",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 382,
   "name": "Anakapalle",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 383,
-  "name": "Mahasamund ",
+  "name": "Mahasamund",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 384,
-  "name": "aridkot",
+  "name": "Faridkot",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 385,
   "name": "Saunda",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 386,
   "name": "Dhoraji",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 387,
   "name": "Paramakudi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 388,
   "name": "Balaghat",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 389,
   "name": "Sujangarh",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 390,
   "name": "Khambhat",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 391,
   "name": "Muktsar",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 392,
   "name": "Rajpura",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 393,
   "name": "Kavali",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 394,
-  "name": "Dhamtari ",
+  "name": "Dhamtari",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 395,
   "name": "Ashok Nagar",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 396,
   "name": "Sardarshahar",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 397,
   "name": "Mahuva",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 398,
   "name": "Bargarh",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 399,
   "name": "Kamareddy",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 400,
   "name": "Sahibganj",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 401,
   "name": "Kothagudem",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 402,
   "name": "Ramanagaram",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 403,
   "name": "Gokak",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 404,
   "name": "Tikamgarh",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 405,
   "name": "Araria",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 406,
-  "name": "Rishikesh ",
+  "name": "Rishikesh",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 407,
   "name": "Shahdol",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 408,
-  "name": "Medininagar >Daltonganj?",
+  "name": "Medininagar (Daltonganj)",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 409,
   "name": "Arakkonam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 410,
   "name": "Washim",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 411,
   "name": "Sangrur",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 412,
   "name": "Bodhan",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 413,
-  "name": "ailka",
+  "name": "Fazilka",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 414,
   "name": "Palacole",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 415,
   "name": "Keshod",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 416,
   "name": "Sullurpeta",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 417,
   "name": "Wadhwan",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 418,
   "name": "Gurdaspur",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 419,
-  "name": "atakara",
+  "name": "Vatakara",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 420,
   "name": "Tura",
   "state": "Meghalaya",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 421,
   "name": "Narnaul",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 422,
   "name": "Kharar",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 423,
-  "name": "@adgir",
+  "name": "Yadgir",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 424,
   "name": "Ambejogai",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 425,
   "name": "Ankleshwar",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 426,
   "name": "Savarkundla",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 427,
   "name": "Paradip",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 428,
-  "name": "irudhachalam",
+  "name": "Virudhachalam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 429,
   "name": "Kanhangad",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 430,
   "name": "Kadi",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 431,
   "name": "Srivilliputhur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 432,
   "name": "Gobindgarh",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 433,
   "name": "Tindivanam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 434,
   "name": "Mansa",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 435,
   "name": "Taliparamba",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 436,
   "name": "Manmad",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 437,
   "name": "Tanuku",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 438,
   "name": "Rayachoti",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 439,
-  "name": "irudhunagar",
+  "name": "Virudhunagar",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 440,
   "name": "Koyilandy",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 441,
   "name": "Jorhat",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 442,
   "name": "Karur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 443,
-  "name": "alparai",
+  "name": "Valparai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 444,
   "name": "Srikalahasti",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 445,
   "name": "Neyyattinkara",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 446,
   "name": "Bapatla",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 447,
-  "name": "atehabad",
+  "name": "Fatehabad",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 448,
   "name": "Malout",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 449,
   "name": "Sankarankovil",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 450,
   "name": "Tenkasi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 451,
   "name": "Ratnagiri",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 452,
   "name": "Rabkavi Banhatti",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 453,
-  "name": "Sikandrabad ",
+  "name": "Sikandrabad",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 454,
-  "name": "haibasa",
+  "name": "Chaibasa",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 455,
-  "name": "hirmiri ",
+  "name": "Chirmiri",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 456,
   "name": "Palwancha",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 457,
   "name": "Bhawanipatna",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 458,
   "name": "Kayamkulam",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 459,
   "name": "Pithampur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 460,
   "name": "Nabha",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 461,
-  "name": "ShahabadC Hardoi ",
+  "name": "ShahabadC Hardoi",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 462,
   "name": "Dhenkanal",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 463,
-  "name": "ran slampur",
+  "name": "Uran Islampur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 464,
   "name": "Gopalganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 465,
-  "name": "Bongaigaon ity",
+  "name": "Bongaigaon City",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 466,
   "name": "Palani",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 467,
   "name": "Pusad",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 468,
   "name": "Sopore",
   "state": "Jammu and Kashmir",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 469,
-  "name": "Pilkhuwa ",
+  "name": "Pilkhuwa",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 470,
   "name": "Tarn Taran",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 471,
-  "name": "Renukoot ",
+  "name": "Renukoot",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 472,
   "name": "Mandamarri",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 473,
   "name": "Shahabad",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 474,
   "name": "Barbil",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 475,
   "name": "Koratla",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 476,
   "name": "Madhubani",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 477,
   "name": "Arambagh",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 478,
   "name": "Gohana",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 479,
   "name": "Ladnu",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 480,
-  "name": "Paukkoai",
+  "name": "Pattukkottai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 481,
   "name": "Sirsi",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 482,
   "name": "Sircilla",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 483,
   "name": "Tamluk",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 484,
   "name": "Jagraon",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 485,
-  "name": "Alipurdrban Agglomerationr",
+  "name": "Alipurdr",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 486,
   "name": "Alirajpur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 487,
   "name": "Tandur",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 488,
   "name": "Naidupet",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 489,
   "name": "Tirupathur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 490,
   "name": "Tohana",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 491,
   "name": "Ratangarh",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 492,
   "name": "Dhubri",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 493,
   "name": "Masaurhi",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 494,
-  "name": "isnagar",
+  "name": "Visnagar",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 495,
-  "name": "rindavan ",
+  "name": "Vrindavan",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 496,
   "name": "Nokha",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 497,
   "name": "Nagari",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 498,
   "name": "Narwana",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 499,
   "name": "Ramanathapuram",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 500,
-  "name": "jhani ",
+  "name": "Ujhani",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 501,
   "name": "Samastipur",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 502,
-  "name": "Laharpur ",
+  "name": "Laharpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 503,
   "name": "Sangamner",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 504,
   "name": "Nimbahera",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 505,
   "name": "Siddipet",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 506,
   "name": "Suri",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 507,
   "name": "Diphu",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 508,
   "name": "Jhargram",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 509,
   "name": "Shirpur-Warwade",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 510,
-  "name": "Tilhar ",
+  "name": "Tilhar",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 511,
   "name": "Sindhnur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 512,
-  "name": "dumalaipeai",
+  "name": "Udumalaipettai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 513,
   "name": "Malkapur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 514,
   "name": "Wanaparthy",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 515,
   "name": "Gudur",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 516,
   "name": "Kendujhar",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 517,
   "name": "Mandla",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 518,
   "name": "Mandi",
   "state": "Himachal Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 519,
   "name": "Nedumangad",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 520,
   "name": "North Lakhimpur",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 521,
-  "name": "inukonda",
+  "name": "Vinukonda",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 522,
   "name": "Tiptur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 523,
   "name": "Gobichettipalayam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 524,
   "name": "Sunabeda",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 525,
   "name": "Wani",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 526,
-  "name": "pleta",
+  "name": "Upleta",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 527,
   "name": "Narasapuram",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 528,
-  "name": "Nuvid",
+  "name": "Nuzvid",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 529,
-  "name": "Tepur",
+  "name": "Tezpur",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 530,
-  "name": "na",
+  "name": "Una",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 531,
   "name": "Markapur",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 532,
   "name": "Sheopur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 533,
   "name": "Thiruvarur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 534,
   "name": "Sidhpur",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 535,
-  "name": "Sahaswan ",
+  "name": "Sahaswan",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 536,
   "name": "Suratgarh",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 537,
   "name": "Shajapur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 538,
   "name": "Rayagada",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 539,
   "name": "Lonavla",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 540,
   "name": "Ponnur",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 541,
-  "name": "Kaganagar",
+  "name": "Kagaznagar",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 542,
   "name": "Gadwal",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 543,
-  "name": "Bhatapara ",
+  "name": "Bhatapara",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 544,
   "name": "Kandukur",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 545,
   "name": "Sangareddy",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 546,
-  "name": "njha",
+  "name": "Unjha",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 547,
-  "name": "Lunglei Mioram",
-  "state": "?",
-  "verified": false
+  "name": "Lunglei",
+  "state": "Mizoram",
+  "verified": true
  },
  {
   "rank": 548,
   "name": "Karimganj",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 549,
   "name": "Kannur",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 550,
   "name": "Bobbili",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 551,
   "name": "Mokameh",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 552,
   "name": "Talegaon Dabhade",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 553,
   "name": "Anjangaon",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 554,
   "name": "Mangrol",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 555,
   "name": "Sunam",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 556,
   "name": "Gangarampur",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 557,
   "name": "Thiruvallur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 558,
   "name": "Tirur",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 559,
-  "name": "Rath ",
+  "name": "Rath",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 560,
   "name": "Jatani",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 561,
-  "name": "iramgam",
+  "name": "Viramgam",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 562,
   "name": "Rajsamand",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 563,
-  "name": "@anam",
+  "name": "Yanam",
   "state": "Puducherry",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 564,
-  "name": "Koayam",
+  "name": "Kottayam",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 565,
   "name": "Panruti",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 566,
   "name": "Dhuri",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 567,
   "name": "Namakkal",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 568,
   "name": "Kasaragod",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 569,
   "name": "Modasa",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 570,
   "name": "Rayadurg",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 571,
   "name": "Supaul",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 572,
   "name": "Kunnamkulam",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 573,
-  "name": "mred",
+  "name": "Umred",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 574,
   "name": "Bellampalle",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 575,
   "name": "Sibsagar",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 576,
   "name": "Mandi Dabwali",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 577,
-  "name": "Oappalam",
+  "name": "Ottappalam",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 578,
   "name": "Dumraon",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 579,
   "name": "Samalkot",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 580,
   "name": "Jaggaiahpet",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 581,
   "name": "Goalpara",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 582,
   "name": "Tuni",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 583,
   "name": "Lachhmangarh",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 584,
   "name": "Bhongir",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 585,
   "name": "Amalapuram",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 586,
-  "name": "iropur an",
+  "name": "Firozpur Cantt.",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 587,
-  "name": "ikarabad",
+  "name": "Vikarabad",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 588,
   "name": "Thiruvalla",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 589,
-  "name": "Sherkot ",
+  "name": "Sherkot",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 590,
   "name": "Palghar",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 591,
   "name": "Shegaon",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 592,
   "name": "Jangaon",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 593,
   "name": "Bheemunipatnam",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 594,
   "name": "Panna",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 595,
-  "name": "Thodupuha",
+  "name": "Thodupuzha",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 596,
-  "name": "Kathrban Agglomeration",
+  "name": "Kath",
   "state": "Jammu and Kashmir",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 597,
   "name": "Palitana",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 598,
   "name": "Arwal",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 599,
-  "name": "enkatagiri",
+  "name": "Venkatagiri",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 600,
-  "name": "Kalpi ",
+  "name": "Kalpi",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 601,
-  "name": "Rajgarh >huru?",
+  "name": "Rajgarh (Churu)",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 602,
-  "name": "Saenapalle",
+  "name": "Sattenapalle",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 603,
   "name": "Arsikere",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 604,
-  "name": "Oar",
+  "name": "Ozar",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 605,
   "name": "Thirumangalam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 606,
   "name": "Petlad",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 607,
   "name": "Nasirabad",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 608,
   "name": "Phaltan",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 609,
   "name": "Rampurhat",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 610,
   "name": "Nanjangud",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 611,
-  "name": "orbesganj",
+  "name": "Forbesganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 612,
-  "name": "Tundla ",
+  "name": "Tundla",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 613,
-  "name": "Bhabrban Agglomeration",
+  "name": "Bhab",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 614,
   "name": "Sagara",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 615,
   "name": "Pithapuram",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 616,
   "name": "Sira",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 617,
   "name": "Bhadrachalam",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 618,
-  "name": "harkhi Dadri",
+  "name": "Charkhi Dadri",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 619,
-  "name": "hatra",
+  "name": "Chatra",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 620,
   "name": "Palasa Kasibugga",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 621,
   "name": "Nohar",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 622,
-  "name": "@evla",
+  "name": "Yevla",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 623,
-  "name": "Sirhind atehgarh Sahib",
+  "name": "Sirhind Fatehgarh Sahib",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 624,
   "name": "Bhainsa",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 625,
   "name": "Parvathipuram",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 626,
   "name": "Shahade",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 627,
-  "name": "halakudy",
+  "name": "Chalakudy",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 628,
   "name": "Narkatiaganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 629,
   "name": "Kapadvanj",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 630,
   "name": "Macherla",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 631,
-  "name": "Raghogarh-ijaypur",
+  "name": "Raghogarh-Vijaypur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 632,
   "name": "Rupnagar",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 633,
   "name": "Naugachhia",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 634,
   "name": "Sendhwa",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 635,
   "name": "Byasanagar",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 636,
-  "name": "Sandila ",
+  "name": "Sandila",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 637,
   "name": "Gooty",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 638,
   "name": "Salur",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 639,
-  "name": "Nanpara ",
+  "name": "Nanpara",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 640,
-  "name": "Sardhana ",
+  "name": "Sardhana",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 641,
-  "name": "ita",
+  "name": "Vita",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 642,
   "name": "Gumia",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 643,
-  "name": "Puur",
+  "name": "Puttur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 644,
-  "name": "Jalandhar an",
+  "name": "Jalandhar Cantt.",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 645,
-  "name": "Nehtaur ",
+  "name": "Nehtaur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 646,
-  "name": "hanganassery",
+  "name": "Changanassery",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 647,
   "name": "Mandapeta",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 648,
   "name": "Dumka",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 649,
-  "name": "Seohara ",
+  "name": "Seohara",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 650,
-  "name": "markhed",
+  "name": "Umarkhed",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 651,
   "name": "Madhupur",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 652,
-  "name": "ikramasingapuram",
+  "name": "Vikramasingapuram",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 653,
   "name": "Punalur",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 654,
   "name": "Kendrapara",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 655,
   "name": "Sihor",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 656,
   "name": "Nellikuppam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 657,
   "name": "Samana",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 658,
   "name": "Warora",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 659,
   "name": "Nilambur",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 660,
   "name": "Rasipuram",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 661,
-  "name": "Ramnagar ",
+  "name": "Ramnagar",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 662,
   "name": "Jammalamadugu",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 663,
   "name": "Nawanshahr",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 664,
   "name": "Thoubal",
   "state": "Manipur",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 665,
   "name": "Athni",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 666,
-  "name": "herthala",
+  "name": "Cherthala",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 667,
   "name": "Sidhi",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 668,
-  "name": "arooEnagar",
+  "name": "FarooEnagar",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 669,
   "name": "Peddapuram",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 670,
-  "name": "hirkunda",
+  "name": "Chirkunda",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 671,
   "name": "Pachora",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 672,
   "name": "Madhepura",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 673,
-  "name": "Pithoragarh ",
+  "name": "Pithoragarh",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 674,
   "name": "Tumsar",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 675,
   "name": "Phalodi",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 676,
-  "name": "Tiruani",
+  "name": "Tiruttani",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 677,
   "name": "Rampura Phul",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 678,
   "name": "Perinthalmanna",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 679,
-  "name": "Padrauna ",
+  "name": "Padrauna",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 680,
   "name": "Pipariya",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 681,
-  "name": "Dalli-Rajhara ",
+  "name": "Dalli-Rajhara",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 682,
   "name": "Punganur",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 683,
-  "name": "Maannur",
+  "name": "Mattannur",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 684,
-  "name": "Mathura ",
+  "name": "Mathura",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 685,
-  "name": "Thakurdwara ",
+  "name": "Thakurdwara",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 686,
   "name": "Nandivaram-Guduvancheri",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 687,
   "name": "Mulbagal",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 688,
   "name": "Manjlegaon",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 689,
   "name": "Wankaner",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 690,
   "name": "Sillod",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 691,
   "name": "Nidadavole",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 692,
   "name": "Surapura",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 693,
   "name": "Rajagangapur",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 694,
   "name": "Sheikhpura",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 695,
   "name": "Parlakhemundi",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 696,
   "name": "Kalimpong",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 697,
   "name": "Siruguppa",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 698,
   "name": "Arvi",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 699,
   "name": "Limbdi",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 700,
   "name": "Barpeta",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 701,
-  "name": "Manglaur ",
+  "name": "Manglaur",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 702,
   "name": "Repalle",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 703,
   "name": "Mudhol",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 704,
   "name": "Shujalpur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 705,
   "name": "Mandvi",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 706,
   "name": "Thangadh",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 707,
   "name": "Sironj",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 708,
   "name": "Nandura",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 709,
   "name": "Shoranur",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 710,
   "name": "Nathdwara",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 711,
   "name": "Periyakulam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 712,
   "name": "Sultanganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 713,
   "name": "Medak",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 714,
   "name": "Narayanpet",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 715,
-  "name": "Raaul Baar",
+  "name": "Raxaul Bazar",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 716,
   "name": "Rajauri",
   "state": "Jammu and Kashmir",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 717,
-  "name": "Pernampau",
+  "name": "Pernampattu",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 718,
-  "name": "Nainital ",
+  "name": "Nainital",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 719,
   "name": "Ramachandrapuram",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 720,
-  "name": "aijapur",
+  "name": "Vaijapur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 721,
   "name": "Nangal",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 722,
-  "name": "Sidlaghaa",
+  "name": "Sidlaghatta",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 723,
   "name": "Punch",
   "state": "Jammu and Kashmir",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 724,
   "name": "Pandhurna",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 725,
   "name": "Wadgaon Road",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 726,
   "name": "Talcher",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 727,
-  "name": "arkala",
+  "name": "Varkala",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 728,
   "name": "Pilani",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 729,
   "name": "Nowgong",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 730,
-  "name": "Naila Janjgir ",
+  "name": "Naila Janjgir",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 731,
   "name": "Mapusa",
   "state": "Goa",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 732,
-  "name": "ellakoil",
+  "name": "Vellakoil",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 733,
-  "name": "Merta ity",
+  "name": "Merta City",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 734,
   "name": "Sivaganga",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 735,
   "name": "Mandideep",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 736,
   "name": "Sailu",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 737,
-  "name": "yara",
+  "name": "Vyara",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 738,
   "name": "Kovvur",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 739,
-  "name": "adalur",
+  "name": "Vadalur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 740,
-  "name": "Nawabganj ",
+  "name": "Nawabganj",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 741,
   "name": "Padra",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 742,
   "name": "Sainthia",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 743,
-  "name": "Siana ",
+  "name": "Siana",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 744,
   "name": "Shahpur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 745,
   "name": "Sojat",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 746,
-  "name": "Noorpur ",
+  "name": "Noorpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 747,
   "name": "Paravoor",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 748,
   "name": "Murtijapur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 749,
   "name": "Ramnagar",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 750,
   "name": "Sundargarh",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 751,
   "name": "Taki",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 752,
-  "name": "Saundatti-@ellamma",
+  "name": "Saundatti-Yellamma",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 753,
-  "name": "Pathanamthia",
+  "name": "Pathanamthitta",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 754,
   "name": "Wadi",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 755,
   "name": "Rameshwaram",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 756,
   "name": "Tasgaon",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 757,
-  "name": "Sikandra Rao ",
+  "name": "Sikandra Rao",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 758,
   "name": "Sihora",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 759,
   "name": "Tiruvethipuram",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 760,
   "name": "Tiruvuru",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 761,
   "name": "Mehkar",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 762,
   "name": "Peringathur",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 763,
   "name": "Perambalur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 764,
   "name": "Manvi",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 765,
-  "name": "unheboto",
+  "name": "Zunheboto",
   "state": "Nagaland",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 766,
-  "name": "Mahnar Baar",
+  "name": "Mahnar Bazar",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 767,
   "name": "Attingal",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 768,
   "name": "Shahbad",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 769,
-  "name": "Puranpur ",
+  "name": "Puranpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 770,
   "name": "Nelamangala",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 771,
   "name": "Nakodar",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 772,
   "name": "Lunawada",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 773,
   "name": "Murshidabad",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 774,
   "name": "Mahe",
   "state": "Puducherry",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 775,
   "name": "Lanka",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 776,
-  "name": "Rudauli ",
+  "name": "Rudauli",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 777,
   "name": "Tuensang",
   "state": "Nagaland",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 778,
   "name": "Lakshmeshwar",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 779,
-  "name": "ira",
+  "name": "Zira",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 780,
-  "name": "@awal",
+  "name": "Yawal",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 781,
-  "name": "Thana Bhawan ",
+  "name": "Thana Bhawan",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 782,
   "name": "Ramdurg",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 783,
   "name": "Pulgaon",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 784,
   "name": "Sadasivpet",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 785,
   "name": "Nargund",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 786,
   "name": "Neem-Ka-Thana",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 787,
   "name": "Memari",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 788,
   "name": "Nilanga",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 789,
   "name": "Naharlagun",
   "state": "Arunachal Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 790,
   "name": "Pakaur",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 791,
   "name": "Wai",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 792,
   "name": "Tarikere",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 793,
   "name": "Malavalli",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 794,
   "name": "Raisen",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 795,
   "name": "Lahar",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 796,
-  "name": "ravakonda",
+  "name": "Uravakonda",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 797,
   "name": "Savanur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 798,
   "name": "Sirohi",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 799,
-  "name": "dhampur",
+  "name": "Udhampur",
   "state": "Jammu and Kashmir",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 800,
-  "name": "marga",
+  "name": "Umarga",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 801,
   "name": "Pratapgarh",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 802,
   "name": "Lingsugur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 803,
-  "name": "silampatti",
+  "name": "Usilampatti",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 804,
-  "name": "Palia Kalan ",
+  "name": "Palia Kalan",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 805,
   "name": "Wokha",
   "state": "Nagaland",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 806,
   "name": "Rajpipla",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 807,
-  "name": "ijayapura",
+  "name": "Vijayapura",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 808,
   "name": "Rawatbhata",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 809,
   "name": "Sangaria",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 810,
   "name": "Paithan",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 811,
   "name": "Rahuri",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 812,
   "name": "Patti",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 813,
-  "name": "aidpur ",
+  "name": "Zaidpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 814,
   "name": "Lalsot",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 815,
   "name": "Maihar",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 816,
-  "name": "edaranyam",
+  "name": "Vedaranyam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 817,
   "name": "Nawapur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 818,
   "name": "Solan",
   "state": "Himachal Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 819,
-  "name": "api",
+  "name": "Vapi",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 820,
   "name": "Sanawad",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 821,
   "name": "Warisaliganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 822,
   "name": "Revelganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 823,
   "name": "Sabalgarh",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 824,
   "name": "Tuljapur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 825,
   "name": "Simdega",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 826,
   "name": "Musabani",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 827,
   "name": "Kodungallur",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 828,
   "name": "Phulabani",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 829,
-  "name": "mreth",
+  "name": "Umreth",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 830,
   "name": "Narsipatnam",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 831,
-  "name": "Nautanwa ",
+  "name": "Nautanwa",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 832,
   "name": "Rajgir",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 833,
-  "name": "@ellandu",
+  "name": "Yellandu",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 834,
   "name": "Sathyamangalam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 835,
   "name": "Pilibanga",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 836,
   "name": "Morshi",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 837,
   "name": "Pehowa",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 838,
   "name": "Sonepur",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 839,
   "name": "Pappinisseri",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 840,
-  "name": "amania ",
+  "name": "Zamania",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 841,
   "name": "Mihijam",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 842,
   "name": "Purna",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 843,
   "name": "Puliyankudi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 844,
-  "name": "ShikarpurC Bulandshahr ",
+  "name": "ShikarpurC Bulandshahr",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 845,
-  "name": "maria",
+  "name": "Umaria",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 846,
   "name": "Porsa",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 847,
-  "name": "Naugawan Sadat ",
+  "name": "Naugawan Sadat",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 848,
-  "name": "atehpur Sikri ",
+  "name": "Fatehpur Sikri",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 849,
   "name": "Manuguru",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 850,
-  "name": "daipur",
+  "name": "Udaipur",
   "state": "Tripura",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 851,
-  "name": "Pipar ity",
+  "name": "Pipar City",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 852,
-  "name": "Paamundai",
+  "name": "Pattamundai",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 853,
-  "name": "Nanjikoai",
+  "name": "Nanjikottai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 854,
   "name": "Taranagar",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 855,
-  "name": "@erraguntla",
+  "name": "Yerraguntla",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 856,
   "name": "Satana",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 857,
   "name": "Sherghati",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 858,
   "name": "Sankeshwara",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 859,
   "name": "Madikeri",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 860,
   "name": "Thuraiyur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 861,
   "name": "Sanand",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 862,
   "name": "Rajula",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 863,
   "name": "Kyathampalle",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 864,
-  "name": "ShahabadC Rampur ",
+  "name": "ShahabadC Rampur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 865,
-  "name": "Tilda Newra ",
+  "name": "Tilda Newra",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 866,
   "name": "Narsinghgarh",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 867,
-  "name": "hiur-Thathamangalam",
+  "name": "Chittur-Thathamangalam",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 868,
   "name": "Malaj Khand",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 869,
   "name": "Sarangpur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 870,
-  "name": "Robertsganj ",
+  "name": "Robertsganj",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 871,
   "name": "Sirkali",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 872,
   "name": "Radhanpur",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 873,
   "name": "Tiruchendur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 874,
-  "name": "traula ",
+  "name": "Utraula",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 875,
   "name": "Patratu",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 876,
-  "name": "ijainagarC Ajmer",
+  "name": "VijainagarC Ajmer",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 877,
   "name": "Periyasemur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 878,
   "name": "Pathri",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 879,
-  "name": "Sadabad ",
+  "name": "Sadabad",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 880,
   "name": "Talikota",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 881,
   "name": "Sinnar",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 882,
-  "name": "Mungeli ",
+  "name": "Mungeli",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 883,
   "name": "Sedam",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 884,
   "name": "Shikaripur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 885,
   "name": "Sumerpur",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 886,
-  "name": "Saur",
+  "name": "Sattur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 887,
   "name": "Sugauli",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 888,
   "name": "Lumding",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 889,
-  "name": "andavasi",
+  "name": "Vandavasi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 890,
   "name": "Titlagarh",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 891,
-  "name": "chgaon",
+  "name": "Uchgaon",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 892,
   "name": "Mokokchung",
   "state": "Nagaland",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 893,
   "name": "Paschim Punropara",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 894,
   "name": "Sagwara",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 895,
   "name": "Ramganj Mandi",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 896,
   "name": "Tarakeswar",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 897,
   "name": "Mahalingapura",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 898,
   "name": "Dharmanagar",
   "state": "Tripura",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 899,
   "name": "Mahemdabad",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 900,
-  "name": "Manendragarh ",
+  "name": "Manendragarh",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 901,
-  "name": "ran",
+  "name": "Uran",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 902,
   "name": "Tharamangalam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 903,
   "name": "Tirukkoyilur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 904,
   "name": "Pen",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 905,
   "name": "Makhdumpur",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 906,
   "name": "Maner",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 907,
   "name": "Oddanchatram",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 908,
   "name": "Palladam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 909,
   "name": "Mundi",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 910,
   "name": "Nabarangapur",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 911,
   "name": "Mudalagi",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 912,
   "name": "Samalkha",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 913,
   "name": "Nepanagar",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 914,
   "name": "Karjat",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 915,
   "name": "Ranavav",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 916,
   "name": "Pedana",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 917,
   "name": "Pinjore",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 918,
   "name": "Lakheri",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 919,
   "name": "Pasan",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 920,
-  "name": "Puur",
+  "name": "Puttur",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 921,
-  "name": "adakkuvalliyur",
+  "name": "Vadakkuvalliyur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 922,
   "name": "Tirukalukundram",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 923,
   "name": "Mahidpur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 924,
-  "name": "Mussoorie ",
+  "name": "Mussoorie",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 925,
-  "name": "Muvaupuha",
+  "name": "Muvattupuzha",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 926,
-  "name": "Rasra ",
+  "name": "Rasra",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 927,
-  "name": "daipurwati",
+  "name": "Udaipurwati",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 928,
   "name": "Manwath",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 929,
   "name": "Adoor",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 930,
-  "name": "thamapalayam",
+  "name": "Uthamapalayam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 931,
   "name": "Partur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 932,
   "name": "Nahan",
   "state": "Himachal Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 933,
   "name": "Ladwa",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 934,
   "name": "Mankachar",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 935,
   "name": "Nongstoin",
   "state": "Meghalaya",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 936,
   "name": "Losal",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 937,
   "name": "Sri Madhopur",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 938,
   "name": "Ramngarh",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 939,
   "name": "Mavelikkara",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 940,
   "name": "Rawatsar",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 941,
   "name": "Rajakhera",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 942,
-  "name": "Lar ",
+  "name": "Lar",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 943,
-  "name": "Lal Gopalganj Nindaura ",
+  "name": "Lal Gopalganj Nindaura",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 944,
   "name": "Muddebihal",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 945,
-  "name": "Sirsaganj ",
+  "name": "Sirsaganj",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 946,
   "name": "Shahpura",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 947,
   "name": "Surandai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 948,
   "name": "Sangole",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 949,
   "name": "Pavagada",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 950,
   "name": "Tharad",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 951,
   "name": "Mansa",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 952,
-  "name": "mbergaon",
+  "name": "Umbergaon",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 953,
   "name": "Mavoor",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 954,
   "name": "Nalbari",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 955,
   "name": "Talaja",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 956,
   "name": "Malur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 957,
   "name": "Mangrulpir",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 958,
   "name": "Soro",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 959,
   "name": "Shahpura",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 960,
-  "name": "adnagar",
+  "name": "Vadnagar",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 961,
   "name": "Raisinghnagar",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 962,
   "name": "Sindhagi",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 963,
   "name": "Sanduru",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 964,
   "name": "Sohna",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 965,
   "name": "Manavadar",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 966,
-  "name": "Pihani ",
+  "name": "Pihani",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 967,
   "name": "SaFdon",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 968,
   "name": "Risod",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 969,
   "name": "Rosera",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 970,
   "name": "Sankari",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 971,
   "name": "Malpura",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 972,
   "name": "Sonamukhi",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 973,
-  "name": "ShamsabadC Agra ",
+  "name": "ShamsabadC Agra",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 974,
   "name": "Nokha",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 975,
-  "name": "Pandrban Agglomeration",
+  "name": "Pand",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 976,
   "name": "Mainaguri",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 977,
-  "name": "Aalpur",
+  "name": "Afzalpur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 978,
   "name": "Shirur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 979,
   "name": "Salaya",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 980,
-  "name": "Shenkoai",
+  "name": "Shenkottai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 981,
   "name": "Pratapgarh",
   "state": "Tripura",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 982,
-  "name": "adipatti",
+  "name": "Vadipatti",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 983,
   "name": "Nagarkurnool",
   "state": "Telangana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 984,
   "name": "Savner",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 985,
   "name": "Sasvad",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 986,
-  "name": "Rudrapur ",
+  "name": "Rudrapur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 987,
-  "name": "Soron ",
+  "name": "Soron",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 988,
   "name": "Sholingur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 989,
   "name": "Pandharkaoda",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 990,
   "name": "Perumbavoor",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 991,
   "name": "Maddur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 992,
   "name": "Nadbai",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 993,
   "name": "Talode",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 994,
   "name": "Shrigonda",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 995,
   "name": "Madhugiri",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 996,
   "name": "Tekkalakote",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 997,
   "name": "Seoni-Malwa",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 998,
   "name": "Shirdi",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 999,
-  "name": "Srban Agglomerationr ",
+  "name": "Sr",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1000,
   "name": "Terdal",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1001,
   "name": "Raver",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1002,
   "name": "Tirupathur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1003,
   "name": "Taraori",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1004,
   "name": "Mukhed",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1005,
   "name": "Manachanallur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1006,
   "name": "Rehli",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1007,
   "name": "Sanchore",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1008,
   "name": "Rajura",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1009,
   "name": "Piro",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1010,
   "name": "Mudabidri",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1011,
-  "name": "adgaon Kasba",
+  "name": "Vadgaon Kasba",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1012,
   "name": "Nagar",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1013,
-  "name": "ijapur",
+  "name": "Vijapur",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1014,
-  "name": "iswanatham",
+  "name": "Viswanatham",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1015,
   "name": "Polur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1016,
   "name": "Panagudi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1017,
   "name": "Manawar",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1018,
-  "name": "Tehri ",
+  "name": "Tehri",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1019,
-  "name": "Samdhan ",
+  "name": "Samdhan",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1020,
   "name": "Pardi",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1021,
   "name": "Rahatgarh",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1022,
   "name": "Panagar",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1023,
-  "name": "thiramerur",
+  "name": "Uthiramerur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1024,
   "name": "Tirora",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1025,
   "name": "Rangia",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1026,
-  "name": "Sahjanwa ",
+  "name": "Sahjanwa",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1027,
   "name": "Wara Seoni",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1028,
   "name": "Magadi",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1029,
-  "name": "Rajgarh >Alwar?",
+  "name": "Rajgarh (Alwar)",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1030,
   "name": "RaFganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1031,
   "name": "Tarana",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1032,
-  "name": "Rampur Maniharan ",
+  "name": "Rampur Maniharan",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1033,
   "name": "Sheoganj",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1034,
   "name": "Raikot",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1035,
-  "name": "Pauri ",
+  "name": "Pauri",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1036,
-  "name": "Sumerpur ",
+  "name": "Sumerpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1037,
   "name": "Navalgund",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1038,
-  "name": "Shahganj ",
+  "name": "Shahganj",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1039,
   "name": "Marhaura",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1040,
-  "name": "Tulsipur ",
+  "name": "Tulsipur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1041,
   "name": "Sadri",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1042,
   "name": "Thiruthuraipoondi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1043,
   "name": "Shiggaon",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1044,
   "name": "Pallapatti",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1045,
   "name": "Mahendragarh",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1046,
   "name": "Sausar",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1047,
   "name": "Ponneri",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1048,
   "name": "Mahad",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1049,
   "name": "Lohardaga",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1050,
-  "name": "Tirwaganj ",
+  "name": "Tirwaganj",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1051,
   "name": "Margherita",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1052,
   "name": "Sundarnagar",
   "state": "Himachal Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1053,
   "name": "Rajgarh",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1054,
   "name": "Mangaldoi",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1055,
   "name": "Renigunta",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1056,
   "name": "Longowal",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1057,
   "name": "Ratia",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1058,
   "name": "Lalgudi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1059,
-  "name": "Shrirangapaana",
+  "name": "Shrirangapattana",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1060,
   "name": "Niwari",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1061,
   "name": "Natham",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1062,
-  "name": "nnamalaikadai",
+  "name": "Unnamalaikadai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1063,
-  "name": "PurErban Agglomerationi ",
+  "name": "PurEzi",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1064,
-  "name": "ShamsabadC arrukhabad ",
+  "name": "ShamsabadC Farrukhabad",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1065,
   "name": "Mirganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1066,
   "name": "Todaraisingh",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1067,
-  "name": "Warhapur ",
+  "name": "Warhapur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1068,
   "name": "Rajam",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1069,
-  "name": "rmar Tanda",
+  "name": "Urmar Tanda",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1070,
   "name": "Lonar",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1071,
-  "name": "Powayan ",
+  "name": "Powayan",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1072,
-  "name": "PNPatti",
+  "name": "P.N.Patti",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1073,
   "name": "Palampur",
   "state": "Himachal Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1074,
-  "name": "Srisailam Project >Right lank olony? Township",
+  "name": "Srisailam Project (Right Flank Colony) Township",
   "state": "Andhra Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1075,
   "name": "Sindagi",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1076,
-  "name": "Sandi ",
+  "name": "Sandi",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1077,
-  "name": "aikom",
+  "name": "Vaikom",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1078,
   "name": "Malda",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1079,
   "name": "Tharangambadi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1080,
   "name": "Sakaleshapura",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1081,
   "name": "Lalganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1082,
   "name": "Malkangiri",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1083,
   "name": "Rapar",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1084,
   "name": "Mauganj",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1085,
   "name": "Todabhim",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1086,
   "name": "Srinivaspur",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1087,
   "name": "Murliganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1088,
   "name": "Reengus",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1089,
   "name": "Sawantwadi",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1090,
-  "name": "Tiakudi",
+  "name": "Tittakudi",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1091,
   "name": "Lilong",
   "state": "Manipur",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1092,
   "name": "Rajaldesar",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1093,
   "name": "Pathardi",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1094,
-  "name": "Achhnera ",
+  "name": "Achhnera",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1095,
   "name": "Pacode",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1096,
-  "name": "Naraura ",
+  "name": "Naraura",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1097,
-  "name": "Nakur ",
+  "name": "Nakur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1098,
   "name": "Palai",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1099,
-  "name": "MorindaC ndia",
+  "name": "MorindaC India",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1100,
   "name": "Manasa",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1101,
   "name": "Nainpur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1102,
-  "name": "Sahaspur ",
+  "name": "Sahaspur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1103,
   "name": "Pauni",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1104,
   "name": "Prithvipur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1105,
   "name": "Ramtek",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1106,
   "name": "Silapathar",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1107,
   "name": "Songadh",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1108,
-  "name": "SaFpur ",
+  "name": "SaFpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1109,
   "name": "Sohagpur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1110,
   "name": "Mul",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1111,
   "name": "Sadulshahar",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1112,
   "name": "Phillaur",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1113,
   "name": "Sambhar",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1114,
   "name": "Prantij",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1115,
-  "name": "Nagla ",
+  "name": "Nagla",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1116,
-  "name": "Paran",
+  "name": "Pattran",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1117,
   "name": "Mount Abu",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1118,
-  "name": "Reoti ",
+  "name": "Reoti",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1119,
   "name": "Tenu dam-cum-Kathhara",
   "state": "Jharkhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1120,
   "name": "Panchla",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1121,
-  "name": "Sitarganj ",
+  "name": "Sitarganj",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1122,
   "name": "Pasighat",
   "state": "Arunachal Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1123,
   "name": "Motipur",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1124,
-  "name": "O alley",
+  "name": "Oo Valley",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1125,
   "name": "Raghunathpur",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1126,
   "name": "Suriyampalayam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1127,
   "name": "Iadian",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1128,
   "name": "Rairangpur",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1129,
-  "name": "Silvassa Dadra and Nagar Haveli",
-  "state": "?",
-  "verified": false
+  "name": "Silvassa",
+  "state": "Dadra and Nagar Haveli and Daman and Diu",
+  "verified": true
  },
  {
   "rank": 1130,
-  "name": "Nowroabad >Khodargama?",
+  "name": "Nowrozabad (Khodargama)",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1131,
   "name": "Mangrol",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1132,
   "name": "Soyagaon",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1133,
   "name": "Sujanpur",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1134,
   "name": "Manihari",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1135,
-  "name": "Sikanderpur ",
+  "name": "Sikanderpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1136,
   "name": "Mangalvedhe",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1137,
   "name": "Phulera",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1138,
   "name": "Ron",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1139,
   "name": "Sholavandan",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1140,
-  "name": "Saidpur ",
+  "name": "Saidpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1141,
   "name": "Shamgarh",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1142,
   "name": "Thammampatti",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1143,
   "name": "Maharajpur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1144,
   "name": "Multai",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1145,
   "name": "Mukerian",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1146,
-  "name": "Sirsi ",
+  "name": "Sirsi",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1147,
-  "name": "Purwa ",
+  "name": "Purwa",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1148,
   "name": "Sheohar",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1149,
-  "name": "Namagiripeai",
+  "name": "Namagiripettai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1150,
-  "name": "Parasi ",
+  "name": "Parasi",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1151,
   "name": "Lathi",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1152,
-  "name": "Lalganj ",
+  "name": "Lalganj",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1153,
   "name": "Narkhed",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1154,
   "name": "Mathabhanga",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1155,
   "name": "Shendurjana",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1156,
   "name": "Peravurani",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1157,
   "name": "Mariani",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1158,
-  "name": "Phulpur ",
+  "name": "Phulpur",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1159,
   "name": "Rania",
   "state": "Haryana",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1160,
   "name": "Pali",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1161,
   "name": "Pachore",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1162,
-  "name": "Parangipeai",
+  "name": "Parangipettai",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1163,
   "name": "Pudupattinam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1164,
   "name": "Panniyannur",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1165,
   "name": "Maharajganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1166,
   "name": "Rau",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1167,
   "name": "Monoharpur",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1168,
   "name": "Mandawa",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1169,
   "name": "Marigaon",
   "state": "Assam",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1170,
   "name": "Pallikonda",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1171,
   "name": "Pindwara",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1172,
-  "name": "Shishgarh ",
+  "name": "Shishgarh",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1173,
   "name": "Patur",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1174,
-  "name": "Mayang mphal",
+  "name": "Mayang Imphal",
   "state": "Manipur",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1175,
   "name": "Mhowgaon",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1176,
   "name": "Guruvayoor",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1177,
   "name": "Mhaswad",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1178,
-  "name": "Sahawar ",
+  "name": "Sahawar",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1179,
   "name": "Sivagiri",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1180,
   "name": "Mundargi",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1181,
   "name": "Punjaipugalur",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1182,
   "name": "Kailasahar",
   "state": "Tripura",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1183,
-  "name": "Samthar ",
+  "name": "Samthar",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1184,
-  "name": "Sakti ",
+  "name": "Sakti",
   "state": "Chhattisgarh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1185,
   "name": "Sadalagi",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1186,
   "name": "Silao",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1187,
   "name": "Mandalgarh",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1188,
   "name": "Loha",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1189,
-  "name": "Pukhrayan ",
+  "name": "Pukhrayan",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1190,
   "name": "Padmanabhapuram",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1191,
   "name": "Belonia",
   "state": "Tripura",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1192,
-  "name": "Saiha Mioram",
-  "state": "?",
-  "verified": false
+  "name": "Saiha",
+  "state": "Mizoram",
+  "verified": true
  },
  {
   "rank": 1193,
   "name": "Srirampore",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1194,
   "name": "Talwara",
   "state": "Punjab",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1195,
   "name": "Puthuppally",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1196,
   "name": "Khowai",
   "state": "Tripura",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1197,
-  "name": "ijaypur",
+  "name": "Vijaypur",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1198,
   "name": "Takhatgarh",
   "state": "Rajasthan",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1199,
   "name": "Thirupuvanam",
   "state": "Tamil Nadu",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1200,
   "name": "Adra",
   "state": "West Bengal",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1201,
   "name": "Piriyapatna",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1202,
-  "name": "Obra ",
+  "name": "Obra",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1203,
   "name": "Adalaj",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1204,
   "name": "Nandgaon",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1205,
   "name": "Barh",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1206,
-  "name": "hhapra",
+  "name": "Chhapra",
   "state": "Gujarat",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1207,
-  "name": "Panamaom",
+  "name": "Panamattom",
   "state": "Kerala",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1208,
-  "name": "Niwai ",
+  "name": "Niwai",
   "state": "Uttar Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1209,
-  "name": "Bageshwar ",
+  "name": "Bageshwar",
   "state": "Uttarakhand",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1210,
   "name": "Tarbha",
   "state": "Odisha",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1211,
   "name": "Adyar",
   "state": "Karnataka",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1212,
   "name": "Narsinghgarh",
   "state": "Madhya Pradesh",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1213,
   "name": "Warud",
   "state": "Maharashtra",
-  "verified": false
+  "verified": true
  },
  {
   "rank": 1214,
   "name": "Asarganj",
   "state": "Bihar",
-  "verified": false
+  "verified": true
  }
 ]
