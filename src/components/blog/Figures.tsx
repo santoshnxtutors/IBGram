@@ -170,3 +170,104 @@ export function BlogFigure({ name, caption }: { name: string; caption?: string }
 export function isKnownFigure(name: string): boolean {
   return Object.prototype.hasOwnProperty.call(FIGURES, name);
 }
+
+/* Data figures: written in the post body as `:::bars <title>` + `label | value` rows + `:::`. */
+
+const DATA_FIGURE_KINDS = ["bars", "steps", "stats", "timeline"] as const;
+export type DataFigureKind = (typeof DATA_FIGURE_KINDS)[number];
+
+export function isDataFigureKind(kind: string): kind is DataFigureKind {
+  return (DATA_FIGURE_KINDS as readonly string[]).includes(kind);
+}
+
+const stagger = (i: number) => ({ animationDelay: `${i * 0.15}s` });
+
+export function DataFigure({
+  kind,
+  title,
+  rows,
+  note,
+}: {
+  kind: DataFigureKind;
+  title: string;
+  rows: string[][];
+  note?: string;
+}) {
+  if (!rows.length) return null;
+  return (
+    <Frame title={title}>
+      {kind === "bars" && (
+        <div className="space-y-3.5">
+          {rows.map(([label, value, tag], i) => {
+            const pct = Math.min(100, Math.max(4, Number.parseFloat(value) || 0));
+            return (
+              <div key={label + i} className="flex items-center gap-3">
+                <span className="w-32 shrink-0 text-xs font-bold text-foreground sm:w-48 md:w-56 md:text-sm">{label}</span>
+                <span className="relative h-7 flex-1 overflow-hidden rounded-lg bg-muted/30">
+                  <span
+                    className="ibg-bar absolute inset-y-0 left-0 rounded-lg bg-primary/70 motion-reduce:!animate-none"
+                    style={{ ["--ibg-w" as string]: `${pct}%`, ...stagger(i) }}
+                  />
+                </span>
+                <span className="w-16 shrink-0 text-right text-xs font-black text-primary">{tag ?? value}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+      {kind === "steps" && (
+        <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center">
+          {rows.map(([name, detail], i) => (
+            <React.Fragment key={name + i}>
+              <div
+                className="ibg-rise flex-1 rounded-2xl border border-primary/25 bg-primary/5 p-4 text-center motion-reduce:!animate-none"
+                style={stagger(i)}
+              >
+                <span className="mx-auto mb-2 flex size-9 items-center justify-center rounded-full bg-primary text-sm font-black text-primary-foreground">
+                  {i + 1}
+                </span>
+                <span className="block text-sm font-black text-foreground">{name}</span>
+                {detail && <span className="mt-1 block text-xs font-medium leading-snug text-muted-foreground">{detail}</span>}
+              </div>
+              {i < rows.length - 1 && (
+                <span aria-hidden className="ibg-pulse self-center text-xl font-black text-primary motion-reduce:!animate-none">
+                  <span className="hidden md:inline">→</span>
+                  <span className="md:hidden">↓</span>
+                </span>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      )}
+      {kind === "stats" && (
+        <dl className={`grid grid-cols-2 gap-3 ${rows.length >= 3 ? "md:grid-cols-3" : ""} ${rows.length >= 4 ? "lg:grid-cols-4" : ""}`}>
+          {rows.map(([value, label], i) => (
+            <div
+              key={value + i}
+              className="ibg-rise flex flex-col-reverse rounded-2xl border border-primary/25 bg-primary/5 p-4 text-center motion-reduce:!animate-none"
+              style={stagger(i)}
+            >
+              <dt className="mt-1 text-xs font-bold leading-snug text-muted-foreground">{label}</dt>
+              <dd className="text-2xl font-black tracking-tight text-primary md:text-3xl">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+      {kind === "timeline" && (
+        <ol className="relative ml-2 space-y-5 border-l-2 border-primary/25 pl-6">
+          {rows.map(([when, what], i) => (
+            <li key={when + i} className="ibg-rise relative motion-reduce:!animate-none" style={stagger(i)}>
+              <span
+                aria-hidden
+                className="ibg-pulse absolute -left-[33px] top-1 size-4 rounded-full border-2 border-background bg-primary motion-reduce:!animate-none"
+              />
+              <span className="block text-xs font-black uppercase tracking-[0.14em] text-primary">{when}</span>
+              {what && <span className="mt-1 block text-sm font-medium leading-relaxed text-foreground">{what}</span>}
+            </li>
+          ))}
+        </ol>
+      )}
+      {note && <p className="mt-4 text-center text-sm font-medium text-muted-foreground">{note}</p>}
+    </Frame>
+  );
+}

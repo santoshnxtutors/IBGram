@@ -403,6 +403,15 @@ header.sticky {
     animation: ibg-draw-stroke 2.6s ease-in-out backwards;
   }
 
+  /* Where supported, play each figure as it scrolls into view instead of on page load. */
+  @supports (animation-timeline: view()) {
+    .ibg-bar, .ibg-rise, .ibg-draw {
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+      animation-fill-mode: both;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .ibg-bar, .ibg-rise, .ibg-pulse, .ibg-draw {
       animation: none !important;

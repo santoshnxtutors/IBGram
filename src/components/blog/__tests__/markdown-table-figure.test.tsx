@@ -64,4 +64,23 @@ describe("Markdown figures", () => {
     render(<Markdown content=":::figure signature-ajay:::" />);
     expect(screen.getByRole("img", { name: /Ajay Vatsyayan/i })).toBeTruthy();
   });
+
+  it("renders a data figure from its rows and note, and keeps the content after it", () => {
+    const { container } = render(
+      <Markdown
+        content={[":::bars Paper weightings", "Paper 1 | 30 | 30%", "Paper 2 | 30", "Exams are 80%.", ":::", "", "After."].join("\n")}
+      />,
+    );
+    expect(container.querySelectorAll("figure")).toHaveLength(1);
+    expect(screen.getByText("Paper weightings")).toBeTruthy();
+    expect(screen.getByText("30%")).toBeTruthy();
+    expect(screen.getByText("Exams are 80%.")).toBeTruthy();
+    expect(screen.getByText("After.")).toBeTruthy();
+    expect(container.textContent).not.toContain(":::");
+  });
+
+  it("anchors H2s so the table of contents can link to them", () => {
+    const { container } = render(<Markdown content="## What does a **7** need?" />);
+    expect(container.querySelector("h2")?.id).toBe("what-does-a-7-need");
+  });
 });

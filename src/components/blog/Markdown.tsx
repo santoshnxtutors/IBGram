@@ -1,12 +1,18 @@
 import React from "react";
-import { BlogFigure, isKnownFigure } from "./Figures";
+import { BlogFigure, DataFigure, isDataFigureKind, isKnownFigure, type DataFigureKind } from "./Figures";
 
 /**
  * Minimal, dependency-free Markdown renderer for admin-authored blog bodies.
  * Supports: # ## ### #### headings, paragraphs, - / * and 1. lists,
  * **bold**, *italic*, `code`, [links](url), > blockquotes, --- rules.
- * GFM pipe tables, and `:::figure <name>:::` blocks for the animated inline
- * figures in ./Figures.tsx.
+ * GFM pipe tables, `:::figure <name>:::` blocks for the animated inline
+ * figures in ./Figures.tsx, and data figures written as
+ *   :::bars <title>        (rows: label | value 0-100 | tag?)
+ *   :::steps <title>       (rows: name | detail)
+ *   :::stats <title>       (rows: value | label)
+ *   :::timeline <title>    (rows: when | what)
+ *   ...rows; a line without "|" is the figure's note
+ *   :::
  * All text is rendered through React (auto-escaped), so it is XSS-safe even
  * though the content is admin-authored.
  */
@@ -18,6 +24,7 @@ type Token =
   | { type: "hr" }
   | { type: "table"; head: string[]; rows: string[][] }
   | { type: "figure"; name: string; caption?: string }
+  | { type: "data"; kind: DataFigureKind; title: string; rows: string[][]; note?: string }
   | { type: "p"; text: string };
 
 function tokenize(md: string): Token[] {
@@ -61,6 +68,18 @@ function tokenize(md: string): Token[] {
     } else if (/^#\s+/.test(line)) {
       flushPara(); flushList();
       tokens.push({ type: "h1", text: line.replace(/^#\s+/, "") });
+    } else if (/^:::[a-z]+\s+\S/i.test(line) && isDataFigureKind(line.slice(3).split(/\s/)[0].toLowerCase())) {
+      flushPara(); flushList();
+      const m = line.match(/^:::([a-z]+)\s+(.+)$/i)!;
+      const rows: string[][] = [];
+      let note: string | undefined;
+      for (li++; li < lines.length && !/^:::\s*$/.test(lines[li].trim()); li++) {
+        const v = lines[li].trim();
+        if (!v) continue;
+        if (v.includes("|")) rows.push(v.split("|").map((c) => c.trim()));
+        else note = v;
+      }
+      tokens.push({ type: "data", kind: m[1].toLowerCase() as DataFigureKind, title: m[2].trim(), rows, note });
     } else if (/^:::figure\s+[a-z0-9-]+\s*(\|[^:]*)?:::\s*$/i.test(line)) {
       flushPara(); flushList();
       const m = line.match(/^:::figure\s+([a-z0-9-]+)\s*(?:\|\s*([^:]*?))?\s*:::\s*$/i);
@@ -105,6 +124,17 @@ function tokenize(md: string): Token[] {
   flushPara();
   flushList();
   return tokens;
+}
+
+/** Anchor id for a heading, shared with the table of contents on the post page. */
+export function headingId(text: string): string {
+  return text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/[*`]/g, "")
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 /** Render inline markdown (**bold**, *italic*, `code`, [links](url)) to React nodes. */
@@ -162,13 +192,13 @@ export function Markdown({ content, className }: { content: string; className?: 
             );
           case "h2":
             return (
-              <h2 key={k} className="mt-10 mb-4 text-2xl font-black tracking-tight text-foreground md:text-3xl">
+              <h2 key={k} id={headingId(tok.text)} className="mt-10 scroll-mt-24 mb-4 text-2xl font-black tracking-tight text-foreground md:text-3xl">
                 {renderInline(tok.text, k)}
               </h2>
             );
           case "h3":
             return (
-              <h3 key={k} className="mt-8 mb-3 text-xl font-black tracking-tight text-foreground md:text-2xl">
+              <h3 key={k} id={headingId(tok.text)} className="mt-8 scroll-mt-24 mb-3 text-xl font-black tracking-tight text-foreground md:text-2xl">
                 {renderInline(tok.text, k)}
               </h3>
             );
@@ -210,6 +240,8 @@ export function Markdown({ content, className }: { content: string; className?: 
             );
           case "figure":
             return <BlogFigure key={k} name={tok.name} caption={tok.caption} />;
+          case "data":
+            return <DataFigure key={k} kind={tok.kind} title={tok.title} rows={tok.rows} note={tok.note} />;
           case "table":
             return (
               <div key={k} className="my-7 overflow-x-auto rounded-2xl border border-border/60">

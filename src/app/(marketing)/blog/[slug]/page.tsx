@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowLeft, ArrowRight, CalendarDays, Clock, Tag, User } from "lucide-react";
 import { JsonLd } from "@/components/seo-city/JsonLd";
-import { Markdown } from "@/components/blog/Markdown";
-import { absoluteUrl, SITE_URL } from "@/lib/seo/slug-utils";
+import { headingId, Markdown } from "@/components/blog/Markdown";
+import { absoluteUrl, normalizeSlug, SITE_URL } from "@/lib/seo/slug-utils";
 import { getBlogPostBySlug, getPublishedBlogSlugs, getPublishedBlogPosts } from "@/lib/cms/blog";
 
 export const revalidate = 600;
@@ -22,6 +22,29 @@ function formatDate(iso: string | null): string {
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return "";
   return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+}
+
+/** Markdown inline syntax stripped, for schema text. */
+function plainText(md: string): string {
+  return md
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/[*`]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** `### question` + answer paragraphs under the body's "Frequently Asked Questions" H2. */
+function extractFaqs(body: string): Array<{ question: string; answer: string }> {
+  const section = body.split(/^##\s+/m).find((s) => /^(frequently asked questions|faqs?)/i.test(s));
+  if (!section) return [];
+  return section
+    .split(/^###\s+/m)
+    .slice(1)
+    .map((chunk) => {
+      const [question, ...rest] = chunk.split("\n");
+      return { question: plainText(question), answer: plainText(rest.join(" ")) };
+    })
+    .filter((f) => f.question && f.answer);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -65,7 +88,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
-  if (!post) notFound();
+  if (!post) {
+    // Old posts were saved with the title as the slug ("IB Tutor Fees in Gurgaon: What Affects the Cost?");
+    // those were renamed to kebab-case, so send the old URL to its new home.
+    const clean = normalizeSlug(slug);
+    if (clean && clean !== slug && (await getBlogPostBySlug(clean))) permanentRedirect(`/blog/${clean}/`);
+    notFound();
+  }
 
   const url = absoluteUrl(`/blog/${post.slug}/`);
 
@@ -107,15 +136,45 @@ export default async function BlogPostPage({ params }: Props) {
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     keywords: (post.metaKeywords.length ? post.metaKeywords : post.tags).join(", ") || undefined,
+    articleSection: post.categoryName ?? undefined,
+    wordCount: post.body.split(/\s+/).filter(Boolean).length,
+    inLanguage: "en-IN",
   };
 
-  // A few more published posts for the "Keep reading" section.
+  const faqs = extractFaqs(post.body);
+  const faqSchema = faqs.length
+    ? {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+      }
+    : null;
+
+  const toc = [...post.body.matchAll(/^##\s+(.+)$/gm)].map((m) => m[1].trim());
+
+  // "Keep reading": posts sharing the most topic tags (or the category) first, newest first among ties.
   const all = await getPublishedBlogPosts();
-  const related = all.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const topicTags = post.tags.filter((t) => !t.startsWith("home-"));
+  const relevance = (p: (typeof all)[number]) =>
+    p.tags.filter((t) => topicTags.includes(t)).length + (p.categorySlug && p.categorySlug === post.categorySlug ? 1 : 0);
+  const related = all
+    .filter((p) => p.slug !== post.slug)
+    .map((p) => ({ p, score: relevance(p) }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 6)
+    .map(({ p }) => p);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
-      <JsonLd data={{ "@context": "https://schema.org", "@graph": [breadcrumbSchema, articleSchema] }} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [breadcrumbSchema, articleSchema, ...(faqSchema ? [faqSchema] : [])],
+        }}
+      />
 
       <article className="container mx-auto max-w-3xl px-4 pt-8 md:px-6 md:pt-10">
         <Link
@@ -166,6 +225,25 @@ export default async function BlogPostPage({ params }: Props) {
               className="size-full object-cover"
             />
           </div>
+        )}
+
+        {toc.length >= 4 && (
+          <details className="mt-8 rounded-2xl border border-border/60 bg-card/40 p-5 open:pb-6">
+            <summary className="cursor-pointer text-sm font-black uppercase tracking-[0.14em] text-foreground">
+              In this guide · {toc.length} sections
+            </summary>
+            <nav aria-label="Table of contents">
+              <ol className="mt-4 space-y-2 text-sm font-semibold">
+                {toc.map((h) => (
+                  <li key={h}>
+                    <a href={`#${headingId(h)}`} className="text-muted-foreground transition-colors hover:text-primary">
+                      {plainText(h)}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </details>
         )}
 
         {/* Body */}
