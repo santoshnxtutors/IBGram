@@ -15,7 +15,8 @@ import {
   GraduationCap,
   Users,
   Wallet,
-  Search
+  Search,
+  ScrollText,
 } from "lucide-react";
 
 const studentNavigation = [
@@ -34,6 +35,7 @@ const tutorNavigation = [
   { name: "Schedule & Classes", href: "#", icon: Calendar },
   { name: "AI Diagnostics", href: "/ai-tools/test-generator", icon: BrainCircuit },
   { name: "Earnings", href: "#", icon: Wallet },
+  { name: "Tutor Policy", href: "/tutor/policy", icon: ScrollText },
 ];
 
 export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {

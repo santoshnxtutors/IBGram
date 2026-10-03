@@ -134,6 +134,7 @@ export function Footer({ countries = [] }: { countries?: Array<{ slug: string; n
               <li><Link href="/#how-it-works" className="hover:text-primary transition-colors">How {isIgcsePage ? "IGCSE Prep" : "IB Gram"} Works</Link></li>
               <li><Link href="/jobs" className="hover:text-primary transition-colors">Jobs</Link></li>
               <li><JoinAsTutorButton variant="link" className="text-left hover:text-primary transition-colors" /></li>
+              <li><Link href="/tutor-policy/" className="hover:text-primary transition-colors">Tutor Policy</Link></li>
               <li><Link href="/privacy-policy/" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms-and-conditions/" className="hover:text-primary transition-colors">Terms &amp; Conditions</Link></li>
             </ul>
@@ -179,6 +180,8 @@ export function Footer({ countries = [] }: { countries?: Array<{ slug: string; n
             <Link href="/privacy-policy/" className="whitespace-nowrap hover:text-primary transition-colors">Privacy Policy</Link>
             <span>|</span>
             <Link href="/terms-and-conditions/" className="whitespace-nowrap hover:text-primary transition-colors">Terms &amp; Conditions</Link>
+            <span>|</span>
+            <Link href="/tutor-policy/" className="whitespace-nowrap hover:text-primary transition-colors">Tutor Policy</Link>
             <span>|</span>
             <span className="whitespace-nowrap">Independent tutoring platform</span>
           </div>

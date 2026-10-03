@@ -76,6 +76,7 @@ export function getCorePublicSitemapEntries(): MetadataRoute.Sitemap {
     ["/jobs/", "monthly", 0.58],
     ["/privacy-policy/", "yearly", 0.4],
     ["/terms-and-conditions/", "yearly", 0.4],
+    ["/tutor-policy/", "yearly", 0.4],
     ["/programmes/", "monthly", 0.78],
     ["/programmes/pyp/", "monthly", 0.74],
     ["/programmes/myp/", "monthly", 0.74],

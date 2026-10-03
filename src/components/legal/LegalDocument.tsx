@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
 
@@ -16,6 +17,8 @@ type LegalDocumentProps = {
   lastUpdated: string;
   sections: LegalSection[];
   footerNote: string;
+  /** Optional block shown between the header and the sections. */
+  summary?: ReactNode;
 };
 
 export function LegalDocument({
@@ -26,6 +29,7 @@ export function LegalDocument({
   lastUpdated,
   sections,
   footerNote,
+  summary,
 }: LegalDocumentProps) {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -50,6 +54,8 @@ export function LegalDocument({
             </div>
           </dl>
         </header>
+
+        {summary}
 
         <div className="grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-14">
           {/* Contents */}

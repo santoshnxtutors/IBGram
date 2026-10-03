@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { TutorApplicationForm } from "@/components/tutors/TutorApplicationForm";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
@@ -52,6 +53,17 @@ export default function JoinAsTutorPage() {
                   </li>
                 ))}
               </ul>
+              <div className="rounded-2xl border border-primary/20 bg-card p-5">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-primary">How you get paid</p>
+                <ul className="mt-3 space-y-2 text-sm font-medium text-foreground/90">
+                  <li><span className="font-bold">Home tuition:</span> first month split 50-50, then 100% of the fee is yours.</li>
+                  <li><span className="font-bold">Online classes:</span> 70% to you, 30% platform fee.</li>
+                  <li><span className="font-bold">Payouts:</span> monthly on the 1st. September&apos;s fees are deposited on 1 October.</li>
+                </ul>
+                <Link href="/tutor-policy/" className="mt-3 inline-block text-sm font-bold text-primary hover:underline">
+                  Read the full tutor policy
+                </Link>
+              </div>
               <p className="text-xs font-medium leading-relaxed text-muted-foreground/70">
                 IB Gram is an independent tutoring platform and is not affiliated with the IB Organization,
                 Cambridge International or Pearson Edexcel. Applying does not guarantee placement.
