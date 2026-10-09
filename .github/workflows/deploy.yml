@@ -469,7 +469,9 @@ jobs:
             rm -f .env
 
             # CloudPanel's nginx serves /.well-known/ from the vhost root, not via Next.js.
-            cp -r public/.well-known .
+            # Source lives at public/well-known (no leading dot) because the
+            # upload/download-artifact round-trip drops hidden paths intermittently.
+            mkdir -p .well-known && cp -a public/well-known/. .well-known/
 
             echo "Installing dependencies..."
             npm ci --include=dev --legacy-peer-deps
