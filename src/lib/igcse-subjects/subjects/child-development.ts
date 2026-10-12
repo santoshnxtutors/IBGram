@@ -181,12 +181,12 @@ export const childDevelopment: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting IGCSE Child Development Support This Week",
       body:
-        "Send four details and a match usually follows within a few days. The syllabus — Cambridge 0637 or whatever the school has named — the year group, which assessed components are running and when anything is due, and what specifically prompted you to look. \"Grade 11, Cambridge 0637, mock came back at a grade 5 with almost no marks on the extended question, child study submitted already\" is enough to match properly on the first attempt. \"Need a Child Development tutor\" takes three more messages to reach the same place.\n\nYou will get two or three tutor options with their real background — which boards and years they have taught, whether they have supervised child studies, how they run sessions — plus the rate for that specific tutor in writing. There is no price list, because a coursework-stage Grade 10 student and a Grade 11 student six weeks from a written paper are different jobs. The first lesson is a free trial and costs nothing.\n\nEmail ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115. If you are outside India, add your city and time zone so the proposed slot is in your local evening rather than ours. If home tuition is what you want, name the city and area and you will get a straight answer about whether anyone is currently free.",
+        "Send four details and a match usually follows within a few days. The syllabus — Cambridge 0637 or whatever the school has named — the year group, which assessed components are running and when anything is due, and what specifically prompted you to look. \"Grade 11, Cambridge 0637, mock came back at a grade 5 with almost no marks on the extended question, child study submitted already\" is enough to match properly on the first attempt. \"Need a Child Development tutor\" takes three more messages to reach the same place.\n\nYou will get two or three tutor options with their real background — which boards and years they have taught, whether they have supervised child studies, how they run sessions — plus the rate for that specific tutor in writing. There is no price list, because a coursework-stage Grade 10 student and a Grade 11 student six weeks from a written paper are different jobs. The first lesson is a free trial and costs nothing.\n\nEmail support@ibgram.com or send a WhatsApp message to +91 7439 368 115. If you are outside India, add your city and time zone so the proposed slot is in your local evening rather than ours. If home tuition is what you want, name the city and area and you will get a straight answer about whether anyone is currently free.",
       items: [
         "Send four things: syllabus, year group, components and deadlines, and the trigger",
         "Two or three tutor profiles with coursework experience stated, plus the rate in writing",
         "First lesson free; ask for a different tutor at any point if the fit is wrong",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp",
         "Outside India, include your city and time zone; sessions are scheduled in your hours",
       ],
     },
@@ -355,6 +355,6 @@ export const childDevelopment: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a mock result, an unfinished child study or a written paper a few weeks away is what brought you here, tell us the syllabus, the year group, which components are running and what has gone wrong. You will get two or three tutor profiles with their actual 0637 experience and their rates in writing before anything is booked, and the first lesson is free. Tutors coach and never write assessed work. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If a mock result, an unfinished child study or a written paper a few weeks away is what brought you here, tell us the syllabus, the year group, which components are running and what has gone wrong. You will get two or three tutor profiles with their actual 0637 experience and their rates in writing before anything is booked, and the first lesson is free. Tutors coach and never write assessed work. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

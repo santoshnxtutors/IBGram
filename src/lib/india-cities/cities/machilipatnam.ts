@@ -806,5 +806,5 @@ export const machilipatnam: CitySeoPage = {
     }
   ],
   "closingHeading": "Ask for a free trial with an IB or IGCSE tutor in Machilipatnam",
-  "closingBody": "Tell us the programme or board, subject and level, your child's present grade and the hours that work at home in Machilipatnam. You will receive a shortlisted tutor, their teaching background and trial slots to fit your routine, all online and one to one, with no fee and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp."
+  "closingBody": "Tell us the programme or board, subject and level, your child's present grade and the hours that work at home in Machilipatnam. You will receive a shortlisted tutor, their teaching background and trial slots to fit your routine, all online and one to one, with no fee and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp."
 };

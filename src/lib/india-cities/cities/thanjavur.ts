@@ -469,5 +469,5 @@ export const thanjavur: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson for your Thanjavur student",
   closingBody:
-    "Tell us the board, the subject giving trouble, your child's current level, and a couple of time slots around school or boarding holidays. Back comes a tutor who has recently taught that exact syllabus, a trial date, and nothing to pay for any of it. Reach IB Gram at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Tell us the board, the subject giving trouble, your child's current level, and a couple of time slots around school or boarding holidays. Back comes a tutor who has recently taught that exact syllabus, a trial date, and nothing to pay for any of it. Reach IB Gram at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

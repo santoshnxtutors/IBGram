@@ -456,5 +456,5 @@ export const sambalpur: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson in Sambalpur",
   closingBody:
-    "Tell IB Gram the programme or board, subject and level, your child's current grade, and the hours that fit your Sambalpur household. A shortlisted tutor comes back with a teaching background and trial slots built around your routine, everything delivered online and one to one, free and with no obligation. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Tell IB Gram the programme or board, subject and level, your child's current grade, and the hours that fit your Sambalpur household. A shortlisted tutor comes back with a teaching background and trial slots built around your routine, everything delivered online and one to one, free and with no obligation. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

@@ -454,7 +454,7 @@ export const raipur: CitySeoPage = {
     {
       question: "What's the first step to arranging a tutor for my Raipur-based child?",
       answer:
-        "Write to ibgram24@gmail.com or reach out on WhatsApp at +91 7439 368 115 with the programme or board, subject, level and where your child currently stands. From there we put forward a matched tutor along with their background and arrange a free online trial, no payment or commitment required to take it.",
+        "Write to support@ibgram.com or reach out on WhatsApp at +91 7439 368 115 with the programme or board, subject, level and where your child currently stands. From there we put forward a matched tutor along with their background and arrange a free online trial, no payment or commitment required to take it.",
     },
   ],
 
@@ -475,5 +475,5 @@ export const raipur: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson for your Raipur student",
   closingBody:
-    "Send across the programme or board, the subject and level, where your child stands right now and the hours that fit your household in Raipur. We'll come back with a tutor chosen for that course, a summary of their background and an online trial slot, at no cost and no strings attached. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send across the programme or board, the subject and level, where your child stands right now and the hours that fit your household in Raipur. We'll come back with a tutor chosen for that course, a summary of their background and an online trial slot, at no cost and no strings attached. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

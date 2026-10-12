@@ -359,7 +359,7 @@ export const malaysia: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Malaysia?",
-      answer: "Start by matching the tutor to your child's exact programme stage — PYP, MYP, DP or CP — and to the specific subject and level. IB Gram matches Malaysian families with online IB tutors after a short conversation about the school, current grades and where the difficulty actually sits. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with the details and we suggest a tutor rather than handing you a directory to search alone.",
+      answer: "Start by matching the tutor to your child's exact programme stage — PYP, MYP, DP or CP — and to the specific subject and level. IB Gram matches Malaysian families with online IB tutors after a short conversation about the school, current grades and where the difficulty actually sits. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with the details and we suggest a tutor rather than handing you a directory to search alone.",
     },
     {
       question: "Can lessons run on Malaysia Time rather than India time?",
@@ -367,7 +367,7 @@ export const malaysia: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in Malaysia, and how do we pay?",
-      answer: "Rates depend on the programme level, the subject and how many hours a week you book, with HL sciences and mathematics generally priced above MYP or younger IGCSE support. We quote a rate in writing before anything is booked, so there is no surprise on the first invoice. Email ibgram24@gmail.com with your child's programme, subject and level, and ask about currency and payment options at the same time.",
+      answer: "Rates depend on the programme level, the subject and how many hours a week you book, with HL sciences and mathematics generally priced above MYP or younger IGCSE support. We quote a rate in writing before anything is booked, so there is no surprise on the first invoice. Email support@ibgram.com with your child's programme, subject and level, and ask about currency and payment options at the same time.",
     },
     {
       question: "Do you have in-person tutors in Malaysia?",
@@ -411,7 +411,7 @@ export const malaysia: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with four things: your child's programme and Year or Form, the subject and level, your city and preferred hours on Malaysia Time, and what you want to change — a grade, exam confidence, an overdue IA. We suggest a tutor, share their background, and arrange a trial lesson. Nothing is charged until you have seen a session and agreed a rate in writing.",
+      answer: "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with four things: your child's programme and Year or Form, the subject and level, your city and preferred hours on Malaysia Time, and what you want to change — a grade, exam confidence, an overdue IA. We suggest a tutor, share their background, and arrange a trial lesson. Nothing is charged until you have seen a session and agreed a rate in writing.",
     },
   ],
 
@@ -431,5 +431,5 @@ export const malaysia: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Malaysia Time",
-  closingBody: "Tell us the programme, the subject, the level and your city. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit after school on Malaysia Time — no charge, and no obligation to continue afterward. If the fit isn't right, say so and we'll try again with someone else. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your child's Year or Form and current school programme.",
+  closingBody: "Tell us the programme, the subject, the level and your city. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit after school on Malaysia Time — no charge, and no obligation to continue afterward. If the fit isn't right, say so and we'll try again with someone else. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your child's Year or Form and current school programme.",
 };

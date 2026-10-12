@@ -493,5 +493,5 @@ export const vellore: CitySeoPage = {
 
   closingHeading: "Book a free trial class for your Vellore family",
   closingBody:
-    "Let us know the board or programme, the subject and level, roughly where things stand, and whatever calendar actually governs your week, school hours, a VIT term or a CMC appointment schedule. A shortlist comes back with each tutor's background laid out plainly and trial times built around your routine, all of it online, one to one, free to try and with nothing owed. Email ibgram24@gmail.com or message us on WhatsApp at +91 7439 368 115.",
+    "Let us know the board or programme, the subject and level, roughly where things stand, and whatever calendar actually governs your week, school hours, a VIT term or a CMC appointment schedule. A shortlist comes back with each tutor's background laid out plainly and trial times built around your routine, all of it online, one to one, free to try and with nothing owed. Email support@ibgram.com or message us on WhatsApp at +91 7439 368 115.",
 };

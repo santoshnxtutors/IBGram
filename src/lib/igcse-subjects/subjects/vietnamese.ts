@@ -167,13 +167,13 @@ export const vietnamese: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting 0695 Support This Week",
       body:
-        "A first message that gets a good match takes about four lines. Give the grade, confirm that the school enters First Language Vietnamese 0695 rather than a foreign-language course, say which regional variety the student grew up hearing, and name your city and time zone. If you can add one photograph of a recent piece of the student's handwritten Vietnamese, that single image usually tells a tutor more than a paragraph of description, because the marks are visible in it.\n\nTwo or three tutor options come back with their background and the rate for that specific match, in writing. There is no published price list, since a Grade 11 student six weeks from a session and a Grade 9 student rebuilding handwriting are not the same piece of work. The first lesson is a free trial, and if the fit is wrong afterwards the tutor is changed on request.\n\nWrite to ibgram24@gmail.com, or send the same four lines to +91 7439 368 115 on WhatsApp. Outside India, expect an online schedule proposed in your own local hours rather than Indian ones.",
+        "A first message that gets a good match takes about four lines. Give the grade, confirm that the school enters First Language Vietnamese 0695 rather than a foreign-language course, say which regional variety the student grew up hearing, and name your city and time zone. If you can add one photograph of a recent piece of the student's handwritten Vietnamese, that single image usually tells a tutor more than a paragraph of description, because the marks are visible in it.\n\nTwo or three tutor options come back with their background and the rate for that specific match, in writing. There is no published price list, since a Grade 11 student six weeks from a session and a Grade 9 student rebuilding handwriting are not the same piece of work. The first lesson is a free trial, and if the fit is wrong afterwards the tutor is changed on request.\n\nWrite to support@ibgram.com, or send the same four lines to +91 7439 368 115 on WhatsApp. Outside India, expect an online schedule proposed in your own local hours rather than Indian ones.",
       items: [
         "Send four lines: grade, the 0695 route confirmed, regional variety, city and time zone",
         "Attach a photo of recent handwritten Vietnamese — it shows more than any description",
         "Tutor background and the rate for that match come back in writing before booking",
         "Free trial lesson first; tutor changed on request if the match is wrong",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp",
       ],
     },
   ],
@@ -345,6 +345,6 @@ export const vietnamese: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a marked piece came back covered in corrections, or a Grade 11 mock showed reading answers that retold the passage instead of analysing it, that is enough to start from. Send the grade, confirmation that the school enters First Language Vietnamese 0695, the regional variety your child grew up hearing, and your city and time zone — a photo of recent handwriting helps more than anything else you could write. Tutor background and the rate for that match come back in writing, the first lesson is a free trial, and the tutor is changed on request. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "If a marked piece came back covered in corrections, or a Grade 11 mock showed reading answers that retold the passage instead of analysing it, that is enough to start from. Send the grade, confirmation that the school enters First Language Vietnamese 0695, the regional variety your child grew up hearing, and your city and time zone — a photo of recent handwriting helps more than anything else you could write. Tutor background and the rate for that match come back in writing, the first lesson is a free trial, and the tutor is changed on request. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
   lastUpdated: "2026-09-18",
 };

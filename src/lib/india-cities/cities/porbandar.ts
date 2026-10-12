@@ -470,5 +470,5 @@ export const porbandar: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Porbandar student",
   closingBody:
-    "Tell us which board or programme your child follows, the subject, the level, how things are going at present and when your Porbandar evenings are free. We reply with a tutor who has taught that very course, some detail on their background, and a free online trial lesson in a slot that suits you, with no forms to sign. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us which board or programme your child follows, the subject, the level, how things are going at present and when your Porbandar evenings are free. We reply with a tutor who has taught that very course, some detail on their background, and a free online trial lesson in a slot that suits you, with no forms to sign. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -481,5 +481,5 @@ export const aligarh: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Aligarh student",
   closingBody:
-    "Send over the programme, subject, level and grade your child is working at, along with when your household is usually available. We'll come back with a suitable tutor, a look at their recent teaching experience, and an online slot for a free first lesson. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send over the programme, subject, level and grade your child is working at, along with when your household is usually available. We'll come back with a suitable tutor, a look at their recent teaching experience, and an online slot for a free first lesson. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

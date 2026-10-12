@@ -178,13 +178,13 @@ export const religiousStudies: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting Religious Studies Support This Term",
       body:
-        "A first message that gets a good match is short and precise. \"Grade 11, Cambridge 0490, school does Islam and Christianity, lost most marks on the evaluation parts of the mock, sitting the May session\" is enough to identify the right two or three tutors immediately. \"We need an RS tutor\" is not, and the exchanges needed to get from one to the other cost days that a family close to a mock does not have.\n\nEach suggested tutor comes with their genuine background — which of the set religions they have taught to examination level, how they structure a session, how they coach evaluation answers — and the rate for that specific match in writing. There is no published price list, because tutor experience, the student's grade and how often sessions run all move the number. The first lesson is a free trial, and that is the right place to check whether the tutor teaches the whole option even-handedly.\n\nWrite to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115 with those details. Families outside India should add their city and time zone so a weekly slot can be proposed in local hours, since all tutoring outside India is online.",
+        "A first message that gets a good match is short and precise. \"Grade 11, Cambridge 0490, school does Islam and Christianity, lost most marks on the evaluation parts of the mock, sitting the May session\" is enough to identify the right two or three tutors immediately. \"We need an RS tutor\" is not, and the exchanges needed to get from one to the other cost days that a family close to a mock does not have.\n\nEach suggested tutor comes with their genuine background — which of the set religions they have taught to examination level, how they structure a session, how they coach evaluation answers — and the rate for that specific match in writing. There is no published price list, because tutor experience, the student's grade and how often sessions run all move the number. The first lesson is a free trial, and that is the right place to check whether the tutor teaches the whole option even-handedly.\n\nWrite to support@ibgram.com or send a WhatsApp message to +91 7439 368 115 with those details. Families outside India should add their city and time zone so a weekly slot can be proposed in local hours, since all tutoring outside India is online.",
       items: [
         "Send four things: the code, the two set religions, the grade, and what went wrong",
         "Tutor background and the rate for that match come in writing before you book",
         "The free trial lesson is where you check even-handedness and fit",
         "Add your city and time zone if you are outside India",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp",
       ],
     },
   ],
@@ -342,6 +342,6 @@ export const religiousStudies: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a mock has come back lower than expected, or the evaluation questions are the part your child keeps losing marks on, the fastest way forward is to send the specifics: Cambridge 0490, the two religions the school has chosen, the grade, and the exam session being worked towards. Two or three tutor options come back with their genuine background and the rate for that match in writing, and the first lesson is a free trial where you can judge for yourself whether the whole option is being taught even-handedly. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If a mock has come back lower than expected, or the evaluation questions are the part your child keeps losing marks on, the fastest way forward is to send the specifics: Cambridge 0490, the two religions the school has chosen, the grade, and the exam session being worked towards. Two or three tutor options come back with their genuine background and the rate for that match in writing, and the first lesson is a free trial where you can judge for yourself whether the whole option is being taught even-handedly. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

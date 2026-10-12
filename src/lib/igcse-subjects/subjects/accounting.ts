@@ -166,13 +166,13 @@ export const accounting: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting Accounting Support This Week",
       body:
-        "A useful first message takes about thirty seconds to write. Something like: Grade 10, Cambridge 0452, lost most of the marks on the control accounts and suspense account questions in the November internal, examinations in May, based in Pune and would prefer online. That is enough to shortlist tutors properly on the first reply rather than the third.\n\nIf you are undecided about the subject itself, say that instead. Plenty of Indian families are weighing Accounting against Business Studies or Economics for the commerce stream, sometimes with strong opinions in the house about which route leads where. A trial session on real bookkeeping exercises answers that better than any conversation about it, because some students take to the mechanics immediately and some clearly do not.\n\nYou will get tutor profiles with their board experience and the rate for that specific match, both in writing, before you commit to anything. The first lesson is free. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp. Families outside India should add their city and time zone so that a slot is proposed in local hours rather than Indian ones.",
+        "A useful first message takes about thirty seconds to write. Something like: Grade 10, Cambridge 0452, lost most of the marks on the control accounts and suspense account questions in the November internal, examinations in May, based in Pune and would prefer online. That is enough to shortlist tutors properly on the first reply rather than the third.\n\nIf you are undecided about the subject itself, say that instead. Plenty of Indian families are weighing Accounting against Business Studies or Economics for the commerce stream, sometimes with strong opinions in the house about which route leads where. A trial session on real bookkeeping exercises answers that better than any conversation about it, because some students take to the mechanics immediately and some clearly do not.\n\nYou will get tutor profiles with their board experience and the rate for that specific match, both in writing, before you commit to anything. The first lesson is free. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp. Families outside India should add their city and time zone so that a slot is proposed in local hours rather than Indian ones.",
       items: [
         "Include year, code, the topic that failed, the exam series and your city",
         "Undecided about the subject? Ask for a trial on bookkeeping exercises instead",
         "Profiles and the rate for that match arrive in writing before you book",
         "First lesson free; tutor changed on request if the pairing does not work",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your time zone if abroad",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp, with your time zone if abroad",
       ],
     },
   ],
@@ -330,6 +330,6 @@ export const accounting: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a control account question, an unbalanced trial balance or an approaching examination series brought you here, send four things: the year group, the syllabus code, the topic that went wrong and your city. Tutor profiles come back with their board experience and the rate for that specific match, both in writing, before anything is booked. The first lesson is free, and the tutor can be swapped if the pairing does not suit your child. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your time zone if you are outside India.",
+    "If a control account question, an unbalanced trial balance or an approaching examination series brought you here, send four things: the year group, the syllabus code, the topic that went wrong and your city. Tutor profiles come back with their board experience and the rate for that specific match, both in writing, before anything is booked. The first lesson is free, and the tutor can be swapped if the pairing does not suit your child. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

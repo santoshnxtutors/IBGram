@@ -404,7 +404,7 @@ export const shivpuri: CitySeoPage = {
     { question: "In which language are lessons taught?", answer: "Mainly in English, as the exams are written in English. Tutors who speak Hindi may explain a difficult idea in Hindi for a moment if it helps. Language courses like Hindi B and IGCSE Hindi as a Second Language are taught in Hindi, with English used only for exam terms." },
     { question: "Can you help a child who has just moved to Shivpuri?", answer: "Yes, and it is a frequent request. We ask for the syllabus, textbooks, recent reports and the date of the next assessment, then a tutor builds a bridging plan. The aim is to close gaps without repeating what the child has already learned, so the first weeks feel productive rather than remedial." },
     { question: "What times are lessons available?", answer: "Weekday evenings after school and weekend mornings are the most popular, and tutors teach in Indian Standard Time. In the hottest months we often suggest early morning or later evening. The slot is agreed before the trial so it fits around school, homework, coaching and family plans." },
-    { question: "How do we get started?", answer: "Message us on WhatsApp at +91 7439 368 115 or email ibgram24@gmail.com with your child's programme, subject, level and exam session. We reply with a tutor shortlist and a trial time. The trial is free, there is no pressure to continue, and you are welcome to ask any questions first." },
+    { question: "How do we get started?", answer: "Message us on WhatsApp at +91 7439 368 115 or email support@ibgram.com with your child's programme, subject, level and exam session. We reply with a tutor shortlist and a trial time. The trial is free, there is no pressure to continue, and you are welcome to ask any questions first." },
   ],
 
   internalLinks: [
@@ -423,7 +423,7 @@ export const shivpuri: CitySeoPage = {
 
   closingHeading: "Book a free IB or IGCSE trial lesson in Shivpuri",
   closingBody:
-    "If you are looking for IB and IGCSE tutors in Shivpuri who will teach your child's exact syllabus online and one to one, send us the programme, subject and exam session. We will suggest a tutor, arrange a free lesson at a time that suits your household, and put the rate in writing. Message +91 7439 368 115 on WhatsApp or email ibgram24@gmail.com.",
+    "If you are looking for IB and IGCSE tutors in Shivpuri who will teach your child's exact syllabus online and one to one, send us the programme, subject and exam session. We will suggest a tutor, arrange a free lesson at a time that suits your household, and put the rate in writing. Message +91 7439 368 115 on WhatsApp or email support@ibgram.com.",
 
   geo: { latitude: 25.4231, longitude: 77.6584 },
   wikipedia: "https://en.wikipedia.org/wiki/Shivpuri,_Madhya_Pradesh",

@@ -407,7 +407,7 @@ export const sasaram: CitySeoPage = {
     { question: "Do the tutors teach in Hindi or English?", answer: "Lessons run mainly in English, since IB and IGCSE exams are written in English. A tutor can explain a hard idea in Hindi if it helps, especially in the early weeks of a topic. Hindi B and Hindi as a Second Language lessons are naturally taught in Hindi, with English used only for exam vocabulary." },
     { question: "What time are lessons held?", answer: "Weekday evenings after school and weekend mornings are the most requested, and tutors teach in Indian Standard Time. In summer we often move sessions to early morning or later evening to avoid the heat and power cuts. Your slot is agreed before the trial so that it fits around school, homework and any coaching batch." },
     { question: "Can you help a student who has just moved to Sasaram mid-programme?", answer: "Yes, and this is one of the most common reasons families contact us. We ask for the syllabus, textbooks, latest reports and the next assessment date, then a tutor builds a bridge plan. The aim is to close gaps without repeating what the child already knows, so the first weeks feel useful and not remedial." },
-    { question: "How do I get started?", answer: "Message us on WhatsApp at +91 7439 368 115 or email ibgram24@gmail.com with your child's programme, subject, level and exam session. We reply with a tutor shortlist and a suggested trial time. There is no charge for the trial and no pressure to continue afterwards, and you can ask as many questions as you like first." },
+    { question: "How do I get started?", answer: "Message us on WhatsApp at +91 7439 368 115 or email support@ibgram.com with your child's programme, subject, level and exam session. We reply with a tutor shortlist and a suggested trial time. There is no charge for the trial and no pressure to continue afterwards, and you can ask as many questions as you like first." },
   ],
 
   internalLinks: [
@@ -426,7 +426,7 @@ export const sasaram: CitySeoPage = {
 
   closingHeading: "Start a free trial lesson for your child in Sasaram",
   closingBody:
-    "If you want IB and IGCSE tutors in Sasaram who will teach your child's exact course online, one to one, tell us the programme, subject and exam session. We will shortlist a tutor, book a free lesson at a time that suits your week, and send the rates in writing afterwards. Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com.",
+    "If you want IB and IGCSE tutors in Sasaram who will teach your child's exact course online, one to one, tell us the programme, subject and exam session. We will shortlist a tutor, book a free lesson at a time that suits your week, and send the rates in writing afterwards. Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com.",
 
   geo: { latitude: 24.95, longitude: 84.03 },
   wikipedia: "https://en.wikipedia.org/wiki/Sasaram",

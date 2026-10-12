@@ -390,7 +390,7 @@ export const shimla: CitySeoPage = {
     { question: "How long does it take to find a tutor?", answer: "Usually a few days once we know the course, level and your available times. Popular subjects like Mathematics and Physics match faster than rare ones such as Psychology HL. If we cannot find a suitable specialist, we say so plainly instead of assigning an unsuitable tutor." },
     { question: "What internet speed do we need?", answer: "An ordinary broadband or steady 4G connection is enough for a video lesson. We check audio and video in the free trial, and advise on a backup hotspot. Hill locations sometimes have patchy signal, so telling us your area helps us plan sensibly." },
     { question: "Do you offer a free trial lesson?", answer: "Yes. The first lesson is free and uses your child's real material. It is not a sales call. Afterwards, if you wish to continue, we confirm the rate and weekly schedule in writing. Nothing is charged before you agree, and you may switch tutors if the fit is wrong." },
-    { question: "How do I get started from Shimla?", answer: "Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com with the course, level, school and exam session. We reply with a suggested tutor and a trial time in IST. Enquiring costs nothing, and you decide afterwards whether to continue." },
+    { question: "How do I get started from Shimla?", answer: "Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com with the course, level, school and exam session. We reply with a suggested tutor and a trial time in IST. Enquiring costs nothing, and you decide afterwards whether to continue." },
   ],
 
   internalLinks: [
@@ -411,5 +411,5 @@ export const shimla: CitySeoPage = {
 
   closingHeading: "Book a free IB or IGCSE lesson from your home in Shimla",
   closingBody:
-    "Share the subject, level and exam session and we will suggest a tutor who has taught that course. Your first lesson costs nothing, terms come in writing afterwards, and no one has to brave the hill roads. Write on WhatsApp to +91 7439 368 115 or email ibgram24@gmail.com.",
+    "Share the subject, level and exam session and we will suggest a tutor who has taught that course. Your first lesson costs nothing, terms come in writing afterwards, and no one has to brave the hill roads. Write on WhatsApp to +91 7439 368 115 or email support@ibgram.com.",
 };

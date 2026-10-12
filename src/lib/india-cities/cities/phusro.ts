@@ -453,5 +453,5 @@ export const phusro: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Phusro",
   closingBody:
-    "Write with the board and subject, a line on where your child stands today, and the evenings that are truly free. We propose a tutor against those details, plus a slot for a no-cost trial lesson, all by video and never through a visit to the house. Email ibgram24@gmail.com or use WhatsApp on +91 7439 368 115.",
+    "Write with the board and subject, a line on where your child stands today, and the evenings that are truly free. We propose a tutor against those details, plus a slot for a no-cost trial lesson, all by video and never through a visit to the house. Email support@ibgram.com or use WhatsApp on +91 7439 368 115.",
 };

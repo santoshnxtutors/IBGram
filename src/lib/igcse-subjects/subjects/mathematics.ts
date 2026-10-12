@@ -161,12 +161,12 @@ export const mathematics: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting IGCSE Maths Support This Week",
       body:
-        "The useful first message is short and specific: the syllabus code, the tier, the grade, and what prompted the search. \"Grade 10, Cambridge 0580 Extended, lost 18 marks on the trigonometry and vectors sections of the mock, exam session May\" is enough to match a tutor properly. \"Need a Maths tutor\" takes two more exchanges to reach the same point, and those exchanges cost days when a mock is close.\n\nA suggested tutor's background — boards taught, tiers, how they structure sessions — is shared before anything is booked, along with the rate for that specific match in writing. There is no published price list, because a Grade 11 Extended tutor working to a May session and a Grade 9 foundations tutor are not the same job. The first lesson is a free trial, and the tutor can be changed afterwards if the fit is wrong.\n\nWrite to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with those four details. If you are outside India, include your city and time zone so a schedule is proposed in your own local hours rather than Indian ones.",
+        "The useful first message is short and specific: the syllabus code, the tier, the grade, and what prompted the search. \"Grade 10, Cambridge 0580 Extended, lost 18 marks on the trigonometry and vectors sections of the mock, exam session May\" is enough to match a tutor properly. \"Need a Maths tutor\" takes two more exchanges to reach the same point, and those exchanges cost days when a mock is close.\n\nA suggested tutor's background — boards taught, tiers, how they structure sessions — is shared before anything is booked, along with the rate for that specific match in writing. There is no published price list, because a Grade 11 Extended tutor working to a May session and a Grade 9 foundations tutor are not the same job. The first lesson is a free trial, and the tutor can be changed afterwards if the fit is wrong.\n\nWrite to support@ibgram.com or message +91 7439 368 115 on WhatsApp with those four details. If you are outside India, include your city and time zone so a schedule is proposed in your own local hours rather than Indian ones.",
       items: [
         "Send four things: syllabus code, tier, grade, and what triggered the search",
         "Tutor background and rate shared in writing before you book",
         "First lesson is a free trial; the tutor can be changed after it",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp — add your time zone if abroad",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp — add your time zone if abroad",
       ],
     },
   ],
@@ -324,6 +324,6 @@ export const mathematics: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a mock result, a Core-versus-Extended decision or the May or November session is the reason you are here, send the syllabus code, the tier, the grade and what went wrong. A matched tutor's board experience and their rate are shared in writing before you commit to anything, the first lesson is a free trial, and the tutor can be changed if the fit is not right. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your city and time zone if you are outside India.",
+    "If a mock result, a Core-versus-Extended decision or the May or November session is the reason you are here, send the syllabus code, the tier, the grade and what went wrong. A matched tutor's board experience and their rate are shared in writing before you commit to anything, the first lesson is a free trial, and the tutor can be changed if the fit is not right. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

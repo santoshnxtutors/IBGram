@@ -365,7 +365,7 @@ export const srinagarUttarakhand: CitySeoPage = {
   ],
 
   process: [
-    { title: "Send the details", description: "Tell us the class, board, subjects and the exam session your child is aiming for, by WhatsApp on +91 7439 368 115 or by email at ibgram24@gmail.com." },
+    { title: "Send the details", description: "Tell us the class, board, subjects and the exam session your child is aiming for, by WhatsApp on +91 7439 368 115 or by email at support@ibgram.com." },
     { title: "Get matched", description: "We shortlist a tutor who has taught your exact course and level, and share their background before any lesson is booked." },
     { title: "Free trial lesson", description: "The student joins a live online session at home in Srinagar Garhwal and judges the teaching style first-hand, at no charge." },
     { title: "Agree the plan", description: "A rate is quoted in writing, along with lesson frequency, and you say yes or no." },
@@ -399,7 +399,7 @@ export const srinagarUttarakhand: CitySeoPage = {
     { question: "Can IB or IGCSE students apply to HNB Garhwal University or Indian medical colleges?", answer: "Often yes, but eligibility is decided by each institution. IB Diploma holders normally need an AIU equivalence certificate, and central university admission usually runs through CUET-UG. NEET-UG and JEE Main have their own rules on subject combinations. Always read the current official bulletin, and ask the institution directly if unsure." },
     { question: "Is there a trial lesson, and what if the tutor is not a good fit?", answer: "Yes, the first lesson is free and carries no obligation. After each lesson the tutor writes a short note on what was covered. If the fit is wrong, tell us and we will arrange a different tutor, so you are not stuck with a poor match for a whole term." },
     { question: "Is IB Gram connected to any school or to the IB, Cambridge or Pearson?", answer: "No, IB Gram is an independent tutoring service and is not affiliated with the IB, Cambridge International, Pearson or any school mentioned on this page. Named schools appear only as nearby reference points, and families should check curriculum and admission details with the school itself." },
-    { question: "How do I get started from Srinagar Garhwal?", answer: "Message us on WhatsApp at +91 7439 368 115 or email ibgram24@gmail.com with your child's class, board, subjects and exam session. We reply with a suitable tutor, arrange the free trial lesson, and give a written rate before you decide to continue." },
+    { question: "How do I get started from Srinagar Garhwal?", answer: "Message us on WhatsApp at +91 7439 368 115 or email support@ibgram.com with your child's class, board, subjects and exam session. We reply with a suitable tutor, arrange the free trial lesson, and give a written rate before you decide to continue." },
     { question: "Do you teach younger children in the IB PYP or MYP?", answer: "Yes, tutors cover PYP and MYP as well as the Diploma. PYP support focuses on reading, writing, number confidence and the Exhibition, while MYP tuition helps with criteria-based assessment, lab reports and the Personal Project. Lessons are shorter for younger children, with more interactive activities." },
   ],
 
@@ -418,5 +418,5 @@ export const srinagarUttarakhand: CitySeoPage = {
 
   closingHeading: "Ask for a free lesson from Srinagar Garhwal",
   closingBody:
-    "Tell us the board, subjects and exam session, and we will suggest a tutor for a free trial over live video. Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com. Sessions are online; tutors do not visit homes in Srinagar Garhwal.",
+    "Tell us the board, subjects and exam session, and we will suggest a tutor for a free trial over live video. Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com. Sessions are online; tutors do not visit homes in Srinagar Garhwal.",
 };

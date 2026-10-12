@@ -449,5 +449,5 @@ export const chhapra: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Chhapra family",
   closingBody:
-    "Tell us the board or programme, the subject and level, roughly where your child stands right now, and the hours that fit your household. We send back a shortlisted tutor, a plain look at their teaching background, and a trial slot fitted around your week, all delivered online, one to one, at no cost beyond that first lesson. Write to ibgram24@gmail.com or message us on WhatsApp at +91 7439 368 115.",
+    "Tell us the board or programme, the subject and level, roughly where your child stands right now, and the hours that fit your household. We send back a shortlisted tutor, a plain look at their teaching background, and a trial slot fitted around your week, all delivered online, one to one, at no cost beyond that first lesson. Write to support@ibgram.com or message us on WhatsApp at +91 7439 368 115.",
 };

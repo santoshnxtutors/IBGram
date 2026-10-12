@@ -468,5 +468,5 @@ export const bhavnagar: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Bhavnagar child",
   closingBody:
-    "Send us the programme or board, subject and level, your child's current grade, and the times that actually work for your household. You will get back a shortlisted tutor, a look at their teaching background, and trial slots that fit your week, run entirely online with no charge and no commitment attached. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send us the programme or board, subject and level, your child's current grade, and the times that actually work for your household. You will get back a shortlisted tutor, a look at their teaching background, and trial slots that fit your week, run entirely online with no charge and no commitment attached. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -178,13 +178,13 @@ export const economics: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting IGCSE Economics Tutoring This Week",
       body:
-        "Getting started is deliberately light. Send a short message with five things: the entry code the school uses, the student's grade, the board, the last marked result or script, and the one thing that prompted you to look. If a photograph of a marked answer is available, include it — it is worth more than three paragraphs of description, because a tutor can see instantly whether the problem is knowledge, diagram technique or command-word reading.\n\nFrom there you are sent two or three tutor suggestions with their real board history and their rate in writing. Pick one, take the free trial lesson, and treat it as a diagnostic rather than a demonstration. A good trial ends with the tutor telling you something you did not already know about your child's work — not with reassurance.\n\nIf you are outside India, include your city and time zone so a workable slot can be proposed straight away rather than after three rounds of messages. If you are in India and would prefer someone at home, name your locality, and you will be told honestly whether an in-person tutor is currently free there. Reach IB Gram at ibgram24@gmail.com, or on WhatsApp at +91 7439 368 115.",
+        "Getting started is deliberately light. Send a short message with five things: the entry code the school uses, the student's grade, the board, the last marked result or script, and the one thing that prompted you to look. If a photograph of a marked answer is available, include it — it is worth more than three paragraphs of description, because a tutor can see instantly whether the problem is knowledge, diagram technique or command-word reading.\n\nFrom there you are sent two or three tutor suggestions with their real board history and their rate in writing. Pick one, take the free trial lesson, and treat it as a diagnostic rather than a demonstration. A good trial ends with the tutor telling you something you did not already know about your child's work — not with reassurance.\n\nIf you are outside India, include your city and time zone so a workable slot can be proposed straight away rather than after three rounds of messages. If you are in India and would prefer someone at home, name your locality, and you will be told honestly whether an in-person tutor is currently free there. Reach IB Gram at support@ibgram.com, or on WhatsApp at +91 7439 368 115.",
       items: [
         "Send the code, grade, board, last marked script and the trigger",
         "A photo of a marked answer is more useful than a long description",
         "Two or three tutor options, each with a written rate",
         "Free trial lesson, treated as a diagnostic",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115 with your city and time zone",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115 with your city and time zone",
       ],
     },
   ],
@@ -338,6 +338,6 @@ export const economics: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If the reason you are reading this is a structured paper that came back weaker than expected, or a marker who keeps writing \"where is the diagram\", send the entry code, the grade, the board and a photograph of the last marked answer. You will get two or three tutor suggestions with their real board history and their rate in writing, and the first lesson is a free trial that should tell you something new about your child's work. Every session is followed by a written note. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If the reason you are reading this is a structured paper that came back weaker than expected, or a marker who keeps writing \"where is the diagram\", send the entry code, the grade, the board and a photograph of the last marked answer. You will get two or three tutor suggestions with their real board history and their rate in writing, and the first lesson is a free trial that should tell you something new about your child's work. Every session is followed by a written note. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

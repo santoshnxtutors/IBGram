@@ -76,7 +76,7 @@ export const kancheepuram: CitySeoPage = {
       "In Kancheepuram, parents who ask about private tuition for an international syllabus quickly learn that the strong tutors for it tend to sit in Chennai or overseas. IB Gram closes that distance with one-to-one video lessons. Your child studies in a room at home, a tutor with direct experience of the exact syllabus teaches on a shared screen, and a written recap follows every session so nothing is left to memory.",
       "Kancheepuram, spelled Kanchipuram on many signboards and Conjeevaram in older records, is home to about 165,000 people. It was the Pallava capital, is counted among India's seven sacred cities, and gave its silk saris India's first Geographical Indication tag in 2005. Two deemed universities, SCSVMV and CARE, and an IIIT campus mean education is a familiar industry here, while the Sriperumbudur and Oragadam factory belts nearby draw engineers and managers into the district.",
       "We could not confirm an IB World School or a Cambridge or Edexcel IGCSE school within the town. Families usually consider Chennai's schools, boarding elsewhere, or online international schools. We therefore state the format clearly: tutoring for Kancheepuram is online only, and in-person home visits are limited to Gurugram and parts of Delhi NCR.",
-      "IB Gram is an independent service and has no tie to the IB, Cambridge, Pearson or any school on this page. Tutors coach understanding, technique and exam writing. They never write a student's Internal Assessment, Extended Essay, Theory of Knowledge essay or coursework. Reach us on WhatsApp at +91 7439 368 115 or write to ibgram24@gmail.com for a free trial.",
+      "IB Gram is an independent service and has no tie to the IB, Cambridge, Pearson or any school on this page. Tutors coach understanding, technique and exam writing. They never write a student's Internal Assessment, Extended Essay, Theory of Knowledge essay or coursework. Reach us on WhatsApp at +91 7439 368 115 or write to support@ibgram.com for a free trial.",
     ],
   },
 
@@ -380,7 +380,7 @@ export const kancheepuram: CitySeoPage = {
     { question: "Do you teach the IB sciences?", answer: "Yes. IB Physics, Chemistry and Biology are taught at Standard and Higher Level by matched tutors. Lessons cover content, calculations, data-based questions and exam technique. Tutors guide investigation planning, but the internal assessment must be the student's own work." },
     { question: "Do Indian universities accept the IB Diploma?", answer: "Generally yes. The Association of Indian Universities recognises the IB Diploma as equivalent to Class 12, and CUET-UG accepts IB students, with subject rules set by each university. JEE Main and NEET eligibility follows the current NTA bulletin, so read it before choosing subjects." },
     { question: "Which subjects do Kancheepuram students ask for most?", answer: "We expect Mathematics, Physics, Chemistry, Biology and English to lead, reflecting engineering and medical interests across Tamil Nadu. Economics and Business Management interest families in trade and industry. If your subject is less common, message us and we will say whether a tutor is available." },
-    { question: "How can I begin with IB Gram from Kancheepuram?", answer: "Send a WhatsApp message to +91 7439 368 115 or email ibgram24@gmail.com with your child's class, board, subjects and goals. We reply with a suggested tutor and a time for a free trial. A written quote follows, and lessons begin only when you are ready." },
+    { question: "How can I begin with IB Gram from Kancheepuram?", answer: "Send a WhatsApp message to +91 7439 368 115 or email support@ibgram.com with your child's class, board, subjects and goals. We reply with a suggested tutor and a time for a free trial. A written quote follows, and lessons begin only when you are ready." },
     { question: "Do you teach younger children in PYP or MYP?", answer: "Yes, we teach PYP and MYP as well as the Diploma and IGCSE. Lessons for younger children are shorter and more visual, and parents can sit in early on. Tutors build reading, number work and reflection habits without completing any graded project for the child." },
   ],
 
@@ -400,5 +400,5 @@ export const kancheepuram: CitySeoPage = {
 
   closingHeading: "Book a free IB or IGCSE lesson from home in Kancheepuram",
   closingBody:
-    "Send your child's class, board and subjects to us on WhatsApp at +91 7439 368 115 or at ibgram24@gmail.com. We will match a tutor, arrange a free online trial and share the rate in writing before you decide.",
+    "Send your child's class, board and subjects to us on WhatsApp at +91 7439 368 115 or at support@ibgram.com. We will match a tutor, arrange a free online trial and share the rate in writing before you decide.",
 };

@@ -180,12 +180,12 @@ export const indonesian: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting IGCSE Indonesian Tutoring This Week",
       body:
-        "A useful first message takes about thirty seconds to write and saves several days. Include the syllabus code and exam session, the year group, whether Indonesian is spoken outside lessons, and what has just happened. Something like: Grade 10, Cambridge IGCSE Indonesian 0545, May session, lives in Jakarta and speaks Indonesian daily with friends, lost heavy marks on the last written task for informal language and missing prefixes. That is enough to match a tutor properly on the first attempt.\n\nWe reply with one or two tutors and their real background — which schools and which exam sessions they have worked with, how they run speaking rehearsal — plus the rate for that specific match, in writing. There is no published price list, because a Grade 9 foundation course and a Grade 11 exam rescue are not the same piece of work. The first lesson is a free trial, and you can ask for a different tutor afterwards without having to justify it.\n\nEmail ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115. If you are outside India, add your city and time zone in that first message so we propose hours that work where you live rather than Indian ones.",
+        "A useful first message takes about thirty seconds to write and saves several days. Include the syllabus code and exam session, the year group, whether Indonesian is spoken outside lessons, and what has just happened. Something like: Grade 10, Cambridge IGCSE Indonesian 0545, May session, lives in Jakarta and speaks Indonesian daily with friends, lost heavy marks on the last written task for informal language and missing prefixes. That is enough to match a tutor properly on the first attempt.\n\nWe reply with one or two tutors and their real background — which schools and which exam sessions they have worked with, how they run speaking rehearsal — plus the rate for that specific match, in writing. There is no published price list, because a Grade 9 foundation course and a Grade 11 exam rescue are not the same piece of work. The first lesson is a free trial, and you can ask for a different tutor afterwards without having to justify it.\n\nEmail support@ibgram.com or send a WhatsApp message to +91 7439 368 115. If you are outside India, add your city and time zone in that first message so we propose hours that work where you live rather than Indian ones.",
       items: [
         "Send four details: code and session, year group, Indonesian outside lessons, what prompted the search",
         "Tutor background and the rate for that match come back in writing before anything is booked",
         "The first lesson is a free trial and the tutor can be changed after it",
-        "Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115",
+        "Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115",
         "Outside India, include your city and time zone so the schedule is built around your local hours",
       ],
     },
@@ -340,6 +340,6 @@ export const indonesian: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If you already know the code, the year group and what has gone wrong, we can usually suggest a tutor within a day. Tell us whether Indonesian is spoken outside lessons, because that single answer decides whether the work ahead is register and written accuracy or a compressed foundation from the ground up. We will come back with one or two tutors, their actual teaching background, and the rate for that match in writing. The first lesson is free and the tutor can be swapped afterwards. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and add your city and time zone if you are outside India.",
+    "If you already know the code, the year group and what has gone wrong, we can usually suggest a tutor within a day. Tell us whether Indonesian is spoken outside lessons, because that single answer decides whether the work ahead is register and written accuracy or a compressed foundation from the ground up. We will come back with one or two tutors, their actual teaching background, and the rate for that match in writing. The first lesson is free and the tutor can be swapped afterwards. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and add your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

@@ -463,7 +463,7 @@ export const kalyanDombivali: CitySeoPage = {
     {
       question: "How do I start with an IB or IGCSE tutor for my child in Kalyan-Dombivali?",
       answer:
-        "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with the programme or board, subject, level and current grade. We will come back with a shortlist of tutors matched to that exact syllabus, along with trial slots that work around school and tuition-class timings, and your child can try a free class online before you decide on anything.",
+        "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with the programme or board, subject, level and current grade. We will come back with a shortlist of tutors matched to that exact syllabus, along with trial slots that work around school and tuition-class timings, and your child can try a free class online before you decide on anything.",
     },
   ],
 
@@ -486,5 +486,5 @@ export const kalyanDombivali: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Kalyan-Dombivali student",
   closingBody:
-    "Tell us the programme or board, subject and level, and your child's current or predicted grade. You'll get a shortlist of tutors matched to that exact syllabus and trial slots that fit around school and tuition-class timings, taught live online, one to one, with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, subject and level, and your child's current or predicted grade. You'll get a shortlist of tutors matched to that exact syllabus and trial slots that fit around school and tuition-class timings, taught live online, one to one, with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

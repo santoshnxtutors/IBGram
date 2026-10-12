@@ -342,7 +342,7 @@ export const netherlands: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in the Netherlands?",
-      answer: "The programme stage and the exact subject and level matter more than a star rating ever could. Tell us whether your child is in PYP, MYP, DP or CP, and precisely which course they're stuck on - a quick message to ibgram24@gmail.com or WhatsApp at +91 7439 368 115 covering current grades and where things are going wrong gets a tutor proposed to you directly, rather than a list to sift through yourself.",
+      answer: "The programme stage and the exact subject and level matter more than a star rating ever could. Tell us whether your child is in PYP, MYP, DP or CP, and precisely which course they're stuck on - a quick message to support@ibgram.com or WhatsApp at +91 7439 368 115 covering current grades and where things are going wrong gets a tutor proposed to you directly, rather than a list to sift through yourself.",
     },
     {
       question: "Can lessons run on our own clock, including when it shifts in spring and autumn?",
@@ -350,7 +350,7 @@ export const netherlands: CountrySeoPage = {
     },
     {
       question: "How much does IB and IGCSE tutoring cost in the Netherlands, and how do we pay?",
-      answer: "It moves with three things: the programme level, the subject, and how many weekly hours you're booking, with HL sciences and mathematics at DP level generally pricier than MYP support. A written per-hour rate arrives before you commit to anything, so the first invoice never surprises anyone. Get in touch at ibgram24@gmail.com with your child's grade and subject, and raise currency and payment method in the same message.",
+      answer: "It moves with three things: the programme level, the subject, and how many weekly hours you're booking, with HL sciences and mathematics at DP level generally pricier than MYP support. A written per-hour rate arrives before you commit to anything, so the first invoice never surprises anyone. Get in touch at support@ibgram.com with your child's grade and subject, and raise currency and payment method in the same message.",
     },
     {
       question: "Do you send tutors to our home in Amsterdam or The Hague?",
@@ -406,7 +406,7 @@ export const netherlands: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp covering your child's grade and programme, the subjects and levels involved, which Dutch city and evening hours suit you, and what specifically needs to change - a grade, confidence going into an exam, a looming IA deadline. A tutor and their background come back to you, an introductory session gets arranged, and nothing costs anything until after that lesson and an agreed rate.",
+      answer: "Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp covering your child's grade and programme, the subjects and levels involved, which Dutch city and evening hours suit you, and what specifically needs to change - a grade, confidence going into an exam, a looming IA deadline. A tutor and their background come back to you, an introductory session gets arranged, and nothing costs anything until after that lesson and an agreed rate.",
     },
   ],
 
@@ -426,5 +426,5 @@ export const netherlands: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Dutch time",
-  closingBody: "Send over the programme, the subject, the level, and roughly whereabouts in the Netherlands you're based. What comes back is a named tutor with real teaching history in that exact course, plus a couple of trial-slot options already sitting inside your evening on Central European Time - free, no obligation to book anything further. Not the right fit? Tell us why and we'll find another. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115, with your child's grade and school programme included.",
+  closingBody: "Send over the programme, the subject, the level, and roughly whereabouts in the Netherlands you're based. What comes back is a named tutor with real teaching history in that exact course, plus a couple of trial-slot options already sitting inside your evening on Central European Time - free, no obligation to book anything further. Not the right fit? Tell us why and we'll find another. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115, with your child's grade and school programme included.",
 };

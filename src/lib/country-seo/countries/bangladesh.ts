@@ -383,7 +383,7 @@ export const bangladesh: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good O Level or A Level tutor in Bangladesh?",
-      answer: "Start with the exact board — Cambridge or Edexcel — the subject, and the level your child is actually sitting, rather than a general search for 'a maths tutor'. Message ibgram24@gmail.com or +91 7439 368 115 on WhatsApp with your child's school, current results and where the difficulty sits, and we'll come back with a suggested tutor matched to that specific paper.",
+      answer: "Start with the exact board — Cambridge or Edexcel — the subject, and the level your child is actually sitting, rather than a general search for 'a maths tutor'. Message support@ibgram.com or +91 7439 368 115 on WhatsApp with your child's school, current results and where the difficulty sits, and we'll come back with a suggested tutor matched to that specific paper.",
     },
     {
       question: "Do you tutor IB students in Bangladesh as well as O and A Level?",
@@ -399,7 +399,7 @@ export const bangladesh: CountrySeoPage = {
     },
     {
       question: "How much does tutoring cost in Bangladesh, and how do we pay?",
-      answer: "Rates depend on the board, subject, level and how many weekly hours you book — A Level sciences and Additional Mathematics typically sit above younger O Level support. We confirm a per-hour rate in writing before booking anything, so there's no surprise on the first invoice. Email ibgram24@gmail.com with your child's grade, board and subject for a current quote, and we'll confirm currency and payment method at the same time.",
+      answer: "Rates depend on the board, subject, level and how many weekly hours you book — A Level sciences and Additional Mathematics typically sit above younger O Level support. We confirm a per-hour rate in writing before booking anything, so there's no surprise on the first invoice. Email support@ibgram.com with your child's grade, board and subject for a current quote, and we'll confirm currency and payment method at the same time.",
     },
     {
       question: "Do you have in-person tutors in Bangladesh?",
@@ -435,7 +435,7 @@ export const bangladesh: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Send four things to ibgram24@gmail.com or +91 7439 368 115: your child's grade and board, the subject and level, your preferred evening hours in Bangladesh Standard Time, and what you want to change — a grade, exam confidence, unfinished coursework. We'll suggest a tutor, share their background, and set up a first lesson. Nothing is charged until you've seen a session and agreed a rate.",
+      answer: "Send four things to support@ibgram.com or +91 7439 368 115: your child's grade and board, the subject and level, your preferred evening hours in Bangladesh Standard Time, and what you want to change — a grade, exam confidence, unfinished coursework. We'll suggest a tutor, share their background, and set up a first lesson. Nothing is charged until you've seen a session and agreed a rate.",
     },
   ],
 
@@ -455,5 +455,5 @@ export const bangladesh: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free first lesson, timed to your evening in Bangladesh",
-  closingBody: "Tell us the board, the subject, the level and the city your child studies in. Within a day or two you'll have a named tutor, their teaching background, and a couple of trial slots already sitting in a Bangladesh Standard Time evening — free, with no obligation to book anything further. If the fit isn't right, tell us and we'll try someone else. Reach us at ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your child's grade and current school.",
+  closingBody: "Tell us the board, the subject, the level and the city your child studies in. Within a day or two you'll have a named tutor, their teaching background, and a couple of trial slots already sitting in a Bangladesh Standard Time evening — free, with no obligation to book anything further. If the fit isn't right, tell us and we'll try someone else. Reach us at support@ibgram.com or +91 7439 368 115 on WhatsApp, with your child's grade and current school.",
 };

@@ -165,9 +165,9 @@ export const marineScience: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting This Week, and What to Put in Your First Message",
       body:
-        "One message does it. Email ibgram24@gmail.com or send a WhatsApp to +91 7439 368 115, and put the essentials in the first line so nobody has to ask twice: that the syllabus is Cambridge IGCSE Marine Science 0697, the school and country, the grade, the exam series being aimed at, and two or three windows in your local time when the student is genuinely able to concentrate. If you have a recent marked test or mock, attach a photograph of it. A marked script tells a tutor more in thirty seconds than a paragraph of description does.\n\nWe will come back with what we honestly have for 0697, including how much direct experience with the syllabus the proposed tutor holds, and arrange a free trial lesson. That trial is a working session with real questions, not a sales call. After it you get a written note and a rate in writing, and you decide.\n\nIf it turns out your school does not offer 0697, tell us anyway. We would rather spend five minutes pointing you toward Biology, Environmental Management or Geography than take a booking for a subject your child cannot be entered for. IB Gram is an independent tutoring platform and is not affiliated with Cambridge International, Pearson Edexcel, Oxford AQA or the IB.",
+        "One message does it. Email support@ibgram.com or send a WhatsApp to +91 7439 368 115, and put the essentials in the first line so nobody has to ask twice: that the syllabus is Cambridge IGCSE Marine Science 0697, the school and country, the grade, the exam series being aimed at, and two or three windows in your local time when the student is genuinely able to concentrate. If you have a recent marked test or mock, attach a photograph of it. A marked script tells a tutor more in thirty seconds than a paragraph of description does.\n\nWe will come back with what we honestly have for 0697, including how much direct experience with the syllabus the proposed tutor holds, and arrange a free trial lesson. That trial is a working session with real questions, not a sales call. After it you get a written note and a rate in writing, and you decide.\n\nIf it turns out your school does not offer 0697, tell us anyway. We would rather spend five minutes pointing you toward Biology, Environmental Management or Geography than take a booking for a subject your child cannot be entered for. IB Gram is an independent tutoring platform and is not affiliated with Cambridge International, Pearson Edexcel, Oxford AQA or the IB.",
       items: [
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115",
         "First line: syllabus 0697, school, country, grade, target exam series",
         "Attach a photo of a recent marked test or mock if you have one",
         "Give two or three workable time windows in your own time zone",
@@ -309,7 +309,7 @@ export const marineScience: IgcseSubjectContent = {
     {
       question: "What should I put in my first message?",
       answer:
-        "Lead with the syllabus code, 0697, then the school and country, the grade, the examination series being aimed at, and two or three time windows in your local time when the student can actually concentrate. Add one line on what prompted the search, whether that is a disappointing mock, a specific topic that has not landed, or general drift. If you have a recent marked script, photograph it and attach it. Send it to ibgram24@gmail.com or to +91 7439 368 115 on WhatsApp.",
+        "Lead with the syllabus code, 0697, then the school and country, the grade, the examination series being aimed at, and two or three time windows in your local time when the student can actually concentrate. Add one line on what prompted the search, whether that is a disappointing mock, a specific topic that has not landed, or general drift. If you have a recent marked script, photograph it and attach it. Send it to support@ibgram.com or to +91 7439 368 115 on WhatsApp.",
     },
     {
       question: "What happens if the tutor is not the right fit?",
@@ -343,6 +343,6 @@ export const marineScience: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If your school teaches Cambridge IGCSE Marine Science 0697 and your child is on the course, send one message with the grade, the country, the target series and a photograph of any recent marked work. We will tell you honestly what we have for this syllabus, including how much direct 0697 experience the proposed tutor holds, and set up a free trial lesson that is a real working hour rather than a pitch. If the school does not offer 0697, write anyway and we will point you somewhere more useful at no cost. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "If your school teaches Cambridge IGCSE Marine Science 0697 and your child is on the course, send one message with the grade, the country, the target series and a photograph of any recent marked work. We will tell you honestly what we have for this syllabus, including how much direct 0697 experience the proposed tutor holds, and set up a free trial lesson that is a real working hour rather than a pitch. If the school does not offer 0697, write anyway and we will point you somewhere more useful at no cost. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
   lastUpdated: "2026-09-18",
 };

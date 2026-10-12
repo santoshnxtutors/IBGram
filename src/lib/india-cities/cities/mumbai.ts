@@ -517,5 +517,5 @@ export const mumbai: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Mumbai student",
   closingBody:
-    "Send over the programme or board, the subject and level, your child's Mumbai school and current grade, and the windows in your week that are free. What comes back is a shortlisted tutor, a note on their teaching background, and trial slots that work for your schedule, all delivered online, at no cost and with nothing to sign. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send over the programme or board, the subject and level, your child's Mumbai school and current grade, and the windows in your week that are free. What comes back is a shortlisted tutor, a note on their teaching background, and trial slots that work for your schedule, all delivered online, at no cost and with nothing to sign. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

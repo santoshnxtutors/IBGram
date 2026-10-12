@@ -464,7 +464,7 @@ export const solapur: CitySeoPage = {
     {
       question: "How do I get started for my Solapur-linked child?",
       answer:
-        "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with your child's programme or board, subject, level and current situation, whether boarding elsewhere, a private candidate, or just exploring the option. We will send a shortlist of matched tutors and trial slots, and your child can take a free online trial class before you decide anything.",
+        "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with your child's programme or board, subject, level and current situation, whether boarding elsewhere, a private candidate, or just exploring the option. We will send a shortlist of matched tutors and trial slots, and your child can take a free online trial class before you decide anything.",
     },
   ],
 
@@ -487,5 +487,5 @@ export const solapur: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Solapur-linked child",
   closingBody:
-    "Send over the programme or board, the subject and level, and whether your child boards elsewhere, sits exams independently, or is simply weighing up the switch. We'll come back with matched tutors and trial times that work, all taught live over video, one to one, at no cost and no commitment either way. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send over the programme or board, the subject and level, and whether your child boards elsewhere, sits exams independently, or is simply weighing up the switch. We'll come back with matched tutors and trial times that work, all taught live over video, one to one, at no cost and no commitment either way. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

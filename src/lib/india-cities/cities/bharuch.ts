@@ -443,7 +443,7 @@ export const bharuch: CitySeoPage = {
     {
       question: "How do I start with a free trial?",
       answer:
-        "Message us on WhatsApp at +91 7439 368 115 or write to ibgram24@gmail.com with your child's programme, subject, level and school. We reply with a tutor shortlist and offer a trial time. The trial lesson is free, there is no obligation to continue, and rates are quoted in writing before any booking is confirmed.",
+        "Message us on WhatsApp at +91 7439 368 115 or write to support@ibgram.com with your child's programme, subject, level and school. We reply with a tutor shortlist and offer a trial time. The trial lesson is free, there is no obligation to continue, and rates are quoted in writing before any booking is confirmed.",
     },
     {
       question: "What if my child does not get along with the tutor?",
@@ -474,5 +474,5 @@ export const bharuch: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson with an IB or IGCSE tutor for your Bharuch child",
   closingBody:
-    "Write to us with the programme, subject, level and school, plus any exam date or move you are working towards. You will get a tutor shortlist and a free trial slot, and if the first lesson does not feel right, nothing further is owed. Message +91 7439 368 115 on WhatsApp or email ibgram24@gmail.com to begin.",
+    "Write to us with the programme, subject, level and school, plus any exam date or move you are working towards. You will get a tutor shortlist and a free trial slot, and if the first lesson does not feel right, nothing further is owed. Message +91 7439 368 115 on WhatsApp or email support@ibgram.com to begin.",
 };

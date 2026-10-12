@@ -462,5 +462,5 @@ export const tiruppur: CitySeoPage = {
 
   closingHeading: "Start with a free trial class for your Tiruppur child",
   closingBody:
-    "Send across the board or programme, the subject and level, where your child's grade currently stands, and a few workable times. What comes back is a tutor shortlist with real teaching backgrounds and open trial slots, delivered online and one to one, at no cost and with nothing to sign. Reach us by email at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send across the board or programme, the subject and level, where your child's grade currently stands, and a few workable times. What comes back is a tutor shortlist with real teaching backgrounds and open trial slots, delivered online and one to one, at no cost and with nothing to sign. Reach us by email at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

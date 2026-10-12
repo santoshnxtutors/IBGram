@@ -388,7 +388,7 @@ export const ranaghat: CitySeoPage = {
     { question: "What if my internet is poor at home?", answer: "A basic broadband or good 4G connection is enough for a live lesson. We test audio and video during the free trial and advise on a backup hotspot. Lessons can be recorded on request for your own revision, subject to the tutor's consent, and rescheduling is easy when the monsoon disrupts a day." },
     { question: "Do you offer a free trial?", answer: "Yes. The first lesson is free and is a real session on the student's actual material, not a sales call. It lets you see the tutor's style and lets the tutor gauge the level. If you continue, the rate and schedule are confirmed in writing beforehand, and nothing is charged before that." },
     { question: "Can two students from Ranaghat share a tutor?", answer: "Yes, if they follow the same course and level. Siblings, cousins or classmates in the same complex sometimes share a lesson, which reduces the cost per student. We recommend it only when the two are close in ability, otherwise one student is either lost or bored. You can switch to one-to-one at any time." },
-    { question: "How do I start?", answer: "Message us on WhatsApp at +91 7439 368 115 or write to ibgram24@gmail.com with the student's course, level, school and exam session. We reply with a matched tutor and a free trial slot in IST. There is no fee for the enquiry, and you decide afterwards whether to continue." },
+    { question: "How do I start?", answer: "Message us on WhatsApp at +91 7439 368 115 or write to support@ibgram.com with the student's course, level, school and exam session. We reply with a matched tutor and a free trial slot in IST. There is no fee for the enquiry, and you decide afterwards whether to continue." },
   ],
 
   internalLinks: [
@@ -409,5 +409,5 @@ export const ranaghat: CitySeoPage = {
 
   closingHeading: "Start with one free lesson from your own desk in Ranaghat",
   closingBody:
-    "Send us the course, the level and the exam session, and we will match a tutor who has taught it before. The first lesson is free, a written rate follows only if you carry on, and nobody has to travel anywhere. Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com.",
+    "Send us the course, the level and the exam session, and we will match a tutor who has taught it before. The first lesson is free, a written rate follows only if you carry on, and nobody has to travel anywhere. Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com.",
 };

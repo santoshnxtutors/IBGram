@@ -434,5 +434,5 @@ export const mysuru: CitySeoPage = {
 
   closingHeading: "Book a free lesson with an IB or IGCSE tutor from Mysuru",
   closingBody:
-    "Tell us the board or programme, the subject and level, where your child currently stands, and a few times that work for your household. We will come back with a tutor matched to that exact course, what they have taught before, and a slot for a free first lesson, no payment and nothing to sign. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the board or programme, the subject and level, where your child currently stands, and a few times that work for your household. We will come back with a tutor matched to that exact course, what they have taught before, and a slot for a free first lesson, no payment and nothing to sign. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

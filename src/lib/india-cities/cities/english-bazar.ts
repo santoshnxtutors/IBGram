@@ -453,5 +453,5 @@ export const englishBazar: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Malda",
   closingBody:
-    "Let us know the board or programme, the subject and level, roughly how your child is doing right now, and when sessions would actually work for your family. You'll hear back with a shortlist, real teaching history included, and trial times that fit around your week, all delivered online with no upfront cost. Get in touch on ibgram24@gmail.com or WhatsApp at +91 7439 368 115.",
+    "Let us know the board or programme, the subject and level, roughly how your child is doing right now, and when sessions would actually work for your family. You'll hear back with a shortlist, real teaching history included, and trial times that fit around your week, all delivered online with no upfront cost. Get in touch on support@ibgram.com or WhatsApp at +91 7439 368 115.",
 };

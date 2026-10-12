@@ -350,7 +350,7 @@ export const philippines: CountrySeoPage = {
   faqs: [
     {
       question: "How does a family in the Philippines actually go about finding a tutor?",
-      answer: "It starts with naming the programme stage and the exact subject and level a child needs help with, rather than searching for a tutor in the abstract — an MYP generalist and a DP HL Biology specialist aren't interchangeable. Share the current school, recent grades, and where the real difficulty sits, and we respond with a single named tutor rather than a directory. Reach out at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+      answer: "It starts with naming the programme stage and the exact subject and level a child needs help with, rather than searching for a tutor in the abstract — an MYP generalist and a DP HL Biology specialist aren't interchangeable. Share the current school, recent grades, and where the real difficulty sits, and we respond with a single named tutor rather than a directory. Reach out at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
     },
     {
       question: "Do sessions actually run at a sensible hour for us, not for the tutor?",
@@ -358,7 +358,7 @@ export const philippines: CountrySeoPage = {
     },
     {
       question: "What does a lesson actually cost, and how is payment handled?",
-      answer: "Cost tracks the programme level and the subject — Higher Level maths and science at DP level runs above general MYP support — plus how many weekly hours get booked. A written rate is confirmed before any lesson beyond the trial goes on the calendar, so nothing about the first invoice comes as a surprise. Write to ibgram24@gmail.com with your child's grade, subject and level, and raise currency and payment method in the same note.",
+      answer: "Cost tracks the programme level and the subject — Higher Level maths and science at DP level runs above general MYP support — plus how many weekly hours get booked. A written rate is confirmed before any lesson beyond the trial goes on the calendar, so nothing about the first invoice comes as a surprise. Write to support@ibgram.com with your child's grade, subject and level, and raise currency and payment method in the same note.",
     },
     {
       question: "Is any part of tutoring for the Philippines delivered in person?",
@@ -406,7 +406,7 @@ export const philippines: CountrySeoPage = {
     },
     {
       question: "What's the fastest route to actually getting a lesson booked?",
-      answer: "A single message to ibgram24@gmail.com or +91 7439 368 115 covering your child's grade and programme, the subjects and levels needed, a workable window in Philippine Time, and the actual goal — a stronger grade, steadier exam nerves, a looming deadline. From there, a named tutor and their background come back to you, followed by a first lesson on the calendar. Payment only comes up after that lesson, once a rate is agreed.",
+      answer: "A single message to support@ibgram.com or +91 7439 368 115 covering your child's grade and programme, the subjects and levels needed, a workable window in Philippine Time, and the actual goal — a stronger grade, steadier exam nerves, a looming deadline. From there, a named tutor and their background come back to you, followed by a first lesson on the calendar. Payment only comes up after that lesson, once a rate is agreed.",
     },
   ],
 
@@ -425,5 +425,5 @@ export const philippines: CountrySeoPage = {
   ],
 
   closingHeading: "Start with a free lesson from a tutor who knows this exact syllabus",
-  closingBody: "Send the programme, the subject and level, and roughly where your child is studying in the Philippines, and back comes a named tutor with their teaching background, plus a few trial times that already fall inside a normal Philippine Time evening. The first lesson is free, and nothing is owed afterward if it isn't the right fit — another tutor is just a message away. Reach the team at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+  closingBody: "Send the programme, the subject and level, and roughly where your child is studying in the Philippines, and back comes a named tutor with their teaching background, plus a few trial times that already fall inside a normal Philippine Time evening. The first lesson is free, and nothing is owed afterward if it isn't the right fit — another tutor is just a message away. Reach the team at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

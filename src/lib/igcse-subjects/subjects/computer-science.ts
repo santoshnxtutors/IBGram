@@ -311,6 +311,6 @@ export const computerScience: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If the reason you are reading this is a mock that came back worse than expected, a theory topic nobody at home can explain, or an examination series that is closer than it was last month, start with four lines: the syllabus code, the language used in class, the student's grade, and what went wrong. Two or three tutors will come back with their real board experience and a rate in writing, and the first lesson is free. Reach us on WhatsApp at +91 7439 368 115, or write to ibgram24@gmail.com. Outside India, mention your city and time zone so we can find a tutor who can actually take that slot.",
+    "If the reason you are reading this is a mock that came back worse than expected, a theory topic nobody at home can explain, or an examination series that is closer than it was last month, start with four lines: the syllabus code, the language used in class, the student's grade, and what went wrong. Two or three tutors will come back with their real board experience and a rate in writing, and the first lesson is free. Reach us on WhatsApp at +91 7439 368 115, or write to support@ibgram.com. Outside India, mention your city and time zone so we can find a tutor who can actually take that slot.",
   lastUpdated: "2026-09-18",
 };

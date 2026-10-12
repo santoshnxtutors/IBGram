@@ -475,5 +475,5 @@ export const kakinada: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Kakinada student",
   closingBody:
-    "Get in touch with your child's situation, private candidate, boarder, or a student adding IB or IGCSE beside a State Board or CBSE seat, plus the subject and level involved. Expect a shortlisted tutor back with their teaching background and a few trial times that genuinely fit your week in Kakinada, taught online and one to one, at no charge and nothing to sign beforehand. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Get in touch with your child's situation, private candidate, boarder, or a student adding IB or IGCSE beside a State Board or CBSE seat, plus the subject and level involved. Expect a shortlisted tutor back with their teaching background and a few trial times that genuinely fit your week in Kakinada, taught online and one to one, at no charge and nothing to sign beforehand. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

@@ -363,7 +363,7 @@ export const egypt: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Egypt?",
-      answer: "Rather than searching generally, name the exact stage — PYP, MYP, DP or CP — the subject, the level, and which school section your child is actually in, since so many Egyptian schools blend British, American and IB streams. Tell us that over email at ibgram24@gmail.com or WhatsApp at +91 7439 368 115, along with a sense of where things currently stand, and a specific tutor comes back to you rather than a list to sift through yourself.",
+      answer: "Rather than searching generally, name the exact stage — PYP, MYP, DP or CP — the subject, the level, and which school section your child is actually in, since so many Egyptian schools blend British, American and IB streams. Tell us that over email at support@ibgram.com or WhatsApp at +91 7439 368 115, along with a sense of where things currently stand, and a specific tutor comes back to you rather than a list to sift through yourself.",
     },
     {
       question: "Can lessons be scheduled on Cairo time?",
@@ -371,7 +371,7 @@ export const egypt: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in Egypt, and how do we pay?",
-      answer: "It varies by programme stage, subject and how many hours a week get booked, with DP Higher Level sciences and maths typically costing more than MYP or PYP support. Whatever the figure, it's put in writing before you commit to anything, so there's nothing unexpected on the first bill. Send your child's level, subject and school section to ibgram24@gmail.com and we'll come back with a current rate, sorting out currency and payment method at the same time.",
+      answer: "It varies by programme stage, subject and how many hours a week get booked, with DP Higher Level sciences and maths typically costing more than MYP or PYP support. Whatever the figure, it's put in writing before you commit to anything, so there's nothing unexpected on the first bill. Send your child's level, subject and school section to support@ibgram.com and we'll come back with a current rate, sorting out currency and payment method at the same time.",
     },
     {
       question: "Do you have in-person tutors in Egypt?",
@@ -423,7 +423,7 @@ export const egypt: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with four things: the child's level and programme, the subject and level needed, preferred Cairo-time hours, and what needs to change — a grade, exam confidence, an IA deadline. A tutor is suggested, their background shared, and an introductory session set up. Nothing is charged until a lesson has happened and a rate agreed.",
+      answer: "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with four things: the child's level and programme, the subject and level needed, preferred Cairo-time hours, and what needs to change — a grade, exam confidence, an IA deadline. A tutor is suggested, their background shared, and an introductory session set up. Nothing is charged until a lesson has happened and a rate agreed.",
     },
   ],
 
@@ -442,5 +442,5 @@ export const egypt: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Cairo time",
-  closingBody: "Share the programme, the subject and level, and which section of the school your child is actually in — British, American or IB. We'll come back with a specific tutor, their teaching history, and a couple of trial slots that sit inside a normal Cairo afternoon or evening, free of charge and with no obligation afterward. If it doesn't feel right, say so and we'll find someone else. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115, with your child's level and current school.",
+  closingBody: "Share the programme, the subject and level, and which section of the school your child is actually in — British, American or IB. We'll come back with a specific tutor, their teaching history, and a couple of trial slots that sit inside a normal Cairo afternoon or evening, free of charge and with no obligation afterward. If it doesn't feel right, say so and we'll find someone else. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115, with your child's level and current school.",
 };

@@ -392,7 +392,7 @@ export const thanesar: CitySeoPage = {
     { question: "What equipment does my child need?", answer: "A laptop or tablet, headphones with a microphone, and a reliable connection are enough. A phone hotspot as a backup is sensible. For maths lessons, a tablet with a stylus or a simple drawing app makes worked solutions easier to share." },
     { question: "Can my child take lessons only during the holidays?", answer: "Yes. Boarding students often use holiday blocks in Diwali, winter and summer breaks, then pause once school restarts. The same tutor can resume next holiday and pick up from the notes of the previous block." },
     { question: "Do you support PYP and MYP students?", answer: "Yes. For PYP, sessions are short and focus on reading, numeracy and Exhibition preparation. For MYP, tutors help with Maths, Sciences, Language and Literature and the Personal Project, coaching the student without writing anything on their behalf." },
-    { question: "How do I get started?", answer: "Write to ibgram24@gmail.com or WhatsApp +91 7439 368 115 with the school, board, subjects and level. We reply with a proposed tutor and a trial slot in the evening or weekend that fits your household." },
+    { question: "How do I get started?", answer: "Write to support@ibgram.com or WhatsApp +91 7439 368 115 with the school, board, subjects and level. We reply with a proposed tutor and a trial slot in the evening or weekend that fits your household." },
   ],
 
   tutorsIntro:
@@ -413,5 +413,5 @@ export const thanesar: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson in Thanesar",
   closingBody:
-    "Send us your child's school, board and subjects, and we will propose a tutor and a free online trial. There is no payment before you have seen the teaching, and rates come in writing first. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "Send us your child's school, board and subjects, and we will propose a tutor and a free online trial. There is no payment before you have seen the teaching, and rates come in writing first. Email support@ibgram.com or WhatsApp +91 7439 368 115.",
 };

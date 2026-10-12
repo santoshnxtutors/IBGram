@@ -187,7 +187,7 @@ export const italian: IgcseSubjectContent = {
         "Say what triggered the search and any date already in the diary",
         "Mention Italian spoken at home, and the region it comes from",
         "Attach one unedited piece of the student's Italian writing",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115",
       ],
     },
   ],
@@ -350,6 +350,6 @@ export const italian: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a marked piece of writing, a listening mock or a speaking date on the school calendar is what brought you here, send the code your school enters - 0535 or 7164 - along with the grade, the school's country, your time zone, and whether Italian is spoken at home. Two or three tutors come back with the routes they have taught and their rate in writing before anything is booked. The first lesson is a free trial, every session ends with a written note, and the tutor is changed if the fit is wrong. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "If a marked piece of writing, a listening mock or a speaking date on the school calendar is what brought you here, send the code your school enters - 0535 or 7164 - along with the grade, the school's country, your time zone, and whether Italian is spoken at home. Two or three tutors come back with the routes they have taught and their rate in writing before anything is booked. The first lesson is a free trial, every session ends with a written note, and the tutor is changed if the fit is wrong. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
   lastUpdated: "2026-09-18",
 };

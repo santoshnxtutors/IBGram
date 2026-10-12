@@ -471,5 +471,5 @@ export const begusarai: CitySeoPage = {
 
   closingHeading: "Start with a free trial class for your Begusarai family",
   closingBody:
-    "Write in with the programme or board your child follows, the subject, the level, and roughly where grades stand at the moment. We reply with tutors who fit that brief, a clear reason for each name, and slots for a genuinely free first class, no card details and no obligation involved. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Write in with the programme or board your child follows, the subject, the level, and roughly where grades stand at the moment. We reply with tutors who fit that brief, a clear reason for each name, and slots for a genuinely free first class, no card details and no obligation involved. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

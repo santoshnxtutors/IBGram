@@ -493,5 +493,5 @@ export const ludhiana: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Ludhiana student",
   closingBody:
-    "Let us know the board or programme, the subject and level, where your child studies right now and how they are currently doing, plus a few times that generally suit your household. What you get back is a tutor picked for that exact need, a note on their background, and open trial slots, run fully online, free of charge and with no paperwork involved. Reach the team at ibgram24@gmail.com, or message +91 7439 368 115 on WhatsApp.",
+    "Let us know the board or programme, the subject and level, where your child studies right now and how they are currently doing, plus a few times that generally suit your household. What you get back is a tutor picked for that exact need, a note on their background, and open trial slots, run fully online, free of charge and with no paperwork involved. Reach the team at support@ibgram.com, or message +91 7439 368 115 on WhatsApp.",
 };

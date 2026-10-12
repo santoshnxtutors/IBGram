@@ -163,13 +163,13 @@ export const designAndTechnology: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting Design and Technology Support Before the Folder Is Due",
       body:
-        "A first message that gets a good match is four lines long. Code, option area, grade, and where the project actually stands. \"Grade 11, Cambridge 0979, resistant materials, product is built, development and evaluation pages not started, school hand-in first week of March\" is enough to put a specialist in front of the student within days. \"Need a DT tutor\" costs two more exchanges, and on a coursework timeline those exchanges are days you do not have.\n\nIf photographs of the existing folder can be sent, send them. A tutor reading four or five real pages will give a far more useful trial session than one working from a description. Suggested tutors arrive with their option-area background and the rate for that specific match, both in writing. There is no published price list, because a Grade 9 foundations student and a Grade 11 folder rescue are not the same work.\n\nWrite to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115 with those four details. Families outside India should add their city and time zone so a slot is proposed in local hours.",
+        "A first message that gets a good match is four lines long. Code, option area, grade, and where the project actually stands. \"Grade 11, Cambridge 0979, resistant materials, product is built, development and evaluation pages not started, school hand-in first week of March\" is enough to put a specialist in front of the student within days. \"Need a DT tutor\" costs two more exchanges, and on a coursework timeline those exchanges are days you do not have.\n\nIf photographs of the existing folder can be sent, send them. A tutor reading four or five real pages will give a far more useful trial session than one working from a description. Suggested tutors arrive with their option-area background and the rate for that specific match, both in writing. There is no published price list, because a Grade 9 foundations student and a Grade 11 folder rescue are not the same work.\n\nWrite to support@ibgram.com or send a WhatsApp message to +91 7439 368 115 with those four details. Families outside India should add their city and time zone so a slot is proposed in local hours.",
       items: [
         "Send four things: code, option area, grade, and the true state of the project",
         "Attach photographs of existing folder pages if you can",
         "Option-area background and rate shared in writing before booking",
         "First lesson is a free trial; the tutor can be changed after it",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp — add your time zone if abroad",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp — add your time zone if abroad",
       ],
     },
   ],
@@ -336,6 +336,6 @@ export const designAndTechnology: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a hand-in date is closing in, or a folder has fallen behind a product that is nearly built, send four things: the code, the option area, the grade, and where the project genuinely stands. Photographs of existing folder pages make the trial session considerably more useful. A suggested tutor's option-area experience and their rate come to you in writing before anything is booked, the first lesson is free, and the tutor can be changed if the fit is wrong. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If a hand-in date is closing in, or a folder has fallen behind a product that is nearly built, send four things: the code, the option area, the grade, and where the project genuinely stands. Photographs of existing folder pages make the trial session considerably more useful. A suggested tutor's option-area experience and their rate come to you in writing before anything is booked, the first lesson is free, and the tutor can be changed if the fit is wrong. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

@@ -373,7 +373,7 @@ export const uae: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in the UAE?",
-      answer: "Start by matching the tutor to your child's exact programme stage — PYP, MYP, DP or CP — and the specific subject and level being taken, since a KHDA, ADEK or SPEA school's syllabus and board can vary widely. IB Gram matches UAE families with online tutors after a short conversation about the school, current grades and where the difficulty actually sits. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp and we'll suggest a tutor rather than hand you a directory to search.",
+      answer: "Start by matching the tutor to your child's exact programme stage — PYP, MYP, DP or CP — and the specific subject and level being taken, since a KHDA, ADEK or SPEA school's syllabus and board can vary widely. IB Gram matches UAE families with online tutors after a short conversation about the school, current grades and where the difficulty actually sits. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp and we'll suggest a tutor rather than hand you a directory to search.",
     },
     {
       question: "Can lessons run in Gulf Standard Time, and does the schedule change with daylight saving?",
@@ -381,7 +381,7 @@ export const uae: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in the UAE, and how do we pay?",
-      answer: "Rates depend on the programme level, the subject and how many hours a week you book — DP Higher Level Sciences and Mathematics generally sit above MYP or IGCSE support. We quote a per-hour rate in writing before anything is booked, so there is no surprise on the first invoice. Email ibgram24@gmail.com with your child's grade, subject and level and ask for the current rate; currency and payment options are confirmed at the same time.",
+      answer: "Rates depend on the programme level, the subject and how many hours a week you book — DP Higher Level Sciences and Mathematics generally sit above MYP or IGCSE support. We quote a per-hour rate in writing before anything is booked, so there is no surprise on the first invoice. Email support@ibgram.com with your child's grade, subject and level and ask for the current rate; currency and payment options are confirmed at the same time.",
     },
     {
       question: "Does IB Gram send tutors to a family's home in the UAE?",
@@ -425,7 +425,7 @@ export const uae: CountrySeoPage = {
     },
     {
       question: "What do you actually need from us to start looking for a tutor?",
-      answer: "Four details get a shortlist moving: your child's grade and programme stage, the exact subject and level, which Emirate and hours suit your evenings, and the one thing you're trying to fix — a specific grade, exam nerves, a looming IA deadline. Send that to ibgram24@gmail.com or on WhatsApp at +91 7439 368 115 and a suggested tutor, with background attached, follows shortly after. No charge is taken before you've watched a lesson and agreed a rate in writing.",
+      answer: "Four details get a shortlist moving: your child's grade and programme stage, the exact subject and level, which Emirate and hours suit your evenings, and the one thing you're trying to fix — a specific grade, exam nerves, a looming IA deadline. Send that to support@ibgram.com or on WhatsApp at +91 7439 368 115 and a suggested tutor, with background attached, follows shortly after. No charge is taken before you've watched a lesson and agreed a rate in writing.",
     },
   ],
 
@@ -444,5 +444,5 @@ export const uae: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Gulf Standard Time",
-  closingBody: "Send over the programme stage, the subject, the level and the Emirate you're calling from, and a named tutor comes back with two or three Gulf Standard Time slots already sitting after the school day ends — free, and with nothing owed if it isn't a fit. Say so if it isn't, and a second tutor gets suggested instead. Reach the team at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115, with your child's grade and current school programme included.",
+  closingBody: "Send over the programme stage, the subject, the level and the Emirate you're calling from, and a named tutor comes back with two or three Gulf Standard Time slots already sitting after the school day ends — free, and with nothing owed if it isn't a fit. Say so if it isn't, and a second tutor gets suggested instead. Reach the team at support@ibgram.com or on WhatsApp at +91 7439 368 115, with your child's grade and current school programme included.",
 };

@@ -356,7 +356,7 @@ export const mexico: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Mexico?",
-      answer: "The useful details are the stage your child is in, the subject and level, and — this part gets skipped surprisingly often — which language the colegio actually teaches that subject in, since a Spanish-medium Matemáticas class and an English-medium Mathematics class draw from entirely different tutor pools. Message ibgram24@gmail.com or +91 7439 368 115 on WhatsApp with the school and the current sticking point, and a specific tutor's name comes back rather than a list to sort through.",
+      answer: "The useful details are the stage your child is in, the subject and level, and — this part gets skipped surprisingly often — which language the colegio actually teaches that subject in, since a Spanish-medium Matemáticas class and an English-medium Mathematics class draw from entirely different tutor pools. Message support@ibgram.com or +91 7439 368 115 on WhatsApp with the school and the current sticking point, and a specific tutor's name comes back rather than a list to sort through.",
     },
     {
       question: "Will a lesson actually land at a normal Mexico City evening hour?",
@@ -364,7 +364,7 @@ export const mexico: CountrySeoPage = {
     },
     {
       question: "What does tutoring actually cost, and how does payment work?",
-      answer: "The number moves with three things — programme level, subject, and how many hours a week get booked — and a Diploma-level science or maths course generally costs more per hour than MYP support does. Whatever that rate turns out to be, it's put in writing before your first payment, not discovered on an invoice. Include your child's grade, subject, level and teaching language in your first message to ibgram24@gmail.com, and ask about currency and payment method at the same time.",
+      answer: "The number moves with three things — programme level, subject, and how many hours a week get booked — and a Diploma-level science or maths course generally costs more per hour than MYP support does. Whatever that rate turns out to be, it's put in writing before your first payment, not discovered on an invoice. Include your child's grade, subject, level and teaching language in your first message to support@ibgram.com, and ask about currency and payment method at the same time.",
     },
     {
       question: "Do any of your tutors actually come to our house in Mexico?",
@@ -412,7 +412,7 @@ export const mexico: CountrySeoPage = {
     },
     {
       question: "How do we actually begin working with a tutor?",
-      answer: "One message to ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, covering your child's stage and grade, the subjects with their levels and teaching languages, an evening window and city, and the specific thing you want to change — a grade, exam nerves, a stalled internal assessment. What comes back first is a named tutor and their background, then a trial lesson; billing only starts after you've watched that lesson and agreed a rate.",
+      answer: "One message to support@ibgram.com or +91 7439 368 115 on WhatsApp, covering your child's stage and grade, the subjects with their levels and teaching languages, an evening window and city, and the specific thing you want to change — a grade, exam nerves, a stalled internal assessment. What comes back first is a named tutor and their background, then a trial lesson; billing only starts after you've watched that lesson and agreed a rate.",
     },
   ],
 
@@ -431,5 +431,5 @@ export const mexico: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Mexico City time",
-  closingBody: "Send over the programme, the subject, the level, the language it's taught in, and the city your family is in, and a named tutor comes back with their teaching background and a couple of trial-slot options already sitting inside a Mexican evening — free, with nothing to continue after it if the fit is off. Say so if it isn't, and a different tutor is arranged instead. Reach us at ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your child's grade and school programme included.",
+  closingBody: "Send over the programme, the subject, the level, the language it's taught in, and the city your family is in, and a named tutor comes back with their teaching background and a couple of trial-slot options already sitting inside a Mexican evening — free, with nothing to continue after it if the fit is off. Say so if it isn't, and a different tutor is arranged instead. Reach us at support@ibgram.com or +91 7439 368 115 on WhatsApp, with your child's grade and school programme included.",
 };

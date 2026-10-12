@@ -379,7 +379,7 @@ export const italy: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Italy?",
-      answer: "The useful starting point is the programme stage and the specific subject and level, not 'a tutor' in general. Get in touch on ibgram24@gmail.com or WhatsApp +91 7439 368 115, tell us which school your child attends, what their current grades look like, and where exactly things are going wrong, and we'll propose a specific tutor rather than pointing you at a directory.",
+      answer: "The useful starting point is the programme stage and the specific subject and level, not 'a tutor' in general. Get in touch on support@ibgram.com or WhatsApp +91 7439 368 115, tell us which school your child attends, what their current grades look like, and where exactly things are going wrong, and we'll propose a specific tutor rather than pointing you at a directory.",
     },
     {
       question: "Do you offer tutoring for Cambridge IGCSE students in Milan and Rome?",
@@ -399,7 +399,7 @@ export const italy: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Italy, and how do we pay?",
-      answer: "It varies by programme level, subject and weekly hours — expect DP HL sciences, Mathematics and any IMAT preparation to cost more than younger MYP support. You get a written per-hour figure before committing to anything, so nothing changes once the first invoice arrives. Get in touch at ibgram24@gmail.com with your child's grade, subject and level, and payment and currency get sorted in that same exchange.",
+      answer: "It varies by programme level, subject and weekly hours — expect DP HL sciences, Mathematics and any IMAT preparation to cost more than younger MYP support. You get a written per-hour figure before committing to anything, so nothing changes once the first invoice arrives. Get in touch at support@ibgram.com with your child's grade, subject and level, and payment and currency get sorted in that same exchange.",
     },
     {
       question: "Do you have in-person tutors in Italy?",
@@ -431,7 +431,7 @@ export const italy: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Write to ibgram24@gmail.com or message +91 7439 368 115 with your child's grade and programme, the subjects and levels involved, when in the evening (Central European Time) tends to work, and what's actually meant to change — a grade, IMAT readiness, an IA that's stalled. A tutor gets proposed, their background shared, and a first session arranged, with nothing charged before you've sat through that lesson and agreed a rate.",
+      answer: "Write to support@ibgram.com or message +91 7439 368 115 with your child's grade and programme, the subjects and levels involved, when in the evening (Central European Time) tends to work, and what's actually meant to change — a grade, IMAT readiness, an IA that's stalled. A tutor gets proposed, their background shared, and a first session arranged, with nothing charged before you've sat through that lesson and agreed a rate.",
     },
   ],
 
@@ -451,5 +451,5 @@ export const italy: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free first lesson, timed to your evening in Italy",
-  closingBody: "Tell us the programme, the subject, the level and the city your child studies in. Within a day or two you'll have a named tutor, their teaching background, and a couple of trial slots already sitting in a Central European Time evening — free, with no obligation to book anything further. If the fit isn't right, tell us and we'll try someone else. Reach us at ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your child's grade and current school programme.",
+  closingBody: "Tell us the programme, the subject, the level and the city your child studies in. Within a day or two you'll have a named tutor, their teaching background, and a couple of trial slots already sitting in a Central European Time evening — free, with no obligation to book anything further. If the fit isn't right, tell us and we'll try someone else. Reach us at support@ibgram.com or +91 7439 368 115 on WhatsApp, with your child's grade and current school programme.",
 };

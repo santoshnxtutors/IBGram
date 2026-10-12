@@ -472,5 +472,5 @@ export const jamnagar: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Jamnagar child",
   closingBody:
-    "Send us the programme or board your child follows, the subject, level and current grade, and a rough sense of when evenings and weekends actually work for your household in Jamnagar. What comes back is a shortlisted tutor, a short note on their background, and trial slots you can pick from, at no cost and with nothing to sign. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send us the programme or board your child follows, the subject, level and current grade, and a rough sense of when evenings and weekends actually work for your household in Jamnagar. What comes back is a shortlisted tutor, a short note on their background, and trial slots you can pick from, at no cost and with nothing to sign. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

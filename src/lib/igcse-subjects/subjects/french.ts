@@ -179,13 +179,13 @@ export const french: IgcseSubjectContent = {
       type: "cta",
       heading: "How to Start IGCSE French Tutoring This Week",
       body:
-        "The quickest route is a message with five facts in it. The syllabus code from the school's entry list, whether it is the Foreign Language or First Language route, the student's grade, what has gone wrong most recently, and the city or time zone you are in. That is usually enough for us to come back with two or three tutors who have taught that exact route, rather than a list of people who speak French.\n\nIf you also know roughly when the school runs its speaking assessment, say so. It changes the order of everything: a family eleven weeks out from that window needs conversation practice started immediately, while a Grade 9 family has the luxury of fixing gender and tense properly first.\n\nThe trial lesson is free and it is a working session, not a sales call. The tutor will talk to the student in French for a few minutes, mark something they have already written, and tell you what they found. You get that in writing. Fees are confirmed in writing before any booking and depend on the tutor's experience and tier, the grade and how often you want to meet. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+        "The quickest route is a message with five facts in it. The syllabus code from the school's entry list, whether it is the Foreign Language or First Language route, the student's grade, what has gone wrong most recently, and the city or time zone you are in. That is usually enough for us to come back with two or three tutors who have taught that exact route, rather than a list of people who speak French.\n\nIf you also know roughly when the school runs its speaking assessment, say so. It changes the order of everything: a family eleven weeks out from that window needs conversation practice started immediately, while a Grade 9 family has the luxury of fixing gender and tense properly first.\n\nThe trial lesson is free and it is a working session, not a sales call. The tutor will talk to the student in French for a few minutes, mark something they have already written, and tell you what they found. You get that in writing. Fees are confirmed in writing before any booking and depend on the tutor's experience and tier, the grade and how often you want to meet. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
       items: [
         "Send the code, the route, the grade, the recent problem and your time zone",
         "Add the school's speaking assessment window if you know it",
         "Free trial lesson: real conversation, real marking, findings in writing",
         "Fees quoted in writing before booking; no published price list",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp",
       ],
     },
   ],
@@ -339,6 +339,6 @@ export const french: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If you already know the code, the route and the date of the school's speaking window, you are most of the way to a good match. Send those, plus the grade and your city or time zone, and we will come back with two or three IGCSE French tutors who have taught that specific route, along with a free trial lesson you can judge for yourself. Sessions run online worldwide in your own time zone; home tutoring is India-only and depends on availability in your city. Written notes after every session, rates agreed in writing, no grade promises. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "If you already know the code, the route and the date of the school's speaking window, you are most of the way to a good match. Send those, plus the grade and your city or time zone, and we will come back with two or three IGCSE French tutors who have taught that specific route, along with a free trial lesson you can judge for yourself. Sessions run online worldwide in your own time zone; home tutoring is India-only and depends on availability in your city. Written notes after every session, rates agreed in writing, no grade promises. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
   lastUpdated: "2026-09-18",
 };

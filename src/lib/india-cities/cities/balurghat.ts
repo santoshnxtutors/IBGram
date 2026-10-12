@@ -82,7 +82,7 @@ export const balurghat: CitySeoPage = {
       "IB and IGCSE tutors in Balurghat picked by syllabus and level",
       "Private lessons from home using a laptop or tablet",
       "Free trial class, written fee, tutor swap on request",
-      "Start on WhatsApp at +91 7439 368 115 or write to ibgram24@gmail.com",
+      "Start on WhatsApp at +91 7439 368 115 or write to support@ibgram.com",
     ],
   },
 
@@ -448,7 +448,7 @@ export const balurghat: CitySeoPage = {
     { question: "My child is in a Bengali-medium school. Is a move to IB or IGCSE realistic?", answer: "Yes, though English expression needs early effort. Tutors practise unseen reading, structured paragraphs and command words together with subject content. Most learners settle within a term or two of regular classes, and Bengali can stay on as a subject in the Diploma or at IGCSE." },
     { question: "Do Indian universities accept the IB Diploma?", answer: "The Association of Indian Universities treats a completed IB Diploma as equivalent to Class 12, and many universities admit on it directly. JEE, NEET and CUET-UG carry their own subject rules, so read the current notices. Tutors can sketch the general picture, but the university states its own requirements." },
     { question: "What if my child and the tutor do not click?", answer: "Ask for another tutor and we will arrange one at no penalty. A one-to-one arrangement depends on fit, and the trial class exists to test it. Tell us what fell short, whether pace, style or timing, so the next match is chosen with better information." },
-    { question: "How do we get started from Balurghat?", answer: "Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com, giving your child's class, subjects, board and sitting. We answer with a suggested tutor and a trial time. Money is discussed only after you have watched the teaching and read the fee in writing." },
+    { question: "How do we get started from Balurghat?", answer: "Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com, giving your child's class, subjects, board and sitting. We answer with a suggested tutor and a trial time. Money is discussed only after you have watched the teaching and read the fee in writing." },
     { question: "Is tutoring available for younger children in PYP and MYP?", answer: "Yes, online, concentrating on reading, arithmetic, writing and inquiry habits. For MYP, tutors also unpack how each subject is graded and guide the Personal Project process, without doing any of the work for the student." },
   ],
 
@@ -469,5 +469,5 @@ export const balurghat: CitySeoPage = {
 
   closingHeading: "Start with a trial class from Balurghat",
   closingBody:
-    "Tell us the class, the subjects and the sitting, and we will suggest a tutor and a slot for your evenings. You watch the teaching, read a written summary, and see the fee in writing before anything else. Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com.",
+    "Tell us the class, the subjects and the sitting, and we will suggest a tutor and a slot for your evenings. You watch the teaching, read a written summary, and see the fee in writing before anything else. Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com.",
 };

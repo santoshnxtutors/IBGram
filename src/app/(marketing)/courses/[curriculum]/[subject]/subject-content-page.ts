@@ -154,7 +154,7 @@ export function courseContentToGeneratedPage(
           name: "IB Gram",
           url: absoluteUrl("/"),
           logo: absoluteUrl("/logo-512.png"),
-          email: "ibgram24@gmail.com",
+          email: "support@ibgram.com",
         },
         {
           "@type": "Service",

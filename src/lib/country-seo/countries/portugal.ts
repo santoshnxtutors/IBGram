@@ -351,7 +351,7 @@ export const portugal: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor for my child in Portugal?",
-      answer: "Naming the exact school, programme and subject gets a far better match than searching generically for 'IB tutor.' Tell IB Gram which of Portugal's IB or Cambridge schools your child attends and where the difficulty currently sits, and we propose a tutor already familiar with that syllabus rather than handing you a directory. Reach us at ibgram24@gmail.com or +91 7439 368 115 to start.",
+      answer: "Naming the exact school, programme and subject gets a far better match than searching generically for 'IB tutor.' Tell IB Gram which of Portugal's IB or Cambridge schools your child attends and where the difficulty currently sits, and we propose a tutor already familiar with that syllabus rather than handing you a directory. Reach us at support@ibgram.com or +91 7439 368 115 to start.",
     },
     {
       question: "Can lessons run at a sensible hour for a family in Portugal?",
@@ -359,7 +359,7 @@ export const portugal: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in Portugal, and how do we pay?",
-      answer: "Rates depend on the subject, level and weekly hours booked, with HL sciences and mathematics typically priced above IGCSE or MYP support. We confirm a rate in writing before anything is booked, along with currency and payment method, so nothing about the first invoice is a surprise. Email ibgram24@gmail.com with your child's grade, subject and level for a current quote.",
+      answer: "Rates depend on the subject, level and weekly hours booked, with HL sciences and mathematics typically priced above IGCSE or MYP support. We confirm a rate in writing before anything is booked, along with currency and payment method, so nothing about the first invoice is a surprise. Email support@ibgram.com with your child's grade, subject and level for a current quote.",
     },
     {
       question: "Is tutoring only available online for families in Portugal?",
@@ -407,7 +407,7 @@ export const portugal: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Message ibgram24@gmail.com or +91 7439 368 115 with your child's school and grade, the subjects and levels in question, your household's evening availability on Western European Time, and what you're actually hoping shifts — a grade, exam nerves, a stalled Extended Essay. A tutor gets proposed with their background attached, and the first lesson is arranged before any money changes hands or a rate is fixed.",
+      answer: "Message support@ibgram.com or +91 7439 368 115 with your child's school and grade, the subjects and levels in question, your household's evening availability on Western European Time, and what you're actually hoping shifts — a grade, exam nerves, a stalled Extended Essay. A tutor gets proposed with their background attached, and the first lesson is arranged before any money changes hands or a rate is fixed.",
     },
   ],
 
@@ -425,5 +425,5 @@ export const portugal: CountrySeoPage = {
   ],
 
   closingHeading: "Start with a free trial lesson, timed to your Portugal evening",
-  closingBody: "Send us your child's school, the subject, the level and the evening hours that work for your household. Back comes a named tutor, a look at their teaching background, and a couple of trial slots already set to Western European Time — free, with nothing to continue if the fit isn't right. Say so and we'll propose someone else. Reach ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your child's grade and school included.",
+  closingBody: "Send us your child's school, the subject, the level and the evening hours that work for your household. Back comes a named tutor, a look at their teaching background, and a couple of trial slots already set to Western European Time — free, with nothing to continue if the fit isn't right. Say so and we'll propose someone else. Reach support@ibgram.com or +91 7439 368 115 on WhatsApp, with your child's grade and school included.",
 };

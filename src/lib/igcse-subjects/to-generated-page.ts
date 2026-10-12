@@ -174,7 +174,7 @@ export function igcseSubjectToGeneratedPage(
           name: "IB Gram",
           url: absoluteUrl("/"),
           logo: absoluteUrl("/logo-512.png"),
-          email: "ibgram24@gmail.com",
+          email: "support@ibgram.com",
           telephone: "+91-7439-368-115",
           areaServed: { "@type": "Place", name: "Worldwide" },
         },

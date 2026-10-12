@@ -364,7 +364,7 @@ export const spain: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Spain?",
-      answer: "Start by matching the tutor to your child's exact programme stage — PYP, MYP, DP or CP — and the subject at the level being taken. IB Gram matches families in Spain with online IB tutors after a short conversation about your child's school, current grades, and where the difficulty actually sits. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, describe the need, and we suggest a tutor rather than handing you a directory to search alone.",
+      answer: "Start by matching the tutor to your child's exact programme stage — PYP, MYP, DP or CP — and the subject at the level being taken. IB Gram matches families in Spain with online IB tutors after a short conversation about your child's school, current grades, and where the difficulty actually sits. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, describe the need, and we suggest a tutor rather than handing you a directory to search alone.",
     },
     {
       question: "Can lessons run in our own time zone, mainland or Canary Islands?",
@@ -372,7 +372,7 @@ export const spain: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Spain, and how do we pay?",
-      answer: "Rates depend on the programme level, subject and how many hours a week you book — HL sciences and mathematics usually sit above MYP support. We quote a per-hour rate in writing before anything is booked, so there is no surprise on the first invoice. Email ibgram24@gmail.com with your child's grade, subject and level and ask for the current rate, and confirm currency and payment method at the same time.",
+      answer: "Rates depend on the programme level, subject and how many hours a week you book — HL sciences and mathematics usually sit above MYP support. We quote a per-hour rate in writing before anything is booked, so there is no surprise on the first invoice. Email support@ibgram.com with your child's grade, subject and level and ask for the current rate, and confirm currency and payment method at the same time.",
     },
     {
       question: "Is tutoring in Spain done face to face or online?",
@@ -420,7 +420,7 @@ export const spain: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or call +91 7439 368 115 with four things: your child's grade and programme, the subjects and levels, mainland or Canary Islands time and preferred hours, and what you want to change — a grade, exam confidence, an IA deadline, or UNEDasiss planning. We suggest a tutor, share their background, and set up an introductory session. Nothing is charged until you have seen a lesson and agreed on the rate.",
+      answer: "Email support@ibgram.com or call +91 7439 368 115 with four things: your child's grade and programme, the subjects and levels, mainland or Canary Islands time and preferred hours, and what you want to change — a grade, exam confidence, an IA deadline, or UNEDasiss planning. We suggest a tutor, share their background, and set up an introductory session. Nothing is charged until you have seen a lesson and agreed on the rate.",
     },
   ],
 
@@ -440,5 +440,5 @@ export const spain: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in your Spanish time zone",
-  closingBody: "Tell us the programme, the subject, the level and whether you're on mainland or Canary Islands time. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit after school in your zone — no charge, and no commitment to continue afterward. If the fit isn't right, say so and we'll try again. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school programme.",
+  closingBody: "Tell us the programme, the subject, the level and whether you're on mainland or Canary Islands time. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit after school in your zone — no charge, and no commitment to continue afterward. If the fit isn't right, say so and we'll try again. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school programme.",
 };

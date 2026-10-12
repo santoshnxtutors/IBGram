@@ -363,7 +363,7 @@ export const medinipur: CitySeoPage = {
   ],
 
   process: [
-    { title: "Share the basics", description: "Send class, board, subjects and target exam session via WhatsApp on +91 7439 368 115 or to ibgram24@gmail.com." },
+    { title: "Share the basics", description: "Send class, board, subjects and target exam session via WhatsApp on +91 7439 368 115 or to support@ibgram.com." },
     { title: "Meet a matched tutor", description: "We propose a tutor who has taught the same course and level, with background shared upfront." },
     { title: "Sit a free lesson", description: "Your child joins a live online session from home in Medinipur and decides how the teaching feels." },
     { title: "Confirm the terms", description: "A written rate and weekly schedule are sent; you accept or walk away." },
@@ -398,7 +398,7 @@ export const medinipur: CitySeoPage = {
     { question: "Do you teach younger children in PYP and MYP?", answer: "Yes. PYP support focuses on reading, writing, number confidence and the Exhibition, while MYP help covers criteria, lab reports and the Personal Project. Lessons for younger children are shorter and more interactive." },
     { question: "Is IB Gram connected to any school or exam board?", answer: "No. IB Gram is an independent tutoring service, not affiliated with the IB, Cambridge International, Pearson or any school on this page. Named schools appear only as nearby reference points, and families should confirm details with the school itself." },
     { question: "Can Bengali be studied as part of IB or IGCSE?", answer: "Yes, where the school and exam board offer it. IB has Bengali A for first-language students, and some IGCSE centres offer Bengali as a second language. Availability depends on the school and centre, so confirm before choosing, and we can arrange a tutor if a syllabus exists." },
-    { question: "How do I start from Medinipur?", answer: "Message +91 7439 368 115 on WhatsApp or email ibgram24@gmail.com with your child's class, board, subjects and exam session. We reply with a tutor suggestion, schedule the free trial lesson and send a written rate before any commitment." },
+    { question: "How do I start from Medinipur?", answer: "Message +91 7439 368 115 on WhatsApp or email support@ibgram.com with your child's class, board, subjects and exam session. We reply with a tutor suggestion, schedule the free trial lesson and send a written rate before any commitment." },
   ],
 
   internalLinks: [
@@ -417,5 +417,5 @@ export const medinipur: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Medinipur student",
   closingBody:
-    "Send the board, subjects and exam session, and we will suggest a tutor for a first lesson at no charge. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp. Lessons run online, and no tutor visits homes in Medinipur.",
+    "Send the board, subjects and exam session, and we will suggest a tutor for a first lesson at no charge. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp. Lessons run online, and no tutor visits homes in Medinipur.",
 };

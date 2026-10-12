@@ -6,7 +6,7 @@
  * change.
  */
 export const CONTACT = {
-  email: "ibgram24@gmail.com",
+  email: "support@ibgram.com",
 
   // Local Indian format (display)
   phoneDisplay: "+91 7439 368 115",

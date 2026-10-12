@@ -82,7 +82,7 @@ export const santipur: CitySeoPage = {
       "IB and IGCSE tutors in Santipur, matched by subject, level and board",
       "Private lessons at home on a laptop or tablet",
       "Free trial lesson, rate in writing, change of tutor on request",
-      "Message on WhatsApp at +91 7439 368 115 or email ibgram24@gmail.com",
+      "Message on WhatsApp at +91 7439 368 115 or email support@ibgram.com",
     ],
   },
 
@@ -402,7 +402,7 @@ export const santipur: CitySeoPage = {
   ],
 
   process: [
-    { title: "Write to us", description: "Send the class, subjects, board and exam session by WhatsApp to +91 7439 368 115 or by email to ibgram24@gmail.com." },
+    { title: "Write to us", description: "Send the class, subjects, board and exam session by WhatsApp to +91 7439 368 115 or by email to support@ibgram.com." },
     { title: "Meet a tutor at a free trial", description: "A complete online lesson at a time that suits your household in Santipur." },
     { title: "Read the written note", description: "The tutor's summary of what was covered and what to do next arrives after the trial." },
     { title: "Agree the plan in writing", description: "Tutor, weekly schedule and rate are confirmed by message before any payment." },
@@ -433,7 +433,7 @@ export const santipur: CitySeoPage = {
     { question: "My child studies in a Bengali-medium school. Can they move to IB or IGCSE?", answer: "Yes, though English expression needs early work. Tutors practise reading unseen passages, writing structured paragraphs and understanding command words alongside subject content. Most students settle within one or two terms of regular lessons, and Bengali can remain a Diploma or IGCSE subject." },
     { question: "Is the IB Diploma accepted by Indian universities?", answer: "The Association of Indian Universities treats a completed IB Diploma as equivalent to Class 12, and many universities accept it directly. JEE, NEET and CUET-UG have specific subject rules, so read the current notices. Tutors can outline the general picture, but each university confirms its own requirements." },
     { question: "What if my child does not get on with the tutor?", answer: "You can ask for a different tutor and we will arrange one without penalty. A one-to-one arrangement depends on fit, and the free trial is there to test it. Tell us what did not work, such as pace, style or timing, so the next match is better informed." },
-    { question: "How do I begin from Santipur?", answer: "Send a WhatsApp message to +91 7439 368 115 or write to ibgram24@gmail.com with your child's class, subjects, board and exam session. We reply with a tutor suggestion and a time for the free trial. Payment is only discussed after you have seen the teaching and agreed the rate in writing." },
+    { question: "How do I begin from Santipur?", answer: "Send a WhatsApp message to +91 7439 368 115 or write to support@ibgram.com with your child's class, subjects, board and exam session. We reply with a tutor suggestion and a time for the free trial. Payment is only discussed after you have seen the teaching and agreed the rate in writing." },
     { question: "Do you offer PYP and MYP tutoring for younger children?", answer: "Yes, PYP and MYP tutoring is available online, focused on reading, mathematics, writing and inquiry skills. For MYP, tutors also explain the criteria used to grade each subject and support the Personal Project process without doing the work for the student." },
   ],
 
@@ -454,5 +454,5 @@ export const santipur: CitySeoPage = {
 
   closingHeading: "One free lesson, then you decide",
   closingBody:
-    "Share your child's class, subjects and exam session, and we will propose a tutor and a trial slot that fits your evenings in Santipur. You watch the teaching first, receive a written note, and see the rate in writing before anything else. WhatsApp +91 7439 368 115 or email ibgram24@gmail.com.",
+    "Share your child's class, subjects and exam session, and we will propose a tutor and a trial slot that fits your evenings in Santipur. You watch the teaching first, receive a written note, and see the rate in writing before anything else. WhatsApp +91 7439 368 115 or email support@ibgram.com.",
 };

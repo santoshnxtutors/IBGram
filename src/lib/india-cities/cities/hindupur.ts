@@ -83,7 +83,7 @@ export const hindupur: CitySeoPage = {
       "Live private lessons at home on a laptop, not a recorded course",
       "Rates quoted in writing before anything is booked",
       "Tutor change on request if the fit is wrong",
-      "Contact on WhatsApp at +91 7439 368 115 or ibgram24@gmail.com",
+      "Contact on WhatsApp at +91 7439 368 115 or support@ibgram.com",
     ],
   },
 
@@ -434,7 +434,7 @@ export const hindupur: CitySeoPage = {
     { question: "My child studies in a Telugu-medium school. Can they still move to IB or IGCSE?", answer: "Yes, though the English adjustment needs early attention. Tutors work on reading unseen passages, writing structured paragraphs and understanding command words, alongside subject content. Most students improve steadily over one or two terms if lessons are regular." },
     { question: "Will the IB Diploma be accepted for Indian universities from Hindupur?", answer: "The Association of Indian Universities treats a completed IB Diploma as equivalent to Class 12 for admission, and many universities accept it directly. For JEE, NEET and CUET-UG there are specific subject rules, so check the current notices. Tutors can explain the general picture but the university confirms the details." },
     { question: "What happens if my child does not get on with the tutor?", answer: "You can ask for a change and we arrange another tutor at no penalty. Fit is important for a one-to-one arrangement, and the first trial exists to test it. Tell us what did not work, such as pace, style or timing, so that the new match is better informed." },
-    { question: "How do I start with IB Gram from Hindupur?", answer: "Send a WhatsApp message to +91 7439 368 115 or an email to ibgram24@gmail.com with your child's class, subjects, board and exam session. We reply with a tutor suggestion and a time for the free trial lesson. No payment is taken until you have seen the teaching and agreed the rate in writing." },
+    { question: "How do I start with IB Gram from Hindupur?", answer: "Send a WhatsApp message to +91 7439 368 115 or an email to support@ibgram.com with your child's class, subjects, board and exam session. We reply with a tutor suggestion and a time for the free trial lesson. No payment is taken until you have seen the teaching and agreed the rate in writing." },
     { question: "Do you offer PYP or MYP tutoring for younger children in Hindupur?", answer: "Yes, PYP and MYP tutoring is available online, focusing on reading, mathematics, writing and inquiry skills. For MYP, tutors also explain the criteria used to grade each subject and help with the Personal Project process without doing the work for the student." },
   ],
 
@@ -455,5 +455,5 @@ export const hindupur: CitySeoPage = {
 
   closingHeading: "Start with one free lesson from Hindupur",
   closingBody:
-    "Tell us the class, the subjects and the exam session, and we will suggest a tutor and a trial time that fits your evenings. You see the teaching first, receive a written note, and agree the rate in writing before anything else. Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com.",
+    "Tell us the class, the subjects and the exam session, and we will suggest a tutor and a trial time that fits your evenings. You see the teaching first, receive a written note, and agree the rate in writing before anything else. Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com.",
 };

@@ -447,5 +447,5 @@ export const palakkad: CitySeoPage = {
 
   closingHeading: "Arrange a free trial lesson for your Palakkad student",
   closingBody:
-    "Let us know the board or programme, the subject and level, and roughly where your child stands at the moment. We will get back with a tutor already teaching that exact course and a trial slot built around your family's schedule, with nothing to pay and no obligation until after you have actually sat through a lesson. Reach IB Gram at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Let us know the board or programme, the subject and level, and roughly where your child stands at the moment. We will get back with a tutor already teaching that exact course and a trial slot built around your family's schedule, with nothing to pay and no obligation until after you have actually sat through a lesson. Reach IB Gram at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

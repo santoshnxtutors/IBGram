@@ -458,5 +458,5 @@ export const panipat: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Panipat family",
   closingBody:
-    "Tell us which programme or board applies, the subject, the level, and where your child currently stands, along with any timing quirks your household actually has. We come back with a tutor already shortlisted for that exact brief, a look at their teaching background, and trial slots to pick from, all online, all one to one, and none of it costs anything until you decide to continue. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us which programme or board applies, the subject, the level, and where your child currently stands, along with any timing quirks your household actually has. We come back with a tutor already shortlisted for that exact brief, a look at their teaching background, and trial slots to pick from, all online, all one to one, and none of it costs anything until you decide to continue. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

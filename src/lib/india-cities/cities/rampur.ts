@@ -473,5 +473,5 @@ export const rampur: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson for your Rampur student",
   closingBody:
-    "Tell us a little about your child: the board or programme, the subject giving trouble, roughly where their grades sit, and when your household is usually free. We come back with a tutor who genuinely teaches that syllabus, a sense of their background, and a trial slot that fits your week, all online, nothing charged and nothing to sign. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us a little about your child: the board or programme, the subject giving trouble, roughly where their grades sit, and when your household is usually free. We come back with a tutor who genuinely teaches that syllabus, a sense of their background, and a trial slot that fits your week, all online, nothing charged and nothing to sign. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

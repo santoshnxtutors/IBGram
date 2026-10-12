@@ -472,5 +472,5 @@ export const pali: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Pali student",
   closingBody:
-    "Tell us the board your child follows, the subject that needs work, roughly where their grades stand, and when your household is usually free. You will hear back with a tutor who genuinely teaches that exact syllabus, some background on them, and a trial slot that fits your week, entirely online, nothing charged, nothing signed. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the board your child follows, the subject that needs work, roughly where their grades stand, and when your household is usually free. You will hear back with a tutor who genuinely teaches that exact syllabus, some background on them, and a trial slot that fits your week, entirely online, nothing charged, nothing signed. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

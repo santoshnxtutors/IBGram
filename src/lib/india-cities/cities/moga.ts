@@ -435,7 +435,7 @@ export const moga: CitySeoPage = {
     {
       question: "How can I contact IB Gram from Moga?",
       answer:
-        "Message +91 7439 368 115 on WhatsApp or email ibgram24@gmail.com with your child's programme, subject, level and school. We reply with a tutor suggestion and a trial time. The contact page on this site also works. Enquiring and attending the trial cost nothing.",
+        "Message +91 7439 368 115 on WhatsApp or email support@ibgram.com with your child's programme, subject, level and school. We reply with a tutor suggestion and a trial time. The contact page on this site also works. Enquiring and attending the trial cost nothing.",
     },
   ],
 
@@ -461,5 +461,5 @@ export const moga: CitySeoPage = {
 
   closingHeading: "A first lesson costs nothing, and it starts at your own table",
   closingBody:
-    "Tell us your child's programme, subject, level and school, and we will propose a tutor and a trial slot. Write on WhatsApp to +91 7439 368 115 or email ibgram24@gmail.com.",
+    "Tell us your child's programme, subject, level and school, and we will propose a tutor and a trial slot. Write on WhatsApp to +91 7439 368 115 or email support@ibgram.com.",
 };

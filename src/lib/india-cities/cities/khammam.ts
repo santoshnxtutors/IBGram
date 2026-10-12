@@ -472,5 +472,5 @@ export const khammam: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Khammam",
   closingBody:
-    "Tell us the programme or board, subject and level, your child's present grade and the hours your Khammam household can spare. You will receive a shortlisted tutor with their teaching background and trial slots, all online and one to one, free and without commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, subject and level, your child's present grade and the hours your Khammam household can spare. You will receive a shortlisted tutor with their teaching background and trial slots, all online and one to one, free and without commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

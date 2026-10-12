@@ -446,7 +446,7 @@ export const vadodara: CitySeoPage = {
     {
       question: "How do I get started with an IB or IGCSE tutor for my Vadodara child?",
       answer:
-        "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with the programme or board, subject, level and your child's current school. We shortlist a tutor within a short turnaround, arrange a free trial class online, and share the fee and a first-month plan once you have both met the tutor and are ready to go ahead.",
+        "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with the programme or board, subject, level and your child's current school. We shortlist a tutor within a short turnaround, arrange a free trial class online, and share the fee and a first-month plan once you have both met the tutor and are ready to go ahead.",
     },
   ],
 
@@ -477,5 +477,5 @@ export const vadodara: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Vadodara child",
   closingBody:
-    "Tell us the programme or board, the subject and level, and your child's current school in Vadodara. You will get back a shortlisted tutor, their teaching background and a trial slot that fits your evening schedule, online, with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, the subject and level, and your child's current school in Vadodara. You will get back a shortlisted tutor, their teaching background and a trial slot that fits your evening schedule, online, with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -454,5 +454,5 @@ export const raghunathganj: CitySeoPage = {
 
   closingHeading: "Ready when you are: an IB or IGCSE tutor for Raghunathganj",
   closingBody:
-    "Tell us the board or programme, the subject and level, and what's actually happening, an online school, a break from boarding, or just an idea you're testing out. We'll come back with a shortlisted tutor, their background, and trial times that work for your household, at no cost and no obligation attached. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the board or programme, the subject and level, and what's actually happening, an online school, a break from boarding, or just an idea you're testing out. We'll come back with a shortlisted tutor, their background, and trial times that work for your household, at no cost and no obligation attached. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

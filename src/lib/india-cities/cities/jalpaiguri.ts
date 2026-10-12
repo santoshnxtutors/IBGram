@@ -796,5 +796,5 @@ export const jalpaiguri: CitySeoPage = {
     }
   ],
   "closingHeading": "Arrange a free trial with an IB or IGCSE tutor in Jalpaiguri",
-  "closingBody": "Tell us the programme or board, subject and level, your child's grade today and the hours that suit your Jalpaiguri household. We return a shortlisted tutor with their teaching background and trial slots to fit your routine, all online and one to one, with no charge and no commitment. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115."
+  "closingBody": "Tell us the programme or board, subject and level, your child's grade today and the hours that suit your Jalpaiguri household. We return a shortlisted tutor with their teaching background and trial slots to fit your routine, all online and one to one, with no charge and no commitment. Email support@ibgram.com or WhatsApp +91 7439 368 115."
 };

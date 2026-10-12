@@ -181,13 +181,13 @@ export const sociology: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting IGCSE Sociology Tutoring This Term",
       body:
-        "A useful first message is four lines long. Something like: Grade 11, Cambridge 0495, lost most of the marks on the fifteen-mark crime and deviance question in the mock, sitting the May series. That is enough to put the right tutor in front of your child at the first attempt. A message that says only that you need a Sociology tutor takes two or three further exchanges to reach the same point, and in the weeks before a mock those exchanges are expensive.\n\nIf you have a marked script, photograph it and send it. It is worth more than any description of the problem, because the pattern of lost marks is usually visible on the page within a minute to someone who marks this paper regularly.\n\nYou will get the proposed tutor's background and the rate for that specific match in writing before you commit to anything. There is no published price list, because the rate depends on the tutor's experience, the grade and how often you want to meet. The first lesson is free. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and if you are outside India add your city and time zone so the schedule proposed is in your hours.",
+        "A useful first message is four lines long. Something like: Grade 11, Cambridge 0495, lost most of the marks on the fifteen-mark crime and deviance question in the mock, sitting the May series. That is enough to put the right tutor in front of your child at the first attempt. A message that says only that you need a Sociology tutor takes two or three further exchanges to reach the same point, and in the weeks before a mock those exchanges are expensive.\n\nIf you have a marked script, photograph it and send it. It is worth more than any description of the problem, because the pattern of lost marks is usually visible on the page within a minute to someone who marks this paper regularly.\n\nYou will get the proposed tutor's background and the rate for that specific match in writing before you commit to anything. There is no published price list, because the rate depends on the tutor's experience, the grade and how often you want to meet. The first lesson is free. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp, and if you are outside India add your city and time zone so the schedule proposed is in your hours.",
       items: [
         "Four lines: grade, specification, what went wrong, and which exam series",
         "Photograph a marked script and attach it — it diagnoses faster than a description",
         "Tutor background and the exact rate confirmed in writing before booking",
         "First lesson is free; there is no published price list",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp; add your time zone if abroad",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp; add your time zone if abroad",
       ],
     },
   ],
@@ -346,6 +346,6 @@ export const sociology: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a marked script is the reason you are reading this, send it. Add the grade, the specification code and which exam series your child is sitting, and a tutor who marks this paper regularly can usually see the pattern of lost marks within a minute. You will get that tutor's background and their rate in writing before you commit, the first lesson is a free trial, and the tutor is changed if the fit turns out to be wrong. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your city and time zone if you are outside India.",
+    "If a marked script is the reason you are reading this, send it. Add the grade, the specification code and which exam series your child is sitting, and a tutor who marks this paper regularly can usually see the pattern of lost marks within a minute. You will get that tutor's background and their rate in writing before you commit, the first lesson is a free trial, and the tutor is changed if the fit turns out to be wrong. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

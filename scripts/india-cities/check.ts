@@ -95,7 +95,7 @@ async function check(slug: string, corpus: Corpus): Promise<string[]> {
   need(new Set(page.sections.map((s) => s.heading)).size === page.sections.length, "duplicate section heading");
 
   const emails = body.match(/[\w.+-]+@[\w-]+\.\w+/g) ?? [];
-  need(emails.every((e) => e === "ibgram24@gmail.com"), `wrong email: ${emails.join(", ")}`);
+  need(emails.every((e) => e === "support@ibgram.com"), `wrong email: ${emails.join(", ")}`);
   const phones = body.match(/\+\d[\d ]{8,}\d/g) ?? [];
   need(phones.every((p) => p === "+91 7439 368 115"), `wrong phone: ${phones.join(", ")}`);
   const banned = body.match(/#1\b|number[- ]one|rank(?:s|ed)? (?:first|top)|100% (?:pass|success|guarantee)|guaranteed (?:grades?|results?|admission|scores?)|\bbest\b[^.]{0,20}\btutors?\b/gi);

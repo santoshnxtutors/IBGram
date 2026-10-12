@@ -452,5 +452,5 @@ export const nashik: CitySeoPage = {
 
   closingHeading: "Get started with an IB or IGCSE tutor for your Nashik student",
   closingBody:
-    "Tell us whether your child is a private candidate, boarding elsewhere, or combining boards, along with the subject, level and times that work. We will reply with a matched tutor, their background, and a free lesson slot, entirely online, with nothing to pay upfront. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us whether your child is a private candidate, boarding elsewhere, or combining boards, along with the subject, level and times that work. We will reply with a matched tutor, their background, and a free lesson slot, entirely online, with nothing to pay upfront. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

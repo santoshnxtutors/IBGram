@@ -433,5 +433,5 @@ export const rourkela: CitySeoPage = {
 
   closingHeading: "Get a free trial lesson with an IB or IGCSE tutor from Rourkela",
   closingBody:
-    "Let us know the board or programme, the subject and level, where your child stands right now, and a few times that suit your household. You'll hear back with a tutor picked for that exact course, what they've taught before, and a slot for a free first lesson, no payment and no obligation attached. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Let us know the board or programme, the subject and level, where your child stands right now, and a few times that suit your household. You'll hear back with a tutor picked for that exact course, what they've taught before, and a slot for a free first lesson, no payment and no obligation attached. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

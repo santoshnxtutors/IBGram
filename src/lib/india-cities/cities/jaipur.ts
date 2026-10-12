@@ -490,7 +490,7 @@ export const jaipur: CitySeoPage = {
     {
       question: "How do I get started with an IB or IGCSE tutor in Jaipur?",
       answer:
-        "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with your child's programme or board, subject, level and current grade. We will send a shortlist of matched tutors along with trial slots that fit a Jaipur school week, and your child can take a free trial class online before you decide on anything.",
+        "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with your child's programme or board, subject, level and current grade. We will send a shortlist of matched tutors along with trial slots that fit a Jaipur school week, and your child can take a free trial class online before you decide on anything.",
     },
   ],
 
@@ -515,5 +515,5 @@ export const jaipur: CitySeoPage = {
 
   closingHeading: "Book a free trial with IB and IGCSE tutors in Jaipur",
   closingBody:
-    "Tell us your child's programme or board, subject and level, and current or predicted grade. We will send back a shortlist of matched tutors and trial slots that fit a Jaipur school week, taught online, one to one, with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us your child's programme or board, subject and level, and current or predicted grade. We will send back a shortlist of matched tutors and trial slots that fit a Jaipur school week, taught online, one to one, with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -454,5 +454,5 @@ export const imphal: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Imphal",
   closingBody:
-    "Send over the programme or board your child follows, the subject and level, roughly where grades stand right now, and slots that fit your week. We come back with a short list of matched tutors, what they have taught recently, and trial times that work for an Imphal household, all delivered online with nothing owed until you decide to continue. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send over the programme or board your child follows, the subject and level, roughly where grades stand right now, and slots that fit your week. We come back with a short list of matched tutors, what they have taught recently, and trial times that work for an Imphal household, all delivered online with nothing owed until you decide to continue. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

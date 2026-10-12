@@ -446,7 +446,7 @@ export const pathankot: CitySeoPage = {
     {
       question: "How do I begin?",
       answer:
-        "Send a WhatsApp message to +91 7439 368 115 or email ibgram24@gmail.com with your child's programme, subject, level and school. We reply with a shortlist and a suggested trial time. The first lesson is free, you are under no obligation to continue, and a written rate reaches you before anything is booked.",
+        "Send a WhatsApp message to +91 7439 368 115 or email support@ibgram.com with your child's programme, subject, level and school. We reply with a shortlist and a suggested trial time. The first lesson is free, you are under no obligation to continue, and a written rate reaches you before anything is booked.",
     },
     {
       question: "What if my child does not click with the tutor?",
@@ -477,5 +477,5 @@ export const pathankot: CitySeoPage = {
 
   closingHeading: "Start a free trial with an IB or IGCSE tutor for your Pathankot student",
   closingBody:
-    "Send us the programme, subject and level, the school your child attends or plans to join, and any date such as a posting or an exam. You will receive a shortlist and a trial slot, and if it does not suit, that is the end of it. Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com.",
+    "Send us the programme, subject and level, the school your child attends or plans to join, and any date such as a posting or an exam. You will receive a shortlist and a trial slot, and if it does not suit, that is the end of it. Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com.",
 };

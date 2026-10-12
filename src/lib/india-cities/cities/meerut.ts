@@ -488,5 +488,5 @@ export const meerut: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Meerut",
   closingBody:
-    "Let us know the programme, subject, level and grade your child is at, plus when your household is usually free. We'll come back with a matched tutor, a look at what they've taught before, and an online slot for a no-cost first lesson. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Let us know the programme, subject, level and grade your child is at, plus when your household is usually free. We'll come back with a matched tutor, a look at what they've taught before, and an online slot for a no-cost first lesson. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

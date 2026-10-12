@@ -428,7 +428,7 @@ export const india: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in India?",
-      answer: "Start with specifics rather than a general search. Tell us the school, the programme, the subject, the level, and for IGCSE the syllabus code on the course outline, plus where the difficulty currently sits — a topic, a paper, an internal assessment. We then propose a named tutor who has taught that exact combination and share their background before anything is booked. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp to start.",
+      answer: "Start with specifics rather than a general search. Tell us the school, the programme, the subject, the level, and for IGCSE the syllabus code on the course outline, plus where the difficulty currently sits — a topic, a paper, an internal assessment. We then propose a named tutor who has taught that exact combination and share their background before anything is booked. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp to start.",
     },
     {
       question: "Do you offer home tuition in India or only online lessons?",
@@ -436,7 +436,7 @@ export const india: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in India?",
-      answer: "It depends on the programme, subject, level, format and how many weekly hours you book. HL sciences and Mathematics AA HL sit at the higher end; IGCSE Grade 9 support and MYP work sit lower, and home tuition in Delhi NCR prices differently from online delivery because of travel time. We confirm the rate in writing before anything starts. Email ibgram24@gmail.com with your child's grade, board and subjects for a current quote.",
+      answer: "It depends on the programme, subject, level, format and how many weekly hours you book. HL sciences and Mathematics AA HL sit at the higher end; IGCSE Grade 9 support and MYP work sit lower, and home tuition in Delhi NCR prices differently from online delivery because of travel time. We confirm the rate in writing before anything starts. Email support@ibgram.com with your child's grade, board and subjects for a current quote.",
     },
     {
       question: "Is the IB Diploma recognised by Indian universities?",
@@ -492,7 +492,7 @@ export const india: CountrySeoPage = {
     },
     {
       question: "How do we get started?",
-      answer: "Message ibgram24@gmail.com or +91 7439 368 115 on WhatsApp with your child's school, board and grade, the subjects and levels involved, your city, your available IST hours, and what you actually want to change — a grade, exam confidence, an Extended Essay that has stalled. We propose a named tutor, share their background, and set up the free trial. Nothing is charged until you have seen that lesson and agreed a rate in writing.",
+      answer: "Message support@ibgram.com or +91 7439 368 115 on WhatsApp with your child's school, board and grade, the subjects and levels involved, your city, your available IST hours, and what you actually want to change — a grade, exam confidence, an Extended Essay that has stalled. We propose a named tutor, share their background, and set up the free trial. Nothing is charged until you have seen that lesson and agreed a rate in writing.",
     },
   ],
 
@@ -512,5 +512,5 @@ export const india: CountrySeoPage = {
   ],
 
   closingHeading: "Start with a free trial lesson, on your own clock",
-  closingBody: "Tell us the school, the board, the subject and the level, and where you are in India. Back comes a named tutor, their teaching background, and trial slots already set to India Standard Time — free, with nothing to continue if the fit is not right. In Gurugram and parts of Delhi NCR that trial can happen at your home; everywhere else it runs live online. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with your child's grade, school and subjects.",
+  closingBody: "Tell us the school, the board, the subject and the level, and where you are in India. Back comes a named tutor, their teaching background, and trial slots already set to India Standard Time — free, with nothing to continue if the fit is not right. In Gurugram and parts of Delhi NCR that trial can happen at your home; everywhere else it runs live online. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with your child's grade, school and subjects.",
 };

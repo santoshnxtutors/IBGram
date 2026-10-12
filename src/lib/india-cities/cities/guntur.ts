@@ -494,5 +494,5 @@ export const guntur: CitySeoPage = {
 
   closingHeading: "Try a class before you decide anything at all",
   closingBody:
-    "Drop us the board or programme, subject and level, the school your child is currently on, and roughly when evenings work for your family. We'll respond with a tutor whose background actually lines up, a trial slot to pick from, and no bill or paperwork attached to that first lesson. Email ibgram24@gmail.com or ping +91 7439 368 115 on WhatsApp.",
+    "Drop us the board or programme, subject and level, the school your child is currently on, and roughly when evenings work for your family. We'll respond with a tutor whose background actually lines up, a trial slot to pick from, and no bill or paperwork attached to that first lesson. Email support@ibgram.com or ping +91 7439 368 115 on WhatsApp.",
 };

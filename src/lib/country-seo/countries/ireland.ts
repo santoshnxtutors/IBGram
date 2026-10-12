@@ -359,7 +359,7 @@ export const ireland: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find an IB tutor in Ireland when there's no school nearby?",
-      answer: "Start with the exact subject and level rather than searching for a local specialist who may not exist — outside Dublin and Limerick, Ireland has no dedicated IB or Cambridge school at all. IB Gram matches Irish families with online tutors after a short conversation about the programme, current grades and where the difficulty sits. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp and we'll suggest a tutor directly.",
+      answer: "Start with the exact subject and level rather than searching for a local specialist who may not exist — outside Dublin and Limerick, Ireland has no dedicated IB or Cambridge school at all. IB Gram matches Irish families with online tutors after a short conversation about the programme, current grades and where the difficulty sits. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp and we'll suggest a tutor directly.",
     },
     {
       question: "Can lessons run on Irish time rather than an awkward hour?",
@@ -367,7 +367,7 @@ export const ireland: CountrySeoPage = {
     },
     {
       question: "How much does tutoring cost, and how do we pay?",
-      answer: "Rates depend on the programme, the subject and how many hours a week you book — Higher Level sciences and mathematics typically sit above MYP support. We quote a per-session rate in writing before anything is booked, so there's no surprise on the first invoice. Email ibgram24@gmail.com with your child's level, subject and grade and ask for current rates and payment options.",
+      answer: "Rates depend on the programme, the subject and how many hours a week you book — Higher Level sciences and mathematics typically sit above MYP support. We quote a per-session rate in writing before anything is booked, so there's no surprise on the first invoice. Email support@ibgram.com with your child's level, subject and grade and ask for current rates and payment options.",
     },
     {
       question: "Do you have in-person tutors in Ireland?",
@@ -415,7 +415,7 @@ export const ireland: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or call +91 7439 368 115 with four things: your child's programme and level, the subjects involved, whether they're at a school or homeschooled, and what you want to change — a grade, exam confidence, an IA deadline. We'll suggest a tutor, share their background, and arrange an introductory session before anything is charged.",
+      answer: "Email support@ibgram.com or call +91 7439 368 115 with four things: your child's programme and level, the subjects involved, whether they're at a school or homeschooled, and what you want to change — a grade, exam confidence, an IA deadline. We'll suggest a tutor, share their background, and arrange an introductory session before anything is charged.",
     },
   ],
 
@@ -435,5 +435,5 @@ export const ireland: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Irish time",
-  closingBody: "Tell us the programme, the subject, the level and whether your child is at a school or being homeschooled. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit on Irish time — no charge, and no commitment to continue after it. If the fit isn't right, say so and we'll try again. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your child's current grade and programme.",
+  closingBody: "Tell us the programme, the subject, the level and whether your child is at a school or being homeschooled. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit on Irish time — no charge, and no commitment to continue after it. If the fit isn't right, say so and we'll try again. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your child's current grade and programme.",
 };

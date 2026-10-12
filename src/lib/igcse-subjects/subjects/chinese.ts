@@ -169,7 +169,7 @@ export const chinese: IgcseSubjectContent = {
         "Attach a photograph of one marked piece of handwritten work if you have it",
         "Tutor shortlist with route experience and rates, in writing, before you commit",
         "Free trial lesson, then a diagnostic first session; tutor changed on request",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115",
       ],
     },
   ],
@@ -323,6 +323,6 @@ export const chinese: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If the trigger was a mock composition covered in red, a speaking assessment in a few weeks, or a decision about whether to keep Mandarin in the option block, send the syllabus code, the script your school teaches, the student's grade and their home-language background. A matched tutor's route experience and rate are confirmed in writing before you commit to anything, the trial lesson is free, and the tutor is changed on request if the fit is wrong. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your city and time zone if you are outside India.",
+    "If the trigger was a mock composition covered in red, a speaking assessment in a few weeks, or a decision about whether to keep Mandarin in the option block, send the syllabus code, the script your school teaches, the student's grade and their home-language background. A matched tutor's route experience and rate are confirmed in writing before you commit to anything, the trial lesson is free, and the tutor is changed on request if the fit is wrong. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

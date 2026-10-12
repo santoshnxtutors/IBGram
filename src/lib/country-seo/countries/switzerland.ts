@@ -375,7 +375,7 @@ export const switzerland: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Switzerland?",
-      answer: "The programme stage and exact subject level matter more than a star rating: a strong MYP tutor and a strong DP HL Chemistry tutor are rarely the same person. We ask about your child's school, current grades and where the trouble actually shows up, then hand you one named suggestion rather than a directory to sift through yourself. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115 to start that conversation.",
+      answer: "The programme stage and exact subject level matter more than a star rating: a strong MYP tutor and a strong DP HL Chemistry tutor are rarely the same person. We ask about your child's school, current grades and where the trouble actually shows up, then hand you one named suggestion rather than a directory to sift through yourself. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115 to start that conversation.",
     },
     {
       question: "Can lessons be scheduled in Central European Time?",
@@ -383,7 +383,7 @@ export const switzerland: CountrySeoPage = {
     },
     {
       question: "What does tutoring cost, and how does payment work?",
-      answer: "Nothing is fixed to a single number — DP Higher Level sciences and mathematics generally command a higher rate than MYP-level support, and total cost scales with how many hours a week get booked. What you always get first is a written quote, before any lesson beyond the trial is scheduled, so there's no guessing on invoice one. Write to ibgram24@gmail.com with your child's grade, subject and level, and ask about currency and payment method in the same message.",
+      answer: "Nothing is fixed to a single number — DP Higher Level sciences and mathematics generally command a higher rate than MYP-level support, and total cost scales with how many hours a week get booked. What you always get first is a written quote, before any lesson beyond the trial is scheduled, so there's no guessing on invoice one. Write to support@ibgram.com with your child's grade, subject and level, and ask about currency and payment method in the same message.",
     },
     {
       question: "Is tutoring ever done face to face in Switzerland?",
@@ -431,7 +431,7 @@ export const switzerland: CountrySeoPage = {
     },
     {
       question: "What's the first step to booking a tutor?",
-      answer: "A message to ibgram24@gmail.com or +91 7439 368 115 covering your child's grade and programme, the subjects and levels needing support, your canton or boarding school with a preferred window in Central European Time, and the actual goal — a grade lift, exam confidence, a looming internal assessment. From there we name a tutor, share their background, and set up a first lesson. Nothing is billed until after that lesson, once you've agreed a rate.",
+      answer: "A message to support@ibgram.com or +91 7439 368 115 covering your child's grade and programme, the subjects and levels needing support, your canton or boarding school with a preferred window in Central European Time, and the actual goal — a grade lift, exam confidence, a looming internal assessment. From there we name a tutor, share their background, and set up a first lesson. Nothing is billed until after that lesson, once you've agreed a rate.",
     },
   ],
 
@@ -450,5 +450,5 @@ export const switzerland: CountrySeoPage = {
   ],
 
   closingHeading: "Try a free lesson with a tutor who already knows this syllabus",
-  closingBody: "Write in with the programme, the subject and level, and the canton or boarding school your child attends, and a named tutor comes back to you with their teaching background attached, plus a couple of trial times that already sit inside a Central European Time evening. There is no cost for that first lesson and no obligation afterward — and if the pairing feels wrong, another one is a message away. Reach the team at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+  closingBody: "Write in with the programme, the subject and level, and the canton or boarding school your child attends, and a named tutor comes back to you with their teaching background attached, plus a couple of trial times that already sit inside a Central European Time evening. There is no cost for that first lesson and no obligation afterward — and if the pairing feels wrong, another one is a message away. Reach the team at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

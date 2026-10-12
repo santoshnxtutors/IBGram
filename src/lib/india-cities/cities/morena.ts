@@ -617,5 +617,5 @@ export const morena: CitySeoPage = {
     "Share the board or programme, subject and level, where your child stands right now, and when your household "
     + "actually has time. We will come back with a tutor whose background fits and a trial slot built around your "
     + "routine, delivered online and one to one, with nothing charged until you decide it is worth continuing. "
-    + "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    + "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -383,7 +383,7 @@ export const rajnandgaon: CitySeoPage = {
     { question: "How long does matching take?", answer: "Typically two to four days once we hold the course, level and your free hours. Core subjects such as Mathematics are quickest; unusual ones like Psychology HL can take longer. Where nobody suitable exists, you will hear that from us straight away." },
     { question: "What internet connection do we need?", answer: "A fixed broadband line or steady 4G handles live video fine. Audio and camera are tested during the free session, and we suggest a spare hotspot for outlying villages, where signal can drop." },
     { question: "Do you offer a free trial?", answer: "Trial classes cost nothing. Your child works through genuine course material with a tutor for one full session, so you see the teaching itself and not a demonstration. Only when you want to carry on do we put a weekly plan and rate on paper, and nothing is taken before that. A change of tutor is simple." },
-    { question: "How do we start from Rajnandgaon?", answer: "Write to us on WhatsApp (+91 7439 368 115) or at ibgram24@gmail.com and include the student's school, course, level and target exam month. A tutor suggestion and trial slot in IST come back to you. Asking costs nothing, and continuing is entirely your decision." },
+    { question: "How do we start from Rajnandgaon?", answer: "Write to us on WhatsApp (+91 7439 368 115) or at support@ibgram.com and include the student's school, course, level and target exam month. A tutor suggestion and trial slot in IST come back to you. Asking costs nothing, and continuing is entirely your decision." },
   ],
 
   internalLinks: [
@@ -404,5 +404,5 @@ export const rajnandgaon: CitySeoPage = {
 
   closingHeading: "Take a free IB or IGCSE lesson at home in Rajnandgaon",
   closingBody:
-    "Tell us which course your child follows and when the exam falls, and we will look for a tutor with real experience of it. A trial lesson comes first at no cost, then a rate on paper if you wish to continue, and the drive to Raipur is unnecessary. WhatsApp +91 7439 368 115 or write to ibgram24@gmail.com.",
+    "Tell us which course your child follows and when the exam falls, and we will look for a tutor with real experience of it. A trial lesson comes first at no cost, then a rate on paper if you wish to continue, and the drive to Raipur is unnecessary. WhatsApp +91 7439 368 115 or write to support@ibgram.com.",
 };

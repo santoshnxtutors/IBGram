@@ -353,7 +353,7 @@ export const france: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in France?",
-      answer: "Start with the exact qualification and stage — IB PYP, MYP, DP, CP, the BFI's foreign-language strand, or IGCSE — and the subject at the level actually being taken. IB Gram matches families in France after a short conversation about the school, current grades and where the real difficulty sits. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp and describe the need; a named tutor follows rather than a directory to search yourself.",
+      answer: "Start with the exact qualification and stage — IB PYP, MYP, DP, CP, the BFI's foreign-language strand, or IGCSE — and the subject at the level actually being taken. IB Gram matches families in France after a short conversation about the school, current grades and where the real difficulty sits. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp and describe the need; a named tutor follows rather than a directory to search yourself.",
     },
     {
       question: "Can my child have lessons scheduled in Central European Time?",
@@ -361,7 +361,7 @@ export const france: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in France, and how do we pay?",
-      answer: "Pricing scales with the qualification, the subject and the weekly hours booked, with DP Higher Level Sciences and Mathematics typically priced above MYP-level support. You get a rate quoted in writing before booking anything, so nothing on the first invoice is a surprise. Reach out to ibgram24@gmail.com with your child's grade, subject and level, and payment currency and method get confirmed alongside the rate.",
+      answer: "Pricing scales with the qualification, the subject and the weekly hours booked, with DP Higher Level Sciences and Mathematics typically priced above MYP-level support. You get a rate quoted in writing before booking anything, so nothing on the first invoice is a surprise. Reach out to support@ibgram.com with your child's grade, subject and level, and payment currency and method get confirmed alongside the rate.",
     },
     {
       question: "Do you have in-person tutors in France?",
@@ -409,7 +409,7 @@ export const france: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Reach the team on ibgram24@gmail.com or +91 7439 368 115, and cover four things: the grade and qualification, the subjects and levels involved, the CET hours that suit your household, and the actual goal — a stronger grade, calmer exam nerves, an IA or literature-essay deadline closing in. A tutor gets suggested by name, their background gets shared, and an introductory lesson gets set up. You're not charged anything until after that lesson, once a rate is agreed.",
+      answer: "Reach the team on support@ibgram.com or +91 7439 368 115, and cover four things: the grade and qualification, the subjects and levels involved, the CET hours that suit your household, and the actual goal — a stronger grade, calmer exam nerves, an IA or literature-essay deadline closing in. A tutor gets suggested by name, their background gets shared, and an introductory lesson gets set up. You're not charged anything until after that lesson, once a rate is agreed.",
     },
   ],
 
@@ -429,5 +429,5 @@ export const france: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Central European Time",
-  closingBody: "Share the qualification, the subject, the level and the hours your household actually keeps. What comes back is a named tutor, their teaching background, and two or three trial times already set for a CET evening or weekend — free, with nothing owed afterward. Not the right fit? Say so and we'll put forward someone else. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115, and mention your child's grade and current school.",
+  closingBody: "Share the qualification, the subject, the level and the hours your household actually keeps. What comes back is a named tutor, their teaching background, and two or three trial times already set for a CET evening or weekend — free, with nothing owed afterward. Not the right fit? Say so and we'll put forward someone else. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115, and mention your child's grade and current school.",
 };

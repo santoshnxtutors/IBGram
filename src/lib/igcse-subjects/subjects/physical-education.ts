@@ -170,13 +170,13 @@ export const physicalEducation: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting IGCSE Physical Education Support This Term",
       body:
-        "A useful first message is short and factual. \"Grade 10, Cambridge 0995, mock came back at a low grade, lost most marks on movement analysis and the psychology section, sitting the May series\" is enough to match properly. \"Needs a PE tutor\" costs two more exchanges to reach the same place, and those exchanges cost days when a mock is three weeks out.\n\nIf you have a marked script, photograph it and send it. In this subject a marked script tells a tutor more in two minutes than a phone call does in twenty, because the pattern of losses is visible immediately: blank extended questions, one-line answers to four-mark items, everyday vocabulary where the scheme wanted anatomical terms. It also prevents the first paid session being spent finding out what is already written down.\n\nTutor backgrounds and the rate for that specific match are shared in writing before anything is booked. There is no published price list, because the fee depends on the tutor's experience and tier, the grade and how often sessions run. The first lesson is a free trial. Write to ibgram24@gmail.com, or send a WhatsApp message to +91 7439 368 115, and include your city and time zone if you are outside India.",
+        "A useful first message is short and factual. \"Grade 10, Cambridge 0995, mock came back at a low grade, lost most marks on movement analysis and the psychology section, sitting the May series\" is enough to match properly. \"Needs a PE tutor\" costs two more exchanges to reach the same place, and those exchanges cost days when a mock is three weeks out.\n\nIf you have a marked script, photograph it and send it. In this subject a marked script tells a tutor more in two minutes than a phone call does in twenty, because the pattern of losses is visible immediately: blank extended questions, one-line answers to four-mark items, everyday vocabulary where the scheme wanted anatomical terms. It also prevents the first paid session being spent finding out what is already written down.\n\nTutor backgrounds and the rate for that specific match are shared in writing before anything is booked. There is no published price list, because the fee depends on the tutor's experience and tier, the grade and how often sessions run. The first lesson is a free trial. Write to support@ibgram.com, or send a WhatsApp message to +91 7439 368 115, and include your city and time zone if you are outside India.",
       items: [
         "Send four details: syllabus code, grade, weakest topic area, and what triggered the search",
         "Attach a photograph of a marked script if you have one",
         "Tutor background and the rate are confirmed in writing before booking",
         "First lesson is a free trial; the tutor can be swapped afterwards",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp — add your time zone if abroad",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp — add your time zone if abroad",
       ],
     },
   ],
@@ -339,6 +339,6 @@ export const physicalEducation: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a Grade 10 mock came back badly, or your child chose Physical Education as a sport subject and has just met the theory paper, send the code, the grade, the topic area that is going wrong and the examination series you are working towards. A photograph of a marked script helps more than a long description. Tutor backgrounds and the rate for that match are shared in writing first, the trial lesson is free, and the tutor can be changed if the fit is not right. Write to ibgram24@gmail.com, or send a WhatsApp message to +91 7439 368 115, adding your city and time zone if you are outside India.",
+    "If a Grade 10 mock came back badly, or your child chose Physical Education as a sport subject and has just met the theory paper, send the code, the grade, the topic area that is going wrong and the examination series you are working towards. A photograph of a marked script helps more than a long description. Tutor backgrounds and the rate for that match are shared in writing first, the trial lesson is free, and the tutor can be changed if the fit is not right. Write to support@ibgram.com, or send a WhatsApp message to +91 7439 368 115, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

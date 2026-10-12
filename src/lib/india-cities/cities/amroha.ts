@@ -462,5 +462,5 @@ export const amroha: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson with an IB or IGCSE tutor for your child in Amroha",
   closingBody:
-    "Tell us whether your child is a private candidate, continuing a programme from another school, or just exploring the options, along with the subject, level and current stage. You will get back a tutor suited to that exact situation and trial times that fit your week, entirely online, with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us whether your child is a private candidate, continuing a programme from another school, or just exploring the options, along with the subject, level and current stage. You will get back a tutor suited to that exact situation and trial times that fit your week, entirely online, with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -470,5 +470,5 @@ export const tumkur: CitySeoPage = {
 
   closingHeading: "Book a free class for your Tumkur-connected child",
   closingBody:
-    "Let us know which school or online programme your child follows, the subject and level that need work, and roughly when sessions would suit your week or commute. A shortlisted tutor comes back with their teaching background and a few trial times to pick from, run live over video, free of charge and with nothing to sign. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Let us know which school or online programme your child follows, the subject and level that need work, and roughly when sessions would suit your week or commute. A shortlisted tutor comes back with their teaching background and a few trial times to pick from, run live over video, free of charge and with nothing to sign. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

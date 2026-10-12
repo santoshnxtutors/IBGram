@@ -345,7 +345,7 @@ export const nigeria: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB or IGCSE tutor in Nigeria?",
-      answer: "Start with the exact board and level your child is sitting — WASSCE, NECO, Cambridge IGCSE, A Level or IB — rather than a general search for a tutor. We match Nigerian families with an online tutor after a short conversation about the school, current results and where the difficulty actually sits. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp and describe the need; a suggested tutor comes back rather than a directory to browse.",
+      answer: "Start with the exact board and level your child is sitting — WASSCE, NECO, Cambridge IGCSE, A Level or IB — rather than a general search for a tutor. We match Nigerian families with an online tutor after a short conversation about the school, current results and where the difficulty actually sits. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp and describe the need; a suggested tutor comes back rather than a directory to browse.",
     },
     {
       question: "Can lessons run on West Africa Time?",
@@ -353,7 +353,7 @@ export const nigeria: CountrySeoPage = {
     },
     {
       question: "What does tutoring cost in Nigeria, and how do we pay?",
-      answer: "Rates depend on the exam board, subject and how many weekly hours are booked — A Level and IB Higher Level sciences typically sit above WASSCE core-subject support. A rate is quoted in writing before anything is booked, so nothing surprises you on the first invoice. Email ibgram24@gmail.com with the board, subject and level for a current quote, and confirm currency and payment method at the same time.",
+      answer: "Rates depend on the exam board, subject and how many weekly hours are booked — A Level and IB Higher Level sciences typically sit above WASSCE core-subject support. A rate is quoted in writing before anything is booked, so nothing surprises you on the first invoice. Email support@ibgram.com with the board, subject and level for a current quote, and confirm currency and payment method at the same time.",
     },
     {
       question: "Is there an in-person option anywhere in Nigeria?",
@@ -401,7 +401,7 @@ export const nigeria: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with your child's exam board, subject and level, your preferred time on West Africa Time, and what you want to change — a grade, exam confidence, a stalled internal assessment. A suggested tutor, their background, and a time for an introductory lesson come back from there. Nothing is charged until you've seen that lesson and agreed on a rate.",
+      answer: "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with your child's exam board, subject and level, your preferred time on West Africa Time, and what you want to change — a grade, exam confidence, a stalled internal assessment. A suggested tutor, their background, and a time for an introductory lesson come back from there. Nothing is charged until you've seen that lesson and agreed on a rate.",
     },
   ],
 
@@ -420,5 +420,5 @@ export const nigeria: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial lesson on West Africa Time",
-  closingBody: "Send over the exam board, subject, level and your preferred time on WAT, and you'll hear back with a named tutor, their teaching background, and a couple of trial slots that already fit a Nigerian evening — no cost, and no obligation to continue afterward. If it isn't the right fit, tell us and we'll try again with someone else. Reach us at ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your child's current school and exam board.",
+  closingBody: "Send over the exam board, subject, level and your preferred time on WAT, and you'll hear back with a named tutor, their teaching background, and a couple of trial slots that already fit a Nigerian evening — no cost, and no obligation to continue afterward. If it isn't the right fit, tell us and we'll try again with someone else. Reach us at support@ibgram.com or +91 7439 368 115 on WhatsApp, with your child's current school and exam board.",
 };

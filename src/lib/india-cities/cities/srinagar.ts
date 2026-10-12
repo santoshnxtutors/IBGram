@@ -436,7 +436,7 @@ export const srinagar: CitySeoPage = {
     {
       question: "How do we get started with IB Gram from Srinagar?",
       answer:
-        "Send an email to ibgram24@gmail.com or a WhatsApp message to +91 7439 368 115 with the programme or board, subject, level and a rough sense of your household's weekly availability. From there we put forward a shortlist chosen on syllabus fit, set up a free trial lesson online, and lock in a first month's plan once everyone is satisfied with the pairing.",
+        "Send an email to support@ibgram.com or a WhatsApp message to +91 7439 368 115 with the programme or board, subject, level and a rough sense of your household's weekly availability. From there we put forward a shortlist chosen on syllabus fit, set up a free trial lesson online, and lock in a first month's plan once everyone is satisfied with the pairing.",
     },
     {
       question: "My child boards outside Kashmir. Can a tutor keep the syllabus going during winter break?",
@@ -488,7 +488,7 @@ export const srinagar: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor connected to Srinagar",
   closingBody:
-    "Send over the programme or board, the subject and level, where your child currently stands, and the hours that realistically work for your household. A tutor gets shortlisted on syllabus fit, a trial lesson gets arranged online at no cost, and there is nothing to sign either way, whatever your child's situation, boarding outside the Valley, learning through a fully online school, or preparing an application to one. Reach us by email at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send over the programme or board, the subject and level, where your child currently stands, and the hours that realistically work for your household. A tutor gets shortlisted on syllabus fit, a trial lesson gets arranged online at no cost, and there is nothing to sign either way, whatever your child's situation, boarding outside the Valley, learning through a fully online school, or preparing an application to one. Reach us by email at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 
   geo: { latitude: 34.0837, longitude: 74.7973 },
   wikipedia: "https://en.wikipedia.org/wiki/Srinagar",

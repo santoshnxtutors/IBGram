@@ -480,5 +480,5 @@ export const faridabad: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson with an IB or IGCSE tutor in Faridabad",
   closingBody:
-    "Send over the board, the subject and level, where your child currently stands, and which sector of Faridabad you are in. We will come back with a tutor, a short note on their background, and trial times that fit around school, whether that ends up being a home visit, a screen, or a bit of both, with nothing charged and nothing to sign. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send over the board, the subject and level, where your child currently stands, and which sector of Faridabad you are in. We will come back with a tutor, a short note on their background, and trial times that fit around school, whether that ends up being a home visit, a screen, or a bit of both, with nothing charged and nothing to sign. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

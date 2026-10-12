@@ -474,5 +474,5 @@ export const kurnool: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Kurnool student",
   closingBody:
-    "Tell us which situation fits, Monte International student wanting depth, private candidate, boarder, or someone adding IB or IGCSE beside a State Board or CBSE seat, and give us the subject and level. A tutor comes back shortlisted with their teaching background and a few trial times that actually suit your week, no payment involved and nothing to sign before that lesson happens. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Tell us which situation fits, Monte International student wanting depth, private candidate, boarder, or someone adding IB or IGCSE beside a State Board or CBSE seat, and give us the subject and level. A tutor comes back shortlisted with their teaching background and a few trial times that actually suit your week, no payment involved and nothing to sign before that lesson happens. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

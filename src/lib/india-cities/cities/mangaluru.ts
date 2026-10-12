@@ -470,5 +470,5 @@ export const mangaluru: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Mangaluru",
   closingBody:
-    "Send us the programme or board, the subject and level, your child's current grade and the hours that suit your Mangaluru household. You will get back a shortlisted tutor, their teaching background and trial slots that fit your school week, delivered online and one to one, with no charge and no commitment attached. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send us the programme or board, the subject and level, your child's current grade and the hours that suit your Mangaluru household. You will get back a shortlisted tutor, their teaching background and trial slots that fit your school week, delivered online and one to one, with no charge and no commitment attached. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -170,7 +170,7 @@ export const artAndDesign: IgcseSubjectContent = {
         "Attach three or four photographs of recent spreads rather than describing them",
         "Mention the externally set assignment starting point if the paper has been released",
         "Free trial first, tutor rate in writing before any booking",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115 with your city and time zone",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115 with your city and time zone",
       ],
     },
   ],
@@ -328,6 +328,6 @@ export const artAndDesign: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a portfolio review, a looming coursework deadline or a freshly released assignment paper brought you here, send the syllabus code, the area of study, the grade and a few photographs of recent spreads. You will get two or three tutors with their real background and their rate in writing, then a free trial session spent on your child's own pages rather than on a sales pitch. A written note follows every session, the tutor can be changed if the fit is wrong, and no part of the submitted work will ever be made by anyone but the student. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, with your city and time zone if you are outside India.",
+    "If a portfolio review, a looming coursework deadline or a freshly released assignment paper brought you here, send the syllabus code, the area of study, the grade and a few photographs of recent spreads. You will get two or three tutors with their real background and their rate in writing, then a free trial session spent on your child's own pages rather than on a sales pitch. A written note follows every session, the tutor can be changed if the fit is wrong, and no part of the submitted work will ever be made by anyone but the student. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, with your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

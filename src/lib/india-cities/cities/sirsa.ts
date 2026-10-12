@@ -487,7 +487,7 @@ export const sirsa: CitySeoPage = {
     {
       question: "How do I start from Sirsa?",
       answer:
-        "Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com with the school, programme, subject and recent marks. We suggest a tutor, arrange a free trial and confirm the rate in writing. All lessons are online, so your routine only needs a laptop and a quiet hour.",
+        "Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com with the school, programme, subject and recent marks. We suggest a tutor, arrange a free trial and confirm the rate in writing. All lessons are online, so your routine only needs a laptop and a quiet hour.",
     },
   ],
 

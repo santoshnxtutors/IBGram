@@ -544,7 +544,7 @@ export const vapi: CitySeoPage = {
     {
       question: "How do I get started from Vapi?",
       answer:
-        "Message us on WhatsApp at +91 7439 368 115 or email ibgram24@gmail.com with the school, programme, subject and recent marks. We shortlist tutors who have taught that exact syllabus, propose a slot and arrange the free trial. Lessons run online on IST, so nothing changes about your routine other than a laptop and a quiet hour.",
+        "Message us on WhatsApp at +91 7439 368 115 or email support@ibgram.com with the school, programme, subject and recent marks. We shortlist tutors who have taught that exact syllabus, propose a slot and arrange the free trial. Lessons run online on IST, so nothing changes about your routine other than a laptop and a quiet hour.",
     },
   ],
 

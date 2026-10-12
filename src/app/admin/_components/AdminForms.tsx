@@ -536,7 +536,7 @@ export function AdminSettingsForm() {
       <Field label="Production domain" defaultValue="https://ibgram.com" />
       <Field label="Default OG image" defaultValue="/images/ib-gram-city-og.svg" />
       <Field label="Organization name" defaultValue="IB Gram" />
-      <Field label="Contact email" defaultValue="ibgram24@gmail.com" />
+      <Field label="Contact email" defaultValue="support@ibgram.com" />
       <Field label="Default robots behavior" defaultValue="index" />
       <Field label="AI generation default tone" defaultValue="premium, helpful, parent-facing" />
       <p className="rounded-lg border border-emerald-300/20 bg-emerald-300/10 p-3 text-sm font-semibold text-emerald-100">Auth secrets are read from server-only environment variables and are never sent to this form.</p>

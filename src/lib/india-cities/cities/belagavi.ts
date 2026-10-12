@@ -467,5 +467,5 @@ export const belagavi: CitySeoPage = {
 
   closingHeading: "Start with a free lesson from an IB or IGCSE tutor for your Belagavi student",
   closingBody:
-    "Get in touch with the board or programme, the subject and level, roughly where your child is right now, and what a workable evening looks like for your household. A tutor whose background fits will come back to you along with some open trial slots, no payment and no signature needed at this stage. IB Gram can be reached at ibgram24@gmail.com by email, or on WhatsApp at +91 7439 368 115.",
+    "Get in touch with the board or programme, the subject and level, roughly where your child is right now, and what a workable evening looks like for your household. A tutor whose background fits will come back to you along with some open trial slots, no payment and no signature needed at this stage. IB Gram can be reached at support@ibgram.com by email, or on WhatsApp at +91 7439 368 115.",
 };

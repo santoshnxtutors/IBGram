@@ -185,7 +185,7 @@ export const enterprise: IgcseSubjectContent = {
         "Include the next internal deadline and the teacher's last comment",
         "Add your city and time zone; say if you want home tutoring checked in India",
         "Free trial lesson, rates in writing, written note after every session",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115",
       ],
     },
   ],
@@ -339,6 +339,6 @@ export const enterprise: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a coursework task is due, an idea has stalled, or the pre-released case study is still sitting unread, send us the grade, the syllabus code 0454, the venture idea in one line and the next deadline. We will suggest tutors who have coached a moderated Enterprise portfolio before, share their background and their rate in writing, and start with a free trial lesson. Tutors coach the student's own project and never write any part of it. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your city and time zone if you are outside India.",
+    "If a coursework task is due, an idea has stalled, or the pre-released case study is still sitting unread, send us the grade, the syllabus code 0454, the venture idea in one line and the next deadline. We will suggest tutors who have coached a moderated Enterprise portfolio before, share their background and their rate in writing, and start with a free trial lesson. Tutors coach the student's own project and never write any part of it. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

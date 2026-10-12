@@ -340,6 +340,6 @@ export const arabic: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If the reason you are reading this is a mock that came back lower than the household expected, a Grade 9 child placed in a compulsory Arabic class who cannot yet join letters, or a move between countries that has thrown the entry into doubt, send the code and the route and let us look at it properly. You will get named tutors with their real Arabic background, their rate in writing, and a free trial lesson in your own time zone before any commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, with your city and time zone if you are outside India.",
+    "If the reason you are reading this is a mock that came back lower than the household expected, a Grade 9 child placed in a compulsory Arabic class who cannot yet join letters, or a move between countries that has thrown the entry into doubt, send the code and the route and let us look at it properly. You will get named tutors with their real Arabic background, their rate in writing, and a free trial lesson in your own time zone before any commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, with your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

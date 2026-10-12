@@ -364,7 +364,7 @@ export const china: CountrySeoPage = {
     },
     {
       question: "How do I find a good IB or A Level tutor in China?",
-      answer: "Naming your child's exact school type, programme and exam board gets a far better result than a generic search for 'IB tutor.' Tell us that plus where the current difficulty sits and IB Gram proposes a tutor already familiar with that specific board, rather than pointing you at a directory to sift through yourself. Reach us at ibgram24@gmail.com or +91 7439 368 115 to start that conversation.",
+      answer: "Naming your child's exact school type, programme and exam board gets a far better result than a generic search for 'IB tutor.' Tell us that plus where the current difficulty sits and IB Gram proposes a tutor already familiar with that specific board, rather than pointing you at a directory to sift through yourself. Reach us at support@ibgram.com or +91 7439 368 115 to start that conversation.",
     },
     {
       question: "Can lessons run on Beijing Time, and will video actually work?",
@@ -372,7 +372,7 @@ export const china: CountrySeoPage = {
     },
     {
       question: "How much does IB or A Level tutoring cost for families in China, and how do we pay?",
-      answer: "Rates depend on the programme, subject and how many hours a week you book — DP HL sciences and A Level sciences typically sit above IGCSE or MYP support. We quote a rate in writing before anything is booked, so there is no surprise on the first invoice. Email ibgram24@gmail.com with your child's grade, subject and board and ask for the current rate and payment currency options.",
+      answer: "Rates depend on the programme, subject and how many hours a week you book — DP HL sciences and A Level sciences typically sit above IGCSE or MYP support. We quote a rate in writing before anything is booked, so there is no surprise on the first invoice. Email support@ibgram.com with your child's grade, subject and board and ask for the current rate and payment currency options.",
     },
     {
       question: "Is tutoring only available online for families based in China?",
@@ -416,7 +416,7 @@ export const china: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Write to ibgram24@gmail.com or reach us on +91 7439 368 115 with your child's school type and grade, the subjects and levels involved, the Beijing Time hours that suit your household, and the specific outcome you're after — a stronger grade, calmer exam nerves, a coursework deadline met. From there we name a tutor, share their background with you, and set up the introductory lesson. No payment changes hands until after you've seen that lesson and agreed a rate.",
+      answer: "Write to support@ibgram.com or reach us on +91 7439 368 115 with your child's school type and grade, the subjects and levels involved, the Beijing Time hours that suit your household, and the specific outcome you're after — a stronger grade, calmer exam nerves, a coursework deadline met. From there we name a tutor, share their background with you, and set up the introductory lesson. No payment changes hands until after you've seen that lesson and agreed a rate.",
     },
   ],
 
@@ -434,5 +434,5 @@ export const china: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB, A Level or IGCSE tutor on Beijing Time",
-  closingBody: "Tell us your child's school type, the subject, the level and the board. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit after school on Beijing Time — no charge, and no commitment to continue after it. If the fit isn't right, say so and we'll try again. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school type.",
+  closingBody: "Tell us your child's school type, the subject, the level and the board. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit after school on Beijing Time — no charge, and no commitment to continue after it. If the fit isn't right, say so and we'll try again. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school type.",
 };

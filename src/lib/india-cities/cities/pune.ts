@@ -513,5 +513,5 @@ export const pune: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Pune",
   closingBody:
-    "Tell us the programme or board, subject and level, your child's current grade and the times that fit your Pune schedule. You'll get a shortlisted tutor, their recent teaching background and trial slots online, with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, subject and level, your child's current grade and the times that fit your Pune schedule. You'll get a shortlisted tutor, their recent teaching background and trial slots online, with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -484,5 +484,5 @@ export const thrissur: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Thrissur student",
   closingBody:
-    "Tell us the programme or board, subject and level, your child's current grade, and the hours your household can actually keep. A shortlisted tutor gets back to you with their teaching background and open trial slots, built around Thrissur's school day, Pooram season and the monsoon, all of it delivered online and one to one, at no cost and with nothing to sign. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, subject and level, your child's current grade, and the hours your household can actually keep. A shortlisted tutor gets back to you with their teaching background and open trial slots, built around Thrissur's school day, Pooram season and the monsoon, all of it delivered online and one to one, at no cost and with nothing to sign. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

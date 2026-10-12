@@ -472,5 +472,5 @@ export const ongole: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Ongole student",
   closingBody:
-    "Send across the board your child studies under, the subject causing trouble, roughly where their grades are today, and when your household is typically free. We will reply with a tutor genuinely teaching that syllabus, a little about their background, and a trial slot built around your week, entirely online, no charge, nothing to sign. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send across the board your child studies under, the subject causing trouble, roughly where their grades are today, and when your household is typically free. We will reply with a tutor genuinely teaching that syllabus, a little about their background, and a trial slot built around your week, entirely online, no charge, nothing to sign. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

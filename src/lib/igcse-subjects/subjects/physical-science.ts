@@ -165,13 +165,13 @@ export const physicalScience: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting Physical Science Support This Week",
       body:
-        "The first message does not need to be long, it needs to be specific. Four details are enough to match properly: the code, the tier, the grade, and what prompted you to look. Something like \"Grade 10, Cambridge 0652 Extended, chemistry marks fine and physics dropped fifteen marks in the last test, school does the written alternative-to-practical\" gets a sensible shortlist back straight away. \"Need a science tutor\" takes two or three more exchanges to reach the same place, and those exchanges cost days when an assessment is close.\n\nYou will get the suggested tutor's actual background — the boards and codes they have taught, how much of each half of 0652 they have delivered, how they structure a session — along with the rate for that specific match, in writing, before anything is booked. There is no published price list, because the fee depends on the tutor's experience and tier, the student's grade and how often you want sessions. The first lesson is free, and the tutor can be changed afterwards if the fit is wrong.\n\nEmail ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115 with those four details. If you are outside India, add your city and time zone so a weekly slot can be proposed in your local hours rather than Indian ones.",
+        "The first message does not need to be long, it needs to be specific. Four details are enough to match properly: the code, the tier, the grade, and what prompted you to look. Something like \"Grade 10, Cambridge 0652 Extended, chemistry marks fine and physics dropped fifteen marks in the last test, school does the written alternative-to-practical\" gets a sensible shortlist back straight away. \"Need a science tutor\" takes two or three more exchanges to reach the same place, and those exchanges cost days when an assessment is close.\n\nYou will get the suggested tutor's actual background — the boards and codes they have taught, how much of each half of 0652 they have delivered, how they structure a session — along with the rate for that specific match, in writing, before anything is booked. There is no published price list, because the fee depends on the tutor's experience and tier, the student's grade and how often you want sessions. The first lesson is free, and the tutor can be changed afterwards if the fit is wrong.\n\nEmail support@ibgram.com or send a WhatsApp message to +91 7439 368 115 with those four details. If you are outside India, add your city and time zone so a weekly slot can be proposed in your local hours rather than Indian ones.",
       items: [
         "Send four things: the code, the tier, the grade, and what triggered the search",
         "Say which half is weaker and whether the school uses the practical test or the alternative",
         "Tutor background and the rate for that match come in writing before you book",
         "First lesson is free; the tutor can be changed after it",
-        "ibgram24@gmail.com or WhatsApp +91 7439 368 115, with your time zone if abroad",
+        "support@ibgram.com or WhatsApp +91 7439 368 115, with your time zone if abroad",
       ],
     },
   ],
@@ -334,6 +334,6 @@ export const physicalScience: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If the option sheet is due, or one half of the course has drifted while the other carried the grade, tell us the code, the tier, the student's grade and which discipline is losing marks. You will get a shortlist of tutors with their real teaching history across both halves of 0652, the rate for that match in writing, and a free first lesson before any commitment. If the fit is wrong, the tutor changes. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If the option sheet is due, or one half of the course has drifted while the other carried the grade, tell us the code, the tier, the student's grade and which discipline is losing marks. You will get a shortlist of tutors with their real teaching history across both halves of 0652, the rate for that match in writing, and a free first lesson before any commitment. If the fit is wrong, the tutor changes. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

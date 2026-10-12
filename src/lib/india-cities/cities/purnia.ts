@@ -474,5 +474,5 @@ export const purnia: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Purnia student",
   closingBody:
-    "Write to us with the board or programme, the subject that needs the most work, where your child stands right now, and a window of time that suits school or a boarding break. A tutor comes back matched on real, recent experience with that syllabus, along with an open trial slot, at no cost and with no obligation attached. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp to get started.",
+    "Write to us with the board or programme, the subject that needs the most work, where your child stands right now, and a window of time that suits school or a boarding break. A tutor comes back matched on real, recent experience with that syllabus, along with an open trial slot, at no cost and with no obligation attached. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp to get started.",
 };

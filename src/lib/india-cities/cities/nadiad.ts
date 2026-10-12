@@ -470,5 +470,5 @@ export const nadiad: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Nadiad",
   closingBody:
-    "Tell us the programme or board, subject and level, your child's current grade, and when your Nadiad household is genuinely available. Back comes a shortlisted tutor, their teaching background, and open trial slots that fit around your routine, all delivered online and one to one, at no cost and no obligation. Write to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115.",
+    "Tell us the programme or board, subject and level, your child's current grade, and when your Nadiad household is genuinely available. Back comes a shortlisted tutor, their teaching background, and open trial slots that fit around your routine, all delivered online and one to one, at no cost and no obligation. Write to support@ibgram.com or send a WhatsApp message to +91 7439 368 115.",
 };

@@ -474,5 +474,5 @@ export const yamunanagar: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Yamunanagar",
   closingBody:
-    "Let us know the board or programme, the subject and level, where your child stands today, and when your household is genuinely free. Back comes a shortlisted tutor with their background explained and a trial slot that fits your week, delivered entirely online, at no cost and with nothing owed. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "Let us know the board or programme, the subject and level, where your child stands today, and when your household is genuinely free. Back comes a shortlisted tutor with their background explained and a trial slot that fits your week, delivered entirely online, at no cost and with nothing owed. Email support@ibgram.com or WhatsApp +91 7439 368 115.",
 };

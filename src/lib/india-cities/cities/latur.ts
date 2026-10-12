@@ -459,5 +459,5 @@ export const latur: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Latur family",
   closingBody:
-    "Send across the programme or board, the subject and level, your child's current grade, and whether this is a full-term arrangement or support during a boarding-school break. What comes back is a shortlisted tutor, their teaching background, and trial slots that actually fit your week, delivered online and one to one, with nothing charged and nothing owed. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send across the programme or board, the subject and level, your child's current grade, and whether this is a full-term arrangement or support during a boarding-school break. What comes back is a shortlisted tutor, their teaching background, and trial slots that actually fit your week, delivered online and one to one, with nothing charged and nothing owed. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

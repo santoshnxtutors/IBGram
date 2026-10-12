@@ -490,5 +490,5 @@ export const vijayawada: CitySeoPage = {
 
   closingHeading: "Try a free IB or IGCSE lesson with a tutor matched to your Vijayawada student",
   closingBody:
-    "Tell us the board or programme, the subject and level, where your child studies today and how things are going there, along with a rough sense of your weekly schedule. Back comes a tutor chosen specifically for that need, some background on who they are, and open trial times, all online, at no cost, with nothing to sign. Write to ibgram24@gmail.com, or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the board or programme, the subject and level, where your child studies today and how things are going there, along with a rough sense of your weekly schedule. Back comes a tutor chosen specifically for that need, some background on who they are, and open trial times, all online, at no cost, with nothing to sign. Write to support@ibgram.com, or message +91 7439 368 115 on WhatsApp.",
 };

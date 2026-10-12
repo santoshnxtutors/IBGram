@@ -437,7 +437,7 @@ export const kanpur: CitySeoPage = {
     {
       question: "How do we get started with IB Gram from Kanpur?",
       answer:
-        "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with your child's programme or board, subject, level and the times that work around your Kanpur school week. We shortlist tutors on syllabus fit, arrange a free trial class online, and agree a first-month plan once you are both happy with the match.",
+        "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with your child's programme or board, subject, level and the times that work around your Kanpur school week. We shortlist tutors on syllabus fit, arrange a free trial class online, and agree a first-month plan once you are both happy with the match.",
     },
     {
       question: "Can a tutor help switch from UP Board or CBSE to Cambridge IGCSE?",
@@ -495,7 +495,7 @@ export const kanpur: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Kanpur",
   closingBody:
-    "Tell us the programme or board, the subject and level, your child's current grade and the times that fit your Kanpur school week. You will get back a shortlisted tutor, their teaching background and trial slots online, with no charge and no commitment, whether your child studies at Billabong, Allenhouse, a school elsewhere or fully through us. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, the subject and level, your child's current grade and the times that fit your Kanpur school week. You will get back a shortlisted tutor, their teaching background and trial slots online, with no charge and no commitment, whether your child studies at Billabong, Allenhouse, a school elsewhere or fully through us. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 
   geo: { latitude: 26.4499, longitude: 80.3319 },
   alternateNames: ["Cawnpore"],

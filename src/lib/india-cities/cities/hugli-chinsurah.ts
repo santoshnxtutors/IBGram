@@ -795,5 +795,5 @@ export const hugliChinsurah: CitySeoPage = {
     }
   ],
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Hugli-Chinsurah",
-  closingBody: "Send the programme or board, the subject and level, where your child stands now, and the hours that fit your household. Back comes a shortlisted tutor with a teaching profile and trial slots arranged around your routine, all online, with nothing charged and nothing owed. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115."
+  closingBody: "Send the programme or board, the subject and level, where your child stands now, and the hours that fit your household. Back comes a shortlisted tutor with a teaching profile and trial slots arranged around your routine, all online, with nothing charged and nothing owed. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115."
 };

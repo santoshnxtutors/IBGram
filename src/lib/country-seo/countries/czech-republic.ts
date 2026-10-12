@@ -353,7 +353,7 @@ export const czechRepublic: CountrySeoPage = {
   faqs: [
     {
       question: "Where do I even start looking for an IB tutor in the Czech Republic?",
-      answer: "Name the programme stage and the precise board and level before anything else, because one Czech school might teach Cambridge in one grade and the full IB Diploma two years later. Tell us that, alongside current grades and where things are genuinely going wrong, and a tutor recommendation comes back rather than a list of names to sift through yourself. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp to begin.",
+      answer: "Name the programme stage and the precise board and level before anything else, because one Czech school might teach Cambridge in one grade and the full IB Diploma two years later. Tell us that, alongside current grades and where things are genuinely going wrong, and a tutor recommendation comes back rather than a list of names to sift through yourself. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp to begin.",
     },
     {
       question: "Do sessions stay on Central European Time year-round, even after the clocks change?",
@@ -361,7 +361,7 @@ export const czechRepublic: CountrySeoPage = {
     },
     {
       question: "What's a realistic price for IB or IGCSE tutoring here, and how do we settle payment?",
-      answer: "It scales with the level and subject and the number of hours booked each week — expect DP Higher Level Sciences or Mathematics to sit above general MYP or IGCSE help. Nothing is booked until you've had the rate in writing, so there's no surprise invoice later. Tell us your child's grade, subject and level at ibgram24@gmail.com and we'll reply with the current rate plus how payment and currency are handled.",
+      answer: "It scales with the level and subject and the number of hours booked each week — expect DP Higher Level Sciences or Mathematics to sit above general MYP or IGCSE help. Nothing is booked until you've had the rate in writing, so there's no surprise invoice later. Tell us your child's grade, subject and level at support@ibgram.com and we'll reply with the current rate plus how payment and currency are handled.",
     },
     {
       question: "Is home tutoring available anywhere in the Czech Republic?",
@@ -405,7 +405,7 @@ export const czechRepublic: CountrySeoPage = {
     },
     {
       question: "What information do you need from us before you can suggest a tutor?",
-      answer: "Four things cover it: your child's grade and programme, the precise subject and level, roughly where in the country you're based along with hours that suit your evenings, and the single problem you most want fixed — a slipping grade, exam anxiety, a stalled IA. Send that over to ibgram24@gmail.com, or on WhatsApp at +91 7439 368 115, and a named suggestion with their teaching background follows soon after. You pay nothing until a lesson has happened and a rate has been agreed in writing.",
+      answer: "Four things cover it: your child's grade and programme, the precise subject and level, roughly where in the country you're based along with hours that suit your evenings, and the single problem you most want fixed — a slipping grade, exam anxiety, a stalled IA. Send that over to support@ibgram.com, or on WhatsApp at +91 7439 368 115, and a named suggestion with their teaching background follows soon after. You pay nothing until a lesson has happened and a rate has been agreed in writing.",
     },
   ],
 
@@ -424,5 +424,5 @@ export const czechRepublic: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Central European Time",
-  closingBody: "Let us know the programme stage, the subject and level, and roughly where in the country your family lives, and we'll come back with a named tutor and a couple of open Central European evening slots — free to try, with nothing owed if it isn't right. Tell us if it isn't, and we'll find a better match instead. Get in touch at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115, with your child's grade and current school noted.",
+  closingBody: "Let us know the programme stage, the subject and level, and roughly where in the country your family lives, and we'll come back with a named tutor and a couple of open Central European evening slots — free to try, with nothing owed if it isn't right. Tell us if it isn't, and we'll find a better match instead. Get in touch at support@ibgram.com or on WhatsApp at +91 7439 368 115, with your child's grade and current school noted.",
 };

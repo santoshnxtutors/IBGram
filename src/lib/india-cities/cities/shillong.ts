@@ -444,5 +444,5 @@ export const shillong: CitySeoPage = {
 
   closingHeading: "Start with a free trial class for your Shillong student",
   closingBody:
-    "Tell us the board or programme, the subject and level, where your child currently stands, and a time that suits your household. We come back with a shortlisted tutor, their teaching background, and trial slots that fit your routine, all online, one to one, at no cost and no commitment either way. Email ibgram24@gmail.com or message us on WhatsApp at +91 7439 368 115.",
+    "Tell us the board or programme, the subject and level, where your child currently stands, and a time that suits your household. We come back with a shortlisted tutor, their teaching background, and trial slots that fit your routine, all online, one to one, at no cost and no commitment either way. Email support@ibgram.com or message us on WhatsApp at +91 7439 368 115.",
 };

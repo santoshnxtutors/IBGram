@@ -476,5 +476,5 @@ export const hyderabad: CitySeoPage = {
 
   closingHeading: "Start with a free lesson from an IB or IGCSE tutor in Hyderabad",
   closingBody:
-    "Send over the programme or board, the subject and level, where your child is right now, and the evening or weekend slots that work. We will come back with a tutor, their background, and a trial time that fits your school week, all online, with nothing to pay and nothing to sign. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send over the programme or board, the subject and level, where your child is right now, and the evening or weekend slots that work. We will come back with a tutor, their background, and a trial time that fits your school week, all online, with nothing to pay and nothing to sign. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

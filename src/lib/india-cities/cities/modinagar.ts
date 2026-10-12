@@ -469,5 +469,5 @@ export const modinagar: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Modinagar",
   closingBody:
-    "Send over the programme or board, subject and level, your child's current grade, and the times that fit your household. You will get back a shortlisted tutor, their teaching background and available trial slots, all delivered online and one to one, at no cost and no obligation. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send over the programme or board, subject and level, your child's current grade, and the times that fit your household. You will get back a shortlisted tutor, their teaching background and available trial slots, all delivered online and one to one, at no cost and no obligation. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

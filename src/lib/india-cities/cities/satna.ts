@@ -459,5 +459,5 @@ export const satna: CitySeoPage = {
 
   closingHeading: "Set up a free trial class for your child in Satna",
   closingBody:
-    "Let us know the board or programme, the subject and level, roughly where your child stands right now, and when your household can realistically make time. What comes back is a tutor shortlist with real teaching background attached and slots that work around your week, all delivered online, with no cost and nothing to sign. Reach us at ibgram24@gmail.com, or drop a WhatsApp message to +91 7439 368 115.",
+    "Let us know the board or programme, the subject and level, roughly where your child stands right now, and when your household can realistically make time. What comes back is a tutor shortlist with real teaching background attached and slots that work around your week, all delivered online, with no cost and nothing to sign. Reach us at support@ibgram.com, or drop a WhatsApp message to +91 7439 368 115.",
 };

@@ -451,5 +451,5 @@ export const etawah: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Etawah",
   closingBody:
-    "Send across the board or programme, the subject and level, roughly where your child stands right now, and when your household is actually free. What comes back is a shortlist with real teaching background attached and trial slots that fit your routine, run entirely online with nothing charged upfront. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send across the board or programme, the subject and level, roughly where your child stands right now, and when your household is actually free. What comes back is a shortlist with real teaching background attached and trial slots that fit your routine, run entirely online with nothing charged upfront. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

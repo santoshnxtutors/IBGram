@@ -511,7 +511,7 @@ export const kolkata: CitySeoPage = {
 
   closingHeading: "Start with a free online class for your Kolkata child",
   closingBody:
-    "Send across the board, subject and level, where your child stands right now, and the hours that work for your household. Back comes a tutor who has genuinely taught that course recently, a slot that fits around school, and a class that costs nothing and commits you to nothing. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send across the board, subject and level, where your child stands right now, and the hours that work for your household. Back comes a tutor who has genuinely taught that course recently, a slot that fits around school, and a class that costs nothing and commits you to nothing. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 
   geo: { latitude: 22.5726, longitude: 88.3639 },
   alternateNames: ["Calcutta"],

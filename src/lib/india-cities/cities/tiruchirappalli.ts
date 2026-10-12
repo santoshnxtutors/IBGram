@@ -443,7 +443,7 @@ export const tiruchirappalli: CitySeoPage = {
     {
       question: "How do we get started with IB Gram from Tiruchirappalli?",
       answer:
-        "A message to ibgram24@gmail.com or +91 7439 368 115 on WhatsApp is enough to begin, covering the programme or board, subject, level and roughly when your household is free once school and coaching are accounted for. From there a shortlist goes out based on subject fit, a free trial gets booked online, and a plan for the first month follows once you are both comfortable with the pairing.",
+        "A message to support@ibgram.com or +91 7439 368 115 on WhatsApp is enough to begin, covering the programme or board, subject, level and roughly when your household is free once school and coaching are accounted for. From there a shortlist goes out based on subject fit, a free trial gets booked online, and a plan for the first month follows once you are both comfortable with the pairing.",
     },
     {
       question: "My child boards at a school outside Tamil Nadu. Can a tutor keep the syllabus going here?",
@@ -495,7 +495,7 @@ export const tiruchirappalli: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor connected to Tiruchirappalli",
   closingBody:
-    "Let us know the programme or board your child follows, the subject and level in question, how they are doing currently, and when your household in Trichy is actually free during the week. We will put forward a tutor matched on syllabus fit and set up a free online trial lesson, with nothing to sign at any stage regardless of where your child is enrolled. Write to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115.",
+    "Let us know the programme or board your child follows, the subject and level in question, how they are doing currently, and when your household in Trichy is actually free during the week. We will put forward a tutor matched on syllabus fit and set up a free online trial lesson, with nothing to sign at any stage regardless of where your child is enrolled. Write to support@ibgram.com or send a WhatsApp message to +91 7439 368 115.",
 
   geo: { latitude: 10.7905, longitude: 78.7047 },
   alternateNames: ["Trichy", "Tiruchi", "Trichinopoly"],

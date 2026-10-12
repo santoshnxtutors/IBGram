@@ -467,5 +467,5 @@ export const muzaffarpur: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Muzaffarpur",
   closingBody:
-    "Tell IB Gram the programme or board, subject and level, where your child's grades currently stand, and which evenings actually work for a Muzaffarpur household. What comes back is a shortlisted tutor, a plain summary of their teaching background, and trial times built around your child's own school week, all delivered live online rather than at your door, at no cost and with nothing owed if it turns out not to be the right fit. Reach us on ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "Tell IB Gram the programme or board, subject and level, where your child's grades currently stand, and which evenings actually work for a Muzaffarpur household. What comes back is a shortlisted tutor, a plain summary of their teaching background, and trial times built around your child's own school week, all delivered live online rather than at your door, at no cost and with nothing owed if it turns out not to be the right fit. Reach us on support@ibgram.com or WhatsApp +91 7439 368 115.",
 };

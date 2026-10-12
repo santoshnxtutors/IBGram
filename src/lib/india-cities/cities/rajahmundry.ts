@@ -472,5 +472,5 @@ export const rajahmundry: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson with an IB or IGCSE tutor for your Rajahmundry child",
   closingBody:
-    "Let us know the board or programme, the subject and level, where your child currently stands, and which evenings genuinely work in your house. A matched tutor comes back with a short background note and open trial slots to pick from, no fee attached and nothing to sign beforehand. Reach us by email at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Let us know the board or programme, the subject and level, where your child currently stands, and which evenings genuinely work in your house. A matched tutor comes back with a short background note and open trial slots to pick from, no fee attached and nothing to sign beforehand. Reach us by email at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

@@ -467,5 +467,5 @@ export const rohtak: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Rohtak student",
   closingBody:
-    "Send over the programme or board, subject and level, where your child's grade currently stands, and the evening windows your household can genuinely hold. Back comes a shortlisted tutor, a look at their teaching background, and trial slots built around a Rohtak school week, entirely online, one to one, at zero cost and with nothing owed afterward. Email ibgram24@gmail.com or drop a WhatsApp message to +91 7439 368 115.",
+    "Send over the programme or board, subject and level, where your child's grade currently stands, and the evening windows your household can genuinely hold. Back comes a shortlisted tutor, a look at their teaching background, and trial slots built around a Rohtak school week, entirely online, one to one, at zero cost and with nothing owed afterward. Email support@ibgram.com or drop a WhatsApp message to +91 7439 368 115.",
 };

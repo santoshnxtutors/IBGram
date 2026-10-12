@@ -487,7 +487,7 @@ export const patiala: CitySeoPage = {
 
   closingHeading: "A free first class for your Patiala student",
   closingBody:
-    "Let us know the board, the subject and level, where things stand right now, and when your household is actually free. What comes back is a tutor who has genuinely taught that course recently, a slot built around school hours, and a first session that costs nothing and asks for no commitment. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Let us know the board, the subject and level, where things stand right now, and when your household is actually free. What comes back is a tutor who has genuinely taught that course recently, a slot built around school hours, and a first session that costs nothing and asks for no commitment. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 
   geo: { latitude: 30.3409, longitude: 76.3821 },
   wikipedia: "https://en.wikipedia.org/wiki/Patiala",

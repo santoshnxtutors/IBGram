@@ -467,5 +467,5 @@ export const dhule: CitySeoPage = {
 
   closingHeading: "Start a free trial class with a Dhule-matched IB or IGCSE tutor",
   closingBody:
-    "Write in with the programme or board, the subject and level, your child's current grade, and whatever exam session or school calendar actually governs their year. We come back with a tutor shortlist, their background teaching that syllabus, and a few trial slots that fit around your evenings, all online, all one to one, with nothing charged and nothing owed afterward. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Write in with the programme or board, the subject and level, your child's current grade, and whatever exam session or school calendar actually governs their year. We come back with a tutor shortlist, their background teaching that syllabus, and a few trial slots that fit around your evenings, all online, all one to one, with nothing charged and nothing owed afterward. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

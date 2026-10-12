@@ -474,5 +474,5 @@ export const kadapa: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Kadapa",
   closingBody:
-    "Let us know the board, the subject and level, and roughly when your evenings are free. A matched tutor and a trial time come back within a day or two, arranged around your own schedule with nothing charged upfront. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Let us know the board, the subject and level, and roughly when your evenings are free. A matched tutor and a trial time come back within a day or two, arranged around your own schedule with nothing charged upfront. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

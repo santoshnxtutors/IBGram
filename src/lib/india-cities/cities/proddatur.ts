@@ -440,7 +440,7 @@ export const proddatur: CitySeoPage = {
     {
       question: "How can I contact IB Gram from Proddatur?",
       answer:
-        "Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com with your child's programme, subject, level and school. We reply with a tutor suggestion and a trial time. The contact page on this site also works. Enquiring and attending the first lesson cost nothing.",
+        "Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com with your child's programme, subject, level and school. We reply with a tutor suggestion and a trial time. The contact page on this site also works. Enquiring and attending the first lesson cost nothing.",
     },
   ],
 
@@ -466,5 +466,5 @@ export const proddatur: CitySeoPage = {
 
   closingHeading: "Your first lesson is free, and it needs only a laptop",
   closingBody:
-    "Send us your child's programme, subject, level and school, and we will propose a tutor and a trial slot. Write on WhatsApp to +91 7439 368 115 or email ibgram24@gmail.com.",
+    "Send us your child's programme, subject, level and school, and we will propose a tutor and a trial slot. Write on WhatsApp to +91 7439 368 115 or email support@ibgram.com.",
 };

@@ -471,5 +471,5 @@ export const sagar: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson with an IB or IGCSE tutor for your Sagar child",
   closingBody:
-    "Write in with the programme or board, the subject and level, how your child is doing right now, and roughly when your household is free in the evenings. We will come back with a matched tutor, a quick note on their teaching background, and a few open trial slots, at no charge and with nothing to sign upfront. Drop an email to ibgram24@gmail.com or ping +91 7439 368 115 on WhatsApp.",
+    "Write in with the programme or board, the subject and level, how your child is doing right now, and roughly when your household is free in the evenings. We will come back with a matched tutor, a quick note on their teaching background, and a few open trial slots, at no charge and with nothing to sign upfront. Drop an email to support@ibgram.com or ping +91 7439 368 115 on WhatsApp.",
 };

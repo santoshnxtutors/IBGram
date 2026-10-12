@@ -517,5 +517,5 @@ export const bhopal: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson for your Bhopal student",
   closingBody:
-    "Tell us your child's board, the IB or IGCSE subject and level, and a couple of times that work in the week. A tutor, their background and an online trial slot come back to you at no cost and with nothing to sign. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us your child's board, the IB or IGCSE subject and level, and a couple of times that work in the week. A tutor, their background and an online trial slot come back to you at no cost and with nothing to sign. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

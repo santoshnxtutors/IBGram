@@ -455,5 +455,5 @@ export const ichalkaranji: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson in Ichalkaranji",
   closingBody:
-    "Tell us the board or programme, the subject and level, roughly where your child's grades stand, and when your household is genuinely free. What comes back is a shortlisted tutor, a short account of their teaching history, and trial times built around your evenings, all online, all one to one, with nothing charged and nothing owed. Reach us on ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "Tell us the board or programme, the subject and level, roughly where your child's grades stand, and when your household is genuinely free. What comes back is a shortlisted tutor, a short account of their teaching history, and trial times built around your evenings, all online, all one to one, with nothing charged and nothing owed. Reach us on support@ibgram.com or WhatsApp +91 7439 368 115.",
 };

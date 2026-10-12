@@ -386,7 +386,7 @@ export const uk: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in the UK?",
-      answer: "The starting point is the exact stage and subject, not \"IB\" as a whole - PYP, MYP, DP or CP, and the level within a given subject. Get in touch on ibgram24@gmail.com or WhatsApp +91 7439 368 115, describe your child's school situation, current grades and where things are actually going wrong, and we come back with a specific tutor to consider rather than a list of profiles to sift through yourself.",
+      answer: "The starting point is the exact stage and subject, not \"IB\" as a whole - PYP, MYP, DP or CP, and the level within a given subject. Get in touch on support@ibgram.com or WhatsApp +91 7439 368 115, describe your child's school situation, current grades and where things are actually going wrong, and we come back with a specific tutor to consider rather than a list of profiles to sift through yourself.",
     },
     {
       question: "Can my child have lessons in UK time?",
@@ -394,7 +394,7 @@ export const uk: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in the UK, and how do we pay?",
-      answer: "Rates depend on the qualification level, the subject, and how many hours a week you book - HL sciences and mathematics usually sit above GCSE-level or MYP support. We quote a per-hour rate in writing before anything is booked, so there is no surprise on the first invoice. Email ibgram24@gmail.com with your child's year group, subject and level and ask for the current rate; currency and payment options are confirmed at the same time, before the first paid session.",
+      answer: "Rates depend on the qualification level, the subject, and how many hours a week you book - HL sciences and mathematics usually sit above GCSE-level or MYP support. We quote a per-hour rate in writing before anything is booked, so there is no surprise on the first invoice. Email support@ibgram.com with your child's year group, subject and level and ask for the current rate; currency and payment options are confirmed at the same time, before the first paid session.",
     },
     {
       question: "Do you have in-person tutors in the UK?",
@@ -442,7 +442,7 @@ export const uk: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Reach out to ibgram24@gmail.com, or message +91 7439 368 115 on WhatsApp, with the year group and qualification, the subject, board and level, roughly which hours in GMT/BST suit the household, and the actual goal - a grade to lift, steadier exam nerves, an IA or coursework deadline closing in. From there we come back with a tutor and their background and set up a first lesson; no payment is taken before you've watched that lesson and agreed a rate.",
+      answer: "Reach out to support@ibgram.com, or message +91 7439 368 115 on WhatsApp, with the year group and qualification, the subject, board and level, roughly which hours in GMT/BST suit the household, and the actual goal - a grade to lift, steadier exam nerves, an IA or coursework deadline closing in. From there we come back with a tutor and their background and set up a first lesson; no payment is taken before you've watched that lesson and agreed a rate.",
     },
   ],
 
@@ -462,5 +462,5 @@ export const uk: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in your UK time zone",
-  closingBody: "Send over the qualification, subject, level and school year, and what comes back is a named tutor with their background attached, plus a couple of trial times already sitting in an after-school GMT or BST slot - free, with nothing to continue after it unless you choose to. Not the right fit? Say so and another tutor gets lined up instead. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115, with your child's year group and current qualification included.",
+  closingBody: "Send over the qualification, subject, level and school year, and what comes back is a named tutor with their background attached, plus a couple of trial times already sitting in an after-school GMT or BST slot - free, with nothing to continue after it unless you choose to. Not the right fit? Say so and another tutor gets lined up instead. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115, with your child's year group and current qualification included.",
 };

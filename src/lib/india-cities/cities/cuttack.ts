@@ -468,5 +468,5 @@ export const cuttack: CitySeoPage = {
 
   closingHeading: "Book a free trial with IB and IGCSE tutors in Cuttack",
   closingBody:
-    "Tell us the programme or board, the subject and level, your child's current grade and the times that work for your Cuttack household. You'll get back a shortlisted tutor, their teaching background and trial slots that fit around school or a Bhubaneswar commute, online and one to one, with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, the subject and level, your child's current grade and the times that work for your Cuttack household. You'll get back a shortlisted tutor, their teaching background and trial slots that fit around school or a Bhubaneswar commute, online and one to one, with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

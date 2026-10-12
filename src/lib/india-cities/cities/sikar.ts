@@ -452,5 +452,5 @@ export const sikar: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Sikar",
   closingBody:
-    "Drop us a line with the board or programme, the subject and level, whether Mody School is part of the picture, and when your family can actually make time. What comes back is a shortlist with genuine teaching background, plus trial times built around your week, all handled online at no upfront cost. Reach IB Gram at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Drop us a line with the board or programme, the subject and level, whether Mody School is part of the picture, and when your family can actually make time. What comes back is a shortlist with genuine teaching background, plus trial times built around your week, all handled online at no upfront cost. Reach IB Gram at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

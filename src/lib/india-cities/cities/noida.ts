@@ -470,5 +470,5 @@ export const noida: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Noida",
   closingBody:
-    "Send over the programme or board, subject and level, your child's current grade, your sector in Noida and the times that suit. Back comes a shortlisted tutor, their teaching background, and trial slots, home or online depending on what is genuinely available near you, at no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send over the programme or board, subject and level, your child's current grade, your sector in Noida and the times that suit. Back comes a shortlisted tutor, their teaching background, and trial slots, home or online depending on what is genuinely available near you, at no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

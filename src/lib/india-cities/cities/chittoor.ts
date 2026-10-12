@@ -401,7 +401,7 @@ export const chittoor: CitySeoPage = {
     { question: "Do you help with PYP and MYP?", answer: "Yes. PYP support is short and centred on reading, numeracy and Exhibition planning. For MYP, tutors work on criteria-based answers in Maths, Sciences, Language and Literature and the Personal Project, coaching but never writing the project." },
     { question: "What equipment does my child need?", answer: "A laptop or tablet, headphones with a microphone and a stable connection are enough. A drawing tablet or a stylus helps for Maths and Physics. A phone hotspot is a sensible backup in rainy weeks." },
     { question: "Can a family from Chittoor be advised on subject choices for university?", answer: "We can talk through how Mathematics, science and language choices affect degree options, and we are open about what we do not know. For firm advice on a specific course or country, the university's own admissions page is the authority." },
-    { question: "How do I start?", answer: "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115 with the school, board, subjects and level. We reply with a suggested tutor and a trial slot that suits your evenings or weekends." },
+    { question: "How do I start?", answer: "Email support@ibgram.com or WhatsApp +91 7439 368 115 with the school, board, subjects and level. We reply with a suggested tutor and a trial slot that suits your evenings or weekends." },
   ],
 
   tutorsIntro:
@@ -423,5 +423,5 @@ export const chittoor: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson in Chittoor",
   closingBody:
-    "Give us your child's school, board and subjects, and we will suggest a tutor and a free online trial. You see the teaching before you pay, and the rate comes in writing first. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "Give us your child's school, board and subjects, and we will suggest a tutor and a free online trial. You see the teaching before you pay, and the rate comes in writing first. Email support@ibgram.com or WhatsApp +91 7439 368 115.",
 };

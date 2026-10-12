@@ -454,7 +454,7 @@ export const varanasi: CitySeoPage = {
 
   closingHeading: "Start a free lesson with an IB or IGCSE tutor for your Varanasi student",
   closingBody:
-    "Whether your child studies at Sunbeam International School, Varuna, boards at a Diploma school elsewhere, or is new to IGCSE after a move to the city, tell us the subject, level and exam board and we will shortlist a tutor who teaches it. IB and IGCSE tutors in Varanasi from IB Gram work entirely online, starting with a free lesson and no upfront cost. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Whether your child studies at Sunbeam International School, Varuna, boards at a Diploma school elsewhere, or is new to IGCSE after a move to the city, tell us the subject, level and exam board and we will shortlist a tutor who teaches it. IB and IGCSE tutors in Varanasi from IB Gram work entirely online, starting with a free lesson and no upfront cost. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 
   geo: { latitude: 25.3176, longitude: 82.9739 },
   alternateNames: ["Banaras", "Kashi", "Benares"],

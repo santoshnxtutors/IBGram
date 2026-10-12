@@ -365,7 +365,7 @@ export const erode: CitySeoPage = {
   process: [
     {
       title: "Share your child's course",
-      description: "Send the programme, subjects, level and exam session by WhatsApp to +91 7439 368 115, or email ibgram24@gmail.com.",
+      description: "Send the programme, subjects, level and exam session by WhatsApp to +91 7439 368 115, or email support@ibgram.com.",
     },
     {
       title: "Meet the suggested tutor",
@@ -484,7 +484,7 @@ export const erode: CitySeoPage = {
     {
       question: "How do we get started from Erode?",
       answer:
-        "Write on WhatsApp to +91 7439 368 115 or email ibgram24@gmail.com, giving the programme, subjects, level, school and the exam session your child is aiming for. A tutor suggestion follows, then a free trial, then the fee in writing. Stopping after the trial carries no penalty at all.",
+        "Write on WhatsApp to +91 7439 368 115 or email support@ibgram.com, giving the programme, subjects, level, school and the exam session your child is aiming for. A tutor suggestion follows, then a free trial, then the fee in writing. Stopping after the trial carries no penalty at all.",
     },
     {
       question: "Do you teach younger children in PYP or MYP?",
@@ -510,5 +510,5 @@ export const erode: CitySeoPage = {
 
   closingHeading: "Book a free first lesson from Erode",
   closingBody:
-    "Erode families can start with a short message: the programme, the subjects and when the papers fall. From ibgram24@gmail.com or WhatsApp on +91 7439 368 115 we reply with a proposed tutor and a free lesson time. The fee arrives in writing afterwards, and a swap is always possible.",
+    "Erode families can start with a short message: the programme, the subjects and when the papers fall. From support@ibgram.com or WhatsApp on +91 7439 368 115 we reply with a proposed tutor and a free lesson time. The fee arrives in writing afterwards, and a swap is always possible.",
 };

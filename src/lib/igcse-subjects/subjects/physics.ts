@@ -181,13 +181,13 @@ export const physics: IgcseSubjectContent = {
       type: "cta",
       heading: "How to Get an IGCSE Physics Tutor Started This Week",
       body:
-        "Starting is deliberately short. Send a message with five things and most of the back-and-forth disappears: the syllabus code from the school's course outline, whether the entry is Core or Extended, the school grade, your city and time zone, and a photograph of one recent marked physics assessment. That last item does more than the other four combined, because a marked script shows where marks are actually going in a way that no description of the problem can.\n\nTwo or three tutors are suggested, usually within a day or two, each with their board history and their rate stated in writing. You pick one and take the free trial lesson. That lesson is diagnostic rather than a demonstration: the tutor works through a question the student has already attempted and explains what went wrong and in what order it should be fixed. A written note follows, whether or not you continue.\n\nIf the trial does not convince you, nothing happens and nobody chases you. If it does, sessions are scheduled in your own time zone, or at home if you are in an Indian city where a tutor is currently free. Write to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115, and mention the exam session you are working towards.",
+        "Starting is deliberately short. Send a message with five things and most of the back-and-forth disappears: the syllabus code from the school's course outline, whether the entry is Core or Extended, the school grade, your city and time zone, and a photograph of one recent marked physics assessment. That last item does more than the other four combined, because a marked script shows where marks are actually going in a way that no description of the problem can.\n\nTwo or three tutors are suggested, usually within a day or two, each with their board history and their rate stated in writing. You pick one and take the free trial lesson. That lesson is diagnostic rather than a demonstration: the tutor works through a question the student has already attempted and explains what went wrong and in what order it should be fixed. A written note follows, whether or not you continue.\n\nIf the trial does not convince you, nothing happens and nobody chases you. If it does, sessions are scheduled in your own time zone, or at home if you are in an Indian city where a tutor is currently free. Write to support@ibgram.com or send a WhatsApp message to +91 7439 368 115, and mention the exam session you are working towards.",
       items: [
         "Send the code, the tier, the grade, your city and time zone, and one marked script",
         "Two or three tutor suggestions with board history and rates, in writing",
         "A free trial lesson that diagnoses rather than demonstrates",
         "A written note after the trial whether or not you continue",
-        "Contact ibgram24@gmail.com or +91 7439 368 115 on WhatsApp",
+        "Contact support@ibgram.com or +91 7439 368 115 on WhatsApp",
       ],
     },
   ],
@@ -341,6 +341,6 @@ export const physics: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a mock result, a tier decision or an approaching exam session brought you here, send the syllabus code, the tier, the grade, your city and time zone, and a photograph of one marked physics script. Tutor suggestions come back with their board history and their rate in writing, the trial lesson is free and diagnostic, a written note follows every session, and a different tutor is arranged if the fit is wrong. No grade is promised by anyone here. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp to start.",
+    "If a mock result, a tier decision or an approaching exam session brought you here, send the syllabus code, the tier, the grade, your city and time zone, and a photograph of one marked physics script. Tutor suggestions come back with their board history and their rate in writing, the trial lesson is free and diagnostic, a written note follows every session, and a different tutor is arranged if the fit is wrong. No grade is promised by anyone here. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp to start.",
   lastUpdated: "2026-09-18",
 };

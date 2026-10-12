@@ -44,7 +44,7 @@ swapped out, delete it and write the specific version.
 - Free trial lesson. A written note after every session. Tutor changed if the fit
   is wrong. Rates quoted in writing before booking. **No published prices** — say
   fees depend on tutor experience, tier, grade and frequency.
-- Contact: `ibgram24@gmail.com` and `+91 7439 368 115` (WhatsApp). No other
+- Contact: `support@ibgram.com` and `+91 7439 368 115` (WhatsApp). No other
   email or phone. No address.
 - Independent platform, **not** affiliated with Cambridge International, Pearson
   Edexcel, Oxford AQA or the IB.

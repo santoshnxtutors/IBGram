@@ -469,5 +469,5 @@ export const hisar: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Hisar-based child",
   closingBody:
-    "Give us the programme or board, subject and level, roughly where your child stands right now, and a couple of evenings that usually suit your household. We'll come back with a tutor who actually fits, their teaching background, and a time for a no-cost trial lesson before you commit to anything. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Give us the programme or board, subject and level, roughly where your child stands right now, and a couple of evenings that usually suit your household. We'll come back with a tutor who actually fits, their teaching background, and a time for a no-cost trial lesson before you commit to anything. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -344,7 +344,7 @@ export const australia: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Australia?",
-      answer: "The starting point is your child's programme stage — PYP, MYP, DP or CP — matched against the exact subject and level, rather than a generic 'IB tutor' search. We talk through your child's school, their current results and where the difficulty actually sits, then propose a tutor rather than handing over a list to sort through yourself. Reach us at ibgram24@gmail.com or +91 7439 368 115 and describe what's not working.",
+      answer: "The starting point is your child's programme stage — PYP, MYP, DP or CP — matched against the exact subject and level, rather than a generic 'IB tutor' search. We talk through your child's school, their current results and where the difficulty actually sits, then propose a tutor rather than handing over a list to sort through yourself. Reach us at support@ibgram.com or +91 7439 368 115 and describe what's not working.",
     },
     {
       question: "Can sessions run in my state's time zone?",
@@ -352,7 +352,7 @@ export const australia: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Australia, and how do we pay?",
-      answer: "Cost tracks the programme level, the subject and the hours booked each week — HL sciences and mathematics at DP level typically cost more than MYP support. A per-session rate is quoted in writing before anything is confirmed, so nothing surprising shows up on the first bill. Email ibgram24@gmail.com with your child's year level, subject and level to get the current rate, and settle currency and payment method in that same conversation.",
+      answer: "Cost tracks the programme level, the subject and the hours booked each week — HL sciences and mathematics at DP level typically cost more than MYP support. A per-session rate is quoted in writing before anything is confirmed, so nothing surprising shows up on the first bill. Email support@ibgram.com with your child's year level, subject and level to get the current rate, and settle currency and payment method in that same conversation.",
     },
     {
       question: "Do you have in-person tutors in Australia?",
@@ -404,7 +404,7 @@ export const australia: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Send four details to ibgram24@gmail.com or +91 7439 368 115: your child's year level and programme, the subject and level involved, your state and the hours that suit you, and the actual outcome you're after — a grade lift, steadier exam nerves, an IA deadline that's slipping. From there we name a tutor, share their background, and get an introductory session on the calendar. Nothing is billed until after that lesson and an agreed rate.",
+      answer: "Send four details to support@ibgram.com or +91 7439 368 115: your child's year level and programme, the subject and level involved, your state and the hours that suit you, and the actual outcome you're after — a grade lift, steadier exam nerves, an IA deadline that's slipping. From there we name a tutor, share their background, and get an introductory session on the calendar. Nothing is billed until after that lesson and an agreed rate.",
     },
   ],
 
@@ -424,5 +424,5 @@ export const australia: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in your Australian time zone",
-  closingBody: "Send through the programme, the subject, the level, and whether your school sits November or May. What comes back is a specific tutor, a look at their teaching background, and a couple of trial times already sitting after school on your clock — free, with nothing owed if you leave it there. Not the right fit? Say so and another tutor gets suggested. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115, with your child's year level and current programme included.",
+  closingBody: "Send through the programme, the subject, the level, and whether your school sits November or May. What comes back is a specific tutor, a look at their teaching background, and a couple of trial times already sitting after school on your clock — free, with nothing owed if you leave it there. Not the right fit? Say so and another tutor gets suggested. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115, with your child's year level and current programme included.",
 };

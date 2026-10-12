@@ -178,13 +178,13 @@ export const geography: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting This Week, and What to Put in the First Message",
       body:
-        "Getting started is mostly a matter of sending the right four lines. Tell us the syllabus code on the school's timetable, the grade the student is in, whether the centre does fieldwork coursework or the written enquiry paper, and the specific thing that brought you here. That last one is more useful than a general description of ability, because \"the long parts come back at half marks\" and \"the map question is never finished\" lead to different tutors.\n\nIf you have a recent marked script or mock paper, photograph it and send it too. Ten minutes with a real marked answer tells a tutor more than a long conversation about how the student feels about the subject.\n\nFrom there you receive two or three tutor options with their board experience and their rates in writing, and the first lesson is a free trial so both sides can test the fit before anything is committed. If you are outside India, include your city and time zone and a weekly slot will be proposed in your local hours rather than ours.\n\nEmail ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115. A reply usually comes the same day, and if we do not have the right tutor free we will tell you plainly instead of matching you to whoever is available.",
+        "Getting started is mostly a matter of sending the right four lines. Tell us the syllabus code on the school's timetable, the grade the student is in, whether the centre does fieldwork coursework or the written enquiry paper, and the specific thing that brought you here. That last one is more useful than a general description of ability, because \"the long parts come back at half marks\" and \"the map question is never finished\" lead to different tutors.\n\nIf you have a recent marked script or mock paper, photograph it and send it too. Ten minutes with a real marked answer tells a tutor more than a long conversation about how the student feels about the subject.\n\nFrom there you receive two or three tutor options with their board experience and their rates in writing, and the first lesson is a free trial so both sides can test the fit before anything is committed. If you are outside India, include your city and time zone and a weekly slot will be proposed in your local hours rather than ours.\n\nEmail support@ibgram.com or send a WhatsApp message to +91 7439 368 115. A reply usually comes the same day, and if we do not have the right tutor free we will tell you plainly instead of matching you to whoever is available.",
       items: [
         "Send the code, the grade, the enquiry route and what specifically went wrong",
         "Attach a photographed mock or marked classwork if you have one",
         "Two or three tutor options come back with backgrounds and written rates",
         "First lesson free, so the match is tested before any commitment",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115 with your city and time zone",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115 with your city and time zone",
       ],
     },
   ],
@@ -333,6 +333,6 @@ export const geography: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If the reason you are reading this is a mock that stalled on the long parts, an unfinished skills paper or a fieldwork enquiry with a deadline attached, send four things: the syllabus code, the grade, whether the school does coursework or the written enquiry route, and what went wrong. Tutor options come back with their board experience and rates in writing, the first lesson is a free trial, and the tutor can be changed if the fit is not right. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If the reason you are reading this is a mock that stalled on the long parts, an unfinished skills paper or a fieldwork enquiry with a deadline attached, send four things: the syllabus code, the grade, whether the school does coursework or the written enquiry route, and what went wrong. Tutor options come back with their board experience and rates in writing, the first lesson is a free trial, and the tutor can be changed if the fit is not right. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

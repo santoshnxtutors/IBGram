@@ -185,7 +185,7 @@ export const computerStudies: IgcseSubjectContent = {
         "Attach a photographed mock or marked script if one exists",
         "You receive tutor options with real backgrounds and rates in writing",
         "The trial lesson is free and runs in your own time zone",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115",
       ],
     },
   ],
@@ -339,6 +339,6 @@ export const computerStudies: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If you are not certain whether your child sits Computer Studies 0420 or 0441 or a current Computer Science specification, start there, because everything else follows from it. Send the syllabus number from the entry paperwork, the year group, your city and time zone, and whatever marked work exists. You will get tutor suggestions with real backgrounds, each rate in writing, and a free trial lesson in your own time zone, with a written note afterwards either way. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and say plainly if the reason is a resit or a school changing specification.",
+    "If you are not certain whether your child sits Computer Studies 0420 or 0441 or a current Computer Science specification, start there, because everything else follows from it. Send the syllabus number from the entry paperwork, the year group, your city and time zone, and whatever marked work exists. You will get tutor suggestions with real backgrounds, each rate in writing, and a free trial lesson in your own time zone, with a written note afterwards either way. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and say plainly if the reason is a resit or a school changing specification.",
   lastUpdated: "2026-09-18",
 };

@@ -75,7 +75,7 @@ export const tenali: CitySeoPage = {
       "A student in Tenali who is sitting an IB or IGCSE course faces a practical difficulty before any academic one: finding a person who has taught it. The town's tuition market is built for the Andhra Pradesh state board, CBSE and the intermediate years that lead to EAMCET, JEE and NEET. IB Gram supplies the missing piece with one-to-one lessons over video, matched to the course, level and exam series your child is working towards.",
       "Tenali is a municipality of about 165,000 people in Guntur district, set in the Krishna delta. Three canals run through it, which earned the nickname Andhra Paris, and the surrounding land grows rice in quantity. The town is also the birthplace of the court poet Tenali Ramakrishna and of a generation of Telugu film figures. Tenali Junction keeps it well connected by rail, so relatives in Vijayawada, Guntur, Hyderabad and Chennai are part of most family conversations.",
       "We could not confirm an IB World School or a Cambridge or Edexcel IGCSE school within Tenali itself. Families who want these curricula usually look towards Guntur and Vijayawada, to Hyderabad or Chennai for boarding, or to an online international school. So we say plainly: tutoring here is online only. Home visits run in Gurugram and parts of Delhi NCR, not in Tenali.",
-      "IB Gram is independent of the International Baccalaureate, Cambridge, Pearson and any school named on this page. Tutors explain, coach and give feedback, but never author a student's Internal Assessment, Extended Essay, Theory of Knowledge essay or coursework. Write to us on WhatsApp at +91 7439 368 115 or at ibgram24@gmail.com and we will set up your free trial.",
+      "IB Gram is independent of the International Baccalaureate, Cambridge, Pearson and any school named on this page. Tutors explain, coach and give feedback, but never author a student's Internal Assessment, Extended Essay, Theory of Knowledge essay or coursework. Write to us on WhatsApp at +91 7439 368 115 or at support@ibgram.com and we will set up your free trial.",
     ],
   },
 
@@ -377,7 +377,7 @@ export const tenali: CitySeoPage = {
     { question: "Do you teach IB sciences?", answer: "Yes. IB Physics, Chemistry and Biology are taught at Standard and Higher Level by matched tutors. Lessons cover content, calculation, data-based questions and exam technique. Tutors guide investigation planning but the internal assessment itself must be the student's own work." },
     { question: "Will Indian universities accept an IB Diploma?", answer: "Generally yes. The Association of Indian Universities recognises the IB Diploma as equivalent to Class 12, and CUET-UG accepts IB students, with subject rules set by each university. Eligibility for JEE Main and NEET follows the current NTA bulletin, so read it before choosing Diploma subjects." },
     { question: "Which subjects do Tenali students ask about most?", answer: "We expect Mathematics, Physics, Chemistry, Biology and English to lead, reflecting the engineering and medical interests common in coastal Andhra. Economics and Business Management draw interest from business families. If your subject is less usual, message us and we will tell you whether we have a tutor." },
-    { question: "How do I start with IB Gram from Tenali?", answer: "Send a WhatsApp message to +91 7439 368 115 or email ibgram24@gmail.com with your child's class, board, subjects and goals. We reply with a matching tutor and a time for a free trial. A written quote follows, and lessons only begin once you are comfortable." },
+    { question: "How do I start with IB Gram from Tenali?", answer: "Send a WhatsApp message to +91 7439 368 115 or email support@ibgram.com with your child's class, board, subjects and goals. We reply with a matching tutor and a time for a free trial. A written quote follows, and lessons only begin once you are comfortable." },
     { question: "Are younger children in PYP or MYP taught too?", answer: "Yes, we teach PYP and MYP as well as the Diploma and IGCSE. Lessons for younger children are shorter and more visual, and parents can sit in at first. Tutors support reading, number work and reflection habits without completing any graded project for the child." },
   ],
 
@@ -400,5 +400,5 @@ export const tenali: CitySeoPage = {
 
   closingHeading: "Start with a free lesson from your home in Tenali",
   closingBody:
-    "Tell us your child's class, board and subjects on WhatsApp at +91 7439 368 115 or at ibgram24@gmail.com. You will hear back with a proposed tutor, a free trial time and, afterwards, a written quote.",
+    "Tell us your child's class, board and subjects on WhatsApp at +91 7439 368 115 or at support@ibgram.com. You will hear back with a proposed tutor, a free trial time and, afterwards, a written quote.",
 };

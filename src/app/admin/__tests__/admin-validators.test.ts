@@ -33,7 +33,7 @@ describe("admin validators", () => {
   });
 
   it("validates settings and page editor payloads", () => {
-    expect(adminSettingsSchema.safeParse({ siteName: "IB Gram", productionDomain: "https://ibgram.com", organizationName: "IB Gram", contactEmail: "ibgram24@gmail.com", defaultRobotsBehavior: "index" }).success).toBe(true);
+    expect(adminSettingsSchema.safeParse({ siteName: "IB Gram", productionDomain: "https://ibgram.com", organizationName: "IB Gram", contactEmail: "support@ibgram.com", defaultRobotsBehavior: "index" }).success).toBe(true);
     expect(
       adminPageEditorSchema.safeParse({
         title: "IB Tutors in Gurugram",

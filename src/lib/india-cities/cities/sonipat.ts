@@ -446,5 +446,5 @@ export const sonipat: CitySeoPage = {
 
   closingHeading: "Book a free trial class for your Sonipat student",
   closingBody:
-    "Write in with the board or programme your child follows, the subject and level, and roughly where things stand right now. We will send back a tutor who already teaches that exact syllabus, along with a trial slot that works around your family's schedule, no payment and no commitment required until you have actually seen a lesson. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Write in with the board or programme your child follows, the subject and level, and roughly where things stand right now. We will send back a tutor who already teaches that exact syllabus, along with a trial slot that works around your family's schedule, no payment and no commitment required until you have actually seen a lesson. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

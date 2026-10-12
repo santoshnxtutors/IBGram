@@ -271,7 +271,7 @@ export function buildIgcsePagesHubSchema(page: IgcsePagesHubData): JsonLdObject 
         name: "IB Gram",
         url: SITE_URL,
         logo: `${SITE_URL}/logo-512.png`,
-        email: "ibgram24@gmail.com",
+        email: "support@ibgram.com",
       },
       {
         "@type": "Service",
@@ -391,7 +391,7 @@ export function buildIgcseCityPageSchema(page: IgcseCitySeoPage): JsonLdObject {
         name: "IB Gram",
         url: SITE_URL,
         logo: `${SITE_URL}/logo-512.png`,
-        email: "ibgram24@gmail.com",
+        email: "support@ibgram.com",
       },
       {
         "@type": "Service",
@@ -481,7 +481,7 @@ export function buildTutorLandingPageSchema(input: TutorLandingPageSchemaInput):
       name: "IB Gram",
       url: SITE_URL,
       logo: `${SITE_URL}/logo-512.png`,
-      email: "ibgram24@gmail.com",
+      email: "support@ibgram.com",
     },
     {
       "@type": "Service",

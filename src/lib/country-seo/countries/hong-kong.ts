@@ -358,7 +358,7 @@ export const hongKong: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Hong Kong?",
-      answer: "The reliable filter is programme stage plus exact subject and level, not a general \"IB tutor\" search. Tell us your child's school, current grades and where the difficulty genuinely sits, and IB Gram proposes a named specialist rather than a list to sift through yourself. Reach us by email at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115 and describe the situation in a couple of sentences.",
+      answer: "The reliable filter is programme stage plus exact subject and level, not a general \"IB tutor\" search. Tell us your child's school, current grades and where the difficulty genuinely sits, and IB Gram proposes a named specialist rather than a list to sift through yourself. Reach us by email at support@ibgram.com or on WhatsApp at +91 7439 368 115 and describe the situation in a couple of sentences.",
     },
     {
       question: "Can lessons run on Hong Kong Time?",
@@ -366,7 +366,7 @@ export const hongKong: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Hong Kong, and how do we pay?",
-      answer: "It shifts with programme level, subject and weekly hours — HL science and mathematics support typically costs more than MYP-level help. Nothing is booked until a per-hour figure has been put in writing, so the first invoice never surprises anyone. Send your child's grade, subject and level to ibgram24@gmail.com and ask for a current quote, and settle on currency and payment method in that same exchange.",
+      answer: "It shifts with programme level, subject and weekly hours — HL science and mathematics support typically costs more than MYP-level help. Nothing is booked until a per-hour figure has been put in writing, so the first invoice never surprises anyone. Send your child's grade, subject and level to support@ibgram.com and ask for a current quote, and settle on currency and payment method in that same exchange.",
     },
     {
       question: "Is tutoring in Hong Kong done face to face or online?",
@@ -414,7 +414,7 @@ export const hongKong: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Send four details to ibgram24@gmail.com or +91 7439 368 115: your child's grade and programme, the subjects and levels involved, your preferred Hong Kong Time hours, and the actual outcome you're after — a stronger predicted grade, calmer exam nerves, an IA deadline met, or a clearer Non-JUPAS plan. From there we name a tutor, share their background, and set up the introductory lesson, with no charge until a rate has been agreed and a lesson has actually happened.",
+      answer: "Send four details to support@ibgram.com or +91 7439 368 115: your child's grade and programme, the subjects and levels involved, your preferred Hong Kong Time hours, and the actual outcome you're after — a stronger predicted grade, calmer exam nerves, an IA deadline met, or a clearer Non-JUPAS plan. From there we name a tutor, share their background, and set up the introductory lesson, with no charge until a rate has been agreed and a lesson has actually happened.",
     },
   ],
 
@@ -434,5 +434,5 @@ export const hongKong: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Hong Kong Time",
-  closingBody: "Share the programme, subject, level and the hours that suit your evening in Hong Kong, and we'll come back with a named tutor, their background, and a couple of trial slots already timed after school — free, with nothing owed afterward if it isn't right. Getting it wrong the first time is fine; we'll try a different tutor without fuss. Reach us at ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your child's grade and current programme included.",
+  closingBody: "Share the programme, subject, level and the hours that suit your evening in Hong Kong, and we'll come back with a named tutor, their background, and a couple of trial slots already timed after school — free, with nothing owed afterward if it isn't right. Getting it wrong the first time is fine; we'll try a different tutor without fuss. Reach us at support@ibgram.com or +91 7439 368 115 on WhatsApp, with your child's grade and current programme included.",
 };

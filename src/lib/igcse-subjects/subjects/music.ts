@@ -195,14 +195,14 @@ export const music: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting This Week, and What to Put in the First Message",
       body:
-        "Starting is deliberately low-commitment, because Music is a subject where the wrong tutor wastes a term. Send a short message with the syllabus code the school teaches, the student's grade, the instrument or voice they perform on and roughly what standard, and the component that is causing concern. If you have a marked listening paper or a recent report, attach a photograph of it. That single attachment usually tells us more than a paragraph of description, because the marker's comments show where the answers are thinning out.\n\nWe come back with two or three tutors, their actual board experience, and the rate for each in writing. The first lesson is a free trial and is diagnostic rather than a sales call: the student writes a real listening answer, and you receive the tutor's written read on it whether or not you continue. Nothing else is committed to at that point, and there is no term-long package to sign.\n\nFrom outside India, add your city and time zone so a workable slot can be proposed before anyone commits. Sessions run in your own local time. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+        "Starting is deliberately low-commitment, because Music is a subject where the wrong tutor wastes a term. Send a short message with the syllabus code the school teaches, the student's grade, the instrument or voice they perform on and roughly what standard, and the component that is causing concern. If you have a marked listening paper or a recent report, attach a photograph of it. That single attachment usually tells us more than a paragraph of description, because the marker's comments show where the answers are thinning out.\n\nWe come back with two or three tutors, their actual board experience, and the rate for each in writing. The first lesson is a free trial and is diagnostic rather than a sales call: the student writes a real listening answer, and you receive the tutor's written read on it whether or not you continue. Nothing else is committed to at that point, and there is no term-long package to sign.\n\nFrom outside India, add your city and time zone so a workable slot can be proposed before anyone commits. Sessions run in your own local time. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
       items: [
         "Send the code, the grade, the instrument and standard, and the weakest component",
         "Attach a photograph of a marked listening paper or a recent report if you have one",
         "Two or three tutor options come back, each with a rate in writing",
         "The first lesson is a free diagnostic trial, with a written note afterwards",
         "Outside India, include your city and time zone; sessions run in your local time",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp",
       ],
     },
   ],
@@ -370,6 +370,6 @@ export const music: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a disappointing listening mock, a composition that will not come together, or a coursework deadline creeping up is the reason you are reading this, send the syllabus code, the grade, the instrument your child plays and the component causing trouble. A photograph of a marked paper helps more than a long description. We reply with two or three tutors, their genuine board experience and each rate in writing; the first lesson is a free diagnostic trial with a written note afterwards, and the tutor can be changed if the fit is wrong. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If a disappointing listening mock, a composition that will not come together, or a coursework deadline creeping up is the reason you are reading this, send the syllabus code, the grade, the instrument your child plays and the component causing trouble. A photograph of a marked paper helps more than a long description. We reply with two or three tutors, their genuine board experience and each rate in writing; the first lesson is a free diagnostic trial with a written note afterwards, and the tutor can be changed if the fit is wrong. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

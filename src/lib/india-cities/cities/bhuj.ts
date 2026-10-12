@@ -403,7 +403,7 @@ export const bhuj: CitySeoPage = {
     { question: "Do tutors speak Gujarati?", answer: "Lessons are conducted mainly in English because the exams are written in English. Where a tutor speaks Gujarati or Hindi and it helps a student grasp a new idea, they can explain in that language briefly. Language courses such as Gujarati B or Hindi B naturally use the target language in class." },
     { question: "Can you help a student returning from abroad to Bhuj?", answer: "Yes, and it is a common request. We ask for the syllabus, latest reports and the date of the next assessment, then design a bridging plan. The goal is to keep the child on track with their previous curriculum, or prepare a smooth move onto a new one, without repeating what they already know." },
     { question: "What are the lesson times for a Bhuj student?", answer: "Most students choose weekday evenings after school or weekend mornings, and tutors teach in Indian Standard Time. In peak summer heat we often suggest early morning or later evening. The exact slot is agreed before the trial lesson so that it fits around school, homework and family commitments." },
-    { question: "How do I start?", answer: "Write to us on WhatsApp at +91 7439 368 115 or email ibgram24@gmail.com with the programme, subject, level and exam session. We reply with a tutor shortlist and a trial slot. There is no cost for the trial and no pressure afterwards, and you are welcome to ask questions before deciding." },
+    { question: "How do I start?", answer: "Write to us on WhatsApp at +91 7439 368 115 or email support@ibgram.com with the programme, subject, level and exam session. We reply with a tutor shortlist and a trial slot. There is no cost for the trial and no pressure afterwards, and you are welcome to ask questions before deciding." },
   ],
 
   internalLinks: [
@@ -422,7 +422,7 @@ export const bhuj: CitySeoPage = {
 
   closingHeading: "Book a free IB or IGCSE trial lesson in Bhuj",
   closingBody:
-    "When you are ready for IB and IGCSE tutors in Bhuj who teach your child's exact course, one to one and online, send us the programme, subject and exam session. We will propose a tutor, arrange a free trial at a time that works in Kutch, and put the rate in writing. Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com.",
+    "When you are ready for IB and IGCSE tutors in Bhuj who teach your child's exact course, one to one and online, send us the programme, subject and exam session. We will propose a tutor, arrange a free trial at a time that works in Kutch, and put the rate in writing. Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com.",
 
   geo: { latitude: 23.253, longitude: 69.6693 },
   wikipedia: "https://en.wikipedia.org/wiki/Bhuj",

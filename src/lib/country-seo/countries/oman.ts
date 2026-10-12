@@ -358,7 +358,7 @@ export const oman: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Oman?",
-      answer: "Start by matching the tutor to your child's exact programme stage and to the subject at the level being taken, rather than searching for a generalist. IB Gram matches Oman families with online tutors after a short conversation about the school, current grades and where the difficulty sits. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp and we'll suggest a tutor directly.",
+      answer: "Start by matching the tutor to your child's exact programme stage and to the subject at the level being taken, rather than searching for a generalist. IB Gram matches Oman families with online tutors after a short conversation about the school, current grades and where the difficulty sits. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp and we'll suggest a tutor directly.",
     },
     {
       question: "Can lessons run on Gulf Standard Time rather than an odd hour?",
@@ -366,7 +366,7 @@ export const oman: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Oman, and how do we pay?",
-      answer: "Rates depend on the programme level, the subject, and how many hours a week you book — Higher Level sciences and mathematics typically sit above MYP support. We quote a per-session rate in writing before anything is booked, so there's no surprise on the first invoice. Email ibgram24@gmail.com with your child's grade, subject and level and ask for the current rate and payment options.",
+      answer: "Rates depend on the programme level, the subject, and how many hours a week you book — Higher Level sciences and mathematics typically sit above MYP support. We quote a per-session rate in writing before anything is booked, so there's no surprise on the first invoice. Email support@ibgram.com with your child's grade, subject and level and ask for the current rate and payment options.",
     },
     {
       question: "Do you have in-person tutors in Oman?",
@@ -414,7 +414,7 @@ export const oman: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or call +91 7439 368 115 with four things: your child's programme and grade, the subjects and levels, your preferred hours on Gulf Standard Time, and what you want to change — a grade, exam confidence, an IA deadline. We'll suggest a tutor, share their background, and set up an introductory session before anything is charged.",
+      answer: "Email support@ibgram.com or call +91 7439 368 115 with four things: your child's programme and grade, the subjects and levels, your preferred hours on Gulf Standard Time, and what you want to change — a grade, exam confidence, an IA deadline. We'll suggest a tutor, share their background, and set up an introductory session before anything is charged.",
     },
   ],
 
@@ -434,5 +434,5 @@ export const oman: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Gulf Standard Time",
-  closingBody: "Tell us the programme, the subject, the level and the city you're in. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit on Gulf Standard Time — no charge, and no commitment to continue after it. If the fit isn't right, say so and we'll try again. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school programme.",
+  closingBody: "Tell us the programme, the subject, the level and the city you're in. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit on Gulf Standard Time — no charge, and no commitment to continue after it. If the fit isn't right, say so and we'll try again. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school programme.",
 };

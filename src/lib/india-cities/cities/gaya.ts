@@ -455,5 +455,5 @@ export const gaya: CitySeoPage = {
 
   closingHeading: "Talk to us about an IB or IGCSE tutor for your child in Gaya",
   closingBody:
-    "Tell us the board or programme, the subject and level, and where your child is right now, an online school, a break from boarding elsewhere, or just an idea you are exploring. We will come back with a shortlisted tutor, their background, and open trial times that suit your family in Gaya, at no cost and with nothing owed. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the board or programme, the subject and level, and where your child is right now, an online school, a break from boarding elsewhere, or just an idea you are exploring. We will come back with a shortlisted tutor, their background, and open trial times that suit your family in Gaya, at no cost and with nothing owed. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -468,5 +468,5 @@ export const sangli: CitySeoPage = {
 
   closingHeading: "Set up a free trial lesson for your Sangli-based child",
   closingBody:
-    "Send over the programme or board, subject and level, where your child currently stands, and a couple of evening slots that usually work. We come back with a matched tutor, their teaching background, and a trial time to try before you decide anything, online and one to one, at no cost. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send over the programme or board, subject and level, where your child currently stands, and a couple of evening slots that usually work. We come back with a matched tutor, their teaching background, and a trial time to try before you decide anything, online and one to one, at no cost. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

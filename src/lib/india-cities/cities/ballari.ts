@@ -468,5 +468,5 @@ export const ballari: CitySeoPage = {
 
   closingHeading: "Start with a free class for your Ballari-connected child",
   closingBody:
-    "Tell us which school or online programme your child follows, the subject and level that need attention, and roughly when sessions would fit around your week. A shortlisted tutor comes back with their teaching background and a few trial times to choose from, run live over video, at no cost and without signing up to anything. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Tell us which school or online programme your child follows, the subject and level that need attention, and roughly when sessions would fit around your week. A shortlisted tutor comes back with their teaching background and a few trial times to choose from, run live over video, at no cost and without signing up to anything. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

@@ -467,5 +467,5 @@ export const davanagere: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Davanagere child",
   closingBody:
-    "Send over the programme or board, subject and level, your child's current grade, and the times your household can actually manage. A shortlisted tutor comes back to you along with their teaching background and trial slots that fit your week, entirely online, with no charge and no commitment attached. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send over the programme or board, subject and level, your child's current grade, and the times your household can actually manage. A shortlisted tutor comes back to you along with their teaching background and trial slots that fit your week, entirely online, with no charge and no commitment attached. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -519,5 +519,5 @@ export const chandigarh: CitySeoPage = {
 
   closingHeading: "Arrange a free trial lesson for your Chandigarh-area student",
   closingBody:
-    "Send us the programme or board, subject and level, whether your child studies at a school already or sits exams independently, and their current or predicted grade. We will come back with a shortlisted tutor, some background on their teaching history, and trial slots that fit your evening, delivered online at no cost and with nothing owed. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send us the programme or board, subject and level, whether your child studies at a school already or sits exams independently, and their current or predicted grade. We will come back with a shortlisted tutor, some background on their teaching history, and trial slots that fit your evening, delivered online at no cost and with nothing owed. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

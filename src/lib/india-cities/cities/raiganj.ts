@@ -472,5 +472,5 @@ export const raiganj: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for Raiganj",
   closingBody:
-    "Tell us the board or programme, the subject and level, and what is actually driving the request, a posting, a boarding break, or a switch you are simply weighing up. We will come back with a shortlisted tutor, their teaching background, and trial times that work for your household, delivered online at no cost and no obligation. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the board or programme, the subject and level, and what is actually driving the request, a posting, a boarding break, or a switch you are simply weighing up. We will come back with a shortlisted tutor, their teaching background, and trial times that work for your household, delivered online at no cost and no obligation. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

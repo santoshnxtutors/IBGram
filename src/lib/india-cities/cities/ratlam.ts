@@ -616,5 +616,5 @@ export const ratlam: CitySeoPage = {
     "Send us the programme or board, subject and level, your child's current grade, and the windows that suit "
     + "your household. A shortlisted tutor comes back with their teaching background and trial slots built around "
     + "your routine, delivered online, one to one, at no cost and no commitment attached. Email "
-    + "ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    + "support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -169,9 +169,9 @@ export const science: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting This Week",
       body:
-        "Getting started takes one message and about four lines of detail. Give the syllabus code, the tier the school has entered your child for, the grade they are in, and which of the three sciences worries you most. Add the exam session you are aiming at and anything the school has already put in writing, such as a report comment or a mock breakdown. That is enough for us to suggest tutors who have taught this course rather than tutors who simply have a free slot on Tuesday.\n\nIf you do not know the tier or the practical route, say so, and ask the school. It is a two-line email and the answer changes the plan. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with your city and time zone, and we will come back with names and rates in writing. The first lesson is free and diagnostic, and you get the written summary of it whether or not you continue afterwards.",
+        "Getting started takes one message and about four lines of detail. Give the syllabus code, the tier the school has entered your child for, the grade they are in, and which of the three sciences worries you most. Add the exam session you are aiming at and anything the school has already put in writing, such as a report comment or a mock breakdown. That is enough for us to suggest tutors who have taught this course rather than tutors who simply have a free slot on Tuesday.\n\nIf you do not know the tier or the practical route, say so, and ask the school. It is a two-line email and the answer changes the plan. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp with your city and time zone, and we will come back with names and rates in writing. The first lesson is free and diagnostic, and you get the written summary of it whether or not you continue afterwards.",
       items: [
-        "Message ibgram24@gmail.com or +91 7439 368 115 on WhatsApp",
+        "Message support@ibgram.com or +91 7439 368 115 on WhatsApp",
         "Include the code, the tier, the grade and the weakest discipline",
         "Name your city and time zone so scheduling takes one exchange",
         "Ask the school which practical route it enters candidates for",
@@ -329,6 +329,6 @@ export const science: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If your child is taking Cambridge IGCSE Combined Science 0653 and the single grade is starting to look like a risk rather than a convenience, the useful next step is small. Send the code, the tier, the grade and which of the three sciences is causing the trouble, along with your city and time zone. We will come back with two or three tutors who have taught this route, their background, and rates in writing. The first lesson is free and diagnostic. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "If your child is taking Cambridge IGCSE Combined Science 0653 and the single grade is starting to look like a risk rather than a convenience, the useful next step is small. Send the code, the tier, the grade and which of the three sciences is causing the trouble, along with your city and time zone. We will come back with two or three tutors who have taught this route, their background, and rates in writing. The first lesson is free and diagnostic. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
   lastUpdated: "2026-09-18",
 };

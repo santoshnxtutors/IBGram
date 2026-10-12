@@ -472,7 +472,7 @@ export const usa: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in the USA?",
-      answer: "Start by matching the tutor to your child's exact program stage — PYP, MYP, DP or CP — and to the subject at the level being taken. IB Gram matches families in the USA with online IB tutors after a short conversation about your child's school, current grades, and where the difficulty actually sits. You can email ibgram24@gmail.com or call +91 7439 368 115, describe the need, and we suggest a tutor instead of handing you a directory to search.",
+      answer: "Start by matching the tutor to your child's exact program stage — PYP, MYP, DP or CP — and to the subject at the level being taken. IB Gram matches families in the USA with online IB tutors after a short conversation about your child's school, current grades, and where the difficulty actually sits. You can email support@ibgram.com or call +91 7439 368 115, describe the need, and we suggest a tutor instead of handing you a directory to search.",
     },
     {
       question: "Can my child have lessons in our own time zone?",
@@ -480,7 +480,7 @@ export const usa: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in the US, and how do we pay?",
-      answer: "Rates depend on the program level, the subject, and how many hours a week you book — DP HL sciences and math usually sit above MYP support. We quote a per-hour rate in writing before anything is booked, so there is no surprise on the first invoice. Email ibgram24@gmail.com with your child's grade, subject and level and ask for the current rate, and ask about currency and payment options at the same time; both are confirmed before the first paid session.",
+      answer: "Rates depend on the program level, the subject, and how many hours a week you book — DP HL sciences and math usually sit above MYP support. We quote a per-hour rate in writing before anything is booked, so there is no surprise on the first invoice. Email support@ibgram.com with your child's grade, subject and level and ask for the current rate, and ask about currency and payment options at the same time; both are confirmed before the first paid session.",
     },
     {
       question: "Do you have in-person tutors in the United States?",
@@ -528,7 +528,7 @@ export const usa: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or call +91 7439 368 115 with four things: your child's grade and program, the subjects and levels, your time zone and preferred hours, and what you want to change — a grade, exam confidence, an IA deadline. We suggest a tutor, share their background, and set up an introductory session. Nothing is charged until you have seen a lesson and agreed on the rate.",
+      answer: "Email support@ibgram.com or call +91 7439 368 115 with four things: your child's grade and program, the subjects and levels, your time zone and preferred hours, and what you want to change — a grade, exam confidence, an IA deadline. We suggest a tutor, share their background, and set up an introductory session. Nothing is charged until you have seen a lesson and agreed on the rate.",
     },
   ],
 
@@ -545,5 +545,5 @@ export const usa: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in your US time zone",
-  closingBody: "Tell us the program, the subject, the level and the state you're in. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit after school in your zone — no charge, and no commitment to continue after it. If the fit isn't right, say so and we'll try again. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school program.",
+  closingBody: "Tell us the program, the subject, the level and the state you're in. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit after school in your zone — no charge, and no commitment to continue after it. If the fit isn't right, say so and we'll try again. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school program.",
 };

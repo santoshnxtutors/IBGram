@@ -492,5 +492,5 @@ export const agra: CitySeoPage = {
 
   closingHeading: "Start with a free lesson for your Agra student",
   closingBody:
-    "Let us know the board, the subject, the level and how much the current school is covering, if any. We will come back with a suitable tutor and a few trial-slot options that fit around your week, online, at no cost and no obligation. Write to ibgram24@gmail.com or ping +91 7439 368 115 on WhatsApp.",
+    "Let us know the board, the subject, the level and how much the current school is covering, if any. We will come back with a suitable tutor and a few trial-slot options that fit around your week, online, at no cost and no obligation. Write to support@ibgram.com or ping +91 7439 368 115 on WhatsApp.",
 };

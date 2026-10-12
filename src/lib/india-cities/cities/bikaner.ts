@@ -465,5 +465,5 @@ export const bikaner: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Bikaner student",
   closingBody:
-    "Write in with the programme or board, the subject and level, where your child currently stands, and roughly when evenings work for you. We will come back with a tutor whose background actually fits, along with open trial slots, no cost attached and nothing to sign. Reach us by email at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Write in with the programme or board, the subject and level, where your child currently stands, and roughly when evenings work for you. We will come back with a tutor whose background actually fits, along with open trial slots, no cost attached and nothing to sign. Reach us by email at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

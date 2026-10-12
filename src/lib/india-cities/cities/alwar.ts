@@ -472,5 +472,5 @@ export const alwar: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Alwar student",
   closingBody:
-    "Share the board or programme, the subject and level, where your child's grade currently stands, and the evening hours that suit your household. We'll come back with a tutor suggestion, a clear reason for the pick, and a trial slot that fits around the school week, at no cost and nothing to sign. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Share the board or programme, the subject and level, where your child's grade currently stands, and the evening hours that suit your household. We'll come back with a tutor suggestion, a clear reason for the pick, and a trial slot that fits around the school week, at no cost and nothing to sign. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -454,5 +454,5 @@ export const bathinda: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson in Bathinda",
   closingBody:
-    "Send across the board or programme, subject and level, your child's current grade, and hours that suit your household, and a shortlisted tutor comes back with their background and available trial slots. The first lesson costs nothing and commits you to nothing further. Write to ibgram24@gmail.com, or reach us on WhatsApp at +91 7439 368 115.",
+    "Send across the board or programme, subject and level, your child's current grade, and hours that suit your household, and a shortlisted tutor comes back with their background and available trial slots. The first lesson costs nothing and commits you to nothing further. Write to support@ibgram.com, or reach us on WhatsApp at +91 7439 368 115.",
 };

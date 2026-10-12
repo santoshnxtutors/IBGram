@@ -445,7 +445,7 @@ export const ganjbasoda: CitySeoPage = {
     {
       question: "How do I contact IB Gram from Ganjbasoda?",
       answer:
-        "Message us on WhatsApp at +91 7439 368 115 or email ibgram24@gmail.com with your child's programme, subject, level and school. We reply with a suggested tutor and a trial time. You can also use the contact page on this site. There is no fee to enquire or to attend the trial.",
+        "Message us on WhatsApp at +91 7439 368 115 or email support@ibgram.com with your child's programme, subject, level and school. We reply with a suggested tutor and a trial time. You can also use the contact page on this site. There is no fee to enquire or to attend the trial.",
     },
   ],
 
@@ -470,5 +470,5 @@ export const ganjbasoda: CitySeoPage = {
 
   closingHeading: "Start with one free lesson from your own table",
   closingBody:
-    "Send us your child's subject, level, school and target session, and we will suggest a tutor for a free trial. Reach us on WhatsApp at +91 7439 368 115 or at ibgram24@gmail.com.",
+    "Send us your child's subject, level, school and target session, and we will suggest a tutor for a free trial. Reach us on WhatsApp at +91 7439 368 115 or at support@ibgram.com.",
 };

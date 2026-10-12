@@ -181,13 +181,13 @@ export const history: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting This Week: What to Put in Your First Message",
       body:
-        "The quickest way to a useful match is a message with five things in it. The syllabus code as the school writes it, which core option and depth study or investigation the class is doing, the student's grade and intended examination series, whether you want online or home sessions and in which city, and one sentence on what made you search now. Attach a photograph of a recent marked answer if you have one, even a poor one, particularly a poor one.\n\nWithin a day or so you get two or three option-matched tutors with their actual teaching backgrounds and their rates in writing. You pick one, take the free trial lesson, and read the written note that follows it. If the reading is wrong, or the tutor is not right for your child, say so and a different tutor is suggested. Nothing is locked in before the trial.\n\nWrite to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp. Sessions run in your own time zone wherever you are, and home tutoring is arranged only where a tutor is currently available in your Indian city.",
+        "The quickest way to a useful match is a message with five things in it. The syllabus code as the school writes it, which core option and depth study or investigation the class is doing, the student's grade and intended examination series, whether you want online or home sessions and in which city, and one sentence on what made you search now. Attach a photograph of a recent marked answer if you have one, even a poor one, particularly a poor one.\n\nWithin a day or so you get two or three option-matched tutors with their actual teaching backgrounds and their rates in writing. You pick one, take the free trial lesson, and read the written note that follows it. If the reading is wrong, or the tutor is not right for your child, say so and a different tutor is suggested. Nothing is locked in before the trial.\n\nWrite to support@ibgram.com or message +91 7439 368 115 on WhatsApp. Sessions run in your own time zone wherever you are, and home tutoring is arranged only where a tutor is currently available in your Indian city.",
       items: [
         "Send the code, option and depth study exactly as the school states them",
         "Say the grade, the examination series and online or home in which city",
         "Attach a recent marked script, even if the mark was poor",
         "Two or three option-matched tutors, with rates in writing, within about a day",
-        "Free trial lesson first; email ibgram24@gmail.com or WhatsApp +91 7439 368 115",
+        "Free trial lesson first; email support@ibgram.com or WhatsApp +91 7439 368 115",
       ],
     },
   ],
@@ -350,6 +350,6 @@ export const history: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If you already know the code and the option, the match takes very little time. Send the syllabus code as the school writes it, the depth study or investigation being taught, the student's grade and examination series, and whether you want online sessions or home tutoring in a particular Indian city. Add a photograph of a recent marked answer if you can. You will get two or three option-matched tutors with their backgrounds and rates in writing, and a free trial lesson before any commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and sessions will be scheduled in your own time zone.",
+    "If you already know the code and the option, the match takes very little time. Send the syllabus code as the school writes it, the depth study or investigation being taught, the student's grade and examination series, and whether you want online sessions or home tutoring in a particular Indian city. Add a photograph of a recent marked answer if you can. You will get two or three option-matched tutors with their backgrounds and rates in writing, and a free trial lesson before any commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and sessions will be scheduled in your own time zone.",
   lastUpdated: "2026-09-18",
 };

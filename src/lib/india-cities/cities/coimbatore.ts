@@ -509,7 +509,7 @@ export const coimbatore: CitySeoPage = {
 
   closingHeading: "Arrange a free trial with an online IB or IGCSE tutor for your Coimbatore student",
   closingBody:
-    "Let us know the programme or board, the subject and level, your child's current grade and the times that work for your Coimbatore household. A shortlisted tutor, their teaching background and available trial slots will follow, all on live video, with no cost and no commitment attached. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Let us know the programme or board, the subject and level, your child's current grade and the times that work for your Coimbatore household. A shortlisted tutor, their teaching background and available trial slots will follow, all on live video, with no cost and no commitment attached. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 
   geo: { latitude: 11.0168, longitude: 76.9558 },
   alternateNames: ["Kovai", "Koyamputhur"],

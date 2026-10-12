@@ -508,7 +508,7 @@ export const surat: CitySeoPage = {
 
   closingHeading: "Book a free trial with an online IB or IGCSE tutor in Surat",
   closingBody:
-    "Tell us the board or programme, subject and level, your child's current or predicted grade and their school. You will get back a shortlisted tutor, their teaching background and trial slots that fit your evenings, with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the board or programme, subject and level, your child's current or predicted grade and their school. You will get back a shortlisted tutor, their teaching background and trial slots that fit your evenings, with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 
   geo: { latitude: 21.1702, longitude: 72.8311 },
   alternateNames: ["Suryapur", "Soorat"],

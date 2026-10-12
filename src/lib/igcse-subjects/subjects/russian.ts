@@ -354,6 +354,6 @@ export const russian: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a marked composition came back covered in corrections, or the school has entered your child for Cambridge IGCSE Russian 0516 and has nobody to teach it, send four lines: the grade, the exam session, the student's language history and what prompted you to write. Attach a photograph of marked Russian writing if you have one, because it shows the error pattern faster than any description. The proposed tutor's background and rate are confirmed in writing beforehand, the first lesson is a free trial, and the tutor can be changed if the fit is wrong. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, with your city and time zone.",
+    "If a marked composition came back covered in corrections, or the school has entered your child for Cambridge IGCSE Russian 0516 and has nobody to teach it, send four lines: the grade, the exam session, the student's language history and what prompted you to write. Attach a photograph of marked Russian writing if you have one, because it shows the error pattern faster than any description. The proposed tutor's background and rate are confirmed in writing beforehand, the first lesson is a free trial, and the tutor can be changed if the fit is wrong. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, with your city and time zone.",
   lastUpdated: "2026-09-18",
 };

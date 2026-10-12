@@ -466,5 +466,5 @@ export const loni: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson for your Loni student",
   closingBody:
-    "Send us the programme or board, subject and level, where your child stands right now, and the evening slots that actually work for your household. We will come back with a shortlisted tutor, a look at their teaching background, and trial times that fit around a Loni school week, on screen, one to one, at no cost and no obligation to continue. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send us the programme or board, subject and level, where your child stands right now, and the evening slots that actually work for your household. We will come back with a shortlisted tutor, a look at their teaching background, and trial times that fit around a Loni school week, on screen, one to one, at no cost and no obligation to continue. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

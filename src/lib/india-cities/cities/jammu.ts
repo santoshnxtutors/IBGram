@@ -467,5 +467,5 @@ export const jammu: CitySeoPage = {
 
   closingHeading: "Book a free IB or IGCSE trial lesson for your Jammu student",
   closingBody:
-    "Let us know the board or programme your child is on, the subject, the level, where things stand right now, and roughly when they are free during the week in Jammu. What comes back is a proposed tutor, a note on their background, and open trial times built around your school week, all delivered one to one online, free of charge and free of obligation. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Let us know the board or programme your child is on, the subject, the level, where things stand right now, and roughly when they are free during the week in Jammu. What comes back is a proposed tutor, a note on their background, and open trial times built around your school week, all delivered one to one online, free of charge and free of obligation. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -192,13 +192,13 @@ export const worldLiterature: IgcseSubjectContent = {
       type: "cta",
       heading: "How to Start This Week",
       body:
-        "The first message does most of the work, and it takes about two minutes to write well. Name the syllabus code, which is 0408 if the school is running Cambridge World Literature, and say plainly if you are not certain — a photograph of the course outline settles it faster than a description. Add the grade, the school, and the titles on the reading list, including the translation where the edition is printed on the cover. Say when the next portfolio deadline or internal assessment falls. Then describe the actual problem in one sentence, ideally the teacher's own words from a recent piece of marked work.\n\nFrom there, two or three tutors come back with their background on this syllabus and their rate in writing, and the first lesson is a free trial with no fee attached. That session will be diagnostic — expect the tutor to ask the student to write for twenty minutes and to talk about the writing afterwards, rather than lecturing about a text.\n\nIf you are outside India, include your city and time zone so sessions are proposed at a sensible hour rather than one that only suits the tutor. If you are in India and want home sessions, name the neighbourhood, and you will be told honestly whether an in-person tutor is currently free there. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+        "The first message does most of the work, and it takes about two minutes to write well. Name the syllabus code, which is 0408 if the school is running Cambridge World Literature, and say plainly if you are not certain — a photograph of the course outline settles it faster than a description. Add the grade, the school, and the titles on the reading list, including the translation where the edition is printed on the cover. Say when the next portfolio deadline or internal assessment falls. Then describe the actual problem in one sentence, ideally the teacher's own words from a recent piece of marked work.\n\nFrom there, two or three tutors come back with their background on this syllabus and their rate in writing, and the first lesson is a free trial with no fee attached. That session will be diagnostic — expect the tutor to ask the student to write for twenty minutes and to talk about the writing afterwards, rather than lecturing about a text.\n\nIf you are outside India, include your city and time zone so sessions are proposed at a sensible hour rather than one that only suits the tutor. If you are in India and want home sessions, name the neighbourhood, and you will be told honestly whether an in-person tutor is currently free there. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
       items: [
         "Send the code, the grade, the school and the reading list with editions",
         "Include the next portfolio or internal assessment date",
         "Attach one piece of marked work, or quote the teacher's comment on it",
         "Outside India: give your city and time zone; inside India: name your neighbourhood",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115 to arrange the free trial",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115 to arrange the free trial",
       ],
     },
   ],
@@ -361,6 +361,6 @@ export const worldLiterature: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a returned assignment, a portfolio deadline or a June series is what brought you here, send the code 0408, the grade, the school's chosen titles and the teacher's comment on the last marked piece. Two or three tutors who have taught this syllabus will come back with their background and their rate in writing, and the first lesson is a free trial. Sessions run online anywhere in the world on your clock; home tutoring is India-only and depends on a tutor being free in your city. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, with your city and time zone if you are outside India.",
+    "If a returned assignment, a portfolio deadline or a June series is what brought you here, send the code 0408, the grade, the school's chosen titles and the teacher's comment on the last marked piece. Two or three tutors who have taught this syllabus will come back with their background and their rate in writing, and the first lesson is a free trial. Sessions run online anywhere in the world on your clock; home tutoring is India-only and depends on a tutor being free in your city. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, with your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

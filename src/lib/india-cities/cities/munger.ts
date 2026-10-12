@@ -471,5 +471,5 @@ export const munger: CitySeoPage = {
 
   closingHeading: "Book a free class for your Munger family",
   closingBody:
-    "Write in with the programme or board your child follows, the subject, the level, and roughly where things stand at present, alongside the hours that suit your household. Back comes a tutor shortlisted for that exact brief, a slot booked for a genuinely free first class, and no pressure whatsoever to continue past it. Reach IB Gram at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Write in with the programme or board your child follows, the subject, the level, and roughly where things stand at present, alongside the hours that suit your household. Back comes a tutor shortlisted for that exact brief, a slot booked for a genuinely free first class, and no pressure whatsoever to continue past it. Reach IB Gram at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

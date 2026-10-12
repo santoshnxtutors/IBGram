@@ -168,13 +168,13 @@ export const chemistry: IgcseSubjectContent = {
       type: "cta",
       heading: "Booking an IGCSE Chemistry Tutor This Week",
       body:
-        "A useful first message takes about a minute to write. Include the board and code, the tier, the school year, and what went wrong. Something like \"Grade 10, Cambridge 0620 Extended, scored 4 out of 15 on the moles and titration section of the December mock, entered for the alternative-to-practical paper\" is enough for us to shortlist properly. A message saying only that Chemistry help is needed costs two more exchanges, and when a mock is three weeks away those exchanges are the difference.\n\nYou will get back two or three tutors with their actual board experience and how they run a session, plus the rate for that specific match, in writing. There is no published price list, because a Grade 11 Extended tutor working to a May session and a Grade 9 foundations tutor are not doing the same work. The first lesson is free, and if the fit is wrong afterwards we change the tutor rather than asking you to persevere.\n\nEmail ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115. Families outside India should add their city and time zone, so the slot we propose is in your evening rather than ours.",
+        "A useful first message takes about a minute to write. Include the board and code, the tier, the school year, and what went wrong. Something like \"Grade 10, Cambridge 0620 Extended, scored 4 out of 15 on the moles and titration section of the December mock, entered for the alternative-to-practical paper\" is enough for us to shortlist properly. A message saying only that Chemistry help is needed costs two more exchanges, and when a mock is three weeks away those exchanges are the difference.\n\nYou will get back two or three tutors with their actual board experience and how they run a session, plus the rate for that specific match, in writing. There is no published price list, because a Grade 11 Extended tutor working to a May session and a Grade 9 foundations tutor are not doing the same work. The first lesson is free, and if the fit is wrong afterwards we change the tutor rather than asking you to persevere.\n\nEmail support@ibgram.com or send a WhatsApp message to +91 7439 368 115. Families outside India should add their city and time zone, so the slot we propose is in your evening rather than ours.",
       items: [
         "Four things in the first message: board and code, tier, year, what went wrong",
         "Shortlist with board experience and the rate, in writing, before booking",
         "First lesson free; tutor changed afterwards if the fit is wrong",
         "Add your city and time zone if you are outside India",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp",
       ],
     },
   ],
@@ -337,6 +337,6 @@ export const chemistry: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a mock paper, a Core versus Extended decision or an approaching exam session brought you here, send us four things: the board and code, the tier, the school year, and what actually went wrong. A shortlist comes back with each tutor's board experience and their rate in writing, the first lesson is free, and we will change the tutor if the match is not right rather than asking you to make it work. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India so we can propose times that suit your evening.",
+    "If a mock paper, a Core versus Extended decision or an approaching exam session brought you here, send us four things: the board and code, the tier, the school year, and what actually went wrong. A shortlist comes back with each tutor's board experience and their rate in writing, the first lesson is free, and we will change the tutor if the match is not right rather than asking you to make it work. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India so we can propose times that suit your evening.",
   lastUpdated: "2026-09-18",
 };

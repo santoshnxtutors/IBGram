@@ -335,7 +335,7 @@ export const jordan: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB or IGCSE tutor in Jordan?",
-      answer: "Tell us the board first — IB, Cambridge or Tawjihi — plus the subject and level, rather than searching for a tutor in general terms. A specific person gets put forward after we hear about the school, current results and the actual sticking point. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with the details, and a named tutor comes back rather than a list to browse.",
+      answer: "Tell us the board first — IB, Cambridge or Tawjihi — plus the subject and level, rather than searching for a tutor in general terms. A specific person gets put forward after we hear about the school, current results and the actual sticking point. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with the details, and a named tutor comes back rather than a list to browse.",
     },
     {
       question: "Can lessons run on Jordan Time?",
@@ -343,7 +343,7 @@ export const jordan: CountrySeoPage = {
     },
     {
       question: "What does tutoring cost, and how is it paid?",
-      answer: "Cost tracks the board, subject and weekly hours booked — IB Higher Level and A Level sciences generally cost more than MYP or Tawjihi-subject sessions. A written rate is given before anything is booked, so the first invoice holds no surprise. Email ibgram24@gmail.com with the board, subject and level for a current quote, and to confirm currency and payment method.",
+      answer: "Cost tracks the board, subject and weekly hours booked — IB Higher Level and A Level sciences generally cost more than MYP or Tawjihi-subject sessions. A written rate is given before anything is booked, so the first invoice holds no surprise. Email support@ibgram.com with the board, subject and level for a current quote, and to confirm currency and payment method.",
     },
     {
       question: "Is there an in-person option anywhere in Jordan?",
@@ -391,7 +391,7 @@ export const jordan: CountrySeoPage = {
     },
     {
       question: "How do we start?",
-      answer: "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with the school, board, subject and level, a workable time on Jordan Time, and what needs to change — a grade, exam nerves, a stalled internal assessment. A tutor and a trial time follow from there. Payment only comes up after the trial lesson and an agreed rate.",
+      answer: "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with the school, board, subject and level, a workable time on Jordan Time, and what needs to change — a grade, exam nerves, a stalled internal assessment. A tutor and a trial time follow from there. Payment only comes up after the trial lesson and an agreed rate.",
     },
   ],
 
@@ -410,5 +410,5 @@ export const jordan: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial lesson on Jordan Time",
-  closingBody: "Share the school, board, subject and a workable time on Jordan Time, and a named tutor comes back with their background and a couple of open trial slots — free, with nothing to commit to afterward. Not the right match? Say so, and a different tutor gets arranged. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115, mentioning your child's current school and board.",
+  closingBody: "Share the school, board, subject and a workable time on Jordan Time, and a named tutor comes back with their background and a couple of open trial slots — free, with nothing to commit to afterward. Not the right match? Say so, and a different tutor gets arranged. Email support@ibgram.com or WhatsApp +91 7439 368 115, mentioning your child's current school and board.",
 };

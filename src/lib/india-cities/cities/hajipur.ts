@@ -469,5 +469,5 @@ export const hajipur: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson for your Hajipur student",
   closingBody:
-    "Tell us the board or programme your child follows, the subject, level and current grade, and a few slots that work for your household. We send back a shortlisted tutor along with their background and open trial times, all delivered live online rather than in person, at no cost and with nothing to sign. Reach IB Gram at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Tell us the board or programme your child follows, the subject, level and current grade, and a few slots that work for your household. We send back a shortlisted tutor along with their background and open trial times, all delivered live online rather than in person, at no cost and with nothing to sign. Reach IB Gram at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

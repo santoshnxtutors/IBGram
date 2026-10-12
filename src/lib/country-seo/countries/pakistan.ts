@@ -340,7 +340,7 @@ export const pakistan: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good O Level, A Level or IB tutor in Pakistan?",
-      answer: "Start with the exact board and syllabus code rather than a general subject request — Cambridge 9702 Physics and O Level 5054 Physics need different specialists. IB Gram matches Pakistani families with online tutors after a short conversation about the school, the current results, and where the difficulty actually sits. Email ibgram24@gmail.com or call +91 7439 368 115 and describe what's not working; we'll suggest a tutor rather than hand you a list to search.",
+      answer: "Start with the exact board and syllabus code rather than a general subject request — Cambridge 9702 Physics and O Level 5054 Physics need different specialists. IB Gram matches Pakistani families with online tutors after a short conversation about the school, the current results, and where the difficulty actually sits. Email support@ibgram.com or call +91 7439 368 115 and describe what's not working; we'll suggest a tutor rather than hand you a list to search.",
     },
     {
       question: "Can sessions run on Pakistan Standard Time?",
@@ -348,7 +348,7 @@ export const pakistan: CountrySeoPage = {
     },
     {
       question: "How much does tutoring cost in Pakistan, and how do we pay?",
-      answer: "Cost depends on the board, the subject and how many hours a week you book — A Level sciences and IB HL subjects typically cost more than O Level support. A per-session rate is quoted in writing before anything is confirmed, so there's no surprise on the first invoice. Email ibgram24@gmail.com with the subject, level and board to get the current rate, and currency and payment method get settled in that same conversation.",
+      answer: "Cost depends on the board, the subject and how many hours a week you book — A Level sciences and IB HL subjects typically cost more than O Level support. A per-session rate is quoted in writing before anything is confirmed, so there's no surprise on the first invoice. Email support@ibgram.com with the subject, level and board to get the current rate, and currency and payment method get settled in that same conversation.",
     },
     {
       question: "Do you have in-person tutors in Pakistan?",
@@ -400,7 +400,7 @@ export const pakistan: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Send four things to ibgram24@gmail.com or +91 7439 368 115: the board and subject involved, the level (O Level, AS, A2, IB or IGCSE), your city and preferred evening hours, and the actual outcome you're after — a grade lift, IBCC-conversion planning, or MDCAT/ECAT bridging. We'll name a tutor, share their background, and set up an introductory session. Nothing is billed until after that lesson and an agreed rate.",
+      answer: "Send four things to support@ibgram.com or +91 7439 368 115: the board and subject involved, the level (O Level, AS, A2, IB or IGCSE), your city and preferred evening hours, and the actual outcome you're after — a grade lift, IBCC-conversion planning, or MDCAT/ECAT bridging. We'll name a tutor, share their background, and set up an introductory session. Nothing is billed until after that lesson and an agreed rate.",
     },
   ],
 
@@ -420,5 +420,5 @@ export const pakistan: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an online tutor on Pakistan Standard Time",
-  closingBody: "Send through the board, the subject, the level and your city. What comes back is a specific tutor, a look at their teaching background, and a couple of trial times already sitting after school on PKT — free, with nothing owed if you leave it there. Not the right fit? Say so and another tutor gets suggested. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115, with your child's board, subject and current grade included.",
+  closingBody: "Send through the board, the subject, the level and your city. What comes back is a specific tutor, a look at their teaching background, and a couple of trial times already sitting after school on PKT — free, with nothing owed if you leave it there. Not the right fit? Say so and another tutor gets suggested. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115, with your child's board, subject and current grade included.",
 };

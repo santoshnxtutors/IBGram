@@ -472,5 +472,5 @@ export const mandsaur: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson for your Mandsaur student",
   closingBody:
-    "Write in with the board or programme, the subject and level, where your child currently stands, and the hours that suit your household. We come back with a tutor whose recent teaching genuinely matches that brief, a trial slot built around your evenings, and nothing to pay unless you decide to continue. Reach us on ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "Write in with the board or programme, the subject and level, where your child currently stands, and the hours that suit your household. We come back with a tutor whose recent teaching genuinely matches that brief, a trial slot built around your evenings, and nothing to pay unless you decide to continue. Reach us on support@ibgram.com or WhatsApp +91 7439 368 115.",
 };

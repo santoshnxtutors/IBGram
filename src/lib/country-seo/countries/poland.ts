@@ -341,7 +341,7 @@ export const poland: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Poland?",
-      answer: "Skip the search for a generically 'best' tutor and lead with the specifics instead - which programme (PYP, MYP, DP or CP), the exact subject, and exactly where it's going wrong. A message to ibgram24@gmail.com or WhatsApp on +91 7439 368 115 with current grades and the sticking point gets a specific tutor proposed back, rather than handing a family a list to research on their own.",
+      answer: "Skip the search for a generically 'best' tutor and lead with the specifics instead - which programme (PYP, MYP, DP or CP), the exact subject, and exactly where it's going wrong. A message to support@ibgram.com or WhatsApp on +91 7439 368 115 with current grades and the sticking point gets a specific tutor proposed back, rather than handing a family a list to research on their own.",
     },
     {
       question: "Can lessons run on Polish time, including when the clocks change?",
@@ -349,7 +349,7 @@ export const poland: CountrySeoPage = {
     },
     {
       question: "How much does IB and IGCSE tutoring cost in Poland, and how do we pay?",
-      answer: "Rates track the programme stage, the subject, and the number of hours booked each week - HL Mathematics or a science at DP level typically runs above MYP-level support. Nothing gets booked before a written per-hour figure is confirmed, so the opening invoice matches what was agreed. Message ibgram24@gmail.com with a child's grade and subject, and raise currency and how you'd like to pay in that same note.",
+      answer: "Rates track the programme stage, the subject, and the number of hours booked each week - HL Mathematics or a science at DP level typically runs above MYP-level support. Nothing gets booked before a written per-hour figure is confirmed, so the opening invoice matches what was agreed. Message support@ibgram.com with a child's grade and subject, and raise currency and how you'd like to pay in that same note.",
     },
     {
       question: "Do you send tutors to our home in Warsaw or Kraków?",
@@ -405,7 +405,7 @@ export const poland: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "A message to ibgram24@gmail.com or WhatsApp on +91 7439 368 115 covering a child's grade and programme, the subjects and levels involved, a Polish city and preferred evening hours, and what specifically needs fixing - a grade, exam nerves, an IA deadline closing in - sets things moving. A named tutor and their background come back first, an introductory lesson gets arranged next, and nothing is billed until after that session and an agreed rate.",
+      answer: "A message to support@ibgram.com or WhatsApp on +91 7439 368 115 covering a child's grade and programme, the subjects and levels involved, a Polish city and preferred evening hours, and what specifically needs fixing - a grade, exam nerves, an IA deadline closing in - sets things moving. A named tutor and their background come back first, an introductory lesson gets arranged next, and nothing is billed until after that session and an agreed rate.",
     },
   ],
 
@@ -425,5 +425,5 @@ export const poland: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Polish time",
-  closingBody: "Tell us the programme, the subject, the level, and roughly which Polish city the family is in. What comes back is a tutor with real teaching history in that precise course, along with a couple of trial slots already sitting inside a normal evening on Central European Time - free, no strings attached. Not quite right? Say why, and another name follows. Get in touch at ibgram24@gmail.com or by WhatsApp on +91 7439 368 115, mentioning your child's grade and programme.",
+  closingBody: "Tell us the programme, the subject, the level, and roughly which Polish city the family is in. What comes back is a tutor with real teaching history in that precise course, along with a couple of trial slots already sitting inside a normal evening on Central European Time - free, no strings attached. Not quite right? Say why, and another name follows. Get in touch at support@ibgram.com or by WhatsApp on +91 7439 368 115, mentioning your child's grade and programme.",
 };

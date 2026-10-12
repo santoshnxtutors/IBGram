@@ -401,7 +401,7 @@ export const jind: CitySeoPage = {
     { question: "Can you help with an IB school entrance test?", answer: "We can strengthen the subject base. A tutor finds gaps in English, Maths and Science, practises the explaining style IB schools prefer and builds confidence. We do not promise admission and have no say in any school's decisions." },
     { question: "Are lessons in English or Hindi?", answer: "Lessons are in English because the exams are, though a tutor may briefly explain a difficult idea in Hindi or Punjabi when that helps a younger student. Language subjects are taught by tutors who are comfortable in that language, using past papers in the right script." },
     { question: "Is there any link between IB Gram and a school or exam board?", answer: "None. IB Gram is independent of the International Baccalaureate Organization, Cambridge, Pearson and every school. That independence means our advice on subjects, tiers and routes does not favour any institution, and it means you should confirm current rules with the official bodies." },
-    { question: "How do I book a free trial?", answer: "Message +91 7439 368 115 on WhatsApp or email ibgram24@gmail.com with the class, board and subject. We suggest a tutor and a time in IST and send a joining link. After the lesson you get a written plan and rate, with no obligation to continue." },
+    { question: "How do I book a free trial?", answer: "Message +91 7439 368 115 on WhatsApp or email support@ibgram.com with the class, board and subject. We suggest a tutor and a time in IST and send a joining link. After the lesson you get a written plan and rate, with no obligation to continue." },
   ],
 
   internalLinks: [
@@ -420,5 +420,5 @@ export const jind: CitySeoPage = {
 
   closingHeading: "Book a free lesson from Jind",
   closingBody:
-    "Tell us the class, the board and the subject giving the most trouble. We will pick a tutor who has taught it, set a trial lesson on IST and send a written plan and rate afterwards. Reach us on WhatsApp at +91 7439 368 115 or at ibgram24@gmail.com.",
+    "Tell us the class, the board and the subject giving the most trouble. We will pick a tutor who has taught it, set a trial lesson on IST and send a written plan and rate afterwards. Reach us on WhatsApp at +91 7439 368 115 or at support@ibgram.com.",
 };

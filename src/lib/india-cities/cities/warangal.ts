@@ -487,5 +487,5 @@ export const warangal: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Warangal student",
   closingBody:
-    "Send over the board or programme, the subject and level, your child's current school and grade, and whether a move towards Hyderabad or elsewhere is part of the picture. What comes back is a tutor shortlist with their teaching background and trial times built around your evenings, entirely on video, at no cost and with nothing to sign. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send over the board or programme, the subject and level, your child's current school and grade, and whether a move towards Hyderabad or elsewhere is part of the picture. What comes back is a tutor shortlist with their teaching background and trial times built around your evenings, entirely on video, at no cost and with nothing to sign. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

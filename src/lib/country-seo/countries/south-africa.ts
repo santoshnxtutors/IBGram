@@ -359,7 +359,7 @@ export const southAfrica: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in South Africa?",
-      answer: "Start by identifying your child's exact programme stage — PYP, MYP, DP or CP — the subject and level, and whether the school sits the May or November session, since South African schools genuinely differ on this. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with those details and we suggest a matched tutor rather than handing you a directory to search through yourself.",
+      answer: "Start by identifying your child's exact programme stage — PYP, MYP, DP or CP — the subject and level, and whether the school sits the May or November session, since South African schools genuinely differ on this. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with those details and we suggest a matched tutor rather than handing you a directory to search through yourself.",
     },
     {
       question: "Does IB Gram tutor IEB and NSC matric subjects, or only IB and IGCSE?",
@@ -371,7 +371,7 @@ export const southAfrica: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in South Africa, and how do we pay?",
-      answer: "Rates depend on the programme level, subject and weekly hours booked — Higher Level sciences and mathematics typically sit above MYP-level support. We quote a per-session rate in writing before anything is booked, so there is no surprise on the first invoice. Email ibgram24@gmail.com with your child's grade, subject and level, and ask about currency and payment options at the same time; both get confirmed before the first paid session.",
+      answer: "Rates depend on the programme level, subject and weekly hours booked — Higher Level sciences and mathematics typically sit above MYP-level support. We quote a per-session rate in writing before anything is booked, so there is no surprise on the first invoice. Email support@ibgram.com with your child's grade, subject and level, and ask about currency and payment options at the same time; both get confirmed before the first paid session.",
     },
     {
       question: "Do you offer in-person tutors in South Africa?",
@@ -419,7 +419,7 @@ export const southAfrica: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or call +91 7439 368 115 on WhatsApp with four things: your child's grade and system, the subject and level, your preferred South African time-zone slot, and what you want to change — a grade, exam confidence, or an approaching IA deadline. We suggest a tutor, share their background, and set up an introductory session. Nothing is charged until you've seen a lesson and agreed on the rate.",
+      answer: "Email support@ibgram.com or call +91 7439 368 115 on WhatsApp with four things: your child's grade and system, the subject and level, your preferred South African time-zone slot, and what you want to change — a grade, exam confidence, or an approaching IA deadline. We suggest a tutor, share their background, and set up an introductory session. Nothing is charged until you've seen a lesson and agreed on the rate.",
     },
   ],
 
@@ -439,5 +439,5 @@ export const southAfrica: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in South African Standard Time",
-  closingBody: "Tell us your child's system, subject, level and which exam session — May or November — their school sits. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit inside a South African afternoon or evening — no charge, and no obligation to continue afterward. If the fit isn't right, say so and we'll try again. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, including your child's grade and current school.",
+  closingBody: "Tell us your child's system, subject, level and which exam session — May or November — their school sits. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit inside a South African afternoon or evening — no charge, and no obligation to continue afterward. If the fit isn't right, say so and we'll try again. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, including your child's grade and current school.",
 };

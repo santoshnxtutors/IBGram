@@ -465,7 +465,7 @@ export const thane: CitySeoPage = {
     {
       question: "How do I get started with an IB or IGCSE tutor in Thane?",
       answer:
-        "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with your child's programme or board, subject, level and current grade. We will shortlist a matched tutor, share their background and set up a free trial class online, with no charge and no obligation to continue afterwards.",
+        "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with your child's programme or board, subject, level and current grade. We will shortlist a matched tutor, share their background and set up a free trial class online, with no charge and no obligation to continue afterwards.",
     },
   ],
 
@@ -487,5 +487,5 @@ export const thane: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Thane student",
   closingBody:
-    "Tell us the programme or board, subject and level, your child's current grade and the times that work around your Thane school day. You'll get back a matched tutor, their teaching background and an online trial slot, with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, subject and level, your child's current grade and the times that work around your Thane school day. You'll get back a matched tutor, their teaching background and an online trial slot, with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

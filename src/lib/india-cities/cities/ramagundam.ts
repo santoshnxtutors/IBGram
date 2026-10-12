@@ -454,5 +454,5 @@ export const ramagundam: CitySeoPage = {
 
   closingHeading: "Get a tutor shortlist for Ramagundam",
   closingBody:
-    "Tell us the board or programme, the subject and level, where your child currently stands, and what hours actually work for your family. A shortlist comes back with each tutor's background and open trial slots, ready to book. Nothing is charged for that first lesson, and there is no obligation to continue past it. Reach IB Gram at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Tell us the board or programme, the subject and level, where your child currently stands, and what hours actually work for your family. A shortlist comes back with each tutor's background and open trial slots, ready to book. Nothing is charged for that first lesson, and there is no obligation to continue past it. Reach IB Gram at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

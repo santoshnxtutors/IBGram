@@ -352,7 +352,7 @@ export const denmark: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Denmark?",
-      answer: "Start by pinning down your child's exact stage — PYP, MYP or DP — the subject and level, and whether they study at a gymnasium's IB stream or a full international school. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with those details and we'll suggest a matched tutor rather than a list to search through yourself.",
+      answer: "Start by pinning down your child's exact stage — PYP, MYP or DP — the subject and level, and whether they study at a gymnasium's IB stream or a full international school. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with those details and we'll suggest a matched tutor rather than a list to search through yourself.",
     },
     {
       question: "Can sessions run in Danish time, including during summer time?",
@@ -360,7 +360,7 @@ export const denmark: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Denmark, and how do we pay?",
-      answer: "Cost depends on the programme stage, subject and number of weekly hours — Higher Level sciences and mathematics generally sit above MYP-level support in price. You'll get a written per-session rate before anything is booked. Email ibgram24@gmail.com with your child's stage, subject and level, and raise currency and payment method at the same time, both confirmed before the first paid lesson.",
+      answer: "Cost depends on the programme stage, subject and number of weekly hours — Higher Level sciences and mathematics generally sit above MYP-level support in price. You'll get a written per-session rate before anything is booked. Email support@ibgram.com with your child's stage, subject and level, and raise currency and payment method at the same time, both confirmed before the first paid lesson.",
     },
     {
       question: "Do you offer in-person tutors in Denmark?",
@@ -408,7 +408,7 @@ export const denmark: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or reach us on WhatsApp at +91 7439 368 115 with your child's stage and programme, the subject and level, a workable Danish-time window, and what you actually want to change — a stronger grade, calmer exam nerves, or a looming deadline. We'll suggest a tutor and set up an introductory session, with nothing charged until you've seen a lesson and agreed the rate.",
+      answer: "Email support@ibgram.com or reach us on WhatsApp at +91 7439 368 115 with your child's stage and programme, the subject and level, a workable Danish-time window, and what you actually want to change — a stronger grade, calmer exam nerves, or a looming deadline. We'll suggest a tutor and set up an introductory session, with nothing charged until you've seen a lesson and agreed the rate.",
     },
   ],
 
@@ -428,5 +428,5 @@ export const denmark: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB tutor in Danish time",
-  closingBody: "Tell us your child's stage, subject, level, and whether they're at a gymnasium's IB stream or a full international school. You'll hear back with a named tutor, a look at their teaching background, and a couple of trial times already set for a Danish afternoon or evening — free of charge, with nothing to continue if it isn't the right fit. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, mentioning your child's stage and current school.",
+  closingBody: "Tell us your child's stage, subject, level, and whether they're at a gymnasium's IB stream or a full international school. You'll hear back with a named tutor, a look at their teaching background, and a couple of trial times already set for a Danish afternoon or evening — free of charge, with nothing to continue if it isn't the right fit. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, mentioning your child's stage and current school.",
 };

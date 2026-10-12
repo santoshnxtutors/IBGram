@@ -469,5 +469,5 @@ export const karimnagar: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Karimnagar",
   closingBody:
-    "Send across the programme or board, subject and level, your child's current grade, and the hours that actually suit your Karimnagar household. What comes back is a shortlisted tutor, a look at their teaching background, and open trial slots fitted to your routine, all delivered online and one to one, free and with no obligation. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send across the programme or board, subject and level, your child's current grade, and the hours that actually suit your Karimnagar household. What comes back is a shortlisted tutor, a look at their teaching background, and open trial slots fitted to your routine, all delivered online and one to one, free and with no obligation. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

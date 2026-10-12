@@ -465,5 +465,5 @@ export const shahjahanpur: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Shahjahanpur child",
   closingBody:
-    "Share the programme or board, subject and level, your child's current grade, and the times your household can realistically manage. A shortlisted tutor comes back with their teaching background and trial slots that fit your week, entirely online, at no charge and with no commitment attached. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Share the programme or board, subject and level, your child's current grade, and the times your household can realistically manage. A shortlisted tutor comes back with their teaching background and trial slots that fit your week, entirely online, at no charge and with no commitment attached. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

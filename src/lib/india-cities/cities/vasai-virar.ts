@@ -495,7 +495,7 @@ export const vasaiVirar: CitySeoPage = {
 
   closingHeading: "Start a free trial lesson with an online tutor for Vasai-Virar",
   closingBody:
-    "Send across the board or programme, the subject and level, and where your child studies right now. Back comes a shortlisted tutor, a look at their teaching background, and trial times that work without adding to anyone's commute, at no cost and no obligation. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send across the board or programme, the subject and level, and where your child studies right now. Back comes a shortlisted tutor, a look at their teaching background, and trial times that work without adding to anyone's commute, at no cost and no obligation. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 
   geo: { latitude: 19.4559, longitude: 72.811 },
   alternateNames: ["Bassein", "Vasai Virar"],

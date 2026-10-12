@@ -461,5 +461,5 @@ export const bilaspur: CitySeoPage = {
 
   closingHeading: "Arrange a free trial lesson, wherever your Bilaspur child studies",
   closingBody:
-    "Let us know the board or programme, subject and level, your child's current grade, and whether they board elsewhere, sit exams independently, or have recently moved to Bilaspur. We'll come back with a matched tutor, their background, and open trial times, all online, all one to one, at no cost and no obligation. Reach IB Gram at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Let us know the board or programme, subject and level, your child's current grade, and whether they board elsewhere, sit exams independently, or have recently moved to Bilaspur. We'll come back with a matched tutor, their background, and open trial times, all online, all one to one, at no cost and no obligation. Reach IB Gram at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

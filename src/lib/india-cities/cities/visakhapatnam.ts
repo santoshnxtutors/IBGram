@@ -508,7 +508,7 @@ export const visakhapatnam: CitySeoPage = {
 
   closingHeading: "Book a free trial with an online IB or IGCSE tutor for your Visakhapatnam student",
   closingBody:
-    "Tell us the programme or board, the subject and level, your child's current grade and the times that work for your Vizag household. You'll get back a shortlisted tutor, their teaching background and trial slots that fit the school week, on live video, with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, the subject and level, your child's current grade and the times that work for your Vizag household. You'll get back a shortlisted tutor, their teaching background and trial slots that fit the school week, on live video, with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 
   geo: { latitude: 17.6868, longitude: 83.2185 },
   alternateNames: ["Vizag", "Waltair"],

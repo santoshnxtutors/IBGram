@@ -356,7 +356,7 @@ export const austria: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Austria?",
-      answer: "Start by naming the exact programme stage, the subject and level, and whether the Matura runs alongside the Diploma at your child's school, since that changes what a tutor needs to know. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with those details and a sense of where things stand, and a specific tutor is suggested rather than a list handed over for you to sift through.",
+      answer: "Start by naming the exact programme stage, the subject and level, and whether the Matura runs alongside the Diploma at your child's school, since that changes what a tutor needs to know. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with those details and a sense of where things stand, and a specific tutor is suggested rather than a list handed over for you to sift through.",
     },
     {
       question: "Can lessons be scheduled on Austrian time?",
@@ -364,7 +364,7 @@ export const austria: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Austria, and how do we pay?",
-      answer: "It depends on the programme stage, subject and how many weekly hours are booked, with DP Higher Level sciences and mathematics generally costing more than MYP or PYP support. A rate is confirmed in writing before anything is booked, so the first invoice holds no surprises. Send your child's level, subject and school to ibgram24@gmail.com for a current quote, and currency and payment method get sorted at the same time.",
+      answer: "It depends on the programme stage, subject and how many weekly hours are booked, with DP Higher Level sciences and mathematics generally costing more than MYP or PYP support. A rate is confirmed in writing before anything is booked, so the first invoice holds no surprises. Send your child's level, subject and school to support@ibgram.com for a current quote, and currency and payment method get sorted at the same time.",
     },
     {
       question: "Do you have in-person tutors in Austria?",
@@ -416,7 +416,7 @@ export const austria: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with the child's level and programme, the exact subject and level needed, whether the dual Matura track applies, preferred Vienna-time hours, and what needs to change — a grade, exam confidence, an IA deadline. A tutor is suggested, their background shared, and an introductory lesson arranged. Nothing is charged until a lesson has happened and a rate is agreed.",
+      answer: "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with the child's level and programme, the exact subject and level needed, whether the dual Matura track applies, preferred Vienna-time hours, and what needs to change — a grade, exam confidence, an IA deadline. A tutor is suggested, their background shared, and an introductory lesson arranged. Nothing is charged until a lesson has happened and a rate is agreed.",
     },
   ],
 
@@ -435,5 +435,5 @@ export const austria: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB tutor on Vienna time",
-  closingBody: "Share the programme, the exact subject and level, and whether the Matura runs alongside the Diploma at your child's school. A named tutor comes back with their teaching history and a couple of trial slots that sit inside a normal Austrian afternoon or evening, free of charge and with no obligation afterward. If it isn't the right fit, say so and we'll find someone else. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115, with your child's level and current school.",
+  closingBody: "Share the programme, the exact subject and level, and whether the Matura runs alongside the Diploma at your child's school. A named tutor comes back with their teaching history and a couple of trial slots that sit inside a normal Austrian afternoon or evening, free of charge and with no obligation afterward. If it isn't the right fit, say so and we'll find someone else. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115, with your child's level and current school.",
 };

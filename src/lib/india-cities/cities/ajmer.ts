@@ -468,5 +468,5 @@ export const ajmer: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Ajmer",
   closingBody:
-    "Share the programme or board, the subject and level, your child's current grade, and the times that suit your Ajmer household. Back comes a shortlisted tutor, their teaching background and trial slots fitted around your routine, delivered online and one to one, at no charge and no commitment. Write to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115.",
+    "Share the programme or board, the subject and level, your child's current grade, and the times that suit your Ajmer household. Back comes a shortlisted tutor, their teaching background and trial slots fitted around your routine, delivered online and one to one, at no charge and no commitment. Write to support@ibgram.com or send a WhatsApp message to +91 7439 368 115.",
 };

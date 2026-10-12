@@ -473,5 +473,5 @@ export const kharagpur: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Kharagpur student",
   closingBody:
-    "Send the programme or board, the subject and level, your child's current grade and the times that suit your family in Kharagpur. Back comes a shortlisted tutor, their teaching background, and trial slots that fit around your school week, online and one to one, at no cost and no obligation. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send the programme or board, the subject and level, your child's current grade and the times that suit your family in Kharagpur. Back comes a shortlisted tutor, their teaching background, and trial slots that fit around your school week, online and one to one, at no cost and no obligation. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

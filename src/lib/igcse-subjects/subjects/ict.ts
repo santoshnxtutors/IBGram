@@ -165,13 +165,13 @@ export const ict: IgcseSubjectContent = {
       type: "cta",
       heading: "How to Start an ICT Match This Week",
       body:
-        "A useful first message takes about two minutes to write and saves a fortnight. Tell us the syllabus code the school teaches, 0417 or 0983, and the student's grade. Tell us which software suite they work in and whether the school uses desktop or cloud tools. Say what triggered the search: a specific practical assessment, a theory mock, a report comment, or simply a Grade 9 start done properly. Add the deadline if there is one, and the two or three windows in your week that realistically work for a lesson.\n\nWe will come back with a small number of tutors who have taught that code, with what each has actually taught rather than a list of adjectives. The first lesson is free and diagnostic: the student shares a screen, redoes a real task, and you get a written read on where the marks are going.\n\nIf you want home tutoring in an Indian city, say which area, and you will get a straight yes or no about current availability rather than a maybe. Outside India, sessions are online, scheduled in your own time zone. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+        "A useful first message takes about two minutes to write and saves a fortnight. Tell us the syllabus code the school teaches, 0417 or 0983, and the student's grade. Tell us which software suite they work in and whether the school uses desktop or cloud tools. Say what triggered the search: a specific practical assessment, a theory mock, a report comment, or simply a Grade 9 start done properly. Add the deadline if there is one, and the two or three windows in your week that realistically work for a lesson.\n\nWe will come back with a small number of tutors who have taught that code, with what each has actually taught rather than a list of adjectives. The first lesson is free and diagnostic: the student shares a screen, redoes a real task, and you get a written read on where the marks are going.\n\nIf you want home tutoring in an Indian city, say which area, and you will get a straight yes or no about current availability rather than a maybe. Outside India, sessions are online, scheduled in your own time zone. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
       items: [
         "Include the code (0417 or 0983), the grade and the software suite",
         "Name the trigger: a practical task, a theory mock, or a planned start",
         "List two or three weekly time windows that genuinely work",
         "Free diagnostic first lesson, with a written summary afterwards",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115",
       ],
     },
   ],
@@ -320,6 +320,6 @@ export const ict: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If you want an IGCSE ICT tutor, the quickest route is a short message with four things in it: the syllabus code your school teaches, 0417 or 0983, your child's grade, the software suite they work in, and what prompted you to look. We will reply with a small shortlist of tutors who have taught that route, and the first lesson is free and diagnostic, with a written summary you can read afterwards. Online sessions run worldwide in your own time zone; home tutoring is India-only and depends on local availability. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "If you want an IGCSE ICT tutor, the quickest route is a short message with four things in it: the syllabus code your school teaches, 0417 or 0983, your child's grade, the software suite they work in, and what prompted you to look. We will reply with a small shortlist of tutors who have taught that route, and the first lesson is free and diagnostic, with a written summary you can read afterwards. Online sessions run worldwide in your own time zone; home tutoring is India-only and depends on local availability. Email support@ibgram.com or WhatsApp +91 7439 368 115.",
   lastUpdated: "2026-09-18",
 };

@@ -353,7 +353,7 @@ export const sriLanka: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Sri Lanka?",
-      answer: "Since Sri Lanka has only one IB World School, the most reliable filter is programme stage plus the exact subject and level, rather than a broad \"IB tutor\" search that turns up very little locally. Tell us your child's school, current grades and where the difficulty genuinely sits, and IB Gram proposes a named specialist directly. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115 with a couple of sentences describing the situation.",
+      answer: "Since Sri Lanka has only one IB World School, the most reliable filter is programme stage plus the exact subject and level, rather than a broad \"IB tutor\" search that turns up very little locally. Tell us your child's school, current grades and where the difficulty genuinely sits, and IB Gram proposes a named specialist directly. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115 with a couple of sentences describing the situation.",
     },
     {
       question: "Do lessons really need no time-zone adjustment?",
@@ -361,7 +361,7 @@ export const sriLanka: CountrySeoPage = {
     },
     {
       question: "How much does tutoring cost in Sri Lanka, and how do we pay?",
-      answer: "It varies with programme level, subject and how many hours a week you book — HL or A Level science and mathematics support typically costs more than IGCSE-level help. Nothing is booked until a per-hour rate has been put in writing, so the first invoice never surprises anyone. Send your child's grade, subject and level to ibgram24@gmail.com and ask for a current quote, and settle on currency and payment method in that same exchange.",
+      answer: "It varies with programme level, subject and how many hours a week you book — HL or A Level science and mathematics support typically costs more than IGCSE-level help. Nothing is booked until a per-hour rate has been put in writing, so the first invoice never surprises anyone. Send your child's grade, subject and level to support@ibgram.com and ask for a current quote, and settle on currency and payment method in that same exchange.",
     },
     {
       question: "Is tutoring in Sri Lanka done face to face or online?",
@@ -409,7 +409,7 @@ export const sriLanka: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Send four details to ibgram24@gmail.com or +91 7439 368 115: your child's grade and programme, the subjects, levels and exam board involved, your preferred hours, and the actual outcome you want — a stronger predicted grade, calmer exam nerves, a coursework deadline met, or clearer thinking on the university route ahead. We name a tutor, share their background, and set up the introductory lesson, with nothing charged until a rate is agreed and a lesson has actually happened.",
+      answer: "Send four details to support@ibgram.com or +91 7439 368 115: your child's grade and programme, the subjects, levels and exam board involved, your preferred hours, and the actual outcome you want — a stronger predicted grade, calmer exam nerves, a coursework deadline met, or clearer thinking on the university route ahead. We name a tutor, share their background, and set up the introductory lesson, with nothing charged until a rate is agreed and a lesson has actually happened.",
     },
   ],
 
@@ -429,5 +429,5 @@ export const sriLanka: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Sri Lanka Standard Time",
-  closingBody: "Share the school, subject, level and board, and the hours that suit your household — since there is no time-zone gap to plan around, almost any hour works. We'll come back with a named tutor, their background, and a couple of trial slots, free and with nothing owed afterward if it isn't right. Getting it wrong the first time is fine; we'll try a different tutor without fuss. Reach us at ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your child's grade and current school included.",
+  closingBody: "Share the school, subject, level and board, and the hours that suit your household — since there is no time-zone gap to plan around, almost any hour works. We'll come back with a named tutor, their background, and a couple of trial slots, free and with nothing owed afterward if it isn't right. Getting it wrong the first time is fine; we'll try a different tutor without fuss. Reach us at support@ibgram.com or +91 7439 368 115 on WhatsApp, with your child's grade and current school included.",
 };

@@ -370,7 +370,7 @@ export const singapore: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Singapore?",
-      answer: "Start with the exact programme stage — PYP, MYP, DP or CP — and the specific subject and level, rather than searching for a general \"IB tutor.\" We match Singapore families with an online tutor after a short conversation about the school, current grades and where things are actually going wrong. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp and describe the need; we suggest someone rather than pointing you at a directory.",
+      answer: "Start with the exact programme stage — PYP, MYP, DP or CP — and the specific subject and level, rather than searching for a general \"IB tutor.\" We match Singapore families with an online tutor after a short conversation about the school, current grades and where things are actually going wrong. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp and describe the need; we suggest someone rather than pointing you at a directory.",
     },
     {
       question: "Can lessons be scheduled on Singapore time?",
@@ -378,7 +378,7 @@ export const singapore: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Singapore, and how do we pay?",
-      answer: "Rates depend on the programme level, subject and weekly hours booked — DP Higher Level sciences and mathematics generally sit above MYP or PYP support. A rate is quoted in writing before anything is booked, so the first invoice holds no surprises. Email ibgram24@gmail.com with the level, subject and school type for a current quote; currency and payment method get confirmed at the same time, before the first paid session.",
+      answer: "Rates depend on the programme level, subject and weekly hours booked — DP Higher Level sciences and mathematics generally sit above MYP or PYP support. A rate is quoted in writing before anything is booked, so the first invoice holds no surprises. Email support@ibgram.com with the level, subject and school type for a current quote; currency and payment method get confirmed at the same time, before the first paid session.",
     },
     {
       question: "Do you have in-person tutors in Singapore?",
@@ -430,7 +430,7 @@ export const singapore: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with four things: the child's level and programme, the subject and level needed, preferred Singapore Standard Time hours, and what needs to change — a grade, exam confidence, an IA deadline. A tutor is suggested, their background shared, and an introductory session set up. Nothing is charged until a lesson has happened and a rate agreed.",
+      answer: "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with four things: the child's level and programme, the subject and level needed, preferred Singapore Standard Time hours, and what needs to change — a grade, exam confidence, an IA deadline. A tutor is suggested, their background shared, and an introductory session set up. Nothing is charged until a lesson has happened and a rate agreed.",
     },
   ],
 
@@ -449,5 +449,5 @@ export const singapore: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Singapore time",
-  closingBody: "Tell us the programme, subject, level and whether the school is international or a local autonomous school. A named tutor comes back with their teaching background and two or three trial slots on Singapore Standard Time, at no charge and no obligation to continue. If it isn't right, say so and we'll try again. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and mention the child's level and current school.",
+  closingBody: "Tell us the programme, subject, level and whether the school is international or a local autonomous school. A named tutor comes back with their teaching background and two or three trial slots on Singapore Standard Time, at no charge and no obligation to continue. If it isn't right, say so and we'll try again. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and mention the child's level and current school.",
 };

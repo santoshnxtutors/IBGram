@@ -470,5 +470,5 @@ export const tirunelveli: CitySeoPage = {
 
   closingHeading: "Start a free trial class for your Tirunelveli student",
   closingBody:
-    "Send across the programme or board, subject and level, your child's current grade, and the evening slots that actually work for your household. What comes back is a shortlisted tutor with a relevant teaching background and trial times that fit around school or hostel hours, entirely online and one to one, at no cost and with no commitment attached. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send across the programme or board, subject and level, your child's current grade, and the evening slots that actually work for your household. What comes back is a shortlisted tutor with a relevant teaching background and trial times that fit around school or hostel hours, entirely online and one to one, at no cost and with no commitment attached. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

@@ -368,7 +368,7 @@ export const brazil: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Brazil?",
-      answer: "Get specific about the programme stage first — PYP, MYP, DP or CP — then about the exact board and level, since one Brazilian bilingual school can run Cambridge, Edexcel and the full IB across different year groups at the same time. We take that detail, plus current grades and where the trouble actually sits, and come back with a suggested tutor rather than pointing you at a directory. Reach us at ibgram24@gmail.com or via WhatsApp on +91 7439 368 115.",
+      answer: "Get specific about the programme stage first — PYP, MYP, DP or CP — then about the exact board and level, since one Brazilian bilingual school can run Cambridge, Edexcel and the full IB across different year groups at the same time. We take that detail, plus current grades and where the trouble actually sits, and come back with a suggested tutor rather than pointing you at a directory. Reach us at support@ibgram.com or via WhatsApp on +91 7439 368 115.",
     },
     {
       question: "What time zone do lessons follow if my family isn't near São Paulo or Rio?",
@@ -376,7 +376,7 @@ export const brazil: CountrySeoPage = {
     },
     {
       question: "What does tutoring cost in Brazil, and how does payment work?",
-      answer: "Cost tracks the programme level, subject and weekly hours booked, with DP Higher Level Sciences and Mathematics generally priced above MYP or IGCSE work. You'll see the per-hour rate in writing before committing to anything, so nothing surprises you on the first bill. Send your child's grade, subject and level to ibgram24@gmail.com and we'll confirm the current rate along with currency and payment options together.",
+      answer: "Cost tracks the programme level, subject and weekly hours booked, with DP Higher Level Sciences and Mathematics generally priced above MYP or IGCSE work. You'll see the per-hour rate in writing before committing to anything, so nothing surprises you on the first bill. Send your child's grade, subject and level to support@ibgram.com and we'll confirm the current rate along with currency and payment options together.",
     },
     {
       question: "Does IB Gram send tutors to a family's home in Brazil?",
@@ -420,7 +420,7 @@ export const brazil: CountrySeoPage = {
     },
     {
       question: "What do we actually need to send you to get a tutor search started?",
-      answer: "Just four things: your child's current grade and programme, the exact subject and level, the city you're in with hours that suit your evenings, and what specifically needs to improve — a grade, exam nerves, an IA that's stalled. Message ibgram24@gmail.com or WhatsApp +91 7439 368 115 with those details and a tutor recommendation, background included, comes back shortly after. Nothing is billed until after you've watched a lesson and agreed a rate in writing.",
+      answer: "Just four things: your child's current grade and programme, the exact subject and level, the city you're in with hours that suit your evenings, and what specifically needs to improve — a grade, exam nerves, an IA that's stalled. Message support@ibgram.com or WhatsApp +91 7439 368 115 with those details and a tutor recommendation, background included, comes back shortly after. Nothing is billed until after you've watched a lesson and agreed a rate in writing.",
     },
   ],
 
@@ -439,5 +439,5 @@ export const brazil: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Brasília Time",
-  closingBody: "Share the programme stage, the subject and level, and the city where your family is based, and a matched tutor comes back with a couple of Brasília evening slots already open — no cost, and nothing owed if it doesn't work out. Just say so, and we'll line up someone else instead. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, mentioning your child's grade and current school.",
+  closingBody: "Share the programme stage, the subject and level, and the city where your family is based, and a matched tutor comes back with a couple of Brasília evening slots already open — no cost, and nothing owed if it doesn't work out. Just say so, and we'll line up someone else instead. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp, mentioning your child's grade and current school.",
 };

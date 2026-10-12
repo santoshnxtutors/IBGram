@@ -470,5 +470,5 @@ export const mahbubnagar: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for Mahbubnagar",
   closingBody:
-    "Send us the board or programme, the subject and level, and what lies behind the request, whether a posting, a boarding holiday or a switch you are still weighing. You will get back a shortlisted tutor, their teaching background and trial times that fit your household, all online, free and without obligation. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send us the board or programme, the subject and level, and what lies behind the request, whether a posting, a boarding holiday or a switch you are still weighing. You will get back a shortlisted tutor, their teaching background and trial times that fit your household, all online, free and without obligation. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -183,13 +183,13 @@ export const globalPerspectives: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting This Week, and What to Put in the First Message",
       body:
-        "The useful first message takes about two minutes to write and saves a week of back and forth. Say which syllabus code the school enters, 0457 or 0426, or say that you are not sure and we will work it out. Say the grade and the school. Say which part is causing trouble right now: choosing a question, a stalled report, a team that is not functioning, reflective writing, or the written source paper. Give the school's next deadline if there is one, because for this subject the calendar drives everything.\n\nIf there is anything already written, send it. A half-finished draft, a returned piece with teacher comments, a list of candidate questions, even a paragraph the student is unhappy with — any of these makes the trial lesson concrete instead of introductory. We will suggest tutors who have coached the relevant components, and the trial session is free.\n\nAfter that the pattern is simple. Rates are confirmed in writing before you commit. A written note follows every session. If the tutor is not right, we change them. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with those details and we will come back with options.",
+        "The useful first message takes about two minutes to write and saves a week of back and forth. Say which syllabus code the school enters, 0457 or 0426, or say that you are not sure and we will work it out. Say the grade and the school. Say which part is causing trouble right now: choosing a question, a stalled report, a team that is not functioning, reflective writing, or the written source paper. Give the school's next deadline if there is one, because for this subject the calendar drives everything.\n\nIf there is anything already written, send it. A half-finished draft, a returned piece with teacher comments, a list of candidate questions, even a paragraph the student is unhappy with — any of these makes the trial lesson concrete instead of introductory. We will suggest tutors who have coached the relevant components, and the trial session is free.\n\nAfter that the pattern is simple. Rates are confirmed in writing before you commit. A written note follows every session. If the tutor is not right, we change them. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with those details and we will come back with options.",
       items: [
         "Send the code (0457 or 0426), the grade, the school and the next deadline",
         "Name the component in trouble: question, report, team project, reflection or the paper",
         "Attach anything already written, however rough, so the trial lesson is concrete",
         "Free trial lesson first; rates confirmed in writing before you commit",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115",
       ],
     },
   ],
@@ -352,10 +352,10 @@ export const globalPerspectives: IgcseSubjectContent = {
     {
       question: "How much does IGCSE Global Perspectives tuition cost?",
       answer:
-        "Fees depend on the tutor's experience, the grade, the components involved and how often sessions run, so we quote in writing before anything is booked rather than publishing a single price. There is a free trial lesson first, so you can judge the fit before paying. After that you get a written note following every session, and if the match is wrong we change the tutor. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115 with the syllabus code and grade for a quote.",
+        "Fees depend on the tutor's experience, the grade, the components involved and how often sessions run, so we quote in writing before anything is booked rather than publishing a single price. There is a free trial lesson first, so you can judge the fit before paying. After that you get a written note following every session, and if the match is wrong we change the tutor. Email support@ibgram.com or WhatsApp +91 7439 368 115 with the syllabus code and grade for a quote.",
     },
   ],
   finalCta:
-    "If the report has stalled, the question keeps collapsing, or the written paper is three months away and untouched, a short diagnostic session will tell you more than another week of reading. Send the syllabus code, the grade, the school's next deadline and anything already drafted, however rough. We will suggest tutors who have coached those components, arrange a free trial lesson and confirm rates in writing before you commit. The work stays your child's own throughout; that is the whole point of coaching it properly. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "If the report has stalled, the question keeps collapsing, or the written paper is three months away and untouched, a short diagnostic session will tell you more than another week of reading. Send the syllabus code, the grade, the school's next deadline and anything already drafted, however rough. We will suggest tutors who have coached those components, arrange a free trial lesson and confirm rates in writing before you commit. The work stays your child's own throughout; that is the whole point of coaching it properly. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
   lastUpdated: "2026-09-18",
 };

@@ -434,7 +434,7 @@ export const batala: CitySeoPage = {
     {
       question: "How do I start with a free trial?",
       answer:
-        "Message us on WhatsApp at +91 7439 368 115 or email ibgram24@gmail.com with the programme or board, subject, level, current grade and preferred timings. We shortlist a tutor and arrange the free trial. Afterwards the tutor sends a short written note and you decide whether to continue. Nothing is charged for the trial.",
+        "Message us on WhatsApp at +91 7439 368 115 or email support@ibgram.com with the programme or board, subject, level, current grade and preferred timings. We shortlist a tutor and arrange the free trial. Afterwards the tutor sends a short written note and you decide whether to continue. Nothing is charged for the trial.",
     },
     {
       question: "What internet connection is needed for online lessons in Batala?",
@@ -494,5 +494,5 @@ export const batala: CitySeoPage = {
 
   closingHeading: "Arrange a free IB or IGCSE trial lesson from Batala",
   closingBody:
-    "Send the programme or board, subject, level, current grade and the hours that suit your household. We reply with a tutor matched to that syllabus, and the trial lesson costs nothing. Reach us on WhatsApp at +91 7439 368 115 or at ibgram24@gmail.com.",
+    "Send the programme or board, subject, level, current grade and the hours that suit your household. We reply with a tutor matched to that syllabus, and the trial lesson costs nothing. Reach us on WhatsApp at +91 7439 368 115 or at support@ibgram.com.",
 };

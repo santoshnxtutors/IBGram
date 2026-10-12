@@ -454,5 +454,5 @@ export const anand: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Anand",
   closingBody:
-    "Share the board or programme your child follows, the subject and level, roughly where grades stand right now, and hours that suit your family. A short list of matched tutors comes back, along with a note on what each has recently taught and trial times to pick from, all handled online with nothing owed until you decide to continue. Get in touch at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Share the board or programme your child follows, the subject and level, roughly where grades stand right now, and hours that suit your family. A short list of matched tutors comes back, along with a note on what each has recently taught and trial times to pick from, all handled online with nothing owed until you decide to continue. Get in touch at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

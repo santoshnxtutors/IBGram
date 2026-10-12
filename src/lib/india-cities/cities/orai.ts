@@ -471,5 +471,5 @@ export const orai: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Orai",
   closingBody:
-    "Tell us the programme or board, subject and level, your child's present grade and the hours your Orai household can really spare. You will receive a shortlisted tutor, a summary of their teaching background and free trial slots that fit your routine, all online and one to one, with no fee and no commitment. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "Tell us the programme or board, subject and level, your child's present grade and the hours your Orai household can really spare. You will receive a shortlisted tutor, a summary of their teaching background and free trial slots that fit your routine, all online and one to one, with no fee and no commitment. Email support@ibgram.com or WhatsApp +91 7439 368 115.",
 };

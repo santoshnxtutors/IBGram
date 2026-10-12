@@ -361,7 +361,7 @@ export const germany: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Germany?",
-      answer: "Tell us the programme stage — PYP, MYP, DP or CP — plus the subject, level, and whether teaching runs in English or German at your child's school. We use that to put forward someone who has actually taught that combination, rather than a general subject tutor. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115 and skip the directory-scrolling entirely.",
+      answer: "Tell us the programme stage — PYP, MYP, DP or CP — plus the subject, level, and whether teaching runs in English or German at your child's school. We use that to put forward someone who has actually taught that combination, rather than a general subject tutor. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115 and skip the directory-scrolling entirely.",
     },
     {
       question: "Can lessons run on Central European Time?",
@@ -369,7 +369,7 @@ export const germany: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in Germany, and how do we pay?",
-      answer: "It varies by programme stage, subject and weekly hours — an HL science tends to cost more per hour than MYP support. You'll see a written rate before a single session is booked, so nothing surprises you on the first invoice. Write to ibgram24@gmail.com with your child's programme, subject and level and ask about currency and payment together.",
+      answer: "It varies by programme stage, subject and weekly hours — an HL science tends to cost more per hour than MYP support. You'll see a written rate before a single session is booked, so nothing surprises you on the first invoice. Write to support@ibgram.com with your child's programme, subject and level and ask about currency and payment together.",
     },
     {
       question: "Do you have in-person tutors in Germany?",
@@ -417,7 +417,7 @@ export const germany: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Reach ibgram24@gmail.com or WhatsApp +91 7439 368 115 with your child's programme and Grade, the subject and level, your city and the hours that suit you on Central European Time, and the one thing you're actually hoping changes — a grade, exam nerves, a stalled IA. A tutor gets proposed, their background shared, and a trial arranged, with nothing charged until you've watched a lesson and agreed terms.",
+      answer: "Reach support@ibgram.com or WhatsApp +91 7439 368 115 with your child's programme and Grade, the subject and level, your city and the hours that suit you on Central European Time, and the one thing you're actually hoping changes — a grade, exam nerves, a stalled IA. A tutor gets proposed, their background shared, and a trial arranged, with nothing charged until you've watched a lesson and agreed terms.",
     },
   ],
 
@@ -437,5 +437,5 @@ export const germany: CountrySeoPage = {
   ],
 
   closingHeading: "Try a free lesson with an IB or IGCSE tutor, timed for your evening in Germany",
-  closingBody: "Share the programme, subject, level and city, and expect back a specific tutor's name, their background, and a couple of trial slots already sitting inside a normal German school evening — free, with nothing owed afterward either way. Not the right match? Say so plainly and we'll line up someone else. Reach ibgram24@gmail.com or WhatsApp +91 7439 368 115, mentioning your child's current Grade and school programme.",
+  closingBody: "Share the programme, subject, level and city, and expect back a specific tutor's name, their background, and a couple of trial slots already sitting inside a normal German school evening — free, with nothing owed afterward either way. Not the right match? Say so plainly and we'll line up someone else. Reach support@ibgram.com or WhatsApp +91 7439 368 115, mentioning your child's current Grade and school programme.",
 };

@@ -467,7 +467,7 @@ export const patna: CitySeoPage = {
     {
       question: "How do I get started with IB Gram in Patna?",
       answer:
-        "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with your child's programme or board, subject and level, and the times that work for you. We will send a shortlist within a couple of days along with each tutor's background, and you can book a free trial class before deciding anything.",
+        "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with your child's programme or board, subject and level, and the times that work for you. We will send a shortlist within a couple of days along with each tutor's background, and you can book a free trial class before deciding anything.",
     },
     {
       question: "Is online tutoring reliable enough given Patna's power and monsoon disruptions?",
@@ -495,7 +495,7 @@ export const patna: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Patna",
   closingBody:
-    "Tell us the programme or board, the subject and level, your child's current grade and the times that fit around school and any coaching classes. You'll get back a shortlisted tutor, their teaching background and trial slots, delivered online with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp to find IB and IGCSE tutors in Patna who actually teach your child's exact syllabus.",
+    "Tell us the programme or board, the subject and level, your child's current grade and the times that fit around school and any coaching classes. You'll get back a shortlisted tutor, their teaching background and trial slots, delivered online with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp to find IB and IGCSE tutors in Patna who actually teach your child's exact syllabus.",
 
   geo: { latitude: 25.5941, longitude: 85.1376 },
   alternateNames: ["Pataliputra", "Azimabad"],

@@ -166,12 +166,12 @@ export const malay: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting IGCSE Malay Tutoring This Week",
       body:
-        "A good first message is four lines long. The route, 0546 or 0696. The grade. Whether Malay is spoken at home, and in which variety. And what prompted you to write. Something like: Grade 10, Cambridge 0696, Malay spoken at home in Johor Bahru, lost most of the directed writing marks in the mock, sitting in May. That is enough to match a tutor properly on the first attempt. A message that says only that you need a Malay tutor costs two more exchanges to reach the same place, and those exchanges cost days when an assessment is close.\n\nTwo or three tutor options come back with their real background, which routes they have taught, how they handle orals, how they mark written work, along with the rate for each specific match in writing. There is no published price list, because a Grade 11 student preparing 0696 composition and a Grade 9 beginner on 0546 vocabulary are not the same piece of work.\n\nEmail ibgram24@gmail.com, or send a WhatsApp message to +91 7439 368 115. If you are writing from Malaysia, Singapore, Brunei or anywhere else outside India, put your city and time zone in the message so the proposed slot arrives in your hours.",
+        "A good first message is four lines long. The route, 0546 or 0696. The grade. Whether Malay is spoken at home, and in which variety. And what prompted you to write. Something like: Grade 10, Cambridge 0696, Malay spoken at home in Johor Bahru, lost most of the directed writing marks in the mock, sitting in May. That is enough to match a tutor properly on the first attempt. A message that says only that you need a Malay tutor costs two more exchanges to reach the same place, and those exchanges cost days when an assessment is close.\n\nTwo or three tutor options come back with their real background, which routes they have taught, how they handle orals, how they mark written work, along with the rate for each specific match in writing. There is no published price list, because a Grade 11 student preparing 0696 composition and a Grade 9 beginner on 0546 vocabulary are not the same piece of work.\n\nEmail support@ibgram.com, or send a WhatsApp message to +91 7439 368 115. If you are writing from Malaysia, Singapore, Brunei or anywhere else outside India, put your city and time zone in the message so the proposed slot arrives in your hours.",
       items: [
         "Four lines: route, grade, whether Malay is spoken at home, and what triggered the search",
         "Two or three tutor profiles with backgrounds and per-match rates, all in writing",
         "First lesson is a free trial; the tutor can be changed after it",
-        "Write to ibgram24@gmail.com or WhatsApp +91 7439 368 115, and include your time zone",
+        "Write to support@ibgram.com or WhatsApp +91 7439 368 115, and include your time zone",
       ],
     },
   ],
@@ -334,6 +334,6 @@ export const malay: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If the reason you are reading this is a written mark that does not match how well your child speaks Malay, an oral coming up, or a set text nobody at home has opened, send four things: the route, 0546 or 0696, the grade, whether Malay is spoken at home, and what went wrong. You will get two or three tutor suggestions with their real background and each rate in writing before anything is booked, and the first lesson is a free trial. Email ibgram24@gmail.com, or WhatsApp +91 7439 368 115. Outside India, add your city and time zone and the slot will be proposed in your hours.",
+    "If the reason you are reading this is a written mark that does not match how well your child speaks Malay, an oral coming up, or a set text nobody at home has opened, send four things: the route, 0546 or 0696, the grade, whether Malay is spoken at home, and what went wrong. You will get two or three tutor suggestions with their real background and each rate in writing before anything is booked, and the first lesson is a free trial. Email support@ibgram.com, or WhatsApp +91 7439 368 115. Outside India, add your city and time zone and the slot will be proposed in your hours.",
   lastUpdated: "2026-09-18",
 };

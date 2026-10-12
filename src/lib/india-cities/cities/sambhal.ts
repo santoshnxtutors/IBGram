@@ -461,5 +461,5 @@ export const sambhal: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Sambhal",
   closingBody:
-    "Send over the programme or board, the exact subject and level, where your child stands right now, and the hours that genuinely suit your household. What comes back is a tutor shortlisted specifically for that brief, an honest account of their teaching background, and a trial slot fitted into your week, all run one to one over video with nothing owed until you decide to continue. Reach the team at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send over the programme or board, the exact subject and level, where your child stands right now, and the hours that genuinely suit your household. What comes back is a tutor shortlisted specifically for that brief, an honest account of their teaching background, and a trial slot fitted into your week, all run one to one over video with nothing owed until you decide to continue. Reach the team at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

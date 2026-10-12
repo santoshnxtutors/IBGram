@@ -7,7 +7,7 @@ const SCHOOL_DISCLAIMER =
 
 const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
 const CONTACT_PHONE = "+917439368115";
-const CONTACT_EMAIL = "ibgram24@gmail.com";
+const CONTACT_EMAIL = "support@ibgram.com";
 
 const SUBJECTS = [
   {

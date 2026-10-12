@@ -467,5 +467,5 @@ export const bhilwara: CitySeoPage = {
 
   closingHeading: "Get a free IB or IGCSE trial lesson arranged in Bhilwara",
   closingBody:
-    "Send over the board or programme your child follows, the subject, the level, where things stand today, and when they are generally free during the week in Bhilwara. Back comes a proposed tutor, a short note on their background, and open trial times that fit your school week, all delivered one to one online, at no cost and no obligation. Write in at ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send over the board or programme your child follows, the subject, the level, where things stand today, and when they are generally free during the week in Bhilwara. Back comes a proposed tutor, a short note on their background, and open trial times that fit your school week, all delivered one to one online, at no cost and no obligation. Write in at support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

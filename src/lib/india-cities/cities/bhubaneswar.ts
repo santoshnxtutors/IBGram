@@ -468,5 +468,5 @@ export const bhubaneswar: CitySeoPage = {
 
   closingHeading: "Book a free trial class with an IB or IGCSE tutor in Bhubaneswar",
   closingBody:
-    "Let us know the board or programme, the subject and level, where your child currently stands, and a time that genuinely works for your week. A shortlisted tutor comes back with their teaching background attached, along with trial slots that fit around school, all delivered online with nothing owed unless you decide to continue. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Let us know the board or programme, the subject and level, where your child currently stands, and a time that genuinely works for your week. A shortlisted tutor comes back with their teaching background attached, along with trial slots that fit around school, all delivered online with nothing owed unless you decide to continue. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

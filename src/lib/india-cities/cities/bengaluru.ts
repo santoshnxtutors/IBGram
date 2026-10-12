@@ -520,5 +520,5 @@ export const bengaluru: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Bengaluru student",
   closingBody:
-    "Tell us the programme or board, the subject and level, and your child's current grade. You'll get back a shortlisted tutor, their recent teaching background and trial slots that fit around your school week, online and with no charge or commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, the subject and level, and your child's current grade. You'll get back a shortlisted tutor, their recent teaching background and trial slots that fit around your school week, online and with no charge or commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

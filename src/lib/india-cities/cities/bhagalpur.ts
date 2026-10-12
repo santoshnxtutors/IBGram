@@ -471,5 +471,5 @@ export const bhagalpur: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Bhagalpur student",
   closingBody:
-    "Tell us the programme or board, the subject and level, where your child's grades currently stand, and which evening slots your household can realistically keep. A shortlisted tutor comes back to you along with their teaching background and trial slots that fit a Bhagalpur school week, all online, one to one, at no cost and with nothing to commit to. Write to ibgram24@gmail.com or reach us on WhatsApp at +91 7439 368 115.",
+    "Tell us the programme or board, the subject and level, where your child's grades currently stand, and which evening slots your household can realistically keep. A shortlisted tutor comes back to you along with their teaching background and trial slots that fit a Bhagalpur school week, all online, one to one, at no cost and with nothing to commit to. Write to support@ibgram.com or reach us on WhatsApp at +91 7439 368 115.",
 };

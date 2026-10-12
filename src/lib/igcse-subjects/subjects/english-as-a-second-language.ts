@@ -183,13 +183,13 @@ export const englishAsASecondLanguage: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting This Week",
       body:
-        "A useful first message is short and contains four things: the syllabus code from the school's entry letter, the school year, the student's first language, and the single thing that made you look for a tutor this month. If you have a recent piece of marked writing, attach a photograph of it. That one image usually tells a tutor more than a paragraph of description, because the teacher's corrections already show where the pattern sits.\n\nWe reply with a tutor suggestion and the reason for the suggestion, a fee quoted in writing, and a free trial lesson at a time that works in your own time zone. Nothing is booked before you have the fee in writing. If the trial does not convince you, nothing follows and you owe nothing.\n\nWrite to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp. If the speaking test is close, say so in the first line, because that changes which tutor we suggest and how the first fortnight is planned.",
+        "A useful first message is short and contains four things: the syllabus code from the school's entry letter, the school year, the student's first language, and the single thing that made you look for a tutor this month. If you have a recent piece of marked writing, attach a photograph of it. That one image usually tells a tutor more than a paragraph of description, because the teacher's corrections already show where the pattern sits.\n\nWe reply with a tutor suggestion and the reason for the suggestion, a fee quoted in writing, and a free trial lesson at a time that works in your own time zone. Nothing is booked before you have the fee in writing. If the trial does not convince you, nothing follows and you owe nothing.\n\nWrite to support@ibgram.com or message +91 7439 368 115 on WhatsApp. If the speaking test is close, say so in the first line, because that changes which tutor we suggest and how the first fortnight is planned.",
       items: [
         "Send the code, the year, the first language and this month's trigger",
         "Attach a photograph of one recent marked piece of writing",
         "Free trial lesson at a time that suits your own time zone",
         "Fee quoted in writing before anything is booked",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp",
       ],
     },
   ],
@@ -343,6 +343,6 @@ export const englishAsASecondLanguage: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If your child is fluent in conversation and still losing marks on paper, the fastest way to find out why is to let a tutor read one piece of their actual writing. Send the syllabus code from the school's entry letter, the school year, the student's first language and a photograph of a recently marked task. We will suggest a tutor and explain the reason for that suggestion, quote the fee in writing, and set up a free trial lesson in your own time zone. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and mention the speaking test date if one is already fixed.",
+    "If your child is fluent in conversation and still losing marks on paper, the fastest way to find out why is to let a tutor read one piece of their actual writing. Send the syllabus code from the school's entry letter, the school year, the student's first language and a photograph of a recently marked task. We will suggest a tutor and explain the reason for that suggestion, quote the fee in writing, and set up a free trial lesson in your own time zone. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp, and mention the speaking test date if one is already fixed.",
   lastUpdated: "2026-09-18",
 };

@@ -506,5 +506,5 @@ export const siliguri: CitySeoPage = {
 
   closingHeading: "Set up a free trial lesson for your Siliguri student",
   closingBody:
-    "Let us know the programme or board, subject and level, whether your child already attends a school or sits exams as a private candidate, and their current or predicted grade. We will come back with a shortlisted tutor, a note on their teaching background, and trial slots that suit your evening, delivered online at no cost and with no obligation. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Let us know the programme or board, subject and level, whether your child already attends a school or sits exams as a private candidate, and their current or predicted grade. We will come back with a shortlisted tutor, a note on their teaching background, and trial slots that suit your evening, delivered online at no cost and with no obligation. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

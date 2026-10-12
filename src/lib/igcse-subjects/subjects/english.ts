@@ -193,13 +193,13 @@ export const english: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting This Week",
       body:
-        "The quickest useful start is a message with four things in it: the syllabus code your school has entered your child for, the grade they are in, whether the writing is assessed by examination or by portfolio, and a photograph of the most recent marked piece of work. That last one does more than a description of the problem, because it lets a tutor see where the marks were available rather than guessing from a summary of a report.\n\nA free trial session follows. It is a working session, not a sales call: a real script or a short timed task, read against the criteria, with the student doing most of the talking. You get the write-up afterwards whether or not you continue, along with rates in writing if you want to.\n\nIf you are outside India, include your city and time zone and a couple of windows that suit your week, and a slot will be proposed in your own hours rather than ours. If you are in India and would prefer a tutor in the room, say which city and area and we will tell you honestly whether that is currently possible.\n\nWrite to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115.",
+        "The quickest useful start is a message with four things in it: the syllabus code your school has entered your child for, the grade they are in, whether the writing is assessed by examination or by portfolio, and a photograph of the most recent marked piece of work. That last one does more than a description of the problem, because it lets a tutor see where the marks were available rather than guessing from a summary of a report.\n\nA free trial session follows. It is a working session, not a sales call: a real script or a short timed task, read against the criteria, with the student doing most of the talking. You get the write-up afterwards whether or not you continue, along with rates in writing if you want to.\n\nIf you are outside India, include your city and time zone and a couple of windows that suit your week, and a slot will be proposed in your own hours rather than ours. If you are in India and would prefer a tutor in the room, say which city and area and we will tell you honestly whether that is currently possible.\n\nWrite to support@ibgram.com or send a WhatsApp message to +91 7439 368 115.",
       items: [
         "Send the code, the grade, the assessment route and a photo of recent marked work",
         "Free trial, run as a working session on the student's own writing",
         "Outside India: add your city, time zone and two workable windows",
         "In India: name the city and area to check home tutoring honestly",
-        "ibgram24@gmail.com or WhatsApp +91 7439 368 115",
+        "support@ibgram.com or WhatsApp +91 7439 368 115",
       ],
     },
   ],
@@ -349,10 +349,10 @@ export const english: IgcseSubjectContent = {
     {
       question: "What should I send in the first message?",
       answer:
-        "The syllabus code, the student's grade, whether the school assesses writing by examination or by coursework portfolio, and a photograph of the most recent marked piece of work. That script is the useful part, because it shows a tutor where marks were available and not taken. Add your city and time zone if you are outside India, plus two windows in your week that would suit. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+        "The syllabus code, the student's grade, whether the school assesses writing by examination or by coursework portfolio, and a photograph of the most recent marked piece of work. That script is the useful part, because it shows a tutor where marks were available and not taken. Add your city and time zone if you are outside India, plus two windows in your week that would suit. Email support@ibgram.com or WhatsApp +91 7439 368 115.",
     },
   ],
   finalCta:
-    "If a strong reader is coming home with mid-band English marks, the gap is nearly always technical rather than linguistic, and it is identifiable in one session with a real script in front of a tutor. Send the syllabus code, the grade, whether writing is assessed by exam or portfolio, and a photo of the last marked piece of work. A free trial follows, run as a working session, with written feedback afterwards whether or not you continue and rates in writing if you ask. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If a strong reader is coming home with mid-band English marks, the gap is nearly always technical rather than linguistic, and it is identifiable in one session with a real script in front of a tutor. Send the syllabus code, the grade, whether writing is assessed by exam or portfolio, and a photo of the last marked piece of work. A free trial follows, run as a working session, with written feedback afterwards whether or not you continue and rates in writing if you ask. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

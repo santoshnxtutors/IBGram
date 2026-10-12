@@ -354,7 +354,7 @@ export const japan: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Japan?",
-      answer: "Start by identifying your child's exact programme stage, subject and level, and for Dual Language Diploma students, which language the subject is taught in. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with those details and we suggest a matched tutor rather than a directory to search yourself.",
+      answer: "Start by identifying your child's exact programme stage, subject and level, and for Dual Language Diploma students, which language the subject is taught in. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with those details and we suggest a matched tutor rather than a directory to search yourself.",
     },
     {
       question: "What is the Dual Language Diploma Programme, and do you tutor it?",
@@ -366,7 +366,7 @@ export const japan: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in Japan, and how do we pay?",
-      answer: "Pricing moves with the programme level, subject and number of weekly hours — a Higher Level science or mathematics course generally costs more than MYP-stage support. You'll see a written per-session rate before committing to anything. Message ibgram24@gmail.com with your child's grade, subject and level, and raise currency and payment method in the same email so both are settled before the first paid lesson.",
+      answer: "Pricing moves with the programme level, subject and number of weekly hours — a Higher Level science or mathematics course generally costs more than MYP-stage support. You'll see a written per-session rate before committing to anything. Message support@ibgram.com with your child's grade, subject and level, and raise currency and payment method in the same email so both are settled before the first paid lesson.",
     },
     {
       question: "Do you offer in-person tutors in Japan?",
@@ -410,7 +410,7 @@ export const japan: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Send ibgram24@gmail.com an email, or reach +91 7439 368 115 on WhatsApp, and cover four things: grade and programme, subject and level (plus teaching language, for Dual Language students), a workable JST window, and the actual goal — a stronger grade, calmer exam nerves, or a looming deadline. A tutor and an introductory lesson follow, and no payment happens until you've watched a lesson and agreed the rate.",
+      answer: "Send support@ibgram.com an email, or reach +91 7439 368 115 on WhatsApp, and cover four things: grade and programme, subject and level (plus teaching language, for Dual Language students), a workable JST window, and the actual goal — a stronger grade, calmer exam nerves, or a looming deadline. A tutor and an introductory lesson follow, and no payment happens until you've watched a lesson and agreed the rate.",
     },
   ],
 
@@ -430,5 +430,5 @@ export const japan: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Japan Standard Time",
-  closingBody: "Share your child's programme, subject, level, and — if they're on the Dual Language track — which language it's taught in. What comes back is a named tutor, a look at their teaching background, and a couple of trial times that already sit inside a Japan-evening window, at no cost and with nothing to continue if it isn't a fit. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115, and mention your child's grade and current school.",
+  closingBody: "Share your child's programme, subject, level, and — if they're on the Dual Language track — which language it's taught in. What comes back is a named tutor, a look at their teaching background, and a couple of trial times that already sit inside a Japan-evening window, at no cost and with nothing to continue if it isn't a fit. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115, and mention your child's grade and current school.",
 };

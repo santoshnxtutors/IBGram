@@ -490,5 +490,5 @@ export const chennai: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson with an IB or IGCSE tutor in Chennai",
   closingBody:
-    "Tell us the programme or board, the subject and level, your child's current grade and the times that suit your household. You will get a shortlisted tutor, their teaching background and trial slots that fit around school and OMR traffic, entirely online, with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, the subject and level, your child's current grade and the times that suit your household. You will get a shortlisted tutor, their teaching background and trial slots that fit around school and OMR traffic, entirely online, with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

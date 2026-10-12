@@ -198,12 +198,12 @@ export const korean: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting IGCSE Korean Support This Term",
       body:
-        "Send a short message with four things and a photograph. The four things: the syllabus your school has entered the student for, their grade, how Korean is used at home and where they were schooled before, and what prompted the search. The photograph: one recent piece of the student's Korean writing, marked if possible. That single image usually tells a Korean tutor more than a long description does, because the error pattern is visible in the first paragraph.\n\nBecause Korean is a small cohort, availability is honest rather than instant. You will be told what is actually free, including if the only realistic option is an online slot at a particular hour of your evening. A suggested tutor's background is shared before booking, with the rate for that specific match in writing — there is no published price list, since the work differs by grade, tier of difficulty and frequency.\n\nWrite to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp. If you are outside India, name your city and time zone so any proposed schedule is in your own local hours. The first lesson is a free trial.",
+        "Send a short message with four things and a photograph. The four things: the syllabus your school has entered the student for, their grade, how Korean is used at home and where they were schooled before, and what prompted the search. The photograph: one recent piece of the student's Korean writing, marked if possible. That single image usually tells a Korean tutor more than a long description does, because the error pattern is visible in the first paragraph.\n\nBecause Korean is a small cohort, availability is honest rather than instant. You will be told what is actually free, including if the only realistic option is an online slot at a particular hour of your evening. A suggested tutor's background is shared before booking, with the rate for that specific match in writing — there is no published price list, since the work differs by grade, tier of difficulty and frequency.\n\nWrite to support@ibgram.com or message +91 7439 368 115 on WhatsApp. If you are outside India, name your city and time zone so any proposed schedule is in your own local hours. The first lesson is a free trial.",
       items: [
         "Four details plus one photo of recent Korean writing — that is the whole first message",
         "Availability stated honestly, including when the only option is an awkward hour",
         "Tutor background and the rate for that match confirmed in writing before booking",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp; add your time zone if you are abroad",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp; add your time zone if you are abroad",
         "First lesson is free; the tutor can be swapped afterwards if the fit is wrong",
       ],
     },
@@ -363,6 +363,6 @@ export const korean: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If your child speaks Korean easily and writes it uncertainly, that gap is specific and it is fixable, but it will not close by itself between now and the examination series. Send one message with the syllabus your school has entered, the student's grade, a sentence about how Korean is used at home, and a photograph of a recent piece of their writing. You will get an honest read on what is actually free, the tutor's background, and the rate in writing before anything is booked. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India. The first lesson is free.",
+    "If your child speaks Korean easily and writes it uncertainly, that gap is specific and it is fixable, but it will not close by itself between now and the examination series. Send one message with the syllabus your school has entered, the student's grade, a sentence about how Korean is used at home, and a photograph of a recent piece of their writing. You will get an honest read on what is actually free, the tutor's background, and the rate in writing before anything is booked. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India. The first lesson is free.",
   lastUpdated: "2026-09-18",
 };

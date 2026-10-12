@@ -558,5 +558,5 @@ export const gurgaon: CountrySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Gurgaon",
   closingBody:
-    "Tell us the programme or board, the subject and level, your child's current grade and your area in Gurgaon. You'll get back a shortlisted tutor, their teaching background and trial slots that fit your school week, at home, online or both, with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, the subject and level, your child's current grade and your area in Gurgaon. You'll get back a shortlisted tutor, their teaching background and trial slots that fit your school week, at home, online or both, with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

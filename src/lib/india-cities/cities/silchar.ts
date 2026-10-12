@@ -470,5 +470,5 @@ export const silchar: CitySeoPage = {
 
   closingHeading: "Start with a free IB or IGCSE trial lesson from Silchar",
   closingBody:
-    "Tell us the board or programme, the subject and level, where your child currently stands, and the hours that fit your Silchar routine. We come back with a shortlisted tutor, their background, and trial times arranged around you, delivered online, one to one, at no cost and no obligation to continue. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Tell us the board or programme, the subject and level, where your child currently stands, and the hours that fit your Silchar routine. We come back with a shortlisted tutor, their background, and trial times arranged around you, delivered online, one to one, at no cost and no obligation to continue. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

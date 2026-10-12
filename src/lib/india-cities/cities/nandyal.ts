@@ -462,5 +462,5 @@ export const nandyal: CitySeoPage = {
 
   closingHeading: "Book a free trial class for your child in Nandyal",
   closingBody:
-    "Send over the board, the subject, the level, and roughly how your child is doing in it right now, along with when your evenings or weekends actually free up. A tutor shortlist comes back with real background attached, trial times built around your week, no payment involved and nothing to sign. Reach out on ibgram24@gmail.com, or message +91 7439 368 115 on WhatsApp.",
+    "Send over the board, the subject, the level, and roughly how your child is doing in it right now, along with when your evenings or weekends actually free up. A tutor shortlist comes back with real background attached, trial times built around your week, no payment involved and nothing to sign. Reach out on support@ibgram.com, or message +91 7439 368 115 on WhatsApp.",
 };

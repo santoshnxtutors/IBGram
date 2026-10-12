@@ -443,7 +443,7 @@ export const haldwaniCumKathgodam: CitySeoPage = {
     {
       question: "How do I begin with a free trial?",
       answer:
-        "Message us on WhatsApp at +91 7439 368 115 or email ibgram24@gmail.com with the programme or board, subject, level, current grade and preferred timings. We shortlist a tutor and arrange the trial. The tutor then sends a short written note, and you decide whether to continue.",
+        "Message us on WhatsApp at +91 7439 368 115 or email support@ibgram.com with the programme or board, subject, level, current grade and preferred timings. We shortlist a tutor and arrange the trial. The tutor then sends a short written note, and you decide whether to continue.",
     },
     {
       question: "Will monsoon weather disrupt online lessons in Haldwani?",
@@ -497,5 +497,5 @@ export const haldwaniCumKathgodam: CitySeoPage = {
 
   closingHeading: "Book a free IB or IGCSE trial lesson from Haldwani",
   closingBody:
-    "Tell us the programme or board, subject, level, current grade and the hours that fit your household. We reply with a tutor matched to that syllabus, and the trial costs nothing. Reach us on WhatsApp at +91 7439 368 115 or at ibgram24@gmail.com.",
+    "Tell us the programme or board, subject, level, current grade and the hours that fit your household. We reply with a tutor matched to that syllabus, and the trial costs nothing. Reach us on WhatsApp at +91 7439 368 115 or at support@ibgram.com.",
 };

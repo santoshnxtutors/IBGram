@@ -452,5 +452,5 @@ export const hubliDharwad: CitySeoPage = {
 
   closingHeading: "Book a free lesson with an IB or IGCSE tutor for Hubli-Dharwad",
   closingBody:
-    "Tell us whether your child is a private candidate, boarding away, or working across two boards, plus the subject, level and times that work. We'll come back with a tutor, their background, and a free lesson slot, run entirely online, nothing to pay before you decide. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us whether your child is a private candidate, boarding away, or working across two boards, plus the subject, level and times that work. We'll come back with a tutor, their background, and a free lesson slot, run entirely online, nothing to pay before you decide. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -468,5 +468,5 @@ export const panvel: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Panvel",
   closingBody:
-    "Send across which school your child attends, the subject and level, and when evenings usually work for your family. A matched tutor and trial slot land in your inbox shortly after, fitted to your routine, with nothing to pay upfront and no obligation attached. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send across which school your child attends, the subject and level, and when evenings usually work for your family. A matched tutor and trial slot land in your inbox shortly after, fitted to your routine, with nothing to pay upfront and no obligation attached. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

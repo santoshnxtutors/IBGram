@@ -467,7 +467,7 @@ export const jodhpur: CitySeoPage = {
     {
       question: "How do I get started with IB Gram in Jodhpur?",
       answer:
-        "Write to ibgram24@gmail.com or drop a WhatsApp message to +91 7439 368 115 with the programme or board, the subject and level, and a rough idea of your free hours. A shortlist typically comes back within a couple of days, background notes included, and a free trial class can be booked whenever suits before you decide on anything.",
+        "Write to support@ibgram.com or drop a WhatsApp message to +91 7439 368 115 with the programme or board, the subject and level, and a rough idea of your free hours. A shortlist typically comes back within a couple of days, background notes included, and a free trial class can be booked whenever suits before you decide on anything.",
     },
     {
       question: "Is online tutoring reliable given Jodhpur's power cuts and dust storms?",
@@ -494,7 +494,7 @@ export const jodhpur: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Jodhpur",
   closingBody:
-    "Let us know the programme or board, the subject and level, where your child's grades currently stand, and a few windows in the week that suit school and coaching alike. A shortlist comes back with each tutor's background and open trial slots, all delivered online, all free, nothing to sign. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115 whenever you are ready.",
+    "Let us know the programme or board, the subject and level, where your child's grades currently stand, and a few windows in the week that suit school and coaching alike. A shortlist comes back with each tutor's background and open trial slots, all delivered online, all free, nothing to sign. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115 whenever you are ready.",
 
   geo: { latitude: 26.2389, longitude: 73.0243 },
   alternateNames: ["Marwar", "Blue City", "Sun City"],

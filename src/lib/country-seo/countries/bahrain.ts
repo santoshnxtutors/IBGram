@@ -347,7 +347,7 @@ export const bahrain: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Bahrain?",
-      answer: "Give us the programme stage, the exact subject and level, and which board your child's school follows, and we'll come back with someone who has genuinely taught that combination rather than a broad 'IB tutor.' Message ibgram24@gmail.com or WhatsApp +91 7439 368 115 to start; there's no directory to scroll through yourself.",
+      answer: "Give us the programme stage, the exact subject and level, and which board your child's school follows, and we'll come back with someone who has genuinely taught that combination rather than a broad 'IB tutor.' Message support@ibgram.com or WhatsApp +91 7439 368 115 to start; there's no directory to scroll through yourself.",
     },
     {
       question: "Does scheduling actually work on Bahrain's local time?",
@@ -355,7 +355,7 @@ export const bahrain: CountrySeoPage = {
     },
     {
       question: "What does tutoring cost in Bahrain, and how does payment work?",
-      answer: "Pricing shifts with programme stage, subject and weekly hours — expect HL sciences and maths to sit above general MYP support. A rate gets confirmed in writing before your first session is even scheduled. Email ibgram24@gmail.com with your child's programme, subject and level, and raise currency and payment preferences in that same message.",
+      answer: "Pricing shifts with programme stage, subject and weekly hours — expect HL sciences and maths to sit above general MYP support. A rate gets confirmed in writing before your first session is even scheduled. Email support@ibgram.com with your child's programme, subject and level, and raise currency and payment preferences in that same message.",
     },
     {
       question: "Is home tutoring available in Bahrain?",
@@ -403,7 +403,7 @@ export const bahrain: CountrySeoPage = {
     },
     {
       question: "What's the first step to actually starting?",
-      answer: "Write to ibgram24@gmail.com or WhatsApp +91 7439 368 115 with the programme and Year group, subject and level, your area of Bahrain and the hours that suit you, plus the one outcome you actually want — a better grade, calmer exam nerves, a finished IA. A tutor gets named, their record shared, a trial arranged, and nothing is billed until you've sat through a lesson and agreed the rate.",
+      answer: "Write to support@ibgram.com or WhatsApp +91 7439 368 115 with the programme and Year group, subject and level, your area of Bahrain and the hours that suit you, plus the one outcome you actually want — a better grade, calmer exam nerves, a finished IA. A tutor gets named, their record shared, a trial arranged, and nothing is billed until you've sat through a lesson and agreed the rate.",
     },
   ],
 
@@ -423,5 +423,5 @@ export const bahrain: CountrySeoPage = {
   ],
 
   closingHeading: "See what a trial lesson looks like, booked for a Bahraini evening",
-  closingBody: "Send over the programme, the subject, the level and roughly where in Bahrain you are, and back comes an actual tutor's name, a look at their background, and a couple of open slots that already fall inside a normal school evening here — no cost either way. Didn't click? Just say so and we'll line up someone different. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115 with your child's Year group and current school programme.",
+  closingBody: "Send over the programme, the subject, the level and roughly where in Bahrain you are, and back comes an actual tutor's name, a look at their background, and a couple of open slots that already fall inside a normal school evening here — no cost either way. Didn't click? Just say so and we'll line up someone different. Email support@ibgram.com or WhatsApp +91 7439 368 115 with your child's Year group and current school programme.",
 };

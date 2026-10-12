@@ -482,5 +482,5 @@ export const kochi: CitySeoPage = {
 
   closingHeading: "Start with a free trial: an IB or IGCSE tutor for your Kochi student",
   closingBody:
-    "Share the board or programme, the subject and level, where your child stands right now, and when Kochi's week actually leaves room. A tutor comes back shortlisted with their background and open trial times, ready for a session that costs nothing and commits you to nothing. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Share the board or programme, the subject and level, where your child stands right now, and when Kochi's week actually leaves room. A tutor comes back shortlisted with their background and open trial times, ready for a session that costs nothing and commits you to nothing. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

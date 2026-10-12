@@ -458,7 +458,7 @@ export const lucknow: CitySeoPage = {
 
   closingHeading: "Book a free trial with IB and IGCSE tutors in Lucknow",
   closingBody:
-    "Tell us your child's programme or board, subject and level, current grade and the times that work for your household. IB and IGCSE tutors in Lucknow from IB Gram will get back to you with a shortlisted match, their teaching background and trial slots, entirely online with no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us your child's programme or board, subject and level, current grade and the times that work for your household. IB and IGCSE tutors in Lucknow from IB Gram will get back to you with a shortlisted match, their teaching background and trial slots, entirely online with no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 
   geo: { latitude: 26.8467, longitude: 80.9462 },
   alternateNames: ["Lakhnau"],

@@ -24,7 +24,7 @@ makes a page rank there and what makes it unique.
   country relies on it, framed as context, not a core promise).
 - Free trial lesson, written note after each session, tutor change if the fit is wrong, rates quoted in
   writing before booking. No published prices.
-- Contact: `ibgram24@gmail.com` and `+91 7439 368 115` (WhatsApp). No other email or phone.
+- Contact: `support@ibgram.com` and `+91 7439 368 115` (WhatsApp). No other email or phone.
 - Independent service: not affiliated with the IB, Cambridge, Pearson or any named school. Each page's
   `schoolDisclaimer` must say so in its own words.
 - Tutors coach; they never write IAs, Extended Essays, TOK work or coursework.

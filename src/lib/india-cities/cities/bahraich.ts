@@ -468,5 +468,5 @@ export const bahraich: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Bahraich",
   closingBody:
-    "Send across the board or programme, the subject and level, where your child currently stands, and the times your Bahraich household genuinely has free. What comes back is a shortlisted tutor with their background explained and a trial lesson arranged around your routine, delivered entirely online, at no cost and with nothing owed either way. Write to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115.",
+    "Send across the board or programme, the subject and level, where your child currently stands, and the times your Bahraich household genuinely has free. What comes back is a shortlisted tutor with their background explained and a trial lesson arranged around your routine, delivered entirely online, at no cost and with nothing owed either way. Write to support@ibgram.com or send a WhatsApp message to +91 7439 368 115.",
 };

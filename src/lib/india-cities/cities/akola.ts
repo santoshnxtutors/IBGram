@@ -470,5 +470,5 @@ export const akola: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson for your Akola student",
   closingBody:
-    "Let us know the programme, the subject and level, roughly where your child's grade sits, and when your evenings are actually free. We'll come back with a tutor suggestion, a clear reason for the pick, and a trial slot that fits around school, at no cost and no signature required. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Let us know the programme, the subject and level, roughly where your child's grade sits, and when your evenings are actually free. We'll come back with a tutor suggestion, a clear reason for the pick, and a trial slot that fits around school, at no cost and no signature required. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

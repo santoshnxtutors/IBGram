@@ -372,7 +372,7 @@ export const thailand: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Thailand?",
-      answer: "Start by matching the tutor to your child's exact programme stage — PYP, MYP, DP or CP — and to the subject at the level being taken. IB Gram matches Thailand families with online tutors after a short conversation about the school, current grades and where the difficulty sits. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp and we suggest a tutor rather than handing you a directory to search.",
+      answer: "Start by matching the tutor to your child's exact programme stage — PYP, MYP, DP or CP — and to the subject at the level being taken. IB Gram matches Thailand families with online tutors after a short conversation about the school, current grades and where the difficulty sits. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp and we suggest a tutor rather than handing you a directory to search.",
     },
     {
       question: "Can my child have lessons on Indochina Time rather than an odd hour?",
@@ -380,7 +380,7 @@ export const thailand: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Thailand, and how do we pay?",
-      answer: "Rates depend on the programme level, the subject, and how many hours a week you book — HL sciences and mathematics usually sit above MYP support. We quote a per-session rate in writing before anything is booked, so there is no surprise on the first invoice. Email ibgram24@gmail.com with your child's grade, subject and level and ask for the current rate and payment options.",
+      answer: "Rates depend on the programme level, the subject, and how many hours a week you book — HL sciences and mathematics usually sit above MYP support. We quote a per-session rate in writing before anything is booked, so there is no surprise on the first invoice. Email support@ibgram.com with your child's grade, subject and level and ask for the current rate and payment options.",
     },
     {
       question: "Do you have in-person tutors in Thailand?",
@@ -428,7 +428,7 @@ export const thailand: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or call +91 7439 368 115 with four things: your child's programme and grade, the subjects and levels, your preferred hours on Indochina Time, and what you want to change — a grade, exam confidence, an IA deadline. We suggest a tutor, share their background, and set up an introductory session before anything is charged.",
+      answer: "Email support@ibgram.com or call +91 7439 368 115 with four things: your child's programme and grade, the subjects and levels, your preferred hours on Indochina Time, and what you want to change — a grade, exam confidence, an IA deadline. We suggest a tutor, share their background, and set up an introductory session before anything is charged.",
     },
   ],
 
@@ -448,5 +448,5 @@ export const thailand: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Thailand's time zone",
-  closingBody: "Tell us the programme, the subject, the level and the city you're in. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit on Indochina Time — no charge, and no commitment to continue after it. If the fit isn't right, say so and we'll try again. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school programme.",
+  closingBody: "Tell us the programme, the subject, the level and the city you're in. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit on Indochina Time — no charge, and no commitment to continue after it. If the fit isn't right, say so and we'll try again. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school programme.",
 };

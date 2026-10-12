@@ -192,12 +192,12 @@ export const thai: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting This Week",
       body:
-        "The quickest start is one message with four things in it. The syllabus code from the school's course outline, which for the first-language route is 0518. The student's grade. Your city and time zone. And a photograph of one recent piece of marked Thai writing, ideally handwritten, red pen and all. That last item does more than a paragraph of description, because a marked script shows immediately whether the problem is decoding, spelling, register or timing.\n\nFrom there you will get two or three tutor options with their actual background in first-language Thai, and the rate for each in writing before anything is committed. The first lesson is a free trial and it is diagnostic, so you are not paying to find out whether the match works. After it, you get a written note with the diagnosis, not a sales call.\n\nIf you are not sure whether your child is even on the Cambridge route, send the course outline anyway and we will read it. If the answer turns out to be that your school teaches a Thai course outside Cambridge entirely, we will say so rather than quietly tutoring the wrong thing. Email ibgram24@gmail.com, or message +91 7439 368 115 on WhatsApp, whichever is easier at your end of the day.",
+        "The quickest start is one message with four things in it. The syllabus code from the school's course outline, which for the first-language route is 0518. The student's grade. Your city and time zone. And a photograph of one recent piece of marked Thai writing, ideally handwritten, red pen and all. That last item does more than a paragraph of description, because a marked script shows immediately whether the problem is decoding, spelling, register or timing.\n\nFrom there you will get two or three tutor options with their actual background in first-language Thai, and the rate for each in writing before anything is committed. The first lesson is a free trial and it is diagnostic, so you are not paying to find out whether the match works. After it, you get a written note with the diagnosis, not a sales call.\n\nIf you are not sure whether your child is even on the Cambridge route, send the course outline anyway and we will read it. If the answer turns out to be that your school teaches a Thai course outside Cambridge entirely, we will say so rather than quietly tutoring the wrong thing. Email support@ibgram.com, or message +91 7439 368 115 on WhatsApp, whichever is easier at your end of the day.",
       items: [
         "Message the code, the grade, your city and time zone, and one marked piece of writing",
         "Two or three tutor options come back, each with a rate in writing",
         "Free trial lesson, diagnostic rather than a sample lecture",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp",
         "No address, no centre, no walk-in — this subject runs online",
       ],
     },
@@ -352,6 +352,6 @@ export const thai: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a marked composition, a reading paper that ran out of time or a first-language entry decision is what brought you here, send four things: the code from the course outline, the grade, your city and time zone, and a photograph of one recent piece of marked Thai writing. You will get two or three tutor options with their real background in written Thai and each rate in writing, a free trial lesson that is diagnostic rather than a sample lecture, and a written note afterwards saying what the tutor actually found. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "If a marked composition, a reading paper that ran out of time or a first-language entry decision is what brought you here, send four things: the code from the course outline, the grade, your city and time zone, and a photograph of one recent piece of marked Thai writing. You will get two or three tutor options with their real background in written Thai and each rate in writing, a free trial lesson that is diagnostic rather than a sample lecture, and a written note afterwards saying what the tutor actually found. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
   lastUpdated: "2026-09-18",
 };

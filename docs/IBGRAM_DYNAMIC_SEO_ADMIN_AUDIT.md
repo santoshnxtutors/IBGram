@@ -68,7 +68,7 @@ Everything user-visible that lives in source code today (mismatching the goal of
 - [src/app/(marketing)/about-us/page.tsx](src/app/(marketing)/about-us/page.tsx) — founder bio (Ajay Vatsyayan), philosophy, values, pedagogy, testimonial (lines 20-195).
 - [src/app/(marketing)/programmes/page.tsx](src/app/(marketing)/programmes/page.tsx) — PYP/MYP/DP/CP comparison table + 4 cards (lines 12-166).
 - [src/app/(marketing)/programmes/pyp/page.tsx](src/app/(marketing)/programmes/pyp/page.tsx) — 6 subjects, 6 themes, assessment copy (lines 13-75). MYP/DP/CP follow same pattern.
-- [src/app/(marketing)/contact-us/page.tsx](src/app/(marketing)/contact-us/page.tsx) — contact email `ibgram24@gmail.com`, phone `+91 9582706764`, WhatsApp URL, registered address (lines 77-201).
+- [src/app/(marketing)/contact-us/page.tsx](src/app/(marketing)/contact-us/page.tsx) — contact email `support@ibgram.com`, phone `+91 9582706764`, WhatsApp URL, registered address (lines 77-201).
 - [src/app/(marketing)/blog/page.tsx](src/app/(marketing)/blog/page.tsx) — `MOCK_BLOGS` (6 entries) + 6 category pills (lines 9-67).
 - [src/app/(marketing)/ib-tutors/page.tsx](src/app/(marketing)/ib-tutors/page.tsx) — hero + metadata for hub (lines 10-42).
 

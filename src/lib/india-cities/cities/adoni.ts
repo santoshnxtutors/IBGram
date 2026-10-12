@@ -394,7 +394,7 @@ export const adoni: CitySeoPage = {
     { question: "Can my child prepare for EAPCET, NEET or JEE alongside the IB or IGCSE?", answer: "Partly. IB Maths, Physics, Chemistry and Biology overlap with entrance syllabi, but the entrance exams cover topics and question styles that differ, and their eligibility rules for IB and IGCSE students should be checked directly. Our tutors teach IB and IGCSE content and are not an entrance-test coaching centre." },
     { question: "Can you help a child get ready for an IB school entrance test?", answer: "We can strengthen the subject base. A tutor finds the gaps in English, Maths and Science, practises the explaining style IB schools favour and builds confidence. We do not promise admission and have no influence on any school's decisions." },
     { question: "Are lessons in English or Telugu?", answer: "Lessons are in English because the examinations are, though a tutor may briefly explain a tricky idea in Telugu, Hindi or Urdu when that helps a younger learner. Language subjects are taught by tutors comfortable in that language, using past papers in the correct script." },
-    { question: "How do I start with a free trial lesson?", answer: "Send a WhatsApp message to +91 7439 368 115 or email ibgram24@gmail.com with your child's class, board and subject. We propose a tutor and a time in IST, and you receive a joining link. Afterwards we send a written plan and rate, and you are under no obligation to continue." },
+    { question: "How do I start with a free trial lesson?", answer: "Send a WhatsApp message to +91 7439 368 115 or email support@ibgram.com with your child's class, board and subject. We propose a tutor and a time in IST, and you receive a joining link. Afterwards we send a written plan and rate, and you are under no obligation to continue." },
   ],
 
   internalLinks: [
@@ -413,5 +413,5 @@ export const adoni: CitySeoPage = {
 
   closingHeading: "Start with a free lesson in Adoni",
   closingBody:
-    "Send us the class, the board and the subject that worries you most. We will find a tutor who has taught it, set a trial lesson on IST and follow up with a written plan and a rate. Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com.",
+    "Send us the class, the board and the subject that worries you most. We will find a tutor who has taught it, set a trial lesson on IST and follow up with a written plan and a rate. Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com.",
 };

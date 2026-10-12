@@ -340,7 +340,7 @@ export const belgium: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Belgium?",
-      answer: "Start with your child's exact programme stage — PYP, MYP, DP or CP — and the specific subject and level, rather than a general request for help. IB Gram matches Belgian families with online tutors after a short conversation about the school, current results, and where the difficulty actually sits. Email ibgram24@gmail.com or call +91 7439 368 115 and describe what's not working; we'll suggest a tutor rather than hand you a list to search.",
+      answer: "Start with your child's exact programme stage — PYP, MYP, DP or CP — and the specific subject and level, rather than a general request for help. IB Gram matches Belgian families with online tutors after a short conversation about the school, current results, and where the difficulty actually sits. Email support@ibgram.com or call +91 7439 368 115 and describe what's not working; we'll suggest a tutor rather than hand you a list to search.",
     },
     {
       question: "Can sessions run on Central European Time?",
@@ -348,7 +348,7 @@ export const belgium: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Belgium, and how do we pay?",
-      answer: "Cost depends on the programme level, the subject, and how many hours a week you book — DP HL sciences and mathematics typically cost more than MYP support. A per-session rate is quoted in writing before anything is booked, so there's no surprise on the first invoice. Email ibgram24@gmail.com with your child's year level, subject and level to get the current rate, and currency and payment method get settled in that same conversation.",
+      answer: "Cost depends on the programme level, the subject, and how many hours a week you book — DP HL sciences and mathematics typically cost more than MYP support. A per-session rate is quoted in writing before anything is booked, so there's no surprise on the first invoice. Email support@ibgram.com with your child's year level, subject and level to get the current rate, and currency and payment method get settled in that same conversation.",
     },
     {
       question: "Do you have in-person tutors in Belgium?",
@@ -396,7 +396,7 @@ export const belgium: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Send four details to ibgram24@gmail.com or +91 7439 368 115: your child's programme and year level, the subject and level involved, your city and preferred hours, and the actual outcome you want — a grade lift, exam confidence, an IA deadline that's slipping. We'll name a tutor, share their background, and set up an introductory session. Nothing is billed until after that lesson and an agreed rate.",
+      answer: "Send four details to support@ibgram.com or +91 7439 368 115: your child's programme and year level, the subject and level involved, your city and preferred hours, and the actual outcome you want — a grade lift, exam confidence, an IA deadline that's slipping. We'll name a tutor, share their background, and set up an introductory session. Nothing is billed until after that lesson and an agreed rate.",
     },
   ],
 
@@ -416,5 +416,5 @@ export const belgium: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Central European Time",
-  closingBody: "Let us know the programme, the subject, the level and the school your child attends. In reply you'll get a named tutor with their teaching background, plus a couple of trial slots already timed for after school on CET/CEST — no cost, and no obligation beyond it. If the fit misses, tell us and we'll line up another tutor instead. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, mentioning your child's current year and programme.",
+  closingBody: "Let us know the programme, the subject, the level and the school your child attends. In reply you'll get a named tutor with their teaching background, plus a couple of trial slots already timed for after school on CET/CEST — no cost, and no obligation beyond it. If the fit misses, tell us and we'll line up another tutor instead. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp, mentioning your child's current year and programme.",
 };

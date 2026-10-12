@@ -348,7 +348,7 @@ export const sweden: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find the right IB tutor for my child in Sweden?",
-      answer: "Start with the specifics — programme stage, subject, level, and whether the school is kommunal or fristående — rather than a general request for help. Message ibgram24@gmail.com or +91 7439 368 115 on WhatsApp with the school and where the difficulty actually sits, and a named tutor comes back rather than a directory to work through yourself.",
+      answer: "Start with the specifics — programme stage, subject, level, and whether the school is kommunal or fristående — rather than a general request for help. Message support@ibgram.com or +91 7439 368 115 on WhatsApp with the school and where the difficulty actually sits, and a named tutor comes back rather than a directory to work through yourself.",
     },
     {
       question: "Will sessions actually fit a normal Swedish afternoon?",
@@ -356,7 +356,7 @@ export const sweden: CountrySeoPage = {
     },
     {
       question: "What does tutoring cost, and how do we pay?",
-      answer: "Cost tracks the programme level, subject and weekly hours booked, with Higher Level sciences and maths typically priced above MYP support. A per-hour rate is confirmed in writing before anything is booked, so nothing on the first invoice is a surprise. Send your child's grade, subject and level to ibgram24@gmail.com and ask about currency and payment options at the same time.",
+      answer: "Cost tracks the programme level, subject and weekly hours booked, with Higher Level sciences and maths typically priced above MYP support. A per-hour rate is confirmed in writing before anything is booked, so nothing on the first invoice is a surprise. Send your child's grade, subject and level to support@ibgram.com and ask about currency and payment options at the same time.",
     },
     {
       question: "Does anyone actually visit our home in Sweden?",
@@ -404,7 +404,7 @@ export const sweden: CountrySeoPage = {
     },
     {
       question: "What's the first step to actually start with a tutor?",
-      answer: "One message to ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, covering your child's stage and grade, the subjects and levels, an afternoon or evening window that suits you, and what specifically needs to change. A named tutor and their background come back first, then a trial lesson, with nothing billed until after you've watched it and agreed a rate.",
+      answer: "One message to support@ibgram.com or +91 7439 368 115 on WhatsApp, covering your child's stage and grade, the subjects and levels, an afternoon or evening window that suits you, and what specifically needs to change. A named tutor and their background come back first, then a trial lesson, with nothing billed until after you've watched it and agreed a rate.",
     },
   ],
 
@@ -424,5 +424,5 @@ export const sweden: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB tutor in Swedish time",
-  closingBody: "Send over the programme, the subject, the level and the city your family is in, and a named tutor comes back with their teaching background and a couple of trial-slot options already sitting inside a Swedish afternoon or evening — free, with nothing to continue after it if the fit is off. Say so if it isn't, and a different tutor is arranged instead. Reach us at ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your child's grade and school programme included.",
+  closingBody: "Send over the programme, the subject, the level and the city your family is in, and a named tutor comes back with their teaching background and a couple of trial-slot options already sitting inside a Swedish afternoon or evening — free, with nothing to continue after it if the fit is off. Say so if it isn't, and a different tutor is arranged instead. Reach us at support@ibgram.com or +91 7439 368 115 on WhatsApp, with your child's grade and school programme included.",
 };

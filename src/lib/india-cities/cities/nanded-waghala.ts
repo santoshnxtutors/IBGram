@@ -473,5 +473,5 @@ export const nandedWaghala: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Nanded-Waghala student",
   closingBody:
-    "Let us know your child's situation, private candidate, boarder home for the holidays, or a State Board/CBSE student adding subjects, along with the programme, subject and level. We will come back with a shortlisted tutor, their background, and trial slots that actually fit your week in Nanded-Waghala, delivered online and one to one, at no cost and with nothing to sign. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Let us know your child's situation, private candidate, boarder home for the holidays, or a State Board/CBSE student adding subjects, along with the programme, subject and level. We will come back with a shortlisted tutor, their background, and trial slots that actually fit your week in Nanded-Waghala, delivered online and one to one, at no cost and with nothing to sign. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

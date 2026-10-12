@@ -352,7 +352,7 @@ export const nepal: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB or A Level tutor in Nepal?",
-      answer: "Start by naming the exact school or college, the board, and the subject rather than searching broadly for 'tutor near me.' Tell IB Gram which of Nepal's four IB schools or which A Level college your child attends, and where the difficulty currently sits, and we propose a tutor already familiar with that specific syllabus. Reach us at ibgram24@gmail.com or +91 7439 368 115 to start that conversation.",
+      answer: "Start by naming the exact school or college, the board, and the subject rather than searching broadly for 'tutor near me.' Tell IB Gram which of Nepal's four IB schools or which A Level college your child attends, and where the difficulty currently sits, and we propose a tutor already familiar with that specific syllabus. Reach us at support@ibgram.com or +91 7439 368 115 to start that conversation.",
     },
     {
       question: "Does the time difference between Nepal and India cause scheduling problems?",
@@ -360,7 +360,7 @@ export const nepal: CountrySeoPage = {
     },
     {
       question: "How much does tutoring cost for a family in Nepal, and how do we pay?",
-      answer: "Cost depends on the subject, board and level, and how many weekly hours are booked, with A Level and IB HL sciences typically priced above NEB or general subject support. We confirm a rate in writing before anything starts, along with currency and payment method, so nothing about the first invoice comes as a surprise. Email ibgram24@gmail.com with your child's grade, board and subject for a current quote.",
+      answer: "Cost depends on the subject, board and level, and how many weekly hours are booked, with A Level and IB HL sciences typically priced above NEB or general subject support. We confirm a rate in writing before anything starts, along with currency and payment method, so nothing about the first invoice comes as a surprise. Email support@ibgram.com with your child's grade, board and subject for a current quote.",
     },
     {
       question: "Is tutoring only available online for families based in Nepal?",
@@ -408,7 +408,7 @@ export const nepal: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Message ibgram24@gmail.com or +91 7439 368 115 with your child's school or college, board and grade, the subjects and levels involved, your Nepal Time availability, and what you actually want to change — a grade, exam confidence, an Extended Essay deadline. We propose a tutor, share their background, and set up the introductory lesson, with nothing charged until you've seen it and agreed a rate.",
+      answer: "Message support@ibgram.com or +91 7439 368 115 with your child's school or college, board and grade, the subjects and levels involved, your Nepal Time availability, and what you actually want to change — a grade, exam confidence, an Extended Essay deadline. We propose a tutor, share their background, and set up the introductory lesson, with nothing charged until you've seen it and agreed a rate.",
     },
   ],
 
@@ -426,5 +426,5 @@ export const nepal: CountrySeoPage = {
   ],
 
   closingHeading: "Start with a free trial lesson, set to your Nepal evening",
-  closingBody: "Tell us your child's school or college, the board, the subject and the level. Back comes a named tutor, their teaching background, and a couple of trial slots already on Nepal Time — free, with nothing to continue if the fit isn't right. Say so and we'll propose someone else. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, including your child's grade and current school or college.",
+  closingBody: "Tell us your child's school or college, the board, the subject and the level. Back comes a named tutor, their teaching background, and a couple of trial slots already on Nepal Time — free, with nothing to continue if the fit isn't right. Say so and we'll propose someone else. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, including your child's grade and current school or college.",
 };

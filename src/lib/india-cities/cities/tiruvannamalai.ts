@@ -467,5 +467,5 @@ export const tiruvannamalai: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Tiruvannamalai",
   closingBody:
-    "Tell us the programme or board, the subject and level, where your child currently stands, and the times that work for your household, whether that's near the temple, off Chengam Road, or anywhere else in town. A shortlisted tutor comes back with their teaching background and trial slots fitted around Girivalam dates and your own routine, entirely online, one to one, at no cost and with nothing to commit to. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, the subject and level, where your child currently stands, and the times that work for your household, whether that's near the temple, off Chengam Road, or anywhere else in town. A shortlisted tutor comes back with their teaching background and trial slots fitted around Girivalam dates and your own routine, entirely online, one to one, at no cost and with nothing to commit to. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

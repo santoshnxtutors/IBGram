@@ -360,7 +360,7 @@ export const robertsonPet: CitySeoPage = {
   process: [
     {
       title: "Tell us what your child studies",
-      description: "Write with the programme, subjects, level and exam session, by WhatsApp on +91 7439 368 115 or email to ibgram24@gmail.com.",
+      description: "Write with the programme, subjects, level and exam session, by WhatsApp on +91 7439 368 115 or email to support@ibgram.com.",
     },
     {
       title: "We suggest a matching tutor",
@@ -484,7 +484,7 @@ export const robertsonPet: CitySeoPage = {
     {
       question: "How do I start from Robertson Pet?",
       answer:
-        "Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com with your child's programme, subjects, level, school and exam session. We will suggest a tutor, arrange the free trial and send rates in writing. You are under no obligation to continue after the trial.",
+        "Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com with your child's programme, subjects, level, school and exam session. We will suggest a tutor, arrange the free trial and send rates in writing. You are under no obligation to continue after the trial.",
     },
     {
       question: "Do you tutor younger children in PYP or MYP?",
@@ -509,5 +509,5 @@ export const robertsonPet: CitySeoPage = {
 
   closingHeading: "Book a free first lesson from Robertson Pet",
   closingBody:
-    "Send us your child's course, level and exam session and we will find a suitable tutor and a trial slot that fits your week. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp. You will see the rate in writing before deciding, and a different tutor is available if the first match is wrong.",
+    "Send us your child's course, level and exam session and we will find a suitable tutor and a trial slot that fits your week. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp. You will see the rate in writing before deciding, and a different tutor is available if the first match is wrong.",
 };

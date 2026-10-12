@@ -467,5 +467,5 @@ export const malegaon: CitySeoPage = {
 
   closingHeading: "Book a free IB or IGCSE trial lesson for your Malegaon student",
   closingBody:
-    "Share the programme or board, the subject and level, your child's current grade, and the evening slots that actually work for your household. A shortlisted tutor comes back with their teaching background and open trial times, delivered online and one to one, at no charge and no commitment. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Share the programme or board, the subject and level, your child's current grade, and the evening slots that actually work for your household. A shortlisted tutor comes back with their teaching background and open trial times, delivered online and one to one, at no charge and no commitment. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

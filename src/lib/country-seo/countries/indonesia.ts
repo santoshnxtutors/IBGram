@@ -354,7 +354,7 @@ export const indonesia: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Indonesia?",
-      answer: "Start with the exact programme stage — PYP, MYP, DP or CP — and the subject at the level actually being taken. IB Gram matches families in Indonesia after a short conversation about your child's SPK school, current grades and where the real difficulty sits. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp and describe the need; a named tutor follows rather than a directory to search yourself.",
+      answer: "Start with the exact programme stage — PYP, MYP, DP or CP — and the subject at the level actually being taken. IB Gram matches families in Indonesia after a short conversation about your child's SPK school, current grades and where the real difficulty sits. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp and describe the need; a named tutor follows rather than a directory to search yourself.",
     },
     {
       question: "Can my child have lessons in WIB, WITA or WIT?",
@@ -362,7 +362,7 @@ export const indonesia: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in Indonesia, and how do we pay?",
-      answer: "Cost depends on the programme, the subject and how many hours a week are booked — DP Higher Level Sciences and Mathematics generally sit above MYP support. A per-hour rate is confirmed in writing before anything is booked, so there is no surprise on a first invoice. Email ibgram24@gmail.com with your child's grade, subject and level for the current rate; currency and payment method are settled at the same time.",
+      answer: "Cost depends on the programme, the subject and how many hours a week are booked — DP Higher Level Sciences and Mathematics generally sit above MYP support. A per-hour rate is confirmed in writing before anything is booked, so there is no surprise on a first invoice. Email support@ibgram.com with your child's grade, subject and level for the current rate; currency and payment method are settled at the same time.",
     },
     {
       question: "Do you have in-person tutors in Indonesia?",
@@ -410,7 +410,7 @@ export const indonesia: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or call +91 7439 368 115 with four things: your child's grade and programme, the subjects and levels, your time zone and preferred hours, and what you want to change — a grade, exam confidence, an IA deadline. A named tutor follows, with their background shared and an introductory session arranged. Nothing is charged until a lesson has been seen and a rate agreed.",
+      answer: "Email support@ibgram.com or call +91 7439 368 115 with four things: your child's grade and programme, the subjects and levels, your time zone and preferred hours, and what you want to change — a grade, exam confidence, an IA deadline. A named tutor follows, with their background shared and an introductory session arranged. Nothing is charged until a lesson has been seen and a rate agreed.",
     },
   ],
 
@@ -430,5 +430,5 @@ export const indonesia: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in your Indonesian time zone",
-  closingBody: "Tell us the programme, the subject, the level and whether you sit in WIB, WITA or WIT. A named tutor comes back, with their teaching background and two or three trial slots already timed for after school in your own zone — no charge, no commitment beyond it. If the fit isn't right, say so and another tutor follows. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school.",
+  closingBody: "Tell us the programme, the subject, the level and whether you sit in WIB, WITA or WIT. A named tutor comes back, with their teaching background and two or three trial slots already timed for after school in your own zone — no charge, no commitment beyond it. If the fit isn't right, say so and another tutor follows. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school.",
 };

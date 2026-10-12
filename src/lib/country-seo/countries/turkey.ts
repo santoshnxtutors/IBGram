@@ -358,7 +358,7 @@ export const turkey: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Türkiye?",
-      answer: "Name the exact stage — PYP, MYP, DP or CP — and whether it runs alongside Cambridge IGCSE or a straight MEB timetable, then the subject and level. That specificity is what lets us put forward a real candidate instead of a generic profile. Write to ibgram24@gmail.com or send +91 7439 368 115 a WhatsApp message describing your child's school and where the current difficulty sits.",
+      answer: "Name the exact stage — PYP, MYP, DP or CP — and whether it runs alongside Cambridge IGCSE or a straight MEB timetable, then the subject and level. That specificity is what lets us put forward a real candidate instead of a generic profile. Write to support@ibgram.com or send +91 7439 368 115 a WhatsApp message describing your child's school and where the current difficulty sits.",
     },
     {
       question: "Will lessons actually land at a sensible Istanbul-evening hour?",
@@ -366,7 +366,7 @@ export const turkey: CountrySeoPage = {
     },
     {
       question: "What does IB tutoring cost for a family in Türkiye, and how is it paid?",
-      answer: "Cost tracks the programme level, the subject and the weekly hours booked, with DP Higher Level sciences and maths typically priced above MYP support. A per-hour rate is put in writing before anything is confirmed, so the first invoice holds no surprise. Send your child's grade, subject and level to ibgram24@gmail.com and ask about currency and payment options in the same message.",
+      answer: "Cost tracks the programme level, the subject and the weekly hours booked, with DP Higher Level sciences and maths typically priced above MYP support. A per-hour rate is put in writing before anything is confirmed, so the first invoice holds no surprise. Send your child's grade, subject and level to support@ibgram.com and ask about currency and payment options in the same message.",
     },
     {
       question: "Is there a tutor who actually comes to the house in Türkiye?",
@@ -414,7 +414,7 @@ export const turkey: CountrySeoPage = {
     },
     {
       question: "What's the actual first step to start with a tutor?",
-      answer: "Send ibgram24@gmail.com an email or message +91 7439 368 115 on WhatsApp with four things: your child's stage and grade, the subjects and levels involved, the evening window and city that suit you, and what specifically needs to change — a grade, exam confidence, a stuck internal assessment. A named tutor and their background come back first, then an introductory lesson, and nothing is billed until after you've seen that lesson and agreed on a rate.",
+      answer: "Send support@ibgram.com an email or message +91 7439 368 115 on WhatsApp with four things: your child's stage and grade, the subjects and levels involved, the evening window and city that suit you, and what specifically needs to change — a grade, exam confidence, a stuck internal assessment. A named tutor and their background come back first, then an introductory lesson, and nothing is billed until after you've seen that lesson and agreed on a rate.",
     },
   ],
 
@@ -433,5 +433,5 @@ export const turkey: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Türkiye Time",
-  closingBody: "Send over the programme, the subject, the level and the city your family is in, and a named tutor comes back with their teaching background and a couple of trial-slot options already sitting inside a Türkiye evening — free, with nothing to continue after it if the fit is off. Say so if it isn't, and a different tutor is arranged instead. Reach us at ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your child's grade and school programme included.",
+  closingBody: "Send over the programme, the subject, the level and the city your family is in, and a named tutor comes back with their teaching background and a couple of trial-slot options already sitting inside a Türkiye evening — free, with nothing to continue after it if the fit is off. Say so if it isn't, and a different tutor is arranged instead. Reach us at support@ibgram.com or +91 7439 368 115 on WhatsApp, with your child's grade and school programme included.",
 };

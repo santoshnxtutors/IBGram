@@ -470,5 +470,5 @@ export const ranipet: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Ranipet",
   closingBody:
-    "Reach out with your child's board or programme, the subject, current level and grade, plus a couple of time windows that generally work. Back comes a shortlisted tutor with their teaching background, along with trial slots to pick from, all online, one to one, free of charge and with nothing signed. WhatsApp +91 7439 368 115 or write to ibgram24@gmail.com.",
+    "Reach out with your child's board or programme, the subject, current level and grade, plus a couple of time windows that generally work. Back comes a shortlisted tutor with their teaching background, along with trial slots to pick from, all online, one to one, free of charge and with nothing signed. WhatsApp +91 7439 368 115 or write to support@ibgram.com.",
 };

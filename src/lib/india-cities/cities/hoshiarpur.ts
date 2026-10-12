@@ -445,7 +445,7 @@ export const hoshiarpur: CitySeoPage = {
     {
       question: "How do I start?",
       answer:
-        "Send a WhatsApp message to +91 7439 368 115 or email ibgram24@gmail.com with your child's programme, subject, level and school. We reply with a shortlist and a suggested trial time. The first lesson is free, you can stop afterwards, and a written rate reaches you before any booking is confirmed.",
+        "Send a WhatsApp message to +91 7439 368 115 or email support@ibgram.com with your child's programme, subject, level and school. We reply with a shortlist and a suggested trial time. The first lesson is free, you can stop afterwards, and a written rate reaches you before any booking is confirmed.",
     },
     {
       question: "What if my child and the tutor do not get on?",
@@ -476,5 +476,5 @@ export const hoshiarpur: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Hoshiarpur student",
   closingBody:
-    "Share the programme, subject and level, the school your child attends or plans to join, and any move, visit or exam date on the horizon. You will get a shortlist and a trial slot, and if it does not suit, nothing more is owed. Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com.",
+    "Share the programme, subject and level, the school your child attends or plans to join, and any move, visit or exam date on the horizon. You will get a shortlist and a trial slot, and if it does not suit, nothing more is owed. Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com.",
 };

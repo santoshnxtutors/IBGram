@@ -434,7 +434,7 @@ export const jabalpur: CitySeoPage = {
     {
       question: "How do I start with an IB or IGCSE tutor for my Jabalpur child?",
       answer:
-        "Write to ibgram24@gmail.com or drop a WhatsApp message to +91 7439 368 115 with the board, subject, level and where your child currently studies. A shortlist comes back quickly, a free online trial gets arranged, and once your child has actually met the tutor and you are both comfortable, we lay out the fee and a first month's plan.",
+        "Write to support@ibgram.com or drop a WhatsApp message to +91 7439 368 115 with the board, subject, level and where your child currently studies. A shortlist comes back quickly, a free online trial gets arranged, and once your child has actually met the tutor and you are both comfortable, we lay out the fee and a first month's plan.",
     },
   ],
 
@@ -462,5 +462,5 @@ export const jabalpur: CitySeoPage = {
 
   closingHeading: "Get your Jabalpur child in front of an IB or IGCSE specialist",
   closingBody:
-    "Let us know the board, the subject and level, and which school your child attends in Jabalpur. What comes back is a tutor who has genuinely taught that course before, an evening trial slot online that works around your routine, and nothing to pay until you have seen how the first class goes. Reach us on ibgram24@gmail.com or WhatsApp at +91 7439 368 115.",
+    "Let us know the board, the subject and level, and which school your child attends in Jabalpur. What comes back is a tutor who has genuinely taught that course before, an evening trial slot online that works around your routine, and nothing to pay until you have seen how the first class goes. Reach us on support@ibgram.com or WhatsApp at +91 7439 368 115.",
 };

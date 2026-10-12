@@ -471,5 +471,5 @@ export const puducherry: CitySeoPage = {
 
   closingHeading: "Book a free trial with an online IB or IGCSE tutor for Puducherry",
   closingBody:
-    "Tell us the programme or board, subject and level, your child's current grade, and the exam session or school calendar that actually applies. You'll get a shortlisted tutor, their teaching background, and trial slots that fit your routine, online and one to one, no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, subject and level, your child's current grade, and the exam session or school calendar that actually applies. You'll get a shortlisted tutor, their teaching background, and trial slots that fit your routine, online and one to one, no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

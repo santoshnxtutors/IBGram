@@ -165,13 +165,13 @@ export const sciences: IgcseSubjectContent = {
       type: "cta",
       heading: "How to Get Started This Week",
       body:
-        "One message does it. Write down the code from the entry paperwork, the entry route if the school has confirmed one, the student's grade, and one sentence on which discipline is the problem. If you have a recent marked assessment, attach a photograph of it — even a blurry one is more useful than a description, because the tutor reads the crossings-out rather than the total.\n\nWhat comes back is two or three tutor options with their actual double-award experience, which of the three sections they are strongest in, and their rate in writing. The first lesson is free and is meant to be used as a test: sit in on part of it if you like, and judge whether the tutor could explain to you, in plain language, where the marks are going. If they cannot, that is worth knowing in week one rather than week ten.\n\nIf you are outside India, include your city and time zone so a workable recurring slot can be found before anyone commits. If you are in India and want home sessions, include the area, and you will get a straight answer about whether a tutor is genuinely available there. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+        "One message does it. Write down the code from the entry paperwork, the entry route if the school has confirmed one, the student's grade, and one sentence on which discipline is the problem. If you have a recent marked assessment, attach a photograph of it — even a blurry one is more useful than a description, because the tutor reads the crossings-out rather than the total.\n\nWhat comes back is two or three tutor options with their actual double-award experience, which of the three sections they are strongest in, and their rate in writing. The first lesson is free and is meant to be used as a test: sit in on part of it if you like, and judge whether the tutor could explain to you, in plain language, where the marks are going. If they cannot, that is worth knowing in week one rather than week ten.\n\nIf you are outside India, include your city and time zone so a workable recurring slot can be found before anyone commits. If you are in India and want home sessions, include the area, and you will get a straight answer about whether a tutor is genuinely available there. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
       items: [
         "Send: the code, the entry route, the grade, and the weak discipline",
         "Attach a photo of a recent marked script if you have one",
         "You get tutor options, their section strengths and a written rate",
         "First lesson free; tutor changed if the fit is wrong",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp — include city and time zone",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp — include city and time zone",
       ],
     },
   ],
@@ -325,6 +325,6 @@ export const sciences: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If the reason you are reading this is a paired grade that came back lower than expected, an entry decision the school wants settled, or one discipline quietly dragging the other two down, send four things: the code, the entry route, the grade and which section is the problem. A photograph of a recent marked script helps more than a paragraph of description. You will get two or three tutor options with their real double-award experience and their rates in writing, the first lesson is free, and the tutor can be changed if the fit is wrong. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and add your city and time zone if you are outside India.",
+    "If the reason you are reading this is a paired grade that came back lower than expected, an entry decision the school wants settled, or one discipline quietly dragging the other two down, send four things: the code, the entry route, the grade and which section is the problem. A photograph of a recent marked script helps more than a paragraph of description. You will get two or three tutor options with their real double-award experience and their rates in writing, the first lesson is free, and the tutor can be changed if the fit is wrong. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and add your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

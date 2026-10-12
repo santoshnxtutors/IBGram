@@ -470,5 +470,5 @@ export const haridwar: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Haridwar student",
   closingBody:
-    "Send across the programme or board, the subject and level, where your child currently stands, and the hours that fit your Haridwar household. What comes back is a tutor matched to that exact course, a look at their teaching background, and an online trial slot fitted around your week, at no cost and nothing to sign. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send across the programme or board, the subject and level, where your child currently stands, and the hours that fit your Haridwar household. What comes back is a tutor matched to that exact course, a look at their teaching background, and an online trial slot fitted around your week, at no cost and nothing to sign. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

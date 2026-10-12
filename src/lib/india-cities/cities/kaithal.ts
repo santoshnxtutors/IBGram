@@ -384,7 +384,7 @@ export const kaithal: CitySeoPage = {
     { question: "How long does matching a tutor take?", answer: "Usually a few days after we have your course, level and available times. Mathematics and Physics are quicker than rare subjects such as Psychology HL. If no suitable tutor exists, we will say so instead of assigning someone unfit." },
     { question: "What internet connection is needed?", answer: "An ordinary broadband line or a steady 4G signal is enough. We test audio and video during the free lesson and suggest a backup hotspot. Villages within the district sometimes have weaker signals, so tell us your area and we will plan around it." },
     { question: "Do you offer a free trial?", answer: "Yes. The first lesson is free and uses your child's real material, not a sales script. If you continue, we confirm the rate and weekly schedule in writing first. Nothing is charged before you agree, and you can change tutors if the fit is wrong." },
-    { question: "How do we start from Kaithal?", answer: "Message +91 7439 368 115 on WhatsApp or email ibgram24@gmail.com with the course, level, school and exam session. We reply with a suggested tutor and a trial time in IST. Enquiring is free, and you decide afterwards whether to carry on." },
+    { question: "How do we start from Kaithal?", answer: "Message +91 7439 368 115 on WhatsApp or email support@ibgram.com with the course, level, school and exam session. We reply with a suggested tutor and a trial time in IST. Enquiring is free, and you decide afterwards whether to carry on." },
   ],
 
   internalLinks: [
@@ -405,5 +405,5 @@ export const kaithal: CitySeoPage = {
 
   closingHeading: "Try one free IB or IGCSE lesson from your Kaithal home",
   closingBody:
-    "Tell us the course, level and exam session and we will find a tutor who has taught it before. The first lesson is free, a written rate follows only if you continue, and no one has to drive to another city. Write on WhatsApp to +91 7439 368 115 or email ibgram24@gmail.com.",
+    "Tell us the course, level and exam session and we will find a tutor who has taught it before. The first lesson is free, a written rate follows only if you continue, and no one has to drive to another city. Write on WhatsApp to +91 7439 368 115 or email support@ibgram.com.",
 };

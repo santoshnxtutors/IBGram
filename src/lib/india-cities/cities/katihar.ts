@@ -470,5 +470,5 @@ export const katihar: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Katihar",
   closingBody:
-    "Let us know the board or programme, subject and level, where your child currently stands, and hours that work around your household or posting. A shortlisted tutor comes back with their background and open trial times, ready to start online, one to one, without any charge or obligation attached. Write to ibgram24@gmail.com or message us on WhatsApp at +91 7439 368 115.",
+    "Let us know the board or programme, subject and level, where your child currently stands, and hours that work around your household or posting. A shortlisted tutor comes back with their background and open trial times, ready to start online, one to one, without any charge or obligation attached. Write to support@ibgram.com or message us on WhatsApp at +91 7439 368 115.",
 };

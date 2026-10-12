@@ -192,13 +192,13 @@ export const developmentStudies: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting This Week With an IGCSE Development Studies Tutor",
       body:
-        "Starting takes one message and about five minutes of preparation. Send the syllabus code and, if you can find it, the year of the syllabus edition your school teaches from, which is usually printed on the course outline or the front of the textbook. Add the student's grade, the region the school uses for case examples, and one photograph of a recently marked piece of writing with the teacher's comments visible. That last item tells a tutor more in thirty seconds than a long description of the problem.\n\nAlso say where you are and which time zone you are in. Outside India every session is online, scheduled to suit your evening rather than ours. Inside India, tell us your city and neighbourhood and we will say honestly whether an in-person tutor is currently free there, or whether online is the realistic option this term.\n\nYou will get one or two suggested tutors with their real background, a rate in writing, and a free trial lesson before any commitment. After the trial you decide. If the fit is wrong then or later, the tutor is changed without argument. Email ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115.",
+        "Starting takes one message and about five minutes of preparation. Send the syllabus code and, if you can find it, the year of the syllabus edition your school teaches from, which is usually printed on the course outline or the front of the textbook. Add the student's grade, the region the school uses for case examples, and one photograph of a recently marked piece of writing with the teacher's comments visible. That last item tells a tutor more in thirty seconds than a long description of the problem.\n\nAlso say where you are and which time zone you are in. Outside India every session is online, scheduled to suit your evening rather than ours. Inside India, tell us your city and neighbourhood and we will say honestly whether an in-person tutor is currently free there, or whether online is the realistic option this term.\n\nYou will get one or two suggested tutors with their real background, a rate in writing, and a free trial lesson before any commitment. After the trial you decide. If the fit is wrong then or later, the tutor is changed without argument. Email support@ibgram.com or send a WhatsApp message to +91 7439 368 115.",
       items: [
         "Send the code 0453, the syllabus edition year if known, and the student's grade",
         "Attach a photograph of one recently marked piece with teacher comments",
         "Tell us your city and time zone so scheduling is settled in the first reply",
         "Expect one or two named tutors, a written rate and a free trial lesson",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115 to begin",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115 to begin",
       ],
     },
   ],
@@ -352,6 +352,6 @@ export const developmentStudies: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If your child is writing with feeling and scoring in the middle band, or if the school is teaching a syllabus nobody nearby has heard of, send us the details and we will be straight with you about what tutoring can and cannot fix. Include the code 0453, the student's grade, the region the school uses for case material, and a photograph of one recently marked piece. You will get a named tutor with their real background, a rate in writing and a free trial lesson before you commit to anything. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and add your city and time zone.",
+    "If your child is writing with feeling and scoring in the middle band, or if the school is teaching a syllabus nobody nearby has heard of, send us the details and we will be straight with you about what tutoring can and cannot fix. Include the code 0453, the student's grade, the region the school uses for case material, and a photograph of one recently marked piece. You will get a named tutor with their real background, a rate in writing and a free trial lesson before you commit to anything. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and add your city and time zone.",
   lastUpdated: "2026-09-18",
 };

@@ -483,5 +483,5 @@ export const kozhikode: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Kozhikode student",
   closingBody:
-    "IB and IGCSE tutors in Kozhikode start every match the same way: share the programme or board, subject and level, your child's current grade, and the hours that suit your household. A shortlisted tutor comes back with their teaching background and open trial slots that work around Kozhikode's school day and the monsoon calendar, delivered online and one to one, at no cost and with nothing to sign. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "IB and IGCSE tutors in Kozhikode start every match the same way: share the programme or board, subject and level, your child's current grade, and the hours that suit your household. A shortlisted tutor comes back with their teaching background and open trial slots that work around Kozhikode's school day and the monsoon calendar, delivered online and one to one, at no cost and with nothing to sign. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

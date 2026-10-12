@@ -496,5 +496,5 @@ export const firozabad: CitySeoPage = {
 
   closingHeading: "Start with a free online lesson, no local school required",
   closingBody:
-    "Send over the programme or board, subject and level, what school your child is currently following, and roughly when your evenings or weekends are free. We will come back with a tutor whose teaching background matches, a couple of trial slots, and no cost or paperwork attached to that first session. Write to ibgram24@gmail.com or ping +91 7439 368 115 on WhatsApp.",
+    "Send over the programme or board, subject and level, what school your child is currently following, and roughly when your evenings or weekends are free. We will come back with a tutor whose teaching background matches, a couple of trial slots, and no cost or paperwork attached to that first session. Write to support@ibgram.com or ping +91 7439 368 115 on WhatsApp.",
 };

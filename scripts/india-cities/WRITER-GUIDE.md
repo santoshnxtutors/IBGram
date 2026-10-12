@@ -56,7 +56,7 @@ check only. If both are exhausted, say so in the competitor note and name no sch
   (A Level / AS only as context).
 - Free trial lesson, written note after each session, tutor change if the fit is wrong, rates quoted in
   writing before booking. **No published prices** (cost questions: explain what drives the rate).
-- Contact: `ibgram24@gmail.com` and `+91 7439 368 115` (WhatsApp). No other email or phone.
+- Contact: `support@ibgram.com` and `+91 7439 368 115` (WhatsApp). No other email or phone.
 - Independent service, not affiliated with the IB, Cambridge, Pearson or any named school.
   `schoolDisclaimer` must say so in its own words.
 - Tutors coach; they never write IAs, Extended Essays, TOK essays or coursework.

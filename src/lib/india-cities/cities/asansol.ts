@@ -470,5 +470,5 @@ export const asansol: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Asansol student",
   closingBody:
-    "Write in with the board or programme, the subject and level, where your child's grade currently stands, and the evening hours that actually suit your household. What comes back is a tutor suggestion with their background explained plainly, plus a trial slot fitted around the school week, no fee and nothing to sign. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Write in with the board or programme, the subject and level, where your child's grade currently stands, and the evening hours that actually suit your household. What comes back is a tutor suggestion with their background explained plainly, plus a trial slot fitted around the school week, no fee and nothing to sign. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

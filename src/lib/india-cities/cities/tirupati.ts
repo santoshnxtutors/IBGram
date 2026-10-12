@@ -453,5 +453,5 @@ export const tirupati: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Tirupati",
   closingBody:
-    "Let us know the board or programme your child follows, the subject and level involved, roughly where they stand right now, and the hours that suit your household best. What comes back is a shortlisted tutor with a clear teaching background and a trial slot fitted around your calendar, run entirely online and one to one, with nothing owed and nothing promised beyond that first lesson. Email ibgram24@gmail.com or message us on WhatsApp at +91 7439 368 115.",
+    "Let us know the board or programme your child follows, the subject and level involved, roughly where they stand right now, and the hours that suit your household best. What comes back is a shortlisted tutor with a clear teaching background and a trial slot fitted around your calendar, run entirely online and one to one, with nothing owed and nothing promised beyond that first lesson. Email support@ibgram.com or message us on WhatsApp at +91 7439 368 115.",
 };

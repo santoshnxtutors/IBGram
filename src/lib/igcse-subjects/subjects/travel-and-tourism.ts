@@ -193,13 +193,13 @@ export const travelAndTourism: IgcseSubjectContent = {
       type: "cta",
       heading: "Getting Travel and Tourism Support Started",
       body:
-        "A good first message is four lines long. Say the entry route and syllabus version, the examination series, the year group and what has gone wrong. Something like \"Grade 11, Cambridge IGCSE 0471, May series, lost most of the marks on the twenty-mark questions in the mock and never used the insert\" gives enough to match properly on the first attempt. \"Looking for a Travel and Tourism tutor\" costs two more exchanges, and when a mock is three weeks away those exchanges are days.\n\nYou receive tutor options with their actual backgrounds, the content areas they are strongest on, and the rate for that particular match in writing. There is no published price list, because preparing a Grade 11 candidate for a May series and building vocabulary with a Grade 9 student are not the same job. The first lesson is free and carries no obligation.\n\nWrite to ibgram24@gmail.com or send a message on WhatsApp to +91 7439 368 115. Families outside India should add their city and time zone, since lessons abroad are online and are scheduled in your hours rather than in Indian ones.",
+        "A good first message is four lines long. Say the entry route and syllabus version, the examination series, the year group and what has gone wrong. Something like \"Grade 11, Cambridge IGCSE 0471, May series, lost most of the marks on the twenty-mark questions in the mock and never used the insert\" gives enough to match properly on the first attempt. \"Looking for a Travel and Tourism tutor\" costs two more exchanges, and when a mock is three weeks away those exchanges are days.\n\nYou receive tutor options with their actual backgrounds, the content areas they are strongest on, and the rate for that particular match in writing. There is no published price list, because preparing a Grade 11 candidate for a May series and building vocabulary with a Grade 9 student are not the same job. The first lesson is free and carries no obligation.\n\nWrite to support@ibgram.com or send a message on WhatsApp to +91 7439 368 115. Families outside India should add their city and time zone, since lessons abroad are online and are scheduled in your hours rather than in Indian ones.",
       items: [
         "Four lines: entry route and syllabus version, series, year group, what went wrong",
         "Tutor backgrounds and the rate for that match, both in writing, before you book",
         "A free first lesson with no obligation to continue",
         "Outside India, include your city and time zone so lessons land in your hours",
-        "ibgram24@gmail.com, or WhatsApp +91 7439 368 115",
+        "support@ibgram.com, or WhatsApp +91 7439 368 115",
       ],
     },
   ],
@@ -371,6 +371,6 @@ export const travelAndTourism: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a mock has come back badly, if the twenty-mark questions are the problem, or if your child is the only person in their year taking this subject and has nobody to read their written answers, that is exactly the situation to describe. Send the entry route and syllabus version, the examination series, the year group and what went wrong. Tutor backgrounds and the rate for your match are confirmed in writing beforehand, the first lesson is free, and a tutor who does not suit your child is replaced rather than defended. Reach IB Gram at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115, adding your city and time zone if you are outside India.",
+    "If a mock has come back badly, if the twenty-mark questions are the problem, or if your child is the only person in their year taking this subject and has nobody to read their written answers, that is exactly the situation to describe. Send the entry route and syllabus version, the examination series, the year group and what went wrong. Tutor backgrounds and the rate for your match are confirmed in writing beforehand, the first lesson is free, and a tutor who does not suit your child is replaced rather than defended. Reach IB Gram at support@ibgram.com or on WhatsApp at +91 7439 368 115, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

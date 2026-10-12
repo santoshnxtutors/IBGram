@@ -364,7 +364,7 @@ export const habra: CitySeoPage = {
   ],
 
   process: [
-    { title: "Tell us the course", description: "WhatsApp +91 7439 368 115 or email ibgram24@gmail.com with class, board, subjects and the exam month you are working towards." },
+    { title: "Tell us the course", description: "WhatsApp +91 7439 368 115 or email support@ibgram.com with class, board, subjects and the exam month you are working towards." },
     { title: "See who we suggest", description: "A tutor with real teaching history on that syllabus is proposed, along with a short profile." },
     { title: "Take one lesson on us", description: "Your child logs in from a desk in Habra for a full live lesson, at no charge and with no strings." },
     { title: "Settle the terms", description: "The hourly rate and weekly timing arrive in writing; a yes or a no is all that is needed." },
@@ -399,7 +399,7 @@ export const habra: CitySeoPage = {
     { question: "Is tuition available for primary and middle school children?", answer: "Yes. For PYP, sessions build reading, writing, number confidence and Exhibition preparation; for MYP, they cover criteria, lab reports and the Personal Project. Younger children get shorter, more playful classes so attention holds." },
     { question: "Does IB Gram belong to a school, an exam board or the IB?", answer: "It does not. IB Gram runs independently and has no tie to the IB, Cambridge, Pearson or any school here. Schools named on the page are geography markers alone, and admissions or curriculum questions belong with the school itself." },
     { question: "Is Bengali available within the IB or IGCSE?", answer: "Sometimes. The IB lists Bengali A for first-language readers, and certain IGCSE centres offer a Bengali option. It depends on your school and centre, so check first; where a syllabus exists, a tutor can be found." },
-    { question: "What is the quickest way to begin?", answer: "Send a WhatsApp message to +91 7439 368 115 or write to ibgram24@gmail.com naming the class, board, subjects and exam month. A tutor suggestion follows, then a free lesson, then a written rate, in that order." },
+    { question: "What is the quickest way to begin?", answer: "Send a WhatsApp message to +91 7439 368 115 or write to support@ibgram.com naming the class, board, subjects and exam month. A tutor suggestion follows, then a free lesson, then a written rate, in that order." },
   ],
 
   internalLinks: [
@@ -418,5 +418,5 @@ export const habra: CitySeoPage = {
 
   closingHeading: "Start with a free lesson from Habra",
   closingBody:
-    "Write with the board, subjects and target exam month, and a tutor will be suggested for an opening lesson that costs nothing. Reach us on WhatsApp at +91 7439 368 115 or at ibgram24@gmail.com. Habra lessons are held online; nobody from IB Gram visits homes in the town.",
+    "Write with the board, subjects and target exam month, and a tutor will be suggested for an opening lesson that costs nothing. Reach us on WhatsApp at +91 7439 368 115 or at support@ibgram.com. Habra lessons are held online; nobody from IB Gram visits homes in the town.",
 };

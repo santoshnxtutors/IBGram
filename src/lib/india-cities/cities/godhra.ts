@@ -469,5 +469,5 @@ export const godhra: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Godhra household",
   closingBody:
-    "Tell us the programme or board, the subject and level, your child's current grade and the hours that suit your Godhra household. You will receive a shortlisted tutor, their teaching background and trial slots fitted to your routine, all online, one to one, free and with no commitment. Write to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115.",
+    "Tell us the programme or board, the subject and level, your child's current grade and the hours that suit your Godhra household. You will receive a shortlisted tutor, their teaching background and trial slots fitted to your routine, all online, one to one, free and with no commitment. Write to support@ibgram.com or send a WhatsApp message to +91 7439 368 115.",
 };

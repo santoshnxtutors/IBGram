@@ -165,13 +165,13 @@ export const foodAndNutrition: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting IGCSE Food and Nutrition Support This Week",
       body:
-        "A useful first message takes one line and saves two days of exchanges. Say the grade, the syllabus code from the course outline, which part is going wrong, and what triggered the search. \"Grade 10, Cambridge 0648, scored badly on the explanation questions about eggs and sauces in the last theory test, practical planning starts after the holidays\" is enough to match a tutor properly the first time.\n\nIf you can, attach a photograph of a recent marked answer. Ten minutes spent reading a student's own script tells a tutor more than a long description of the problem, and it usually reveals that the marks are going somewhere the family had not suspected — the wording of the answer rather than the knowledge behind it.\n\nYou will receive two or three tutor options with their actual background and the rate for each in writing before anything is booked. The first lesson is a free trial, and the tutor can be changed afterwards if the fit is wrong. Write to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115. Families outside India should include their city and time zone so a slot is proposed in local hours.",
+        "A useful first message takes one line and saves two days of exchanges. Say the grade, the syllabus code from the course outline, which part is going wrong, and what triggered the search. \"Grade 10, Cambridge 0648, scored badly on the explanation questions about eggs and sauces in the last theory test, practical planning starts after the holidays\" is enough to match a tutor properly the first time.\n\nIf you can, attach a photograph of a recent marked answer. Ten minutes spent reading a student's own script tells a tutor more than a long description of the problem, and it usually reveals that the marks are going somewhere the family had not suspected — the wording of the answer rather than the knowledge behind it.\n\nYou will receive two or three tutor options with their actual background and the rate for each in writing before anything is booked. The first lesson is a free trial, and the tutor can be changed afterwards if the fit is wrong. Write to support@ibgram.com or send a WhatsApp message to +91 7439 368 115. Families outside India should include their city and time zone so a slot is proposed in local hours.",
       items: [
         "Send four things: grade, code, the part that is failing, and what triggered it",
         "Attach a photo of a marked script if you have one — it shortens the diagnosis",
         "Tutor background and the rate arrive in writing before you commit",
         "The first lesson is a free trial and the tutor can be changed after it",
-        "ibgram24@gmail.com or WhatsApp +91 7439 368 115; add your time zone if abroad",
+        "support@ibgram.com or WhatsApp +91 7439 368 115; add your time zone if abroad",
       ],
     },
   ],
@@ -334,6 +334,6 @@ export const foodAndNutrition: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If the pattern here is familiar — a child who enjoys the Food room, cooks confidently, and then loses marks on the written paper — the fix is usually narrower than it looks, and it starts with reading one marked script. Send the grade, the code from the course outline, and which part is going wrong, ideally with a photograph of a recent piece of marked work. Tutor options and their rates come back in writing, the first lesson is a free trial, and a different tutor is arranged if the fit is wrong. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If the pattern here is familiar — a child who enjoys the Food room, cooks confidently, and then loses marks on the written paper — the fix is usually narrower than it looks, and it starts with reading one marked script. Send the grade, the code from the course outline, and which part is going wrong, ideally with a photograph of a recent piece of marked work. Tutor options and their rates come back in writing, the first lesson is a free trial, and a different tutor is arranged if the fit is wrong. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

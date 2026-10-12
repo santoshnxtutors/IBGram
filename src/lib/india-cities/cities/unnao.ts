@@ -793,5 +793,5 @@ export const unnao: CitySeoPage = {
     }
   ],
   closingHeading: "Book a free trial with IB and IGCSE tutors in Unnao",
-  closingBody: "Tell us the programme or board, the subject and level, your child's latest grade, and the hours that fit your Unnao routine, whether that is an evening after the Lucknow or Kanpur ride or a slot around boarding dates. You will hear back from a shortlisted tutor with a teaching profile and trial times to choose from, all online, free and with no commitment. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp."
+  closingBody: "Tell us the programme or board, the subject and level, your child's latest grade, and the hours that fit your Unnao routine, whether that is an evening after the Lucknow or Kanpur ride or a slot around boarding dates. You will hear back from a shortlisted tutor with a teaching profile and trial times to choose from, all online, free and with no commitment. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp."
 };

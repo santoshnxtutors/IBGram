@@ -478,5 +478,5 @@ export const eluru: CitySeoPage = {
 
   closingHeading: "Start with a free trial class for your Eluru family",
   closingBody:
-    "Send across the programme or board, the subject and level, where your child stands right now, and the hours that fit your household. What comes back is a shortlist, each tutor's background explained plainly, with trial slots fitted around your routine, all delivered online and one to one, at no cost and no obligation. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send across the programme or board, the subject and level, where your child stands right now, and the hours that fit your household. What comes back is a shortlist, each tutor's background explained plainly, with trial slots fitted around your routine, all delivered online and one to one, at no cost and no obligation. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

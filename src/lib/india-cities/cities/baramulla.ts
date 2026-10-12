@@ -402,7 +402,7 @@ export const baramulla: CitySeoPage = {
     { question: "What are the lesson timings for students in Baramulla?", answer: "Weekday evenings and weekends are the most common, all in Indian Standard Time, so there is no time-zone gap. We avoid slots that clash with school return, evening prayers or the hours when the household's power supply is least reliable, and slots move if weather closes the schools." },
     { question: "Can you help a student prepare for an IB school interview or assessment?", answer: "Yes, for subject readiness. A tutor can identify gaps in English, Maths and Science, practise the reasoning and explanation style IB schools look for, and build confidence before a school's entrance assessment. We do not coach interviews to guarantee admission, and we have no influence on any school's decisions." },
     { question: "How can a Baramulla student prepare for NEET or JEE with the IB or IGCSE?", answer: "Start by checking each exam's eligibility rules for the qualification, then align the subject choices. Students taking IB Biology, Chemistry, Physics and Maths HL cover much of the ground, but NEET and JEE syllabi differ from IB, and many students add separate entrance coaching. Our tutors teach IB and IGCSE content, not entrance-exam packages." },
-    { question: "How do I start with a free trial?", answer: "Message us on WhatsApp at +91 7439 368 115 or email ibgram24@gmail.com with your child's class, board and subject. We suggest a tutor, agree a trial time in IST and send a joining link. After the lesson you get a written plan and a rate in writing; there is no obligation to continue." },
+    { question: "How do I start with a free trial?", answer: "Message us on WhatsApp at +91 7439 368 115 or email support@ibgram.com with your child's class, board and subject. We suggest a tutor, agree a trial time in IST and send a joining link. After the lesson you get a written plan and a rate in writing; there is no obligation to continue." },
   ],
 
   internalLinks: [
@@ -420,5 +420,5 @@ export const baramulla: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson from Baramulla",
   closingBody:
-    "Tell us your child's class, board and the subject that feels hardest. We will suggest a tutor who has taught that syllabus, arrange a free trial over video in IST and send a written plan with the rate after the class. Reach us on WhatsApp at +91 7439 368 115 or write to ibgram24@gmail.com.",
+    "Tell us your child's class, board and the subject that feels hardest. We will suggest a tutor who has taught that syllabus, arrange a free trial over video in IST and send a written plan with the rate after the class. Reach us on WhatsApp at +91 7439 368 115 or write to support@ibgram.com.",
 };

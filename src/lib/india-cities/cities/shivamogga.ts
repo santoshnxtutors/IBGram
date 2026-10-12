@@ -462,5 +462,5 @@ export const shivamogga: CitySeoPage = {
 
   closingHeading: "Start with a free trial class for your Shivamogga student",
   closingBody:
-    "Tell us the board or programme, the subject and level, where your child currently stands, and when your household is actually free. You'll get back a shortlisted tutor, a note on their background, and trial slots that fit your routine, all online, at no cost and no commitment either way. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "Tell us the board or programme, the subject and level, where your child currently stands, and when your household is actually free. You'll get back a shortlisted tutor, a note on their background, and trial slots that fit your routine, all online, at no cost and no commitment either way. Email support@ibgram.com or WhatsApp +91 7439 368 115.",
 };

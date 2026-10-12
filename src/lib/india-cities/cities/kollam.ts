@@ -471,5 +471,5 @@ export const kollam: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson with an IB or IGCSE tutor for Kollam",
   closingBody:
-    "Share the programme or board, subject and level, your child's current grade, and the times that suit your Kollam household. A shortlisted tutor comes back with their teaching background and open trial slots, delivered online and one to one, at no charge and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Share the programme or board, subject and level, your child's current grade, and the times that suit your Kollam household. A shortlisted tutor comes back with their teaching background and open trial slots, delivered online and one to one, at no charge and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

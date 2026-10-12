@@ -480,5 +480,5 @@ export const morvi: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Morvi (Morbi) child",
   closingBody:
-    "Tell us the programme or board, subject, level and current grade, and which evenings or weekends suit your household in Morvi. You get back a shortlisted tutor, a brief note on their background and a few trial slots, with no fee and nothing to sign in advance. Write to ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "Tell us the programme or board, subject, level and current grade, and which evenings or weekends suit your household in Morvi. You get back a shortlisted tutor, a brief note on their background and a few trial slots, with no fee and nothing to sign in advance. Write to support@ibgram.com or WhatsApp +91 7439 368 115.",
 };

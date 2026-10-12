@@ -434,7 +434,7 @@ export const vidisha: CitySeoPage = {
     {
       question: "How do we get the free trial going?",
       answer:
-        "Send a WhatsApp message to +91 7439 368 115 or write to ibgram24@gmail.com with the board or programme, the subject and level, your child's current grade and the evenings that work. A tutor is proposed, the trial is booked, and a brief note follows it. You then choose whether to continue. The trial is never charged.",
+        "Send a WhatsApp message to +91 7439 368 115 or write to support@ibgram.com with the board or programme, the subject and level, your child's current grade and the evenings that work. A tutor is proposed, the trial is booked, and a brief note follows it. You then choose whether to continue. The trial is never charged.",
     },
     {
       question: "What happens to lessons during summer power cuts or monsoon storms?",
@@ -493,5 +493,5 @@ export const vidisha: CitySeoPage = {
 
   closingHeading: "Book a free IB or IGCSE trial lesson from Vidisha",
   closingBody:
-    "Share the board or programme, the subject and level, where your child stands now and which hours are free at home. A matched tutor is proposed within a short time, and the first lesson is on the house. WhatsApp +91 7439 368 115 or write to ibgram24@gmail.com.",
+    "Share the board or programme, the subject and level, where your child stands now and which hours are free at home. A matched tutor is proposed within a short time, and the first lesson is on the house. WhatsApp +91 7439 368 115 or write to support@ibgram.com.",
 };

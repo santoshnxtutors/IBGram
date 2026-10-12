@@ -469,5 +469,5 @@ export const murwara: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Murwara (Katni)",
   closingBody:
-    "Send across your child's board or programme, the subject, current level and grade, and whether this is a fresh start, a relocation, or ongoing support. A shortlisted tutor and their teaching background come back along with trial slots to choose from, all online, one to one, free of charge and with nothing signed. WhatsApp +91 7439 368 115 or email ibgram24@gmail.com.",
+    "Send across your child's board or programme, the subject, current level and grade, and whether this is a fresh start, a relocation, or ongoing support. A shortlisted tutor and their teaching background come back along with trial slots to choose from, all online, one to one, free of charge and with nothing signed. WhatsApp +91 7439 368 115 or email support@ibgram.com.",
 };

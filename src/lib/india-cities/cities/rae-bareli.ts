@@ -768,5 +768,5 @@ export const raeBareli: CitySeoPage = {
     }
   ],
   "closingHeading": "Ask for a free trial with an IB or IGCSE tutor in Rae Bareli",
-  "closingBody": "Send the programme or board, subject and level, your child's grade today and a few times that suit your household. You will get back a shortlisted tutor with their teaching background and trial slots built around your routine, all online, free of charge and with no commitment. Email ibgram24@gmail.com or WhatsApp +91 7439 368 115."
+  "closingBody": "Send the programme or board, subject and level, your child's grade today and a few times that suit your household. You will get back a shortlisted tutor with their teaching background and trial slots built around your routine, all online, free of charge and with no commitment. Email support@ibgram.com or WhatsApp +91 7439 368 115."
 };

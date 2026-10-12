@@ -43,7 +43,7 @@ export function buildGeneratedPageSchema(page: GeneratedSeoPage): JsonLdObject {
       name: "IB Gram",
       url: SITE_URL,
       logo: `${SITE_URL}/logo-512.png`,
-      email: "ibgram24@gmail.com",
+      email: "support@ibgram.com",
     },
     {
       "@type": "Service",

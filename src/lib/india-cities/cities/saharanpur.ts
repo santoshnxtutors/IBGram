@@ -425,7 +425,7 @@ export const saharanpur: CitySeoPage = {
     {
       question: "How do I get started with a tutor for my Saharanpur child?",
       answer:
-        "Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with the board, subject, level and your child's current school. A shortlist comes back quickly, a free online trial gets arranged, and once your child has met the tutor and you are both comfortable, we set out the fee and a plan for the first month.",
+        "Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp with the board, subject, level and your child's current school. A shortlist comes back quickly, a free online trial gets arranged, and once your child has met the tutor and you are both comfortable, we set out the fee and a plan for the first month.",
     },
   ],
 
@@ -452,5 +452,5 @@ export const saharanpur: CitySeoPage = {
 
   closingHeading: "Line up a free trial class for your Saharanpur child",
   closingBody:
-    "Let us know the board, the subject and level, and which school your child currently attends in Saharanpur. We come back with a tutor who has actually taught that exact course, an evening trial slot online that fits around your week, and nothing to pay until you have seen the first class for yourself. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Let us know the board, the subject and level, and which school your child currently attends in Saharanpur. We come back with a tutor who has actually taught that exact course, an evening trial slot online that fits around your week, and nothing to pay until you have seen the first class for yourself. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

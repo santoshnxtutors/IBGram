@@ -475,5 +475,5 @@ export const bahadurgarh: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Bahadurgarh",
   closingBody:
-    "Write to us with the programme or board, the subject and level, where your child currently stands and when the Bahadurgarh commute or school day leaves room. A proposed tutor follows, with a summary of their teaching and trial times that suit you, everything online and one to one. There is no fee and no commitment. Reach ibgram24@gmail.com, or WhatsApp +91 7439 368 115.",
+    "Write to us with the programme or board, the subject and level, where your child currently stands and when the Bahadurgarh commute or school day leaves room. A proposed tutor follows, with a summary of their teaching and trial times that suit you, everything online and one to one. There is no fee and no commitment. Reach support@ibgram.com, or WhatsApp +91 7439 368 115.",
 };

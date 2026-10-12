@@ -370,7 +370,7 @@ export const kenya: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Kenya?",
-      answer: "Start with the exact programme stage and subject rather than \"IB\" broadly - PYP, MYP, DP or CP, and the specific level within that subject. Get in touch on ibgram24@gmail.com or WhatsApp +91 7439 368 115 with the school situation, current grades and where things are actually going wrong, and we come back with a specific tutor to consider.",
+      answer: "Start with the exact programme stage and subject rather than \"IB\" broadly - PYP, MYP, DP or CP, and the specific level within that subject. Get in touch on support@ibgram.com or WhatsApp +91 7439 368 115 with the school situation, current grades and where things are actually going wrong, and we come back with a specific tutor to consider.",
     },
     {
       question: "Can my child have lessons in East Africa Time?",
@@ -378,7 +378,7 @@ export const kenya: CountrySeoPage = {
     },
     {
       question: "How much does IB or IGCSE tutoring cost in Kenya, and how do we pay?",
-      answer: "Rates depend on the subject, the level, and how many hours a week are booked, with HL sciences and mathematics generally sitting above MYP-level support. A per-hour rate is quoted in writing before anything is booked. Email ibgram24@gmail.com with your child's year group, subject and level to get the current rate, and currency or payment questions are settled at the same time.",
+      answer: "Rates depend on the subject, the level, and how many hours a week are booked, with HL sciences and mathematics generally sitting above MYP-level support. A per-hour rate is quoted in writing before anything is booked. Email support@ibgram.com with your child's year group, subject and level to get the current rate, and currency or payment questions are settled at the same time.",
     },
     {
       question: "Do you have in-person tutors in Kenya?",
@@ -426,7 +426,7 @@ export const kenya: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Reach out to ibgram24@gmail.com or WhatsApp +91 7439 368 115 with the school year and curriculum, the subject, board and level, roughly which East Africa Time hours suit the household, and what you actually want to change - a grade, exam confidence, an IA deadline. We come back with a tutor and their background and set up a first lesson; no payment is taken before you've watched that lesson and agreed a rate.",
+      answer: "Reach out to support@ibgram.com or WhatsApp +91 7439 368 115 with the school year and curriculum, the subject, board and level, roughly which East Africa Time hours suit the household, and what you actually want to change - a grade, exam confidence, an IA deadline. We come back with a tutor and their background and set up a first lesson; no payment is taken before you've watched that lesson and agreed a rate.",
     },
   ],
 
@@ -445,5 +445,5 @@ export const kenya: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in East Africa Time",
-  closingBody: "Send over the curriculum, subject, level and school year, and what comes back is a named tutor with their background attached, plus a trial time already set in an after-school East Africa Time slot - free, with nothing to continue after it unless you choose to. Not the right fit? Say so and another tutor gets lined up. Reach us at ibgram24@gmail.com or WhatsApp +91 7439 368 115, with your child's year group and current curriculum included.",
+  closingBody: "Send over the curriculum, subject, level and school year, and what comes back is a named tutor with their background attached, plus a trial time already set in an after-school East Africa Time slot - free, with nothing to continue after it unless you choose to. Not the right fit? Say so and another tutor gets lined up. Reach us at support@ibgram.com or WhatsApp +91 7439 368 115, with your child's year group and current curriculum included.",
 };

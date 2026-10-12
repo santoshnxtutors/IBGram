@@ -472,5 +472,5 @@ export const naihati: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Naihati child",
   closingBody:
-    "Tell us the programme or board, the subject and level, your child's current grade, and what times suit your household. You get back a shortlisted tutor, their teaching background, and trial slots fitted to your routine, delivered online and one to one, at no cost and no commitment. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, the subject and level, your child's current grade, and what times suit your household. You get back a shortlisted tutor, their teaching background, and trial slots fitted to your routine, delivered online and one to one, at no cost and no commitment. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

@@ -354,7 +354,7 @@ export const canada: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Canada?",
-      answer: "Begin with the exact stage — PYP, MYP, DP or CP — and the specific subject and level your child needs, rather than a general search for \"IB tutor.\" We match Canadian families with an online tutor after a short conversation about the province, the school, and where things are actually breaking down. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp and describe the situation; you'll get a suggested tutor back rather than a list to browse.",
+      answer: "Begin with the exact stage — PYP, MYP, DP or CP — and the specific subject and level your child needs, rather than a general search for \"IB tutor.\" We match Canadian families with an online tutor after a short conversation about the province, the school, and where things are actually breaking down. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp and describe the situation; you'll get a suggested tutor back rather than a list to browse.",
     },
     {
       question: "Can sessions run in our own time zone?",
@@ -362,7 +362,7 @@ export const canada: CountrySeoPage = {
     },
     {
       question: "What does tutoring cost in Canada, and how does payment work?",
-      answer: "It depends on the programme level, the subject and how many weekly hours you book — DP Higher Level sciences and math typically sit above MYP support. A rate is quoted in writing before anything is booked, so nothing surprises you on the first invoice. Email ibgram24@gmail.com with the grade, subject and level for a current quote, and confirm currency and payment method at the same time.",
+      answer: "It depends on the programme level, the subject and how many weekly hours you book — DP Higher Level sciences and math typically sit above MYP support. A rate is quoted in writing before anything is booked, so nothing surprises you on the first invoice. Email support@ibgram.com with the grade, subject and level for a current quote, and confirm currency and payment method at the same time.",
     },
     {
       question: "Is there an in-person option anywhere in Canada?",
@@ -410,7 +410,7 @@ export const canada: CountrySeoPage = {
     },
     {
       question: "How do we actually get started?",
-      answer: "Email ibgram24@gmail.com or message +91 7439 368 115 with your child's grade and programme, the subjects and levels involved, your province and time zone, and what you're hoping changes — a grade, exam confidence, an IA that's stalled. You'll get back a suggested tutor, their background, and a time for an introductory lesson. Nothing gets charged until you've seen that lesson and agreed on a rate.",
+      answer: "Email support@ibgram.com or message +91 7439 368 115 with your child's grade and programme, the subjects and levels involved, your province and time zone, and what you're hoping changes — a grade, exam confidence, an IA that's stalled. You'll get back a suggested tutor, their background, and a time for an introductory lesson. Nothing gets charged until you've seen that lesson and agreed on a rate.",
     },
   ],
 
@@ -428,5 +428,5 @@ export const canada: CountrySeoPage = {
   ],
 
   closingHeading: "Arrange a free trial lesson in your own Canadian time zone",
-  closingBody: "Send over the programme, subject, level and province, and you'll hear back with a named tutor, their teaching background, and a couple of trial times that already sit after school on your clock — no cost, and no obligation to book anything further. If it isn't the right fit, tell us and we'll try again with someone else. Reach us at ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your child's grade and current programme.",
+  closingBody: "Send over the programme, subject, level and province, and you'll hear back with a named tutor, their teaching background, and a couple of trial times that already sit after school on your clock — no cost, and no obligation to book anything further. If it isn't the right fit, tell us and we'll try again with someone else. Reach us at support@ibgram.com or +91 7439 368 115 on WhatsApp, with your child's grade and current programme.",
 };

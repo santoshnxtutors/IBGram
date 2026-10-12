@@ -363,7 +363,7 @@ export const puri: CitySeoPage = {
   process: [
     {
       title: "Send your child's course details",
-      description: "Share the programme, subjects, level and exam session over WhatsApp on +91 7439 368 115 or by email at ibgram24@gmail.com.",
+      description: "Share the programme, subjects, level and exam session over WhatsApp on +91 7439 368 115 or by email at support@ibgram.com.",
     },
     {
       title: "We shortlist a tutor",
@@ -487,7 +487,7 @@ export const puri: CitySeoPage = {
     {
       question: "How do I get started from Puri?",
       answer:
-        "Message +91 7439 368 115 on WhatsApp or email ibgram24@gmail.com with your child's programme, subjects, level, school and exam session. We will propose a tutor, arrange a free trial lesson and send the rates in writing. There is no obligation after the trial.",
+        "Message +91 7439 368 115 on WhatsApp or email support@ibgram.com with your child's programme, subjects, level, school and exam session. We will propose a tutor, arrange a free trial lesson and send the rates in writing. There is no obligation after the trial.",
     },
     {
       question: "Do you offer PYP and MYP tuition for younger children in Puri?",
@@ -512,5 +512,5 @@ export const puri: CitySeoPage = {
 
   closingHeading: "Ask for a free trial lesson from Puri",
   closingBody:
-    "Tell us the course, level and exam session, and we will propose a tutor and set a trial lesson for a slot that works around your household. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp. Rates come in writing before you commit, and the tutor can be changed if the fit is wrong.",
+    "Tell us the course, level and exam session, and we will propose a tutor and set a trial lesson for a slot that works around your household. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp. Rates come in writing before you commit, and the tutor can be changed if the fit is wrong.",
 };

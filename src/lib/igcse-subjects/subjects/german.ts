@@ -169,13 +169,13 @@ export const german: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting IGCSE German Support This Week",
       body:
-        "The useful opening message is short and factual. \"Grade 10, Cambridge 0525, marks fine on vocabulary but dropping on written accuracy, speaking test in February\" is enough to match properly. \"We need a German tutor\" takes two more exchanges to reach the same point, and those exchanges cost days when an assessment is close. If you have a recent marked piece of writing, photograph it and send that too - a tutor can read more from one corrected paragraph of a student's German than from a paragraph of description.\n\nYou will get back two or three suggested tutors with their German teaching background and the rate for that specific match, in writing, before anything is booked. There is no published price list, because a Grade 11 speaking-test rehearsal and a Grade 9 foundations rebuild are not the same job. The first lesson is a free trial and the tutor can be swapped afterwards.\n\nEmail ibgram24@gmail.com, or send a WhatsApp message to +91 7439 368 115. Living outside India? Add your city and time zone so the proposed slot is in your own local hours.",
+        "The useful opening message is short and factual. \"Grade 10, Cambridge 0525, marks fine on vocabulary but dropping on written accuracy, speaking test in February\" is enough to match properly. \"We need a German tutor\" takes two more exchanges to reach the same point, and those exchanges cost days when an assessment is close. If you have a recent marked piece of writing, photograph it and send that too - a tutor can read more from one corrected paragraph of a student's German than from a paragraph of description.\n\nYou will get back two or three suggested tutors with their German teaching background and the rate for that specific match, in writing, before anything is booked. There is no published price list, because a Grade 11 speaking-test rehearsal and a Grade 9 foundations rebuild are not the same job. The first lesson is a free trial and the tutor can be swapped afterwards.\n\nEmail support@ibgram.com, or send a WhatsApp message to +91 7439 368 115. Living outside India? Add your city and time zone so the proposed slot is in your own local hours.",
       items: [
         "Four things to send: the code, the grade, the trigger and your target series",
         "Attach a photo of one marked German writing task if you have one",
         "Tutor background and the exact rate go to you in writing before booking",
         "Free trial lesson first; a different tutor arranged afterwards if needed",
-        "ibgram24@gmail.com or WhatsApp +91 7439 368 115, with your time zone if you are abroad",
+        "support@ibgram.com or WhatsApp +91 7439 368 115, with your time zone if you are abroad",
       ],
     },
   ],
@@ -338,6 +338,6 @@ export const german: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If your reason for reading this is a written task that came back covered in corrections, a speaking test in the calendar, or a Grade 9 start you would rather get right the first time, send four things: the German code your school enters, the grade, what triggered the search and which exam series you are aiming at. A photograph of one marked piece of German writing helps more than a paragraph of explanation. You will get two or three tutor options with their background and their rate in writing, the first lesson is free, and the tutor can be changed if the fit is not right. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If your reason for reading this is a written task that came back covered in corrections, a speaking test in the calendar, or a Grade 9 start you would rather get right the first time, send four things: the German code your school enters, the grade, what triggered the search and which exam series you are aiming at. A photograph of one marked piece of German writing helps more than a paragraph of explanation. You will get two or three tutor options with their background and their rate in writing, the first lesson is free, and the tutor can be changed if the fit is not right. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

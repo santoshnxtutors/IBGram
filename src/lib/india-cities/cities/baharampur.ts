@@ -470,5 +470,5 @@ export const baharampur: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Baharampur",
   closingBody:
-    "Let us know the board or programme, the subject, current level and grade, and whether your family is dealing with a transfer, a first switch, or simply wants ongoing support. Back comes a shortlisted tutor, a look at their background, and trial slots to pick from, entirely online, one to one, free of charge and without signing anything. Message +91 7439 368 115 on WhatsApp or write to ibgram24@gmail.com.",
+    "Let us know the board or programme, the subject, current level and grade, and whether your family is dealing with a transfer, a first switch, or simply wants ongoing support. Back comes a shortlisted tutor, a look at their background, and trial slots to pick from, entirely online, one to one, free of charge and without signing anything. Message +91 7439 368 115 on WhatsApp or write to support@ibgram.com.",
 };

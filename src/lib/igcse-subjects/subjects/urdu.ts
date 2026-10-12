@@ -180,13 +180,13 @@ export const urdu: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting Urdu Sessions Before the Next Assessment",
       body:
-        "A good first message takes a minute to write and saves several days. Name the route and code if you know it, the grade, how much the student can write by hand today, and what happened recently that prompted you to search. Something like \"Grade 10, Cambridge 0539, speaks Urdu at home, handwriting flagged in the last report, exams next year\" is enough to match properly. \"We need an Urdu tutor\" needs two more exchanges to reach the same place.\n\nAttach a photograph of a page the student has written, even a rough one. It is the single most useful thing in the enquiry, and it lets a tutor say something concrete in the first reply rather than asking a series of questions.\n\nYou will get two or three tutor suggestions with their route experience and the rate for each, in writing, before any commitment. There is no published price list, because fees depend on the tutor's experience and tier, the grade and how often sessions run. The first lesson is free. Write to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115, and if you are outside India include your city and time zone.",
+        "A good first message takes a minute to write and saves several days. Name the route and code if you know it, the grade, how much the student can write by hand today, and what happened recently that prompted you to search. Something like \"Grade 10, Cambridge 0539, speaks Urdu at home, handwriting flagged in the last report, exams next year\" is enough to match properly. \"We need an Urdu tutor\" needs two more exchanges to reach the same place.\n\nAttach a photograph of a page the student has written, even a rough one. It is the single most useful thing in the enquiry, and it lets a tutor say something concrete in the first reply rather than asking a series of questions.\n\nYou will get two or three tutor suggestions with their route experience and the rate for each, in writing, before any commitment. There is no published price list, because fees depend on the tutor's experience and tier, the grade and how often sessions run. The first lesson is free. Write to support@ibgram.com or send a WhatsApp message to +91 7439 368 115, and if you are outside India include your city and time zone.",
       items: [
         "Four details: route or code, grade, current writing ability, and what triggered the search",
         "Attach one photograph of the student's handwriting",
         "Two or three tutor options with route experience and rates, in writing",
         "A free first lesson before any commitment, and a change of tutor if it misfires",
-        "ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your time zone if abroad",
+        "support@ibgram.com or +91 7439 368 115 on WhatsApp, with your time zone if abroad",
       ],
     },
   ],
@@ -349,6 +349,6 @@ export const urdu: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a report comment about handwriting, a disappointing written task or an approaching exam session brought you here, send the route or code, the grade, what the student can currently write by hand, and one photograph of a page they have written. You will get two or three tutor suggestions with their route experience and rates in writing, a free first lesson, and a different tutor if the match is wrong. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If a report comment about handwriting, a disappointing written task or an approaching exam session brought you here, send the route or code, the grade, what the student can currently write by hand, and one photograph of a page they have written. You will get two or three tutor suggestions with their route experience and rates in writing, a free first lesson, and a different tutor if the match is wrong. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

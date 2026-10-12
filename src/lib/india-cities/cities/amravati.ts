@@ -466,5 +466,5 @@ export const amravati: CitySeoPage = {
 
   closingHeading: "Start a free IB and IGCSE trial lesson in Amravati",
   closingBody:
-    "Send us the programme or board your child follows, the subject and level, their current grade, and when they are usually free in Amravati. We will come back with a shortlisted tutor, a short note on their teaching background, and open trial slots around your school week, delivered one to one online at no charge and no commitment. Reach us by email at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send us the programme or board your child follows, the subject and level, their current grade, and when they are usually free in Amravati. We will come back with a shortlisted tutor, a short note on their teaching background, and open trial slots around your school week, delivered one to one online at no charge and no commitment. Reach us by email at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

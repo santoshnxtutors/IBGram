@@ -495,5 +495,5 @@ export const gwalior: CitySeoPage = {
 
   closingHeading: "Book a free lesson before deciding anything",
   closingBody:
-    "Let us know the board or programme, the subject and level, which school your child attends now, and when your week actually has room. Back comes a tutor whose background genuinely fits, a slot or two to try, and nothing owed for that first hour regardless of what you decide next. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Let us know the board or programme, the subject and level, which school your child attends now, and when your week actually has room. Back comes a tutor whose background genuinely fits, a slot or two to try, and nothing owed for that first hour regardless of what you decide next. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

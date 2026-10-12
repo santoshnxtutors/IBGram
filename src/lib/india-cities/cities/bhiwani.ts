@@ -469,5 +469,5 @@ export const bhiwani: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Bhiwani",
   closingBody:
-    "Tell us what your child studies, at what level, where they currently stand, and when your household is actually free. In return you get a shortlisted tutor with real teaching background and open trial times, starting online and one to one, free of charge and free of commitment. Reach the team at ibgram24@gmail.com or over WhatsApp on +91 7439 368 115.",
+    "Tell us what your child studies, at what level, where they currently stand, and when your household is actually free. In return you get a shortlisted tutor with real teaching background and open trial times, starting online and one to one, free of charge and free of commitment. Reach the team at support@ibgram.com or over WhatsApp on +91 7439 368 115.",
 };

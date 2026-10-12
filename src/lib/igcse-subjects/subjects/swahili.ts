@@ -191,13 +191,13 @@ export const swahili: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting This Week, and What to Put in the First Message",
       body:
-        "You can have a free first lesson booked within a couple of days, and the message that makes that happen is short. Give us the code and board the school has entered the student for, ideally copied from the school's own letter rather than remembered. Tell us the grade, and say plainly whether Kiswahili is spoken at home, because that one sentence changes which tutor is right by more than anything else you could write.\n\nThen tell us what went wrong. A returned composition with comments, a mock result, a teacher's remark about register, an oral coming up that nobody has rehearsed for. If you can photograph one marked piece of the student's Kiswahili writing and attach it, the diagnosis in the first session will be sharper and you will waste less of the trial lesson on questions.\n\nIf you are outside India, include your city and time zone so a workable slot is proposed rather than a slot that only suits us. Sessions run in your own time zone. You will get two or three tutor options with their real teaching background, their rate in writing, and no obligation after the free lesson.\n\nEmail ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115. There is no centre to visit and no address to come to; this is arranged by message and taught online.",
+        "You can have a free first lesson booked within a couple of days, and the message that makes that happen is short. Give us the code and board the school has entered the student for, ideally copied from the school's own letter rather than remembered. Tell us the grade, and say plainly whether Kiswahili is spoken at home, because that one sentence changes which tutor is right by more than anything else you could write.\n\nThen tell us what went wrong. A returned composition with comments, a mock result, a teacher's remark about register, an oral coming up that nobody has rehearsed for. If you can photograph one marked piece of the student's Kiswahili writing and attach it, the diagnosis in the first session will be sharper and you will waste less of the trial lesson on questions.\n\nIf you are outside India, include your city and time zone so a workable slot is proposed rather than a slot that only suits us. Sessions run in your own time zone. You will get two or three tutor options with their real teaching background, their rate in writing, and no obligation after the free lesson.\n\nEmail support@ibgram.com or send a WhatsApp message to +91 7439 368 115. There is no centre to visit and no address to come to; this is arranged by message and taught online.",
       items: [
         "Send the code, the board and the grade, copied from the school's letter",
         "Say whether Kiswahili is a home language for this student",
         "Attach one photographed piece of marked Kiswahili writing if you can",
         "Give your city and time zone if you are outside India",
-        "Email ibgram24@gmail.com or WhatsApp +91 7439 368 115 for a free first lesson",
+        "Email support@ibgram.com or WhatsApp +91 7439 368 115 for a free first lesson",
       ],
     },
   ],
@@ -355,6 +355,6 @@ export const swahili: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a returned composition, a report comment about register or an approaching spoken component is why you are reading this, send us the code the school has entered your child for, the grade, and whether Kiswahili is spoken at home. A photograph of one marked piece of writing helps more than a paragraph of description. You will get two or three tutor options with their real Kiswahili teaching background, their rate in writing, and a free first lesson before any commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your city and time zone if you are outside India.",
+    "If a returned composition, a report comment about register or an approaching spoken component is why you are reading this, send us the code the school has entered your child for, the grade, and whether Kiswahili is spoken at home. A photograph of one marked piece of writing helps more than a paragraph of description. You will get two or three tutor options with their real Kiswahili teaching background, their rate in writing, and a free first lesson before any commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };

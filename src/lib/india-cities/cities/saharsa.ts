@@ -395,7 +395,7 @@ export const saharsa: CitySeoPage = {
     { question: "How do I know the tutor is qualified?", answer: "We match tutors on experience with your syllabus, and you can judge for yourself in the free trial lesson. Ask the tutor about the papers they have taught, sample topics and how they mark. If you are not satisfied with the fit, we will replace the tutor." },
     { question: "Can a boarding student use tuition in the holidays only?", answer: "Yes. Many Saharsa students board in another city and study with us only in Diwali, winter and summer breaks. We plan intensive blocks in those weeks, then pause or reduce lessons when school restarts. The same tutor can pick up again next holiday." },
     { question: "Do you offer PYP and MYP support?", answer: "Yes. PYP support is short and focused on reading, number work and Exhibition planning. For MYP, tutors work on criteria, sciences, Language and Literature, Mathematics and the Personal Project, but they never write the project for the student." },
-    { question: "How can I get started?", answer: "Message ibgram24@gmail.com or WhatsApp +91 7439 368 115 with the school, board, subjects and level. We reply with a suggested tutor and a trial slot, usually planned for the evening or weekend that suits your family." },
+    { question: "How can I get started?", answer: "Message support@ibgram.com or WhatsApp +91 7439 368 115 with the school, board, subjects and level. We reply with a suggested tutor and a trial slot, usually planned for the evening or weekend that suits your family." },
   ],
 
   internalLinks: [
@@ -414,5 +414,5 @@ export const saharsa: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson for your Saharsa student",
   closingBody:
-    "Tell us the syllabus, subject and level, and we will suggest a tutor for a free online trial lesson. You will see the teaching style before you pay anything, and rates are shared in writing first. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the syllabus, subject and level, and we will suggest a tutor for a free online trial lesson. You will see the teaching style before you pay anything, and rates are shared in writing first. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

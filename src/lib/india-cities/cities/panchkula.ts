@@ -457,5 +457,5 @@ export const panchkula: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson in Panchkula",
   closingBody:
-    "Get in touch with the programme or board your child follows, the subject, level and current grade, and a rough sense of your evenings. We will come back with a tutor shortlisted for that exact syllabus, some background on how they teach, and a few trial slots to pick from, all delivered live online with nothing to pay and nothing to sign. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Get in touch with the programme or board your child follows, the subject, level and current grade, and a rough sense of your evenings. We will come back with a tutor shortlisted for that exact syllabus, some background on how they teach, and a few trial slots to pick from, all delivered live online with nothing to pay and nothing to sign. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

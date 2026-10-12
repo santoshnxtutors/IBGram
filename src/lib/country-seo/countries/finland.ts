@@ -369,7 +369,7 @@ export const finland: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Finland?",
-      answer: "Name the exact stage and subject rather than asking generally about \"IB\" - PYP, MYP, DP or CP, and the specific level within it. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp describing the school situation, current grades, and where things are actually falling short, and a specific tutor comes back for you to consider, not a list to sort through alone.",
+      answer: "Name the exact stage and subject rather than asking generally about \"IB\" - PYP, MYP, DP or CP, and the specific level within it. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp describing the school situation, current grades, and where things are actually falling short, and a specific tutor comes back for you to consider, not a list to sort through alone.",
     },
     {
       question: "Can my child have lessons in Finnish time?",
@@ -377,7 +377,7 @@ export const finland: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Finland, and how do we pay?",
-      answer: "Cost depends on the subject, the level and the number of hours booked each week, with HL sciences and mathematics generally priced above MYP-level support. A per-hour rate is confirmed in writing before anything is booked - email ibgram24@gmail.com with your child's lukio year, subject and level, and currency and payment details get settled at the same time.",
+      answer: "Cost depends on the subject, the level and the number of hours booked each week, with HL sciences and mathematics generally priced above MYP-level support. A per-hour rate is confirmed in writing before anything is booked - email support@ibgram.com with your child's lukio year, subject and level, and currency and payment details get settled at the same time.",
     },
     {
       question: "Do you have in-person tutors in Finland?",
@@ -425,7 +425,7 @@ export const finland: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with the lukio year and programme, the subject and level, roughly which EET/EEST hours suit your household, and the actual goal - a grade, steadier exam confidence, an IA or Extended Essay deadline closing in. A tutor and their background come back from us, and a first lesson gets set up; nothing is charged until you've seen that lesson and agreed a rate.",
+      answer: "Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp with the lukio year and programme, the subject and level, roughly which EET/EEST hours suit your household, and the actual goal - a grade, steadier exam confidence, an IA or Extended Essay deadline closing in. A tutor and their background come back from us, and a first lesson gets set up; nothing is charged until you've seen that lesson and agreed a rate.",
     },
   ],
 
@@ -444,5 +444,5 @@ export const finland: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB tutor in your Finnish time zone",
-  closingBody: "Name the programme, subject, level and lukio year, and back comes a specific tutor with their teaching background attached, along with a trial slot already sitting in an after-school EET or EEST window - no cost, and nothing ongoing unless you decide to continue. If it isn't the right match, tell us and another tutor is lined up instead. Reach ibgram24@gmail.com or WhatsApp +91 7439 368 115, mentioning your child's year group and current programme.",
+  closingBody: "Name the programme, subject, level and lukio year, and back comes a specific tutor with their teaching background attached, along with a trial slot already sitting in an after-school EET or EEST window - no cost, and nothing ongoing unless you decide to continue. If it isn't the right match, tell us and another tutor is lined up instead. Reach support@ibgram.com or WhatsApp +91 7439 368 115, mentioning your child's year group and current programme.",
 };

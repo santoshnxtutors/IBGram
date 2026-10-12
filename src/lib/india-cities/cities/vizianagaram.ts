@@ -613,6 +613,6 @@ export const vizianagaram: CitySeoPage = {
   closingBody:
     "Let us know the board and programme, subject and level, where your child currently stands, and when your "
     + "week actually has room. We will come back with a tutor whose background fits, a trial slot that suits "
-    + "your routine, and nothing to pay until you decide it is worth continuing. Reach us at ibgram24@gmail.com "
+    + "your routine, and nothing to pay until you decide it is worth continuing. Reach us at support@ibgram.com "
     + "or on WhatsApp at +91 7439 368 115.",
 };

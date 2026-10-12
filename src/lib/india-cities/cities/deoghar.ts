@@ -454,5 +454,5 @@ export const deoghar: CitySeoPage = {
 
   closingHeading: "Get a tutor shortlist for Deoghar",
   closingBody:
-    "Send across the board or programme, the subject and level, where your child currently stands, and the hours that fit a Deoghar household's routine. What comes back is a shortlist built around each tutor's background, with open trial slots ready to book straight away, and that opening lesson costs nothing and commits you to nothing further. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send across the board or programme, the subject and level, where your child currently stands, and the hours that fit a Deoghar household's routine. What comes back is a shortlist built around each tutor's background, with open trial slots ready to book straight away, and that opening lesson costs nothing and commits you to nothing further. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

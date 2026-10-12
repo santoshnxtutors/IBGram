@@ -320,7 +320,7 @@ export const environmentalManagement: IgcseSubjectContent = {
     {
       question: "What should I send in the first message?",
       answer:
-        "Send the syllabus code, the student's grade, your city and your time zone, and a photograph of one recently marked piece of work. The marked script is the single most useful item, because it shows how the student writes under pressure rather than how confident they sound talking about the subject. Mention whether Geography is being taken alongside, and name any deadline in view. Write to ibgram24@gmail.com, or send a WhatsApp message to +91 7439 368 115, and you will get two or three tutor suggestions back with rates in writing.",
+        "Send the syllabus code, the student's grade, your city and your time zone, and a photograph of one recently marked piece of work. The marked script is the single most useful item, because it shows how the student writes under pressure rather than how confident they sound talking about the subject. Mention whether Geography is being taken alongside, and name any deadline in view. Write to support@ibgram.com, or send a WhatsApp message to +91 7439 368 115, and you will get two or three tutor suggestions back with rates in writing.",
     },
     {
       question: "Is IB Gram connected to Cambridge International in any way?",
@@ -329,6 +329,6 @@ export const environmentalManagement: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a marked script, a subject-choice decision or an approaching series brought you here, the quickest way forward is to send the grade, the city, the time zone and a photograph of that marked work. Two or three tutors who have taught 0680 will come back to you with their real teaching history and their rate in writing, and the first lesson is a free trial before any commitment. If the pairing does not work, the tutor is changed. Write to ibgram24@gmail.com, or send a WhatsApp message to +91 7439 368 115.",
+    "If a marked script, a subject-choice decision or an approaching series brought you here, the quickest way forward is to send the grade, the city, the time zone and a photograph of that marked work. Two or three tutors who have taught 0680 will come back to you with their real teaching history and their rate in writing, and the first lesson is a free trial before any commitment. If the pairing does not work, the tutor is changed. Write to support@ibgram.com, or send a WhatsApp message to +91 7439 368 115.",
   lastUpdated: "2026-09-18",
 };

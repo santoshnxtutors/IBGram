@@ -494,7 +494,7 @@ export const bhiwandi: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson for your Bhiwandi student",
   closingBody:
-    "Write in with the subject and level, whichever school your child attends or is working toward, their current standing, and roughly when your evenings tend to be free. Within a short while you will hear back with a suggested tutor, some background on their teaching, and a slot for the trial lesson itself, at no cost and without needing to decide anything upfront. Reach us by email at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Write in with the subject and level, whichever school your child attends or is working toward, their current standing, and roughly when your evenings tend to be free. Within a short while you will hear back with a suggested tutor, some background on their teaching, and a slot for the trial lesson itself, at no cost and without needing to decide anything upfront. Reach us by email at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 
   geo: { latitude: 19.3002, longitude: 73.0631 },
   alternateNames: ["Bhiwandi-Nizampur"],

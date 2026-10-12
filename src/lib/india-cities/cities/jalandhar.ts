@@ -450,7 +450,7 @@ export const jalandhar: CitySeoPage = {
 
   closingHeading: "Try a free lesson with an IB or IGCSE tutor for your Jalandhar student",
   closingBody:
-    "Whether your child is aiming at a move abroad, working through IGCSE independently, or boarding at a Diploma school away from Jalandhar, send us the subject, level and board and we will line up a tutor who teaches it. IB and IGCSE tutors in Jalandhar through IB Gram teach entirely online, starting with one free lesson and nothing to pay upfront. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Whether your child is aiming at a move abroad, working through IGCSE independently, or boarding at a Diploma school away from Jalandhar, send us the subject, level and board and we will line up a tutor who teaches it. IB and IGCSE tutors in Jalandhar through IB Gram teach entirely online, starting with one free lesson and nothing to pay upfront. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 
   geo: { latitude: 31.326, longitude: 75.5762 },
   alternateNames: ["Jullundur", "Jalandhar Doaba"],

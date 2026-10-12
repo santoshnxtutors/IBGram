@@ -468,5 +468,5 @@ export const ujjain: CitySeoPage = {
 
   closingHeading: "Start with a free class for your Ujjain-connected child",
   closingBody:
-    "Let us know which school or online programme your child follows, the subject and level in question, and roughly when sessions would work around their week. A shortlisted tutor comes back to you with their teaching background and a few trial times to pick from, run live over video, at no cost and without signing up to anything. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Let us know which school or online programme your child follows, the subject and level in question, and roughly when sessions would work around their week. A shortlisted tutor comes back to you with their teaching background and a few trial times to pick from, run live over video, at no cost and without signing up to anything. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

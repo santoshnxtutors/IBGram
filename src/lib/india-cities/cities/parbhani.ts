@@ -472,5 +472,5 @@ export const parbhani: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Parbhani",
   closingBody:
-    "Send across the board or programme, which subject and level, where your child stands right now, and when your Parbhani household is actually free for a lesson. What comes back is a tutor shortlist with their background explained and a trial slot fitted into your week, run entirely online, nothing charged and nothing owed either way. Reach us on ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "Send across the board or programme, which subject and level, where your child stands right now, and when your Parbhani household is actually free for a lesson. What comes back is a tutor shortlist with their background explained and a trial slot fitted into your week, run entirely online, nothing charged and nothing owed either way. Reach us on support@ibgram.com or WhatsApp +91 7439 368 115.",
 };

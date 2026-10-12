@@ -1,6 +1,6 @@
 # IB Gram
 
-> IB Gram is an independent IB and IGCSE tutor-matching platform serving families worldwide. It matches parents and students with verified subject specialists across the IB Primary Years Programme (PYP), Middle Years Programme (MYP), Diploma Programme (DP) and Career-related Programme (CP), plus Cambridge IGCSE and Pearson Edexcel International GCSE. Online tutoring is delivered globally in every time zone; in-home and hybrid tutoring runs across 30 Indian cities, with the deepest street-level coverage in Gurugram (Gurgaon), Haryana. Founded by Ajay Vatsyayan, an IB DP Mathematics (AA and AI) and Physics specialist with 10+ years of one-to-one teaching. Contact: ibgram24@gmail.com, +91 7439 368 115, https://wa.me/917439368115.
+> IB Gram is an independent IB and IGCSE tutor-matching platform serving families worldwide. It matches parents and students with verified subject specialists across the IB Primary Years Programme (PYP), Middle Years Programme (MYP), Diploma Programme (DP) and Career-related Programme (CP), plus Cambridge IGCSE and Pearson Edexcel International GCSE. Online tutoring is delivered globally in every time zone; in-home and hybrid tutoring runs across 30 Indian cities, with the deepest street-level coverage in Gurugram (Gurgaon), Haryana. Founded by Ajay Vatsyayan, an IB DP Mathematics (AA and AI) and Physics specialist with 10+ years of one-to-one teaching. Contact: support@ibgram.com, +91 7439 368 115, https://wa.me/917439368115.
 
 ## What IB Gram is
 
@@ -157,7 +157,7 @@ Gurugram is the canonical city name on IB Gram; Gurgaon is the everyday alias fo
 - **Modes:** One-to-one home tutoring, online tutoring, hybrid
 - **Languages:** English, Hindi
 - **Founder:** Ajay Vatsyayan — IB DP Mathematics (AA/AI) and Physics specialist, 10+ years of one-to-one teaching
-- **Email:** ibgram24@gmail.com
+- **Email:** support@ibgram.com
 - **Phone and WhatsApp:** +91 7439 368 115 — https://wa.me/917439368115
 - **Website:** https://www.ibgram.com
 - **Independence:** Not affiliated with the IBO, Cambridge International or Pearson Edexcel

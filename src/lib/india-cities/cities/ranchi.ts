@@ -497,7 +497,7 @@ export const ranchi: CitySeoPage = {
 
   closingHeading: "Arrange a free first lesson with an online tutor for Ranchi",
   closingBody:
-    "Send over the board or programme, the subject and level, and where the student studies right now. A shortlisted tutor comes back with their teaching background and trial times that suit your evenings, at no cost and no obligation. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send over the board or programme, the subject and level, and where the student studies right now. A shortlisted tutor comes back with their teaching background and trial times that suit your evenings, at no cost and no obligation. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 
   geo: { latitude: 23.3441, longitude: 85.3096 },
   wikipedia: "https://en.wikipedia.org/wiki/Ranchi",

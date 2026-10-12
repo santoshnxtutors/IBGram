@@ -776,5 +776,5 @@ export const rewa: CitySeoPage = {
     }
   ],
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Rewa student",
-  closingBody: "Send us four details: the programme or board, the subject and level, your child's latest grade, and the hours that work in your Rewa household. In return you hear from a shortlisted tutor with a short teaching profile and a few trial times that fit your routine. Everything is online and one to one, free of charge and with no strings attached. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp."
+  closingBody: "Send us four details: the programme or board, the subject and level, your child's latest grade, and the hours that work in your Rewa household. In return you hear from a shortlisted tutor with a short teaching profile and a few trial times that fit your routine. Everything is online and one to one, free of charge and with no strings attached. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp."
 };

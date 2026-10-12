@@ -348,7 +348,7 @@ export const kuwait: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Kuwait?",
-      answer: "Pin down the exact system and stage first — IB PYP, MYP, DP or CP, American AP, or British IGCSE/A Level — plus the subject at whichever level it's taken. From a quick conversation about the school, current performance and where the actual difficulty lies, IB Gram puts forward a matched tutor rather than a list to sort through yourself. Reach out on ibgram24@gmail.com or +91 7439 368 115 on WhatsApp with those details.",
+      answer: "Pin down the exact system and stage first — IB PYP, MYP, DP or CP, American AP, or British IGCSE/A Level — plus the subject at whichever level it's taken. From a quick conversation about the school, current performance and where the actual difficulty lies, IB Gram puts forward a matched tutor rather than a list to sort through yourself. Reach out on support@ibgram.com or +91 7439 368 115 on WhatsApp with those details.",
     },
     {
       question: "Can lessons be scheduled around Kuwait's Sunday-Thursday school week?",
@@ -356,7 +356,7 @@ export const kuwait: CountrySeoPage = {
     },
     {
       question: "How much does IB, AP or IGCSE tutoring cost in Kuwait, and how do we pay?",
-      answer: "What it costs depends on the curriculum, the subject and how many weekly hours get booked, with DP Higher Level Sciences and AP subjects generally priced above MYP support. You'll have a written rate before anything is confirmed, so the first bill holds no surprises. Get in touch at ibgram24@gmail.com with the grade, subject and level, and currency and payment method are sorted out in the same message.",
+      answer: "What it costs depends on the curriculum, the subject and how many weekly hours get booked, with DP Higher Level Sciences and AP subjects generally priced above MYP support. You'll have a written rate before anything is confirmed, so the first bill holds no surprises. Get in touch at support@ibgram.com with the grade, subject and level, and currency and payment method are sorted out in the same message.",
     },
     {
       question: "Do you have in-person tutors in Kuwait?",
@@ -404,7 +404,7 @@ export const kuwait: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Reach out to ibgram24@gmail.com or +91 7439 368 115 with the essentials: your child's grade and curriculum, the subjects and levels in question, the AST hours you'd prefer, and the actual goal — a better grade, less exam anxiety, an IA or AP deadline coming up. A tutor gets named, their background shared, and an introductory lesson set up from there. You pay nothing until after that lesson, once you're both happy with the rate.",
+      answer: "Reach out to support@ibgram.com or +91 7439 368 115 with the essentials: your child's grade and curriculum, the subjects and levels in question, the AST hours you'd prefer, and the actual goal — a better grade, less exam anxiety, an IA or AP deadline coming up. A tutor gets named, their background shared, and an introductory lesson set up from there. You pay nothing until after that lesson, once you're both happy with the rate.",
     },
   ],
 
@@ -424,5 +424,5 @@ export const kuwait: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB, AP or IGCSE tutor on Arabia Standard Time",
-  closingBody: "Let us know the curriculum, the subject, the level and which hours actually suit your household around the Sunday-Thursday week. In return you'll get a tutor's name, their background, and a couple of trial slots already lined up for an AST evening or the Friday-Saturday weekend — at no cost and no obligation to continue. If it doesn't click, tell us and we'll line up someone else. Get in touch at ibgram24@gmail.com or WhatsApp +91 7439 368 115, with your child's grade and current school.",
+  closingBody: "Let us know the curriculum, the subject, the level and which hours actually suit your household around the Sunday-Thursday week. In return you'll get a tutor's name, their background, and a couple of trial slots already lined up for an AST evening or the Friday-Saturday weekend — at no cost and no obligation to continue. If it doesn't click, tell us and we'll line up someone else. Get in touch at support@ibgram.com or WhatsApp +91 7439 368 115, with your child's grade and current school.",
 };

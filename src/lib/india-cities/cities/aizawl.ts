@@ -472,5 +472,5 @@ export const aizawl: CitySeoPage = {
 
   closingHeading: "Start with a free trial class for your Aizawl family",
   closingBody:
-    "Tell us the board or programme, the subject, the level and what your child's grades look like right now, along with the hours that actually suit an Aizawl household. What comes back is a tutor shortlist with real reasons attached, trial slots that fit your week, and a first class that costs nothing and commits you to nothing. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp to get started.",
+    "Tell us the board or programme, the subject, the level and what your child's grades look like right now, along with the hours that actually suit an Aizawl household. What comes back is a tutor shortlist with real reasons attached, trial slots that fit your week, and a first class that costs nothing and commits you to nothing. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp to get started.",
 };

@@ -467,5 +467,5 @@ export const brahmapur: CitySeoPage = {
 
   closingHeading: "Book a free first lesson with an IB or IGCSE tutor for your Brahmapur student",
   closingBody:
-    "Let us know the board or programme, subject and level, roughly where things stand, and when your household actually has time in the evenings. Expect a tutor back whose background genuinely fits, along with some open trial slots, nothing charged and nothing to sign at this stage. Reach IB Gram at ibgram24@gmail.com by email, or message +91 7439 368 115 on WhatsApp.",
+    "Let us know the board or programme, subject and level, roughly where things stand, and when your household actually has time in the evenings. Expect a tutor back whose background genuinely fits, along with some open trial slots, nothing charged and nothing to sign at this stage. Reach IB Gram at support@ibgram.com by email, or message +91 7439 368 115 on WhatsApp.",
 };

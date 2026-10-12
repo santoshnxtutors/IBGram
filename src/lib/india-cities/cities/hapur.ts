@@ -470,5 +470,5 @@ export const hapur: CitySeoPage = {
 
   closingHeading: "Start with a free trial lesson for your Hapur student",
   closingBody:
-    "Message us the board, the subject giving trouble, your child's current level, and a couple of time slots that fit around school or a commute. We reply with a tutor who has actually taught that syllabus recently, a trial date, and no fee attached to any of it. Reach IB Gram at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Message us the board, the subject giving trouble, your child's current level, and a couple of time slots that fit around school or a commute. We reply with a tutor who has actually taught that syllabus recently, a trial date, and no fee attached to any of it. Reach IB Gram at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

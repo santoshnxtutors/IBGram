@@ -491,5 +491,5 @@ export const guwahati: CitySeoPage = {
 
   closingHeading: "Book a free first lesson for your Guwahati student",
   closingBody:
-    "Let us know the board, the subject, the level and how much the current school actually teaches, if any. We will come back with a suitable tutor and a few trial-slot times that work around your week, online, at no cost and no obligation. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Let us know the board, the subject, the level and how much the current school actually teaches, if any. We will come back with a suitable tutor and a few trial-slot times that work around your week, online, at no cost and no obligation. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

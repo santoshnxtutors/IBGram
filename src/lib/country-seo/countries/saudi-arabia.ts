@@ -351,7 +351,7 @@ export const saudiArabia: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Saudi Arabia?",
-      answer: "Start by matching the tutor to your child's exact programme stage - PYP, MYP, DP or CP - and to the subject and level being taken. IB Gram matches families in the Kingdom with online IB tutors after a short conversation about your child's school, current grades and where the difficulty actually sits. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, describe the need, and we suggest a tutor instead of handing you a directory to search alone.",
+      answer: "Start by matching the tutor to your child's exact programme stage - PYP, MYP, DP or CP - and to the subject and level being taken. IB Gram matches families in the Kingdom with online IB tutors after a short conversation about your child's school, current grades and where the difficulty actually sits. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, describe the need, and we suggest a tutor instead of handing you a directory to search alone.",
     },
     {
       question: "Can lessons run on Saudi Arabia time, including during Ramadan?",
@@ -359,7 +359,7 @@ export const saudiArabia: CountrySeoPage = {
     },
     {
       question: "How much does IB and IGCSE tutoring cost in Saudi Arabia, and how do we pay?",
-      answer: "Rates depend on the programme level, subject and how many hours a week you book - DP HL sciences and mathematics typically sit above MYP support. We quote a per-hour rate in writing before anything is booked, so there is no surprise on the first invoice. Email ibgram24@gmail.com with your child's grade, subject and level, and ask about currency and payment options at the same time; both are confirmed before the first paid session.",
+      answer: "Rates depend on the programme level, subject and how many hours a week you book - DP HL sciences and mathematics typically sit above MYP support. We quote a per-hour rate in writing before anything is booked, so there is no surprise on the first invoice. Email support@ibgram.com with your child's grade, subject and level, and ask about currency and payment options at the same time; both are confirmed before the first paid session.",
     },
     {
       question: "Do you send tutors to our home in Riyadh or Jeddah?",
@@ -411,7 +411,7 @@ export const saudiArabia: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with four things: your child's grade and programme, the subjects and levels, your city and preferred evening hours, and what you want to change - a grade, exam confidence, an internal assessment deadline. We suggest a tutor, share their background, and set up an introductory session. Nothing is charged until you have seen a lesson and agreed on the rate.",
+      answer: "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp with four things: your child's grade and programme, the subjects and levels, your city and preferred evening hours, and what you want to change - a grade, exam confidence, an internal assessment deadline. We suggest a tutor, share their background, and set up an introductory session. Nothing is charged until you have seen a lesson and agreed on the rate.",
     },
   ],
 
@@ -431,5 +431,5 @@ export const saudiArabia: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor on Arabia Standard Time",
-  closingBody: "Tell us the programme, the subject, the level and the city you're in - Riyadh, Jeddah, the Eastern Province or elsewhere in the Kingdom. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit in your evening, Arabia Standard Time - no charge, and no commitment to continue afterward. If the fit isn't right, say so and we'll try again. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school programme.",
+  closingBody: "Tell us the programme, the subject, the level and the city you're in - Riyadh, Jeddah, the Eastern Province or elsewhere in the Kingdom. You'll get back a named tutor, their teaching background, and two or three trial slots that already sit in your evening, Arabia Standard Time - no charge, and no commitment to continue afterward. If the fit isn't right, say so and we'll try again. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, and include your child's grade and current school programme.",
 };

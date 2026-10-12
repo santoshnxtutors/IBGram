@@ -467,5 +467,5 @@ export const dhanbad: CitySeoPage = {
 
   closingHeading: "Book a free trial lesson with an IB or IGCSE tutor for your Dhanbad student",
   closingBody:
-    "Send us the programme or board, the subject and level, your child's current grade and the times that suit your household in Dhanbad. We will come back with a shortlisted tutor, their teaching background and trial slots that fit around school, delivered entirely online, at no charge and with no commitment either way. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send us the programme or board, the subject and level, your child's current grade and the times that suit your household in Dhanbad. We will come back with a shortlisted tutor, their teaching background and trial slots that fit around school, delivered entirely online, at no charge and with no commitment either way. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

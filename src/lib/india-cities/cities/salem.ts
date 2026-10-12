@@ -466,7 +466,7 @@ export const salem: CitySeoPage = {
     {
       question: "How do I get started with IB Gram in Salem?",
       answer:
-        "A message is enough: ibgram24@gmail.com or WhatsApp on +91 7439 368 115, with the programme or board, subject, level and roughly when you are free. Expect a shortlist within a couple of days, backgrounds attached, and a free trial can be arranged whenever it suits before anything is finalised.",
+        "A message is enough: support@ibgram.com or WhatsApp on +91 7439 368 115, with the programme or board, subject, level and roughly when you are free. Expect a shortlist within a couple of days, backgrounds attached, and a free trial can be arranged whenever it suits before anything is finalised.",
     },
     {
       question: "Is online tutoring reliable given Salem's monsoon and power supply?",
@@ -493,7 +493,7 @@ export const salem: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Salem",
   closingBody:
-    "Give us the programme or board, the subject and level, roughly where things stand right now, and a couple of times in the week that genuinely work. Back comes a shortlist with each tutor's background and open slots for a free trial, run entirely online, no signature required. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp whenever suits.",
+    "Give us the programme or board, the subject and level, roughly where things stand right now, and a couple of times in the week that genuinely work. Back comes a shortlist with each tutor's background and open slots for a free trial, run entirely online, no signature required. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp whenever suits.",
 
   geo: { latitude: 11.6643, longitude: 78.146 },
   wikipedia: "https://en.wikipedia.org/wiki/Salem,_Tamil_Nadu",

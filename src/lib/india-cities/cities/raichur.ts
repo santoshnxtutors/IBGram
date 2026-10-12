@@ -450,5 +450,5 @@ export const raichur: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Raichur family",
   closingBody:
-    "Give us the programme or board, the subject and level, and roughly what your child can currently do, along with times that actually fit your week. What comes back is a tutor shortlisted for that specific brief, a straightforward account of their background, and a trial slot on your schedule, run one to one over video with no charge until you decide to continue. Reach the team at ibgram24@gmail.com or on WhatsApp, +91 7439 368 115.",
+    "Give us the programme or board, the subject and level, and roughly what your child can currently do, along with times that actually fit your week. What comes back is a tutor shortlisted for that specific brief, a straightforward account of their background, and a trial slot on your schedule, run one to one over video with no charge until you decide to continue. Reach the team at support@ibgram.com or on WhatsApp, +91 7439 368 115.",
 };

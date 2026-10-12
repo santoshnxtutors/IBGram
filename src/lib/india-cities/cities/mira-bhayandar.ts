@@ -455,7 +455,7 @@ export const miraBhayandar: CitySeoPage = {
     {
       question: "How do we actually get a tutor arranged for our child?",
       answer:
-        "Drop a line to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp with the programme or board, subject, level and where your child currently stands. We'll reply with a matched tutor, their background, and a trial slot online, free of charge and with nothing owed afterward.",
+        "Drop a line to support@ibgram.com or message +91 7439 368 115 on WhatsApp with the programme or board, subject, level and where your child currently stands. We'll reply with a matched tutor, their background, and a trial slot online, free of charge and with nothing owed afterward.",
     },
   ],
 
@@ -476,5 +476,5 @@ export const miraBhayandar: CitySeoPage = {
 
   closingHeading: "Book your Mira-Bhayandar child's free trial lesson",
   closingBody:
-    "Let us know the programme or board, subject and level, where your child stands right now, and which hours suit your household. We'll respond with a tutor picked for that exact course, their teaching background and a trial slot online, free of charge and without any commitment attached. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Let us know the programme or board, subject and level, where your child stands right now, and which hours suit your household. We'll respond with a tutor picked for that exact course, their teaching background and a trial slot online, free of charge and without any commitment attached. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

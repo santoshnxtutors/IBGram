@@ -471,5 +471,5 @@ export const singrauli: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Singrauli",
   closingBody:
-    "Give us the programme or board, subject and level, your child's current grade and the hours that suit your Singrauli household. In return you receive a shortlisted tutor, a summary of their teaching background and trial slots that fit your day, all online and one to one, with nothing to pay and no commitment. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Give us the programme or board, subject and level, your child's current grade and the hours that suit your Singrauli household. In return you receive a shortlisted tutor, a summary of their teaching background and trial slots that fit your day, all online and one to one, with nothing to pay and no commitment. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

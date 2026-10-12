@@ -470,5 +470,5 @@ export const karnal: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Karnal",
   closingBody:
-    "We just need three things to start: which board or programme, the subject and level, and roughly when your family is free during the week. A shortlisted tutor and a trial slot come back within your own timing, nothing to pay and nothing owed either way. Message ibgram24@gmail.com or WhatsApp +91 7439 368 115.",
+    "We just need three things to start: which board or programme, the subject and level, and roughly when your family is free during the week. A shortlisted tutor and a trial slot come back within your own timing, nothing to pay and nothing owed either way. Message support@ibgram.com or WhatsApp +91 7439 368 115.",
 };

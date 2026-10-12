@@ -480,5 +480,5 @@ export const dehradun: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Dehradun",
   closingBody:
-    "Write in with the programme or board, subject and level, your child's current grade, and whichever hours suit your household. A shortlisted tutor comes back with their teaching background and open trial slots that actually fit a Dehradun school week, delivered online and one to one, at no charge and with nothing to sign. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Write in with the programme or board, subject and level, your child's current grade, and whichever hours suit your household. A shortlisted tutor comes back with their teaching background and open trial slots that actually fit a Dehradun school week, delivered online and one to one, at no charge and with nothing to sign. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

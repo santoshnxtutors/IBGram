@@ -468,5 +468,5 @@ export const mahesana: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Mahesana family",
   closingBody:
-    "Send us the programme or board, subject and level, your child's present grade and the hours your Mahesana household actually keeps. Back comes a shortlisted tutor with their teaching background and trial slots to suit your routine, all online and one to one, free and with no commitment. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send us the programme or board, subject and level, your child's present grade and the hours your Mahesana household actually keeps. Back comes a shortlisted tutor with their teaching background and trial slots to suit your routine, all online and one to one, free and with no commitment. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

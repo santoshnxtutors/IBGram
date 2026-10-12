@@ -487,5 +487,5 @@ export const amritsar: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Amritsar student",
   closingBody:
-    "Send over the board, the subject and level, where your child currently stands, and whether a move abroad or a school transfer is somewhere on the horizon. What comes back is a tutor shortlist with their teaching background and trial times that fit around your evenings, all conducted over video, at no cost and with nothing to sign. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Send over the board, the subject and level, where your child currently stands, and whether a move abroad or a school transfer is somewhere on the horizon. What comes back is a tutor shortlist with their teaching background and trial times that fit around your evenings, all conducted over video, at no cost and with nothing to sign. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

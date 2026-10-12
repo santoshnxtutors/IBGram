@@ -508,5 +508,5 @@ export const rajkot: CitySeoPage = {
 
   closingHeading: "Try a free online lesson with an IB or IGCSE tutor for your Rajkot student",
   closingBody:
-    "Write in with the board, the subject, the level and roughly when your evenings are free, and a matched tutor with recent experience of that exact syllabus comes back with open trial slots. The first lesson costs nothing and commits you to nothing. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Write in with the board, the subject, the level and roughly when your evenings are free, and a matched tutor with recent experience of that exact syllabus comes back with open trial slots. The first lesson costs nothing and commits you to nothing. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

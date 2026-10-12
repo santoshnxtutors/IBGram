@@ -473,5 +473,5 @@ export const nellore: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor for your Nellore student",
   closingBody:
-    "Send over the programme or board, the subject and level, your child's current grade and the times that work in Nellore. Back comes a shortlisted tutor, their teaching background, and trial slots that actually fit your school week, online and one to one, with nothing charged and nothing owed. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send over the programme or board, the subject and level, your child's current grade and the times that work in Nellore. Back comes a shortlisted tutor, their teaching background, and trial slots that actually fit your school week, online and one to one, with nothing charged and nothing owed. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

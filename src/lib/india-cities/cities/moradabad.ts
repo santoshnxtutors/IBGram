@@ -482,7 +482,7 @@ export const moradabad: CitySeoPage = {
 
   closingHeading: "A free first lesson for your Moradabad student",
   closingBody:
-    "Tell us the board, subject and level, where your child currently stands, and when your household is genuinely free. What comes back is a tutor who has recently taught that exact course, a slot that fits around school, and a first lesson that costs nothing and asks for no commitment. Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+    "Tell us the board, subject and level, where your child currently stands, and when your household is genuinely free. What comes back is a tutor who has recently taught that exact course, a slot that fits around school, and a first lesson that costs nothing and asks for no commitment. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 
   geo: { latitude: 28.8319, longitude: 78.7764 },
   alternateNames: ["Rustamnagar"],

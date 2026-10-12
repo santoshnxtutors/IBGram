@@ -453,5 +453,5 @@ export const nagercoil: CitySeoPage = {
 
   closingHeading: "Book a free trial with an IB or IGCSE tutor in Nagercoil",
   closingBody:
-    "Tell IB Gram the board or programme in play, the subject and level, roughly where things stand right now, and hours that genuinely suit your family. We will come back with a small set of matched tutors, a note on each one's recent teaching, and trial times to pick from, all handled online with no payment expected until you choose to carry on. Write to ibgram24@gmail.com or message us on WhatsApp at +91 7439 368 115.",
+    "Tell IB Gram the board or programme in play, the subject and level, roughly where things stand right now, and hours that genuinely suit your family. We will come back with a small set of matched tutors, a note on each one's recent teaching, and trial times to pick from, all handled online with no payment expected until you choose to carry on. Write to support@ibgram.com or message us on WhatsApp at +91 7439 368 115.",
 };

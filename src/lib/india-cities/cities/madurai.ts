@@ -497,5 +497,5 @@ export const madurai: CitySeoPage = {
 
   closingHeading: "Book a free online class with an IB or IGCSE tutor for your Madurai student",
   closingBody:
-    "Send over the board, the subject, the level and roughly when your evenings are free, and a tutor with recent experience of that exact syllabus comes back with open trial slots. The first class costs nothing and asks for no commitment afterwards. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Send over the board, the subject, the level and roughly when your evenings are free, and a tutor with recent experience of that exact syllabus comes back with open trial slots. The first class costs nothing and asks for no commitment afterwards. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

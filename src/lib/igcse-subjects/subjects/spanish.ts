@@ -215,7 +215,7 @@ export const spanish: IgcseSubjectContent = {
         "Photograph one recent marked piece of the student's Spanish writing",
         "Two or three tutor profiles come back with variety, route experience and rate in writing",
         "The free trial lesson is diagnostic, with a written note afterwards either way",
-        "Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp",
+        "Email support@ibgram.com or message +91 7439 368 115 on WhatsApp",
       ],
     },
   ],
@@ -369,6 +369,6 @@ export const spanish: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If a marked piece of writing, an approaching speaking test or a route decision is what brought you here, send the Spanish syllabus code, the grade, whether Spanish is spoken at home, and your city and time zone. Two or three tutors come back with their route experience, their own Spanish variety and their rate in writing before anything is booked. The first lesson is a free trial, every session ends with a written note, and the tutor is changed if the fit is wrong. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "If a marked piece of writing, an approaching speaking test or a route decision is what brought you here, send the Spanish syllabus code, the grade, whether Spanish is spoken at home, and your city and time zone. Two or three tutors come back with their route experience, their own Spanish variety and their rate in writing before anything is booked. The first lesson is a free trial, every session ends with a written note, and the tutor is changed if the fit is wrong. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
   lastUpdated: "2026-09-18",
 };

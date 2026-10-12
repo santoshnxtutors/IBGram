@@ -470,5 +470,5 @@ export const ahmednagar: CitySeoPage = {
 
   closingHeading: "Book your Ahmednagar child's free trial lesson",
   closingBody:
-    "Tell us the programme or board, the subject and level, where your child currently stands, and the hours that genuinely suit your household. A shortlisted tutor comes back with a relevant teaching history and trial times built around school or hostel hours, delivered entirely online and one to one, at no cost and with nothing to commit to yet. Write to ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp.",
+    "Tell us the programme or board, the subject and level, where your child currently stands, and the hours that genuinely suit your household. A shortlisted tutor comes back with a relevant teaching history and trial times built around school or hostel hours, delivered entirely online and one to one, at no cost and with nothing to commit to yet. Write to support@ibgram.com or message +91 7439 368 115 on WhatsApp.",
 };

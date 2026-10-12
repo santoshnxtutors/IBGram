@@ -351,7 +351,7 @@ export const qatar: CountrySeoPage = {
   faqs: [
     {
       question: "Where do I even start looking for an IB tutor in Qatar?",
-      answer: "Start with the programme stage and exact subject level, not a general search for \"the best tutor\" — an MYP specialist and a DP HL Physics specialist are almost never the same person. Tell us your child's school, current grades, and where things are actually going wrong, and we come back with one named suggestion rather than a list to work through yourself. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp to get that started.",
+      answer: "Start with the programme stage and exact subject level, not a general search for \"the best tutor\" — an MYP specialist and a DP HL Physics specialist are almost never the same person. Tell us your child's school, current grades, and where things are actually going wrong, and we come back with one named suggestion rather than a list to work through yourself. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp to get that started.",
     },
     {
       question: "Are lessons actually scheduled around Doha time, not somewhere else?",
@@ -359,7 +359,7 @@ export const qatar: CountrySeoPage = {
     },
     {
       question: "How is tutoring priced, and how do we actually pay?",
-      answer: "Pricing shifts with the programme level and subject — DP Higher Level maths and sciences typically cost more than MYP support — and with how many hours a week get booked. Before anything past the trial lesson goes on the calendar, a written rate comes through first, so there's never a surprise waiting on an invoice. Send your child's grade, subject and level to ibgram24@gmail.com, and raise currency and payment method in that same message.",
+      answer: "Pricing shifts with the programme level and subject — DP Higher Level maths and sciences typically cost more than MYP support — and with how many hours a week get booked. Before anything past the trial lesson goes on the calendar, a written rate comes through first, so there's never a surprise waiting on an invoice. Send your child's grade, subject and level to support@ibgram.com, and raise currency and payment method in that same message.",
     },
     {
       question: "Does IB Gram send tutors to homes in Qatar?",
@@ -403,7 +403,7 @@ export const qatar: CountrySeoPage = {
     },
     {
       question: "What's the quickest way to actually book a session?",
-      answer: "Message ibgram24@gmail.com or +91 7439 368 115 with your child's grade and programme, the subjects and levels in question, a preferred window in Arabia Standard Time, and what you're actually trying to achieve — a better grade, calmer exam nerves, a deadline coming up fast. We'll come back with a named tutor, their background, and a first lesson on the calendar. Nothing gets charged until after that lesson, once a rate is agreed.",
+      answer: "Message support@ibgram.com or +91 7439 368 115 with your child's grade and programme, the subjects and levels in question, a preferred window in Arabia Standard Time, and what you're actually trying to achieve — a better grade, calmer exam nerves, a deadline coming up fast. We'll come back with a named tutor, their background, and a first lesson on the calendar. Nothing gets charged until after that lesson, once a rate is agreed.",
     },
   ],
 
@@ -422,5 +422,5 @@ export const qatar: CountrySeoPage = {
   ],
 
   closingHeading: "Book a free lesson with a tutor already fluent in this syllabus",
-  closingBody: "Send across the programme, the subject and level, and roughly where your child studies in Qatar, and a named tutor gets suggested with their background attached, along with a couple of trial times already sitting inside a comfortable Arabia Standard Time evening. That first lesson costs nothing and commits you to nothing further — and if it doesn't feel right, another tutor is only a message away. Get in touch at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115.",
+  closingBody: "Send across the programme, the subject and level, and roughly where your child studies in Qatar, and a named tutor gets suggested with their background attached, along with a couple of trial times already sitting inside a comfortable Arabia Standard Time evening. That first lesson costs nothing and commits you to nothing further — and if it doesn't feel right, another tutor is only a message away. Get in touch at support@ibgram.com or on WhatsApp at +91 7439 368 115.",
 };

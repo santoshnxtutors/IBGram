@@ -387,7 +387,7 @@ export const vietnam: CountrySeoPage = {
   faqs: [
     {
       question: "How do I find a good IB tutor in Vietnam?",
-      answer: "Start with the exact programme stage — PYP, MYP, DP or CP — and the subject and level your child is actually taking, rather than a general search. Message ibgram24@gmail.com or +91 7439 368 115 on WhatsApp with your child's school, current grades, and where the struggle actually sits, and we'll come back with a suggested tutor rather than a list to sort through yourself.",
+      answer: "Start with the exact programme stage — PYP, MYP, DP or CP — and the subject and level your child is actually taking, rather than a general search. Message support@ibgram.com or +91 7439 368 115 on WhatsApp with your child's school, current grades, and where the struggle actually sits, and we'll come back with a suggested tutor rather than a list to sort through yourself.",
     },
     {
       question: "Do you offer tutoring for Cambridge IGCSE students in Hanoi and Ho Chi Minh City?",
@@ -403,7 +403,7 @@ export const vietnam: CountrySeoPage = {
     },
     {
       question: "How much does IB tutoring cost in Vietnam, and how do we pay?",
-      answer: "Rates depend on programme level, subject and weekly hours booked — DP HL sciences and maths generally sit above MYP support, and a self-taught language like Vietnamese A has its own rate. We confirm a per-hour rate in writing before booking anything, so there's no surprise on the first invoice. Email ibgram24@gmail.com with your child's grade, subject and level to get a current quote, and we'll confirm currency and payment method at the same time.",
+      answer: "Rates depend on programme level, subject and weekly hours booked — DP HL sciences and maths generally sit above MYP support, and a self-taught language like Vietnamese A has its own rate. We confirm a per-hour rate in writing before booking anything, so there's no surprise on the first invoice. Email support@ibgram.com with your child's grade, subject and level to get a current quote, and we'll confirm currency and payment method at the same time.",
     },
     {
       question: "Do you have in-person tutors in Vietnam?",
@@ -439,7 +439,7 @@ export const vietnam: CountrySeoPage = {
     },
     {
       question: "How do we get started with a tutor?",
-      answer: "Send four things to ibgram24@gmail.com or +91 7439 368 115: your child's grade and programme, the subjects and levels, your preferred evening hours in Indochina Time, and what you actually want to change — a grade, exam confidence, an IA deadline. We'll suggest a tutor, share their background, and set up a first lesson. Nothing is charged until you've seen a session and agreed a rate.",
+      answer: "Send four things to support@ibgram.com or +91 7439 368 115: your child's grade and programme, the subjects and levels, your preferred evening hours in Indochina Time, and what you actually want to change — a grade, exam confidence, an IA deadline. We'll suggest a tutor, share their background, and set up a first lesson. Nothing is charged until you've seen a session and agreed a rate.",
     },
   ],
 
@@ -459,5 +459,5 @@ export const vietnam: CountrySeoPage = {
   ],
 
   closingHeading: "Book a no-cost first lesson, timed to your evening in Vietnam",
-  closingBody: "Send over the programme, the subject, the level and the city your child studies in. Within a day or two you'll have a named tutor, their teaching background, and a couple of trial slots already sitting in an Indochina Time evening — free, and with no obligation to book anything further. If the fit isn't right, tell us and we'll try a different tutor. Reach us at ibgram24@gmail.com or +91 7439 368 115 on WhatsApp, with your child's grade and current school programme.",
+  closingBody: "Send over the programme, the subject, the level and the city your child studies in. Within a day or two you'll have a named tutor, their teaching background, and a couple of trial slots already sitting in an Indochina Time evening — free, and with no obligation to book anything further. If the fit isn't right, tell us and we'll try a different tutor. Reach us at support@ibgram.com or +91 7439 368 115 on WhatsApp, with your child's grade and current school programme.",
 };

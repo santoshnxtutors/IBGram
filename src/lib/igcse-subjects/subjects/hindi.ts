@@ -217,13 +217,13 @@ export const hindi: IgcseSubjectContent = {
       type: "cta",
       heading: "Starting IGCSE Hindi Tutoring This Week",
       body:
-        "Getting started takes one message and about four lines of information. Tell us the syllabus code on the school's entry, which is normally 0549, the student's grade, whether the school runs the speaking component, and an honest description of where the Hindi is: reads and writes comfortably, reads slowly, speaks well but writes badly, or barely reads Devanagari at all. Add your city and time zone, and say whether you want online or, if you are in India, whether you would prefer someone at home.\n\nIf you have a recent marked piece of writing or a mock script, photograph it and send it with the message. That single attachment usually saves a session, because the tutor can see the actual errors before meeting the student rather than spending the first half hour discovering them.\n\nWe will come back with one or two tutors, their background on this specific route, and their rate in writing. The first lesson is a free trial, so you are deciding after seeing the tutor work, not before. Write to ibgram24@gmail.com or send a WhatsApp message to +91 7439 368 115. If the first tutor is not right, say so and we will change them without argument.",
+        "Getting started takes one message and about four lines of information. Tell us the syllabus code on the school's entry, which is normally 0549, the student's grade, whether the school runs the speaking component, and an honest description of where the Hindi is: reads and writes comfortably, reads slowly, speaks well but writes badly, or barely reads Devanagari at all. Add your city and time zone, and say whether you want online or, if you are in India, whether you would prefer someone at home.\n\nIf you have a recent marked piece of writing or a mock script, photograph it and send it with the message. That single attachment usually saves a session, because the tutor can see the actual errors before meeting the student rather than spending the first half hour discovering them.\n\nWe will come back with one or two tutors, their background on this specific route, and their rate in writing. The first lesson is a free trial, so you are deciding after seeing the tutor work, not before. Write to support@ibgram.com or send a WhatsApp message to +91 7439 368 115. If the first tutor is not right, say so and we will change them without argument.",
       items: [
         "Send the code, the grade, the speaking-component answer and a plain description of the student's Hindi",
         "Attach a photograph of a recent marked composition or mock script if you have one",
         "Include your city and time zone, and whether you want online or home tutoring",
         "Free trial lesson before you commit, with the rate quoted in writing beforehand",
-        "Reach us at ibgram24@gmail.com or on WhatsApp at +91 7439 368 115",
+        "Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115",
       ],
     },
   ],
@@ -377,6 +377,6 @@ export const hindi: IgcseSubjectContent = {
     },
   ],
   finalCta:
-    "If the reason you are reading this is a Hindi mock that came back lower than a fluent speaker's family expected, send us four things: the syllabus code on the entry, usually 0549, the grade, whether the school runs the speaking component, and an honest line about whether your child reads and writes Devanagari comfortably. A photograph of a recent marked piece helps more than anything else you could send. We reply with one or two tutors, their experience on this route and their rate in writing, and the first lesson is a free trial. Email ibgram24@gmail.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
+    "If the reason you are reading this is a Hindi mock that came back lower than a fluent speaker's family expected, send us four things: the syllabus code on the entry, usually 0549, the grade, whether the school runs the speaking component, and an honest line about whether your child reads and writes Devanagari comfortably. A photograph of a recent marked piece helps more than anything else you could send. We reply with one or two tutors, their experience on this route and their rate in writing, and the first lesson is a free trial. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp, adding your city and time zone if you are outside India.",
   lastUpdated: "2026-09-18",
 };
