@@ -416,6 +416,16 @@ export async function handleGoogleCallback(req: Request, res: Response): Promise
     throw new AppError(503, "GOOGLE_AUTH_NOT_CONFIGURED", "Google authentication is not configured.");
   }
 
+  // Every failure here used to redirect silently to the same URL, so a broken
+  // sign-in gave no way to tell which step failed - not in the logs, not in the
+  // browser. Tag the redirect and log the reason.
+  const fail = (reason: string, detail?: Record<string, unknown>): void => {
+    logger.warn({ reason, ...detail }, "Google sign-in failed");
+    const url = new URL(env.AUTH_FAILURE_REDIRECT);
+    url.searchParams.set("reason", reason);
+    res.redirect(url.toString());
+  };
+
   const stateFromQuery = typeof req.query.state === "string" ? req.query.state : "";
   const stateFromCookie = req.cookies?.[GOOGLE_STATE_COOKIE] as string | undefined;
   const parsedState = parseGoogleState(stateFromCookie);
@@ -423,13 +433,17 @@ export async function handleGoogleCallback(req: Request, res: Response): Promise
   res.clearCookie(GOOGLE_STATE_COOKIE, getCookieOptions(0));
 
   if (!parsedState || stateFromQuery !== stateFromCookie) {
-    res.redirect(env.AUTH_FAILURE_REDIRECT);
+    fail("state", {
+      hasCookie: Boolean(stateFromCookie),
+      hasQueryState: Boolean(stateFromQuery),
+      matched: stateFromQuery === stateFromCookie,
+    });
     return;
   }
 
   const code = typeof req.query.code === "string" ? req.query.code : "";
   if (!code) {
-    res.redirect(env.AUTH_FAILURE_REDIRECT);
+    fail("code", { googleError: req.query.error ?? null });
     return;
   }
 
@@ -437,7 +451,7 @@ export async function handleGoogleCallback(req: Request, res: Response): Promise
     const googleUser = await fetchGoogleUserInfo(code);
     const email = googleUser.email?.trim().toLowerCase();
     if (!email || googleUser.email_verified === false) {
-      res.redirect(env.AUTH_FAILURE_REDIRECT);
+      fail("email", { hasEmail: Boolean(email), verified: googleUser.email_verified });
       return;
     }
 
@@ -497,8 +511,10 @@ export async function handleGoogleCallback(req: Request, res: Response): Promise
     const destination = dashboard ? (hasProfile ? dashboard : `${dashboard}/profile`) : "/";
     res.redirect(new URL(destination, env.AUTH_SUCCESS_REDIRECT).toString());
   } catch (error) {
-    logger.warn({ err: error }, "Google sign-in failed");
-    res.redirect(env.AUTH_FAILURE_REDIRECT);
+    // Token exchange, Google profile fetch, or a database write.
+    fail(error instanceof AppError ? error.code.toLowerCase() : "server", {
+      err: error instanceof Error ? error.message : String(error),
+    });
   }
 }
 
