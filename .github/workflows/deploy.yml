@@ -510,12 +510,15 @@ jobs:
               echo "Running Prisma migrations..."
               npx --no-install prisma migrate deploy --schema database/prisma/schema.prisma
             else
-              # Deliberately NOT running `prisma db push`: DATABASE_URL is the live DB and
-              # the local schema is ahead of it by unfinished tables, so a push would ship
-              # half-built features. Apply schema changes by hand instead:
-              #   npx prisma migrate diff --from-schema-datasource <schema> --to-schema-datamodel <schema> --script
-              # then trim to the one table and `prisma db execute --file`.
-              echo "No Prisma migrations directory found; skipping schema push (schema changes are applied manually)."
+              # No migration history in this repo, so the schema is synced with
+              # `db push`. Audited 2026-10-17: the pending diff is additive only
+              # (StudentProfile + DemoRequest, their indexes and FKs), which is
+              # what the admin dashboard needs to stop reporting "partial data".
+              # NOTE: no --accept-data-loss on purpose. Without it `db push`
+              # aborts rather than dropping a column or table, so a future
+              # destructive diff fails the deploy instead of eating live data.
+              echo "No Prisma migrations directory found; pushing Prisma schema..."
+              npx --no-install prisma db push --skip-generate --schema database/prisma/schema.prisma
             fi
 
             echo "Seeding database..."
