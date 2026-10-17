@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- plain CommonJS diagnostic, run with bare node */
 // Read-only: who is holding Postgres connection slots on the DATABASE_URL in .env.
 // Run when a deploy dies with "remaining connection slots are reserved for roles
 // with the SUPERUSER attribute".
