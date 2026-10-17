@@ -118,6 +118,7 @@ export function Footer({ countries = [] }: { countries?: Array<{ slug: string; n
               {/* The /gurgaon/ hub is the only page linking the ~700 Gurgaon landing pages; without a
                   sitewide link the whole tree is orphaned and Google leaves it "Discovered - not indexed". */}
               <li><Link href="/gurgaon/" className="hover:text-primary transition-colors">Tutors in Gurgaon</Link></li>
+              <li><Link href="/mumbai/" className="hover:text-primary transition-colors">Tutors in Mumbai</Link></li>
               <li><Link href="/india/" className="hover:text-primary transition-colors">Tutors in India</Link></li>
               <li><Link href="/admissions/" className="hover:text-primary transition-colors">Admissions &amp; Test Prep</Link></li>
               <li><Link href="/blog" className="hover:text-primary transition-colors">Blogs</Link></li>

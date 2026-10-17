@@ -1,0 +1,292 @@
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, MapPin, MessageCircleQuestion, ShieldCheck } from "lucide-react";
+import { HeroHighlights } from "@/components/shared/HeroHighlights";
+import { BookDemoButton } from "@/components/booking/BookDemoButton";
+import { BookDemoCta } from "@/components/booking/BookDemoCta";
+import { JsonLd } from "@/components/seo-city/JsonLd";
+import { SchoolStrip } from "@/components/shared/SchoolStrip";
+import { getMumbaiNearbySchools } from "@/lib/mumbai-seo/schools";
+import { buildMumbaiSeoSchema, schoolsForPage } from "@/lib/mumbai-seo";
+import type { MumbaiSeoPage } from "@/lib/mumbai-seo/types";
+
+type RelatedLink = { label: string; href: string };
+
+const ZONE_NAME: Record<string, string> = {
+  "south-mumbai": "South Mumbai",
+  "western-suburbs": "Western Suburbs",
+  "central-suburbs": "Central Suburbs",
+  "eastern-suburbs": "Eastern Suburbs",
+  "navi-mumbai": "Navi Mumbai",
+  thane: "Thane",
+};
+
+/**
+ * Renderer for every /mumbai/ page. Same shape as the Gurgaon landing pages — hero, facts
+ * row, school strip, tutor cards, body sections, FAQs, internal links, CTA — so the two
+ * cities read as one site rather than two bolted together.
+ */
+export function MumbaiSeoLanding({
+  page,
+  related,
+  tutorSection,
+  directory,
+}: {
+  page: MumbaiSeoPage;
+  related: RelatedLink[];
+  /** Board-matched tutor cards: Mumbai tutors when any exist, else the board homepage's. */
+  tutorSection?: React.ReactNode;
+  /**
+   * Zone -> every written page beneath it. The hub passes this; nothing else does.
+   *
+   * This is the only place that links the whole /mumbai/ tree. Without it the long tail has
+   * zero inbound links, which is exactly what left the earlier corpus sitting in Google's
+   * "Discovered - currently not indexed" bucket.
+   */
+  directory?: Array<{ name: string; links: RelatedLink[] }>;
+}) {
+  const { content } = page;
+  const nearbySchools = getMumbaiNearbySchools(schoolsForPage(page), 5);
+  const zone = page.zone ? ZONE_NAME[page.zone] : undefined;
+  const placeLine = page.locality === "Mumbai" ? "Mumbai, Maharashtra" : `${page.locality}${zone ? `, ${zone}` : ""}, Mumbai`;
+
+  const hubLinks: RelatedLink[] = [
+    ...(page.kind === "hub" ? [] : [{ label: "All IB & IGCSE home tutors in Mumbai", href: "/mumbai/" }]),
+    ...(page.zone && page.kind !== "zone" ? [{ label: `IB & IGCSE tutors in ${zone}`, href: `/mumbai/${page.zone}/` }] : []),
+    { label: "IB Tutors in Mumbai", href: "/ib-tutors/mumbai/" },
+    { label: "IGCSE Tutors in Mumbai", href: "/igcse-tutors/mumbai/" },
+    { label: "Browse all tutors", href: "/tutors/" },
+    { label: "Book a free consultation", href: "/contact-us/" },
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <JsonLd data={buildMumbaiSeoSchema(page)} />
+
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-background pt-6 pb-10 md:pt-8 md:pb-12">
+        <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-primary/10 blur-[120px]" />
+        <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-secondary/10 blur-[120px]" />
+        <div className="container relative z-10 mx-auto px-4 md:px-6">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+            <div className="space-y-6 lg:col-span-7">
+              <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-primary glassmorphism">
+                <span className="mr-2 flex size-2 rounded-full bg-primary" />
+                {page.board} tutoring · Mumbai
+              </div>
+              <div className="space-y-5">
+                <p className="flex items-center gap-2 text-sm font-bold text-muted-foreground">
+                  <MapPin className="size-4 text-secondary" />
+                  {placeLine}
+                </p>
+                <h1 className="max-w-5xl text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl">
+                  {page.h1}
+                </h1>
+                <p className="max-w-2xl text-base font-medium leading-relaxed text-muted-foreground md:text-xl">
+                  {content.heroIntro}
+                </p>
+              </div>
+              <div className="grid w-fit gap-3 pt-2 sm:grid-cols-2 sm:items-center">
+                <BookDemoButton
+                  className="shimmer-btn inline-flex h-14 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-primary/30 bg-primary px-8 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+                  label={
+                    <>
+                      Send a Query
+                      <ArrowRight className="size-5" />
+                    </>
+                  }
+                />
+                <BookDemoCta className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30" />
+              </div>
+              <div className="grid gap-3 border-t border-border/50 pt-6 sm:grid-cols-2">
+                {content.trustPoints.map((point) => (
+                  <div key={point} className="flex items-start gap-2.5 text-sm font-semibold text-foreground/90">
+                    <ShieldCheck className="mt-0.5 size-4 shrink-0 text-primary" />
+                    <span>{point}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <aside className="lg:col-span-5">
+              <HeroHighlights />
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* At a glance: the page's checkable facts. AI answers (AI Overviews, ChatGPT, Perplexity)
+          lift self-contained fact blocks, so the heading stays for them, visually hidden. */}
+      <section className="border-b border-border/50 bg-background py-4">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="sr-only">
+            {page.subject} tutoring in {page.locality} at a glance
+          </h2>
+          <dl className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-6">
+            {[
+              ["Board", page.board === "IB + IGCSE" ? "IB and IGCSE" : page.board === "IB" ? "International Baccalaureate (IB)" : "IGCSE (Cambridge / Edexcel)"],
+              ["Subject and level", `${page.subject} · ${page.level}`],
+              ["Area", page.locality === "Mumbai" ? "All Mumbai zones" : `${page.locality}, Mumbai`],
+              ["Zone", zone ?? "South Mumbai to Thane and Navi Mumbai"],
+              ["Lesson modes", "Home · Online · Hybrid"],
+              [
+                "Exam sessions",
+                page.board === "IGCSE"
+                  ? "May–Jun, Oct–Nov (Cambridge); Jan, May–Jun (Edexcel)"
+                  : page.board === "IB"
+                    ? "May and November"
+                    : "IB: May, Nov; IGCSE: May–Jun, Oct–Nov",
+              ],
+            ].map(([term, value]) => (
+              <div key={term} className="min-w-0 rounded-xl border border-secondary/25 bg-secondary/10 px-3 py-2">
+                <dt className="text-[10px] font-bold uppercase tracking-wide text-primary">{term}</dt>
+                <dd className="mt-0.5 text-[13px] font-semibold leading-snug text-foreground/90">{value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <SchoolStrip schools={nearbySchools} place={page.locality} />
+
+      {tutorSection}
+
+      {/* Body sections */}
+      <article className="bg-background py-10 md:py-14">
+        <div className="container mx-auto px-4 md:px-6">
+          {content.sections.map((section) => (
+            <section key={section.heading} className="mb-10 grid gap-8 last:mb-0 lg:grid-cols-12 lg:gap-12">
+              <div className="lg:col-span-7">
+                <h2 className="mb-4 text-2xl font-black tracking-tight text-foreground md:text-3xl">{section.heading}</h2>
+                <div className="space-y-4">
+                  {section.paragraphs.map((para, i) => (
+                    <p key={i} className="text-base font-medium leading-relaxed text-muted-foreground">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </div>
+              {section.bullets && section.bullets.length > 0 && (
+                <ul className="flex flex-col gap-2.5 lg:col-span-5">
+                  {section.bullets.map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="flex items-start gap-2.5 rounded-xl border border-border/50 bg-muted/10 p-3 text-sm font-semibold text-foreground/90"
+                    >
+                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
+        </div>
+      </article>
+
+      {/* FAQ */}
+      {content.faqs.length > 0 && (
+        <section className="bg-background py-10 md:py-14" id="faq">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="mb-8">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
+                <MessageCircleQuestion className="size-3.5" />
+                FAQs
+              </div>
+              <h2 className="text-2xl font-black tracking-tight text-foreground md:text-4xl">
+                {page.locality} tutoring — questions parents ask
+              </h2>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              {content.faqs.map((faq) => (
+                <details key={faq.question} className="group rounded-2xl border border-border/50 bg-card p-5 open:border-primary/30 open:bg-card">
+                  <summary className="cursor-pointer list-none text-base font-black leading-relaxed text-foreground marker:hidden">
+                    <span className="flex items-start justify-between gap-4">
+                      <span>{faq.question}</span>
+                      <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full border border-border text-xs text-primary group-open:bg-primary group-open:text-primary-foreground">
+                        +
+                      </span>
+                    </span>
+                  </summary>
+                  <p className="mt-4 border-t border-border/40 pt-4 text-sm font-medium leading-relaxed text-muted-foreground">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Full directory, hub only: every written page grouped by zone. */}
+      {directory && directory.length > 0 && (
+        <section className="border-t border-border/40 bg-background py-10 md:py-14" id="directory">
+          <div className="container mx-auto px-4 md:px-6">
+            <h2 className="mb-2 text-2xl font-black tracking-tight text-foreground md:text-3xl">
+              Every IB &amp; IGCSE tutoring page in Mumbai
+            </h2>
+            <p className="mb-8 max-w-3xl text-base font-medium leading-relaxed text-muted-foreground">
+              Browse by zone to find the page for your locality, your board and your subject.
+            </p>
+            <div className="space-y-8">
+              {directory.map((group) => (
+                <div key={group.name}>
+                  <h3 className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-primary">
+                    {group.name} <span className="font-semibold text-muted-foreground">({group.links.length})</span>
+                  </h3>
+                  <ul className="grid gap-x-6 gap-y-1.5 sm:grid-cols-2 lg:grid-cols-3">
+                    {group.links.map((link) => (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          className="text-sm font-semibold leading-snug text-foreground/80 underline-offset-4 transition-colors hover:text-primary hover:underline"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Internal links */}
+      <section className="border-t border-border/40 bg-background py-10 md:py-14">
+        <div className="container mx-auto max-w-4xl px-4 md:px-6">
+          <h2 className="mb-6 text-xl font-black tracking-tight text-foreground md:text-2xl">Explore more IB &amp; IGCSE tutoring in Mumbai</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {[...related, ...hubLinks].map((link) => (
+              <Link
+                key={link.href + link.label}
+                href={link.href}
+                className="flex items-center justify-between gap-3 rounded-xl border border-border/50 bg-muted/10 px-4 py-3 text-sm font-bold text-foreground/90 transition-all hover:border-primary/40 hover:text-primary"
+              >
+                <span>{link.label}</span>
+                <ArrowRight className="size-4 shrink-0 text-primary" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="bg-background py-10 md:py-14">
+        <div className="container mx-auto max-w-4xl px-4 md:px-6">
+          <div className="rounded-[2rem] border border-primary/20 bg-gradient-to-br from-primary/10 to-secondary/5 p-8 text-center md:p-12">
+            <h2 className="mb-4 text-2xl font-black tracking-tight text-foreground md:text-3xl">
+              Find your {page.locality} tutor
+            </h2>
+            <p className="mx-auto mb-6 max-w-2xl text-base font-medium leading-relaxed text-muted-foreground">{content.closingCta}</p>
+            <Link
+              href="/contact-us/"
+              className="shimmer-btn inline-flex h-14 items-center justify-center rounded-xl border border-primary/30 bg-primary px-8 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+            >
+              Book a free academic consultation
+              <ArrowRight className="ml-2 size-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

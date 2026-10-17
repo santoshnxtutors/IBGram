@@ -146,7 +146,11 @@ function CatalogRow({ tutor, onCreated }: { tutor: Catalog; onCreated: (msg: str
       });
       const body = await res.json();
       if (!res.ok) throw new Error(body.error ?? "Could not create login.");
-      onCreated(`Login created for ${tutor.displayName} (${email}).`);
+      onCreated(
+        body.emailed
+          ? `Login created for ${tutor.displayName} — credentials emailed to ${email}.`
+          : `Login created for ${tutor.displayName} (${email}), but the email could NOT be sent. Share the password manually.`,
+      );
     } catch (e) {
       setError(e instanceof Error ? e.message : "Could not create login.");
     } finally {

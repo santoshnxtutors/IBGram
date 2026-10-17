@@ -500,6 +500,15 @@ export const mumbai: CitySeoPage = {
   ],
 
   internalLinks: [
+    // The six /mumbai/<zone>/ pages are the only inbound route into the 2,218-page Mumbai
+    // home-tutoring tree. Without these links that whole tree is orphaned and Google leaves
+    // it "Discovered - currently not indexed".
+    { label: "IB & IGCSE home tutors in South Mumbai", href: "/mumbai/south-mumbai/", description: "Home tutors across Colaba, Worli, Malabar Hill, Dadar and the island city." },
+    { label: "IB & IGCSE home tutors in the Western Suburbs", href: "/mumbai/western-suburbs/", description: "Home tutors from Bandra and BKC through Andheri, Juhu, Malad and Borivali." },
+    { label: "IB & IGCSE home tutors in the Central Suburbs", href: "/mumbai/central-suburbs/", description: "Home tutors in Powai, Hiranandani Gardens, Ghatkopar, Kurla and Mulund." },
+    { label: "IB & IGCSE home tutors in the Eastern Suburbs", href: "/mumbai/eastern-suburbs/", description: "Home tutors across Chembur, Govandi and the Eastern Freeway corridor." },
+    { label: "IB & IGCSE home tutors in Navi Mumbai", href: "/mumbai/navi-mumbai/", description: "Home tutors in Vashi, Nerul, Belapur, Kharghar and Panvel." },
+    { label: "IB & IGCSE home tutors in Thane", href: "/mumbai/thane/", description: "Home tutors along Pokhran Road, Ghodbunder Road, Majiwada and Hiranandani Estate." },
     { label: "IB tutors in Mumbai", href: "/ib-tutors/mumbai/", description: "Programme and subject pages for IB tutoring across Mumbai." },
     { label: "IGCSE tutors in Mumbai", href: "/igcse-tutors/mumbai/", description: "Cambridge and Edexcel IGCSE tutor matching for Mumbai students." },
     { label: "IGCSE in Mumbai", href: "/igcse-pages/mumbai/", description: "How IGCSE tuition works for Mumbai families." },

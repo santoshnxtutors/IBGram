@@ -1,7 +1,7 @@
 "use client";
 
 import type { FormEvent } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, BookOpen, ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,19 +11,27 @@ import Link from "next/link";
 
 interface AuthFlowProps {
   initialAuthType: "login" | "signup";
+  initialRole?: "student" | "tutor";
 }
 
-export function AuthFlow({ initialAuthType }: AuthFlowProps) {
-  // Login directly goes to form. Signup goes to role selection first.
+export function AuthFlow({ initialAuthType, initialRole }: AuthFlowProps) {
+  // Login directly goes to form. Signup goes to role selection first, unless a role was preselected.
   const [authType, setAuthType] = useState<"login" | "signup">(initialAuthType);
-  const [step, setStep] = useState<"role" | "form">(initialAuthType === "login" ? "form" : "role");
-  const [role, setRole] = useState<"student" | "tutor" | null>(null);
+  const [step, setStep] = useState<"role" | "form">(initialAuthType === "login" || initialRole ? "form" : "role");
+  const [role, setRole] = useState<"student" | "tutor" | null>(initialRole ?? null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // The backend redirects a failed Google sign-in to /login?error=oauth_failed.
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("error") === "oauth_failed") {
+      setError("Google sign-in did not complete. Please try again.");
+    }
+  }, []);
 
   const handleRoleSelect = (selectedRole: "student" | "tutor") => {
     setRole(selectedRole);
@@ -76,9 +84,15 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
       }
 
       // Route to the right dashboard by account type (falls back to the chosen role).
+      // New accounts go straight to their profile form.
       const user = body?.data?.user;
       const accountType = user?.accountType ?? role ?? "student";
-      const destination = accountType === "tutor" ? "/tutor" : "/student";
+      const dashboard = accountType === "tutor" ? "/tutor" : "/student";
+      // ?returnTo= sends the user back where they came from (e.g. a tutor profile
+      // they tried to book). Relative paths only, so it can't be an open redirect.
+      const returnTo = new URLSearchParams(window.location.search).get("returnTo");
+      const safeReturnTo = returnTo && returnTo.startsWith("/") && !returnTo.startsWith("//") ? returnTo : null;
+      const destination = safeReturnTo ?? (authType === "signup" ? `${dashboard}/profile` : dashboard);
       // Hard navigation so the gated dashboard layout reads the fresh session cookie.
       window.location.href = destination;
     } catch (caught) {
@@ -284,7 +298,7 @@ export function AuthFlow({ initialAuthType }: AuthFlowProps) {
                     <div className="flex justify-between items-center">
                       <Label htmlFor="password" className="text-xs">Password</Label>
                       {authType === "login" && (
-                        <Link href="#" className="text-[11px] font-bold text-primary hover:text-primary/80 transition-colors">
+                        <Link href="/forgot-password" className="text-[11px] font-bold text-primary hover:text-primary/80 transition-colors">
                           Forgot Password?
                         </Link>
                       )}

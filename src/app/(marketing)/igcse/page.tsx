@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
+import { BookDemoCta } from "@/components/booking/BookDemoCta";
 import { HeroFlagSlider } from "@/components/home/HeroFlagSlider";
 import { IGCSETutors } from "./tutor";
 import { IGCSESubjectExplorer } from "./subject-explorer";
@@ -219,18 +220,11 @@ export default async function IGCSEPage() {
               </div>
 
               <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                <Link
-                  href="/tutors"
-                  prefetch={false}
-                  className={buttonVariants({
+                <BookDemoCta className={buttonVariants({
                     size: "lg",
                     className:
                       "h-14 px-10 text-base md:text-lg rounded-xl bg-primary text-primary-foreground group hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all font-bold",
-                  })}
-                >
-                  View all IGCSE tutors
-                  <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  })} />
                 <BookDemoButton
                   defaultCurriculum="IGCSE"
                   className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-border bg-background/50 px-8 text-base font-bold text-foreground transition-all hover:border-primary/50 hover:bg-muted/30 md:text-lg"

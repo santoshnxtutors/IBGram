@@ -22,6 +22,7 @@ import { getCountrySeoSitemapEntries } from "@/lib/country-seo";
 import { getIgcseSubjectSitemapEntries } from "@/lib/igcse-subjects";
 import { getIndiaKeywordSitemapEntries } from "@/lib/india-keywords";
 import { getCitySeoSitemapEntries } from "@/lib/india-cities";
+import { getMumbaiSeoSitemapEntries } from "@/lib/mumbai-seo";
 
 const LAST_MODIFIED = "2026-09-04";
 const COURSE_SUBJECT_SLUGS = ["pyp", "myp", "dp", "cp", "mathematics", "sciences", "individuals", "individuals-and-societies", "english", "language", "arts"];
@@ -45,7 +46,50 @@ export function getSeoSitemapEntries(): MetadataRoute.Sitemap {
     ...getIgcseSubjectSitemapEntries(),
     ...getIndiaKeywordSitemapEntries(),
     ...getCitySeoSitemapEntries(),
+    ...getMumbaiSeoSitemapEntries(),
   ]);
+}
+
+/**
+ * The code-generated sitemap split into named sections, in priority order.
+ *
+ * One 3,500-URL sitemap is well inside Google's 50,000 limit, so this is not a
+ * size fix. It is a diagnosis fix: Search Console reports indexed-vs-discovered
+ * per sitemap, so a single file gives one number for the whole site and no way
+ * to tell which city is indexing. Split, "Discovered - currently not indexed"
+ * can be attributed to a section.
+ *
+ * Order matters. The URL set is deduped GLOBALLY with first-wins, so a URL
+ * reachable from two sources lands in the earlier section and appears exactly
+ * once across the whole index.
+ */
+export const SITEMAP_SECTIONS = [
+  "core",
+  "mumbai",
+  "gurgaon",
+  "cities",
+  "countries",
+  "ib-tutors",
+  "igcse",
+  "tutor-profiles",
+  "generated",
+] as const;
+
+export type SitemapSection = (typeof SITEMAP_SECTIONS)[number];
+
+/** Code-generated entries grouped by section, before global dedupe. */
+export function getSectionedSitemapEntries(): Record<SitemapSection, MetadataRoute.Sitemap> {
+  return {
+    core: [...getCorePublicSitemapEntries(), getIbTutorsHubSitemapEntry(), getIgcsePagesHubSitemapEntry(), ...getIndexableCourseSitemapEntries()],
+    mumbai: [...getMumbaiSeoSitemapEntries()],
+    gurgaon: [...getGurgaonSeoSitemapEntries(), ...getGurgaonKeywordSitemapEntries()],
+    cities: [...getCitySeoSitemapEntries(), ...getIndexableCitySitemapEntries(), ...getIndiaKeywordSitemapEntries()],
+    countries: [...getCountrySeoSitemapEntries()],
+    "ib-tutors": [...getIndexableIbCityFocusSitemapEntries(), ...getIndexableIbAreaSitemapEntries(), ...getIndexableIbSchoolSitemapEntries()],
+    igcse: [...getIndexableIgcseCitySitemapEntries(), ...getIndexableIgcseTutorSitemapEntries(), ...getIgcseSubjectSitemapEntries()],
+    "tutor-profiles": [...getIndexableTutorProfileSitemapEntries()],
+    generated: [...getIndexableGeneratedSitemapEntries()],
+  };
 }
 
 export function getFullPublicSitemapEntries(): MetadataRoute.Sitemap {

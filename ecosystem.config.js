@@ -18,6 +18,19 @@ const BACKEND_PORT = process.env.BACKEND_PORT || "4000";
 // which was leaving DATABASE_URL unset at runtime and causing 500s.
 const sharedEnv = { ...process.env };
 
+// Heap budget for the Next.js server.
+// Measured 2026-10-15 by importing the five content stores in a bare node
+// process: india-cities +209MB, generated-pages +112MB, gurgaon-keywords +59MB,
+// mumbai-seo +23MB, gurgaon-seo +14MB => 424MB heap / 542MB RSS before Next.js,
+// React, Prisma or a single rendered response exist. The old 768M PM2 ceiling
+// left ~226MB for all of that, so a crawl killed the process every few hundred
+// requests. Re-measure with tmp/gsc-fix/heap-probe.mts after adding a store.
+// Defaults suit a 4GB VPS; override with env vars if the box differs.
+//   NEXT_HEAP_MB        -> V8 old-space cap (soft limit, triggers GC)
+//   NEXT_MAX_MEMORY     -> PM2 RSS cap      (hard limit, triggers restart)
+const NEXT_HEAP_MB = process.env.NEXT_HEAP_MB || "2048";
+const NEXT_MAX_MEMORY = process.env.NEXT_MAX_MEMORY || "2560M";
+
 module.exports = {
   apps: [
     // Next.js frontend — CloudPanel Nginx proxies www.ibgram.com -> localhost:APP_PORT
@@ -33,15 +46,27 @@ module.exports = {
       instances: 1,
       autorestart: true,
       watch: false,
-      max_memory_restart: "768M",
-      // Crash-loop protection: if the process keeps dying within 10s,
-      // stop after 5 attempts instead of restarting forever.
-      min_uptime: "10s",
-      max_restarts: 5,
+      // The bundle carries ~190MB of generated-page JSON/TS stores (gurgaon-seo,
+      // india-cities, generated-pages, gurgaon-keywords, mumbai-seo). A sustained
+      // crawl touches enough distinct routes to pull most of that into the heap,
+      // so the old 768M ceiling had PM2 SIGKILL the server mid-crawl every few
+      // hundred requests. Nginx answered 502 for the whole cold start, which is
+      // what Search Console records as "Server error (5xx)" and why Googlebot
+      // throttled back to "Crawled/Discovered - currently not indexed".
+      // --max-old-space-size is set BELOW max_memory_restart on purpose: V8 then
+      // runs a full GC and survives instead of PM2 killing a healthy process.
+      max_memory_restart: NEXT_MAX_MEMORY,
+      // Crash-loop protection, but never give up: with max_restarts: 5 a short
+      // burst of OOM kills left PM2 in "stopped" and the site hard-down.
+      min_uptime: "30s",
+      max_restarts: 50,
+      restart_delay: 2000,
+      kill_timeout: 10000,
       env: {
         ...sharedEnv,
         NODE_ENV: "production",
         PORT: APP_PORT,
+        NODE_OPTIONS: `--max-old-space-size=${NEXT_HEAP_MB}`,
       },
       // Logs go to PM2's default dir (~/.pm2/logs/), which the SSH/deploy user
       // owns and can write. The previous /home/ibgram/logs/ path was in a
@@ -58,9 +83,10 @@ module.exports = {
       instances: 1,
       autorestart: true,
       watch: false,
-      max_memory_restart: "256M",
-      min_uptime: "10s",
-      max_restarts: 5,
+      max_memory_restart: "512M",
+      min_uptime: "30s",
+      max_restarts: 50,
+      restart_delay: 2000,
       env: {
         ...sharedEnv,
         NODE_ENV: "production",

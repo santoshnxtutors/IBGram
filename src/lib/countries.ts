@@ -136,3 +136,25 @@ export function normaliseCountryCodes(values: unknown): string[] {
   }
   return out;
 }
+
+/** International dialling codes (without "+") for every country in COUNTRIES. */
+export const DIAL_CODES: Record<string, string> = {
+  in: "91", sg: "65", my: "60", hk: "852", cn: "86", jp: "81", kr: "82", th: "66", id: "62", ph: "63", vn: "84",
+  lk: "94", bd: "880", np: "977", pk: "92", tw: "886", ae: "971", sa: "966", qa: "974", kw: "965", om: "968",
+  bh: "973", jo: "962", lb: "961", tr: "90", il: "972", eg: "20", gb: "44", ie: "353", de: "49", fr: "33",
+  nl: "31", be: "32", ch: "41", at: "43", es: "34", it: "39", pt: "351", se: "46", no: "47", dk: "45", fi: "358",
+  pl: "48", cz: "420", gr: "30", ro: "40", hu: "36", lu: "352", us: "1", ca: "1", mx: "52", br: "55", ar: "54",
+  cl: "56", co: "57", pe: "51", cr: "506", za: "27", ng: "234", ke: "254", gh: "233", tz: "255", ug: "256",
+  ma: "212", mu: "230", au: "61", nz: "64", fj: "679",
+};
+
+/**
+ * Split a stored "+<code> <number>" phone into its country and local digits.
+ * Shared codes (+1) resolve to the first listed country; unknown input defaults to India.
+ */
+export function splitPhone(value: string): { country: string; local: string } {
+  const digits = value.replace(/[^\d+ ]/g, "").trim();
+  const [, code = "", rest = ""] = digits.match(/^\+(\d{1,4})\s*(.*)$/) ?? [];
+  const country = code ? COUNTRIES.find((c) => DIAL_CODES[c.code] === code)?.code : undefined;
+  return country ? { country, local: rest.replace(/\D/g, "") } : { country: "in", local: digits.replace(/\D/g, "") };
+}

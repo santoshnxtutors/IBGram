@@ -39,31 +39,38 @@ export function getIndexingDecision(
     return noindex(pageData, "Page is intentionally marked noindex.");
   }
 
-  const crawlableInternalLinks = countCrawlableInternalLinks(pageData.internalLinksOut);
-
-  if (pageData.demandScore < config.minimumDemandScore) {
-    return noindex(pageData, "Demand score is not strong enough for indexing.");
-  }
-
-  if (pageData.contentUniquenessScore < config.minimumContentUniquenessScore) {
-    return noindex(pageData, "Content uniqueness is not strong enough for indexing.");
-  }
-
-  if (crawlableInternalLinks < config.minimumInternalLinks) {
-    return noindex(pageData, "The page needs more useful crawlable internal links.");
-  }
-
-  if (pageData.cityFaqs.length < config.minimumFaqCount) {
-    return noindex(pageData, "The page needs more city-specific FAQs.");
-  }
-
+  // The demand / uniqueness / internal-link / FAQ thresholds used to emit
+  // `noindex, follow` here. They were the single biggest source of Search
+  // Console's "Excluded by 'noindex' tag" bucket: the sitemap advertised the
+  // URL while the page told Google to drop it. A live page that is published
+  // is now always indexable; the same thresholds still run, but only as a
+  // content-quality signal (see isCityPageThin), never as a robots directive.
   return {
     index: true,
     follow: true,
     robotsTag: "index, follow",
     canonicalUrl: toCanonicalUrl(pageData.canonicalTarget ?? pageData.canonicalUrl),
-    reason: "Unique city content, strong demand, FAQs and useful internal links are present.",
+    reason: "Page is live and not flagged noindex.",
   };
+}
+
+/**
+ * The old getIndexingDecision thresholds, kept as a pure quality signal for
+ * admin reporting and sitemap prioritisation. It never produces a robots tag.
+ */
+export function isCityPageThin(
+  pageData: Pick<
+    CitySeoPage,
+    "demandScore" | "contentUniquenessScore" | "cityFaqs" | "internalLinksOut"
+  >,
+  config: IndexingConfig = DEFAULT_INDEXING_CONFIG,
+): boolean {
+  return (
+    pageData.demandScore < config.minimumDemandScore ||
+    pageData.contentUniquenessScore < config.minimumContentUniquenessScore ||
+    countCrawlableInternalLinks(pageData.internalLinksOut) < config.minimumInternalLinks ||
+    pageData.cityFaqs.length < config.minimumFaqCount
+  );
 }
 
 export function getGeneratedIndexingDecision(page: GeneratedSeoPage): IndexingDecision {
@@ -73,20 +80,31 @@ export function getGeneratedIndexingDecision(page: GeneratedSeoPage): IndexingDe
   if (page.indexFlag === "noindex") {
     return generatedNoindex(page, "Generated page is intentionally noindex.");
   }
-  if (page.quality.recommendedIndexFlag === "noindex") {
-    return generatedNoindex(page, "Generated page quality checker recommends noindex.");
-  }
-  if (page.quality.seoScore < 70 || page.quality.duplicateRisk === "high") {
-    return generatedNoindex(page, "Generated page is too weak or duplicate-risky to index.");
-  }
-
+  // The quality checker's recommendation and the seoScore/duplicateRisk gate
+  // used to emit `noindex, follow` from here. They no longer do: a published
+  // generated page is always indexable. The predicate survives as
+  // isGeneratedPageThin, which generated-pages-db.ts still uses to decide
+  // whether a thin DB row may shadow the richer compiled static page.
   return {
     index: true,
     follow: true,
     robotsTag: "index, follow",
     canonicalUrl: toCanonicalUrl(page.canonicalTarget ?? page.canonicalUrl),
-    reason: "Generated page is published, useful, unique enough and internally linked.",
+    reason: "Generated page is published and not flagged noindex.",
   };
+}
+
+/**
+ * Quality signal only — never a robots directive. A `true` means the page is
+ * weak enough that a DB row carrying it must not shadow the compiled static
+ * page for the same path.
+ */
+export function isGeneratedPageThin(page: GeneratedSeoPage): boolean {
+  return (
+    page.quality.recommendedIndexFlag === "noindex" ||
+    page.quality.seoScore < 70 ||
+    page.quality.duplicateRisk === "high"
+  );
 }
 
 export function getNoindexSubpageDecision(canonicalUrl: string, reason = "Subpage is future-ready but not yet unique enough to index."): IndexingDecision {

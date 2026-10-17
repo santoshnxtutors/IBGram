@@ -4,6 +4,8 @@ import { hashPassword } from "@ibgram/authentication";
 import { prisma } from "@/lib/db";
 import { jsonNoStore } from "@/lib/cache/revalidation";
 import { requireAdminRequest } from "../../../../_lib/admin-auth";
+import { sendMail } from "@/lib/mail";
+import { tutorCredentialsEmail } from "@/lib/emails";
 
 export const dynamic = "force-dynamic";
 
@@ -60,5 +62,10 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     data: { userId: user.id, email, approved: true, status: "active" },
   });
 
-  return jsonNoStore({ ok: true, userId: user.id, email });
+  const emailed = await sendMail({
+    to: email,
+    ...tutorCredentialsEmail({ name: tutor.displayName, email, password: parsed.data.password }),
+  });
+
+  return jsonNoStore({ ok: true, userId: user.id, email, emailed });
 }

@@ -25,16 +25,18 @@ export function JoinAsTutorButton({
     );
   }
 
+  // Sizing scales with the viewport so the same pill fits beside the hamburger
+  // on a 360px phone and still reads as the primary CTA on desktop.
   return (
     <Link
       href="/join-as-tutor"
       className={
         className ??
-        "inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-sm ring-1 ring-black/5 transition-all hover:bg-primary/90 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        "group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-3.5 py-2 text-[13px] font-semibold tracking-tight text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm"
       }
     >
       Join as Tutor
-      <ArrowRight className="size-4" />
+      <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5 sm:size-4" />
     </Link>
   );
 }

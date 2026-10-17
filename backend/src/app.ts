@@ -17,6 +17,9 @@ export function createApp() {
   const app = express();
 
   app.disable("x-powered-by");
+  // Requests arrive via nginx -> Next.js on the same box. Trusting loopback hops makes
+  // req.ip the visitor's IP, so the auth rate limit is per user instead of site-wide.
+  app.set("trust proxy", "loopback");
   app.use(requestIdMiddleware);
   app.use(pinoHttp({ logger, genReqId: (req) => req.requestId ?? "" }));
   app.use(helmet());

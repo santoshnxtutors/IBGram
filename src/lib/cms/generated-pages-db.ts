@@ -3,7 +3,7 @@ import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/db";
 import { dbBundleToGeneratedSeoPage, type DbPageWithChildren } from "./generated-page-adapter";
 import { getGeneratedPageByPath } from "@/lib/generated-pages/store";
-import { getGeneratedIndexingDecision } from "@/lib/seo/indexing";
+import { isGeneratedPageThin } from "@/lib/seo/indexing";
 import type { GeneratedPageType, GeneratedSeoPage } from "@/lib/page-generator/types";
 
 /**
@@ -89,12 +89,14 @@ export async function getDbGeneratedSeoPageByPath(
   const page = dbBundleToGeneratedSeoPage(bundle as unknown as DbPageWithChildren);
   // Same reason one step further. 27 rows carry a few blocks but only 209-492
   // words and a qualityScore of 62-69, which is under the index bar, so
-  // buildGeneratedMetadata renders them `noindex, follow` — while the sitemap
-  // still advertises the URL. That contradiction is what Search Console counts
-  // as "Excluded by 'noindex' tag". The static fallback renders the same path
+  // they used to render `noindex, follow` while the sitemap still advertised
+  // the URL — the contradiction Search Console counted as "Excluded by
+  // 'noindex' tag". Robots tags no longer depend on quality, but a row this
+  // thin still must not shadow the compiled page, so the test stays here as
+  // isGeneratedPageThin. The static fallback renders the same path
   // in full, so a row too thin to index must not shadow it. A row an operator
   // deliberately flagged noindex is honoured and still served.
-  if (bundle.indexFlag === "index" && !getGeneratedIndexingDecision(page).index) return null;
+  if (bundle.indexFlag === "index" && isGeneratedPageThin(page)) return null;
 
   return page;
 }

@@ -129,23 +129,112 @@ export function AdminScoreBadge({ score }: { score: number }) {
   return <span className={cn("font-black", tone)}>{score}</span>;
 }
 
-export function AdminSearchInput({ placeholder = "Search" }: { placeholder?: string }) {
+export function AdminSearchInput({
+  placeholder = "Search",
+  name = "q",
+  defaultValue,
+}: {
+  placeholder?: string;
+  name?: string;
+  defaultValue?: string;
+}) {
   return (
     <label className="relative block">
       <span className="sr-only">{placeholder}</span>
       <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-500" />
-      <input className="h-10 w-full rounded-lg border border-white/10 bg-white/[0.04] pl-9 pr-3 text-sm font-semibold text-white outline-none ring-emerald-300/30 placeholder:text-slate-500 focus:ring-2" placeholder={placeholder} />
+      <input
+        name={name}
+        type="search"
+        defaultValue={defaultValue}
+        className="h-10 w-full rounded-lg border border-white/10 bg-white/[0.04] pl-9 pr-3 text-sm font-semibold text-white outline-none ring-emerald-300/30 placeholder:text-slate-500 focus:ring-2"
+        placeholder={placeholder}
+      />
     </label>
   );
 }
 
-export function AdminFilterBar({ children }: { children?: ReactNode }) {
-  return (
-    <div className="mb-4 grid gap-3 rounded-lg border border-white/10 bg-white/[0.03] p-3 md:grid-cols-[1fr_auto]">
-      <AdminSearchInput placeholder="Search pages, tutors, locations, keywords" />
-      <div className="flex flex-wrap gap-2">{children ?? <AdminPill>All filters ready</AdminPill>}</div>
+/** One filter chip in the bar; `href` keeps the current search term. */
+export type AdminFilterOption = { label: string; href: string; active?: boolean; count?: number };
+
+/**
+ * Search + filters for the admin list screens. A plain GET form, so it works
+ * without client JavaScript and every result stays shareable as a URL.
+ *
+ * `action` + `filters` turn it live; the old `children`-only form still renders
+ * static pills for screens that have not been wired up yet.
+ */
+export function AdminFilterBar({
+  children,
+  action,
+  query,
+  placeholder = "Search pages, tutors, locations, keywords",
+  filters,
+  hidden,
+}: {
+  children?: ReactNode;
+  action?: string;
+  query?: string;
+  placeholder?: string;
+  filters?: AdminFilterOption[];
+  /** Extra params to carry through the search submit (so filters survive a new search). */
+  hidden?: Record<string, string | undefined>;
+}) {
+  const bar = (
+    <div className="grid gap-3 md:grid-cols-[1fr_auto]">
+      <AdminSearchInput placeholder={placeholder} defaultValue={query} />
+      <div className="flex flex-wrap items-center gap-2">
+        {filters?.map((f) => (
+          <Link
+            key={f.label}
+            href={f.href}
+            className={cn(
+              "rounded-lg border px-3 py-2 text-xs font-black uppercase tracking-[0.12em] transition-colors",
+              f.active
+                ? "border-emerald-300/50 bg-emerald-300/15 text-emerald-100"
+                : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-emerald-300/30 hover:text-emerald-100",
+            )}
+          >
+            {f.label}
+            {typeof f.count === "number" && <span className="ml-1.5 text-slate-500">{f.count}</span>}
+          </Link>
+        ))}
+        {children ?? (filters ? null : <AdminPill>All filters ready</AdminPill>)}
+      </div>
     </div>
   );
+
+  if (!action) {
+    return <div className="mb-4 rounded-lg border border-white/10 bg-white/[0.03] p-3">{bar}</div>;
+  }
+
+  return (
+    <form action={action} method="get" className="mb-4 rounded-lg border border-white/10 bg-white/[0.03] p-3">
+      {Object.entries(hidden ?? {}).map(([key, value]) =>
+        value ? <input key={key} type="hidden" name={key} value={value} /> : null,
+      )}
+      {bar}
+      <button type="submit" className="sr-only">
+        Search
+      </button>
+    </form>
+  );
+}
+
+/** Build a filter-chip href that keeps the other active params (and the search term). */
+export function adminFilterHref(
+  basePath: string,
+  current: Record<string, string | undefined>,
+  param: string,
+  value: string,
+): string {
+  const next = new URLSearchParams();
+  for (const [key, val] of Object.entries(current)) {
+    if (val && key !== param) next.set(key, val);
+  }
+  // Clicking the active chip clears it.
+  if (current[param] !== value) next.set(param, value);
+  const qs = next.toString();
+  return qs ? `${basePath}?${qs}` : basePath;
 }
 
 export function AdminTabs({ items }: { items: string[] }) {

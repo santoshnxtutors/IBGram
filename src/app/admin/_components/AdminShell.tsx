@@ -1,6 +1,8 @@
 import Link from "next/link";
 import {
   UserPlus,
+  UserCheck,
+  CalendarCheck,
   BarChart3,
   BadgeCheck,
   Bot,
@@ -40,6 +42,9 @@ const navigation = [
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "AI Generator", href: "/admin/generator", icon: Bot },
   { label: "Tutors", href: "/admin/tutors", icon: Users },
+  { label: "Tutor Signups", href: "/admin/tutor-signups", icon: UserCheck },
+  { label: "Student Signups", href: "/admin/student-signups", icon: GraduationCap },
+  { label: "Demo Bookings", href: "/admin/demo-bookings", icon: CalendarCheck },
   { label: "Jobs", href: "/admin/jobs", icon: Briefcase },
   { label: "Job Applications", href: "/admin/job-applications", icon: ListChecks },
   { label: "Leads & Messages", href: "/admin/leads", icon: Inbox },

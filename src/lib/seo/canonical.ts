@@ -10,6 +10,13 @@ const DUPLICATE_PATH_RULES: Array<{ pattern: RegExp; replacement: string }> = [
   { pattern: /^\/ib-tutors\/([^/]+)\/subjects(\/.*)?$/i, replacement: "/ib-tutors/$1/" },
   { pattern: /^\/igcse-tutors\/gurugram\/areas\/nirvana-country\/$/i, replacement: "/igcse-tutors/gurugram/societies/nirvana-country/" },
   { pattern: /^\/igcse-tutors\/gurugram\/areas\/sector-57\/$/i, replacement: "/igcse-tutors/gurugram/sectors/sector-57/" },
+  // MYP/CP/DP/PYP are IB programmes; the /courses/igcse/ copies duplicate the IB
+  // originals and next.config 301s them. Mapping them here keeps every sitemap
+  // emitter and internal link pointing straight at the destination.
+  { pattern: /^\/courses\/igcse\/(myp|cp|dp|pyp)\/$/i, replacement: "/courses/ib/$1/" },
+  // Same subject under a short and a long slug; Google already chose the long one.
+  { pattern: /^\/courses\/(ib|igcse)\/individuals\/$/i, replacement: "/courses/$1/individuals-and-societies/" },
+  { pattern: /^\/blog\/how-to-score-a-7-in-ib-maths-aa-hl-step-by-step-strategy\/$/i, replacement: "/blog/how-to-score-7-ib-math-aa-hl/" },
 ];
 
 export function normalizePath(pathOrUrl: string): string {

@@ -12,6 +12,8 @@ import {
 
 type AnyTutorId = Tutor["id"];
 
+const CURRENCY_SYMBOLS: Record<string, string> = { INR: "₹", USD: "$", EUR: "€" };
+
 /** Parse the Tutor.faqs JSON column into a clean TutorFaq[]. */
 function parsePublicFaqs(value: unknown): TutorFaq[] {
   if (!Array.isArray(value)) return [];
@@ -68,7 +70,7 @@ async function queryWithRetry<T>(op: () => Promise<T>, attempts = 3, baseMs = 30
  * - already starts with `/` → unchanged
  * - missing leading slash → prepend "/"
  */
-function normaliseImageUrl(value: string | null | undefined): string {
+export function normaliseImageUrl(value: string | null | undefined): string {
   if (!value) return "";
   const trimmed = value.trim();
   if (!trimmed) return "";
@@ -181,7 +183,7 @@ export function mapPrismaToTutor(row: Awaited<ReturnType<typeof prisma.tutor.fin
     experience: row.experienceYears ? `${row.experienceYears} Yrs` : "",
     bio: row.bio ?? "",
     about: row.about ?? "",
-    rate: row.hourlyRate ? `${row.currency === "USD" ? "$" : "₹"}${Number(row.hourlyRate)}/hr` : "",
+    rate: row.hourlyRate ? `${CURRENCY_SYMBOLS[row.currency] ?? `${row.currency} `}${Number(row.hourlyRate)}/hr` : "",
     image: normaliseImageUrl(row.avatarUrl),
     tags: row.profile?.tags ?? [],
     accent: "bg-primary/10 text-primary border-primary/20",

@@ -10,6 +10,8 @@ export interface CurrentUser {
   accountType: string | null;
   roles: string[];
   permissions: string[];
+  /** false for a Google sign-up that has never chosen a password. */
+  passwordSet?: boolean;
 }
 
 /** Where a user should land after auth, based on their account type. */

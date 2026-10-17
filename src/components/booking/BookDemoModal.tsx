@@ -3,11 +3,14 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/contact";
-import { Loader2, Send, X } from "lucide-react";
+import { CalendarCheck, Loader2, Send, X } from "lucide-react";
+import { createBooking } from "@/lib/bookings/api";
 
 type BookDemoModalProps = {
   open: boolean;
   onClose: () => void;
+  /** Tutor.id — when present the form creates a real DemoBooking. */
+  tutorId?: string;
   tutorName?: string;
   defaultSubject?: string;
   defaultBoard?: string;
@@ -21,6 +24,22 @@ const TIME_SLOTS = [
   "Evening (4 PM – 7 PM)",
   "Late Evening (7 PM – 9 PM)",
 ];
+
+/** Slot label -> hour the demo starts, so the API gets a real timestamp. */
+const SLOT_START_HOUR: Record<string, number> = {
+  "Morning (8 AM – 11 AM)": 8,
+  "Late Morning (11 AM – 1 PM)": 11,
+  "Afternoon (1 PM – 4 PM)": 13,
+  "Evening (4 PM – 7 PM)": 16,
+  "Late Evening (7 PM – 9 PM)": 19,
+};
+
+/** Falls back to tomorrow 10am when the student leaves date/slot blank. */
+function toScheduledAt(date: string, slot: string): string {
+  const when = date ? new Date(`${date}T00:00:00`) : new Date(Date.now() + 86_400_000);
+  when.setHours(SLOT_START_HOUR[slot] ?? 10, 0, 0, 0);
+  return when.toISOString();
+}
 
 const initialState = {
   name: "",
@@ -37,7 +56,7 @@ const initialState = {
   notes: "",
 };
 
-export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaultBoard }: BookDemoModalProps) {
+export function BookDemoModal({ open, onClose, tutorId, tutorName, defaultSubject, defaultBoard }: BookDemoModalProps) {
   const [form, setForm] = useState({
     ...initialState,
     subject: defaultSubject ?? "",
@@ -45,9 +64,11 @@ export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaul
   });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [sent, setSent] = useState(false);
 
   useEffect(() => {
     if (!open) return;
+    setSent(false);
     const original = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
@@ -66,7 +87,7 @@ export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaul
     setForm((prev) => ({ ...prev, [key]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
 
@@ -100,15 +121,29 @@ export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaul
     }
     lines.push("", "(Sent via IB Gram website)");
 
-    const text = encodeURIComponent(lines.join("\n"));
-    const url = `https://wa.me/${CONTACT.whatsappDigits}?text=${text}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-
-    setTimeout(() => {
+    // No tutorId (generic enquiry surfaces): keep the WhatsApp hand-off.
+    if (!tutorId) {
+      const text = encodeURIComponent(lines.join("\n"));
+      window.open(`https://wa.me/${CONTACT.whatsappDigits}?text=${text}`, "_blank", "noopener,noreferrer");
       setSubmitting(false);
       setForm({ ...initialState });
       onClose();
-    }, 400);
+      return;
+    }
+
+    try {
+      await createBooking({
+        tutorId,
+        subject: form.subject.trim(),
+        scheduledAt: toScheduledAt(form.preferredDate, form.preferredTime),
+        notes: lines.slice(2).join("\n"),
+      });
+      setSent(true);
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "Could not send your request. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -137,6 +172,19 @@ export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaul
           </button>
         </div>
 
+        {sent ? (
+          <div className="p-8 text-center">
+            <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-primary/10">
+              <CalendarCheck className="size-6 text-primary" />
+            </div>
+            <h3 className="mb-2 text-lg font-bold text-foreground">Demo request sent</h3>
+            <p className="mb-6 text-sm text-muted-foreground">
+              {tutorName ? `${tutorName} has been emailed` : "The tutor has been emailed"} and will confirm a time shortly.
+              You can track it under <strong>My demos</strong> in your dashboard.
+            </p>
+            <Button type="button" onClick={onClose} className="h-11 rounded-xl px-6">Done</Button>
+          </div>
+        ) : (
         <form onSubmit={handleSubmit} className="p-5 space-y-3">
           {tutorName && (
             <div className="rounded-xl border border-primary/25 bg-primary/10 px-4 py-3">
@@ -318,6 +366,7 @@ export function BookDemoModal({ open, onClose, tutorName, defaultSubject, defaul
             </Button>
           </div>
         </form>
+        )}
       </div>
     </div>
   );

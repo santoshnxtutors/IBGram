@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { HeroHighlights } from "@/components/shared/HeroHighlights";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
+import { BookDemoCta } from "@/components/booking/BookDemoCta";
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
 
 /**
@@ -53,12 +54,7 @@ export function GeneratedHero({ page }: { page: GeneratedSeoPage }) {
                   </>
                 }
               />
-              <Link
-                href="/tutors/"
-                className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
-              >
-                View Tutors
-              </Link>
+              <BookDemoCta className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30" />
             </div>
           </div>
 

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CalendarCheck, Calculator, ChevronDown, Home, Monitor, MessageCircle, Sparkles, Wallet } from "lucide-react";
+import { CalendarCheck, Calculator, ChevronDown, Home, Monitor, MessageCircle, ScrollText, Wallet } from "lucide-react";
 
 const WHATSAPP_DISPLAY = "+91 74393 68115";
 const WHATSAPP_URL = `https://wa.me/917439368115?text=${encodeURIComponent(
@@ -42,7 +42,7 @@ export function TutorPolicy() {
         <div className="pointer-events-none absolute -right-10 -top-10 size-48 rounded-full bg-white/10 blur-2xl" />
         <div className="relative">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="size-3.5" /> IB Gram Tutor Policy
+            <ScrollText className="size-3.5" /> IB Gram Tutor Policy
           </span>
           <h1 className="mt-3 text-2xl font-black leading-tight sm:text-3xl">Home tuition: 100% yours from month 2. Online: 70% yours.</h1>
           <p className="mt-2 max-w-xl text-sm text-white/85 sm:text-base">

@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ArrowRight, MapPin, ChevronDown, Menu, UserCircle, X, LayoutDashboard, LogOut } from "lucide-react";
+import { MapPin, ChevronDown, Menu, UserCircle, X, LogOut } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { useCurrentUser, logoutCurrentUser } from "@/lib/auth/useCurrentUser";
-import { dashboardPathForUser } from "@/lib/auth/types";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -43,6 +42,30 @@ export function Header() {
   const router = useRouter();
   const isIgcse = pathname?.startsWith('/igcse');
   const { user } = useCurrentUser();
+  const displayName = [user?.firstName, user?.lastName].filter(Boolean).join(" ") || user?.email || "";
+  const initial = displayName.trim().charAt(0).toUpperCase() || "?";
+  // Google photo when the account has one (falls back to the initial if it fails to load),
+  // otherwise a gradient initial. Green dot = signed in.
+  const [photoFailed, setPhotoFailed] = useState(false);
+  const avatar = (size: string, dot = false) => (
+    <span className="relative block shrink-0 leading-none">
+      {user?.avatarUrl && !photoFailed ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={user.avatarUrl}
+          alt=""
+          referrerPolicy="no-referrer"
+          onError={() => setPhotoFailed(true)}
+          className={`block ${size} rounded-full object-cover shadow-md`}
+        />
+      ) : (
+        <span className={`grid ${size} place-items-center rounded-full bg-linear-to-br from-primary via-primary to-sky-500 font-extrabold tracking-tight text-white shadow-md shadow-primary/30`}>
+          {initial}
+        </span>
+      )}
+      {dot && <span className="absolute bottom-0 right-0 size-2.5 rounded-full bg-emerald-500 ring-2 ring-background" />}
+    </span>
+  );
 
   const handleLogout = async () => {
     await logoutCurrentUser();
@@ -109,7 +132,7 @@ export function Header() {
           </Link>
 
           {/* Curriculum Switcher for Small Screens (Mobile/Tablet) */}
-          <div className="lg:hidden ml-4">
+          <div className="lg:hidden ml-2 sm:ml-4">
             <DropdownMenu>
               <DropdownMenuTrigger aria-label="IB curriculum switcher" className="flex items-center gap-1 text-xs font-bold text-foreground focus:outline-none bg-muted/20 px-2.5 py-1 rounded-full hover:bg-muted/40 transition-colors">
                 <span>{isIgcse ? "IGCSE" : "IB"}</span> <ChevronDown className="size-3" />
@@ -207,21 +230,33 @@ export function Header() {
 
         {/* Right: Join as tutor CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <JoinAsTutorButton />
+          {/* Signed-in users already have an account, so the join CTA is hidden for them. */}
+          {!user && <JoinAsTutorButton />}
           {SHOW_THEME_SWITCHER && <ThemeSwitcher />}
-          {/* Account / login menu, to the right of Join as tutor. */}
+          {/* Account / login menu, to the right of Join as tutor. Signed in: the user's initial. */}
           {SHOW_ACCOUNT_CONTROLS && <DropdownMenu>
-            <DropdownMenuTrigger aria-label="User Account Options" className={buttonVariants({ variant: "ghost", size: "icon", className: "rounded-full text-foreground hover:bg-primary/10 hover:text-primary transition-all cursor-pointer" })}>
-              <UserCircle className="size-8 transition-colors" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48 border-border bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-[1.5rem] shadow-2xl transition-all">
+            {user ? (
+              <DropdownMenuTrigger
+                aria-label={`Account menu for ${displayName}`}
+                className="grid size-11 shrink-0 cursor-pointer place-items-center rounded-full ring-2 ring-primary/20 transition-all duration-200 hover:scale-105 hover:ring-primary/60 hover:shadow-lg hover:shadow-primary/20 focus:outline-none focus-visible:ring-primary"
+              >
+                {avatar("size-9 text-base", true)}
+              </DropdownMenuTrigger>
+            ) : (
+              <DropdownMenuTrigger aria-label="User Account Options" className={buttonVariants({ variant: "ghost", size: "icon", className: "rounded-full text-foreground hover:bg-primary/10 hover:text-primary transition-all cursor-pointer" })}>
+                <UserCircle className="size-8 transition-colors" />
+              </DropdownMenuTrigger>
+            )}
+            <DropdownMenuContent align="end" className={`${user ? "w-60" : "w-48"} border-border bg-background/95 backdrop-blur-xl mt-2 p-2 rounded-[1.5rem] shadow-2xl transition-all`}>
               {user ? (
                 <>
-                  <Link href={dashboardPathForUser(user)} prefetch={false} aria-label="Dashboard">
-                    <DropdownMenuItem className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-muted hover:text-primary transition-all focus:bg-muted outline-none">
-                      <LayoutDashboard className="mr-2 size-4" /> Dashboard
-                    </DropdownMenuItem>
-                  </Link>
+                  <div className="flex items-center gap-3 border-b border-border/60 px-3 pb-3 pt-2 mb-1">
+                    {avatar("size-9 text-base")}
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-bold text-foreground">{displayName}</p>
+                      {user.firstName && <p className="truncate text-xs font-medium text-muted-foreground">{user.email}</p>}
+                    </div>
+                  </div>
                   <DropdownMenuItem onClick={handleLogout} className="cursor-pointer rounded-xl py-3 px-4 font-bold text-foreground hover:bg-muted hover:text-destructive transition-all focus:bg-muted outline-none">
                     <LogOut className="mr-2 size-4" /> Log out
                   </DropdownMenuItem>
@@ -245,13 +280,17 @@ export function Header() {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="lg:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-1.5">
+          {/* Join CTA lives in the bar itself on small screens — buried in the
+              drawer it was a tap away and invisible on first paint. */}
+          {!user && <JoinAsTutorButton />}
           {SHOW_THEME_SWITCHER && <ThemeSwitcher />}
           <Button 
             variant="ghost" 
             size="icon" 
             aria-label="Toggle Mobile Menu"
             onClick={() => setIsMobileMenuOpen(true)}
+            className="size-9"
           >
             <Menu className="size-6 text-foreground" />
           </Button>
@@ -355,22 +394,18 @@ export function Header() {
             >
               Admissions & Test Prep
             </Link>
-            <Link href="/join-as-tutor" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button className="w-full gap-2 rounded-2xl bg-primary py-6 text-lg font-bold text-primary-foreground hover:bg-primary/90">
-                Join as Tutor
-                <ArrowRight className="size-5" />
-              </Button>
-            </Link>
           </nav>
 
           <div className="mt-auto pt-10 border-t border-border/50 flex flex-col gap-4">
             {SHOW_ACCOUNT_CONTROLS && (user ? (
               <>
-                <Link href={dashboardPathForUser(user)} prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button className="w-full py-6 text-lg rounded-2xl font-bold bg-primary text-primary-foreground">
-                    Go to Dashboard
-                  </Button>
-                </Link>
+                <div className="flex items-center gap-3 px-1">
+                  {avatar("size-11 text-lg")}
+                  <div className="min-w-0">
+                    <p className="truncate font-bold text-foreground">{displayName}</p>
+                    {user.firstName && <p className="truncate text-sm text-muted-foreground">{user.email}</p>}
+                  </div>
+                </div>
                 <Button
                   variant="outline"
                   onClick={() => { setIsMobileMenuOpen(false); handleLogout(); }}

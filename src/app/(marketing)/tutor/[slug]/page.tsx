@@ -7,11 +7,7 @@ import { JsonLd } from "@/components/seo-city/JsonLd";
 import { SchoolDisclaimer } from "@/components/seo-city/SchoolDisclaimer";
 import { Markdown } from "@/components/blog/Markdown";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
-import {
-  getPublishedTutorReachSlugs,
-  getTutorReachPageBySlug,
-  REACH_MIN_WORDS,
-} from "@/lib/cms/tutor-reach";
+import { getPublishedTutorReachSlugs, getTutorReachPageBySlug } from "@/lib/cms/tutor-reach";
 
 export const revalidate = 120;
 export const dynamicParams = true;
@@ -32,10 +28,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = page.metaTitle ?? page.title;
   const description = page.metaDescription ?? page.intro ?? `${page.h1} — IB Gram.`;
 
-  // Quality gate: thin pages stay out of the index to avoid duplicate-content
-  // signals when a tutor has many similar pages.
-  const passesGate = page.wordCount >= REACH_MIN_WORDS;
-  const shouldIndex = page.indexFlag === "index" || (page.indexFlag === "auto" && passesGate);
+  // The REACH_MIN_WORDS gate used to flip thin pages to noindex. It now only
+  // governs sitemap inclusion (see tutor-reach.ts); a live reach page is
+  // indexable unless an operator explicitly flagged it noindex.
+  const shouldIndex = page.indexFlag !== "noindex";
 
   return {
     title: `${title} | IB Gram`,

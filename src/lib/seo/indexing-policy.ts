@@ -28,7 +28,7 @@ const PRIVATE_PREFIXES = [
   "/login/",
   "/signup/",
   "/student/",
-  "/ai-tools/",
+  "/review/",
   "/preview/",
   "/draft/",
   "/cart/",
@@ -64,13 +64,9 @@ export function getRobotsForPublicPage(context: PublicPageContext): PublicPageRo
     return noindex(canonical, "Page is a duplicate or near-duplicate.");
   }
 
-  if (typeof context.wordCount === "number" && context.wordCount > 0 && context.wordCount < 180) {
-    return noindex(canonical, "Page content is too thin for indexing.");
-  }
-
-  if (typeof context.qualityScore === "number" && context.qualityScore > 0 && context.qualityScore < 45) {
-    return noindex(canonical, "Page quality score is below the indexable threshold.");
-  }
+  // The wordCount < 180 and qualityScore < 45 thresholds used to noindex from
+  // here. No caller ever supplied those fields, and content quality is not a
+  // robots decision — a published canonical page is indexable.
 
   return {
     index: true,

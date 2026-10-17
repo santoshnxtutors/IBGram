@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { AuthFlow } from "@/components/auth/AuthFlow";
+import { getServerUser } from "@/lib/auth/server";
+import { dashboardPathForUser } from "@/lib/auth/types";
 
 export const metadata: Metadata = {
   title: "Login",
@@ -9,6 +12,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LoginPage() {
+/** Only same-site relative paths, so ?returnTo can't bounce users off-site. */
+function safeReturnTo(value?: string): string | null {
+  return value && value.startsWith("/") && !value.startsWith("//") ? value : null;
+}
+
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ returnTo?: string }> }) {
+  const { returnTo } = await searchParams;
+  // Already signed in: honour ?returnTo, else straight to the dashboard.
+  const user = await getServerUser();
+  if (user) redirect(safeReturnTo(returnTo) ?? dashboardPathForUser(user));
   return <AuthFlow initialAuthType="login" />;
 }

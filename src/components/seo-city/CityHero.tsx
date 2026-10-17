@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, MapPin, SearchCheck, ShieldCheck, Sparkles } from "lucide-react";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
+import { BookDemoCta } from "@/components/booking/BookDemoCta";
 import type { CitySeoPage } from "@/lib/seo/city-page-types";
 
 export function CityHero({ page }: { page: CitySeoPage }) {
@@ -40,12 +41,7 @@ export function CityHero({ page }: { page: CitySeoPage }) {
                   </>
                 }
               />
-              <Link
-                href="/tutors/"
-                className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
-              >
-                {page.secondaryCtaText}
-              </Link>
+              <BookDemoCta className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30" />
             </div>
 
             <div className="grid gap-3 border-t border-border/50 pt-7 sm:grid-cols-2">

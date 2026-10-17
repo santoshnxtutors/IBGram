@@ -83,5 +83,37 @@ export async function syncPayment(orderId: string) {
       }),
     },
   });
-  return prisma.payment.findUnique({ where: { orderId } });
+  const payment = await prisma.payment.findUnique({ where: { orderId } });
+
+  // Paying for a tutor permanently opens that student <-> tutor thread.
+  if (payment?.status === "paid") await unlockTutorChat(payment);
+
+  return payment;
+}
+
+/**
+ * Links a captured payment to the student's account by email and opens a
+ * permanent conversation with the tutor they paid for. Best-effort: a failure
+ * here must never make the webhook retry a payment that already succeeded.
+ */
+async function unlockTutorChat(payment: { tutorId: string | null; customerEmail: string }) {
+  if (!payment.tutorId) return;
+  try {
+    const [student, tutor] = await Promise.all([
+      prisma.user.findFirst({
+        where: { email: payment.customerEmail.toLowerCase(), deletedAt: null },
+        select: { id: true },
+      }),
+      prisma.tutor.findUnique({ where: { id: payment.tutorId }, select: { userId: true } }),
+    ]);
+    if (!student || !tutor?.userId || student.id === tutor.userId) return;
+
+    await prisma.conversation.upsert({
+      where: { studentId_tutorId: { studentId: student.id, tutorId: tutor.userId } },
+      create: { studentId: student.id, tutorId: tutor.userId, permanent: true, status: "active" },
+      update: { permanent: true, status: "active" },
+    });
+  } catch (error) {
+    console.error("[payment] could not unlock tutor chat:", error);
+  }
 }

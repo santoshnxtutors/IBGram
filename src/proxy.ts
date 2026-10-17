@@ -14,6 +14,11 @@ const STATIC_ALIAS_REDIRECTS: Array<{ from: RegExp; to: (m: RegExpMatchArray) =>
 export function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
+  // Signed-in students and tutors live in their dashboard; /dashboard/ resolves which one.
+  if (pathname === "/" && request.cookies.has("ibgram_session")) {
+    return NextResponse.redirect(new URL("/dashboard/", request.url));
+  }
+
   for (const rule of STATIC_ALIAS_REDIRECTS) {
     const match = pathname.match(rule.from);
     if (match) {
@@ -29,6 +34,7 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/",
     "/ib-tutors/:path*",
     "/igcse-tutors/:path*",
     "/igcse-pages/:path*",

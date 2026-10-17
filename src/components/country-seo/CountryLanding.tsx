@@ -18,6 +18,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
+import { BookDemoCta } from "@/components/booking/BookDemoCta";
 import { fallbackReviews } from "@/components/home/review-data";
 import { buttonVariants } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo-city/JsonLd";
@@ -277,18 +278,11 @@ export function CountryLanding({
               </p>
 
               <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
-                <Link
-                  href="/tutors"
-                  prefetch={false}
-                  className={buttonVariants({
+                <BookDemoCta className={buttonVariants({
                     size: "lg",
                     className:
                       "group h-14 rounded-xl bg-primary px-8 text-base font-bold text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 md:text-lg",
-                  })}
-                >
-                  View all tutors
-                  <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
-                </Link>
+                  })} />
                 <BookDemoButton className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-border bg-background/50 px-8 text-base font-bold text-foreground transition-all hover:border-primary/50 hover:bg-muted/30 md:text-lg" />
               </div>
 

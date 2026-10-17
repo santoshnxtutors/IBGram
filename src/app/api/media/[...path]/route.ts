@@ -56,6 +56,10 @@ export async function GET(_request: NextRequest, { params }: { params: Promise<{
     file = await fs.readFile(normalisedRequested);
   } catch {
     const ext = path.extname(normalisedRequested).toLowerCase();
+    // Uploads live on the production server; in local dev show the live copy instead of a blank.
+    if (process.env.NODE_ENV !== "production" && IMAGE_EXTENSIONS.has(ext)) {
+      return Response.redirect(`https://www.ibgram.com/api/media/${segments.map(encodeURIComponent).join("/")}`, 302);
+    }
     if (IMAGE_EXTENSIONS.has(ext)) {
       return new Response(
         '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1" viewBox="0 0 1 1"><rect width="1" height="1" fill="transparent"/></svg>',

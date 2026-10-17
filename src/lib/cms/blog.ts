@@ -2,7 +2,12 @@ import "server-only";
 
 import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/db";
-import { isStaticSafeSlug } from "@/lib/seo/slug-utils";
+import { isStaticSafeSlug, normalizeSlug } from "@/lib/seo/slug-utils";
+
+/** The URL-safe slug for a post, whatever the stored column holds. */
+function publicSlug(slug: string): string {
+  return isStaticSafeSlug(slug) ? slug : normalizeSlug(slug);
+}
 
 export const BLOG_CACHE_TAG = "blog";
 
@@ -74,7 +79,13 @@ function toPublic(row: {
   };
   return {
     id: row.id,
-    slug: row.slug,
+    // A handful of rows were saved with the raw title as the slug ("IB Tutor
+    // Fees in Gurgaon: What Affects the Cost?"). isStaticSafeSlug kept those out
+    // of the sitemap, but the listing pages still linked the encoded form, which
+    // Googlebot crawled into Search Console's "Not found (404)" bucket.
+    // Normalising here fixes every link, the sitemap and prerendering at once;
+    // getBlogPostBySlug resolves the clean slug back to the row below.
+    slug: publicSlug(row.slug),
     title: row.title,
     excerpt: row.excerpt,
     body: row.body,
@@ -124,10 +135,30 @@ export const getPublishedBlogPosts = unstable_cache(
 export const getBlogPostBySlug = unstable_cache(
   async (slug: string): Promise<PublicBlogPost | null> => {
     try {
-      const row = await prisma.blogPost.findUnique({
+      let row = await prisma.blogPost.findUnique({
         where: { slug },
         include: { category: true, featuredImage: true, ogImage: true },
       });
+      // Miss on a clean slug can still be a row whose stored slug is the raw
+      // title. Match on the normalised form so the link toPublic() emits
+      // resolves instead of 404ing.
+      // Only slugs are pulled here: this runs on every /blog/<unknown> hit,
+      // which is a path crawlers find constantly, so it must not load every
+      // post body. The one match is then fetched in full.
+      if (!row) {
+        const slugs = await prisma.blogPost.findMany({
+          where: { status: "published" },
+          select: { slug: true },
+          take: 500,
+        });
+        const match = slugs.find((c) => normalizeSlug(c.slug) === slug);
+        row = match
+          ? await prisma.blogPost.findUnique({
+              where: { slug: match.slug },
+              include: { category: true, featuredImage: true, ogImage: true },
+            })
+          : null;
+      }
       if (!row || row.status !== "published") return null;
       if (row.publishedAt && new Date(row.publishedAt).getTime() > Date.now()) return null;
       return toPublic(row);
@@ -209,10 +240,11 @@ export async function getPublishedBlogSlugs(): Promise<string[]> {
       select: { slug: true },
       take: 500,
     });
-    // Drop slugs that would prerender to a filename with illegal characters
-    // (e.g. a slug accidentally set to a title containing ":" or spaces), which
-    // crashes `actions/upload-artifact` during deploy.
-    return rows.map((r) => r.slug).filter(isStaticSafeSlug);
+    // A slug accidentally set to a title containing ":" or spaces would
+    // prerender to an illegal filename and crash `actions/upload-artifact`
+    // during deploy. Normalise rather than drop, so the post still gets a
+    // prerendered, crawlable URL (getBlogPostBySlug resolves it back).
+    return rows.map((r) => publicSlug(r.slug)).filter(isStaticSafeSlug);
   } catch {
     return [];
   }
@@ -229,8 +261,8 @@ export async function getBlogSitemapEntries(): Promise<Array<{ slug: string; las
     const now = Date.now();
     return rows
       .filter((r) => !r.publishedAt || new Date(r.publishedAt).getTime() <= now)
-      .filter((r) => isStaticSafeSlug(r.slug))
-      .map((r) => ({ slug: r.slug, lastModified: r.updatedAt.toISOString() }));
+      .map((r) => ({ slug: publicSlug(r.slug), lastModified: r.updatedAt.toISOString() }))
+      .filter((r) => isStaticSafeSlug(r.slug));
   } catch {
     return [];
   }

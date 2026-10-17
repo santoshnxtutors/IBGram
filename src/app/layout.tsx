@@ -110,11 +110,23 @@ export default function RootLayout({
     >
       <head>
         <meta name="google-site-verification" content="K38SzTeTzCsJaMdzQ1-lbdwOsUokujPNs9GoCWfWtVU" />
+        {/* Warm the TLS handshake for the tag scripts before they are requested.
+            Lighthouse measured ~309ms of LCP sitting in connection setup. */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        {/* lazyOnload, NOT afterInteractive. The two tag scripts are 313KB of
+            third-party JS; afterInteractive runs them the instant hydration
+            finishes, which is exactly when the page is trying to paint. On a
+            throttled mobile CPU that pushed LCP render-delay to ~6.3s of a 7.0s
+            LCP while total byte weight was only 793KB. lazyOnload waits for the
+            window load event, so the tags no longer compete with first paint.
+            GA4 pageviews and Ads conversions still fire — just after paint. */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18496960940"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             window.gtag = window.gtag || function gtag(){dataLayer.push(arguments);}

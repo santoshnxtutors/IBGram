@@ -11,8 +11,10 @@ import {
   loginController,
   logoutController,
   meController,
-  passwordResetStubController,
+  requestPasswordResetController,
+  resetPasswordController,
   registerController,
+  setPasswordController,
 } from "./auth.controller";
 
 const env = getEnv();
@@ -42,5 +44,6 @@ authRoutes.get("/me", requireAuth(), meController);
 authRoutes.get("/google", authRateLimit, googleStartController);
 authRoutes.get("/google/callback", googleCallbackController);
 authRoutes.post("/change-password", requireAuth(), validate({ body: changePasswordValidator }), changePasswordController);
-authRoutes.post("/request-password-reset", authRateLimit, validate({ body: requestPasswordResetValidator }), passwordResetStubController);
-authRoutes.post("/reset-password", authRateLimit, validate({ body: resetPasswordValidator }), passwordResetStubController);
+authRoutes.post("/set-password", authRateLimit, requireAuth(), setPasswordController);
+authRoutes.post("/request-password-reset", authRateLimit, validate({ body: requestPasswordResetValidator }), requestPasswordResetController);
+authRoutes.post("/reset-password", authRateLimit, validate({ body: resetPasswordValidator }), resetPasswordController);

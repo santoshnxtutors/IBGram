@@ -5,6 +5,7 @@ import {
   createBooking,
   getBookingForUser,
   listMyBookings,
+  listMyDemoRequests,
   listTutors,
   updateBookingStatus,
 } from "./bookings.service";
@@ -15,8 +16,7 @@ export const listTutorsController: RequestHandler = asyncHandler(async (req, res
 });
 
 export const createBookingController: RequestHandler = asyncHandler(async (req, res) => {
-  const booking = await createBooking(req.auth!.userId, req.body ?? {});
-  res.status(201).json(successResponse({ booking }, req.requestId ?? ""));
+  res.status(201).json(successResponse(await createBooking(req.auth!.userId, req.body ?? {}), req.requestId ?? ""));
 });
 
 export const myBookingsController: RequestHandler = asyncHandler(async (req, res) => {
@@ -32,4 +32,8 @@ export const getBookingController: RequestHandler = asyncHandler(async (req, res
 export const updateBookingController: RequestHandler = asyncHandler(async (req, res) => {
   const booking = await updateBookingStatus(req.auth!.userId, String(req.params.id), req.body?.status);
   res.json(successResponse({ booking }, req.requestId ?? ""));
+});
+
+export const myDemoRequestsController: RequestHandler = asyncHandler(async (req, res) => {
+  res.json(successResponse({ requests: await listMyDemoRequests(req.auth!.userId) }, req.requestId ?? ""));
 });

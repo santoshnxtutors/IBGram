@@ -97,6 +97,10 @@ model User {
   roles           UserRole[]
   sessions        Session[]
   refreshTokens   RefreshToken[]
+  passwordResetTokens PasswordResetToken[]
+  studentConversations Conversation[] @relation("ConversationStudent")
+  tutorConversations   Conversation[] @relation("ConversationTutor")
+  sentMessages         Message[]      @relation("MessageSender")
   loginAttempts   LoginAttempt[]
   createdPages    GeneratedPage[]       @relation("GeneratedPageCreatedBy")
   updatedPages    GeneratedPage[]       @relation("GeneratedPageUpdatedBy")
@@ -113,6 +117,8 @@ model User {
   demosAsStudent  DemoBooking[]         @relation("DemoStudent")
   demosAsTutor    DemoBooking[]         @relation("DemoTutor")
   tutorProfile    Tutor?                @relation("TutorOwner")
+  studentProfile  StudentProfile?
+  demoRequests    DemoRequest[]
 
   @@index([status])
   @@index([deletedAt])
@@ -125,6 +131,51 @@ enum DemoBookingStatus {
   cancelled
 }
 
+/// What a student (or parent) tells us after signing up on /signup. One per
+/// student account; admin works through them on /admin/student-signups.
+model StudentProfile {
+  id            String   @id @default(cuid())
+  userId        String   @unique
+  phone         String
+  parentName    String?
+  curriculum    String   // "IB" | "IGCSE"
+  grade         String   // e.g. "IB DP Year 1", "IGCSE Grade 10"
+  school        String?
+  subjects      String[] @default([])
+  city          String
+  learningModes String[] @default([]) // online | home | hybrid
+  goals         String?
+  status        String   @default("new") // new | contacted | matched | closed
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([status])
+}
+
+/// Every "Book a Demo" a student sends from /student/tutors, for any published
+/// tutor. Admin works through them on /admin/demo-bookings. When the tutor has a
+/// login account a DemoBooking is also created (demoBookingId) so it reaches
+/// the tutor's own dashboard.
+model DemoRequest {
+  id            String   @id @default(cuid())
+  studentId     String
+  tutorId       String
+  subject       String
+  preferredAt   DateTime
+  notes         String?
+  status        String   @default("new") // new | contacted | scheduled | completed | cancelled
+  demoBookingId String?  @unique
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  student       User     @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  tutor         Tutor    @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+
+  @@index([status])
+  @@index([studentId])
+  @@index([tutorId])
+}
+
 /// A student-requested demo class with a tutor. Both are Users; the booking
 /// surfaces on the student's "My demos" and the tutor's "Demo requests".
 model DemoBooking {
@@ -135,6 +186,8 @@ model DemoBooking {
   scheduledAt DateTime
   status      DemoBookingStatus @default(requested)
   notes       String?
+  meetLink    String?
+  meetEventId String?
   createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
   student     User              @relation("DemoStudent", fields: [studentId], references: [id], onDelete: Cascade)
@@ -223,6 +276,19 @@ model RefreshToken {
   @@index([tokenHash])
   @@index([userId])
   @@index([sessionId])
+  @@index([expiresAt])
+}
+
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
   @@index([expiresAt])
 }
 
@@ -655,6 +721,7 @@ model Tutor {
   assets          TutorAsset[]
   reviews         TutorReview[]
   reachPages      TutorReachPage[]
+  demoRequests    DemoRequest[]
 
   @@index([status])
   @@index([deletedAt])
@@ -1348,6 +1415,44 @@ model Payment {
   @@index([status])
   @@index([createdAt])
   @@index([customerEmail])
+}
+
+/// A direct student <-> tutor thread. Opened when a demo is confirmed and made
+/// permanent once the student pays; the tutor can close it again.
+model Conversation {
+  id            String    @id @default(cuid())
+  studentId     String
+  tutorId       String
+  /// "active" | "closed" — closed hides it from the student and blocks new messages.
+  status        String    @default("active")
+  /// Survives demo cancellation once the student has paid for this tutor.
+  permanent     Boolean   @default(false)
+  lastMessageAt DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  student       User      @relation("ConversationStudent", fields: [studentId], references: [id], onDelete: Cascade)
+  tutor         User      @relation("ConversationTutor", fields: [tutorId], references: [id], onDelete: Cascade)
+  messages      Message[]
+
+  @@unique([studentId, tutorId])
+  @@index([studentId])
+  @@index([tutorId])
+  @@index([lastMessageAt])
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  senderId       String
+  body           String
+  /// Set when the other party opens the thread; drives unread counts and email nudges.
+  readAt         DateTime?
+  createdAt      DateTime     @default(now())
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender         User         @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId, createdAt])
+  @@index([senderId])
 }
 
 model FaqItem {

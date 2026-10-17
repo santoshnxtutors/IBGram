@@ -82,7 +82,10 @@ const CLAIM_PATTERNS: Array<[RegExp, string]> = [
   // Lookbehind skips grade labels: "a Year 5 or 6 tutor", "a Class 10 tutor".
   // A count starts 1-9 and only takes a comma before three digits, so syllabus codes ("0580, tutors")
   // and list fragments ("Sushant Lok 1, tutors") never match; "1,200 verified tutors" still does.
-  [/(?<!\b(?:year|years|class|grade|group|sector|phase|lok|city|level|paper|myp|dp|or|and|to)[ \t])(?<!\d[-–:])\b[1-9]\d{0,2}(?:,\d{3})*\+?[ \t]+(verified[ \t]+)?tutors?\b/gi, "tutor count"],
+  // "line" and "metro" added for Mumbai: "a Metro Line 3 tutor" and "a Line 1 tutor" are route
+  // names, not fabricated headcounts, and Mumbai has Metro Lines 1, 2A, 3 and 7 plus the
+  // Western, Central, Harbour and Trans-Harbour lines, so this recurs constantly there.
+  [/(?<!\b(?:year|years|class|grade|group|sector|phase|lok|city|level|paper|line|metro|myp|dp|or|and|to)[ \t])(?<!\d[-–:])\b[1-9]\d{0,2}(?:,\d{3})*\+?[ \t]+(verified[ \t]+)?tutors?\b/gi, "tutor count"],
   [/\b(guarantee[sd]?|guaranteed)\s+(a\s+)?(grade|score|result|7|a\*|improvement)/gi, "outcome guarantee"],
   [/\bguaranteed\s+(results?|success|grades?)/gi, "outcome guarantee"],
   [/\b\d{1,3}%\s+(of\s+)?(our\s+)?(students?|success|pass|improvement)/gi, "fabricated statistic"],

@@ -21,7 +21,7 @@ export interface CityPlan {
 }
 
 /** City pages may only link to other cities up to this rank: raise it as each batch publishes. */
-export const MAX_LINK_RANK = 241;
+export const MAX_LINK_RANK = 1010;
 
 const STATE_CODES: Record<string, string> = {
   "Andhra Pradesh": "IN-AP", "Arunachal Pradesh": "IN-AR", Assam: "IN-AS", Bihar: "IN-BR", Chhattisgarh: "IN-CT", Goa: "IN-GA",
@@ -34,6 +34,19 @@ const STATE_CODES: Record<string, string> = {
 };
 
 const HOME_TUITION = new Set(["delhi", "noida", "faridabad", "ghaziabad", "greater-noida"]);
+/**
+ * Source rows that get no page. The slug dedupe below only catches a repeated name in a *different*
+ * state; a name repeated within one state survives as "<name>-<state>" and needs listing here.
+ * - new-delhi: /delhi/ covers it.
+ * - vapi-gujarat, narsinghgarh-madhya-pradesh: the PDF lists Vapi and Narsinghgarh (Rajgarh district)
+ *   twice in the same state, so these are the same towns as /vapi/ and /narsinghgarh/.
+ * - chhapra-gujarat: every Chhapra in Gujarat is a 1,300-4,300 person village; the row looks like a
+ *   stray duplicate of Chhapra, Bihar (rank 144), which has its own page.
+ * - sr, pand: names still too damaged to identify (ranks 999 and 975). Decode them before writing.
+ */
+const EXCLUDED_SLUGS = new Set([
+  "new-delhi", "vapi-gujarat", "narsinghgarh-madhya-pradesh", "chhapra-gujarat", "sr", "pand",
+]);
 /** Slugs used by the older /ib-tutors/<city>/, /igcse-tutors/<city>/ and /igcse-pages/<city>/ pages. */
 const LEGACY_SLUG: Record<string, string> = { bengaluru: "bangalore", mysuru: "mysuru" };
 const LEGACY_CITIES = new Set("ahmedabad bangalore bhopal bhubaneswar chandigarh chennai coimbatore dehradun delhi faridabad ghaziabad greater-noida hyderabad indore jaipur kochi kolkata lucknow ludhiana mumbai mysuru nagpur navi-mumbai noida pune surat thane vadodara visakhapatnam".split(" "));
@@ -65,7 +78,8 @@ export const CITY_PLAN: CityPlan[] = rows
     };
   })
   // The PDF lists a few cities twice; keep the first (larger) entry.
-  .filter((c, i, all) => all.findIndex((o) => o.slug === c.slug) === i);
+  .filter((c, i, all) => all.findIndex((o) => o.slug === c.slug) === i)
+  .filter((c) => !EXCLUDED_SLUGS.has(c.slug));
 
 if (process.argv[1]?.endsWith("plan.ts")) {
   const [from = "1", to = "61"] = process.argv.slice(2);

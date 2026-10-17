@@ -16,7 +16,7 @@ const PRIVATE_DISALLOWS = [
   "/login/",
   "/signup/",
   "/student/",
-  "/ai-tools/",
+  "/review/",
   "/preview/",
   "/draft/",
   "/cart/",
@@ -53,7 +53,10 @@ const NAMED_BOTS = [
 
 // `/api/media/` serves public blog/tutor images. Longest match wins, so this
 // beats `Disallow: /api/` and lets Google fetch and index those images.
-const PUBLIC_ALLOWS = ["/", "/api/media/"];
+// `/_next/static/` is the CSS/JS a crawler needs to render the page at all. A
+// DB rule adds `Disallow: /_next/` to the `*` group; the longer Allow path wins
+// over it, so renderers never get a blocked stylesheet or bundle.
+const PUBLIC_ALLOWS = ["/", "/api/media/", "/_next/static/"];
 
 const BASE_RULES: RobotsRule[] = [
   { userAgent: "*", allow: PUBLIC_ALLOWS, disallow: PRIVATE_DISALLOWS },

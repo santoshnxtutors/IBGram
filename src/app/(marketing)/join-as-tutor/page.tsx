@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
-import { TutorApplicationForm } from "@/components/tutors/TutorApplicationForm";
+import { JoinOptions } from "@/components/tutors/JoinOptions";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/join-as-tutor/" },
   // An application form has nothing to rank for and should not compete with the
   // tutor-facing marketing pages, but it must stay crawlable so it can be linked.
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     url: absoluteUrl("/join-as-tutor/"),
@@ -42,8 +42,8 @@ export default function JoinAsTutorPage() {
                 Teach IB and IGCSE students with IB Gram
               </h1>
               <p className="max-w-xl text-base font-medium leading-relaxed text-muted-foreground md:text-lg">
-                Tell us what you teach, where you are and how you prefer to work. The form takes a few
-                minutes, and you can attach a CV if you have one to hand.
+                Sign up and build your own tutor profile, or fill in the form and let our team build it for
+                you. Either way takes a few minutes.
               </p>
               <ul className="space-y-3">
                 {POINTS.map((point) => (
@@ -71,7 +71,7 @@ export default function JoinAsTutorPage() {
             </div>
 
             <div className="lg:order-1 lg:col-span-7">
-              <TutorApplicationForm />
+              <JoinOptions />
             </div>
           </div>
         </div>

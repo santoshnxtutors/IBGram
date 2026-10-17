@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, MapPin, MessageCircleQuestion, ShieldCheck } from "lucide-react";
 import { HeroHighlights } from "@/components/shared/HeroHighlights";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
+import { BookDemoCta } from "@/components/booking/BookDemoCta";
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { SchoolStrip } from "@/components/shared/SchoolStrip";
 import { getGurgaonNearbySchools } from "@/lib/local-seo/gurgaon/gurgaon-schools";
@@ -68,12 +69,7 @@ export function GurgaonSeoLanding({
                     </>
                   }
                 />
-                <Link
-                  href="/tutors/"
-                  className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30"
-                >
-                  View Tutors
-                </Link>
+                <BookDemoCta className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30" />
               </div>
               <div className="grid gap-3 border-t border-border/50 pt-6 sm:grid-cols-2">
                 {content.trustPoints.map((point) => (

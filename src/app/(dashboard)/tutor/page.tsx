@@ -1,256 +1,310 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ClientChart } from "@/components/dashboard/ClientChart";
-import { DemoRequests } from "@/components/dashboard/DemoRequests";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { BookingsPanel } from "@/components/dashboard/BookingsPanel";
+import { ProfileVisibility } from "@/components/dashboard/ProfileVisibility";
+import { ReviewShare } from "@/components/dashboard/ReviewShare";
+import { EmptyState, HeaderPill, PageHeader, SectionCard, StatTile, Stars, StatusPill } from "@/components/dashboard/ui";
 import { useCurrentUser } from "@/lib/auth/useCurrentUser";
-import { Users, Clock, Calendar as CalendarIcon, Wallet, Star, AlertCircle, Video } from "lucide-react";
+import { PersonAvatar } from "@/components/tutors/PersonAvatar";
+import { fetchMyBookings, type Booking } from "@/lib/bookings/api";
+import { fetchTutorOverview, money, type TutorOverview } from "@/lib/tutor/overview";
 import {
-  Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip
-} from 'recharts';
+  AlertCircle,
+  ArrowRight,
+  BadgeCheck,
+  CalendarCheck,
+  CalendarDays,
+  Clock,
+  Eye,
+  EyeOff,
+  ExternalLink,
+  LifeBuoy,
+  MessageSquare,
+  ScrollText,
+  Star,
+  UserRound,
+  Users,
+  Video,
+  Wallet,
+} from "lucide-react";
 
-const radarData = [
-  { subject: 'Algebra Cohort', A: 130, fullMark: 150 },
-  { subject: 'Calculus Cohort', A: 85, fullMark: 150 },
-  { subject: 'Statistics Cohort', A: 110, fullMark: 150 },
-  { subject: 'Geometry Cohort', A: 95, fullMark: 150 },
-  { subject: 'Mock Exams (All)', A: 140, fullMark: 150 },
-  { subject: 'Internal Assessments', A: 75, fullMark: 150 },
+const hhmm = (iso: string) =>
+  new Date(iso).toLocaleString("en-IN", { weekday: "long", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+
+const QUICK_LINKS = [
+  { href: "/tutor/profile", icon: UserRound, title: "Edit my profile", copy: "Subjects, rate, locations, qualifications and FAQs." },
+  { href: "/tutor/students", icon: Users, title: "My students", copy: "Everyone you have taught, with a direct chat link." },
+  { href: "/tutor/reviews", icon: Star, title: "Reviews & QR", copy: "Share your review link and track what comes in." },
+  { href: "/tutor/earnings", icon: Wallet, title: "Earnings", copy: "Payments students made for your classes." },
+  { href: "/tutor/policy", icon: ScrollText, title: "Tutor policy", copy: "How payouts, conduct and cancellations work." },
+  { href: "/contact-us", icon: LifeBuoy, title: "Help & support", copy: "Reach the IB Gram team." },
 ];
 
-const revenueData = [
-  { month: 'Jan', revenue: 2100 },
-  { month: 'Feb', revenue: 2800 },
-  { month: 'Mar', revenue: 2600 },
-  { month: 'Apr', revenue: 3400 },
-  { month: 'May', revenue: 3800 },
-  { month: 'Jun', revenue: 4250 },
-];
+type TutorStats = {
+  pending: number;
+  upcoming: Booking[];
+  next: Booking | null;
+  completed: number;
+  students: number;
+};
+
+const NO_STATS: TutorStats = { pending: 0, upcoming: [], next: null, completed: 0, students: 0 };
+
+function tutorStats(bookings: Booking[], now: number): TutorStats {
+  const upcoming = bookings
+    .filter((b) => (b.status === "confirmed" || b.status === "requested") && +new Date(b.scheduledAt) > now)
+    .sort((a, b) => +new Date(a.scheduledAt) - +new Date(b.scheduledAt));
+  return {
+    pending: bookings.filter((b) => b.status === "requested").length,
+    upcoming,
+    next: upcoming.find((b) => b.status === "confirmed") ?? null,
+    completed: bookings.filter((b) => b.status === "completed").length,
+    students: new Set(bookings.filter((b) => b.status !== "cancelled").map((b) => b.student.id)).size,
+  };
+}
 
 export default function TutorDashboard() {
   const router = useRouter();
   const { user } = useCurrentUser();
+
+  const [overview, setOverview] = useState<TutorOverview | null>(null);
+  const [unread, setUnread] = useState(0);
+  const [stats, setStats] = useState<TutorStats>(NO_STATS);
 
   // Students who land here are routed to their own dashboard.
   useEffect(() => {
     if (user?.accountType === "student") router.replace("/student");
   }, [user, router]);
 
-  const firstName = user?.firstName || "there";
+  useEffect(() => {
+    fetchMyBookings()
+      .then(({ bookings: rows }) => {
+        setStats(tutorStats(rows.filter((b) => b.viewerRole === "tutor"), Date.now()));
+      })
+      .catch(() => {});
+    fetchTutorOverview().then(setOverview);
+    fetch("/api/chat/conversations/", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((body) => {
+        const rows = (body?.conversations ?? []) as Array<{ unread?: number }>;
+        setUnread(rows.reduce((sum, c) => sum + (c.unread ?? 0), 0));
+      })
+      .catch(() => {});
+  }, []);
+
+  const tutor = overview?.tutor ?? null;
+  const reviews = overview?.reviews;
+  const earnings = overview?.earnings;
+  // No name yet (still loading, or a profile without one): greet without a blank "there".
+  const firstName = user?.firstName || tutor?.displayName?.split(" ")[0] || "";
 
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">Welcome back, {firstName}! 👨‍🏫</h1>
-          <p className="text-muted-foreground mt-1">Your students are thriving. You have 3 classes scheduled today.</p>
-        </div>
-        <div className="flex gap-3">
-          <Button variant="outline" className="h-10 bg-background shadow-sm hover:text-primary">
-            <CalendarIcon className="ml-0 mr-2 size-4" /> Manage Schedule
-          </Button>
-          <Button className="h-10 bg-secondary hover:bg-secondary/90 text-secondary-foreground shadow-sm shimmer-btn">
-            <Video className="ml-0 mr-2 size-4" /> Start Next Class
-          </Button>
-        </div>
-      </div>
-
-      {/* Live: incoming demo bookings from students */}
-      <DemoRequests />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="bg-background/60 backdrop-blur-md shadow-sm border-border/50 transition-all hover:bg-muted/20">
-          <CardContent className="p-6">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="font-semibold text-muted-foreground text-sm">Active Students</h3>
-              <div className="size-8 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500">
-                <Users className="size-4" />
-              </div>
-            </div>
-            <div className="text-3xl font-bold text-foreground mb-1">24</div>
-            <p className="text-xs text-blue-500 font-medium flex items-center">
-              +3 new this month
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-background/60 backdrop-blur-md shadow-sm border-border/50 transition-all hover:bg-muted/20">
-          <CardContent className="p-6">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="font-semibold text-muted-foreground text-sm">Hours Taught (Weekly)</h3>
-              <div className="size-8 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-500">
-                <Clock className="size-4" />
-              </div>
-            </div>
-            <div className="text-3xl font-bold text-foreground mb-1">18.5 <span className="text-muted-foreground text-lg font-medium">hrs</span></div>
-            <p className="text-xs text-purple-500 font-medium">
-              Top 5% of tutors globally
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-background/60 backdrop-blur-md shadow-sm border-border/50 transition-all hover:bg-muted/20">
-          <CardContent className="p-6">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="font-semibold text-muted-foreground text-sm">Average Rating</h3>
-              <div className="size-8 rounded-full bg-secondary/10 flex items-center justify-center text-amber-800">
-                <Star className="size-4 fill-secondary" />
-              </div>
-            </div>
-            <div className="text-3xl font-bold text-foreground mb-1">4.9 <span className="text-muted-foreground text-lg font-medium">/ 5.0</span></div>
-            <p className="text-xs text-amber-800 font-medium">
-              Based on 142 reviews
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-background/60 backdrop-blur-md shadow-sm border-border/50 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5">
-          <CardContent className="p-6">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="font-semibold text-muted-foreground text-sm">Earnings This Month</h3>
-              <div className="size-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                <Wallet className="size-4" />
-              </div>
-            </div>
-            <div className="text-3xl font-bold text-foreground mb-1">$4,250</div>
-            <p className="text-xs text-primary font-medium flex items-center">
-              +12% vs last month
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-
-      <div className="grid lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-8">
-          <Card className="shadow-sm border-border/50 bg-background/50 backdrop-blur-sm">
-            <CardHeader className="flex flex-row items-center justify-between">
-              <div>
-                <CardTitle>Revenue & Engagement Trajectory</CardTitle>
-                <CardDescription>Monthly earnings derived from your active IB cohorts</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <ClientChart>
-                <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={revenueData} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
-                    <defs>
-                      <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3}/>
-                        <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
-                      </linearGradient>
-                    </defs>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--muted-foreground)/0.1)" />
-                    <XAxis dataKey="month" tick={{fill: 'hsl(var(--muted-foreground))', fontSize: 12}} axisLine={false} tickLine={false} />
-                    <YAxis tickFormatter={(val) => `$${val}`} tick={{fill: 'hsl(var(--muted-foreground))', fontSize: 12}} axisLine={false} tickLine={false} />
-                    <Tooltip 
-                      contentStyle={{ backgroundColor: 'hsl(var(--card))', borderColor: 'hsl(var(--border))', borderRadius: '12px', color: 'hsl(var(--foreground))' }}
-                      itemStyle={{ color: 'hsl(var(--primary))', fontWeight: 'bold' }}
-                    />
-                    <Area type="monotone" dataKey="revenue" stroke="hsl(var(--primary))" strokeWidth={3} fillOpacity={1} fill="url(#colorRevenue)" />
-                  </AreaChart>
-                </ResponsiveContainer>
-              </ClientChart>
-            </CardContent>
-          </Card>
-
-          <Card className="shadow-sm border-border/50 bg-background/50 backdrop-blur-sm">
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <div>
-                <CardTitle>Cohort Weakness Radar</CardTitle>
-                <CardDescription>AI aggregate of recent student mock tests (Math HL)</CardDescription>
-              </div>
-              <Button variant="outline" size="sm">Generate Remedial Material</Button>
-            </CardHeader>
-            <CardContent>
-              <ClientChart>
-                <ResponsiveContainer width="100%" height="100%">
-                  <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
-                    <PolarGrid stroke="hsl(var(--muted-foreground)/0.2)" />
-                    <PolarAngleAxis dataKey="subject" tick={{fill: 'hsl(var(--foreground))', fontSize: 11, fontWeight: 600}} />
-                    <PolarRadiusAxis angle={30} domain={[0, 150]} tick={false} axisLine={false} />
-                    <Radar name="Aggregated Struggles" dataKey="A" stroke="hsl(var(--secondary))" fill="hsl(var(--secondary))" fillOpacity={0.3} />
-                    <Tooltip 
-                      contentStyle={{ backgroundColor: 'hsl(var(--card))', borderColor: 'hsl(var(--border))', borderRadius: '12px' }}
-                    />
-                  </RadarChart>
-                </ResponsiveContainer>
-              </ClientChart>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="space-y-8">
-          <Card className="shadow-sm border-border/50 border-t-4 border-t-secondary overflow-hidden bg-background/50 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle>Today&apos;s Schedule</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="p-4 rounded-xl border border-secondary/30 bg-secondary/10 cursor-pointer transition-all hover:scale-[1.02]">
-                <div className="flex justify-between items-start mb-2">
-                  <span className="text-xs font-bold px-2 py-1 bg-secondary/20 text-secondary-foreground rounded-full flex items-center">
-                    <Video className="size-3 mr-1" /> Live Class
-                  </span>
-                  <span className="text-xs font-semibold text-secondary-foreground flex items-center"><Clock className="size-3 mr-1" /> IN 10 MINS</span>
-                </div>
-                <h4 className="font-semibold text-foreground mb-1">Calculus Foundations</h4>
-                <p className="text-sm text-muted-foreground line-clamp-1">Group Session (5 Students)</p>
-              </div>
-
-              <div className="p-4 rounded-xl border border-border bg-muted/40 cursor-pointer hover:bg-muted/60 transition-colors">
-                <div className="flex justify-between items-start mb-2">
-                  <span className="text-xs font-bold px-2 py-1 bg-primary/15 text-primary rounded-full">1:1 Tutoring</span>
-                  <span className="text-xs font-semibold text-muted-foreground flex items-center"><Clock className="size-3 mr-1" /> 16:30 (1hr)</span>
-                </div>
-                <h4 className="font-semibold text-foreground mb-1">IA Draft Review</h4>
-                <p className="text-sm text-muted-foreground opacity-80">Student: Marcus L.</p>
-              </div>
-
-              <div className="p-4 rounded-xl border border-border bg-muted/40 cursor-pointer hover:bg-muted/60 transition-colors">
-                <div className="flex justify-between items-start mb-2">
-                  <span className="text-xs font-bold px-2 py-1 bg-primary/15 text-primary rounded-full">1:1 Tutoring</span>
-                  <span className="text-xs font-semibold text-muted-foreground flex items-center"><Clock className="size-3 mr-1" /> 18:00 (1.5hr)</span>
-                </div>
-                <h4 className="font-semibold text-foreground mb-1">Vectors Sprint</h4>
-                <p className="text-sm text-muted-foreground opacity-80">Student: Emily R.</p>
-              </div>
-
-              <Button className="w-full h-12 mt-4" variant="outline">
-                <CalendarIcon className="mr-2 size-4" /> View Full Roster
+    <div className="space-y-6 duration-500 animate-in fade-in slide-in-from-bottom-4">
+      <PageHeader
+        eyebrow={
+          <>
+            <HeaderPill icon={Users}>Tutor dashboard</HeaderPill>
+            {tutor?.publicState === "live" && <HeaderPill icon={Eye} tone="live">Live on IB Gram</HeaderPill>}
+            {tutor?.publicState === "hidden" && <HeaderPill icon={EyeOff} tone="muted">Profile hidden</HeaderPill>}
+            {tutor?.publicState === "pending" && <HeaderPill icon={Clock} tone="warn">Waiting for approval</HeaderPill>}
+            {tutor?.verified && <HeaderPill icon={BadgeCheck} tone="live">Verified</HeaderPill>}
+            {stats.pending > 0 && (
+              <HeaderPill icon={AlertCircle} tone="warn">
+                {stats.pending} new demo request{stats.pending > 1 ? "s" : ""}
+              </HeaderPill>
+            )}
+          </>
+        }
+        avatar={
+          <PersonAvatar
+            src={tutor?.avatarUrl ?? user?.avatarUrl}
+            name={tutor?.displayName || firstName || "Tutor"}
+            className="size-24 text-3xl sm:size-28 sm:text-4xl"
+          />
+        }
+        title={firstName ? `Welcome back, ${firstName}` : "Welcome back"}
+        subtitle="Accept demo requests, keep your profile sharp and collect reviews — all from here."
+        actions={
+          <>
+            {tutor && (
+              <Link href={`/tutor-profile/${tutor.id}/`} target="_blank">
+                <Button className="h-11 gap-2 rounded-xl bg-white font-bold text-primary hover:bg-white/90">
+                  <ExternalLink className="size-4" /> View public profile
+                </Button>
+              </Link>
+            )}
+            <Link href="/tutor/profile">
+              <Button variant="outline" className="h-11 gap-2 rounded-xl border-white/30 bg-white/10 font-bold text-white hover:bg-white/20 hover:text-white">
+                <UserRound className="size-4" /> Edit profile
               </Button>
-            </CardContent>
-          </Card>
+            </Link>
+          </>
+        }
+      />
 
-          <Card className="shadow-sm border-border/50 border-t-4 border-t-destructive bg-background/50 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle>AI Insights & Alerts</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex gap-4 items-start p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer border border-transparent hover:border-border">
-                <div className="size-10 rounded-full bg-destructive/10 text-destructive flex items-center justify-center shrink-0 mt-1">
-                  <AlertCircle className="size-5" />
+      {!tutor && overview && (
+        <EmptyState
+          icon={UserRound}
+          title="Create your tutor profile"
+          action={
+            <Link href="/tutor/profile">
+              <Button className="mt-1 h-11 gap-2 rounded-xl font-bold">
+                Start my profile <ArrowRight className="size-4" />
+              </Button>
+            </Link>
+          }
+        >
+          Add your subjects, experience and city. Once our team approves it, students can find you and book demo classes.
+        </EmptyState>
+      )}
+
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
+        <StatTile
+          label="New demo requests"
+          value={stats.pending}
+          icon={AlertCircle}
+          tone={stats.pending > 0 ? "orange" : "primary"}
+          href="/tutor/schedule"
+          hint={stats.pending > 0 ? "Accept to send the Meet link" : "Nothing waiting on you"}
+        />
+        <StatTile
+          label="Upcoming classes"
+          value={stats.upcoming.length}
+          icon={CalendarDays}
+          tone="primary"
+          href="/tutor/schedule"
+          hint={stats.next ? hhmm(stats.next.scheduledAt) : "No confirmed class yet"}
+        />
+        <StatTile
+          label="Students"
+          value={stats.students}
+          icon={Users}
+          tone="violet"
+          href="/tutor/students"
+          hint={`${stats.completed} class${stats.completed === 1 ? "" : "es"} completed`}
+        />
+        <StatTile
+          label="Rating"
+          value={reviews?.rating ? reviews.rating.toFixed(1) : "—"}
+          unit={reviews?.rating ? "/ 5" : undefined}
+          icon={Star}
+          tone="orange"
+          href="/tutor/reviews"
+          hint={reviews?.count ? `${reviews.count} published review${reviews.count === 1 ? "" : "s"}` : "Share your link to get your first"}
+        />
+        <StatTile
+          label="Earned this month"
+          value={earnings ? money(earnings.thisMonth, earnings.currency) : "—"}
+          icon={Wallet}
+          tone="emerald"
+          href="/tutor/earnings"
+          hint={earnings?.total ? `${money(earnings.total, earnings.currency)} all time` : "Payments appear here once received"}
+        />
+      </div>
+
+      {stats.next && (
+        <section className="overflow-hidden rounded-2xl border border-primary/25 bg-[linear-gradient(120deg,rgba(28,71,168,0.07),rgba(43,111,216,0.03))] p-5 sm:p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex min-w-0 items-start gap-4">
+              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-primary text-primary-foreground">
+                <Video className="size-5" />
+              </span>
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="text-xs font-black uppercase tracking-wider text-primary">Your next class</p>
+                  <StatusPill status={stats.next.status} />
                 </div>
-                <div className="flex-1">
-                  <h4 className="text-sm font-semibold">At Risk: Emily R.</h4>
-                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">Failed mock test #4 (Vectors). AI recommends sending remedial worksheet before next class.</p>
-                  <Button variant="link" className="px-0 h-auto text-xs text-primary mt-1">Generate Worksheet</Button>
-                </div>
+                <p className="mt-1 truncate text-lg font-black tracking-tight text-foreground">{stats.next.subject}</p>
+                <p className="mt-0.5 text-sm text-muted-foreground">
+                  with <span className="font-semibold text-foreground">{stats.next.student.name}</span> · {hhmm(stats.next.scheduledAt)}
+                </p>
               </div>
-              
-              <div className="flex gap-4 items-start p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer border border-transparent hover:border-border">
-                <div className="size-10 rounded-full bg-secondary/10 text-amber-800 flex items-center justify-center shrink-0 mt-1">
-                  <Star className="size-5" />
+            </div>
+            <div className="flex shrink-0 flex-wrap gap-2">
+              {stats.next.meetLink ? (
+                <a href={stats.next.meetLink} target="_blank" rel="noopener noreferrer">
+                  <Button className="h-11 gap-2 rounded-xl bg-emerald-600 font-bold hover:bg-emerald-600/90">
+                    <Video className="size-4" /> Start the class
+                  </Button>
+                </a>
+              ) : (
+                <Link href={`/demo/${stats.next.id}`}>
+                  <Button className="h-11 gap-2 rounded-xl font-bold">
+                    <Video className="size-4" /> Open the room
+                  </Button>
+                </Link>
+              )}
+              <Link href="/tutor/messages">
+                <Button variant="outline" className="h-11 gap-2 rounded-xl font-semibold">
+                  <MessageSquare className="size-4" /> Chat{unread > 0 ? ` (${unread})` : ""}
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <div className="grid gap-6 lg:grid-cols-3">
+        <div className="space-y-6 lg:col-span-2">
+          <BookingsPanel role="tutor" limit={3} />
+          {tutor && <ReviewShare slug={tutor.slug} displayName={tutor.displayName} />}
+        </div>
+
+        <div className="space-y-6">
+          {tutor && <ProfileVisibility />}
+
+          <SectionCard
+            title="Latest reviews"
+            description={reviews?.pending ? `${reviews.pending} waiting for our team to publish.` : undefined}
+            icon={Star}
+            action={
+              <Link href="/tutor/reviews">
+                <Button size="sm" variant="outline" className="h-9 rounded-xl font-semibold">
+                  All
+                </Button>
+              </Link>
+            }
+            bodyClassName="space-y-3"
+          >
+            {!reviews?.items.length ? (
+              <EmptyState icon={Star} title="No reviews yet">
+                Share your review link or QR after a good session — reviews are the single biggest reason students pick a tutor.
+              </EmptyState>
+            ) : (
+              reviews.items.slice(0, 3).map((r) => (
+                <div key={r.id} className="rounded-2xl border border-border/60 p-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="truncate text-sm font-bold text-foreground">{r.authorName}</p>
+                    <StatusPill status={r.status} label={r.status === "review" ? "pending" : r.status} />
+                  </div>
+                  <Stars rating={r.rating} className="mt-1.5" />
+                  <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-muted-foreground">{r.quote}</p>
                 </div>
-                <div className="flex-1">
-                  <h4 className="text-sm font-semibold">Ready for Challenge</h4>
-                  <p className="text-xs text-muted-foreground mt-1">Marcus L. has scored 95%+ in Calculus for 3 weeks. Ready to advance to HL Topic 6.</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              ))
+            )}
+          </SectionCard>
+
+          <SectionCard title="Quick actions" icon={CalendarCheck} bodyClassName="grid gap-2">
+            {QUICK_LINKS.map((q) => (
+              <Link
+                key={q.href}
+                href={q.href}
+                className="group flex items-start gap-3 rounded-xl border border-transparent p-3 transition-colors hover:border-border hover:bg-muted/50"
+              >
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-muted text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                  <q.icon className="size-4" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm font-bold text-foreground">{q.title}</span>
+                  <span className="block text-xs leading-snug text-muted-foreground">{q.copy}</span>
+                </span>
+              </Link>
+            ))}
+          </SectionCard>
         </div>
       </div>
     </div>

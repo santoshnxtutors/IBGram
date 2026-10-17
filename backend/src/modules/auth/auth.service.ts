@@ -4,8 +4,11 @@ import { buildHttpOnlyCookieOptions, createOpaqueToken, hashToken, parseTtlToMs,
 import { hashPassword, validatePasswordPolicy, verifyPassword } from "@ibgram/authentication";
 import { AppError } from "../../middleware/error.middleware";
 import { getEnv } from "../../config/env";
+import { logger } from "../../config/logger";
 import { prisma } from "../../lib/prisma";
 import { writeAuditLog } from "../audit/audit.service";
+import { sendMail } from "../../lib/mail";
+import { passwordResetEmail } from "../../lib/emails";
 import type { AuthResult, SafeAuthUser } from "./auth.types";
 
 type UserWithRoles = Awaited<ReturnType<typeof getUserWithRolesById>>;
@@ -438,7 +441,7 @@ export async function handleGoogleCallback(req: Request, res: Response): Promise
       return;
     }
 
-    let user = await prisma.user.findFirst({ where: { email, deletedAt: null }, select: { id: true } });
+    let user = await prisma.user.findFirst({ where: { email, deletedAt: null }, select: { id: true, accountType: true } });
     if (!user) {
       const generatedPassword = `Google-${createOpaqueToken(32)}aA1!`;
       user = await prisma.user.create({
@@ -452,16 +455,19 @@ export async function handleGoogleCallback(req: Request, res: Response): Promise
           accountType: parsedState.role === "tutor" ? "tutor" : "student",
           status: "active",
         },
-        select: { id: true },
+        select: { id: true, accountType: true },
       });
       await assignDefaultViewerRole(user.id);
     } else {
-      await prisma.user.update({
+      // Older accounts have no type; give them the role they chose so they land on a dashboard.
+      user = await prisma.user.update({
         where: { id: user.id },
         data: {
           avatarUrl: googleUser.picture ?? undefined,
           lastLoginAt: new Date(),
+          ...(user.accountType ? {} : { accountType: parsedState.role }),
         },
+        select: { id: true, accountType: true },
       });
     }
 
@@ -477,8 +483,21 @@ export async function handleGoogleCallback(req: Request, res: Response): Promise
       req,
     });
 
-    res.redirect(env.AUTH_SUCCESS_REDIRECT);
-  } catch {
+    // Students and tutors land on their dashboard, or on the profile form until they fill it in.
+    // Accounts with no type (staff, old signups) go home. The profile check must never
+    // fail the login: the user is already signed in at this point.
+    const userId = user.id;
+    const dashboard = user.accountType === "tutor" ? "/tutor" : user.accountType === "student" ? "/student" : null;
+    const hasProfile = !dashboard
+      ? true
+      : await (user.accountType === "tutor"
+          ? prisma.tutor.count({ where: { userId, deletedAt: null } })
+          : prisma.studentProfile.count({ where: { userId } })
+        ).then((n) => n > 0, () => true);
+    const destination = dashboard ? (hasProfile ? dashboard : `${dashboard}/profile`) : "/";
+    res.redirect(new URL(destination, env.AUTH_SUCCESS_REDIRECT).toString());
+  } catch (error) {
+    logger.warn({ err: error }, "Google sign-in failed");
     res.redirect(env.AUTH_FAILURE_REDIRECT);
   }
 }
@@ -544,6 +563,34 @@ export async function logout(req: Request, res: Response): Promise<void> {
   clearSessionCookie(res);
 }
 
+/**
+ * Google sign-ups get a random password nobody knows. The user knows their password
+ * only if they registered with email or have set/changed it since.
+ */
+export async function hasKnownPassword(userId: string): Promise<boolean> {
+  const known = await prisma.auditLog.count({
+    where: { actorId: userId, action: { in: ["register.success", "password.change", "password.set"] } },
+  });
+  return known > 0;
+}
+
+/** First password for a Google-only account (no current password to check). */
+export async function setInitialPassword(userId: string, newPassword: string, req: Request): Promise<void> {
+  const user = await prisma.user.findFirst({ where: { id: userId, deletedAt: null }, select: { id: true, accountType: true } });
+  if (!user || (user.accountType !== "student" && user.accountType !== "tutor")) {
+    throw new AppError(403, "NOT_ALLOWED", "Password cannot be set for this account here.");
+  }
+  if (await hasKnownPassword(userId)) {
+    throw new AppError(400, "PASSWORD_ALREADY_SET", "Your account already has a password. Use change password instead.");
+  }
+
+  const policy = validatePasswordPolicy(newPassword);
+  if (!policy.valid) throw new AppError(400, "WEAK_PASSWORD", policy.errors.join(" "), { warnings: policy.warnings });
+
+  await prisma.user.update({ where: { id: userId }, data: { passwordHash: await hashPassword(newPassword) } });
+  await writeAuditLog({ actorId: userId, action: "password.set", entityType: "User", entityId: userId, req });
+}
+
 export async function changePassword(userId: string, currentPassword: string, newPassword: string, req: Request): Promise<void> {
   const user = await prisma.user.findUnique({ where: { id: userId } });
   if (!user || user.status !== "active") throw new AppError(401, "AUTHENTICATION_REQUIRED", "Authentication required.");
@@ -569,4 +616,77 @@ export async function changePassword(userId: string, currentPassword: string, ne
     entityId: user.id,
     req,
   });
+}
+
+const PASSWORD_RESET_TTL_MINUTES = 60;
+
+/**
+ * Emails a one-time reset link. Returns void regardless of whether the account
+ * exists — revealing that would let anyone enumerate registered emails.
+ */
+export async function requestPasswordReset(usernameOrEmail: string, req: Request): Promise<void> {
+  const value = usernameOrEmail.trim().toLowerCase();
+  const user = await prisma.user.findFirst({
+    where: { OR: [{ email: value }, { username: value }], deletedAt: null },
+    select: { id: true, email: true, firstName: true, status: true },
+  });
+
+  if (!user || user.status !== "active") {
+    logger.info({ usernameOrEmail: value }, "password reset requested for unknown or inactive account");
+    return;
+  }
+
+  // One live token per user: older ones stop working the moment a new one is issued.
+  await prisma.passwordResetToken.updateMany({
+    where: { userId: user.id, usedAt: null },
+    data: { usedAt: new Date() },
+  });
+
+  const token = createOpaqueToken();
+  const expiresAt = new Date(Date.now() + PASSWORD_RESET_TTL_MINUTES * 60_000);
+  await prisma.passwordResetToken.create({
+    data: { userId: user.id, tokenHash: hashToken(token), expiresAt },
+  });
+
+  const base = getEnv().NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+  await sendMail({
+    to: user.email,
+    ...passwordResetEmail({
+      name: user.firstName,
+      link: `${base}/reset-password?token=${encodeURIComponent(token)}`,
+      expiresInMinutes: PASSWORD_RESET_TTL_MINUTES,
+    }),
+  });
+
+  await writeAuditLog({ actorId: user.id, action: "password.reset_requested", entityType: "User", entityId: user.id, req });
+}
+
+/** Consumes a reset token and sets the new password, ending all existing sessions. */
+export async function resetPassword(token: string, newPassword: string, req: Request): Promise<void> {
+  const record = await prisma.passwordResetToken.findUnique({
+    where: { tokenHash: hashToken(token) },
+    select: { id: true, userId: true, usedAt: true, expiresAt: true },
+  });
+
+  if (!record || record.usedAt || record.expiresAt <= new Date()) {
+    throw new AppError(400, "INVALID_RESET_TOKEN", "This reset link is invalid or has expired. Please request a new one.");
+  }
+
+  const policy = validatePasswordPolicy(newPassword);
+  if (!policy.valid) {
+    throw new AppError(400, "WEAK_PASSWORD", policy.errors.join(" "), { warnings: policy.warnings });
+  }
+
+  const passwordHash = await hashPassword(newPassword);
+  const now = new Date();
+
+  await prisma.$transaction([
+    prisma.user.update({ where: { id: record.userId }, data: { passwordHash } }),
+    prisma.passwordResetToken.update({ where: { id: record.id }, data: { usedAt: now } }),
+    // A reset must log out anyone already holding a session for this account.
+    prisma.session.updateMany({ where: { userId: record.userId, revokedAt: null }, data: { revokedAt: now } }),
+    prisma.refreshToken.updateMany({ where: { userId: record.userId, revokedAt: null }, data: { revokedAt: now } }),
+  ]);
+
+  await writeAuditLog({ actorId: record.userId, action: "password.reset", entityType: "User", entityId: record.userId, req });
 }

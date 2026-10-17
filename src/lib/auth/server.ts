@@ -1,11 +1,8 @@
 import "server-only";
 
 import { cookies } from "next/headers";
+import { backendUrl } from "@/lib/backend-proxy";
 import type { CurrentUser } from "./types";
-
-function backendUrl(): string {
-  return (process.env.BACKEND_URL || `http://127.0.0.1:${process.env.BACKEND_PORT || "4000"}`).replace(/\/$/, "");
-}
 
 /**
  * Server-side current user, for gating server components / route layouts.

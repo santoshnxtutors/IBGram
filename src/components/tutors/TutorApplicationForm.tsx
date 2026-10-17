@@ -74,8 +74,8 @@ export function TutorApplicationForm() {
         <div className="space-y-5 rounded-2xl border border-primary/30 bg-primary/10 p-8">
           <p className="text-xl font-extrabold text-foreground">Application received.</p>
           <p className="text-sm font-medium leading-relaxed text-muted-foreground">
-            Our academic team reviews every profile and will contact you on the number you gave. If you did
-            not attach a CV, we may ask for one before the first call.
+            Our team will create your tutor profile from these details and email you the link once it is
+            live. We may call you on the number you gave, and if you did not attach a CV we may ask for one.
           </p>
           <Link
             href="/"

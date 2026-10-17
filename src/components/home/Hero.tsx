@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Star, ClipboardCheck, Target, CalendarCheck, MessageCircle, ShieldCheck, Laptop, CheckCircle2 } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
+import { BookDemoCta } from "@/components/booking/BookDemoCta";
 import { HeroFlagSlider } from "./HeroFlagSlider";
 
 export function Hero() {
@@ -44,18 +45,13 @@ export function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Link
-                href="/tutors"
-                prefetch={false}
+              <BookDemoCta
                 className={buttonVariants({
                   size: "lg",
                   className:
                     "h-14 px-10 text-base md:text-lg rounded-xl bg-primary text-primary-foreground group hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all font-bold",
                 })}
-              >
-                View all IB tutors
-                <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              />
               <BookDemoButton className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-border bg-background/50 px-8 text-base font-bold text-foreground transition-all hover:border-primary/50 hover:bg-muted/30 md:text-lg" />
             </div>
 

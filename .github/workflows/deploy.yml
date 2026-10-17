@@ -379,6 +379,25 @@ jobs:
           RAZORPAY_KEY_ID: ${{ secrets.RAZORPAY_KEY_ID }}
           RAZORPAY_KEY_SECRET: ${{ secrets.RAZORPAY_KEY_SECRET }}
           RAZORPAY_WEBHOOK_SECRET: ${{ secrets.RAZORPAY_WEBHOOK_SECRET }}
+          # Transactional email (Amazon SES over SMTP)
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT || '587' }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM || 'IB Gram <noreply@ibgram.com>' }}
+          MAIL_REPLY_TO: ${{ secrets.MAIL_REPLY_TO || 'support@ibgram.com' }}
+          # Google Calendar / Meet for demo classes
+          DCC_GOOGLE_ENABLED: ${{ secrets.DCC_GOOGLE_ENABLED || 'true' }}
+          DCC_GOOGLE_CALENDAR_ID: ${{ secrets.DCC_GOOGLE_CALENDAR_ID || 'primary' }}
+          DCC_GOOGLE_CREDENTIALS_JSON: ${{ secrets.DCC_GOOGLE_CREDENTIALS_JSON }}
+          DCC_GOOGLE_ORGANIZER_EMAIL: ${{ secrets.DCC_GOOGLE_ORGANIZER_EMAIL }}
+          DCC_GOOGLE_CONFERENCE_POLL_ATTEMPTS: ${{ vars.DCC_GOOGLE_CONFERENCE_POLL_ATTEMPTS || '4' }}
+          DCC_GOOGLE_CONFERENCE_POLL_DELAY_SECONDS: ${{ vars.DCC_GOOGLE_CONFERENCE_POLL_DELAY_SECONDS || '1.5' }}
+          DCC_GOOGLE_TIMEOUT_SECONDS: ${{ vars.DCC_GOOGLE_TIMEOUT_SECONDS || '12' }}
+          # Read by src/app/api/revalidate, admin asset upload and src/lib/db.ts
+          REVALIDATION_SECRET: ${{ secrets.REVALIDATION_SECRET }}
+          CLOUDINARY_UPLOAD_PRESET: ${{ secrets.CLOUDINARY_UPLOAD_PRESET }}
+          PRISMA_LOG_ERRORS: ${{ vars.PRISMA_LOG_ERRORS || 'true' }}
         run: |
           set -euo pipefail
           ssh_options="-p ${VPS_SSH_PORT} -o StrictHostKeyChecking=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=120 -o TCPKeepAlive=yes"
@@ -414,7 +433,7 @@ jobs:
               CLOUDINARY_CLOUD_NAME CLOUDINARY_API_KEY CLOUDINARY_API_SECRET \
               AWS_REGION AWS_S3_BUCKET AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY \
               OPENAI_API_KEY OPENAI_MODEL SENTRY_DSN LOG_LEVEL \
-              RAZORPAY_KEY_ID RAZORPAY_KEY_SECRET RAZORPAY_WEBHOOK_SECRET; do
+              RAZORPAY_KEY_ID RAZORPAY_KEY_SECRET RAZORPAY_WEBHOOK_SECRET               SMTP_HOST SMTP_PORT SMTP_USER SMTP_PASS MAIL_FROM MAIL_REPLY_TO               DCC_GOOGLE_ENABLED DCC_GOOGLE_CALENDAR_ID DCC_GOOGLE_CREDENTIALS_JSON DCC_GOOGLE_ORGANIZER_EMAIL               DCC_GOOGLE_CONFERENCE_POLL_ATTEMPTS DCC_GOOGLE_CONFERENCE_POLL_DELAY_SECONDS DCC_GOOGLE_TIMEOUT_SECONDS               REVALIDATION_SECRET CLOUDINARY_UPLOAD_PRESET PRISMA_LOG_ERRORS; do
               emit_export "$key"
             done
 

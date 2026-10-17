@@ -16,6 +16,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
+import { BookDemoCta } from "@/components/booking/BookDemoCta";
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getGeneratedPageForRoute } from "@/lib/generated-pages/routes";
@@ -112,6 +113,7 @@ export default async function IgcseCityPage({ params }: IgcseCityPageProps) {
                 >
                   Browse IGCSE Subjects
                 </Link>
+                <BookDemoCta className="inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-xl border border-border bg-background/50 px-6 text-base font-black text-foreground transition-all hover:border-secondary/50 hover:bg-muted/30" />
               </div>
 
               <div className="grid gap-3 border-t border-border/50 pt-7 sm:grid-cols-2">

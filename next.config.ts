@@ -56,6 +56,20 @@ const nextConfig: NextConfig = {
       // Same place listed under two taxonomies with identical titles; keep the specific one.
       { source: "/igcse-tutors/gurugram/areas/nirvana-country/", destination: "/igcse-tutors/gurugram/societies/nirvana-country/", permanent: true },
       { source: "/igcse-tutors/gurugram/areas/sector-57/", destination: "/igcse-tutors/gurugram/sectors/sector-57/", permanent: true },
+      // MYP/CP/DP/PYP are IB programmes, not IGCSE ones. The /courses/igcse/
+      // copies rendered noindex, sat outside the sitemap and duplicated the IB
+      // originals. One hop to the real page instead.
+      { source: "/courses/igcse/myp/", destination: "/courses/ib/myp/", permanent: true },
+      { source: "/courses/igcse/cp/", destination: "/courses/ib/cp/", permanent: true },
+      { source: "/courses/igcse/dp/", destination: "/courses/ib/dp/", permanent: true },
+      { source: "/courses/igcse/pyp/", destination: "/courses/ib/pyp/", permanent: true },
+      // "individuals" and "individuals-and-societies" are the same subject under
+      // two slugs; Google already picked the long one as canonical for IGCSE.
+      { source: "/courses/ib/individuals/", destination: "/courses/ib/individuals-and-societies/", permanent: true },
+      { source: "/courses/igcse/individuals/", destination: "/courses/igcse/individuals-and-societies/", permanent: true },
+      // Duplicate of /blog/how-to-score-7-ib-math-aa-hl/, previously kept alive
+      // under a noindex tag. Fold it into the canonical post.
+      { source: "/blog/how-to-score-a-7-in-ib-maths-aa-hl-step-by-step-strategy/", destination: "/blog/how-to-score-7-ib-math-aa-hl/", permanent: true },
       { source: "/tutor-profile/8403/", destination: "/tutors/", permanent: true },
       { source: "/tutor-profile/ck-gaurav-ib-igcse-maths-tutor/", destination: "/tutors/", permanent: true },
     ];
@@ -72,8 +86,8 @@ const nextConfig: NextConfig = {
     // 3-D Secure sends the card holder to their own bank's page inside that iframe, and those domains
     // are unbounded, so a fixed allow-list silently kills card payments.
     const csp = isProd
-      ? "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://meet.jit.si https://checkout.razorpay.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://www.google.com https://www.google.co.in https://googleads.g.doubleclick.net https://www.googleadservices.com https://images.unsplash.com https://randomuser.me https://res.cloudinary.com https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' https: wss:; frame-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https://*.razorpay.com; frame-ancestors 'none'; upgrade-insecure-requests;"
-      : "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://meet.jit.si https://checkout.razorpay.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://www.google.com https://www.google.co.in https://googleads.g.doubleclick.net https://www.googleadservices.com https://images.unsplash.com https://randomuser.me https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' http: https: ws: wss:; frame-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https://*.razorpay.com; frame-ancestors 'none';";
+      ? "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://meet.jit.si https://checkout.razorpay.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://www.google.com https://www.google.co.in https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.googleusercontent.com https://images.unsplash.com https://randomuser.me https://api.qrserver.com https://res.cloudinary.com https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' https: wss:; frame-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https://*.razorpay.com; frame-ancestors 'none'; upgrade-insecure-requests;"
+      : "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://meet.jit.si https://checkout.razorpay.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://www.google.com https://www.google.co.in https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.ibgram.com https://*.googleusercontent.com https://images.unsplash.com https://randomuser.me https://api.qrserver.com https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; connect-src 'self' http: https: ws: wss:; frame-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https://*.razorpay.com; frame-ancestors 'none';";
 
     const baseHeaders = [
       { key: "Content-Security-Policy", value: csp },

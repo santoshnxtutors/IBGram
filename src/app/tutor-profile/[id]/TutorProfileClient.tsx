@@ -13,6 +13,7 @@ import type { Tutor } from "@/lib/tutor-data";
 import type { PublicTutorReview } from "@/lib/cms/public-reviews";
 import { getStoredReturnTo, storeLegacyReturnToFromUrl } from "@/lib/return-to";
 import { openTutorMessage } from "@/lib/tutor-message";
+import { useCurrentUser } from "@/lib/auth/useCurrentUser";
 
 export type TutorReachLink = {
    slug: string;
@@ -70,6 +71,7 @@ function TutorProfileContent({
    reachPages: TutorReachLink[];
 }) {
    const router = useRouter();
+   const { user } = useCurrentUser();
    const [demoOpen, setDemoOpen] = useState(false);
    const education = educationEntries(tutor.education);
 
@@ -85,7 +87,14 @@ function TutorProfileContent({
       openTutorMessage(tutor);
    };
 
+   // Booking writes a DemoBooking against the signed-in student, so a guest is
+   // sent to log in first and returned straight back to this profile.
    const handleBookDemo = () => {
+      if (!user) {
+         const returnTo = `${window.location.pathname}${window.location.search}`;
+         router.push(`/login/?returnTo=${encodeURIComponent(returnTo)}`);
+         return;
+      }
       setDemoOpen(true);
    };
 
@@ -201,7 +210,7 @@ function TutorProfileContent({
                   </h1>
 
                   <div className="flex items-center gap-4 text-muted-foreground mb-8 text-sm md:text-base font-medium">
-                     <span className="flex items-center gap-2"><CheckCircle2 className="size-5 text-primary" /> Verified Indentity</span>
+                     <span className="flex items-center gap-2"><CheckCircle2 className="size-5 text-primary" /> Verified Identity</span>
                      <span>•</span>
                      <a
                         href="#tutor-reviews"
@@ -445,6 +454,7 @@ function TutorProfileContent({
          <BookDemoModal
             open={demoOpen}
             onClose={() => setDemoOpen(false)}
+            tutorId={String(tutor.id)}
             tutorName={tutor.name}
             defaultSubject={tutor.subject}
             defaultBoard={tutor.curriculum === "IB" ? "IB (DP)" : tutor.curriculum === "IGCSE" ? "Cambridge IGCSE" : undefined}
