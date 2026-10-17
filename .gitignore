@@ -144,3 +144,10 @@ Iamuseragent.json
 .claude/*.local.json
 .mcp.json
 .mcp.local.json
+
+# Local agent/editor tooling — not part of the app. These are machine-local
+# assistant skills and Playwright MCP page snapshots; they bloat the repo and
+# the snapshots are one-off browser dumps with no build or runtime role.
+.claude/
+.agents/
+.playwright-mcp/
