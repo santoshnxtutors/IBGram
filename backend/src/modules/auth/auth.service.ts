@@ -382,9 +382,21 @@ async function fetchGoogleUserInfo(code: string): Promise<GoogleUserInfo> {
     }),
   });
 
-  const tokenPayload = (await tokenResponse.json().catch(() => ({}))) as { access_token?: string };
+  const tokenPayload = (await tokenResponse.json().catch(() => ({}))) as {
+    access_token?: string;
+    error?: string;
+    error_description?: string;
+  };
   if (!tokenResponse.ok || !tokenPayload.access_token) {
-    throw new AppError(400, "GOOGLE_TOKEN_EXCHANGE_FAILED", "Could not complete Google sign in.");
+    // Google names the cause: invalid_client (wrong secret), invalid_grant
+    // (code reused or expired), redirect_uri_mismatch. Carry it through to the
+    // failure redirect instead of collapsing every cause into one code.
+    const googleError = tokenPayload.error ?? `http_${tokenResponse.status}`;
+    logger.warn(
+      { status: tokenResponse.status, googleError, description: tokenPayload.error_description },
+      "Google token exchange rejected",
+    );
+    throw new AppError(400, `GOOGLE_TOKEN_${googleError.toUpperCase()}`, "Could not complete Google sign in.");
   }
 
   const userInfoResponse = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
