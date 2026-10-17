@@ -502,8 +502,12 @@ jobs:
               echo "Running Prisma migrations..."
               npx --no-install prisma migrate deploy --schema database/prisma/schema.prisma
             else
-              echo "No Prisma migrations directory found; pushing Prisma schema..."
-              npx --no-install prisma db push --skip-generate --schema database/prisma/schema.prisma
+              # Deliberately NOT running `prisma db push`: DATABASE_URL is the live DB and
+              # the local schema is ahead of it by unfinished tables, so a push would ship
+              # half-built features. Apply schema changes by hand instead:
+              #   npx prisma migrate diff --from-schema-datasource <schema> --to-schema-datamodel <schema> --script
+              # then trim to the one table and `prisma db execute --file`.
+              echo "No Prisma migrations directory found; skipping schema push (schema changes are applied manually)."
             fi
 
             echo "Seeding database..."
