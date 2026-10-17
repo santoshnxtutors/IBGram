@@ -27,8 +27,14 @@ import { getPublicHomepageReviews } from "@/lib/cms/public-reviews";
 // dynamic path position.
 type PageProps = { params: Promise<{ gurgaonSlug: string }> };
 
-// Only known slugs render; everything else 404s.
-export const dynamicParams = false;
+// dynamicParams MUST stay true. With it false, only the pages prerendered at
+// build time exist and every other slug 404s - and on 2026-10-17 the whole
+// route (/usa/, /mumbai/, /ib-tutor-in-gurgaon/, ~2,800 sitemap URLs) 404ed in
+// production even though the CI build generated them, so the prebuilt output
+// did not survive the artifact round-trip to the VPS. True means a known slug
+// renders on demand from the same data instead of depending on a file arriving.
+// Unknown slugs still 404: every branch below falls through to notFound().
+export const dynamicParams = true;
 export const revalidate = 86400;
 
 export function generateStaticParams() {

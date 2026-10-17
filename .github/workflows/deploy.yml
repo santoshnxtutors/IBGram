@@ -625,3 +625,34 @@ jobs:
             echo "Production domain is still serving BoardPeFocus instead of IBGram."
             exit 1
           fi
+
+      # A sitemap full of 404s is worse than no sitemap. On 2026-10-17 the whole
+      # /[gurgaonSlug] route 404ed in production while the sitemap still listed
+      # ~2,800 of its URLs, and nothing caught it. Sample the live sitemap and
+      # fail the deploy if any sampled page is missing.
+      - name: Check sitemap pages actually render
+        run: |
+          set -euo pipefail
+          urls="$(mktemp)"
+          curl -s --max-time 60 https://www.ibgram.com/sitemap.xml | grep -o '<loc>[^<]*' | sed 's|<loc>||' > "$urls"
+          total="$(wc -l < "$urls")"
+          echo "sitemap lists ${total} URLs"
+          if [ "$total" -lt 100 ]; then
+            echo "ERROR: sitemap has only ${total} URLs - expected thousands."
+            exit 1
+          fi
+
+          failed=0
+          for url in $(shuf -n 15 "$urls"); do
+            status="$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "$url")"
+            echo "  ${status}  ${url}"
+            if [ "$status" != "200" ]; then
+              failed=$((failed + 1))
+            fi
+          done
+
+          if [ "$failed" -gt 0 ]; then
+            echo "ERROR: ${failed} of 15 sampled sitemap URLs did not return 200."
+            exit 1
+          fi
+          echo "All 15 sampled sitemap URLs render."
