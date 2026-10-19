@@ -12,7 +12,8 @@ import {
 import { CourseTutorSection } from "../../../courses/[curriculum]/[subject]/course-tutor-section";
 
 export const revalidate = 3600;
-export const dynamicParams = false;
+// No dynamicParams=false: a build that prerenders only part of this set would turn every
+// missing slug into a permanent 404. Unknown slugs still 404 via the notFound() below.
 
 type SubjectProps = { params: Promise<{ subject: string }> };
 
