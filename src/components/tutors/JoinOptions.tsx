@@ -67,7 +67,7 @@ function Steps({ choice }: { choice: Choice }) {
 
 /** Lets a tutor pick between self-signup and the "we build it for you" application form. */
 export function JoinOptions() {
-  const [choice, setChoice] = useState<Choice>("form");
+  const [choice, setChoice] = useState<Choice>("signup");
 
   return (
     <div className="space-y-6">

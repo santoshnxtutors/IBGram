@@ -207,9 +207,12 @@ export async function listMyDemoRequests(studentId: string) {
   });
   const bookingIds = requests.map((r) => r.demoBookingId).filter((id): id is string => Boolean(id));
   const bookings = bookingIds.length
-    ? await prisma.demoBooking.findMany({ where: { id: { in: bookingIds } }, select: { id: true, status: true } })
+    ? await prisma.demoBooking.findMany({
+        where: { id: { in: bookingIds } },
+        select: { id: true, status: true, meetLink: true },
+      })
     : [];
-  const bookingStatus = new Map(bookings.map((b) => [b.id, b.status]));
+  const byId = new Map(bookings.map((b) => [b.id, b]));
   return requests.map((r) => ({
     id: r.id,
     subject: r.subject,
@@ -218,7 +221,8 @@ export async function listMyDemoRequests(studentId: string) {
     status: r.status,
     createdAt: r.createdAt,
     demoBookingId: r.demoBookingId,
-    demoBookingStatus: r.demoBookingId ? bookingStatus.get(r.demoBookingId) ?? null : null,
+    demoBookingStatus: r.demoBookingId ? byId.get(r.demoBookingId)?.status ?? null : null,
+    meetLink: r.demoBookingId ? byId.get(r.demoBookingId)?.meetLink ?? null : null,
     tutor: { ...r.tutor, avatarUrl: avatarSrc(r.tutor.avatarUrl) },
   }));
 }
@@ -241,6 +245,24 @@ export async function getBookingForUser(userId: string, id: string) {
   });
   if (!booking) throw new AppError(404, "BOOKING_NOT_FOUND", "Demo not found.");
   return shapeBooking(booking, userId);
+}
+
+/**
+ * Opens the student <-> tutor thread for a confirmed demo. `permanent` stays off
+ * here: paying for the tutor is what makes the thread survive a cancellation.
+ * Best-effort — a chat failure must not block the booking update or its emails.
+ */
+async function openConversation(studentId: string, tutorId: string) {
+  if (studentId === tutorId) return;
+  try {
+    await prisma.conversation.upsert({
+      where: { studentId_tutorId: { studentId, tutorId } },
+      create: { studentId, tutorId, status: "active" },
+      update: { status: "active" },
+    });
+  } catch (error) {
+    console.error("[bookings] could not open the chat:", error);
+  }
 }
 
 const ALLOWED: Record<string, string[]> = {
@@ -269,8 +291,9 @@ export async function updateBookingStatus(userId: string, id: string, status: st
     [u.firstName, u.lastName].filter(Boolean).join(" ") || u.email;
   const base = getEnv().NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
 
-  // Tutor accepted: mint the Meet link, store it, then tell both sides.
+  // Tutor accepted: mint the Meet link, store it, open the chat, then tell both sides.
   if (status === "confirmed") {
+    await openConversation(updated.studentId, updated.tutorId);
     let meetLink = updated.meetLink;
     if (!meetLink) {
       const meeting = await createDemoMeeting({

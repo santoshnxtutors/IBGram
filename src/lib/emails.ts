@@ -147,3 +147,52 @@ export function newMessageEmail(input: {
   ].join("\n");
   return { subject: `New message from ${input.senderName}`, html, text };
 }
+
+/** A captured payment opens the thread with that tutor for good: sent to both sides. */
+export function chatUnlockedEmail(input: {
+  recipientName: string;
+  otherPartyName: string;
+  viewerRole: "student" | "tutor";
+  amount: string;
+  credentials?: { email: string; password: string } | null;
+}) {
+  const threadUrl = `${SITE_URL}/${input.viewerRole}/messages/`;
+  const lead =
+    input.viewerRole === "student"
+      ? `Your payment of <strong>${input.amount}</strong> went through, and your chat with <strong>${input.otherPartyName}</strong> is now open for good.`
+      : `<strong>${input.otherPartyName}</strong> has paid for tutoring with you (<strong>${input.amount}</strong>). Your chat with them is now open.`;
+
+  const creds = input.credentials
+    ? `<table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin:18px 0;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;">
+         <tr><td style="padding:16px 18px;">
+           <p style="margin:0 0 8px;font-size:13px;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;">Your new account</p>
+           <p style="margin:0 0 6px;font-size:15px;color:#111827;"><strong>Email:</strong> ${input.credentials.email}</p>
+           <p style="margin:0;font-size:15px;color:#111827;"><strong>Password:</strong> <code style="background:#eef2f7;padding:2px 6px;border-radius:4px;">${input.credentials.password}</code></p>
+         </td></tr>
+       </table>` + p("Please change this password after your first login.")
+    : "";
+
+  const html = emailLayout(
+    "Your tutor chat is open",
+    p(`Hi ${input.recipientName.split(" ")[0]},`) +
+      p(lead) +
+      button(threadUrl, "Open the chat") +
+      creds +
+      p("Messages sent from your dashboard arrive by email too, so nothing gets missed."),
+  );
+
+  const text = [
+    `Hi ${input.recipientName.split(" ")[0]},`,
+    "",
+    input.viewerRole === "student"
+      ? `Your payment of ${input.amount} went through. Your chat with ${input.otherPartyName} is now open for good.`
+      : `${input.otherPartyName} has paid for tutoring with you (${input.amount}). Your chat with them is now open.`,
+    "",
+    `Open the chat: ${threadUrl}`,
+    input.credentials ? `\nLogin: ${input.credentials.email}\nPassword: ${input.credentials.password}` : "",
+    "",
+    "- IB Gram",
+  ].join("\n");
+
+  return { subject: `Your chat with ${input.otherPartyName} is open`, html, text };
+}

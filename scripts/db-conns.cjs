@@ -81,6 +81,15 @@ async function connect(attempts = 20) {
         GROUP BY 2,3 ORDER BY 1 DESC`
     )
   );
+  // Tables the admin dashboard degrades without. Missing here means the
+  // deploy's `prisma db push` has not run against this database yet.
+  console.table(
+    await prisma.$queryRawUnsafe(
+      `SELECT t.name AS expected_table,
+              to_regclass(format('%I.%I', current_schema(), t.name)) IS NOT NULL AS present
+         FROM (VALUES ('StudentProfile'), ('DemoRequest')) AS t(name)`
+    )
+  );
   // Where do the idle ones come from, and how long have they sat there?
   console.table(
     await prisma.$queryRawUnsafe(

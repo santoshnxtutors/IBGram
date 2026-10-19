@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Search, Video, X, CalendarClock, BookOpen, CheckCircle2, Star, ExternalLink, Briefcase, MapPin, Monitor, Home, Shuffle } from "lucide-react";
+import { Search, Video, X, CalendarClock, BookOpen, CheckCircle2, Star, ExternalLink, Briefcase, MapPin, MessageSquare, Monitor, Home, Shuffle } from "lucide-react";
 import { PersonAvatar } from "@/components/tutors/PersonAvatar";
 import { createBooking, fetchMyDemoRequests, fetchTutors, type DemoRequest, type Tutor } from "@/lib/bookings/api";
 import { HeaderPill, PageHeader } from "@/components/dashboard/ui";
@@ -106,9 +106,24 @@ export default function FindTutorsPage() {
                     <CalendarClock className="size-3.5" /> Preferred: {fmtWhen(r.preferredAt)}
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {r.demoBookingId && (r.demoBookingStatus === "confirmed" || r.demoBookingStatus === "requested") && (
-                      <Link href={`/demo/${r.demoBookingId}`}>
-                        <Button size="sm" className="h-8 rounded-lg gap-1.5"><Video className="size-3.5" /> Join demo</Button>
+                    {/* The real Google Meet invite when there is one; the in-app room is the fallback. */}
+                    {r.meetLink ? (
+                      <a href={r.meetLink} target="_blank" rel="noreferrer">
+                        <Button size="sm" className="h-8 gap-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-600/90">
+                          <Video className="size-3.5" /> Join Meet
+                        </Button>
+                      </a>
+                    ) : (
+                      r.demoBookingId &&
+                      (r.demoBookingStatus === "confirmed" || r.demoBookingStatus === "requested") && (
+                        <Link href={`/demo/${r.demoBookingId}`}>
+                          <Button size="sm" className="h-8 rounded-lg gap-1.5"><Video className="size-3.5" /> Join demo</Button>
+                        </Link>
+                      )
+                    )}
+                    {r.demoBookingStatus === "confirmed" && (
+                      <Link href="/student/messages" className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-border px-3 text-xs font-semibold hover:border-primary/50 hover:text-primary">
+                        <MessageSquare className="size-3.5" /> Message tutor
                       </Link>
                     )}
                     <a href={`/tutor-profile/${r.tutor.slug}/`} target="_blank" rel="noreferrer" className="inline-flex h-8 items-center gap-1 rounded-lg border border-border px-3 text-xs font-semibold hover:border-primary/50 hover:text-primary">

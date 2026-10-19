@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AdminCard } from "../_components/AdminPrimitives";
+import { SearchSelect } from "@/components/ui/search-select";
 
 export type TutorOption = { id: string; displayName: string; hasLogin: boolean };
 export type StudentOption = { id: string; name: string; email: string };
@@ -43,6 +44,7 @@ export function ScheduleDemoForm({ tutors, students }: { tutors: TutorOption[]; 
         body.meetLink ? "Meet link created" : "no Meet link (check Google credentials)",
         body.studentEmailed ? "student emailed" : "student email FAILED",
         body.tutorEmailed ? "tutor emailed" : "tutor email FAILED",
+        body.chatOpened ? "chat opened" : "chat NOT opened",
       ];
       if (body.accountCreated) bits.push("new student account created, credentials sent");
       setResult(`Demo scheduled — ${bits.join(", ")}.`);
@@ -58,28 +60,38 @@ export function ScheduleDemoForm({ tutors, students }: { tutors: TutorOption[]; 
   };
 
   const input = "h-9 w-full rounded-md border border-white/15 bg-white/[0.04] px-3 text-sm text-slate-100 outline-none focus:border-emerald-400";
+  const menu = "border-white/15 bg-[#121a28] text-slate-100";
   const label = "mb-1 block text-[11px] font-bold uppercase tracking-wider text-slate-400";
+  const bookable = tutors.filter((t) => t.hasLogin);
+  const noLogin = tutors.length - bookable.length;
   const ready = tutorId && subject && scheduledAt && (mode === "existing" ? studentId : newStudentName && newStudentEmail);
 
   return (
     <AdminCard>
       <h3 className="mb-1 text-sm font-black uppercase tracking-[0.18em] text-slate-300">Schedule a demo</h3>
       <p className="mb-4 text-xs text-slate-500">
-        Books the demo as confirmed, creates a Google Meet link, and emails it to both the tutor and the student.
+        Books the demo as confirmed, creates a Google Meet link, opens the student–tutor chat, and emails both sides.
       </p>
 
       <div className="grid gap-3 md:grid-cols-2">
         <div>
           <label className={label}>Tutor</label>
-          <select value={tutorId} onChange={(e) => setTutorId(e.target.value)} className={input}>
-            <option value="">Select a tutor…</option>
-            {tutors.map((t) => (
-              <option key={t.id} value={t.id} disabled={!t.hasLogin}>
-                {t.displayName}
-                {t.hasLogin ? "" : " (no login yet)"}
-              </option>
-            ))}
-          </select>
+          <SearchSelect
+            name="tutorId"
+            label="Tutor"
+            value={tutorId}
+            onChange={setTutorId}
+            options={bookable.map((t) => ({ value: t.id, label: t.displayName }))}
+            placeholder="Select a tutor…"
+            searchPlaceholder={`Search ${bookable.length} tutors by name`}
+            className={input}
+            menuClassName={menu}
+          />
+          {noLogin > 0 && (
+            <p className="mt-1 text-[11px] text-slate-500">
+              {noLogin} tutor{noLogin === 1 ? "" : "s"} hidden — no login account yet. Create one from Tutor Applications.
+            </p>
+          )}
         </div>
 
         <div>
@@ -93,14 +105,17 @@ export function ScheduleDemoForm({ tutors, students }: { tutors: TutorOption[]; 
             </label>
           </div>
           {mode === "existing" ? (
-            <select value={studentId} onChange={(e) => setStudentId(e.target.value)} className={input}>
-              <option value="">Select a student…</option>
-              {students.map((s) => (
-                <option key={s.id} value={s.id}>
-                  {s.name} — {s.email}
-                </option>
-              ))}
-            </select>
+            <SearchSelect
+              name="studentId"
+              label="Student"
+              value={studentId}
+              onChange={setStudentId}
+              options={students.map((s) => ({ value: s.id, label: s.name, hint: s.email }))}
+              placeholder="Select a student…"
+              searchPlaceholder={`Search ${students.length} students by name or email`}
+              className={input}
+              menuClassName={menu}
+            />
           ) : (
             <div className="grid gap-2 sm:grid-cols-2">
               <input value={newStudentName} onChange={(e) => setNewStudentName(e.target.value)} placeholder="Full name" className={input} />

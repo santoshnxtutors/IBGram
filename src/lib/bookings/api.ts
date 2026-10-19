@@ -57,6 +57,8 @@ export type DemoRequest = {
   createdAt: string;
   demoBookingId: string | null;
   demoBookingStatus: Booking["status"] | null;
+  /** Google Meet URL of the linked booking, once the demo is confirmed. */
+  meetLink: string | null;
   tutor: { id: string; slug: string; displayName: string; headline: string | null; avatarUrl: string | null };
 };
 

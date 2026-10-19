@@ -5,6 +5,7 @@ import { TutorDiscovery } from "@/components/home/TutorDiscovery";
 import {
   buildMumbaiSeoMetadata,
   getMumbaiChildLinks,
+  cityWideSeedFor,
   getMumbaiSeoPage,
   getMumbaiSeoRelated,
   getMumbaiStaticParams,
@@ -63,7 +64,7 @@ export default async function MumbaiHubChildPage({ params }: PageProps) {
     <MumbaiSeoLanding
       page={page}
       related={getMumbaiSeoRelated(page.slug, 6)}
-      directory={getMumbaiChildLinks(slug)}
+      directory={[...getMumbaiChildLinks(slug), ...cityWideSeedFor(slug)]}
       tutorSection={await tutorSectionFor(slug)}
     />
   );

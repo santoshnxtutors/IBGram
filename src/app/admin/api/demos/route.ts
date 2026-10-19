@@ -1,12 +1,12 @@
 import type { NextRequest } from "next/server";
-import { randomBytes } from "node:crypto";
 import { z } from "zod";
-import { hashPassword } from "@ibgram/authentication";
 import { prisma } from "@/lib/db";
 import { jsonNoStore } from "@/lib/cache/revalidation";
 import { sendMail } from "@/lib/mail";
 import { demoScheduledEmail } from "@/lib/emails";
 import { createDemoMeeting } from "@/lib/google-calendar";
+import { openConversation } from "@/lib/chat/service";
+import { ensureStudentAccount } from "@/lib/students";
 import { requireAdminRequest } from "../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -29,17 +29,6 @@ const bodySchema = z
 
 const fullName = (u: { firstName: string | null; lastName: string | null; email: string }) =>
   [u.firstName, u.lastName].filter(Boolean).join(" ") || u.email;
-
-async function uniqueUsername(seed: string): Promise<string> {
-  const base = seed.split("@")[0].toLowerCase().replace(/[^a-z0-9]+/g, "").slice(0, 24) || "student";
-  let username = base;
-  let i = 1;
-  while (await prisma.user.findUnique({ where: { username }, select: { id: true } })) {
-    i += 1;
-    username = `${base}${i}`;
-  }
-  return username;
-}
 
 /** Admin-scheduled demo: books it, creates the Meet, and emails student + tutor. */
 export async function POST(request: NextRequest) {
@@ -67,28 +56,9 @@ export async function POST(request: NextRequest) {
   let studentId = input.studentId ?? "";
 
   if (!studentId) {
-    const email = input.newStudentEmail!.toLowerCase();
-    const existing = await prisma.user.findFirst({ where: { email }, select: { id: true } });
-    if (existing) {
-      studentId = existing.id; // Already a user — just book them in, no new account.
-    } else {
-      const password = `${randomBytes(6).toString("base64url")}${randomBytes(3).toString("hex")}`;
-      const [firstName, ...rest] = input.newStudentName!.split(" ");
-      const created = await prisma.user.create({
-        data: {
-          email,
-          username: await uniqueUsername(email),
-          passwordHash: await hashPassword(password),
-          firstName: firstName || input.newStudentName!,
-          lastName: rest.join(" ") || null,
-          accountType: "student",
-          status: "active",
-        },
-        select: { id: true },
-      });
-      studentId = created.id;
-      credentials = { email, password };
-    }
+    const account = await ensureStudentAccount(input.newStudentEmail!, input.newStudentName);
+    studentId = account.id;
+    credentials = account.credentials;
   }
 
   const student = await prisma.user.findUnique({
@@ -142,6 +112,14 @@ export async function POST(request: NextRequest) {
   }
   const meetLink = meeting?.meetLink ?? null;
 
+  // Scheduling the demo is what opens the student <-> tutor thread.
+  const chatOpened = await openConversation(student.id, tutor.userId)
+    .then(() => true)
+    .catch((error) => {
+      console.error("[admin/demos] could not open the chat:", error);
+      return false;
+    });
+
   const [studentEmailed, tutorEmailed] = await Promise.all([
     sendMail({
       to: student.email,
@@ -164,6 +142,7 @@ export async function POST(request: NextRequest) {
     bookingId: booking.id,
     meetLink,
     accountCreated: Boolean(credentials),
+    chatOpened,
     studentEmailed,
     tutorEmailed,
   });

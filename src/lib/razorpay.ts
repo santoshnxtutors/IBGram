@@ -1,5 +1,9 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { prisma } from "@/lib/db";
+import { openConversation, displayName } from "@/lib/chat/service";
+import { ensureStudentAccount } from "@/lib/students";
+import { sendMail } from "@/lib/mail";
+import { chatUnlockedEmail } from "@/lib/emails";
 
 // Server-only Razorpay PG client. Env names match .env and .github/workflows/deploy.yml.
 // Payment.orderId is Razorpay's own order id (order_XXXXXXXXXXXXXX), so status can always be re-read from Razorpay.
@@ -93,26 +97,56 @@ export async function syncPayment(orderId: string) {
 
 /**
  * Links a captured payment to the student's account by email and opens a
- * permanent conversation with the tutor they paid for. Best-effort: a failure
- * here must never make the webhook retry a payment that already succeeded.
+ * permanent conversation with the tutor they paid for, notifying both sides.
+ * The account is created when the paying email has none, so the chat always
+ * lands somewhere the student can reach. Best-effort: a failure here must never
+ * make the webhook retry a payment that already succeeded.
  */
-async function unlockTutorChat(payment: { tutorId: string | null; customerEmail: string }) {
+async function unlockTutorChat(payment: {
+  tutorId: string | null;
+  customerEmail: string;
+  customerName: string;
+  amount: unknown;
+  currency: string;
+}) {
   if (!payment.tutorId) return;
   try {
-    const [student, tutor] = await Promise.all([
-      prisma.user.findFirst({
-        where: { email: payment.customerEmail.toLowerCase(), deletedAt: null },
-        select: { id: true },
-      }),
-      prisma.tutor.findUnique({ where: { id: payment.tutorId }, select: { userId: true } }),
-    ]);
-    if (!student || !tutor?.userId || student.id === tutor.userId) return;
+    const tutor = await prisma.tutor.findUnique({ where: { id: payment.tutorId }, select: { userId: true } });
+    if (!tutor?.userId) return;
 
-    await prisma.conversation.upsert({
-      where: { studentId_tutorId: { studentId: student.id, tutorId: tutor.userId } },
-      create: { studentId: student.id, tutorId: tutor.userId, permanent: true, status: "active" },
-      update: { permanent: true, status: "active" },
-    });
+    const account = await ensureStudentAccount(payment.customerEmail, payment.customerName);
+    if (account.id === tutor.userId) return;
+
+    await openConversation(account.id, tutor.userId, true);
+
+    const [student, tutorUser] = await Promise.all([
+      prisma.user.findUnique({ where: { id: account.id }, select: { email: true, firstName: true, lastName: true } }),
+      prisma.user.findUnique({ where: { id: tutor.userId }, select: { email: true, firstName: true, lastName: true } }),
+    ]);
+    if (!student || !tutorUser) return;
+
+    const amount = `${payment.currency} ${Number(payment.amount).toFixed(2)}`;
+    await Promise.all([
+      sendMail({
+        to: student.email,
+        ...chatUnlockedEmail({
+          recipientName: displayName(student),
+          otherPartyName: displayName(tutorUser),
+          viewerRole: "student",
+          amount,
+          credentials: account.credentials,
+        }),
+      }),
+      sendMail({
+        to: tutorUser.email,
+        ...chatUnlockedEmail({
+          recipientName: displayName(tutorUser),
+          otherPartyName: displayName(student),
+          viewerRole: "tutor",
+          amount,
+        }),
+      }),
+    ]);
   } catch (error) {
     console.error("[payment] could not unlock tutor chat:", error);
   }

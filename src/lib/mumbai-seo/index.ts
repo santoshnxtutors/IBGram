@@ -151,7 +151,64 @@ export function getMumbaiChildLinks(slug: string): Array<{ name: string; links: 
     return subjects.length ? [{ name: `Every IB & IGCSE tutoring page in ${meta.locality}`, links: subjects.map((m) => ({ label: m.h1, href: m.path })) }] : [];
   }
 
+  // City-wide pages (keyword, school, brand) hang off no locality, so the zone
+  // -> locality -> subject chain above never reaches them. Left alone they are
+  // in the sitemap with ZERO inbound links, which is exactly Google's
+  // "Discovered - currently not indexed" bucket. Each one therefore lists its
+  // own cluster, so the cluster is internally connected, and the zone pages
+  // seed entry into it (see cityWideSeedFor below).
+  if (meta.kind === "keyword" || meta.kind === "school" || meta.kind === "brand") {
+    const peers = mumbaiSeoPagesMeta.filter((m) => m.kind === meta.kind && m.slug !== slug && written(m));
+    if (!peers.length) return [];
+    const label =
+      meta.kind === "school"
+        ? "IB & IGCSE tutoring for other Mumbai schools"
+        : meta.kind === "brand"
+          ? "More about IB Gram in Mumbai"
+          : "Related IB & IGCSE tutoring searches in Mumbai";
+    // Cap the rendered list: a 670-link block is unreadable and dilutes every
+    // link on it. A stable window around this page's own position keeps the
+    // whole set connected (each page links the next ones along) while any one
+    // page shows a sane number.
+    const ordered = [...peers].sort((a, b) => a.slug.localeCompare(b.slug));
+    const start = Math.max(0, ordered.findIndex((m) => m.slug > slug));
+    const window = [...ordered.slice(start, start + 24), ...ordered.slice(0, Math.max(0, 24 - (ordered.length - start)))];
+    return [{ name: label, links: window.map((m) => ({ label: m.h1, href: m.path })) }];
+  }
+
   return [];
+}
+
+/**
+ * The city-wide pages a given zone page seeds entry into.
+ *
+ * Keyword/school/brand pages are city-wide, so they belong to no zone. Linking
+ * all of them from all six zone pages would put ~700 links on every zone page;
+ * instead each zone carries a disjoint slice, so every city-wide page has at
+ * least one inbound link from a page that is itself reachable from `/mumbai/`.
+ * From there `getMumbaiChildLinks` above walks the rest of the cluster.
+ */
+export function cityWideSeedFor(zoneSlug: string): Array<{ name: string; links: Array<{ label: string; href: string }> }> {
+  const zones = mumbaiSeoPagesMeta
+    .filter((m) => m.kind === "zone" && mumbaiSeoContentBySlug[m.slug])
+    .map((m) => m.slug)
+    .sort();
+  const idx = zones.indexOf(zoneSlug);
+  if (idx < 0 || zones.length === 0) return [];
+
+  const groups: Array<{ name: string; links: Array<{ label: string; href: string }> }> = [];
+  for (const [kind, name] of [
+    ["keyword", "Popular IB & IGCSE searches in Mumbai"],
+    ["school", "IB & IGCSE tutoring by Mumbai school"],
+    ["brand", "About IB Gram in Mumbai"],
+  ] as const) {
+    const all = mumbaiSeoPagesMeta
+      .filter((m) => m.kind === kind && mumbaiSeoContentBySlug[m.slug])
+      .sort((a, b) => a.slug.localeCompare(b.slug));
+    const slice = all.filter((_, i) => i % zones.length === idx);
+    if (slice.length) groups.push({ name, links: slice.map((m) => ({ label: m.h1, href: m.path })) });
+  }
+  return groups;
 }
 
 /** Zone -> its written pages. Kept for a future /mumbai/ hub of our own, and for audits. */
