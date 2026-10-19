@@ -67,7 +67,7 @@ export function ScheduleDemoForm({ tutors, students }: { tutors: TutorOption[]; 
   const ready = tutorId && subject && scheduledAt && (mode === "existing" ? studentId : newStudentName && newStudentEmail);
 
   return (
-    <AdminCard>
+    <AdminCard className="relative z-30">
       <h3 className="mb-1 text-sm font-black uppercase tracking-[0.18em] text-slate-300">Schedule a demo</h3>
       <p className="mb-4 text-xs text-slate-500">
         Books the demo as confirmed, creates a Google Meet link, opens the student–tutor chat, and emails both sides.
@@ -88,7 +88,7 @@ export function ScheduleDemoForm({ tutors, students }: { tutors: TutorOption[]; 
             menuClassName={menu}
           />
           {noLogin > 0 && (
-            <p className="mt-1 text-[11px] text-slate-500">
+            <p className="mt-2 text-[11px] text-slate-500">
               {noLogin} tutor{noLogin === 1 ? "" : "s"} hidden — no login account yet. Create one from Tutor Applications.
             </p>
           )}
