@@ -11,6 +11,17 @@ import shard4 from "./shard-004.json";
 import shard5 from "./shard-005.json";
 import shard6 from "./shard-006.json";
 import shard7 from "./shard-007.json";
+import shard8 from "./shard-008.json";
+import shard9 from "./shard-009.json";
+import shard10 from "./shard-010.json";
+import shard11 from "./shard-011.json";
+import shard12 from "./shard-012.json";
+import shard13 from "./shard-013.json";
+import shard14 from "./shard-014.json";
+import shard15 from "./shard-015.json";
+import shard16 from "./shard-016.json";
+import shard17 from "./shard-017.json";
+import shard18 from "./shard-018.json";
 
 export const mumbaiSeoContentBySlug: Record<string, MumbaiSeoContent> = {
   ...(shard0 as unknown as Record<string, MumbaiSeoContent>),
@@ -21,4 +32,15 @@ export const mumbaiSeoContentBySlug: Record<string, MumbaiSeoContent> = {
   ...(shard5 as unknown as Record<string, MumbaiSeoContent>),
   ...(shard6 as unknown as Record<string, MumbaiSeoContent>),
   ...(shard7 as unknown as Record<string, MumbaiSeoContent>),
+  ...(shard8 as unknown as Record<string, MumbaiSeoContent>),
+  ...(shard9 as unknown as Record<string, MumbaiSeoContent>),
+  ...(shard10 as unknown as Record<string, MumbaiSeoContent>),
+  ...(shard11 as unknown as Record<string, MumbaiSeoContent>),
+  ...(shard12 as unknown as Record<string, MumbaiSeoContent>),
+  ...(shard13 as unknown as Record<string, MumbaiSeoContent>),
+  ...(shard14 as unknown as Record<string, MumbaiSeoContent>),
+  ...(shard15 as unknown as Record<string, MumbaiSeoContent>),
+  ...(shard16 as unknown as Record<string, MumbaiSeoContent>),
+  ...(shard17 as unknown as Record<string, MumbaiSeoContent>),
+  ...(shard18 as unknown as Record<string, MumbaiSeoContent>),
 };
