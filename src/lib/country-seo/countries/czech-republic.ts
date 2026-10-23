@@ -19,8 +19,8 @@ export const czechRepublic: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings in Central European Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Czechia | Online IB DP & IGCSE Tutoring",
-  metaDescription: "Online IB and IGCSE tutors for students in Czechia. One-to-one DP and IGCSE tuition scheduled to Central European Time, for families in Prague and Brno.",
+  title: "IB Tutors in the Czech Republic | Online DP & IGCSE",
+  metaDescription: "Studying the IB Diploma or IGCSE in Prague or Brno? Meet a tutor who already teaches that exact syllabus, online and timed to Central European Time.",
   h1: "Online IB and IGCSE tutors for students studying in the Czech Republic",
   heroEyebrow: "ONLINE TUTORING FOR CZECH FAMILIES",
   heroSubtitle: "Whether your child is at a Prague international school, a Brno campus, or one of the handful of schools further out teaching the IB Diploma or Cambridge/Edexcel IGCSE, we find a tutor who already knows that specific syllabus. Every lesson happens over video, timed to Central European Time so it lands after the school day ends anywhere from Prague to Ostrava. Give us the board, subject and level, and a shortlist follows.",

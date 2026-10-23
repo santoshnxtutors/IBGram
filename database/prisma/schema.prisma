@@ -1444,12 +1444,26 @@ model Message {
   id             String       @id @default(cuid())
   conversationId String
   senderId       String
-  body           String
+  body           String       @default("")
+  /// "text" | "image" | "file" | "audio" | "meet" | "system" — drives how the bubble renders.
+  kind           String       @default("text")
+  attachmentUrl  String?
+  attachmentName String?
+  attachmentMime String?
+  attachmentSize Int?
+  /// Extra payload per kind: a meet card keeps { link, startsAt, minutes } here.
+  meta           Json?
+  /// The message this one is a reply to; the bubble shows a quote of it.
+  replyToId      String?
+  /// Set when the sender unsends it. The row stays so the thread keeps its order.
+  deletedAt      DateTime?
   /// Set when the other party opens the thread; drives unread counts and email nudges.
   readAt         DateTime?
   createdAt      DateTime     @default(now())
   conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
   sender         User         @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+  replyTo        Message?     @relation("MessageReply", fields: [replyToId], references: [id], onDelete: SetNull)
+  replies        Message[]    @relation("MessageReply")
 
   @@index([conversationId, createdAt])
   @@index([senderId])

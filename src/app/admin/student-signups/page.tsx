@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/db";
 import { AdminShell } from "../_components/AdminShell";
-import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader } from "../_components/AdminPrimitives";
+import Link from "next/link";
+import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader, adminFilterHref } from "../_components/AdminPrimitives";
 import { StatusSelect } from "../_components/StatusSelect";
 import { DeleteAccountButton } from "../_components/DeleteAccountButton";
 
@@ -36,7 +37,7 @@ const STATUS_CLS: Record<string, string> = {
   closed: "border-white/15 text-slate-400",
 };
 
-export default async function AdminStudentSignupsPage() {
+export default async function AdminStudentSignupsPage({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
   let signups: Awaited<ReturnType<typeof loadSignups>> = [];
   let dbError: string | null = null;
   try {
@@ -49,31 +50,48 @@ export default async function AdminStudentSignupsPage() {
   }
 
   const count = (status: string) => signups.filter((s) => s.studentProfile?.status === status).length;
+  const { status: filter } = await searchParams;
+  // Clicking a metric card filters the list below; clicking it again clears it.
+  const href = (value: string) => adminFilterHref("/admin/student-signups", { status: filter }, "status", value);
+  const visible = filter
+    ? signups.filter((s) => (filter === "none" ? !s.studentProfile : s.studentProfile?.status === filter))
+    : signups;
 
   return (
     <AdminShell>
       <AdminPageHeader
         eyebrow="Students"
         title="Student Signups"
-        description="Students and parents who signed up on the website, with the profile they filled in. Move each one through the pipeline as you match them with a tutor."
+        description="Students and parents who signed up on the website, with the profile they filled in. Click any box below to filter the list, and move each student through the pipeline as you match them with a tutor."
+        actions={
+          <Link
+            href="/admin/accounts"
+            className="inline-flex h-10 items-center gap-2 rounded-lg bg-emerald-300 px-4 text-sm font-black text-slate-950 transition hover:bg-amber-300"
+          >
+            + Add student account
+          </Link>
+        }
       />
 
       <div className="grid gap-4 sm:grid-cols-5">
-        <AdminMetricCard label="Total signups" value={signups.length} />
-        <AdminMetricCard label="New" value={count("new")} tone="amber" />
-        <AdminMetricCard label="Contacted" value={count("contacted")} />
-        <AdminMetricCard label="Matched" value={count("matched")} />
-        <AdminMetricCard label="No profile yet" value={signups.filter((s) => !s.studentProfile).length} tone="amber" />
+        <AdminMetricCard label="Total signups" value={signups.length} href="/admin/student-signups" active={!filter} />
+        <AdminMetricCard label="New" value={count("new")} tone="amber" href={href("new")} active={filter === "new"} />
+        <AdminMetricCard label="Contacted" value={count("contacted")} href={href("contacted")} active={filter === "contacted"} />
+        <AdminMetricCard label="Matched" value={count("matched")} href={href("matched")} active={filter === "matched"} />
+        <AdminMetricCard label="No profile yet" value={signups.filter((s) => !s.studentProfile).length} tone="amber" href={href("none")} active={filter === "none"} />
       </div>
 
       <AdminCard>
         {dbError ? (
           <AdminEmptyState title="Could not load student signups" detail={dbError} />
-        ) : signups.length === 0 ? (
-          <AdminEmptyState title="No student signups yet" detail="Students who sign up at /signup will appear here." />
+        ) : visible.length === 0 ? (
+          <AdminEmptyState
+            title={filter ? "Nothing in this group" : "No student signups yet"}
+            detail={filter ? "Click the same box again to see every signup." : "Students who sign up at /signup will appear here."}
+          />
         ) : (
           <div className="space-y-4">
-            {signups.map((signup) => {
+            {visible.map((signup) => {
               const profile = signup.studentProfile;
               const name = [signup.firstName, signup.lastName].filter(Boolean).join(" ") || signup.email;
 

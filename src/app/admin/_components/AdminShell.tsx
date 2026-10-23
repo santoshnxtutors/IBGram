@@ -42,6 +42,7 @@ const navigation = [
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "AI Generator", href: "/admin/generator", icon: Bot },
   { label: "Tutors", href: "/admin/tutors", icon: Users },
+  { label: "Add Student / Tutor", href: "/admin/accounts", icon: UserPlus },
   { label: "Tutor Signups", href: "/admin/tutor-signups", icon: UserCheck },
   { label: "Student Signups", href: "/admin/student-signups", icon: GraduationCap },
   { label: "Demo Bookings", href: "/admin/demo-bookings", icon: CalendarCheck },

@@ -12,10 +12,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ibgram.com"),
   title: {
-    default: "IB Gram | IB and IGCSE Tutors for Home and Online Learning",
+    default: "IB & IGCSE Tutors — PYP to DP, Home & Online | IB Gram",
     template: "%s | IB Gram",
   },
-  description: "Find IB and IGCSE tutors for PYP, MYP, DP, Math AA, Math AI, Physics, Chemistry, Economics and English with home, online and hybrid support.",
+  description: "Share the subject, level and schedule and get a shortlist of verified IB and IGCSE tutors for PYP, MYP, DP and Cambridge subjects. Home or online.",
   keywords: [
     "IB home tutor",
     "IB home tuition",
@@ -139,11 +139,18 @@ export default function RootLayout({
         {/* AI / LLM crawler discovery — https://llmstxt.org */}
         <link rel="llms" type="text/plain" href="/llms.txt" />
         <link rel="llms-full" type="text/plain" href="/llms-full.txt" />
-        {/* Geographic SEO signals */}
-        <meta name="geo.region" content="IN-HR" />
-        <meta name="geo.placename" content="Gurugram" />
-        <meta name="geo.position" content="28.4595;77.0266" />
-        <meta name="ICBM" content="28.4595, 77.0266" />
+        {/*
+          Geographic SEO signals are per page, not site-wide.
+
+          These four tags used to be hardcoded here as Gurugram (IN-HR, 28.4595;77.0266), which
+          put "this page is in Haryana" on every URL on the site - including all 48 country
+          landing pages, the 2,219 Mumbai pages and the /uae/ set, each of which emits its own
+          correct location through the `other` field of its metadata. A page that declares two
+          different locations tells a crawler nothing, and the wrong one came first.
+
+          Pages that genuinely are about Gurugram set these themselves; everything else now
+          simply omits them, which is the honest default for a service with no single location.
+        */}
       </head>
       <body className="font-sans text-foreground bg-background">
         <a href="#main-content" className="sr-only focus:not-sr-only">

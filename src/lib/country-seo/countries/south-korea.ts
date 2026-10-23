@@ -19,8 +19,8 @@ export const southKorea: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings on Korea Standard Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in South Korea | Online IB DP & IGCSE Tuition",
-  metaDescription: "Online IB, IGCSE and A Level tutors for students at international schools in South Korea. One-to-one lessons on KST, built around the Suneung calendar.",
+  title: "IB Tutors in South Korea | Online DP & IGCSE, KST Evenings",
+  metaDescription: "Tell us the board, subject and level your child sits in Korea and we match a tutor who has taught it. Lessons run online, on Korea Standard Time.",
   h1: "Online IB and IGCSE tutors for international-school students in South Korea",
   heroEyebrow: "SOUTH KOREA · IB AND CAMBRIDGE TUTORING OVER VIDEO",
   heroSubtitle: "Between the CSAT-focused public system, a handful of Korean public schools now teaching the Diploma in Korean, and a well-established foreign-school sector in Seoul, Incheon and Jeju, South Korea has several very different tracks a student can sit. Tell us which one your child is on — the subject, the level, and the exam board — and we find a tutor who has taught it, delivered over video and timed to Korea Standard Time.",

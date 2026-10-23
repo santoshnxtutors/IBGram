@@ -1,6 +1,7 @@
 import type { Metadata, MetadataRoute } from "next";
 import { absoluteUrl, SITE_URL } from "@/lib/seo/slug-utils";
 import { resolvePageTitle } from "@/lib/seo/page-title";
+import { resolveMetaDescription } from "@/lib/seo/meta-description";
 import type { JsonLdObject } from "@/lib/seo/schema";
 import { CONTACT } from "@/lib/contact";
 import type { CountrySeoPage } from "@/lib/country-seo/types";
@@ -98,7 +99,7 @@ export function buildGurgaonHubMetadata(page: CountrySeoPage): Metadata {
   const canonical = absoluteUrl(GURGAON_HUB_PATH);
   return {
     title: resolvePageTitle(page.title),
-    description: page.metaDescription,
+    description: resolveMetaDescription(page.metaDescription),
     keywords: [page.primaryKeyword, ...page.secondaryKeywords],
     alternates: { canonical },
     robots: {
@@ -260,7 +261,7 @@ export function buildGurgaonSeoMetadata(meta: GurgaonSeoPageMeta): Metadata {
   const canonical = gurgaonSeoCanonical(meta);
   return {
     title: resolvePageTitle(meta.title),
-    description: meta.metaDescription,
+    description: resolveMetaDescription(meta.metaDescription),
     keywords: meta.primaryKeyword,
     alternates: { canonical },
     robots: {
@@ -281,6 +282,16 @@ export function buildGurgaonSeoMetadata(meta: GurgaonSeoPageMeta): Metadata {
       title: meta.title,
       description: meta.metaDescription,
       images: [OG_IMAGE],
+    },
+    // These were previously inherited from the hardcoded block in src/app/layout.tsx, which
+    // stamped Gurugram onto every URL on the site - including the country and Mumbai pages,
+    // which are not in Haryana. The block is gone, so the pages it was actually correct for
+    // now declare it themselves.
+    other: {
+      "geo.region": "IN-HR",
+      "geo.placename": "Gurugram (Gurgaon), Haryana",
+      "geo.position": `${GURUGRAM_GEO.latitude};${GURUGRAM_GEO.longitude}`,
+      ICBM: `${GURUGRAM_GEO.latitude}, ${GURUGRAM_GEO.longitude}`,
     },
   };
 }

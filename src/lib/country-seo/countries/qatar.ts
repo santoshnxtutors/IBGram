@@ -19,8 +19,8 @@ export const qatar: CountrySeoPage = {
   schedulingNote: "Weekday evenings and Friday-Saturday mornings in Arabia Standard Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Qatar | Online IB DP, MYP & IGCSE Tutoring",
-  metaDescription: "Online IB and IGCSE tutors for families in Doha and across Qatar. One-to-one DP, MYP and IGCSE tuition in Arabia Standard Time, matched to your syllabus.",
+  title: "IB Tutors in Qatar | Online DP & IGCSE in Doha",
+  metaDescription: "Doha families get an online tutor matched to the exact IB or IGCSE course their school teaches, on Arabia Standard Time. Ask for a shortlist by subject.",
   h1: "Online IB and IGCSE tutors for students studying in Qatar",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN QATAR",
   heroSubtitle: "A Doha IB continuum school, a British-curriculum school running IGCSE, or an Education City family weighing a branch-campus application — whichever fits, we pair your child with a tutor already fluent in that exact course. Lessons happen entirely on screen, timed to Arabia Standard Time so they slot naturally after a Qatari school day and its Sunday-to-Thursday rhythm. Name the subject and level, and a shortlist follows.",

@@ -20,8 +20,8 @@ export const sriLanka: CountrySeoPage = {
   lastUpdated: "2026-09-14",
   tutorsIntro: "Because Sri Lanka Standard Time and our tutors' own time zone are identical, the hours shown below need no conversion at all — the slot you pick is the slot both sides actually keep.",
 
-  title: "IB Tutors in Sri Lanka | Online IB DP, MYP & IGCSE Tutoring",
-  metaDescription: "Online IB and IGCSE tutors for families in Sri Lanka. One-to-one DP, MYP, PYP and IGCSE tuition on SLST, built around GCE A/L, UGC entry and university routes.",
+  title: "IB Tutors in Sri Lanka | Online PYP to DP & IGCSE",
+  metaDescription: "From PYP to the IB Diploma and IGCSE, work with a tutor on Sri Lanka's own clock, so there is no time gap to plan around. Send us the subject and level.",
   h1: "Online IB and IGCSE tutors for students studying in Sri Lanka",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN SRI LANKA",
   heroSubtitle: "Your child studies at an international school in Sri Lanka running IGCSE, A Level or the IB Diploma, alongside a national system built around the GCE O/L and A/L. Matching starts with the exact subject, level and exam board your child actually sits, not a general request for help. Lessons happen online and one-to-one, and because Sri Lanka keeps the same clock as our tutors, there is no time difference to plan around at all.",

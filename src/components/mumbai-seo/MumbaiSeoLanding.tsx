@@ -207,7 +207,7 @@ export function MumbaiSeoLanding({
                       </span>
                     </span>
                   </summary>
-                  <p className="mt-4 border-t border-border/40 pt-4 text-sm font-medium leading-relaxed text-muted-foreground">{faq.answer}</p>
+                  <p data-speakable className="mt-4 border-t border-border/40 pt-4 text-sm font-medium leading-relaxed text-muted-foreground">{faq.answer}</p>
                 </details>
               ))}
             </div>

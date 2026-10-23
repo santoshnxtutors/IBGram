@@ -19,8 +19,8 @@ export const bahrain: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings on Bahrain's clock",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Bahrain | Online IB DP, MYP & IGCSE Tutoring",
-  metaDescription: "Online IB and IGCSE tutors for students at schools in Bahrain. One-to-one IB DP, MYP and Cambridge IGCSE lessons scheduled to Bahrain's own time zone.",
+  title: "IB Tutors in Bahrain | Online IGCSE & DP, Manama",
+  metaDescription: "Match with an online tutor who already teaches your child's exact IB or IGCSE syllabus, in lessons timed to a Bahrain school evening. See a name first.",
   h1: "Online IB and IGCSE tutors for students studying in Bahrain",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN BAHRAIN",
   heroSubtitle: "A private school in Manama, Riffa or Saar has your child on the IB or Cambridge/Edexcel IGCSE syllabus, and finding someone outside class who has actually taught that same syllabus is harder than it should be. That is the gap we close: an online, one-to-one tutor matched to the exact subject and level, working around a Bahraini school evening. Tell us the programme and subject, and we'll put forward a name before any commitment is made.",

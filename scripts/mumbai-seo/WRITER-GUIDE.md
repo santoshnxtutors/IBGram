@@ -162,6 +162,28 @@ Gram's lead service on every one of these pages is **home tutoring**. Whatever t
   chains AND 8-10 home phrases separately: a near-me page drafted in home-tuition prose
   throughout typically first-gates at 3 primary / 4 home.
 
+### Pair "Mumbai" with a home phrase in the SAME sentence
+
+Two separate floors — "Mumbai" 10+ times, and "home tutor/tuition/classes" 8+ times in body —
+fail together on almost every first gate run, and for the same reason: **a page written tightly
+about one locality names the locality, not the city.** Prose that says "families in Napean Sea
+Road" twenty times can still land on Mumbai 6/10 and home 5/8.
+
+The fix is one habit. Write 8-10 sentences that carry **both** tokens at once:
+
+- "a Cambridge IGCSE Physics home tutor in Breach Candy, Mumbai"
+- "home tuition across this part of Mumbai"
+- "the home classes we arrange in Mumbai start with..."
+
+One such sentence advances both counters; ten of them clear both floors before you have written
+a word of filler. Budget them before drafting, spaced through the sections — not patched in
+afterwards, which is what produces the bolted-on sentences the banned-phrase checks then catch.
+
+**Where this bites hardest:** any slug whose primary keyword does NOT contain "home" — `best-*`,
+`*-tutor-near-me-*`, plain `ib-<subject>-tutor-*`. There the primary chain and the home floor
+share nothing at all, so both must be filled independently. Where the slug DOES contain "home"
+(`ibgram-home-tuition-*`, `*-home-tutor-*`), one well-formed chain feeds both — use that.
+
 ### A question-phrased H2 must END with the question mark
 
 The 3+ question-heading check is `/\?$/` on the trimmed heading, so the mark must be the **last

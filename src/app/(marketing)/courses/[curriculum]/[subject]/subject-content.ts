@@ -942,9 +942,9 @@ const ibArts: CourseSubjectContent = {
   heroEyebrow: "IB DP Group 6",
   heroSummary:
     "Verified tutors for IB Group 6 — Visual Arts, Music, Theatre, Dance and Film at Higher and Standard Level. Portfolio direction, coursework structure, written commentary and submission planning, without anyone else making the student’s work.",
-  metaTitle: "IB Arts Tutor — Visual Arts, Music, Theatre, Dance & Film (HL/SL) | IB Gram",
+  metaTitle: "IB Arts Tutor: Visual Arts, Music, Theatre | IB Gram",
   metaDescription:
-    "IB DP Group 6 tutoring for Visual Arts, Music, Theatre, Dance and Film at HL and SL. Support with the art-making inquiries portfolio, exhibition and curatorial rationale, music portfolios, theatre notebooks, the world dance investigation and the film comparative study.",
+    "IB Group 6 tutors for Visual Arts, Music, Theatre, Dance and Film at HL or SL: portfolio direction, comparative study and exhibition rationale. Ask us.",
   metaKeywords: [
     "IB Arts tutor",
     "IB Group 6 tutor",

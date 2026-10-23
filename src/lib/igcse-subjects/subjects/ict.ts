@@ -2,9 +2,9 @@ import type { IgcseSubjectContent } from "../types";
 
 export const ict: IgcseSubjectContent = {
   slug: "ict",
-  metaTitle: "IGCSE ICT Tutors | Cambridge 0417 & 0983 Practical Help",
+  metaTitle: "IGCSE ICT Tutors | 0417 Practical Paper Help",
   metaDescription:
-    "IGCSE ICT tutors for Cambridge 0417 and 0983 — theory paper revision plus the practical components: databases, spreadsheet modelling, website authoring. Online worldwide.",
+    "The 0417 practical papers cost more marks than the theory. Work through databases, spreadsheet models and website tasks one to one. Book a free trial.",
   primaryKeyword: "IGCSE ICT tutors",
   secondaryKeywords: [
     "IGCSE ICT tutor online",

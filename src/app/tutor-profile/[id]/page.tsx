@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { resolvePageTitle } from "@/lib/seo/page-title";
+import { resolveMetaDescription } from "@/lib/seo/meta-description";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Tutor } from "@/lib/tutor-data";
 import { getPublicTutorsFromDb } from "@/lib/cms/public-tutors";
@@ -24,12 +26,12 @@ export async function generateMetadata({ params }: TutorProfileProps): Promise<M
   }
 
   const profileUrl = getTutorProfileUrl(tutor);
-  const description = getTutorDescription(tutor);
+  const description = resolveMetaDescription(getTutorDescription(tutor));
   const image = tutor.image ? absoluteUrl(tutor.image) : undefined;
 
   return {
     // The root layout's title template appends "| IB Gram".
-    title: `${tutor.name} | ${tutor.subject} Tutor`,
+    title: resolvePageTitle(`${tutor.name} | ${tutor.subject} Tutor`),
     description,
     alternates: { canonical: profileUrl },
     robots: { index: true, follow: true },
@@ -75,7 +77,7 @@ export default async function TutorProfilePage({ params }: TutorProfileProps) {
 
   const profileUrl = getTutorProfileUrl(tutor);
   const tutorImage = tutor.image ? absoluteUrl(tutor.image) : undefined;
-  const description = getTutorDescription(tutor);
+  const description = resolveMetaDescription(getTutorDescription(tutor));
 
   const webpageSchema = {
     "@type": "WebPage",

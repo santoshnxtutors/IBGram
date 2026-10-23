@@ -19,8 +19,8 @@ export const oman: CountrySeoPage = {
   schedulingNote: "Evenings across the Sunday-to-Thursday school week, plus Friday and Saturday mornings, all on Gulf Standard Time",
   lastUpdated: "2026-09-14",
 
-  title: "Oman IB & IGCSE Tutors | Online DP, MYP Tutoring",
-  metaDescription: "IB Gram matches students in Oman with online IB and IGCSE tutors for one-to-one DP, MYP and IGCSE lessons on Gulf Standard Time, across Muscat, Sohar, Salalah.",
+  title: "IB Tutors in Oman | Online for Muscat & Salalah",
+  metaDescription: "Online IB and IGCSE tutors for Muscat, Sohar and Salalah, matched to the syllabus your school teaches and Oman's week. Trial lesson before you commit.",
   h1: "Online IB and IGCSE tutors for students at private schools in Oman",
   heroEyebrow: "ONLINE TUTORING FOR OMAN FAMILIES",
   heroSubtitle: "Muscat's private schools run British, American and IB curricula within a few kilometres of each other, and the same three systems reach Sohar and Salalah in smaller numbers. We start from the syllabus your child's school actually teaches — not a general label — and find a tutor who has taught it, with lessons scheduled across Oman's Sunday-to-Thursday week rather than forced into whatever hours suit us. A trial lesson comes before any commitment.",

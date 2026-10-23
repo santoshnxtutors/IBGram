@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { resolvePageTitle } from "@/lib/seo/page-title";
+import { resolveMetaDescription } from "@/lib/seo/meta-description";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -26,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const url = absoluteUrl(`/tutor/${page.slug}/`);
   const title = page.metaTitle ?? page.title;
-  const description = page.metaDescription ?? page.intro ?? `${page.h1} — IB Gram.`;
+  const description = resolveMetaDescription(page.metaDescription ?? page.intro ?? `${page.h1} — IB Gram.`);
 
   // The REACH_MIN_WORDS gate used to flip thin pages to noindex. It now only
   // governs sitemap inclusion (see tutor-reach.ts); a live reach page is
@@ -34,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const shouldIndex = page.indexFlag !== "noindex";
 
   return {
-    title: `${title} | IB Gram`,
+    title: resolvePageTitle(title),
     description,
     keywords: page.metaKeywords,
     alternates: { canonical: url },

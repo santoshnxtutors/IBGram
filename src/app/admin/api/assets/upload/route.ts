@@ -1,10 +1,8 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
-import crypto from "node:crypto";
 import type { NextRequest } from "next/server";
 import { prisma } from "@/lib/db";
 import { getAffectedPathsForAsset } from "@/lib/cache/affected-paths";
 import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
+import { safeFolder, saveToDisk, uploadToCloudinary } from "@/lib/uploads";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -21,25 +19,11 @@ const ALLOWED_MIME = new Set([
 
 const DEFAULT_MAX_BYTES = 5 * 1024 * 1024; // 5 MB
 
-function getUploadDir(): string {
-  const envDir = process.env.UPLOAD_DIR?.trim();
-  if (envDir) {
-    // turbopackIgnore: dynamic env-derived path
-    return path.resolve(/* turbopackIgnore: true */ envDir);
-  }
-  return path.join(/* turbopackIgnore: true */ process.cwd(), "public", "uploads");
-}
-
 function getMaxBytes(): number {
   const env = process.env.UPLOAD_MAX_BYTES?.trim();
   if (!env) return DEFAULT_MAX_BYTES;
   const parsed = Number(env);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : DEFAULT_MAX_BYTES;
-}
-
-function safeFilename(input: string): string {
-  const base = path.basename(input).replace(/[^a-zA-Z0-9._-]/g, "_");
-  return base.length > 80 ? base.slice(0, 80) : base;
 }
 
 export async function POST(request: NextRequest) {
@@ -67,8 +51,9 @@ export async function POST(request: NextRequest) {
 
   const altText = (formData.get("altText") as string | null)?.toString().trim() || null;
   const title = (formData.get("title") as string | null)?.toString().trim() || null;
-  const folder = ((formData.get("folder") as string | null)?.toString().trim() || "general").replace(/[^a-z0-9-]/gi, "-").toLowerCase();
+  const folder = safeFolder(formData.get("folder") as string | null);
   const userId = (session as { userId?: string })?.userId;
+
   const cloudinary = await uploadToCloudinary(file, folder).catch((error) => ({
     error: error instanceof Error ? error.message : String(error),
   }));
@@ -93,17 +78,9 @@ export async function POST(request: NextRequest) {
     return jsonNoStore({ asset, revalidated });
   }
 
-  const uploadDir = getUploadDir();
-  const targetDir = path.join(uploadDir, folder);
-  const stamp = Date.now().toString(36);
-  const rand = crypto.randomBytes(4).toString("hex");
-  const filename = `${stamp}-${rand}-${safeFilename(file.name)}`;
-  const targetPath = path.join(targetDir, filename);
-
+  let stored;
   try {
-    await fs.mkdir(targetDir, { recursive: true });
-    const buffer = Buffer.from(await file.arrayBuffer());
-    await fs.writeFile(targetPath, buffer);
+    stored = await saveToDisk(file, folder);
   } catch (error) {
     return jsonNoStore(
       {
@@ -116,16 +93,11 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const key = `${folder}/${filename}`;
-  // Serve through the /api/media route handler — bypasses Turbopack's static
-  // /public manifest which sometimes doesn't pick up runtime-written files.
-  const publicUrl = `/api/media/${key}`;
-
   const asset = await prisma.asset.create({
     data: {
       provider: "local",
-      key,
-      url: publicUrl,
+      key: stored.key,
+      url: stored.url,
       filename: file.name,
       mimeType: file.type,
       sizeBytes: file.size,
@@ -137,31 +109,4 @@ export async function POST(request: NextRequest) {
 
   const revalidated = applyRevalidationTargets(getAffectedPathsForAsset());
   return jsonNoStore({ asset, revalidated });
-}
-
-async function uploadToCloudinary(file: File, folder: string): Promise<{ url: string; publicId: string; width?: number; height?: number }> {
-  const cloudName = process.env.CLOUDINARY_CLOUD_NAME?.trim();
-  const uploadPreset = process.env.CLOUDINARY_UPLOAD_PRESET?.trim();
-  if (!cloudName || !uploadPreset) throw new Error("Cloudinary is not configured.");
-
-  const form = new FormData();
-  form.set("file", file);
-  form.set("upload_preset", uploadPreset);
-  form.set("folder", `ibgram/${folder}`);
-
-  const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`, {
-    method: "POST",
-    body: form,
-    cache: "no-store",
-  });
-  const payload = await response.json().catch(() => null);
-  if (!response.ok || !payload?.secure_url || !payload?.public_id) {
-    throw new Error(payload?.error?.message ?? `Cloudinary upload failed (${response.status})`);
-  }
-  return {
-    url: String(payload.secure_url),
-    publicId: String(payload.public_id),
-    width: typeof payload.width === "number" ? payload.width : undefined,
-    height: typeof payload.height === "number" ? payload.height : undefined,
-  };
 }

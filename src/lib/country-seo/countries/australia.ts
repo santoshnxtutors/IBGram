@@ -19,8 +19,8 @@ export const australia: CountrySeoPage = {
   schedulingNote: "Weekday evenings and Saturday mornings on your own Australian clock",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Australia | Online IB DP, MYP & IGCSE Tuition",
-  metaDescription: "Online IB and IGCSE tutors for students in Australia. One-to-one IB DP, MYP, PYP and IGCSE tuition scheduled to AEST, ACST or AWST for the November session.",
+  title: "IB Tutors in Australia | Online DP & IGCSE, AEST",
+  metaDescription: "One-to-one IB DP, MYP and IGCSE tutoring online, timed to AEST, ACST or AWST and paced for the November or May session. Book a trial lesson first.",
   h1: "IB and IGCSE tutoring, online, for students at school across Australia",
   heroEyebrow: "ONLINE TUTORING FOR AUSTRALIAN FAMILIES",
   heroSubtitle: "Wherever your child's school sits between Perth and Hobart, the aim is the same: pair them with someone who has already taught the exact IB or IGCSE course they're enrolled in, not a nearby subject. Every lesson runs online, one-to-one, timed to whichever of AEST, ACST or AWST your household keeps. Tell us the subject, the level, and whether the school enters November or May, and the shortlist that comes back already teaches it.",

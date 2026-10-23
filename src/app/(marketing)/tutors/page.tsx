@@ -13,9 +13,9 @@ const CANONICAL = absoluteUrl("/tutors/");
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Find IB & IGCSE Tutors Worldwide — Online, Home & Hybrid | IB Gram",
+  title: { absolute: "IB & IGCSE Tutor Directory — Search by Subject | IB Gram" },
   description:
-    "Search verified IB and IGCSE tutors by curriculum, subject, level and learning mode. Online lessons worldwide in your time zone, plus home and hybrid options where tutors are local.",
+    "Filter verified IB and IGCSE tutors by curriculum, subject, level and mode. Online lessons in your time zone, home and hybrid where tutors are local.",
   keywords: [
     "IB tutors",
     "IGCSE tutors",

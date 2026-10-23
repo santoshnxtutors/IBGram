@@ -628,23 +628,68 @@ jobs:
 
       # A sitemap full of 404s is worse than no sitemap. On 2026-10-17 the whole
       # /[gurgaonSlug] route 404ed in production while the sitemap still listed
-      # ~2,800 of its URLs, and nothing caught it. Sample the live sitemap and
-      # fail the deploy if any sampled page is missing.
-      - name: Check sitemap pages actually render
+      # ~2,800 of its URLs, and nothing caught it.
+      #
+      # /sitemap.xml is now a <sitemapindex>, so this walks the index: every child
+      # sitemap must itself return 200 and parse, the combined URL count must look
+      # like a real site, no URL may appear in two children, and a sample drawn
+      # across all of them must render.
+      - name: Check sitemap index and pages actually render
         run: |
           set -euo pipefail
-          urls="$(mktemp)"
-          curl -s --max-time 60 https://www.ibgram.com/sitemap.xml | grep -o '<loc>[^<]*' | sed 's|<loc>||' > "$urls"
-          total="$(wc -l < "$urls")"
-          echo "sitemap lists ${total} URLs"
+          work="$(mktemp -d)"
+          curl -sf --max-time 60 https://www.ibgram.com/sitemap.xml -o "$work/index.xml"
+
+          if ! grep -q "<sitemapindex" "$work/index.xml"; then
+            echo "ERROR: /sitemap.xml is not a <sitemapindex>."
+            head -c 400 "$work/index.xml"
+            exit 1
+          fi
+
+          grep -o "<loc>[^<]*" "$work/index.xml" | sed "s|<loc>||" > "$work/children.txt"
+          child_count="$(wc -l < "$work/children.txt")"
+          echo "sitemap index lists ${child_count} child sitemaps"
+          if [ "$child_count" -lt 2 ]; then
+            echo "ERROR: expected several child sitemaps, got ${child_count}."
+            exit 1
+          fi
+
+          : > "$work/urls.txt"
+          while read -r child; do
+            [ -n "$child" ] || continue
+            status="$(curl -s -o "$work/child.xml" -w "%{http_code}" --max-time 60 "$child")"
+            if [ "$status" != "200" ]; then
+              echo "ERROR: child sitemap ${child} returned ${status}."
+              exit 1
+            fi
+            if ! grep -q "<urlset" "$work/child.xml"; then
+              echo "ERROR: child sitemap ${child} is not a <urlset>."
+              exit 1
+            fi
+            n="$(grep -c "<loc>" "$work/child.xml" || true)"
+            echo "  ${status}  ${n} URLs  ${child}"
+            grep -o "<loc>[^<]*" "$work/child.xml" | sed "s|<loc>||" >> "$work/urls.txt"
+          done < "$work/children.txt"
+
+          total="$(wc -l < "$work/urls.txt")"
+          echo "sitemap index covers ${total} URLs"
           if [ "$total" -lt 100 ]; then
-            echo "ERROR: sitemap has only ${total} URLs - expected thousands."
+            echo "ERROR: sitemap covers only ${total} URLs - expected thousands."
+            exit 1
+          fi
+
+          # The same URL in two children makes the per-sitemap Search Console counts
+          # meaningless, which is the whole reason the set is split.
+          dupes="$(sort "$work/urls.txt" | uniq -d | head -20 || true)"
+          if [ -n "$dupes" ]; then
+            echo "ERROR: these URLs appear in more than one child sitemap:"
+            echo "$dupes"
             exit 1
           fi
 
           failed=0
-          for url in $(shuf -n 15 "$urls"); do
-            status="$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "$url")"
+          for url in $(shuf -n 25 "$work/urls.txt"); do
+            status="$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 "$url")"
             echo "  ${status}  ${url}"
             if [ "$status" != "200" ]; then
               failed=$((failed + 1))
@@ -652,7 +697,7 @@ jobs:
           done
 
           if [ "$failed" -gt 0 ]; then
-            echo "ERROR: ${failed} of 15 sampled sitemap URLs did not return 200."
+            echo "ERROR: ${failed} of 25 sampled sitemap URLs did not return 200."
             exit 1
           fi
-          echo "All 15 sampled sitemap URLs render."
+          echo "Sitemap index healthy: ${child_count} children, ${total} URLs, 25 sampled all render."

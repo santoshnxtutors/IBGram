@@ -3,7 +3,7 @@ import { prisma } from "@/lib/db";
 import { normaliseImageUrl } from "@/lib/cms/public-tutors";
 import { PersonAvatar } from "@/components/tutors/PersonAvatar";
 import { AdminShell } from "../_components/AdminShell";
-import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader } from "../_components/AdminPrimitives";
+import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader, adminFilterHref } from "../_components/AdminPrimitives";
 import { StatusSelect } from "../_components/StatusSelect";
 import { ScheduleDemoForm } from "./ScheduleDemoForm";
 
@@ -68,7 +68,7 @@ function loadStudentOptions() {
   });
 }
 
-export default async function AdminDemoBookingsPage() {
+export default async function AdminDemoBookingsPage({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
   let requests: Awaited<ReturnType<typeof loadRequests>> = [];
   let dbError: string | null = null;
   let tutorOptions: Awaited<ReturnType<typeof loadTutorOptions>> = [];
@@ -83,21 +83,25 @@ export default async function AdminDemoBookingsPage() {
       : message;
   }
   const count = (status: string) => requests.filter((r) => r.status === status).length;
+  const { status: filter } = await searchParams;
+  // Clicking a metric card filters the list below; clicking it again clears it.
+  const href = (value: string) => adminFilterHref("/admin/demo-bookings", { status: filter }, "status", value);
+  const visible = filter ? requests.filter((r) => r.status === filter) : requests;
 
   return (
     <AdminShell>
       <AdminPageHeader
         eyebrow="Students"
         title="Demo Bookings"
-        description="Every demo class a student booked from their dashboard: who asked, which tutor they picked, the subject and their preferred time."
+        description="Every demo class a student booked from their dashboard: who asked, which tutor they picked, the subject and their preferred time. Click any box below to filter the list."
       />
 
       <div className="grid gap-4 sm:grid-cols-5">
-        <AdminMetricCard label="Total requests" value={requests.length} />
-        <AdminMetricCard label="New" value={count("new")} tone="amber" />
-        <AdminMetricCard label="Contacted" value={count("contacted")} />
-        <AdminMetricCard label="Scheduled" value={count("scheduled")} />
-        <AdminMetricCard label="Completed" value={count("completed")} />
+        <AdminMetricCard label="Total requests" value={requests.length} href="/admin/demo-bookings" active={!filter} />
+        <AdminMetricCard label="New" value={count("new")} tone="amber" href={href("new")} active={filter === "new"} />
+        <AdminMetricCard label="Contacted" value={count("contacted")} href={href("contacted")} active={filter === "contacted"} />
+        <AdminMetricCard label="Scheduled" value={count("scheduled")} href={href("scheduled")} active={filter === "scheduled"} />
+        <AdminMetricCard label="Completed" value={count("completed")} href={href("completed")} active={filter === "completed"} />
       </div>
 
       <ScheduleDemoForm
@@ -112,11 +116,14 @@ export default async function AdminDemoBookingsPage() {
       <AdminCard>
         {dbError ? (
           <AdminEmptyState title="Could not load demo bookings" detail={dbError} />
-        ) : requests.length === 0 ? (
-          <AdminEmptyState title="No demo bookings yet" detail="When a student books a demo from Find a Tutor, it appears here." />
+        ) : visible.length === 0 ? (
+          <AdminEmptyState
+            title={filter ? "Nothing in this group" : "No demo bookings yet"}
+            detail={filter ? "Click the same box again to see every request." : "When a student books a demo from Find a Tutor, it appears here."}
+          />
         ) : (
           <div className="space-y-4">
-            {requests.map((r) => {
+            {visible.map((r) => {
               const s = r.student;
               const sp = s.studentProfile;
               const studentName = [s.firstName, s.lastName].filter(Boolean).join(" ") || s.email;

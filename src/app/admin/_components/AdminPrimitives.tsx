@@ -49,18 +49,27 @@ export function AdminCard({ children, className }: { children: ReactNode; classN
   return <section className={cn("rounded-lg border border-white/10 bg-white/[0.045] p-4 shadow-2xl shadow-black/20 backdrop-blur", className)}>{children}</section>;
 }
 
+/**
+ * A stat tile. Pass `href` and the whole card becomes a link — that is how the
+ * list screens let you click "Awaiting review" to filter down to those rows.
+ * `active` marks the filter that is currently applied.
+ */
 export function AdminMetricCard({
   label,
   value,
   detail,
   tone = "emerald",
   icon,
+  href,
+  active,
 }: {
   label: string;
   value: string | number;
   detail?: string;
   tone?: "emerald" | "amber" | "sky" | "rose" | "slate";
   icon?: ReactNode;
+  href?: string;
+  active?: boolean;
 }) {
   const tones = {
     emerald: "text-emerald-300 bg-emerald-300/10",
@@ -69,8 +78,9 @@ export function AdminMetricCard({
     rose: "text-rose-300 bg-rose-300/10",
     slate: "text-slate-300 bg-slate-300/10",
   };
-  return (
-    <AdminCard>
+
+  const body = (
+    <>
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-500">{label}</p>
@@ -79,7 +89,26 @@ export function AdminMetricCard({
         <div className={cn("grid size-10 place-items-center rounded-lg", tones[tone])}>{icon ?? <CircleDot className="size-5" />}</div>
       </div>
       {detail && <p className="mt-3 text-sm font-semibold text-slate-400">{detail}</p>}
-    </AdminCard>
+      {href && (
+        <p className="mt-3 text-xs font-black uppercase tracking-[0.14em] text-emerald-300/80">
+          {active ? "Filtered — click to clear" : "View these"}
+        </p>
+      )}
+    </>
+  );
+
+  if (!href) return <AdminCard>{body}</AdminCard>;
+
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "block rounded-lg border bg-white/[0.045] p-4 shadow-2xl shadow-black/20 backdrop-blur transition hover:border-emerald-300/40 hover:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-emerald-300/50",
+        active ? "border-emerald-300/60 bg-emerald-300/[0.06]" : "border-white/10",
+      )}
+    >
+      {body}
+    </Link>
   );
 }
 

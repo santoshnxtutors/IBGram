@@ -42,3 +42,19 @@ ALTER TABLE "ibgram_app"."Message" ADD CONSTRAINT "Message_conversationId_fkey"
 ALTER TABLE "ibgram_app"."Message" DROP CONSTRAINT IF EXISTS "Message_senderId_fkey";
 ALTER TABLE "ibgram_app"."Message" ADD CONSTRAINT "Message_senderId_fkey"
   FOREIGN KEY ("senderId") REFERENCES "ibgram_app"."User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- Rich messages: media attachments, voice notes and Meet cards. Additive only.
+ALTER TABLE "ibgram_app"."Message" ADD COLUMN IF NOT EXISTS "kind"           TEXT NOT NULL DEFAULT 'text';
+ALTER TABLE "ibgram_app"."Message" ADD COLUMN IF NOT EXISTS "attachmentUrl"  TEXT;
+ALTER TABLE "ibgram_app"."Message" ADD COLUMN IF NOT EXISTS "attachmentName" TEXT;
+ALTER TABLE "ibgram_app"."Message" ADD COLUMN IF NOT EXISTS "attachmentMime" TEXT;
+ALTER TABLE "ibgram_app"."Message" ADD COLUMN IF NOT EXISTS "attachmentSize" INTEGER;
+ALTER TABLE "ibgram_app"."Message" ADD COLUMN IF NOT EXISTS "meta"           JSONB;
+ALTER TABLE "ibgram_app"."Message" ALTER COLUMN "body" SET DEFAULT '';
+
+-- Reply quoting and unsend. Additive only.
+ALTER TABLE "ibgram_app"."Message" ADD COLUMN IF NOT EXISTS "replyToId" TEXT;
+ALTER TABLE "ibgram_app"."Message" ADD COLUMN IF NOT EXISTS "deletedAt" TIMESTAMP(3);
+ALTER TABLE "ibgram_app"."Message" DROP CONSTRAINT IF EXISTS "Message_replyToId_fkey";
+ALTER TABLE "ibgram_app"."Message" ADD CONSTRAINT "Message_replyToId_fkey"
+  FOREIGN KEY ("replyToId") REFERENCES "ibgram_app"."Message"("id") ON DELETE SET NULL ON UPDATE CASCADE;

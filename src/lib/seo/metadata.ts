@@ -3,12 +3,14 @@ import type { CitySeoPage } from "./city-page-types";
 import type { IgcseCitySeoPage } from "./igcse-city-pages";
 import type { IndexingDecision } from "./indexing";
 import { canonicalUrl } from "./canonical";
+import { resolvePageTitle } from "./page-title";
+import { resolveMetaDescription } from "./meta-description";
 import { absoluteUrl } from "./slug-utils";
 
 export function buildCityMetadata(page: CitySeoPage, indexing: IndexingDecision): Metadata {
   return {
-    title: page.metaTitle,
-    description: page.metaDescription,
+    title: resolvePageTitle(page.metaTitle),
+    description: resolveMetaDescription(page.metaDescription),
     keywords: [page.primaryKeyword, ...page.secondaryKeywords],
     alternates: {
       canonical: canonicalUrl(indexing.canonicalUrl),
@@ -46,8 +48,8 @@ export function buildNoindexMetadata(args: {
   ogImage: string;
 }): Metadata {
   return {
-    title: args.title,
-    description: args.description,
+    title: resolvePageTitle(args.title),
+    description: resolveMetaDescription(args.description),
     alternates: {
       canonical: canonicalUrl(args.canonicalUrl),
     },
@@ -85,8 +87,8 @@ export function buildIndexableMetadata(args: {
   keywords?: string[];
 }): Metadata {
   return {
-    title: args.title,
-    description: args.description,
+    title: resolvePageTitle(args.title),
+    description: resolveMetaDescription(args.description),
     keywords: args.keywords,
     alternates: {
       canonical: canonicalUrl(args.canonicalUrl),
@@ -119,8 +121,8 @@ export function buildIndexableMetadata(args: {
 
 export function buildIgcseCityMetadata(page: IgcseCitySeoPage): Metadata {
   return {
-    title: page.metaTitle,
-    description: page.metaDescription,
+    title: resolvePageTitle(page.metaTitle),
+    description: resolveMetaDescription(page.metaDescription),
     keywords: page.keywords,
     alternates: {
       canonical: canonicalUrl(page.canonicalUrl),

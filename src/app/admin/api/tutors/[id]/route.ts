@@ -5,6 +5,7 @@ import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import { getAffectedPathsForTutor } from "@/lib/cache/affected-paths";
 import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
+import { resolveCityForTutor, unknownCityMessage } from "@/lib/cms/resolve-city";
 import { requireAdminRequest } from "../../../_lib/admin-auth";
 
 export const dynamic = "force-dynamic";
@@ -403,21 +404,28 @@ export async function PATCH(
           data.teachingModes !== undefined ||
           data.travelNotes !== undefined
         ) {
-          const citySlug = normaliseSlug(data.primaryCitySlug ?? "gurugram");
-          const city = await tx.city.findFirst({ where: { slug: citySlug } });
-          if (city) {
-            await tx.tutorLocation.deleteMany({ where: { tutorId: existing.id } });
-            const locationRows = buildLocationRows(
-              existing.id,
-              city,
-              data.areas,
-              data.sectors,
-              data.societies,
-              data.teachingModes,
-              data.travelNotes,
-            );
-            await tx.tutorLocation.createMany({ data: locationRows });
+          // An unresolvable city used to skip this whole block silently, so every location
+          // field was discarded while the response still said ok. Now it aborts the save and
+          // the transaction rolls back, so nothing partial is written.
+          const city = await resolveCityForTutor(tx, data.primaryCitySlug);
+          if (!city) {
+            return {
+              notFound: false as const,
+              id: existing.id,
+              unknownCity: await unknownCityMessage(tx, data.primaryCitySlug),
+            };
           }
+          await tx.tutorLocation.deleteMany({ where: { tutorId: existing.id } });
+          const locationRows = buildLocationRows(
+            existing.id,
+            city,
+            data.areas,
+            data.sectors,
+            data.societies,
+            data.teachingModes,
+            data.travelNotes,
+          );
+          await tx.tutorLocation.createMany({ data: locationRows });
         }
 
         return { notFound: false as const, id: existing.id, slug: data.slug ?? existing.slug };
@@ -426,6 +434,9 @@ export async function PATCH(
 
     if (result.notFound) {
       return jsonNoStore({ error: `Tutor not found for id or slug "${id}"` }, { status: 404 });
+    }
+    if ("unknownCity" in result && result.unknownCity) {
+      return jsonNoStore({ error: result.unknownCity }, { status: 400 });
     }
     if ("slugConflict" in result && result.slugConflict) {
       return jsonNoStore(

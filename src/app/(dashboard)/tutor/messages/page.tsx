@@ -10,7 +10,7 @@ export default function TutorMessagesPage() {
       <PageHeader
         eyebrow={<HeaderPill icon={MessageSquare}>Messages</HeaderPill>}
         title="Chat with your students"
-        subtitle="A thread opens when you accept a demo. It stays open once the student books you, and you can close it any time."
+        subtitle="Message your students, share files and voice notes, and start a Google Meet class in one tap. Use + to open a chat with any of your students."
       />
       <Messages />
     </div>

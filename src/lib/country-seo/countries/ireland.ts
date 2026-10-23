@@ -19,8 +19,8 @@ export const ireland: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings on Irish time, whichever clock the country is keeping that month",
   lastUpdated: "2026-09-14",
 
-  title: "IB & IGCSE Tutors in Ireland | Online Diploma Tutoring",
-  metaDescription: "Online IB and IGCSE tutors for students in Ireland. One-to-one DP, MYP and IGCSE tuition on Irish time, built around CAO points, Dublin and homeschooling.",
+  title: "IB & IGCSE Tutors in Ireland | Online, Irish Time",
+  metaDescription: "Matched with a tutor who has taught your exact IB DP, MYP or IGCSE course, online on Irish time. Dublin, Cork, Galway or homeschooled. Book a trial.",
   h1: "Online IB and IGCSE tutors for students in Ireland",
   heroEyebrow: "ONLINE TUTORING FOR IRISH FAMILIES",
   heroSubtitle: "The IB Diploma sits at only a handful of Irish schools, mostly clustered around Dublin, and Cambridge IGCSE shows up in even fewer places — which means a family outside the capital, or a homeschooling household anywhere in the country, can find themselves without a single local specialist for a subject their child is actually sitting. Tell us the subject, the level and how it's being examined, and we put forward a tutor who has taught it before, ahead of a trial lesson you don't have to commit past.",

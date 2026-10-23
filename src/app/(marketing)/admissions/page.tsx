@@ -19,7 +19,7 @@ import { AdmissionsHeroVideo } from "./admissions-hero-video";
 const AdmissionsPartnership = dynamic(() => import("./admissions-partnership").then((mod) => mod.AdmissionsPartnership));
 
 export const metadata: Metadata = {
-  title: "Admissions Consulting for Global Universities | IB Gram",
+  title: { absolute: "Admissions Consulting for Global Universities | IB Gram" },
   description:
     "Get structured admissions planning for university shortlisting, essays, SOPs, interviews and applications across US, UK, Canada, Europe and more.",
   keywords: [

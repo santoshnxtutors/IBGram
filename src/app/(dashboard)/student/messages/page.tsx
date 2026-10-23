@@ -10,7 +10,7 @@ export default function MessagesPage() {
       <PageHeader
         eyebrow={<HeaderPill icon={MessageSquare}>Messages</HeaderPill>}
         title="Chat with your tutor"
-        subtitle="Chat opens when a demo is confirmed and stays open once you have booked a tutor."
+        subtitle="Send messages, photos, files and voice notes. Chat opens when a demo is confirmed and stays open once you have booked a tutor."
       />
       <Messages />
     </div>

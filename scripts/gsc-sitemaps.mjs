@@ -17,7 +17,18 @@ const KEY_FILE = path.join(ROOT, "Iamuseragent.json");
 const SUBMIT = process.argv.includes("--submit");
 const PRUNE = process.argv.includes("--prune");
 
-const SITEMAPS = ["https://www.ibgram.com/sitemap.xml", "https://www.ibgram.com/prioritysitemap.xml"];
+// /sitemap.xml is a <sitemapindex>. Google discovers the children by following it, but
+// submitting each child explicitly is what makes Search Console report
+// indexed-vs-discovered PER SECTION - the reason the set is split at all.
+const SITEMAP_FILES = [
+  "pages", "services", "gurgaon", "indian-cities", "mumbai",
+  "country", "uae", "blogs", "teacher",
+];
+const SITEMAPS = [
+  "https://www.ibgram.com/sitemap.xml",
+  ...SITEMAP_FILES.map((f) => `https://www.ibgram.com/sitemap-${f}.xml`),
+  "https://www.ibgram.com/prioritysitemap.xml",
+];
 const STALE = /\/sitemap\/[a-z-]+\.xml$/i;
 
 const auth = new google.auth.GoogleAuth({

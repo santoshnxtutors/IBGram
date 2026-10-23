@@ -19,8 +19,8 @@ export const usa: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings in your local US time zone",
   lastUpdated: "2026-09-16",
 
-  title: "IB Tutors in the USA | Online IB DP, MYP & IGCSE Tutoring",
-  metaDescription: "Online IB and IGCSE tutors for students in the USA. One-to-one IB DP, MYP, PYP and IGCSE tuition scheduled in your local time zone, from Pacific to Eastern.",
+  title: "IB Tutors in the USA | Online DP, MYP & IGCSE",
+  metaDescription: "One-to-one IB DP, MYP, PYP and IGCSE tutoring online, scheduled after school on Pacific, Mountain, Central or Eastern time. Start with a trial lesson.",
   h1: "Online IB and IGCSE tutors for students studying in the United States",
   heroEyebrow: "ONLINE TUTORING FOR US FAMILIES",
   heroSubtitle: "Your child studies the IB or IGCSE at a school in the USA; we match them with a tutor who teaches that exact syllabus. Lessons run online, one-to-one, at times that fit a US school week — after class on Pacific, Mountain, Central or Eastern time. Tell us the subject, the level and the exam session, and we shortlist tutors who have taught that syllabus.",

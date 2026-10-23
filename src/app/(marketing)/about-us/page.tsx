@@ -34,9 +34,9 @@ const pageUrl = absoluteUrl("/about-us/");
 const ogImage = absoluteUrl("/images/ib-gram-city-og.svg");
 
 export const metadata: Metadata = {
-  title: "About IB Gram — Independent IB & IGCSE Tutoring Platform",
+  title: { absolute: "About IB Gram — Independent IB & IGCSE Tutor Matching" },
   description:
-    "IB Gram is an independent IB and IGCSE tutoring platform founded by Ajay Vatsyayan. Verified tutor matching, honest shortlists and calm advisor support for PYP, MYP, DP, Cambridge IGCSE and Edexcel International GCSE families.",
+    "Founded by Ajay Vatsyayan, an IB DP Maths and Physics tutor. See how tutor profiles are verified and how shortlists are built before you choose.",
   keywords: aboutMetaKeywords,
   alternates: { canonical: pageUrl },
   robots: { index: true, follow: true },

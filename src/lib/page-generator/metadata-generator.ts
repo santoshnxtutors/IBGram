@@ -3,12 +3,13 @@ import type { GeneratedSeoPage } from "./types";
 import { getGeneratedIndexingDecision } from "@/lib/seo/indexing";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
 import { resolvePageTitle } from "@/lib/seo/page-title";
+import { resolveMetaDescription } from "@/lib/seo/meta-description";
 
 export function buildGeneratedMetadata(page: GeneratedSeoPage): Metadata {
   const indexing = getGeneratedIndexingDecision(page);
   return {
     title: resolvePageTitle(page.metaTitle),
-    description: page.metaDescription,
+    description: resolveMetaDescription(page.metaDescription),
     keywords: [page.primaryKeyword, ...page.secondaryKeywords],
     alternates: {
       canonical: indexing.canonicalUrl,

@@ -2,9 +2,9 @@ import type { IgcseSubjectContent } from "../types";
 
 export const drama: IgcseSubjectContent = {
   slug: "drama",
-  metaTitle: "IGCSE Drama Tutors | 0411, 0428, 0994 Written Paper Help",
+  metaTitle: "IGCSE Drama Tutors | 0411 Written Paper Coaching",
   metaDescription:
-    "IGCSE Drama tutors for Cambridge 0411, 0428 and 0994. Written paper technique, pre-release text work, devising logs and staging vocabulary, online worldwide.",
+    "Drama marks are won on the written paper, not on stage. Tutors for 0411 pre-release texts, devising logs and staging vocabulary. Book a free trial.",
   primaryKeyword: "IGCSE Drama tutors",
   secondaryKeywords: [
     "IGCSE Drama tutor online",

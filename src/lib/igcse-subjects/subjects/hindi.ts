@@ -2,9 +2,9 @@ import type { IgcseSubjectContent } from "../types";
 
 export const hindi: IgcseSubjectContent = {
   slug: "hindi",
-  metaTitle: "IGCSE Hindi Tutors | Cambridge 0549 Second Language",
+  metaTitle: "IGCSE Hindi Tutors (0549) | Online & at Home",
   metaDescription:
-    "IGCSE Hindi tutors for Cambridge 0549 Hindi as a Second Language: Devanagari accuracy, formal register, listening and composition. Online worldwide, home tuition in India.",
+    "IGCSE Hindi 0549 tutors for Devanagari accuracy, formal register, listening and composition. Online worldwide or at home in India. Book a free trial.",
   primaryKeyword: "IGCSE Hindi tutors",
   secondaryKeywords: [
     "IGCSE Hindi tutor",

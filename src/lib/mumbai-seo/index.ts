@@ -1,6 +1,7 @@
 import type { Metadata, MetadataRoute } from "next";
 import { absoluteUrl, SITE_URL } from "@/lib/seo/slug-utils";
 import { resolvePageTitle } from "@/lib/seo/page-title";
+import { resolveMetaDescription } from "@/lib/seo/meta-description";
 import type { JsonLdObject } from "@/lib/seo/schema";
 import { mumbaiSeoPagesMeta } from "./pages-data";
 import { mumbaiSeoContentBySlug } from "./pages";
@@ -53,8 +54,11 @@ export function buildMumbaiSeoMetadata(meta: MumbaiSeoPageMeta): Metadata {
   const canonical = mumbaiSeoCanonical(meta);
   return {
     title: resolvePageTitle(meta.title),
-    description: meta.metaDescription,
-    keywords: meta.primaryKeyword,
+    description: resolveMetaDescription(meta.metaDescription),
+    // The schema graph already publishes primary + localKeywords; the HTML meta
+    // carried only the primary, so the 8-14 long-tail phrases each page was
+    // written around were invisible to anything reading the head.
+    keywords: [...new Set([meta.primaryKeyword, ...(mumbaiSeoContentBySlug[meta.slug]?.localKeywords ?? [])])],
     alternates: { canonical },
     robots: {
       index: true,
@@ -257,6 +261,10 @@ export function buildMumbaiSeoSchema(page: MumbaiSeoPage): JsonLdObject {
     "@type": "City",
     name: "Mumbai",
     alternateName: "Bombay",
+    // Same pattern as the Gurgaon and India-city graphs: a Wikipedia sameAs
+    // disambiguates the place entity for search and for assistants that resolve
+    // entities before answering. No invented social profiles.
+    sameAs: "https://en.wikipedia.org/wiki/Mumbai",
     containedInPlace: { "@type": "State", name: "Maharashtra", containedInPlace: { "@type": "Country", name: "India" } },
   };
   const place = (name: string) => ({ "@type": "Place", name: `${name}, Mumbai`, containedInPlace: mumbai });
@@ -289,6 +297,11 @@ export function buildMumbaiSeoSchema(page: MumbaiSeoPage): JsonLdObject {
       name: "IB Gram",
       url: SITE_URL,
       logo: `${SITE_URL}/logo-512.png`,
+      // States the expertise explicitly rather than leaving it to be inferred
+      // from prose. Taken from the page's own board/subject/level fields, so it
+      // is never broader than what the page actually covers.
+      knowsAbout: [page.board, page.subject, page.level, `IB and IGCSE tutoring in ${page.locality}`],
+      areaServed,
     },
     {
       "@type": "WebPage",
@@ -303,6 +316,13 @@ export function buildMumbaiSeoSchema(page: MumbaiSeoPage): JsonLdObject {
       mainEntity: { "@id": `${canonical}#service` },
       about: [{ "@type": "Thing", name: page.subject }, ...areaServed],
       keywords: [page.primaryKeyword, ...page.content.localKeywords].join(", "),
+      // Answer engines lift short, self-contained passages. The h1 and the FAQ
+      // block are the two places on these pages where a quoted fragment still
+      // makes sense without its surrounding section.
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", "[data-speakable]"],
+      },
       dateModified: page.lastUpdated ?? MUMBAI_SEO_LAST_UPDATED,
     },
     {

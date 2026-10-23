@@ -19,8 +19,8 @@ export const china: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings on Beijing Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in China | Online IB DP, MYP & IGCSE Tutoring",
-  metaDescription: "IB, A Level and IGCSE tutoring for families at international, bilingual and international-division schools in China. Live 1:1 lessons on Beijing Time, VPN-free.",
+  title: "IB & IGCSE Tutors in China | Online, Beijing Time",
+  metaDescription: "Live one-to-one IB, A Level and IGCSE lessons on Beijing Time, on a platform that works inside mainland China without your own VPN. Book a trial lesson.",
   h1: "Online IB and IGCSE tutors for students studying at schools in China",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN CHINA",
   heroSubtitle: "Whether your child sits IB at a foreign-passport international school, a bilingual senior high, or a public school's international division, we match them with a tutor who has taught that exact syllabus. Lessons run online, one-to-one, on a platform that works inside mainland China without your family needing to run its own VPN for the lesson itself. Tell us the school type, the subject and the exam board, and we shortlist a tutor accordingly.",

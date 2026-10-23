@@ -4,7 +4,7 @@ import { normaliseImageUrl } from "@/lib/cms/public-tutors";
 import { getCountryByCode } from "@/lib/countries";
 import { PersonAvatar } from "@/components/tutors/PersonAvatar";
 import { AdminShell } from "../_components/AdminShell";
-import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader } from "../_components/AdminPrimitives";
+import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader, adminFilterHref } from "../_components/AdminPrimitives";
 import { PublishTutorButton } from "./PublishTutorButton";
 import { DeleteAccountButton } from "../_components/DeleteAccountButton";
 
@@ -59,7 +59,7 @@ function stateOf(tutor: Signup["tutorProfile"]) {
   return { key: "pending", label: "Awaiting review", cls: "border-amber-300/30 bg-amber-300/10 text-amber-200" } as const;
 }
 
-export default async function AdminTutorSignupsPage() {
+export default async function AdminTutorSignupsPage({ searchParams }: { searchParams: Promise<{ state?: string }> }) {
   let signups: Signup[] = [];
   let dbError: string | null = null;
   try {
@@ -68,32 +68,47 @@ export default async function AdminTutorSignupsPage() {
     dbError = err instanceof Error ? err.message : String(err);
   }
 
+  const { state: filter } = await searchParams;
   const states = signups.map((s) => stateOf(s.tutorProfile).key);
   const count = (key: string) => states.filter((s) => s === key).length;
+  // Clicking a metric card filters the list below; clicking it again clears it.
+  const href = (value: string) => adminFilterHref("/admin/tutor-signups", { state: filter }, "state", value);
+  const visible = filter ? signups.filter((s) => stateOf(s.tutorProfile).key === filter) : signups;
 
   return (
     <AdminShell>
       <AdminPageHeader
         eyebrow="Tutors"
         title="Tutor Signups"
-        description="Tutors who signed up on the website and the profile they submitted. Open Full details to see everything, including private contact details. Publish a profile to put it live."
+        description="Tutors who signed up on the website and the profile they submitted. Click any box below to filter the list. Open Full details to see everything, including private contact details. Publish a profile to put it live."
+        actions={
+          <Link
+            href="/admin/accounts"
+            className="inline-flex h-10 items-center gap-2 rounded-lg bg-emerald-300 px-4 text-sm font-black text-slate-950 transition hover:bg-amber-300"
+          >
+            + Add tutor account
+          </Link>
+        }
       />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <AdminMetricCard label="Total signups" value={signups.length} />
-        <AdminMetricCard label="Awaiting review" value={count("pending")} tone="amber" />
-        <AdminMetricCard label="Published" value={count("published")} />
-        <AdminMetricCard label="No profile yet" value={count("none")} tone="amber" />
+        <AdminMetricCard label="Total signups" value={signups.length} href="/admin/tutor-signups" active={!filter} />
+        <AdminMetricCard label="Awaiting review" value={count("pending")} tone="amber" href={href("pending")} active={filter === "pending"} />
+        <AdminMetricCard label="Published" value={count("published")} href={href("published")} active={filter === "published"} />
+        <AdminMetricCard label="No profile yet" value={count("none")} tone="amber" href={href("none")} active={filter === "none"} />
       </div>
 
       <AdminCard>
         {dbError ? (
           <AdminEmptyState title="Could not load signups" detail={dbError} />
-        ) : signups.length === 0 ? (
-          <AdminEmptyState title="No tutor signups yet" detail="Tutors who sign up at /signup will appear here." />
+        ) : visible.length === 0 ? (
+          <AdminEmptyState
+            title={filter ? "Nothing in this group" : "No tutor signups yet"}
+            detail={filter ? "Click the same box again to see every signup." : "Tutors who sign up at /signup will appear here."}
+          />
         ) : (
           <div className="space-y-4">
-            {signups.map((signup) => (
+            {visible.map((signup) => (
               <SignupCard key={signup.id} signup={signup} />
             ))}
           </div>

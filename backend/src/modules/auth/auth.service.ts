@@ -22,6 +22,18 @@ function getUserAgent(req: Request): string | undefined {
   return req.headers["user-agent"];
 }
 
+/** The photo on the tutor's public profile, when they have one. */
+function tutorPhoto(user: { tutorProfile?: { avatarUrl: string | null; deletedAt: Date | null } | null }): string | null {
+  const profile = user.tutorProfile;
+  if (!profile || profile.deletedAt || !profile.avatarUrl) return null;
+  const value = profile.avatarUrl.trim();
+  if (!value) return null;
+  if (value.startsWith("http://") || value.startsWith("https://")) return value;
+  if (value.startsWith("/uploads/")) return `/api/media/${value.slice("/uploads/".length)}`;
+  if (value.startsWith("uploads/")) return `/api/media/${value.slice("uploads/".length)}`;
+  return value.startsWith("/") ? value : `/${value}`;
+}
+
 function slugUsername(value: string): string {
   const slug = value
     .trim()
@@ -81,7 +93,7 @@ function mapUser(user: NonNullable<UserWithRoles>): SafeAuthUser {
     username: user.username,
     firstName: user.firstName,
     lastName: user.lastName,
-    avatarUrl: user.avatarUrl,
+    avatarUrl: tutorPhoto(user) ?? user.avatarUrl,
     status: user.status,
     accountType: user.accountType ?? null,
     lastLoginAt: user.lastLoginAt,
@@ -118,6 +130,9 @@ export async function getUserWithRolesById(userId: string) {
           },
         },
       },
+      // A tutor who signed up with Google has that account picture on `User`,
+      // while the photo on their public profile sits on `Tutor` — prefer it.
+      tutorProfile: { select: { avatarUrl: true, deletedAt: true } },
     },
   });
 }
@@ -552,6 +567,7 @@ export async function resolveSession(token: string | undefined): Promise<AuthRes
               },
             },
           },
+          tutorProfile: { select: { avatarUrl: true, deletedAt: true } },
         },
       },
     },

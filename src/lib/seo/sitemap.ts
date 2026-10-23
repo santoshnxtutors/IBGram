@@ -23,6 +23,7 @@ import { getIgcseSubjectSitemapEntries } from "@/lib/igcse-subjects";
 import { getIndiaKeywordSitemapEntries } from "@/lib/india-keywords";
 import { getCitySeoSitemapEntries } from "@/lib/india-cities";
 import { getMumbaiSeoSitemapEntries } from "@/lib/mumbai-seo";
+import { getUaeSeoSitemapEntries } from "@/lib/uae-seo";
 
 const LAST_MODIFIED = "2026-09-04";
 const COURSE_SUBJECT_SLUGS = ["pyp", "myp", "dp", "cp", "mathematics", "sciences", "individuals", "individuals-and-societies", "english", "language", "arts"];
@@ -47,6 +48,7 @@ export function getSeoSitemapEntries(): MetadataRoute.Sitemap {
     ...getIndiaKeywordSitemapEntries(),
     ...getCitySeoSitemapEntries(),
     ...getMumbaiSeoSitemapEntries(),
+    ...getUaeSeoSitemapEntries(),
   ]);
 }
 
@@ -65,6 +67,7 @@ export function getSeoSitemapEntries(): MetadataRoute.Sitemap {
  */
 export const SITEMAP_SECTIONS = [
   "core",
+  "uae",
   "mumbai",
   "gurgaon",
   "cities",
@@ -81,6 +84,7 @@ export type SitemapSection = (typeof SITEMAP_SECTIONS)[number];
 export function getSectionedSitemapEntries(): Record<SitemapSection, MetadataRoute.Sitemap> {
   return {
     core: [...getCorePublicSitemapEntries(), getIbTutorsHubSitemapEntry(), getIgcsePagesHubSitemapEntry(), ...getIndexableCourseSitemapEntries()],
+    uae: [...getUaeSeoSitemapEntries()],
     mumbai: [...getMumbaiSeoSitemapEntries()],
     gurgaon: [...getGurgaonSeoSitemapEntries(), ...getGurgaonKeywordSitemapEntries()],
     cities: [...getCitySeoSitemapEntries(), ...getIndexableCitySitemapEntries(), ...getIndiaKeywordSitemapEntries()],

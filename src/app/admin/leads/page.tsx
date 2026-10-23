@@ -1,11 +1,11 @@
 import { prisma } from "@/lib/db";
 import { AdminShell } from "../_components/AdminShell";
-import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader } from "../_components/AdminPrimitives";
+import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader, adminFilterHref } from "../_components/AdminPrimitives";
 import { LeadsClient } from "./LeadsClient";
 
 export const dynamic = "force-dynamic";
 
-export default async function AdminLeadsPage() {
+export default async function AdminLeadsPage({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
   let items: Awaited<ReturnType<typeof prisma.contactLead.findMany>> = [];
   let dbError: string | null = null;
 
@@ -34,24 +34,29 @@ export default async function AdminLeadsPage() {
   const fresh = serialised.filter((item) => item.status === "new").length;
   const reviewing = serialised.filter((item) => item.status === "reviewing").length;
   const contacted = serialised.filter((item) => item.status === "contacted").length;
+  const { status: filter } = await searchParams;
+  // Clicking a metric card filters the list below; clicking it again clears it.
+  const href = (value: string) => adminFilterHref("/admin/leads", { status: filter }, "status", value);
+  const visible = filter ? serialised.filter((item) => item.status === filter) : serialised;
 
   return (
     <AdminShell>
       <AdminPageHeader
         eyebrow="Inbox"
         title="Leads &amp; Messages"
-        description="Enquiries submitted from the public contact form. Update statuses, reply by email or phone, and keep internal notes."
+        description="Enquiries submitted from the public contact form. Click any box below to filter the list, update statuses, reply by email or phone, and keep internal notes."
       />
-      <div className="mb-5 grid gap-4 md:grid-cols-3">
-        <AdminMetricCard label="New" value={fresh} tone="amber" />
-        <AdminMetricCard label="Reviewing" value={reviewing} tone="sky" />
-        <AdminMetricCard label="Contacted" value={contacted} tone="emerald" />
+      <div className="mb-5 grid gap-4 md:grid-cols-4">
+        <AdminMetricCard label="All enquiries" value={serialised.length} href="/admin/leads" active={!filter} />
+        <AdminMetricCard label="New" value={fresh} tone="amber" href={href("new")} active={filter === "new"} />
+        <AdminMetricCard label="Reviewing" value={reviewing} tone="sky" href={href("reviewing")} active={filter === "reviewing"} />
+        <AdminMetricCard label="Contacted" value={contacted} tone="emerald" href={href("contacted")} active={filter === "contacted"} />
       </div>
       <AdminCard>
         {dbError ? (
           <AdminEmptyState title="Database not reachable" detail={dbError} />
         ) : (
-          <LeadsClient items={serialised} />
+          <LeadsClient items={visible} />
         )}
       </AdminCard>
     </AdminShell>

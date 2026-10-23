@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/db";
 import { AdminShell } from "../_components/AdminShell";
-import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader } from "../_components/AdminPrimitives";
+import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader, adminFilterHref } from "../_components/AdminPrimitives";
 import { JobApplicationsClient } from "./JobApplicationsClient";
 
 export const dynamic = "force-dynamic";
@@ -9,7 +9,7 @@ type ApplicationWithJob = Awaited<ReturnType<typeof prisma.jobApplication.findMa
   job?: { slug: string; title: string; department: string } | null;
 };
 
-export default async function AdminJobApplicationsPage() {
+export default async function AdminJobApplicationsPage({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
   let items: ApplicationWithJob[] = [];
   let dbError: string | null = null;
 
@@ -53,24 +53,29 @@ export default async function AdminJobApplicationsPage() {
   const received = serialised.filter((item) => item.status === "received").length;
   const reviewing = serialised.filter((item) => item.status === "reviewing").length;
   const shortlisted = serialised.filter((item) => item.status === "shortlisted").length;
+  const { status: filter } = await searchParams;
+  // Clicking a metric card filters the list below; clicking it again clears it.
+  const href = (value: string) => adminFilterHref("/admin/job-applications", { status: filter }, "status", value);
+  const visible = filter ? serialised.filter((item) => item.status === filter) : serialised;
 
   return (
     <AdminShell>
       <AdminPageHeader
         eyebrow="Careers"
         title="Job Applications"
-        description="Review applications submitted from public job pages. Update statuses, inspect resumes, and keep internal notes."
+        description="Review applications submitted from public job pages. Click any box below to filter the list, update statuses, inspect resumes, and keep internal notes."
       />
-      <div className="mb-5 grid gap-4 md:grid-cols-3">
-        <AdminMetricCard label="Received" value={received} tone="amber" />
-        <AdminMetricCard label="Reviewing" value={reviewing} tone="sky" />
-        <AdminMetricCard label="Shortlisted" value={shortlisted} tone="emerald" />
+      <div className="mb-5 grid gap-4 md:grid-cols-4">
+        <AdminMetricCard label="All applications" value={serialised.length} href="/admin/job-applications" active={!filter} />
+        <AdminMetricCard label="Received" value={received} tone="amber" href={href("received")} active={filter === "received"} />
+        <AdminMetricCard label="Reviewing" value={reviewing} tone="sky" href={href("reviewing")} active={filter === "reviewing"} />
+        <AdminMetricCard label="Shortlisted" value={shortlisted} tone="emerald" href={href("shortlisted")} active={filter === "shortlisted"} />
       </div>
       <AdminCard>
         {dbError ? (
           <AdminEmptyState title="Database not reachable" detail={dbError} />
         ) : (
-          <JobApplicationsClient items={serialised} />
+          <JobApplicationsClient items={visible} />
         )}
       </AdminCard>
     </AdminShell>

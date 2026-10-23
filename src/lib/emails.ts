@@ -52,6 +52,44 @@ export function tutorCredentialsEmail(input: { name: string; email: string; pass
   return { subject: "Your IB Gram tutor login details", html, text };
 }
 
+/** Sent when an admin creates a student login from the admin panel. */
+export function studentCredentialsEmail(input: { name: string; email: string; password: string }) {
+  const loginUrl = `${SITE_URL}/login`;
+  const firstName = input.name.split(" ")[0] || "there";
+
+  const html = emailLayout(
+    "Your IB Gram student account is ready",
+    p(`Hi ${firstName},`) +
+      p("The IB Gram team has set up your student account. Sign in to see your tutors, book demo classes and chat with them.") +
+      `<table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin:18px 0;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;">
+         <tr><td style="padding:16px 18px;">
+           <p style="margin:0 0 8px;font-size:13px;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;">Your login details</p>
+           <p style="margin:0 0 6px;font-size:15px;color:#111827;"><strong>Email:</strong> ${input.email}</p>
+           <p style="margin:0;font-size:15px;color:#111827;"><strong>Password:</strong> <code style="background:#eef2f7;padding:2px 6px;border-radius:4px;">${input.password}</code></p>
+         </td></tr>
+       </table>` +
+      button(loginUrl, "Log in to your dashboard") +
+      p("For your security, please change this password after your first login — you can do it from <strong>Settings</strong> in your dashboard."),
+  );
+
+  const text = [
+    `Hi ${firstName},`,
+    "",
+    "The IB Gram team has set up your student account.",
+    "",
+    `Email: ${input.email}`,
+    `Password: ${input.password}`,
+    "",
+    `Log in: ${loginUrl}`,
+    "",
+    "Please change this password after your first login from Settings in your dashboard.",
+    "",
+    "- IB Gram",
+  ].join("\n");
+
+  return { subject: "Your IB Gram student login details", html, text };
+}
+
 const fmt = (d: Date) =>
   d.toLocaleString("en-IN", { dateStyle: "full", timeStyle: "short", timeZone: "Asia/Kolkata" });
 

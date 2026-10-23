@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { resolvePageTitle } from "@/lib/seo/page-title";
+import { resolveMetaDescription } from "@/lib/seo/meta-description";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowLeft, ArrowRight, CalendarDays, Clock, Tag, User } from "lucide-react";
@@ -54,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const url = absoluteUrl(`/blog/${post.slug}/`);
   const title = post.metaTitle ?? post.title;
-  const description = post.metaDescription ?? post.excerpt ?? `${post.title} — IB Gram Insights.`;
+  const description = resolveMetaDescription(post.metaDescription ?? post.excerpt ?? `${post.title} — IB Gram Insights.`);
   const shouldIndex = post.indexFlag !== "noindex";
   const socialImage = post.ogImageUrl ?? post.featuredImageUrl;
   const absoluteSocialImage = socialImage
@@ -65,7 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImages = absoluteSocialImage ? [absoluteSocialImage] : undefined;
 
   return {
-    title,
+    title: resolvePageTitle(title),
     description,
     keywords: post.metaKeywords.length ? post.metaKeywords : post.tags,
     alternates: { canonical: url },

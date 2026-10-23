@@ -83,4 +83,13 @@ describe("Markdown figures", () => {
     const { container } = render(<Markdown content="## What does a **7** need?" />);
     expect(container.querySelector("h2")?.id).toBe("what-does-a-7-need");
   });
+
+  // Posts written with "#" per section shipped up to 39 h1s each; the page title owns
+  // the only h1, so body headings must start at h2.
+  it("never emits an h1, even for a '#' heading, and still anchors it", () => {
+    const { container } = render(<Markdown content={["# Fees in 2026", "", "Text.", "", "## Next"].join("\n")} />);
+    expect(container.querySelectorAll("h1")).toHaveLength(0);
+    expect(container.querySelector("h2")?.id).toBe("fees-in-2026");
+    expect(container.querySelectorAll("h2")).toHaveLength(2);
+  });
 });

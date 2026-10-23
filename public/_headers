@@ -47,5 +47,9 @@
 /sitemap.xml
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
+# The nine child sitemaps listed in the index above.
+/sitemap-*.xml
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
 /robots.txt
   Cache-Control: public, max-age=86400

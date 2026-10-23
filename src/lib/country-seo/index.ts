@@ -1,6 +1,7 @@
 import type { Metadata, MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
 import { resolvePageTitle } from "@/lib/seo/page-title";
+import { resolveMetaDescription } from "@/lib/seo/meta-description";
 import type { JsonLdObject } from "@/lib/seo/schema";
 import { CONTACT } from "@/lib/contact";
 import { countrySeoPages } from "./countries";
@@ -58,7 +59,7 @@ export function buildCountrySeoMetadata(page: CountrySeoPage): Metadata {
   );
   return {
     title: resolvePageTitle(page.title),
-    description: page.metaDescription,
+    description: resolveMetaDescription(page.metaDescription),
     keywords: [page.primaryKeyword, ...page.secondaryKeywords],
     alternates: { canonical, ...(countrySeoPages.length > 1 ? { languages } : {}) },
     robots: {

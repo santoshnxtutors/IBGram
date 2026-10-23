@@ -184,11 +184,15 @@ export function Markdown({ content, className }: { content: string; className?: 
       {tokens.map((tok, i) => {
         const k = `tok-${i}`;
         switch (tok.type) {
+          // A "#" heading renders as an h2, not an h1: the post page already puts the
+          // title in the page's one h1, and posts written with "#" per section shipped
+          // up to 39 h1s each, which leaves a crawler no document outline to read. The
+          // styling is unchanged, and it gains the anchor id the table of contents needs.
           case "h1":
             return (
-              <h1 key={k} className="mt-10 mb-5 text-3xl font-black tracking-tight text-foreground md:text-4xl">
+              <h2 key={k} id={headingId(tok.text)} className="mt-10 scroll-mt-24 mb-5 text-3xl font-black tracking-tight text-foreground md:text-4xl">
                 {renderInline(tok.text, k)}
-              </h1>
+              </h2>
             );
           case "h2":
             return (

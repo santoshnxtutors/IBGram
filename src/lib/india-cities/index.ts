@@ -1,6 +1,7 @@
 import type { Metadata, MetadataRoute } from "next";
 import { absoluteUrl, SITE_URL } from "@/lib/seo/slug-utils";
 import { resolvePageTitle } from "@/lib/seo/page-title";
+import { resolveMetaDescription } from "@/lib/seo/meta-description";
 import type { JsonLdObject } from "@/lib/seo/schema";
 import { CONTACT } from "@/lib/contact";
 import { citySeoPages } from "./cities";
@@ -42,7 +43,7 @@ export function buildCitySeoMetadata(page: CitySeoPage): Metadata {
   const canonical = canonicalOf(page);
   return {
     title: resolvePageTitle(page.title),
-    description: page.metaDescription,
+    description: resolveMetaDescription(page.metaDescription),
     keywords: [page.primaryKeyword, ...page.secondaryKeywords],
     alternates: { canonical },
     robots: {

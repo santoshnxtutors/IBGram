@@ -4,6 +4,7 @@ import { normaliseCountryCodes } from "@/lib/countries";
 import { prisma } from "@/lib/db";
 import { getAffectedPathsForTutor } from "@/lib/cache/affected-paths";
 import { applyRevalidationTargets, jsonNoStore } from "@/lib/cache/revalidation";
+import { resolveCityForTutor, unknownCityMessage } from "@/lib/cms/resolve-city";
 import { getTutors } from "../../_lib/admin-data";
 import { requireAdminRequest } from "../../_lib/admin-auth";
 import { slugifyAdmin } from "../../_lib/admin-url";
@@ -35,8 +36,12 @@ export async function POST(request: NextRequest) {
     const existing = await prisma.tutor.findUnique({ where: { slug }, select: { id: true } });
     if (existing) return jsonNoStore({ error: `Slug "${slug}" is already used by another tutor.` }, { status: 409 });
 
-    const citySlug = slugifyAdmin(data.primaryCitySlug || "gurugram");
-    const city = await prisma.city.findFirst({ where: { slug: citySlug } });
+    // Resolved before the transaction so an unknown place is rejected outright instead of
+    // creating a tutor with no location rows and reporting success.
+    const city = await resolveCityForTutor(prisma, data.primaryCitySlug);
+    if (!city) {
+      return jsonNoStore({ error: await unknownCityMessage(prisma, data.primaryCitySlug) }, { status: 400 });
+    }
     const tutor = await prisma.$transaction(async (tx) => {
       const created = await tx.tutor.create({
         data: {
@@ -101,19 +106,17 @@ export async function POST(request: NextRequest) {
       const curriculumRows = buildCurriculumRows(created.id, data.curriculums, data.ibProgrammes);
       if (curriculumRows.length) await tx.tutorCurriculum.createMany({ data: curriculumRows, skipDuplicates: true });
 
-      if (city) {
-        await tx.tutorLocation.createMany({
-          data: buildLocationRows(
-            created.id,
-            city,
-            data.areas,
-            data.sectors,
-            data.societies,
-            data.teachingModes,
-            data.travelNotes,
-          ),
-        });
-      }
+      await tx.tutorLocation.createMany({
+        data: buildLocationRows(
+          created.id,
+          city,
+          data.areas,
+          data.sectors,
+          data.societies,
+          data.teachingModes,
+          data.travelNotes,
+        ),
+      });
 
       if (data.avatarAssetId) {
         const asset = await tx.asset.findUnique({ where: { id: data.avatarAssetId } });

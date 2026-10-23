@@ -3,6 +3,7 @@ node_modules/
 /backend/node_modules/
 /shared/node_modules/
 /authentication/node_modules/
+/Use Sitemap to create
 .pnp
 .pnp.*
 .yarn/*

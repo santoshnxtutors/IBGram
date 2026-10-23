@@ -28,9 +28,28 @@ export function GeneratedPageRenderer({
   /** Caller-supplied tutor section, rendered in the same slot as the built-in one. */
   tutorSection?: React.ReactNode;
 }) {
+  // `speakable` is injected here rather than baked into every pages.json:
+  // the schema in those files is generated output, so adding it at render time
+  // covers every generated page at once and survives the next regeneration.
+  // It marks the passages an answer engine can quote verbatim — the H1 and the
+  // FAQ answers are the two places on these pages where a lifted fragment still
+  // makes sense without the section around it.
+  const schema = page.schema && typeof page.schema === "object"
+    ? {
+        ...(page.schema as Record<string, unknown>),
+        "@graph": Array.isArray((page.schema as { "@graph"?: unknown[] })["@graph"])
+          ? ((page.schema as { "@graph": Record<string, unknown>[] })["@graph"]).map((node) =>
+              node?.["@type"] === "WebPage"
+                ? { ...node, speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", "[data-speakable]"] } }
+                : node,
+            )
+          : (page.schema as { "@graph"?: unknown[] })["@graph"],
+      }
+    : page.schema;
+
   return (
     <div className="min-h-screen bg-background">
-      <JsonLd data={page.schema} />
+      <JsonLd data={schema} />
       <GeneratedHero page={page} />
       <GeneratedTrustBar page={page} />
       <GeneratedSchoolStrip page={page} />

@@ -1,6 +1,7 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/db";
+import { normaliseImageUrl } from "@/lib/media-url";
 import {
   parseTutorCountries,
   parseTutorModes,
@@ -70,18 +71,9 @@ async function queryWithRetry<T>(op: () => Promise<T>, attempts = 3, baseMs = 30
  * - already starts with `/` → unchanged
  * - missing leading slash → prepend "/"
  */
-export function normaliseImageUrl(value: string | null | undefined): string {
-  if (!value) return "";
-  const trimmed = value.trim();
-  if (!trimmed) return "";
-  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) return trimmed;
-  // Rewrite legacy /uploads/<key> to /api/media/<key> — the route handler
-  // reads files fresh from disk on every request.
-  if (trimmed.startsWith("/uploads/")) return `/api/media/${trimmed.slice("/uploads/".length)}`;
-  if (trimmed.startsWith("uploads/")) return `/api/media/${trimmed.slice("uploads/".length)}`;
-  if (trimmed.startsWith("/")) return trimmed;
-  return `/${trimmed}`;
-}
+// Lives in @/lib/media-url so the chat service can use it without pulling in
+// this module's "server-only" marker. Re-exported here for existing importers.
+export { normaliseImageUrl };
 
 /**
  * Read all visible tutors from Prisma and map them onto the legacy `Tutor`

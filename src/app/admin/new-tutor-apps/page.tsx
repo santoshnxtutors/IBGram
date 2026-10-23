@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/db";
 import { AdminShell } from "../_components/AdminShell";
-import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader } from "../_components/AdminPrimitives";
+import { AdminCard, AdminEmptyState, AdminMetricCard, AdminPageHeader, adminFilterHref } from "../_components/AdminPrimitives";
 import { TUTOR_APPLICATION_TITLE } from "@/lib/tutor-applications";
 import { DeleteApplicationButton } from "./DeleteApplicationButton";
 
@@ -28,7 +28,7 @@ type TutorAnswers = {
   availability?: string;
 };
 
-export default async function AdminNewTutorAppsPage() {
+export default async function AdminNewTutorAppsPage({ searchParams }: { searchParams: Promise<{ show?: string }> }) {
   let items: Awaited<ReturnType<typeof prisma.jobApplication.findMany>> = [];
   let dbError: string | null = null;
 
@@ -44,32 +44,39 @@ export default async function AdminNewTutorAppsPage() {
 
   const newCount = items.filter((item) => item.status === "received").length;
   const withResume = items.filter((item) => item.resumeUrl).length;
+  const { show: filter } = await searchParams;
+  // Clicking a metric card filters the list below; clicking it again clears it.
+  const href = (value: string) => adminFilterHref("/admin/new-tutor-apps", { show: filter }, "show", value);
+  const visible =
+    filter === "received" ? items.filter((item) => item.status === "received")
+    : filter === "resume" ? items.filter((item) => item.resumeUrl)
+    : items;
 
   return (
     <AdminShell>
       <AdminPageHeader
         eyebrow="Tutors"
         title="New Tutor Apps"
-        description="Applications submitted from the public Join as Tutor page, newest first."
+        description="Applications submitted from the public Join as Tutor page, newest first. Click any box below to filter the list."
       />
 
       <div className="grid gap-4 sm:grid-cols-3">
-        <AdminMetricCard label="Total applications" value={items.length} />
-        <AdminMetricCard label="Awaiting review" value={newCount} tone="amber" />
-        <AdminMetricCard label="With CV attached" value={withResume} />
+        <AdminMetricCard label="Total applications" value={items.length} href="/admin/new-tutor-apps" active={!filter} />
+        <AdminMetricCard label="Awaiting review" value={newCount} tone="amber" href={href("received")} active={filter === "received"} />
+        <AdminMetricCard label="With CV attached" value={withResume} href={href("resume")} active={filter === "resume"} />
       </div>
 
       <AdminCard>
         {dbError ? (
           <AdminEmptyState title="Could not load applications" detail={dbError} />
-        ) : items.length === 0 ? (
+        ) : visible.length === 0 ? (
           <AdminEmptyState
-            title="No tutor applications yet"
-            detail="Applications from the Join as Tutor page will appear here."
+            title={filter ? "Nothing in this group" : "No tutor applications yet"}
+            detail={filter ? "Click the same box again to see every application." : "Applications from the Join as Tutor page will appear here."}
           />
         ) : (
           <div className="space-y-4">
-            {items.map((item) => {
+            {visible.map((item) => {
               const answers = (item.answersJson ?? {}) as TutorAnswers;
               const address = [answers.addressLine, answers.city, answers.state, answers.postalCode, answers.country]
                 .filter(Boolean)

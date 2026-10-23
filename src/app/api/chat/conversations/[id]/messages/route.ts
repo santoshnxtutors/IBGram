@@ -11,7 +11,8 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
   const body = await request.json().catch(() => ({}));
   if (typeof body?.body !== "string") return Response.json({ error: "Message body is required." }, { status: 400 });
 
-  const result = await postMessage(user.id, (await params).id, body.body);
+  const replyToId = typeof body?.replyToId === "string" ? body.replyToId : null;
+  const result = await postMessage(user.id, (await params).id, body.body, { replyToId });
   if ("error" in result) {
     const status = result.error === "NOT_FOUND" ? 404 : 400;
     return Response.json({ error: result.error === "NOT_FOUND" ? "Conversation not found." : result.error }, { status });
