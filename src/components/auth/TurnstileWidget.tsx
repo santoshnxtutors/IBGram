@@ -30,9 +30,13 @@ export function TurnstileWidget({ onToken }: { onToken: (token: string) => void 
   const holder = useRef<HTMLDivElement | null>(null);
   const widgetId = useRef<string | null>(null);
   // Kept in a ref so re-renders of the parent do not re-run the mount effect and draw a
-  // second widget.
+  // second widget. Synced in an effect rather than assigned during render, which
+  // react-hooks/refs forbids - a render-phase mutation is not safe under concurrent
+  // rendering, where React may render without committing.
   const onTokenRef = useRef(onToken);
-  onTokenRef.current = onToken;
+  useEffect(() => {
+    onTokenRef.current = onToken;
+  }, [onToken]);
 
   useEffect(() => {
     if (!siteKey || !holder.current) return;
