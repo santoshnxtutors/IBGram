@@ -19,8 +19,8 @@ export const bahrain: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings on Bahrain's clock",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Bahrain | Online IGCSE & DP, Manama",
-  metaDescription: "Match with an online tutor who already teaches your child's exact IB or IGCSE syllabus, in lessons timed to a Bahrain school evening. See a name first.",
+  title: "IB and IGCSE Tutors in Bahrain, Online One to One",
+  metaDescription: "One-to-one online classes for Cambridge, Edexcel and IB students in Manama, Riffa and Saar, timed to a Bahrain school evening. A named tutor comes first.",
   h1: "Online IB and IGCSE tutors for students studying in Bahrain",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN BAHRAIN",
   heroSubtitle: "A private school in Manama, Riffa or Saar has your child on the IB or Cambridge/Edexcel IGCSE syllabus, and finding someone outside class who has actually taught that same syllabus is harder than it should be. That is the gap we close: an online, one-to-one tutor matched to the exact subject and level, working around a Bahraini school evening. Tell us the programme and subject, and we'll put forward a name before any commitment is made.",
@@ -360,6 +360,10 @@ export const bahrain: CountrySeoPage = {
     {
       question: "Is home tutoring available in Bahrain?",
       answer: "Not in Bahrain — every lesson here happens over video; home visits are something we only run in India, where our tutors are based. What families in Bahrain get instead is a live one-to-one call, a shared whiteboard, marked-up past papers and a written note afterward, which turns out to be the only realistic option anyway for a niche HL subject or Arabic B with no local specialist nearby.",
+    },
+    {
+      question: "Are there IGCSE coaching classes near me in Bahrain?",
+      answer: "IB Gram runs no coaching centre anywhere in Bahrain — no branch in Manama, Riffa, Saar or Isa Town. The classes are one-to-one online instead, taught against the exact Cambridge or Edexcel IGCSE syllabus code a child's school follows, and booked in Arabia Standard Time (UTC+3) for a weekday evening or a weekend morning. One tutor, one student, the same person each week, with a written note after every lesson.",
     },
     {
       question: "How does the University of Bahrain evaluate an IB or IGCSE transcript?",

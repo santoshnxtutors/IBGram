@@ -2,9 +2,9 @@ import type { IgcseSubjectContent } from "../types";
 
 export const globalPerspectives: IgcseSubjectContent = {
   slug: "global-perspectives",
-  metaTitle: "IGCSE Global Perspectives Tutors (0457) Online",
+  metaTitle: "Global Perspectives Tutors for IGCSE 0457",
   metaDescription:
-    "Tutors who mark the 0457 Individual Report and Team Project against the Cambridge criteria, with a written note after every session. Book a free trial.",
+    "Cambridge IGCSE Global Perspectives is syllabus 0457. Online tutors coach the source paper, the 1,500-2,000 word Individual Report and the Team Project.",
   primaryKeyword: "IGCSE Global Perspectives tutors",
   secondaryKeywords: [
     "IGCSE Global Perspectives tutor",
@@ -29,7 +29,7 @@ export const globalPerspectives: IgcseSubjectContent = {
   heroSubtitle:
     "One-to-one coaching for Cambridge IGCSE Global Perspectives 0457 and the 0426 route, covering the written source paper, the Individual Report and the Team Project. Online everywhere in your own time zone, with home tuition possible in parts of India.",
   introSummary:
-    "Global Perspectives is the one IGCSE a student can revise for a fortnight and still have no idea what to do. There is no body of content to memorise. What Cambridge assesses is a set of thinking habits: framing a question worth researching, pulling apart the perspectives people hold on a contested issue, testing whether a source deserves belief, working inside a team, and writing honestly about your own learning. Most families get in touch after a draft comes back marked \"needs more analysis\" and nobody in the house can say what that actually means. IB Gram matches Grade 9 to Grade 11 students on 0457 or 0426 with a tutor who coaches those habits. Sessions run online worldwide, in your own time zone.",
+    "Global Perspectives — GP, Cambridge syllabus 0457 — is the one IGCSE a student can revise for a fortnight and still have no idea what to do. There is no body of content to memorise. What Cambridge assesses is a set of thinking habits: framing a question worth researching, pulling apart the perspectives people hold on a contested issue, testing whether a source deserves belief, working inside a team, and writing honestly about your own learning. Most families get in touch after a draft comes back marked \"needs more analysis\" and nobody in the house can say what that actually means. IB Gram matches Grade 9 to Grade 11 students on 0457 or 0426 with a tutor who coaches those habits. Sessions run online worldwide, in your own time zone.",
   blocks: [
     {
       type: "intro",
@@ -280,9 +280,14 @@ export const globalPerspectives: IgcseSubjectContent = {
   },
   faqs: [
     {
-      question: "Is IGCSE Global Perspectives an easy subject?",
+      question: "What is the syllabus code for IGCSE Global Perspectives?",
       answer:
-        "No, though it is often chosen on that assumption. There is no content to memorise, which sounds easier and turns out to be harder for many students, because nothing can be crammed the week before. The grade depends on skills built over two years: framing a researchable question, analysing competing perspectives, judging sources and writing reflectively. Students who are used to revising facts often find the first term disorienting. Students who enjoy argument and independent work tend to do well.",
+        "Cambridge IGCSE Global Perspectives, usually shortened to GP, carries syllabus code 0457, and some schools enter the 0426 Global Perspectives route instead. Both assess the same four skills — research, analysis, evaluation and reflection — across an externally set source paper, an Individual Report of roughly 1,500 to 2,000 words, and a Team Project of two to five members. Confirm the code with the subject teacher.",
+    },
+    {
+      question: "Is IGCSE Global Perspectives (GP) hard?",
+      answer:
+        "GP is harder than the students who pick it as a soft option expect. There is no body of content to memorise, which sounds easier and proves harder, because nothing can be crammed the week before. The grade depends on skills built over two years: framing a researchable question, analysing competing perspectives, judging sources and writing reflectively. Students who are used to revising facts often find the first term disorienting. Students who enjoy argument and independent work tend to do well.",
     },
     {
       question: "Which syllabus codes do your Global Perspectives tutors cover?",

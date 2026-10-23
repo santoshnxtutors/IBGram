@@ -938,13 +938,13 @@ const ibLanguage: CourseSubjectContent = {
 const ibArts: CourseSubjectContent = {
   curriculumLabel: "IB Diploma Programme",
   subjectLabel: "The Arts",
-  pageTitle: "IB Arts Tutor — Visual Arts, Music, Theatre, Dance & Film (HL/SL)",
+  pageTitle: "IB Visual Arts and Theatre Tutors — Group 6, HL and SL",
   heroEyebrow: "IB DP Group 6",
   heroSummary:
     "Verified tutors for IB Group 6 — Visual Arts, Music, Theatre, Dance and Film at Higher and Standard Level. Portfolio direction, coursework structure, written commentary and submission planning, without anyone else making the student’s work.",
-  metaTitle: "IB Arts Tutor: Visual Arts, Music, Theatre | IB Gram",
+  metaTitle: "IB Visual Arts and Theatre Tutor for HL and SL",
   metaDescription:
-    "IB Group 6 tutors for Visual Arts, Music, Theatre, Dance and Film at HL or SL: portfolio direction, comparative study and exhibition rationale. Ask us.",
+    "IB Group 6 tutors for Visual Arts, Theatre, Music, Dance and Film at HL or SL: artistic intention, process evidence, written rationale and submission checks.",
   metaKeywords: [
     "IB Arts tutor",
     "IB Group 6 tutor",
@@ -977,7 +977,7 @@ const ibArts: CourseSubjectContent = {
     "IB Arts tutor online",
   ],
   introParagraphs: [
-    "Group 6 — The Arts — is the sixth subject slot in the IB Diploma Programme. Students may take Visual Arts, Music, Theatre, Dance or Film at HL or SL, or replace the arts slot with a second subject from Groups 1–4. Families often assume the arts are the lighter option in the Diploma. In practice these are among the most coursework-heavy subjects in the DP: almost all the marks come from portfolios, recorded performances, exhibitions and extended written commentary produced across eighteen months, not from a paper written in a single morning. Deadline discipline and documentation habits matter more here than exam cramming.",
+    "Families searching for an IB Visual Arts tutor, an IB Theatre tutor or help with Music, Dance or Film are all looking at the same part of the Diploma: Group 6 — The Arts — the sixth subject slot. Students may take Visual Arts, Music, Theatre, Dance or Film at HL or SL, or replace the arts slot with a second subject from Groups 1–4. Families often assume the arts are the lighter option in the Diploma. In practice these are among the most coursework-heavy subjects in the DP: almost all the marks come from portfolios, recorded performances, exhibitions and extended written commentary produced across eighteen months, not from a paper written in a single morning. Deadline discipline and documentation habits matter more here than exam cramming.",
     "The commonest reason families look for an IB Arts tutor is not talent — it is structure. Students who make strong work still lose marks when the process is not evidenced, when the written rationale drifts away from the assessment criteria, or when a recording is submitted at the wrong length or format. Group 6 tutoring is therefore mostly about intention, documentation and criteria literacy: articulating an artistic intention, keeping a journal or portfolio that shows genuine experimentation, and writing about the work in the register the markbands actually reward.",
     "Both Visual Arts and Music have been restructured. Visual Arts moves to a new guide with first assessment in 2027, replacing the comparative study, process portfolio and exhibition with an art-making inquiries portfolio, a connections study at SL or an artist project at HL, and resolved or selected artworks. Music is now built around three musical processes — exploring music in context, experimenting with music and presenting music — with the contemporary music-maker as the HL extension. Tutors are matched to the guide version the student is actually sitting, confirmed with the school, because coursework advice written for an outgoing structure can cost real marks.",
     "Most Group 6 students work well with one weekly session tracking their coursework calendar, increasing around exhibition, recording and submission windows. Online matching is common and works well: the strongest IB Visual Arts, Theatre, Dance or Film specialist for a particular guide version rarely lives in the same city, and portfolios, scores, edits and drafts review perfectly well over screen share.",
@@ -1086,6 +1086,11 @@ const ibArts: CourseSubjectContent = {
       question: "Is IB Visual Arts an easier subject than a science or maths option?",
       answer:
         "Not in workload terms. Group 6 subjects are dominated by coursework produced across eighteen months — portfolios, exhibitions, recordings and extended written commentary — rather than by a single exam session. Students who enjoy the making usually cope well; students choosing it to reduce effort generally do not.",
+    },
+    {
+      question: "What does an IB Visual Arts tutor actually work on?",
+      answer:
+        "Not the artwork — that has to be the student's own. A Visual Arts tutor works on the written and curatorial half of the grade: stating an artistic intention in a way an examiner can follow, keeping an art-making inquiries portfolio that evidences real experimentation rather than a reconstructed one, shaping the connections study at SL or the artist project at HL, and writing exhibition text that reads as a curatorial statement instead of a diary.",
     },
     {
       question: "Has the IB Visual Arts syllabus changed?",

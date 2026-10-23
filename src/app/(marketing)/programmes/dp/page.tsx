@@ -50,23 +50,23 @@ export async function generateMetadata(): Promise<Metadata> {
   const localPage = getGeneratedPageForRoute("/programmes/dp/", ["programme"]);
   if (localPage) return buildGeneratedMetadata(localPage);
   return {
-    title: "IB DP Tutor — Diploma Programme Subject, IA, EE & TOK Support | IB Gram",
+    title: "IBDP Tutor for HL and SL Subjects, IA and the DP Core | IB Gram",
     description:
-      "IB Diploma Programme tutoring for HL/SL subjects, Mathematics AA & AI, Sciences, Economics, English, Internal Assessment, Extended Essay, Theory of Knowledge and final exam revision. Verified DP specialists, honest matching.",
+      "IBDP tutoring matched by subject and level, plus the DP core: Theory of Knowledge, the Extended Essay and CAS. Online worldwide, home where a tutor is local.",
     keywords: dpMetaKeywords,
     alternates: { canonical: pageUrl },
     openGraph: {
       type: "website",
       url: pageUrl,
-      title: "IB DP Tutor — Diploma Programme Tutoring | IB Gram",
+      title: "IBDP Tutor for HL and SL Subjects, IA and the DP Core | IB Gram",
       description:
-        "Verified IB DP tutors for HL/SL subjects, IA, EE, TOK and exam revision. Honest matching across Gurugram, Delhi, Noida, Mumbai, Bangalore and online.",
+        "IBDP tutors for HL and SL subjects, Internal Assessment and the DP core: Theory of Knowledge, the Extended Essay and CAS. Online worldwide, home where local.",
       siteName: "IB Gram",
     },
     twitter: {
       card: "summary_large_image",
-      title: "IB DP Tutor — Diploma Programme Tutoring",
-      description: "Verified IB DP tutors for HL/SL subjects, IA, EE, TOK and exam revision.",
+      title: "IBDP Tutor for HL and SL Subjects, IA and the DP Core",
+      description: "IBDP tutors for HL and SL subjects, IA, and the DP core: TOK, the Extended Essay and CAS.",
     },
   };
 }

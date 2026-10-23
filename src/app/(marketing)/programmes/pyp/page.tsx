@@ -19,8 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const localPage = getGeneratedPageForRoute("/programmes/pyp/", ["programme"]);
   if (localPage) return buildGeneratedMetadata(localPage);
   return {
-    title: "IB PYP Tutor — Primary Years Programme Support | IB Gram",
-    description: "Find specialist PYP tutors for enquiry-based learning, reading, Maths and exhibition support. Home, online and hybrid lessons across India.",
+    title: "PYP Tutor for Reading, Maths and the PYP Exhibition | IB Gram",
+    description: "PYP tutors for ages 3 to 12, working inside your child's current unit of inquiry: reading, number sense and PYP Exhibition research. Online or at home.",
     alternates: { canonical: "/programmes/pyp/" },
   };
 }

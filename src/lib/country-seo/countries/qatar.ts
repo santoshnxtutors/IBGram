@@ -19,8 +19,8 @@ export const qatar: CountrySeoPage = {
   schedulingNote: "Weekday evenings and Friday-Saturday mornings in Arabia Standard Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Qatar | Online DP & IGCSE in Doha",
-  metaDescription: "Doha families get an online tutor matched to the exact IB or IGCSE course their school teaches, on Arabia Standard Time. Ask for a shortlist by subject.",
+  title: "IB Tutors in Qatar and IGCSE Tuition in Doha",
+  metaDescription: "Online one-to-one tutors for Doha students: IB DP chemistry, maths and economics plus Cambridge IGCSE, booked around Qatar's Sunday-to-Thursday week.",
   h1: "Online IB and IGCSE tutors for students studying in Qatar",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN QATAR",
   heroSubtitle: "A Doha IB continuum school, a British-curriculum school running IGCSE, or an Education City family weighing a branch-campus application — whichever fits, we pair your child with a tutor already fluent in that exact course. Lessons happen entirely on screen, timed to Arabia Standard Time so they slot naturally after a Qatari school day and its Sunday-to-Thursday rhythm. Name the subject and level, and a shortlist follows.",
@@ -368,6 +368,10 @@ export const qatar: CountrySeoPage = {
     {
       question: "Is the IB Diploma or A Level the better call at a British-curriculum school?",
       answer: "It comes down to how settled a student's direction already is, more than anything a tutor can decide for you. A Level rewards a student who already knows where they're headed and wants to go deep in three or four subjects; the Diploma suits someone who'd rather keep six subjects and a research-heavy core running in parallel. We teach DP, MYP, PYP and CP subjects, and once a direction is picked, we can map what each path means for a specific Education City branch campus's entry requirements.",
+    },
+    {
+      question: "Can I get an IB Chemistry tutor in Qatar?",
+      answer: "Yes, at HL, SL and Cambridge IGCSE Chemistry (0620), online and one-to-one on Arabia Standard Time. DP sessions cover the current guide's structure and reactivity themes, the calculation-heavy work on moles, equilibrium and pH, organic mechanisms, and the scientific investigation that carries 20 percent of the final grade. Send the level and the school's unit order, and a chemistry specialist is proposed rather than a general science tutor.",
     },
     {
       question: "Is it worth booking IGCSE support for a family in Qatar?",

@@ -13,9 +13,9 @@ const CANONICAL = absoluteUrl("/tutors/");
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: { absolute: "IB & IGCSE Tutor Directory — Search by Subject | IB Gram" },
+  title: { absolute: "IB Gram Tutor Directory — IB & IGCSE Home and Online Tutors" },
   description:
-    "Filter verified IB and IGCSE tutors by curriculum, subject, level and mode. Online lessons in your time zone, home and hybrid where tutors are local.",
+    "Browse verified IB PYP, MYP, DP, Cambridge IGCSE and Edexcel tutors. Filter by subject, level and mode: online worldwide, home lessons where tutors are local.",
   keywords: [
     "IB tutors",
     "IGCSE tutors",
@@ -61,6 +61,11 @@ const FAQS = [
     question: "Are IB and IGCSE tutors available for home, online and hybrid lessons?",
     answer:
       "Online lessons are available worldwide and are the default outside India. Home and hybrid lessons run where a tutor is genuinely local. We recommend online whenever a stronger subject specialist is not realistically nearby, so subject fit is never traded away for proximity.",
+  },
+  {
+    question: "Can I find an IB Maths home tutor near me?",
+    answer:
+      "Home visits depend on where a tutor actually lives, so in-person IB Mathematics AA and AI availability is deepest in Gurugram, Delhi, Noida, Mumbai, Bangalore, Pune, Hyderabad and Chennai. Outside those cities the honest answer is usually online: a specialist who has taught your exact course beats a nearer generalist, and lessons still run in your own time zone.",
   },
   {
     question: "Which IB DP subjects are most requested?",
@@ -153,7 +158,7 @@ export default async function TutorsPage() {
             <span className="h-px w-8 bg-primary/40" />
           </div>
           <h1 className="text-4xl font-black leading-[1.08] tracking-tight text-foreground md:text-6xl">
-            Find IB &amp; IGCSE tutors worldwide for online, home and hybrid lessons
+            IB Gram tutor directory — find IB &amp; IGCSE home and online tutors
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             Search verified IB PYP, MYP, DP and IGCSE tutors and filter by curriculum, subject, level and learning mode. Online lessons run in

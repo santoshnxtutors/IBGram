@@ -34,16 +34,16 @@ const pageUrl = absoluteUrl("/about-us/");
 const ogImage = absoluteUrl("/images/ib-gram-city-og.svg");
 
 export const metadata: Metadata = {
-  title: { absolute: "About IB Gram — Independent IB & IGCSE Tutor Matching" },
+  title: { absolute: "IB Gram — About Us, Our Founder and How Tutors Are Verified" },
   description:
-    "Founded by Ajay Vatsyayan, an IB DP Maths and Physics tutor. See how tutor profiles are verified and how shortlists are built before you choose.",
+    "IB Gram is an independent IB and IGCSE tutor-matching platform founded by Ajay Vatsyayan in Gurugram. See how tutors are checked and where reviews sit.",
   keywords: aboutMetaKeywords,
   alternates: { canonical: pageUrl },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     url: pageUrl,
-    title: "About IB Gram — Independent IB & IGCSE Tutoring Platform",
+    title: "IB Gram — About Us, Our Founder and How Tutors Are Verified",
     description:
       "Founded by Ajay Vatsyayan after a decade of IB DP Mathematics and Physics tutoring. Built around honest matching, verified profiles and calm advisor support.",
     siteName: "IB Gram",
@@ -115,9 +115,9 @@ export default function AboutUsPage() {
             <Sparkles className="size-3" /> About IB Gram
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-foreground mb-6 tracking-tighter leading-[0.9]">
-            Calmer IB & IGCSE <br />
-            <span className="text-gradient">tutor matching</span> — <br />
-            for real families.
+            IB Gram — calmer <br />
+            <span className="text-gradient">IB &amp; IGCSE tutor</span> <br />
+            matching for real families.
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium leading-relaxed max-w-3xl mx-auto mt-8">
             {aboutHeroDescription}

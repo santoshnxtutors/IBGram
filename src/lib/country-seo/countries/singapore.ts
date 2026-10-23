@@ -17,13 +17,13 @@ export const singapore: CountrySeoPage = {
   region: "Southeast Asia",
   timezoneLabel: "Singapore Standard Time (UTC+8)",
   schedulingNote: "Weekday evenings and weekend mornings on Singapore Standard Time",
-  lastUpdated: "2026-09-14",
+  lastUpdated: "2026-10-23",
 
-  title: "IB Tutors in Singapore | Online IB DP, MYP & IGCSE Tutoring",
-  metaDescription: "Online IB and IGCSE tutors for Singapore families. One-to-one DP, MYP, PYP and IGCSE tuition on Singapore time, matched to your exact school and subject.",
-  h1: "Online IB and IGCSE tutors for students studying in Singapore",
+  title: "IB Tutors in Singapore: IBDP, MYP & IP Tuition",
+  metaDescription: "Online IB tuition for Singapore families: IBDP, MYP, IGCSE and Integrated Programme support, one-to-one or in groups of two to four. Free trial on SGT.",
+  h1: "Online IB tutors in Singapore for IBDP, MYP, IGCSE and IP students",
   heroEyebrow: "ONLINE TUTORING FOR SINGAPORE FAMILIES",
-  heroSubtitle: "Some of our Singapore students sit the Diploma at a local autonomous school running it beside the A-Level track; others are at an international campus in Bukit Timah or along the East Coast. Either way we find a tutor who has actually taught that subject and level. Lessons happen online, one-to-one, timed to Singapore Standard Time, so a slot after CCA finishes is a real option rather than a compromise.",
+  heroSubtitle: "Some of our Singapore students sit the Diploma at an Integrated Programme school where the IBDP is the exit qualification instead of A Levels; others are at a local autonomous school running it beside the A-Level track, or at an international campus in Bukit Timah or along the East Coast. Either way we find a tutor who has actually taught that subject and level. IB tuition happens online, one-to-one or in a small group of two to four, timed to Singapore Standard Time, so a slot after CCA finishes is a real option rather than a compromise.",
   primaryKeyword: "IB tutors in Singapore",
   imageAltText: "IB tutor and a Singapore secondary student working through a Diploma Programme economics question in a one-to-one online lesson",
   secondaryKeywords: [
@@ -268,6 +268,21 @@ export const singapore: CountrySeoPage = {
       },
     },
     {
+      heading: "IB tuition for Integrated Programme students: how the IP through-train works",
+      paragraphs: [
+        "The Integrated Programme lets students at selected schools run from Secondary 1 to a pre-university qualification without sitting the O-Level year, which frees the middle secondary years for research, language depth and enrichment rather than a round of national exams. Most IP schools exit through Singapore-Cambridge A Levels. A small number, Anglo-Chinese School (Independent) and St Joseph's Institution among them, exit through the IB Diploma instead, which is why an IP student and a Diploma student here are often the same person.",
+        "That shapes what tuition has to do. An IP student reaches Diploma content without the O-Level year that usually forces a first round of timed-essay and structured-answer practice, so the gap is rarely raw knowledge: it is handling an unseen source under time pressure and writing to a published mark scheme. IP Geography, History and Literature are where that shows first, because each wants sustained argument built on material the student has not seen before. Requests for IP Geography tuition almost always trace back to this point in the through-train.",
+        "One thing to be straight about: we are not a tuition centre and have no premises in Singapore, in Katong or anywhere else. Every session is online on Singapore Standard Time, either one-to-one or in a small group of two to four students on the same course and level, and the tutor is matched to the syllabus your child is actually graded against rather than to the subject name.",
+      ],
+      bullets: [
+        "IP students skip the O-Level year, so Diploma-level content arrives without a national-exam rehearsal behind it.",
+        "A few IP schools exit through the IB Diploma rather than Singapore-Cambridge A Levels.",
+        "IP Geography, History and Literature tuition are the most common requests from this group.",
+        "Small-group IB tuition runs two to four students at the same course and level, online on SGT.",
+        "No physical tuition centre: delivery is online only, timed to Singapore Standard Time.",
+      ],
+    },
+    {
       heading: "IGCSE in Singapore: tiers, exam series and moving into DP or A Levels",
       paragraphs: [
         "Cambridge IGCSE runs through the island's British-curriculum schools as the exam sat at the end of Secondary 4, typically around age 16, ahead of a choice between that school's Diploma sixth form, A Levels, or a move overseas. Edexcel International GCSE turns up in a smaller number of schools covering similar ground with a different paper structure. Both let a student pick individual subjects — usually five to nine — across languages, sciences, mathematics, humanities and creative options, rather than a fixed diploma.",
@@ -379,6 +394,18 @@ export const singapore: CountrySeoPage = {
     {
       question: "How much does IB tutoring cost in Singapore, and how do we pay?",
       answer: "Rates depend on the programme level, subject and weekly hours booked — DP Higher Level sciences and mathematics generally sit above MYP or PYP support. A rate is quoted in writing before anything is booked, so the first invoice holds no surprises. Email support@ibgram.com with the level, subject and school type for a current quote; currency and payment method get confirmed at the same time, before the first paid session.",
+    },
+    {
+      question: "Do you offer IB small group tuition in Singapore?",
+      answer: "Yes. Two to four students on the same course and level share one tutor and one screen, usually siblings or classmates taking HL Biology, IGCSE Physics or the same Mathematics AA paper. Grouping is by subject and level rather than by age, and the per-student rate sits below one-to-one. Sessions run online on Singapore Standard Time, so there is no tuition centre to travel to after CCA.",
+    },
+    {
+      question: "Can we get an IB home tutor in Singapore?",
+      answer: "Not in Singapore. Tutors do not travel to homes here; in-home tutoring stays an India-only service. What replaces it is a one-to-one online lesson on Singapore Standard Time with a tutor matched to your child's exact subject and level, which widens the shortlist far beyond whoever happens to live a few MRT stops away. A free trial lesson comes before any commitment.",
+    },
+    {
+      question: "What does IB MYP tuition in Singapore cover?",
+      answer: "MYP is marked 0 to 8 against four criteria in each subject, which is the part parents raised on percentages find hardest to read. Sessions target the criterion the report card actually flags, often Criterion C or D in Sciences and in Individuals and Societies, plus command-term precision and the MYP Year 5 Personal Project from proposal through process journal to the finished product.",
     },
     {
       question: "Do you have in-person tutors in Singapore?",

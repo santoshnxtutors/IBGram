@@ -179,6 +179,11 @@ export const aboutFaqs = [
       "Profiles are reviewed for subject experience, programme familiarity, teaching style and current availability before any family conversation. Identification and qualification documents are checked privately and not displayed publicly.",
   },
   {
+    question: "Does IB Gram have reviews from parents and students?",
+    answer:
+      "Yes. Reviews are collected from families after lessons have actually run, and each one is published on the individual tutor’s profile page rather than pooled into a single site-wide score. A tutor shares a private review link once a block of sessions is complete, so every rating on a profile is tied to a real engagement. We do not display aggregate star counts we cannot evidence.",
+  },
+  {
     question: "Does IB Gram guarantee exam scores or rank improvements?",
     answer:
       "No. We do not promise specific grades, ranks or university admissions. What we commit to is honest matching, calm advisor support and tutors who teach the subject and habits around it.",

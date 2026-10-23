@@ -19,9 +19,9 @@ export const czechRepublic: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings in Central European Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in the Czech Republic | Online DP & IGCSE",
-  metaDescription: "Studying the IB Diploma or IGCSE in Prague or Brno? Meet a tutor who already teaches that exact syllabus, online and timed to Central European Time.",
-  h1: "Online IB and IGCSE tutors for students studying in the Czech Republic",
+  title: "IB Tutors in Prague and Across the Czech Republic",
+  metaDescription: "Online IB Diploma and IGCSE tutors for Prague and Brno students, timed to CET after school, with clear answers on nostrifikace and the Maturita choice.",
+  h1: "Online IB and IGCSE tutors for students in Prague and across the Czech Republic",
   heroEyebrow: "ONLINE TUTORING FOR CZECH FAMILIES",
   heroSubtitle: "Whether your child is at a Prague international school, a Brno campus, or one of the handful of schools further out teaching the IB Diploma or Cambridge/Edexcel IGCSE, we find a tutor who already knows that specific syllabus. Every lesson happens over video, timed to Central European Time so it lands after the school day ends anywhere from Prague to Ostrava. Give us the board, subject and level, and a shortlist follows.",
   primaryKeyword: "IB tutors in the Czech Republic",
@@ -354,6 +354,10 @@ export const czechRepublic: CountrySeoPage = {
     {
       question: "Where do I even start looking for an IB tutor in the Czech Republic?",
       answer: "Name the programme stage and the precise board and level before anything else, because one Czech school might teach Cambridge in one grade and the full IB Diploma two years later. Tell us that, alongside current grades and where things are genuinely going wrong, and a tutor recommendation comes back rather than a list of names to sift through yourself. Email support@ibgram.com or message +91 7439 368 115 on WhatsApp to begin.",
+    },
+    {
+      question: "Do you have IB tutors for students in Prague?",
+      answer: "Yes, and Prague is where most of our Czech families are. Of the roughly sixteen IB World Schools in the country, most are private English-medium schools in Prague, with a smaller cluster in Brno. Lessons are online rather than in person, booked on Central European Time so they begin after a Prague school day ends, usually between 16:00 and 20:00 on weekdays or on Saturday mornings.",
     },
     {
       question: "Do sessions stay on Central European Time year-round, even after the clocks change?",

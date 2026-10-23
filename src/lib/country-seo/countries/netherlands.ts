@@ -19,11 +19,11 @@ export const netherlands: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings in Central European Time, shifting an hour each spring and autumn",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in the Netherlands | Online DP & IGCSE Help",
-  metaDescription: "Online IB and IGCSE tutors for students in the Netherlands: one-to-one DP, MYP and Cambridge tuition timed to Central European Time, Amsterdam to Eindhoven.",
-  h1: "Online tutors for IB, IGCSE and A Level students across the Netherlands",
+  title: "SAT, GMAT and IB Tutors in the Netherlands, Online",
+  metaDescription: "Online tutors for students in Amsterdam, Rotterdam and Eindhoven: SAT, GMAT and GRE preparation plus IB DP and Cambridge IGCSE, on Central European Time.",
+  h1: "Online IB, IGCSE and admissions-test tutors across the Netherlands",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN THE NETHERLANDS",
-  heroSubtitle: "From a Dutch International School in Eindhoven running the full IB continuum to a British-curriculum school in Amsterdam sitting Cambridge IGCSE, IB Gram pairs your child with a tutor already teaching that precise course. Lessons happen on video, one student at a time, in the after-school hours a Dutch household actually keeps, and the clock shifts with the Netherlands' own daylight saving so nothing needs re-checking twice a year. Give us the subject, the level and the exam board, and a shortlist follows.",
+  heroSubtitle: "From a Dutch International School in Eindhoven running the full IB continuum to a British-curriculum school in Amsterdam sitting Cambridge IGCSE, IB Gram pairs your child with a tutor already teaching that precise course. Lessons happen on video, one student at a time, in the after-school hours a Dutch household actually keeps, and the clock shifts with the Netherlands' own daylight saving so nothing needs re-checking twice a year. The same tutors prepare students in Rotterdam and Amsterdam for the SAT, GMAT and GRE when an application leaves the Dutch system. Give us the subject, the level and the exam board, and a shortlist follows.",
   primaryKeyword: "IB tutors in the Netherlands",
   imageAltText: "IB tutor and a student in the Netherlands working through a Diploma Programme economics problem in a one-to-one online lesson",
   secondaryKeywords: [
@@ -39,6 +39,9 @@ export const netherlands: CountrySeoPage = {
     "Dutch International School tutor",
     "A Level tutor The Hague",
     "IB Mathematics tutor online Netherlands",
+    "SAT tutor Rotterdam",
+    "GMAT tutor Rotterdam",
+    "GRE tutor Amsterdam",
   ],
 
   heroTrustPoints: [
@@ -275,6 +278,31 @@ export const netherlands: CountrySeoPage = {
       ],
     },
     {
+      heading: "SAT, GMAT and GRE tutoring for applications made from the Netherlands",
+      paragraphs: [
+        "Dutch university entry itself rarely asks for an admissions test: a VWO diploma, an IB Diploma or Cambridge A Levels go through Studielink and are judged on subjects and grades. The tests matter the moment an application leaves that system. A DP or IGCSE student in Amsterdam or The Hague aiming at a US bachelor's course is usually asked for an SAT score; a graduate heading for a selective master's or MBA at a Rotterdam or Amsterdam business school is often asked for a GMAT or GRE score instead. Both groups sit the same exams as everyone else worldwide, at a Dutch test centre or, where the test provider allows it, at home.",
+        "The digital SAT runs about two hours and fourteen minutes across two sections, Reading and Writing followed by Maths, and is scored on the familiar 400 to 1600 scale. It is section-adaptive: how a student performs in the first module of a section decides the difficulty of the second, which changes how preparation should work - early accuracy is worth more than finishing fast, and the built-in graphing calculator is available throughout the maths section rather than for part of it.",
+        "At graduate level the two accepted tests look quite different from each other. The GMAT Focus Edition takes two hours fifteen minutes over Quantitative Reasoning, Verbal Reasoning and Data Insights, with a total score reported between 205 and 805. The GRE General Test runs just under two hours since its 2023 shortening, reporting Verbal Reasoning and Quantitative Reasoning on a 130 to 170 scale each plus an Analytical Writing score from 0 to 6. Most Dutch programmes that ask for one will accept either, so the sensible first step is a short diagnostic of both rather than guessing which suits a candidate's reasoning style.",
+        "Preparation is built the same way subject tutoring is: one full timed paper first to find where points are actually being lost, then section work against that evidence, with timed practice sat in the evening on Central European Time so a student rehearses under conditions close to the real sitting. For a DP2 student the hard part is almost never the test content - it is the calendar, because SAT dates land in the same autumn-to-winter stretch as internal assessment deadlines, the Extended Essay and mocks. Booking the test date first and working test prep around the school's own deadlines, rather than the reverse, is what keeps both intact.",
+      ],
+      bullets: [
+        "Dutch bachelor's entry via Studielink generally needs no SAT; US applications usually do.",
+        "Digital SAT: about 2 hours 14 minutes, two adaptive sections, scored 400-1600.",
+        "GMAT Focus Edition: 2 hours 15 minutes, Quant, Verbal and Data Insights, scored 205-805.",
+        "GRE General Test: just under 2 hours, Verbal and Quant 130-170 each, writing 0-6.",
+        "SAT dates collide with DP2 internal assessment and Extended Essay deadlines - plan the term backwards from the test date.",
+      ],
+      table: {
+        caption: "Which admissions test an application from the Netherlands usually needs",
+        columns: ["Test", "Usually sat for", "Format", "Score reported"],
+        rows: [
+          ["Digital SAT", "US undergraduate applications, and a few selective university-college programmes", "Two adaptive sections, Reading and Writing then Maths, about 2h14m", "400-1600"],
+          ["GMAT Focus Edition", "MBA and selective business master's admissions, Rotterdam and Amsterdam included", "Quantitative Reasoning, Verbal Reasoning, Data Insights, 2h15m", "205-805"],
+          ["GRE General Test", "Master's and PhD admissions across many fields, business among them", "Verbal, Quantitative and Analytical Writing, just under 2 hours", "130-170 per section, writing 0-6"],
+        ],
+      },
+    },
+    {
       heading: "Scheduling around Central European Time and the Dutch school calendar",
       paragraphs: [
         "The Netherlands runs on Central European Time in winter and Central European Summer Time from late March to late October, the same clock shift much of continental Europe follows. Unlike a country with a fixed year-round offset, this means an evening slot booked at, say, 6pm stays 6pm local time through the year, but the gap to other time zones - including the tutor's own - narrows or widens by an hour each March and October. We track those dates and adjust bookings automatically, so a family never has to renegotiate a regular slot when the clocks move.",
@@ -369,6 +397,14 @@ export const netherlands: CountrySeoPage = {
       answer: "Yes. A number of British-curriculum schools in Amsterdam, Rotterdam and elsewhere run Cambridge IGCSE, and some families also prepare independently or through an online school. We tutor Cambridge and Edexcel IGCSE subjects against the same syllabus your child's school follows. Send us the syllabus code from the course outline - it tells us the exact variant and exam series being prepared for.",
     },
     {
+      question: "Can I get an SAT tutor in Rotterdam?",
+      answer: "Yes, online and one-to-one, so nobody crosses the Randstad for a lesson. Sessions start with one full timed digital SAT to see where points are going, then work section by section on Reading and Writing and on Maths, scored against the 400-1600 scale. Timed practice sits in the evening on Central European Time, and the schedule is built around the test date you have booked.",
+    },
+    {
+      question: "Do you tutor for the GMAT or the GRE in Amsterdam?",
+      answer: "Both, for applicants to Dutch master's and MBA programmes that ask for a score. GMAT work covers Quantitative Reasoning, Verbal Reasoning and Data Insights on the Focus Edition's 205-805 scale; GRE work covers Verbal and Quantitative Reasoning at 130-170 each plus Analytical Writing. If you have not committed to one yet, a short diagnostic in each is the quicker way to choose.",
+    },
+    {
       question: "Do your tutors teach both HL and SL?",
       answer: "They do, and treating the two as interchangeable is exactly the mistake to avoid. HL means more content, longer papers and a harder exam-technique problem, so an HL session leans into extension material and timing under pressure; SL work is more about locking down the core rather than chasing extra depth. Flag the level when booking - HL strength doesn't automatically transfer to SL teaching or vice versa.",
     },
@@ -417,7 +453,7 @@ export const netherlands: CountrySeoPage = {
     { label: "IB Middle Years Programme", href: "/programmes/myp/", description: "MYP criteria, ePortfolio and personal project support for the middle secondary years." },
     { label: "IB Mathematics", href: "/courses/ib/mathematics/", description: "Math AA and AI at HL and SL, from foundations through Paper 3 and the exploration." },
     { label: "Verified tutor profiles", href: "/tutors/", description: "See qualifications, subjects, teaching mode and availability before you commit." },
-    { label: "Test preparation", href: "/admissions/test-prep/", description: "Exam-season preparation running alongside school coursework and internal assessments." },
+    { label: "SAT, GMAT and GRE preparation", href: "/admissions/test-prep/", description: "Admissions-test coaching that runs alongside DP coursework and internal assessment deadlines." },
     { label: "Talk to the team", href: "/contact-us/", description: "Ask about scheduling, subjects or tutor fit before booking a trial session." },
     { label: "IB and IGCSE guides", href: "/blog/", description: "Study guides, syllabus explainers and revision planning written for students." },
     { label: "IB tutors in Germany", href: "/germany/", description: "Online IB and IGCSE tutoring for a neighbouring market with its own Abitur-vs-IB questions." },

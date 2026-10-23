@@ -2,9 +2,9 @@ import type { IgcseSubjectContent } from "../types";
 
 export const ict: IgcseSubjectContent = {
   slug: "ict",
-  metaTitle: "IGCSE ICT Tutors | 0417 Practical Paper Help",
+  metaTitle: "Online IGCSE ICT Tutor for Cambridge 0417",
   metaDescription:
-    "The 0417 practical papers cost more marks than the theory. Work through databases, spreadsheet models and website tasks one to one. Book a free trial.",
+    "Online tutors for Cambridge IGCSE ICT 0417 and 0983. Live screen-share lessons on databases, spreadsheet modelling and website authoring. Free trial first.",
   primaryKeyword: "IGCSE ICT tutors",
   secondaryKeywords: [
     "IGCSE ICT tutor online",
@@ -24,12 +24,12 @@ export const ict: IgcseSubjectContent = {
     "private one-to-one IGCSE ICT lessons",
     "IGCSE ICT past paper tasks practice",
   ],
-  h1: "IGCSE ICT Tutors for Cambridge 0417 and 0983",
+  h1: "Online IGCSE ICT Tutors for Cambridge 0417 and 0983",
   heroTitle: "IGCSE ICT Tutoring: Theory Paper and Practical Components",
   heroSubtitle:
     "One-to-one tutors for Cambridge IGCSE ICT 0417 and the 9-1 graded 0983, covering the written theory component and the practical work behind it: document production, databases, presentations, spreadsheet modelling, data manipulation and website authoring, delivered online worldwide in your own time zone and at home in selected Indian cities.",
   introSummary:
-    "Most parents land here just after a practical assessment comes back lower than anyone expected. The student is fluent with a laptop, has built spreadsheets since Grade 6, and still dropped marks for reasons that felt arbitrary: a database field left as text when the task wanted a date, a chart without the axis label the question named, a header that failed to carry the candidate details every task sheet insists on. Cambridge ICT rewards exact compliance with a written brief far more than it rewards flair. That is a habit, and habits can be taught. IB Gram matches Grade 9 to Grade 11 students with tutors who have taught 0417 or 0983 and know how those tasks are marked. Home tutoring is India-only and depends on local availability.",
+    "Most parents land here just after a practical assessment comes back lower than anyone expected. The student is fluent with a laptop, has built spreadsheets since Grade 6, and still dropped marks for reasons that felt arbitrary: a database field left as text when the task wanted a date, a chart without the axis label the question named, a header that failed to carry the candidate details every task sheet insists on. Cambridge ICT rewards exact compliance with a written brief far more than it rewards flair. That is a habit, and habits can be taught. IB Gram matches Grade 9 to Grade 11 students with online tutors who have taught 0417 or 0983 and know how those tasks are marked. Home tutoring is India-only and depends on local availability.",
   blocks: [
     {
       type: "matching_process",
@@ -277,6 +277,11 @@ export const ict: IgcseSubjectContent = {
       question: "Is online tutoring as good as in-person for ICT?",
       answer:
         "For this subject, online is arguably the stronger format. The core of a lesson is watching a student work and interrupting at the exact moment a wrong choice is made, and a shared screen shows that better than sitting beside someone. The student stays in their own software, on their own files, on the machine they will actually use. Sessions run worldwide in your own time zone, and it means you get a syllabus specialist rather than the nearest available tutor.",
+    },
+    {
+      question: "How does an online IGCSE ICT tutor teach the practical papers?",
+      answer:
+        "An online IGCSE ICT tutor teaches the Cambridge 0417 and 0983 practical papers over a two-way screen share. The student opens a real task sheet in their own software and works through it live while the tutor watches every click, stopping them the moment a field type, sort order or page header is set wrong. Nothing is demonstrated on the tutor's machine, because the marks follow the student's own sequence of actions.",
     },
     {
       question: "Do you offer home tutoring for ICT in Indian cities?",

@@ -14,8 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const localPage = getGeneratedPageForRoute("/programmes/cp/", ["programme"]);
   if (localPage) return buildGeneratedMetadata(localPage);
   return {
-    title: "IB CP Tutor — Career-related Programme Support | IB Gram",
-    description: "IB CP tutoring for DP subjects within the CP plan, Reflective Project mentoring and core support.",
+    title: "IB CP Tutor for the Reflective Project and DP Courses | IB Gram",
+    description: "IB Career-related Programme tutoring for the DP courses in your CP plan, the Reflective Project, Service Learning and Personal and Professional Skills.",
     alternates: { canonical: "/programmes/cp/" },
   };
 }

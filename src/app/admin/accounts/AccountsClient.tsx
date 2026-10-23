@@ -6,6 +6,16 @@ import { useMemo, useState } from "react";
 export type Person = { id: string; name: string; email: string };
 
 const field = "h-11 w-full rounded-lg border border-white/10 bg-white/[0.04] px-3 text-sm font-semibold text-white outline-none ring-emerald-300/30 placeholder:text-slate-500 focus:ring-2";
+
+/**
+ * A native <select> draws its dropdown with the OS popup background - white on Windows -
+ * but the options still inherit `color` from the control. With `text-white` on the field
+ * that made every option white-on-white and invisible; only the hovered row was legible,
+ * because hovering paints its own blue background. The list looked empty when it was full.
+ *
+ * Options therefore carry their own explicit colours rather than inheriting the dark theme.
+ */
+const option = "bg-slate-900 text-white";
 const label = "mb-1 block text-[11px] font-black uppercase tracking-[0.16em] text-slate-500";
 const primary = "inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-emerald-300 px-5 text-sm font-black text-slate-950 transition hover:bg-amber-300 disabled:opacity-50";
 
@@ -120,9 +130,9 @@ export function AccountsClient({ students, tutors }: { students: Person[]; tutor
               <div>
                 <label className={label}>Curriculum</label>
                 <select className={field} value={form.curriculum} onChange={set("curriculum")}>
-                  <option value="IB">IB</option>
-                  <option value="IGCSE">IGCSE</option>
-                  <option value="Other">Other</option>
+                  <option className={option} value="IB">IB</option>
+                  <option className={option} value="IGCSE">IGCSE</option>
+                  <option className={option} value="Other">Other</option>
                 </select>
               </div>
               <div>
@@ -151,9 +161,9 @@ export function AccountsClient({ students, tutors }: { students: Person[]; tutor
           <div className="sm:col-span-2">
             <label className={label}>Pair permanently with a {role === "student" ? "tutor" : "student"} (optional)</label>
             <select className={field} value={form.pairWithUserId} onChange={set("pairWithUserId")}>
-              <option value="">No pairing</option>
+              <option className={option} value="">No pairing</option>
               {counterparts.map((p) => (
-                <option key={p.id} value={p.id}>{p.name} — {p.email}</option>
+                <option className={option} key={p.id} value={p.id}>{p.name} — {p.email}</option>
               ))}
             </select>
             <p className="mt-1 text-xs font-semibold text-slate-500">Opens a permanent chat between the two, exactly like a paid booking does.</p>
@@ -229,18 +239,18 @@ function PairExisting({ students, tutors }: { students: Person[]; tutors: Person
         <div>
           <label className={label}>Student</label>
           <select className={field} value={studentId} onChange={(e) => setStudentId(e.target.value)} required>
-            <option value="">Choose a student</option>
+            <option className={option} value="">Choose a student</option>
             {students.map((p) => (
-              <option key={p.id} value={p.id}>{p.name} — {p.email}</option>
+              <option className={option} key={p.id} value={p.id}>{p.name} — {p.email}</option>
             ))}
           </select>
         </div>
         <div>
           <label className={label}>Tutor</label>
           <select className={field} value={tutorId} onChange={(e) => setTutorId(e.target.value)} required>
-            <option value="">Choose a tutor</option>
+            <option className={option} value="">Choose a tutor</option>
             {tutors.map((p) => (
-              <option key={p.id} value={p.id}>{p.name} — {p.email}</option>
+              <option className={option} key={p.id} value={p.id}>{p.name} — {p.email}</option>
             ))}
           </select>
         </div>

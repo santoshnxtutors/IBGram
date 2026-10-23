@@ -19,9 +19,9 @@ export const jordan: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings on Jordan Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Jordan | Online IB, IGCSE, A Level",
-  metaDescription: "Amman students get an online tutor for IB, Cambridge IGCSE or A Level, taught on Jordan Time. Send us the school and subject and we shortlist someone.",
-  h1: "Online IB and Cambridge IGCSE tutors for students studying in Jordan",
+  title: "IB, IGCSE and Tawjihi Tutors in Jordan, Online",
+  metaDescription: "Online tutors in Amman for the IB Diploma, Cambridge IGCSE, A Level and Tawjihi subjects, plus how Tawjihi results read against UK and US entry routes.",
+  h1: "Online IB, Cambridge IGCSE and Tawjihi tutors for students in Jordan",
   heroEyebrow: "ONLINE TUTORING FOR JORDANIAN FAMILIES",
   heroSubtitle: "Whether your child is at one of Amman's IB continuum schools, following Cambridge IGCSE and A Level, or working toward Tawjihi, a tutor is matched to that exact syllabus. Lessons run online, one-to-one, on Jordan Time — no odd-hour scheduling, no guessing at overlap. Tell us the school, the subject and the exam board, and we shortlist someone who already teaches it.",
   primaryKeyword: "IB tutors in Jordan",
@@ -207,7 +207,7 @@ export const jordan: CountrySeoPage = {
     {
       heading: "What is Tawjihi, and how does it relate to the IB and Cambridge IGCSE?",
       paragraphs: [
-        "Tawjihi — formally the General Secondary Education Certificate Examination — is the national school-leaving exam sat at the end of Grade 12 by the large majority of Jordanian students, and it decides both public university placement inside Jordan and, for many careers, ongoing professional recognition. Students choose a stream in the earlier secondary years — scientific and literary are the most common, alongside several vocational and technical tracks — and Tawjihi produces a single overall percentage from that stream's fixed set of subjects, rather than the subject-by-subject grades a Cambridge or IB student receives.",
+        "Tawjihi (التوجيهي) — formally the General Secondary Education Certificate Examination — is the national school-leaving exam sat at the end of Grade 12 by the large majority of Jordanian students, and it decides both public university placement inside Jordan and, for many careers, ongoing professional recognition. Students choose a stream in the earlier secondary years — scientific and literary are the most common, alongside several vocational and technical tracks — and Tawjihi produces a single overall percentage from that stream's fixed set of subjects, rather than the subject-by-subject grades a Cambridge or IB student receives.",
         "A student following the IB or Cambridge IGCSE and A Level instead of Tawjihi is, in the eyes of Jordanian public universities and many professional licensing bodies, not automatically holding an equivalent qualification — they hold a different one that needs to be converted. That conversion is the Ministry of Education's Tawjihi equivalency process, and it is a real, practical step every international-curriculum family in Jordan needs to plan for, not a formality to leave until results arrive.",
         "For IGCSE and A Level students, the published equivalency route requires a minimum number of IGCSE or O Level passes — commonly six at grade D or above — alongside at least two A Levels at grades A to E, with each grade converted to a percentage and averaged across eight subjects to produce a Tawjihi-equivalent score. For IB Diploma holders, the Ministry of Higher Education similarly converts the IB's own scale into a Tawjihi-equivalent percentage. The exact conversion tables are updated periodically, so a family should confirm the current year's requirements directly with the Ministry or with their school's counselling office rather than relying on a figure from a previous year.",
         "Without this equivalency, a student cannot be admitted to a Jordanian public university through the normal channel, and in some cases cannot use the certificate for other local purposes either, regardless of how strong the underlying IGCSE, A Level or IB results actually are. Private Jordanian universities and international universities abroad generally do not require this step at all, reading the original IB or Cambridge results directly — so the equivalency process specifically matters for the subset of families keeping a Jordanian public university genuinely open as an option.",
@@ -352,6 +352,10 @@ export const jordan: CountrySeoPage = {
     {
       question: "What exactly is Tawjihi equivalency, and does my child need it?",
       answer: "It is the Ministry's conversion of an IB or Cambridge result into a Tawjihi-style percentage, required for entry to a Jordanian public university or certain professional routes, no matter how good the original grades are. If a public university in Jordan isn't part of the plan, it typically doesn't apply — but check the current requirement with the Ministry or your school's counsellor, since the figures get revised periodically.",
+    },
+    {
+      question: "Can a student with Tawjihi results apply to a UK or US foundation year?",
+      answer: "Yes. UK universities commonly route Tawjihi holders through a one-year foundation programme or an International Year One before degree entry, alongside an IELTS or equivalent English score, and some will consider a strong stream percentage for direct entry onto specific courses. US universities read Tawjihi as one part of a full transcript, usually with English testing and sometimes the SAT. Each university publishes its own Jordan entry route, so confirm it with that university directly.",
     },
     {
       question: "Do you tutor Arabic A?",

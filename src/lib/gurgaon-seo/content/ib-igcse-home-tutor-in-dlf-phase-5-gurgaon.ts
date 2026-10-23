@@ -2,7 +2,7 @@ import type { GurgaonSeoContent } from "../types";
 
 const content: GurgaonSeoContent = {
   slug: "ib-igcse-home-tutor-in-dlf-phase-5-gurgaon",
-  heroIntro: "DLF Phase 5 on Golf Course Road has become one of Gurugram's most academically active residential corridors, with families in DLF The Crest, DLF Park Place, DLF The Belaire, and DLF The Pinnacle seeking rigorous support for IB and IGCSE programmes. IB Gram connects students here with subject-specialist home tutors who understand Cambridge and IB syllabuses across multiple subjects, from IGCSE Mathematics and Sciences to IB DP Language and Individuals & Societies, delivered at your door or online.",
+  heroIntro: "Parents searching for home tutors for IB and IGCSE in Gurugram keep arriving at Golf Course Road, and DLF Phase 5 sits at its centre, with families in DLF The Crest, DLF Park Place, DLF The Belaire, and DLF The Pinnacle seeking rigorous support for both programmes. IB Gram connects students here with subject-specialist home tutors who understand Cambridge and IB syllabuses across multiple subjects, from IGCSE Mathematics and Sciences to IB DP Language and Individuals & Societies, delivered at your door or online.",
   trustPoints: [
     "Tutors verified through structured demo sessions",
     "Multi-subject IB and IGCSE coverage",
@@ -125,8 +125,8 @@ const content: GurgaonSeoContent = {
   ],
   faqs: [
     {
-      question: "Do you have tutors available for students living in DLF The Crest or DLF The Belaire specifically?",
-      answer: "IB Gram serves the entire DLF Phase 5 corridor including DLF The Crest, DLF The Belaire, DLF Park Place, and DLF The Pinnacle. Tutor availability depends on the subject, level, preferred mode, and scheduling flexibility. When you submit a request, we match based on your exact society and schedule rather than a broad area listing.",
+      question: "Where can I find home tutors for IB and IGCSE in Gurugram's Golf Course Road belt?",
+      answer: "IB Gram covers the DLF Phase 5 stretch of Golf Course Road, including DLF The Crest, DLF Park Place, DLF The Belaire and DLF The Pinnacle, with tutors for Cambridge IGCSE Core and Extended tiers and for IB Diploma subjects such as Maths AA HL, Chemistry and Economics. Sessions run at your home or live online, and every match starts with a demo lesson before you commit to a schedule.",
     },
     {
       question: "Can one tutor handle multiple IGCSE subjects for the same student?",

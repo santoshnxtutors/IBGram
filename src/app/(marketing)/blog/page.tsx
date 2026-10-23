@@ -9,9 +9,9 @@ export const revalidate = 600;
 const pageUrl = absoluteUrl("/blog/");
 
 export const metadata: Metadata = {
-  title: "IB & IGCSE Blog — Strategies, Study Guides & Parent Insights",
+  title: { absolute: "IB Gram Insights — IB & IGCSE Blog, Study Guides and IA Help" },
   description:
-    "Expert IB and IGCSE articles from IB Gram: subject strategy, IA and Extended Essay guides, revision habits, board comparisons and parent guidance. Updated regularly.",
+    "The IB Gram blog: Maths AA vs AI choices, Internal Assessment and Extended Essay walkthroughs, IGCSE revision plans and board comparisons for parents.",
   keywords: [
     "IB blog",
     "IGCSE blog",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: pageUrl,
-    title: "IB & IGCSE Blog — Strategies & Study Guides | IB Gram",
+    title: "IB Gram Insights — IB & IGCSE Blog and Study Guides",
     description:
       "Expert IB and IGCSE articles: subject strategy, IA/EE guides, revision habits and parent guidance.",
     siteName: "IB Gram",

@@ -32,9 +32,9 @@ const pageUrl = absoluteUrl("/contact-us/");
 const ogImage = absoluteUrl("/images/ib-gram-city-og.svg");
 
 export const metadata: Metadata = {
-  title: "Contact IB Gram — Talk to an IB or IGCSE Academic Advisor",
+  title: { absolute: "Contact IB Gram — A Real Advisor Replies in One Working Day" },
   description:
-    "Speak with the IB Gram advisor team about IB PYP, MYP, Diploma Programme, Cambridge IGCSE or Pearson Edexcel International GCSE support. Email, phone, WhatsApp and contact form — usually answered within one working day.",
+    "Message the IB Gram advisor team about IB PYP, MYP, DP, Cambridge IGCSE or Edexcel IGCSE tutoring. Email, phone or WhatsApp, read by a human first.",
   keywords: contactMetaKeywords,
   alternates: { canonical: pageUrl },
   robots: { index: true, follow: true },

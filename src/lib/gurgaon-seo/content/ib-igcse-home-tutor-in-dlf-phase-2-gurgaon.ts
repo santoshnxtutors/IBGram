@@ -2,7 +2,7 @@ import type { GurgaonSeoContent } from "../types";
 
 const content: GurgaonSeoContent = {
   slug: "ib-igcse-home-tutor-in-dlf-phase-2-gurgaon",
-  heroIntro: "Families in DLF Phase 2, whether in DLF Beverly Park, Heritage City, or Ambience Caitriona, are increasingly choosing one-on-one support for their IB and IGCSE students. IB Gram connects you with verified, subject-specialist home tutors who travel to your door or teach live online. Whether your child is navigating Cambridge IGCSE coursework across multiple subjects or working through the demands of the IB Diploma Programme, the right tutor matched to this locality makes a real difference to pace, confidence, and exam readiness.",
+  heroIntro: "Home tutors for IB and IGCSE in Gurugram are in heaviest demand in pockets like DLF Phase 2, where families in DLF Beverly Park, Heritage City and Ambience Caitriona want one-to-one teaching rather than a batch of twenty. IB Gram connects you with verified, subject-specialist tutors who travel to your door in DLF Phase 2 or teach live online. Whether your child is navigating Cambridge IGCSE coursework across multiple subjects or working through the demands of the IB Diploma Programme, the right tutor matched to this locality makes a real difference to pace, confidence, and exam readiness.",
   trustPoints: [
     "Verified tutors with board-specific subject expertise",
     "Demo class before any long-term commitment",
@@ -125,8 +125,8 @@ const content: GurgaonSeoContent = {
   ],
   faqs: [
     {
-      question: "Can I find a home tutor for both IB and IGCSE subjects in DLF Phase 2?",
-      answer: "Yes. IB Gram has tutors who cover both Cambridge IGCSE and IB Diploma Programme subjects. If your household has one child in IGCSE Year 10 and another in IB Year 12, we can match each with an appropriate tutor, or in some cases a single tutor with broad enough experience can cover both if the subjects overlap. Availability depends on the specific subject combination and scheduling requirements.",
+      question: "Are there home tutors for IB and IGCSE in Gurugram who cover both boards?",
+      answer: "Yes. IB Gram matches Gurugram families with tutors who teach both Cambridge IGCSE and the IB Diploma, including IGCSE Mathematics 0580, Physics 0625 and Biology 0610 alongside IB Maths AA, Maths AI and the Group 4 Sciences. In DLF Phase 2 tutors travel to DLF Beverly Park, Heritage City and Ambience Caitriona, or teach live online. Most families begin two to three months before the November Cambridge series or the May IB session.",
     },
     {
       question: "Do tutors travel inside gated societies like DLF Beverly Park or Ambience Caitriona?",

@@ -17,13 +17,13 @@ export const australia: CountrySeoPage = {
   region: "Oceania",
   timezoneLabel: "AEST, ACST and AWST (UTC+10, +9:30 and +8), with some states shifting to daylight saving",
   schedulingNote: "Weekday evenings and Saturday mornings on your own Australian clock",
-  lastUpdated: "2026-09-14",
+  lastUpdated: "2026-10-23",
 
-  title: "IB Tutors in Australia | Online DP & IGCSE, AEST",
-  metaDescription: "One-to-one IB DP, MYP and IGCSE tutoring online, timed to AEST, ACST or AWST and paced for the November or May session. Book a trial lesson first.",
-  h1: "IB and IGCSE tutoring, online, for students at school across Australia",
+  title: "Online IB Tutoring in Australia: DP, MYP & IGCSE",
+  metaDescription: "Online one-to-one IB tutoring for Australian families: DP, MYP and IGCSE on AEST, ACST or AWST, paced for the November session. Free trial lesson.",
+  h1: "Online IB tutoring and IGCSE lessons for students across Australia",
   heroEyebrow: "ONLINE TUTORING FOR AUSTRALIAN FAMILIES",
-  heroSubtitle: "Wherever your child's school sits between Perth and Hobart, the aim is the same: pair them with someone who has already taught the exact IB or IGCSE course they're enrolled in, not a nearby subject. Every lesson runs online, one-to-one, timed to whichever of AEST, ACST or AWST your household keeps. Tell us the subject, the level, and whether the school enters November or May, and the shortlist that comes back already teaches it.",
+  heroSubtitle: "Wherever your child's school sits between Perth and Hobart, the aim is the same: pair them with someone who has already taught the exact IB or IGCSE course they're enrolled in, not a nearby subject. Online IB tutoring here runs one-to-one over video, timed to whichever of AEST, ACST or AWST your household keeps. Tell us the subject, the level, and whether the school enters November or May, and the shortlist that comes back already teaches it.",
   primaryKeyword: "IB tutors in Australia",
   imageAltText: "IB tutor and an Australian Year 12 student working through a Diploma Programme maths problem in a one-to-one online lesson",
   secondaryKeywords: [
@@ -353,6 +353,14 @@ export const australia: CountrySeoPage = {
     {
       question: "How much does IB tutoring cost in Australia, and how do we pay?",
       answer: "Cost tracks the programme level, the subject and the hours booked each week — HL sciences and mathematics at DP level typically cost more than MYP support. A per-session rate is quoted in writing before anything is confirmed, so nothing surprising shows up on the first bill. Email support@ibgram.com with your child's year level, subject and level to get the current rate, and settle currency and payment method in that same conversation.",
+    },
+    {
+      question: "How does online IB tutoring work for a student in Australia?",
+      answer: "Lessons run over video with a live shared whiteboard, so the tutor and your child are marking the same page as the lesson happens rather than one person screen-sharing at the other. Because matching is by exact course and level instead of postcode, a student in Cairns and one in Fremantle can share the same HL specialist. Every booking, reminder and reschedule states the time in AEST, ACST or AWST in full.",
+    },
+    {
+      question: "Do you have IB tutors for Sydney, Melbourne, Brisbane, Perth and Adelaide?",
+      answer: "Yes, and for Canberra, Hobart and Darwin as well. Delivery is online, so the city only decides the clock: Sydney, Melbourne, Canberra and Hobart book on AEST or AEDT, Brisbane on AEST year-round, Adelaide on ACST or ACDT, Darwin on ACST year-round and Perth on AWST. The tutor is chosen for having taught your child's exact subject and level, not for living nearby.",
     },
     {
       question: "Do you have in-person tutors in Australia?",

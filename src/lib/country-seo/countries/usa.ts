@@ -19,8 +19,8 @@ export const usa: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings in your local US time zone",
   lastUpdated: "2026-09-16",
 
-  title: "IB Tutors in the USA | Online DP, MYP & IGCSE",
-  metaDescription: "One-to-one IB DP, MYP, PYP and IGCSE tutoring online, scheduled after school on Pacific, Mountain, Central or Eastern time. Start with a trial lesson.",
+  title: "IB Tutors in the USA, Online from Eastern to Hawaii Time",
+  metaDescription: "Online one-to-one tutoring for IB DP, MYP, PYP and IGCSE students in the US, booked after school across all six time zones. Free trial lesson, then weekly.",
   h1: "Online IB and IGCSE tutors for students studying in the United States",
   heroEyebrow: "ONLINE TUTORING FOR US FAMILIES",
   heroSubtitle: "Your child studies the IB or IGCSE at a school in the USA; we match them with a tutor who teaches that exact syllabus. Lessons run online, one-to-one, at times that fit a US school week — after class on Pacific, Mountain, Central or Eastern time. Tell us the subject, the level and the exam session, and we shortlist tutors who have taught that syllabus.",
@@ -513,6 +513,10 @@ export const usa: CountrySeoPage = {
     {
       question: "Which IB subjects do you actually cover?",
       answer: "The commonly taken DP subjects in groups 1 to 5: Math Analysis and Approaches and Applications and Interpretation, Physics, Chemistry, Biology, Economics, Business Management, Psychology, History, Computer Science, English A and B, and Theory of Knowledge, plus MYP and PYP support and IGCSE subjects. Less common languages and smaller options depend on tutor availability, so ask before you assume. Send the exact subject name and level from your child's timetable and we confirm what is available.",
+    },
+    {
+      question: "Is there an online math program for a child following IB PYP or a Cambridge curriculum in the US?",
+      answer: "Yes, as weekly one-to-one math rather than a packaged course. For IB PYP we work on number sense, measurement and data handling inside the unit of inquiry the class is already on; for Cambridge Primary we follow the stage your child is registered in. Sessions run 30 to 45 minutes after school in your own time zone, and parents are welcome to sit in.",
     },
     {
       question: "Do you offer intensive tutoring before the May IB exams?",

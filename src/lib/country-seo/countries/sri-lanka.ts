@@ -20,9 +20,9 @@ export const sriLanka: CountrySeoPage = {
   lastUpdated: "2026-09-14",
   tutorsIntro: "Because Sri Lanka Standard Time and our tutors' own time zone are identical, the hours shown below need no conversion at all — the slot you pick is the slot both sides actually keep.",
 
-  title: "IB Tutors in Sri Lanka | Online PYP to DP & IGCSE",
-  metaDescription: "From PYP to the IB Diploma and IGCSE, work with a tutor on Sri Lanka's own clock, so there is no time gap to plan around. Send us the subject and level.",
-  h1: "Online IB and IGCSE tutors for students studying in Sri Lanka",
+  title: "IB Diploma in Sri Lanka: Online DP and IGCSE Tutors",
+  metaDescription: "Sitting the IB Diploma in Sri Lanka? Get a one-to-one online tutor for your exact HL and SL subjects, plus IGCSE and A Level, on Sri Lanka's own clock.",
+  h1: "Online IB Diploma and IGCSE tutors for students in Sri Lanka",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN SRI LANKA",
   heroSubtitle: "Your child studies at an international school in Sri Lanka running IGCSE, A Level or the IB Diploma, alongside a national system built around the GCE O/L and A/L. Matching starts with the exact subject, level and exam board your child actually sits, not a general request for help. Lessons happen online and one-to-one, and because Sri Lanka keeps the same clock as our tutors, there is no time difference to plan around at all.",
   primaryKeyword: "IB tutors in Sri Lanka",
@@ -351,6 +351,10 @@ export const sriLanka: CountrySeoPage = {
   ],
 
   faqs: [
+    {
+      question: "Where can you study the IB Diploma in Sri Lanka?",
+      answer: "Sri Lanka has one IB World School, the Overseas School of Colombo, which runs the full continuum from the PYP through to the Diploma Programme. Every other international school in the country teaches Cambridge or Edexcel IGCSE and A Level instead, while most students follow the national GCE O/L and A/L route. DP subject tutoring runs online either way, on Sri Lanka Standard Time.",
+    },
     {
       question: "How do I find a good IB tutor in Sri Lanka?",
       answer: "Since Sri Lanka has only one IB World School, the most reliable filter is programme stage plus the exact subject and level, rather than a broad \"IB tutor\" search that turns up very little locally. Tell us your child's school, current grades and where the difficulty genuinely sits, and IB Gram proposes a named specialist directly. Reach us at support@ibgram.com or on WhatsApp at +91 7439 368 115 with a couple of sentences describing the situation.",

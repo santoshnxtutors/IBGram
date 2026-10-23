@@ -17,14 +17,14 @@ export const hongKong: CountrySeoPage = {
   region: "East Asia",
   timezoneLabel: "Hong Kong Time (UTC+8, no daylight saving)",
   schedulingNote: "Weekday evenings and weekend mornings on Hong Kong Time",
-  lastUpdated: "2026-09-14",
+  lastUpdated: "2026-10-23",
   tutorsIntro: "Tutor availability shown below converts automatically to Hong Kong Time; there is no daylight saving adjustment to think about, so a slot booked in September looks the same in January.",
 
-  title: "IB Tutors in Hong Kong | Online IB DP, MYP & IGCSE Tutoring",
-  metaDescription: "Online IB and IGCSE tutors for families in Hong Kong. One-to-one DP, MYP, PYP and IGCSE tuition on HKT, built around ESF, DSS and Non-JUPAS admissions.",
-  h1: "Online IB and IGCSE tutors for students studying in Hong Kong",
+  title: "IB Tutors in Hong Kong: Private IBDP & IGCSE Tuition",
+  metaDescription: "Private online IB tutors for families in HK: one-to-one IBDP, MYP and IGCSE on Hong Kong Time, planned around ESF, DSS and Non-JUPAS routes. Free trial.",
+  h1: "Private online IB tutors in Hong Kong for IBDP, MYP and IGCSE",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN HONG KONG",
-  heroSubtitle: "Whether your child sits an ESF secondary school's Diploma Programme, IGCSE at a private international school, or IB alongside HKDSE at a DSS school, matching starts with the specific syllabus they are actually graded on. Every lesson happens online and one-to-one, timed to Hong Kong Time. Let us know the subject, the level, and whether university plans point toward JUPAS, Non-JUPAS or both, and a tutor already familiar with that route gets proposed.",
+  heroSubtitle: "Whether your child sits an ESF secondary school's Diploma Programme, IGCSE at a private international school, or IB alongside HKDSE at a DSS school, matching starts with the specific syllabus they are actually graded on. Private IB tutoring here is online and one-to-one, timed to Hong Kong Time, and because HK keeps no daylight saving the slot you book in September is the same slot in January. Let us know the subject, the level, and whether university plans point toward JUPAS, Non-JUPAS or both, and a tutor already familiar with that route gets proposed.",
   primaryKeyword: "IB tutors in Hong Kong",
   imageAltText: "A tutor and student in Hong Kong reviewing an IB Diploma chemistry question together during a live online lesson",
   secondaryKeywords: [
@@ -361,6 +361,10 @@ export const hongKong: CountrySeoPage = {
       answer: "The reliable filter is programme stage plus exact subject and level, not a general \"IB tutor\" search. Tell us your child's school, current grades and where the difficulty genuinely sits, and IB Gram proposes a named specialist rather than a list to sift through yourself. Reach us by email at support@ibgram.com or on WhatsApp at +91 7439 368 115 and describe the situation in a couple of sentences.",
     },
     {
+      question: "How do I find a private IB tutor in HK?",
+      answer: "Start from the exact course your child is graded on, HL Chemistry, MYP Individuals and Societies, IGCSE Additional Mathematics, rather than a general search for an IB tutor in HK. Tell us the school type, ESF, DSS or private international, with the subject, the level and whether university plans point at JUPAS or Non-JUPAS, and one named tutor who has taught that syllabus is proposed, with a free trial lesson before anything is agreed.",
+    },
+    {
       question: "Can lessons run on Hong Kong Time?",
       answer: "Yes. Sessions are scheduled to Hong Kong Time, and because the territory does not observe daylight saving, a booked slot never shifts through the year the way it can elsewhere. Most families book after-school slots on weekday evenings or weekend mornings, and tutors hold those hours consistently week to week regardless of the season.",
     },
@@ -375,6 +379,10 @@ export const hongKong: CountrySeoPage = {
     {
       question: "Should my child do HKDSE or the IB Diploma?",
       answer: "That is mainly a school-fit and language question rather than a tutoring one. HKDSE runs bilingually with a strong Chinese component and leads into JUPAS; IB DP runs almost entirely in English at schools offering it here and leads into Non-JUPAS, reaching the same universities by a different route. The IB suits a student who wants breadth and a research-and-writing spine; HKDSE suits one who wants to stay within the local system's own well-understood scoring formula. We tutor IB and IGCSE, and can advise on how the choice interacts with a specific university target.",
+    },
+    {
+      question: "Is the IB Diploma Programme available in Hong Kong?",
+      answer: "Yes. More than 50 schools across Hong Kong are authorised to teach IB programmes, among them the ESF secondary schools, a range of private international schools and several DSS schools running the Diploma alongside HKDSE. Hong Kong's average Diploma score in the May 2025 session was 35.4, against a global average of around 30. Our own tutoring for these students is online only, on HKT.",
     },
     {
       question: "Can you help with IGCSE if we live in Hong Kong?",
@@ -403,6 +411,10 @@ export const hongKong: CountrySeoPage = {
     {
       question: "Which IB and IGCSE subjects do you actually cover?",
       answer: "The commonly taken DP subjects across groups one to five: Mathematics Analysis and Approaches and Applications and Interpretation, Physics, Chemistry, Biology, Economics, Business Management, History, Geography, Computer Science, English A and B, Chinese A and B, plus MYP and PYP support and the equivalent IGCSE subjects. Less common languages depend on tutor availability, so ask before assuming. Send the exact subject name and level from your child's timetable and we confirm what is available.",
+    },
+    {
+      question: "Do you have IB English tutors in Hong Kong?",
+      answer: "Yes, and the first question is which English course. English A Language and Literature, the literature-only English A, and English B are marked to different criteria, and a Cantonese-first student arriving from a local school may be better placed in English B than in either A course. Sessions cover Paper 1 timing, the learner portfolio, the individual oral and, at HL, the essay on a studied text.",
     },
     {
       question: "Do you offer intensive tutoring before the May IB exams?",

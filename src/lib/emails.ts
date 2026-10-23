@@ -234,3 +234,75 @@ export function chatUnlockedEmail(input: {
 
   return { subject: `Your chat with ${input.otherPartyName} is open`, html, text };
 }
+
+/**
+ * Sent to a tutor who created an account but never submitted a profile, so they are invisible
+ * to families. Repeats weekly until they either finish the profile or ask to stop.
+ *
+ * `reminderNumber` changes the tone rather than the facts: the first note assumes they simply
+ * got busy, later ones are shorter and say plainly that nothing happens until the profile
+ * exists. Nobody needs the same paragraph five weeks running.
+ */
+export function tutorProfileReminderEmail(input: { name: string; reminderNumber: number; signedUpOn?: string }) {
+  const profileUrl = `${SITE_URL}/tutor/profile`;
+  const firstName = input.name.split(" ")[0] || "there";
+  const later = input.reminderNumber > 1;
+
+  const opening = later
+    ? p(`Hi ${firstName}, your IB Gram tutor profile is still unfinished, so families searching for a tutor cannot see you yet.`)
+    : p(`Hi ${firstName},`) +
+      p(
+        `Thanks for signing up as a tutor on IB Gram${input.signedUpOn ? ` on ${input.signedUpOn}` : ""}. Your account is active, but you have not submitted your tutor profile yet — and until you do, you will not appear to families looking for a tutor.`,
+      );
+
+  const html = emailLayout(
+    "Finish your tutor profile to go live",
+    opening +
+      p("It takes about ten minutes. You will need:") +
+      `<ul style="margin:0 0 14px 18px;padding:0;font-size:15px;line-height:1.7;color:#374151;">
+         <li>The curriculums you teach — IB PYP, MYP, DP, CP, Cambridge IGCSE or Edexcel</li>
+         <li>Your subjects and the levels you take them to, HL or SL</li>
+         <li>Your city, and whether you teach at home, online or both</li>
+         <li>A short note on your experience and how you teach</li>
+       </ul>` +
+      button(profileUrl, "Complete my tutor profile") +
+      p(
+        "Once it is submitted our team reviews it, and your profile goes live on the site after that. Matching is by syllabus and level, so the more precisely you fill it in, the better the enquiries you get.",
+      ) +
+      p(
+        `If you no longer want to tutor with us, just reply to this email and we will close your account — we will stop emailing you either way.`,
+      ),
+  );
+
+  const text = [
+    later
+      ? `Hi ${firstName}, your IB Gram tutor profile is still unfinished, so families cannot see you yet.`
+      : `Hi ${firstName},`,
+    "",
+    later
+      ? ""
+      : "Thanks for signing up as a tutor on IB Gram. Your account is active, but you have not submitted your tutor profile yet - and until you do, you will not appear to families looking for a tutor.",
+    "",
+    "It takes about ten minutes. You will need:",
+    "  - The curriculums you teach (IB PYP, MYP, DP, CP, Cambridge IGCSE or Edexcel)",
+    "  - Your subjects and levels, HL or SL",
+    "  - Your city, and whether you teach at home, online or both",
+    "  - A short note on your experience and how you teach",
+    "",
+    `Complete your profile: ${profileUrl}`,
+    "",
+    "Once submitted, our team reviews it and your profile goes live after that.",
+    "",
+    "If you no longer want to tutor with us, reply to this email and we will close your account.",
+    "",
+    "- IB Gram",
+  ]
+    .filter((line, i, all) => !(line === "" && all[i - 1] === ""))
+    .join("\n");
+
+  return {
+    subject: later ? "Your IB Gram tutor profile is still unfinished" : "Finish your IB Gram tutor profile to go live",
+    html,
+    text,
+  };
+}
