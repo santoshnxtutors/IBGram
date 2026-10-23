@@ -3,6 +3,7 @@ import rateLimit from "express-rate-limit";
 import { changePasswordValidator, loginValidator, publicRegisterValidator, requestPasswordResetValidator, resetPasswordValidator } from "@ibgram/shared";
 import { requireAuth } from "@ibgram/authentication";
 import { getEnv } from "../../config/env";
+import { registerRateLimit, signupGuard } from "./signup-guard";
 import { validate } from "../../middleware/validate.middleware";
 import {
   changePasswordController,
@@ -37,7 +38,10 @@ const authRateLimit = rateLimit({
   },
 });
 
-authRoutes.post("/register", authRateLimit, validate({ body: publicRegisterValidator }), registerController);
+// Registration gets its own, much tighter limit plus the honeypot/captcha guard. It used to
+// share the login limit of 10 per 15 minutes, which allowed ~960 signups a day from one IP -
+// how 16 bot accounts were created in a single day on 23 Oct 2026.
+authRoutes.post("/register", registerRateLimit, validate({ body: publicRegisterValidator }), signupGuard, registerController);
 authRoutes.post("/login", authRateLimit, validate({ body: loginValidator }), loginController);
 authRoutes.post("/logout", requireAuth(), logoutController);
 authRoutes.get("/me", requireAuth(), meController);

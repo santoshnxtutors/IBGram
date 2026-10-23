@@ -2,6 +2,7 @@
 
 import type { FormEvent } from "react";
 import { useEffect, useState } from "react";
+import { TurnstileWidget } from "./TurnstileWidget";
 import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, BookOpen, ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,10 @@ export function AuthFlow({ initialAuthType, initialRole }: AuthFlowProps) {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // Bot protection. `honeypot` is bound to a hidden input a human never sees; `captchaToken`
+  // is set by the Turnstile widget when a site key is configured, and stays empty otherwise.
+  const [honeypot, setHoneypot] = useState("");
+  const [captchaToken, setCaptchaToken] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -69,7 +74,19 @@ export function AuthFlow({ initialAuthType, initialRole }: AuthFlowProps) {
       const payload =
         authType === "login"
           ? { usernameOrEmail: email, password }
-          : { email, password, firstName, lastName, role: role ?? "student" };
+          : {
+              email,
+              password,
+              firstName,
+              lastName,
+              role: role ?? "student",
+              // Honeypot: the hidden input below stays empty for a human. Any value tells the
+              // backend a script filled every field it could find.
+              company: honeypot,
+              // Only meaningful once NEXT_PUBLIC_TURNSTILE_SITE_KEY is configured; the backend
+              // skips the check when it has no secret.
+              captchaToken,
+            };
 
       const response = await fetch(endpoint, {
         method: "POST",
@@ -314,6 +331,29 @@ export function AuthFlow({ initialAuthType, initialRole }: AuthFlowProps) {
                       required
                     />
                   </div>
+
+                  {authType === "signup" ? (
+                    <>
+                      {/*
+                        Honeypot. Hidden from people and from screen readers, but a form-filling
+                        script sees an input and fills it, which is exactly the tell. Not
+                        `display:none` - some bots skip those - and never `name="honeypot"`.
+                      */}
+                      <div aria-hidden className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+                        <label htmlFor="company">Company (leave this empty)</label>
+                        <input
+                          id="company"
+                          name="company"
+                          type="text"
+                          tabIndex={-1}
+                          autoComplete="off"
+                          value={honeypot}
+                          onChange={(event) => setHoneypot(event.target.value)}
+                        />
+                      </div>
+                      <TurnstileWidget onToken={setCaptchaToken} />
+                    </>
+                  ) : null}
 
                   <Button type="submit" disabled={isSubmitting} className="w-full h-12 rounded-xl bg-primary text-primary-foreground font-bold text-base shadow-lg shadow-primary/20 shimmer-btn hover:scale-105 active:scale-95 transition-all mt-6">
                     {isSubmitting ? "Please wait..." : authType === "login" ? "Sign In" : "Sign Up"}

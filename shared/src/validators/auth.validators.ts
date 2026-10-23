@@ -11,6 +11,17 @@ export const publicRegisterValidator = z.object({
   firstName: z.string().trim().min(1).max(80),
   lastName: z.string().trim().max(80).optional().default(""),
   role: z.enum(["student", "tutor"]).default("student"),
+  /**
+   * Honeypot. The signup form renders this hidden and leaves it empty; a human never fills it
+   * in, so any value means a script that filled every input it could find. Named "company"
+   * rather than anything obvious because bots skip fields called "honeypot".
+   *
+   * Same trick the contact form already uses. It costs nothing and catches the naive majority;
+   * the rate limit and captcha handle the rest.
+   */
+  company: z.string().max(200).optional().default(""),
+  /** Cloudflare Turnstile token, verified server-side when TURNSTILE_SECRET_KEY is configured. */
+  captchaToken: z.string().max(4096).optional().default(""),
 });
 
 export const createUserValidator = z.object({
