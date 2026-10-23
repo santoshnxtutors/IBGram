@@ -11,7 +11,10 @@ node_modules/
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-sitemap-mumbai.xml
+# Anchored to the repo root on purpose. Unanchored, this pattern matches at ANY depth and
+# silently swallowed src/app/sitemap-mumbai.xml/route.ts, so that child sitemap 404ed in
+# production while the other eight served.
+/sitemap-mumbai.xml
 # ─── Next.js ─────────────────────────────────────────────────────────────────
 /.next/
 /out/
