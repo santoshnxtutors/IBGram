@@ -56,7 +56,9 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    needs: lint
+    # Deliberately not `needs: lint` - the two ran back to back and lint added 2m18s of
+    # wall clock before the build even started. They are independent, so they run in
+    # parallel and `deploy` below waits for both, which still blocks a lint failure.
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - name: Checkout
@@ -158,46 +160,54 @@ jobs:
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           LOG_LEVEL: ${{ secrets.LOG_LEVEL || 'info' }}
 
+      # Packing first is what makes the upload quick. The payload is ~3,300 files and
+      # ~300MB (src/ alone is 285MB of generated SEO JSON), and upload-artifact pays a
+      # per-file round trip, which cost 5m08s on run 40300514610. One gzip archive is a
+      # single file, so the same bytes upload in a fraction of that.
+      #
+      # src/ has to ship: next.config.ts imports ./src/lib/gurgaon-seo/pages-data-expansion,
+      # so `next start` reads it at runtime. Do not "optimise" it out of this list.
+      #
+      # .next is hidden, but naming it explicitly in tar includes it - this replaces the
+      # include-hidden-files flag the old upload-artifact step needed.
+      - name: Pack build output
+        run: |
+          set -euo pipefail
+
+          # upload-artifact only warned when a path did not exist; tar fails on one, so
+          # keep the old lenient behaviour and just skip anything absent.
+          paths=()
+          for p in \
+            .next \
+            backend/dist backend/package.json backend/tsconfig.json \
+            shared/dist shared/src shared/package.json shared/tsconfig.json \
+            authentication/dist authentication/src authentication/package.json authentication/tsconfig.json \
+            database public src scripts \
+            package.json package-lock.json next.config.ts tsconfig.json .npmrc ecosystem.config.js
+          do
+            if [ -e "$p" ]; then paths+=("$p"); else echo "skipping missing path: $p"; fi
+          done
+
+          test -f .next/BUILD_ID || { echo "::error::.next/BUILD_ID missing - the Next build produced no output"; exit 1; }
+
+          # --exclude drops webpack's build cache. It is a build-time artifact that
+          # `next start` never reads, and it was being shipped to the VPS every deploy.
+          tar -czf ibgram-build.tar.gz --exclude=.next/cache "${paths[@]}"
+          ls -lh ibgram-build.tar.gz
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: ibgram-build
           retention-days: 1
-          # include-hidden-files MUST be true — ".next" starts with a dot and
-          # upload-artifact@v4 excludes hidden paths by default, which would
-          # silently drop the build dir. The CI build resolves shadcn /
-          # tw-animate-css fine; Prisma is kept external via
-          # serverExternalPackages so the shipped .next loads it from the
-          # server's node_modules at runtime.
-          include-hidden-files: true
-          path: |
-            .next/
-            backend/dist/
-            backend/package.json
-            backend/tsconfig.json
-            shared/dist/
-            shared/src/
-            shared/package.json
-            shared/tsconfig.json
-            authentication/dist/
-            authentication/src/
-            authentication/package.json
-            authentication/tsconfig.json
-            database/
-            public/
-            src/
-            scripts/
-            package.json
-            package-lock.json
-            next.config.ts
-            tsconfig.json
-            .npmrc
-            ecosystem.config.js
+          # Already gzip-compressed, so zipping it again only burns CPU.
+          compression-level: 0
+          path: ibgram-build.tar.gz
 
   deploy:
     name: Deploy to CloudPanel
     runs-on: ubuntu-latest
-    needs: build
+    needs: [lint, build]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     environment:
       name: production
@@ -206,7 +216,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ibgram-build
-          path: deploy/
+          path: artifact/
+
+      # Unpack into deploy/ so the rsync step below sees the same tree it always has.
+      - name: Unpack build output
+        run: |
+          set -euo pipefail
+          mkdir -p deploy
+          tar -xzf artifact/ibgram-build.tar.gz -C deploy
+          test -f deploy/.next/BUILD_ID
+          du -sh deploy
 
       - name: Install SSH tools
         run: sudo apt-get update && sudo apt-get install -y rsync sshpass
@@ -533,7 +552,7 @@ jobs:
             echo "Verifying prebuilt Next.js build shipped from CI..."
             if [ ! -f .next/BUILD_ID ]; then
               echo "ERROR: .next/BUILD_ID missing — prebuilt .next did not arrive."
-              echo "Confirm the CI 'Upload build artifact' step has include-hidden-files: true and ships .next/."
+              echo "Confirm the CI 'Pack build output' step included .next/ in the tarball."
               exit 1
             fi
             echo "Prebuilt .next present (BUILD_ID found)."
