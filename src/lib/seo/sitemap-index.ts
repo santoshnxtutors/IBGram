@@ -22,6 +22,7 @@ import type { MetadataRoute } from "next";
 import { getBlogSitemapEntries } from "@/lib/cms/blog";
 import { listPublishedDbSitemapEntries } from "@/lib/cms/generated-pages-db";
 import { getPublicTutorProfileSitemapEntries } from "@/lib/cms/public-tutors";
+import { getPublishedJobSitemapEntries } from "@/lib/jobs";
 import { getTutorReachSitemapEntries } from "@/lib/cms/tutor-reach";
 import { getIncludedSitemapEntries } from "@/lib/seo/seo-db";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
@@ -94,13 +95,23 @@ export const sitemapFileUrl = (file: SitemapFile): string => absoluteUrl(sitemap
 export async function getSitemapSections(): Promise<Record<SitemapFile, MetadataRoute.Sitemap>> {
   const code = getSectionedSitemapEntries();
 
-  const [blogPosts, tutorProfiles, tutorReach, dbPages, dbOverrides] = await Promise.all([
+  const [blogPosts, tutorProfiles, tutorReach, dbPages, dbOverrides, jobRoles] = await Promise.all([
     getBlogSitemapEntries().catch(() => []),
     getPublicTutorProfileSitemapEntries().catch(() => []),
     getTutorReachSitemapEntries().catch(() => []),
     listPublishedDbSitemapEntries().catch(() => []),
     getIncludedSitemapEntries().catch(() => []),
+    getPublishedJobSitemapEntries().catch(() => []),
   ]);
+
+  // One row per open vacancy. /jobs/ itself is already in code.core, and each role page
+  // carries its own JobPosting markup, so these are the URLs Google actually wants listed.
+  const jobs: MetadataRoute.Sitemap = jobRoles.map((role) => ({
+    url: absoluteUrl(`/jobs/${role.slug}/`),
+    lastModified: role.publishedAt ?? role.updatedAt,
+    changeFrequency: "weekly" as const,
+    priority: 0.56,
+  }));
 
   const blogs: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: absoluteUrl(`/blog/${post.slug}/`),
@@ -132,7 +143,7 @@ export async function getSitemapSections(): Promise<Record<SitemapFile, Metadata
   }));
 
   const raw: Record<SitemapFile, MetadataRoute.Sitemap> = {
-    pages: code.core,
+    pages: [...code.core, ...jobs],
     // The generated-page store lands here; DEDUPE_ORDER keeps it from stealing URLs that
     // belong to a more specific child.
     services: [...code.igcse, ...code["ib-tutors"], ...code.generated, ...dbPageRows],

@@ -34,6 +34,24 @@ export async function getPublishedJobs() {
   });
 }
 
+/**
+ * Slugs for the sitemap's `pages` child, which already carries /jobs/ itself.
+ *
+ * Same filter as getPublishedJobs, so a role that closes drops out of the sitemap on the
+ * next revalidate rather than advertising a URL that no longer resolves.
+ */
+export async function getPublishedJobSitemapEntries() {
+  const now = new Date();
+  return prisma.job.findMany({
+    where: {
+      status: "published",
+      OR: [{ closesAt: null }, { closesAt: { gte: now } }],
+    },
+    select: { slug: true, updatedAt: true, publishedAt: true },
+    orderBy: { sortOrder: "asc" },
+  });
+}
+
 export async function getPublishedJobBySlug(slug: string) {
   const now = new Date();
   return prisma.job.findFirst({

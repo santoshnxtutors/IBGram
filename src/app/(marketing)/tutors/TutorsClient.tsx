@@ -9,7 +9,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState, useEffect, useMemo } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import type { Tutor } from "@/lib/tutor-data";
@@ -23,34 +22,6 @@ type AnyTutorId = string | number;
 const sameId = (a: AnyTutorId | null | undefined, b: AnyTutorId | null | undefined) =>
   a !== null && a !== undefined && b !== null && b !== undefined && String(a) === String(b);
 
-const IB_SUBJECTS = [
-  "IB Mathematics",
-  "IB Physics",
-  "IB Chemistry",
-  "IB Biology",
-  "IB Economics",
-  "IB English",
-  "IB Psychology",
-  "IB History",
-  "IB Business Management",
-  "IB Theory of Knowledge",
-];
-const IB_GRADES = ["IB DP (Year 12-13)", "IB MYP (Year 7-11)", "IB PYP (Year 1-6)"];
-
-const IGCSE_SUBJECTS = [
-  "IGCSE Mathematics",
-  "IGCSE Physics",
-  "IGCSE Chemistry",
-  "IGCSE Biology",
-  "IGCSE Economics",
-  "IGCSE English",
-  "IGCSE Business Studies",
-  "IGCSE Computer Science",
-  "IGCSE History",
-  "IGCSE Geography",
-  "IGCSE ICT",
-];
-const IGCSE_GRADES = ["IGCSE Grade 10 (Final)", "IGCSE Grade 9 (Foundation)"];
 const INITIAL_VISIBLE_TUTORS = 8;
 
 export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
@@ -61,9 +32,6 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
   // it means the DB is reachable and no public tutors are currently published.
   const sourceTutors: Tutor[] = tutors ?? [];
   const [selectedId, setSelectedId] = useState<AnyTutorId | null>(null);
-  const [curriculumFilter, setCurriculumFilter] = useState<string>("Curriculum");
-  const [subjectFilter, setSubjectFilter] = useState<string>("Subject");
-  const [gradeFilter, setGradeFilter] = useState<string>("Grade");
   const [queryText, setQueryText] = useState("");
   const [filteredTutors, setFilteredTutors] = useState<Tutor[]>(sourceTutors);
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
@@ -102,13 +70,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
     return index;
   }, [tutors]);
 
-  const displayTutors =
-    curriculumFilter === "Curriculum" &&
-    subjectFilter === "Subject" &&
-    gradeFilter === "Grade" &&
-    !queryText.trim()
-      ? sourceTutors
-      : filteredTutors;
+  const displayTutors = queryText.trim() ? filteredTutors : sourceTutors;
   const visibleTutors = displayTutors.slice(0, visibleTutorCount);
 
   const toggleCompare = (id: AnyTutorId) => {
@@ -126,12 +88,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
     }
   };
 
-  const handleSearch = (
-    curr = curriculumFilter,
-    subj = subjectFilter,
-    grd = gradeFilter,
-    text = queryText,
-  ) => {
+  const handleSearch = (text = queryText) => {
     let result = sourceTutors;
 
     // Every word has to match somewhere, so "gurgaon physics" narrows instead of widening.
@@ -143,30 +100,9 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
       });
     }
 
-    if (curr !== "Curriculum") {
-      result = result.filter((tutor) => tutor.curriculum === curr || tutor.curriculum === "Both");
-    }
-
-    if (subj !== "Subject") {
-      const baseFilter = subj.replace("IB ", "").replace("IGCSE ", "").split(" (")[0];
-      result = result.filter((tutor) => tutor.subject.includes(baseFilter) || baseFilter.includes(tutor.subject));
-    }
-
-    if (grd !== "Grade") {
-      result = result.filter((tutor) => tutor.grade.includes(grd) || grd.includes(tutor.grade));
-    }
-
     setFilteredTutors(result);
     setVisibleTutorCount(INITIAL_VISIBLE_TUTORS);
   };
-
-  useEffect(() => {
-    setSubjectFilter("Subject");
-    setGradeFilter("Grade");
-    setVisibleTutorCount(INITIAL_VISIBLE_TUTORS);
-    handleSearch(curriculumFilter, "Subject", "Grade");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [curriculumFilter]);
 
   useEffect(() => {
     if (selectedId !== null) {
@@ -201,107 +137,37 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
             Search the tutor directory
           </h2>
           <p className="mt-1.5 text-base leading-relaxed text-muted-foreground">
-            Search by country, state, city or tutor name, or filter by curriculum, subject and level.
+            Search by country, state, city or the tutor&apos;s name.
           </p>
         </div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="relative z-20 flex w-full max-w-5xl flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-2 rounded-[2rem] lg:rounded-full border border-border/40 bg-card/30 p-3 lg:p-2 shadow-2xl backdrop-blur-3xl"
+          className="relative z-20 flex w-full max-w-3xl flex-row items-center gap-2 rounded-full border border-border/40 bg-card/30 p-2 shadow-2xl backdrop-blur-3xl"
         >
-          <div className="flex w-full flex-col md:flex-row flex-1 items-stretch gap-3 md:gap-0 lg:h-14">
-            {/* Free text first: most people arrive knowing a place or a tutor's name,
-                not which of three dropdowns that belongs in. */}
-            <div className="relative flex h-12 lg:h-full flex-[1.6] items-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent md:border-r border-border/20">
-              <label className="flex h-full w-full items-center">
-                <span className="sr-only">Search by country, state, city or tutor name</span>
-                <input
-                  type="search"
-                  value={queryText}
-                  onChange={(event) => {
-                    setQueryText(event.target.value);
-                    handleSearch(curriculumFilter, subjectFilter, gradeFilter, event.target.value);
-                  }}
-                  placeholder="Country, state, city or tutor name"
-                  className="h-full w-full rounded-2xl border-none bg-transparent px-5 text-sm font-bold text-foreground outline-none placeholder:font-semibold placeholder:text-muted-foreground focus:ring-0 md:rounded-none md:px-6 md:text-base"
-                />
-              </label>
-            </div>
-
-            <div className="relative flex h-12 lg:h-full flex-1 items-center justify-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent md:border-r border-border/20">
-              <Select value={curriculumFilter} onValueChange={(value) => value && setCurriculumFilter(value)}>
-                <SelectTrigger className="flex h-full w-full items-center justify-between md:justify-center rounded-2xl md:rounded-none border-none bg-transparent px-5 text-sm font-black text-primary outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent md:px-6 md:text-base">
-                  <SelectValue placeholder="Curriculum" />
-                </SelectTrigger>
-                <SelectContent className="min-w-[160px] rounded-2xl border-border bg-card/95 p-2 shadow-2xl backdrop-blur-2xl">
-                  <SelectItem value="Curriculum" className="rounded-xl text-left font-bold focus:bg-primary/10">
-                    Curriculum
-                  </SelectItem>
-                  <SelectItem value="IB" className="rounded-xl text-left font-bold focus:bg-primary/10">
-                    IB
-                  </SelectItem>
-                  <SelectItem value="IGCSE" className="rounded-xl text-left font-bold focus:bg-primary/10">
-                    IGCSE
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="relative flex h-12 lg:h-full flex-1 items-center justify-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent md:border-r border-border/20">
-              <Select value={subjectFilter} onValueChange={(value) => value && setSubjectFilter(value)}>
-                <SelectTrigger className="flex h-full w-full items-center justify-between md:justify-center rounded-2xl md:rounded-none border-none bg-transparent px-5 text-sm font-black text-foreground outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent md:px-6 md:text-base">
-                  <SelectValue placeholder="Subject" />
-                </SelectTrigger>
-                <SelectContent className="min-w-[200px] rounded-2xl border-border bg-card/95 p-2 shadow-2xl backdrop-blur-2xl">
-                  <SelectItem value="Subject" className="rounded-xl font-bold focus:bg-primary/10">
-                    Subject
-                  </SelectItem>
-                  {(curriculumFilter === "Curriculum"
-                    ? Array.from(new Set([...IB_SUBJECTS, ...IGCSE_SUBJECTS]))
-                    : curriculumFilter === "IB"
-                      ? IB_SUBJECTS
-                      : IGCSE_SUBJECTS
-                  ).map((subject) => (
-                    <SelectItem key={subject} value={subject} className="rounded-xl font-bold focus:bg-primary/10">
-                      {subject}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="relative flex h-12 lg:h-full flex-1 items-center justify-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent">
-              <Select value={gradeFilter} onValueChange={(value) => value && setGradeFilter(value)}>
-                <SelectTrigger className="flex h-full w-full items-center justify-between md:justify-center rounded-2xl md:rounded-none border-none bg-transparent px-5 text-sm font-black text-foreground outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent md:px-6 md:text-base">
-                  <SelectValue placeholder="Grade" />
-                </SelectTrigger>
-                <SelectContent className="min-w-[200px] rounded-2xl border-border bg-card/95 p-2 shadow-2xl backdrop-blur-2xl">
-                  <SelectItem value="Grade" className="rounded-xl font-bold focus:bg-primary/10">
-                    Grade
-                  </SelectItem>
-                  {(curriculumFilter === "Curriculum"
-                    ? Array.from(new Set([...IB_GRADES, ...IGCSE_GRADES]))
-                    : curriculumFilter === "IB"
-                      ? IB_GRADES
-                      : IGCSE_GRADES
-                  ).map((grade) => (
-                    <SelectItem key={grade} value={grade} className="rounded-xl font-bold focus:bg-primary/10">
-                      {grade}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+          <div className="relative flex h-12 min-w-0 flex-1 items-center lg:h-14">
+            <label className="flex h-full w-full items-center">
+              <span className="sr-only">Search by country, state, city or tutor name</span>
+              <input
+                type="search"
+                value={queryText}
+                onChange={(event) => {
+                  setQueryText(event.target.value);
+                  handleSearch(event.target.value);
+                }}
+                placeholder="Search by country, state, city or tutor name"
+                className="h-full w-full rounded-full border-none bg-transparent px-5 text-sm font-bold text-foreground outline-none placeholder:font-semibold placeholder:text-muted-foreground focus:ring-0 md:px-6 md:text-base"
+              />
+            </label>
           </div>
 
-          <div className="hidden h-8 w-px self-center bg-border/20 lg:block" />
           <button
             onClick={() => handleSearch()}
-            className="group flex h-12 w-full lg:h-14 lg:w-14 shrink-0 items-center justify-center rounded-2xl lg:rounded-full bg-primary/10 lg:bg-transparent text-primary transition-all hover:bg-primary/20 lg:hover:bg-transparent"
+            aria-label="Search tutors"
+            className="group flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-all hover:bg-primary/20 lg:size-14"
           >
             <Search className="size-5 transition-transform group-hover:scale-110 lg:size-6" strokeWidth={2.5} />
-            <span className="ml-2 font-bold text-sm lg:hidden">Search</span>
           </button>
         </motion.div>
       </section>
@@ -325,8 +191,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
               type="button"
               onClick={() => {
                 setQueryText("");
-                setCurriculumFilter("Curriculum");
-                handleSearch("Curriculum", "Subject", "Grade", "");
+                handleSearch("");
               }}
               className="mt-5 inline-flex h-11 items-center justify-center rounded-xl border border-border bg-background px-6 text-sm font-black text-foreground transition hover:bg-muted"
             >
