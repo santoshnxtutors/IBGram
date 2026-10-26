@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, BadgeCheck, CheckCircle2, ClipboardList, Mail, PenLine, Sparkles, UserPlus, type LucideIcon } from "lucide-react";
 import { TutorApplicationForm } from "@/components/tutors/TutorApplicationForm";
@@ -65,15 +66,33 @@ function Steps({ choice }: { choice: Choice }) {
   );
 }
 
-/** Lets a tutor pick between self-signup and the "we build it for you" application form. */
+/**
+ * Lets a tutor pick between self-signup and the "we build it for you" application form.
+ *
+ * ?from=jobs (every Apply button under /jobs/) drops the choice and shows the signup route
+ * only: that visitor is applying to a specific role and fills in their own details.
+ */
 export function JoinOptions() {
+  const signupOnly = useSearchParams().get("from") === "jobs";
   const [choice, setChoice] = useState<Choice>("signup");
 
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-lg font-extrabold text-foreground">Choose how you want to join</h2>
-        <div role="radiogroup" aria-label="How do you want to join?" className="mt-3 grid gap-4 sm:grid-cols-2">
+        <h2 className="text-lg font-extrabold text-foreground">
+          {signupOnly ? "Sign up and fill in your details" : "Choose how you want to join"}
+        </h2>
+        {signupOnly && (
+          <p className="mt-2 text-sm font-medium leading-relaxed text-muted-foreground">
+            Create your tutor account, then fill in your subjects, levels, experience, fee and where you teach.
+            Our academic team reviews it and publishes your profile.
+          </p>
+        )}
+        <div
+          role="radiogroup"
+          aria-label="How do you want to join?"
+          className={`mt-3 grid gap-4 sm:grid-cols-2 ${signupOnly ? "hidden" : ""}`}
+        >
           {OPTIONS.map((option) => {
             const active = choice === option.id;
             return (

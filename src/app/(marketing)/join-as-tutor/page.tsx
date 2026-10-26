@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { JoinOptions } from "@/components/tutors/JoinOptions";
@@ -72,7 +73,10 @@ export default function JoinAsTutorPage() {
             </div>
 
             <div className="lg:order-1 lg:col-span-7">
-              <JoinOptions />
+              {/* JoinOptions reads ?from=jobs, so it needs a boundary to stay statically rendered. */}
+              <Suspense fallback={null}>
+                <JoinOptions />
+              </Suspense>
             </div>
           </div>
         </div>

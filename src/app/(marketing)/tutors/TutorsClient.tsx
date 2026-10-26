@@ -10,9 +10,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import type { Tutor } from "@/lib/tutor-data";
+import { COUNTRIES, coversAllCountries, getCountryByCode } from "@/lib/countries";
 import { TutorCard } from "@/components/tutors/TutorCard";
 import { rememberReturnTo } from "@/lib/return-to";
 import { buildTutorComparePath } from "@/lib/tutor-compare-url";
@@ -63,12 +64,49 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
   const [curriculumFilter, setCurriculumFilter] = useState<string>("Curriculum");
   const [subjectFilter, setSubjectFilter] = useState<string>("Subject");
   const [gradeFilter, setGradeFilter] = useState<string>("Grade");
+  const [queryText, setQueryText] = useState("");
   const [filteredTutors, setFilteredTutors] = useState<Tutor[]>(sourceTutors);
   const [compareIds, setCompareIds] = useState<AnyTutorId[]>([]);
   const [visibleTutorCount, setVisibleTutorCount] = useState(INITIAL_VISIBLE_TUTORS);
 
+  /**
+   * One lowercase haystack per tutor for the free-text box: name, the places they
+   * actually teach, and the countries they cover. Countries are stored as ISO codes,
+   * so they are resolved to names here - nobody searches for "ae".
+   */
+  const searchIndex = useMemo(() => {
+    const index = new Map<string, string>();
+    for (const tutor of tutors ?? []) {
+      const codes = tutor.countriesCovered ?? [];
+      const countryNames = coversAllCountries(codes)
+        ? COUNTRIES.map((country) => country.name)
+        : codes.map((code) => getCountryByCode(code)?.name ?? code);
+      index.set(
+        String(tutor.id),
+        [
+          tutor.name,
+          tutor.subject,
+          tutor.grade,
+          tutor.primaryCity,
+          tutor.stateName,
+          tutor.countryName,
+          ...(tutor.availableCities ?? []),
+          ...(tutor.availableAreas ?? []),
+          ...countryNames,
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase(),
+      );
+    }
+    return index;
+  }, [tutors]);
+
   const displayTutors =
-    curriculumFilter === "Curriculum" && subjectFilter === "Subject" && gradeFilter === "Grade"
+    curriculumFilter === "Curriculum" &&
+    subjectFilter === "Subject" &&
+    gradeFilter === "Grade" &&
+    !queryText.trim()
       ? sourceTutors
       : filteredTutors;
   const visibleTutors = displayTutors.slice(0, visibleTutorCount);
@@ -88,8 +126,22 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
     }
   };
 
-  const handleSearch = (curr = curriculumFilter, subj = subjectFilter, grd = gradeFilter) => {
+  const handleSearch = (
+    curr = curriculumFilter,
+    subj = subjectFilter,
+    grd = gradeFilter,
+    text = queryText,
+  ) => {
     let result = sourceTutors;
+
+    // Every word has to match somewhere, so "gurgaon physics" narrows instead of widening.
+    const tokens = text.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    if (tokens.length) {
+      result = result.filter((tutor) => {
+        const haystack = searchIndex.get(String(tutor.id)) ?? "";
+        return tokens.every((token) => haystack.includes(token));
+      });
+    }
 
     if (curr !== "Curriculum") {
       result = result.filter((tutor) => tutor.curriculum === curr || tutor.curriculum === "Both");
@@ -149,7 +201,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
             Search the tutor directory
           </h2>
           <p className="mt-1.5 text-base leading-relaxed text-muted-foreground">
-            Filter by subject, curriculum, level and preferred learning mode.
+            Search by country, state, city or tutor name, or filter by curriculum, subject and level.
           </p>
         </div>
 
@@ -159,6 +211,24 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
           className="relative z-20 flex w-full max-w-5xl flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-2 rounded-[2rem] lg:rounded-full border border-border/40 bg-card/30 p-3 lg:p-2 shadow-2xl backdrop-blur-3xl"
         >
           <div className="flex w-full flex-col md:flex-row flex-1 items-stretch gap-3 md:gap-0 lg:h-14">
+            {/* Free text first: most people arrive knowing a place or a tutor's name,
+                not which of three dropdowns that belongs in. */}
+            <div className="relative flex h-12 lg:h-full flex-[1.6] items-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent md:border-r border-border/20">
+              <label className="flex h-full w-full items-center">
+                <span className="sr-only">Search by country, state, city or tutor name</span>
+                <input
+                  type="search"
+                  value={queryText}
+                  onChange={(event) => {
+                    setQueryText(event.target.value);
+                    handleSearch(curriculumFilter, subjectFilter, gradeFilter, event.target.value);
+                  }}
+                  placeholder="Country, state, city or tutor name"
+                  className="h-full w-full rounded-2xl border-none bg-transparent px-5 text-sm font-bold text-foreground outline-none placeholder:font-semibold placeholder:text-muted-foreground focus:ring-0 md:rounded-none md:px-6 md:text-base"
+                />
+              </label>
+            </div>
+
             <div className="relative flex h-12 lg:h-full flex-1 items-center justify-center rounded-2xl md:rounded-none bg-background/50 md:bg-transparent md:border-r border-border/20">
               <Select value={curriculumFilter} onValueChange={(value) => value && setCurriculumFilter(value)}>
                 <SelectTrigger className="flex h-full w-full items-center justify-between md:justify-center rounded-2xl md:rounded-none border-none bg-transparent px-5 text-sm font-black text-primary outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent md:px-6 md:text-base">
@@ -243,6 +313,27 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
             {displayTutors.length} Tutor Options Found
           </h2>
         </div>
+
+        {displayTutors.length === 0 && (
+          <div className="mb-10 rounded-2xl border border-border/50 bg-card/40 p-8 text-center">
+            <p className="text-base font-bold text-foreground">No tutors match that search.</p>
+            <p className="mx-auto mt-2 max-w-xl text-sm font-medium leading-6 text-muted-foreground">
+              Online lessons run in any country, so try the country or a nearby city instead of an exact area,
+              or clear the search to see every verified tutor.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setQueryText("");
+                setCurriculumFilter("Curriculum");
+                handleSearch("Curriculum", "Subject", "Grade", "");
+              }}
+              className="mt-5 inline-flex h-11 items-center justify-center rounded-xl border border-border bg-background px-6 text-sm font-black text-foreground transition hover:bg-muted"
+            >
+              Clear search
+            </button>
+          </div>
+        )}
 
         <motion.div layout className="flex flex-wrap gap-6 lg:gap-8">
           <AnimatePresence mode="popLayout">

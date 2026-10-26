@@ -3,6 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Briefcase, Building2, CalendarDays, CheckCircle2, MapPin } from "lucide-react";
 import { getPublishedJobBySlug } from "@/lib/jobs";
+import { APPLY_HREF, LOGIN_HREF } from "@/lib/jobs/apply-link";
+import { JsonLd } from "@/components/seo-city/JsonLd";
+import { absoluteUrl, SITE_URL } from "@/lib/seo/slug-utils";
 
 export const dynamic = "force-dynamic";
 
@@ -15,6 +18,76 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: `${job.title} | Careers at IB Gram`,
     description: job.summary ?? `Apply for ${job.title} at IB Gram.`,
+    alternates: { canonical: absoluteUrl(`/jobs/${slug}/`) },
+  };
+}
+
+/**
+ * JobPosting for a real, dated vacancy.
+ *
+ * The /ib-tutor-jobs/-style landing pages deliberately carry no JobPosting: they are
+ * evergreen category pages, and Google's guidelines want a specific role with a posting
+ * date. These /jobs/<slug>/ rows are that specific role, so the markup belongs here.
+ *
+ * Tutoring is paid per student at a fee the tutor sets, so there is no baseSalary to
+ * state. Inventing a range to win a rich result would be a false claim, so the field is
+ * left out rather than guessed.
+ */
+function buildJobPostingSchema(job: Awaited<ReturnType<typeof getPublishedJobBySlug>>) {
+  if (!job) return null;
+  const remote = /online|worldwide|remote/i.test(job.workMode ?? job.location);
+  const countries = /india/i.test(job.location)
+    ? ["IN"]
+    : /uae|dubai|emirates/i.test(job.location)
+      ? ["AE"]
+      : null;
+
+  const description = [
+    job.roleOverview,
+    job.jobDescription,
+    job.responsibilities.length ? `Responsibilities: ${job.responsibilities.join(" ")}` : "",
+    job.requirements.length ? `Requirements: ${job.requirements.join(" ")}` : "",
+    job.benefits.length ? `Benefits: ${job.benefits.join(" ")}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n\n");
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "@id": absoluteUrl(`/jobs/${job.slug}/#jobposting`),
+    title: job.title,
+    description,
+    datePosted: (job.publishedAt ?? job.createdAt).toISOString(),
+    validThrough: job.closesAt ? job.closesAt.toISOString() : undefined,
+    employmentType: /full/i.test(job.employmentType)
+      ? ["PART_TIME", "FULL_TIME", "CONTRACTOR"]
+      : ["PART_TIME", "CONTRACTOR"],
+    hiringOrganization: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "IB Gram",
+      sameAs: SITE_URL,
+      logo: `${SITE_URL}/logo-512.png`,
+    },
+    directApply: true,
+    url: absoluteUrl(`/jobs/${job.slug}/`),
+    industry: "Education",
+    occupationalCategory: "25-3041 Tutors",
+    ...(remote
+      ? {
+          jobLocationType: "TELECOMMUTE",
+          applicantLocationRequirements: (countries ?? ["IN", "AE", "GB", "US", "SG", "AU", "CA"]).map((code) => ({
+            "@type": "Country",
+            name: code,
+          })),
+        }
+      : {
+          jobLocation: {
+            "@type": "Place",
+            address: { "@type": "PostalAddress", addressCountry: countries?.[0] ?? "IN", addressLocality: job.location },
+          },
+        }),
   };
 }
 
@@ -54,8 +127,11 @@ export default async function JobDetailPage({ params }: Params) {
   const job = await getPublishedJobBySlug(slug);
   if (!job) notFound();
 
+  const jobPostingSchema = buildJobPostingSchema(job);
+
   return (
     <div className="min-h-screen bg-background pb-28 text-foreground">
+      {jobPostingSchema && <JsonLd data={jobPostingSchema} />}
       <div className="h-24 md:h-28" />
       <main className="container mx-auto max-w-6xl px-4 md:px-6">
         <Link
@@ -107,15 +183,24 @@ export default async function JobDetailPage({ params }: Params) {
             <div className="rounded-lg border border-border/60 bg-card p-5">
               <h2 className="text-lg font-black text-foreground">Apply for this role</h2>
               <p className="mt-2 text-sm font-medium leading-6 text-muted-foreground">
-                Share your resume and a few details. The IB Gram team will review your application from the admin
-                panel.
+                Applying creates your tutor account and profile in one go: list your subjects, levels, fee and
+                travel areas, upload your CV, and the IB Gram team reviews it from the admin panel.
               </p>
+              {/* Every role applies through the tutor signup, not a per-role form: one profile is
+                  matched against this role and every one that opens after it. */}
               <Link
-                href={`/jobs/${job.slug}/apply`}
+                href={APPLY_HREF}
                 className="mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-black text-primary-foreground transition hover:bg-primary/90"
               >
                 Apply Now <ArrowRight className="size-4" />
               </Link>
+              <p className="mt-3 text-xs font-semibold leading-5 text-muted-foreground">
+                Already have an account?{" "}
+                <Link href={LOGIN_HREF} className="font-black text-primary underline-offset-4 hover:underline">
+                  Log in and apply
+                </Link>
+                .
+              </p>
             </div>
           </aside>
         </div>
