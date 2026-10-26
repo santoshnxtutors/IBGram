@@ -21,6 +21,7 @@ import { getGurgaonKeywordSitemapEntries } from "@/lib/gurgaon-keywords";
 import { getCountrySeoSitemapEntries } from "@/lib/country-seo";
 import { getIgcseSubjectSitemapEntries } from "@/lib/igcse-subjects";
 import { getIndiaKeywordSitemapEntries } from "@/lib/india-keywords";
+import { getTutorJobSitemapEntries } from "@/lib/tutor-jobs-seo";
 import { getCitySeoSitemapEntries } from "@/lib/india-cities";
 import { getMumbaiSeoSitemapEntries } from "@/lib/mumbai-seo";
 import { getUaeSeoSitemapEntries } from "@/lib/uae-seo";
@@ -49,6 +50,7 @@ export function getSeoSitemapEntries(): MetadataRoute.Sitemap {
     ...getCitySeoSitemapEntries(),
     ...getMumbaiSeoSitemapEntries(),
     ...getUaeSeoSitemapEntries(),
+    ...getTutorJobSitemapEntries(),
   ]);
 }
 
@@ -83,7 +85,15 @@ export type SitemapSection = (typeof SITEMAP_SECTIONS)[number];
 /** Code-generated entries grouped by section, before global dedupe. */
 export function getSectionedSitemapEntries(): Record<SitemapSection, MetadataRoute.Sitemap> {
   return {
-    core: [...getCorePublicSitemapEntries(), getIbTutorsHubSitemapEntry(), getIgcsePagesHubSitemapEntry(), ...getIndexableCourseSitemapEntries()],
+    core: [
+      ...getCorePublicSitemapEntries(),
+      getIbTutorsHubSitemapEntry(),
+      getIgcsePagesHubSitemapEntry(),
+      ...getIndexableCourseSitemapEntries(),
+      // The 10 tutor-recruitment pages are top-level marketing URLs, so they belong with the
+      // other static pages rather than in a section of their own.
+      ...getTutorJobSitemapEntries(),
+    ],
     uae: [...getUaeSeoSitemapEntries()],
     mumbai: [...getMumbaiSeoSitemapEntries()],
     gurgaon: [...getGurgaonSeoSitemapEntries(), ...getGurgaonKeywordSitemapEntries()],

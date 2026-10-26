@@ -14,6 +14,9 @@ import { getGurgaonKeywordPage, gurgaonKeywordSlugs } from "@/lib/gurgaon-keywor
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { buildCountrySeoMetadata, countrySeoSlugs, getCountrySeoPage } from "@/lib/country-seo";
 import { buildCitySeoMetadata, buildCitySeoSchema, citySeoSlugs, getCitySeoPage } from "@/lib/india-cities";
+import { buildTutorJobSeoMetadata, getTutorJobSeoPage, tutorJobSeoSlugs } from "@/lib/tutor-jobs-seo";
+import { TutorJobsLanding } from "@/components/tutor-jobs-seo/TutorJobsLanding";
+import { getPublishedJobs } from "@/lib/jobs";
 import { getPublicTutorsFromDb } from "@/lib/cms/public-tutors";
 import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 import { getPublicHomepageReviews } from "@/lib/cms/public-reviews";
@@ -43,6 +46,7 @@ export function generateStaticParams() {
     // /india/<slug>/ keyword pages.
     ...countrySeoSlugs.filter((slug) => slug !== "india").map((slug) => ({ gurgaonSlug: slug })),
     ...citySeoSlugs.map((slug) => ({ gurgaonSlug: slug })),
+    ...tutorJobSeoSlugs.map((slug) => ({ gurgaonSlug: slug })),
     ...gurgaonKeywordSlugs.map((slug) => ({ gurgaonSlug: slug })),
     ...getGurgaonSeoStaticParams(),
   ];
@@ -56,6 +60,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const cityPage = getCitySeoPage(gurgaonSlug);
   if (cityPage) return buildCitySeoMetadata(cityPage);
+
+  const jobPage = getTutorJobSeoPage(gurgaonSlug);
+  if (jobPage) return buildTutorJobSeoMetadata(jobPage);
 
   const keywordPage = getGurgaonKeywordPage(gurgaonSlug);
   if (keywordPage) return buildGeneratedMetadata(keywordPage);
@@ -91,6 +98,26 @@ export default async function RootSeoLandingPage({ params }: PageProps) {
         schoolStrip={cityPage.stripSchools.length > 0 ? { schools: cityPage.stripSchools, place: cityPage.countryName } : undefined}
       />
     );
+  }
+
+  // Tutor-recruitment pages (/ib-tutor-jobs/, /female-ib-igcse-tutor-jobs/). The live vacancy
+  // strip reads the Job table, but a DB failure must not 500 an indexable page - without rows
+  // the component renders the talent-pool state, which is the correct content either way.
+  const jobPage = getTutorJobSeoPage(gurgaonSlug);
+  if (jobPage) {
+    const vacancies = await getPublishedJobs()
+      .then((jobs) =>
+        jobs.map((job) => ({
+          slug: job.slug,
+          title: job.title,
+          location: job.location,
+          employmentType: job.employmentType,
+          workMode: job.workMode,
+          summary: job.summary,
+        })),
+      )
+      .catch(() => []);
+    return <TutorJobsLanding page={jobPage} vacancies={vacancies} />;
   }
 
   const keywordPage = getGurgaonKeywordPage(gurgaonSlug);

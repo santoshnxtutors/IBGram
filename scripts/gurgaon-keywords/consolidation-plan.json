@@ -1,0 +1,2847 @@
+[
+ {
+  "key": "ib-T",
+  "keep": "/ib-tutor-in-gurgaon/",
+  "keepSlug": "ib-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 34,
+   "posSum": 1018,
+   "pos": 29.941176470588236
+  },
+  "drop": [
+   {
+    "from": "/ib-classes-in-gurgaon/",
+    "slug": "ib-classes-in-gurgaon",
+    "clicks": 0,
+    "impressions": 18,
+    "posSum": 101,
+    "pos": 5.611111111111111
+   },
+   {
+    "from": "/ib-coaching-in-gurgaon/",
+    "slug": "ib-coaching-in-gurgaon",
+    "clicks": 1,
+    "impressions": 45,
+    "posSum": 400,
+    "pos": 8.88888888888889
+   },
+   {
+    "from": "/gurgaon/ib-tutor-gurgaon/",
+    "slug": "ib-tutor-gurgaon",
+    "clicks": 0,
+    "impressions": 13,
+    "posSum": 846,
+    "pos": 65.07692307692308
+   },
+   {
+    "from": "/gurgaon/ib-tutors-gurgaon/",
+    "slug": "ib-tutors-gurgaon",
+    "clicks": 0,
+    "impressions": 8,
+    "posSum": 668,
+    "pos": 83.5
+   },
+   {
+    "from": "/gurgaon/ib-classes-gurgaon/",
+    "slug": "ib-classes-gurgaon",
+    "clicks": 0,
+    "impressions": 13,
+    "posSum": 225.99999999999997,
+    "pos": 17.384615384615383
+   },
+   {
+    "from": "/gurgaon/ib-tuition-gurgaon/",
+    "slug": "ib-tuition-gurgaon",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 67,
+    "pos": 67
+   },
+   {
+    "from": "/gurgaon/ib-coaching-gurgaon/",
+    "slug": "ib-coaching-gurgaon",
+    "clicks": 0,
+    "impressions": 4,
+    "posSum": 91,
+    "pos": 22.75
+   },
+   {
+    "from": "/gurgaon/ib-tuition-classes-gurgaon/",
+    "slug": "ib-tuition-classes-gurgaon",
+    "clicks": 0,
+    "impressions": 5,
+    "posSum": 181,
+    "pos": 36.2
+   },
+   {
+    "from": "/gurgaon/ib-tutor/",
+    "slug": "ib-tutor",
+    "clicks": 0,
+    "impressions": 9,
+    "posSum": 655,
+    "pos": 72.77777777777777
+   },
+   {
+    "from": "/gurgaon/ib-tutors/",
+    "slug": "ib-tutors",
+    "clicks": 0,
+    "impressions": 13,
+    "posSum": 968.0000000000001,
+    "pos": 74.46153846153847
+   },
+   {
+    "from": "/gurgaon/ib-classes/",
+    "slug": "ib-classes",
+    "clicks": 0,
+    "impressions": 6,
+    "posSum": 106,
+    "pos": 17.666666666666668
+   },
+   {
+    "from": "/gurgaon/ib-tuition/",
+    "slug": "ib-tuition",
+    "clicks": 0,
+    "impressions": 4,
+    "posSum": 319,
+    "pos": 79.75
+   },
+   {
+    "from": "/gurgaon/ib-coaching/",
+    "slug": "ib-coaching",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 18,
+    "pos": 6
+   },
+   {
+    "from": "/gurgaon/ib-tuitions/",
+    "slug": "ib-tuitions",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 89,
+    "pos": 89
+   },
+   {
+    "from": "/gurgaon/ib-tutor-service/",
+    "slug": "ib-tutor-service",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 104,
+    "pos": 34.666666666666664
+   },
+   {
+    "from": "/gurgaon/ib-tutor-provider/",
+    "slug": "ib-tutor-provider",
+    "clicks": 1,
+    "impressions": 119,
+    "posSum": 4180,
+    "pos": 35.12605042016807
+   },
+   {
+    "from": "/gurgaon/ib-tuition-classes/",
+    "slug": "ib-tuition-classes",
+    "clicks": 0,
+    "impressions": 15,
+    "posSum": 105,
+    "pos": 7
+   },
+   {
+    "from": "/gurgaon/ib-tuition-service/",
+    "slug": "ib-tuition-service",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 97,
+    "pos": 97
+   },
+   {
+    "from": "/gurgaon/best-ib-tutor/",
+    "slug": "best-ib-tutor",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/best-ib-tutors/",
+    "slug": "best-ib-tutors",
+    "clicks": 0,
+    "impressions": 105,
+    "posSum": 4864,
+    "pos": 46.32380952380952
+   },
+   {
+    "from": "/gurgaon/best-ib-tuition/",
+    "slug": "best-ib-tuition",
+    "clicks": 0,
+    "impressions": 25,
+    "posSum": 553,
+    "pos": 22.12
+   },
+   {
+    "from": "/gurgaon/expert-ib-tutor/",
+    "slug": "expert-ib-tutor",
+    "clicks": 0,
+    "impressions": 16,
+    "posSum": 353,
+    "pos": 22.0625
+   },
+   {
+    "from": "/gurgaon/certified-ib-tutor/",
+    "slug": "certified-ib-tutor",
+    "clicks": 0,
+    "impressions": 4,
+    "posSum": 28,
+    "pos": 7
+   },
+   {
+    "from": "/gurgaon/qualified-ib-tutor/",
+    "slug": "qualified-ib-tutor",
+    "clicks": 0,
+    "impressions": 6,
+    "posSum": 538,
+    "pos": 89.66666666666667
+   },
+   {
+    "from": "/gurgaon/qualified-ib-tutors/",
+    "slug": "qualified-ib-tutors",
+    "clicks": 0,
+    "impressions": 7,
+    "posSum": 378,
+    "pos": 54
+   },
+   {
+    "from": "/gurgaon/experienced-ib-tutor/",
+    "slug": "experienced-ib-tutor",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 5,
+    "pos": 5
+   },
+   {
+    "from": "/gurgaon/experienced-ib-tutors/",
+    "slug": "experienced-ib-tutors",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 52,
+    "pos": 52
+   }
+  ]
+ },
+ {
+  "key": "igcse-T",
+  "keep": "/igcse-tutor-in-gurgaon/",
+  "keepSlug": "igcse-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 6,
+   "posSum": 93,
+   "pos": 15.5
+  },
+  "drop": [
+   {
+    "from": "/igcse-tuition-in-gurgaon/",
+    "slug": "igcse-tuition-in-gurgaon",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/igcse-coaching-in-gurgaon/",
+    "slug": "igcse-coaching-in-gurgaon",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-tutor-gurgaon/",
+    "slug": "igcse-tutor-gurgaon",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-tutors-gurgaon/",
+    "slug": "igcse-tutors-gurgaon",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 49.99999999999999,
+    "pos": 16.666666666666664
+   },
+   {
+    "from": "/gurgaon/igcse-classes-gurgaon/",
+    "slug": "igcse-classes-gurgaon",
+    "clicks": 0,
+    "impressions": 26,
+    "posSum": 391,
+    "pos": 15.038461538461538
+   },
+   {
+    "from": "/gurgaon/igcse-tuition-gurgaon/",
+    "slug": "igcse-tuition-gurgaon",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 13,
+    "pos": 6.5
+   },
+   {
+    "from": "/gurgaon/igcse-coaching-gurgaon/",
+    "slug": "igcse-coaching-gurgaon",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-tuition-classes-gurgaon/",
+    "slug": "igcse-tuition-classes-gurgaon",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 39,
+    "pos": 19.5
+   },
+   {
+    "from": "/gurgaon/igcse-tutor/",
+    "slug": "igcse-tutor",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 6,
+    "pos": 6
+   },
+   {
+    "from": "/gurgaon/igcse-tutors/",
+    "slug": "igcse-tutors",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-classes/",
+    "slug": "igcse-classes",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 9,
+    "pos": 4.5
+   },
+   {
+    "from": "/gurgaon/igcse-tuition/",
+    "slug": "igcse-tuition",
+    "clicks": 0,
+    "impressions": 5,
+    "posSum": 78,
+    "pos": 15.6
+   },
+   {
+    "from": "/gurgaon/igcse-coaching/",
+    "slug": "igcse-coaching",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 3,
+    "pos": 3
+   },
+   {
+    "from": "/gurgaon/igcse-tuitions/",
+    "slug": "igcse-tuitions",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-tutor-service/",
+    "slug": "igcse-tutor-service",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-tutor-provider/",
+    "slug": "igcse-tutor-provider",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-tuition-classes/",
+    "slug": "igcse-tuition-classes",
+    "clicks": 0,
+    "impressions": 6,
+    "posSum": 65,
+    "pos": 10.833333333333334
+   },
+   {
+    "from": "/gurgaon/igcse-tuition-service/",
+    "slug": "igcse-tuition-service",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/best-igcse-tutor/",
+    "slug": "best-igcse-tutor",
+    "clicks": 0,
+    "impressions": 15,
+    "posSum": 150,
+    "pos": 10
+   },
+   {
+    "from": "/gurgaon/best-igcse-tutors/",
+    "slug": "best-igcse-tutors",
+    "clicks": 1,
+    "impressions": 34,
+    "posSum": 443,
+    "pos": 13.029411764705882
+   },
+   {
+    "from": "/gurgaon/best-igcse-tuition/",
+    "slug": "best-igcse-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 1,
+    "pos": 1
+   },
+   {
+    "from": "/gurgaon/expert-igcse-tutor/",
+    "slug": "expert-igcse-tutor",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 96.99999999999999,
+    "pos": 32.33333333333333
+   },
+   {
+    "from": "/gurgaon/qualified-igcse-tutor/",
+    "slug": "qualified-igcse-tutor",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/certified-igcse-tutor/",
+    "slug": "certified-igcse-tutor",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/qualified-igcse-tutors/",
+    "slug": "qualified-igcse-tutors",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 5,
+    "pos": 5
+   },
+   {
+    "from": "/gurgaon/experienced-igcse-tutor/",
+    "slug": "experienced-igcse-tutor",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/experienced-igcse-tutors/",
+    "slug": "experienced-igcse-tutors",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "ib-igcse-T",
+  "keep": "/gurgaon/ib-igcse-tutor-gurgaon/",
+  "keepSlug": "ib-igcse-tutor-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-igcse-classes-gurgaon/",
+    "slug": "ib-igcse-classes-gurgaon",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 16,
+    "pos": 8
+   },
+   {
+    "from": "/gurgaon/ib-igcse-tuition-gurgaon/",
+    "slug": "ib-igcse-tuition-gurgaon",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/ib-igcse-coaching-gurgaon/",
+    "slug": "ib-igcse-coaching-gurgaon",
+    "clicks": 1,
+    "impressions": 3,
+    "posSum": 15,
+    "pos": 5
+   },
+   {
+    "from": "/gurgaon/ib-igcse-tutor/",
+    "slug": "ib-igcse-tutor",
+    "clicks": 0,
+    "impressions": 4,
+    "posSum": 14,
+    "pos": 3.5
+   },
+   {
+    "from": "/gurgaon/ib-igcse-tutors/",
+    "slug": "ib-igcse-tutors",
+    "clicks": 0,
+    "impressions": 7,
+    "posSum": 83,
+    "pos": 11.857142857142858
+   },
+   {
+    "from": "/gurgaon/ib-igcse-tuition/",
+    "slug": "ib-igcse-tuition",
+    "clicks": 0,
+    "impressions": 6,
+    "posSum": 54,
+    "pos": 9
+   },
+   {
+    "from": "/gurgaon/ib-igcse-classes/",
+    "slug": "ib-igcse-classes",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/ib-igcse-coaching/",
+    "slug": "ib-igcse-coaching",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 13,
+    "pos": 6.5
+   },
+   {
+    "from": "/gurgaon/ib-igcse-tuitions/",
+    "slug": "ib-igcse-tuitions",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 12,
+    "pos": 12
+   },
+   {
+    "from": "/gurgaon/best-ib-igcse-tutor/",
+    "slug": "best-ib-igcse-tutor",
+    "clicks": 0,
+    "impressions": 14,
+    "posSum": 105,
+    "pos": 7.5
+   },
+   {
+    "from": "/gurgaon/best-ib-igcse-tuition/",
+    "slug": "best-ib-igcse-tuition",
+    "clicks": 0,
+    "impressions": 10,
+    "posSum": 129,
+    "pos": 12.9
+   }
+  ]
+ },
+ {
+  "key": "igcse-home-T",
+  "keep": "/gurgaon/igcse-home-tutor-gurgaon/",
+  "keepSlug": "igcse-home-tutor-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 3,
+   "posSum": 24,
+   "pos": 8
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-home-tutors-gurgaon/",
+    "slug": "igcse-home-tutors-gurgaon",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 23,
+    "pos": 11.5
+   },
+   {
+    "from": "/gurgaon/igcse-home-tuition-gurgaon/",
+    "slug": "igcse-home-tuition-gurgaon",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 11,
+    "pos": 11
+   },
+   {
+    "from": "/gurgaon/igcse-home-tutor/",
+    "slug": "igcse-home-tutor",
+    "clicks": 0,
+    "impressions": 5,
+    "posSum": 25,
+    "pos": 5
+   },
+   {
+    "from": "/gurgaon/igcse-home-tutors/",
+    "slug": "igcse-home-tutors",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-home-tuition/",
+    "slug": "igcse-home-tuition",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 15,
+    "pos": 7.5
+   },
+   {
+    "from": "/gurgaon/igcse-home-tuitions/",
+    "slug": "igcse-home-tuitions",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 11,
+    "pos": 5.5
+   },
+   {
+    "from": "/best-igcse-home-tutor-in-gurgaon/",
+    "slug": "best-igcse-home-tutor-in-gurgaon",
+    "clicks": 0,
+    "impressions": 28,
+    "posSum": 250,
+    "pos": 8.928571428571429
+   },
+   {
+    "from": "/gurgaon/best-igcse-home-tutor/",
+    "slug": "best-igcse-home-tutor",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/best-igcse-home-tuition/",
+    "slug": "best-igcse-home-tuition",
+    "clicks": 0,
+    "impressions": 5,
+    "posSum": 157,
+    "pos": 31.4
+   },
+   {
+    "from": "/gurgaon/experienced-igcse-home-tutor/",
+    "slug": "experienced-igcse-home-tutor",
+    "clicks": 0,
+    "impressions": 7,
+    "posSum": 27,
+    "pos": 3.857142857142857
+   }
+  ]
+ },
+ {
+  "key": "ib-home-T",
+  "keep": "/gurgaon/ib-home-tutor-gurgaon/",
+  "keepSlug": "ib-home-tutor-gurgaon",
+  "keepStats": {
+   "clicks": 1,
+   "impressions": 43,
+   "posSum": 702,
+   "pos": 16.325581395348838
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-home-tutors-gurgaon/",
+    "slug": "ib-home-tutors-gurgaon",
+    "clicks": 0,
+    "impressions": 50,
+    "posSum": 951,
+    "pos": 19.02
+   },
+   {
+    "from": "/gurgaon/ib-home-tuition-gurgaon/",
+    "slug": "ib-home-tuition-gurgaon",
+    "clicks": 4,
+    "impressions": 8,
+    "posSum": 51,
+    "pos": 6.375
+   },
+   {
+    "from": "/gurgaon/ib-home-tutor/",
+    "slug": "ib-home-tutor",
+    "clicks": 1,
+    "impressions": 46,
+    "posSum": 1063,
+    "pos": 23.108695652173914
+   },
+   {
+    "from": "/gurgaon/ib-home-tutors/",
+    "slug": "ib-home-tutors",
+    "clicks": 0,
+    "impressions": 31,
+    "posSum": 993,
+    "pos": 32.03225806451613
+   },
+   {
+    "from": "/gurgaon/ib-home-tuition/",
+    "slug": "ib-home-tuition",
+    "clicks": 0,
+    "impressions": 4,
+    "posSum": 50,
+    "pos": 12.5
+   },
+   {
+    "from": "/gurgaon/ib-home-tuitions/",
+    "slug": "ib-home-tuitions",
+    "clicks": 0,
+    "impressions": 7,
+    "posSum": 362,
+    "pos": 51.714285714285715
+   },
+   {
+    "from": "/gurgaon/best-ib-home-tutor/",
+    "slug": "best-ib-home-tutor",
+    "clicks": 1,
+    "impressions": 34,
+    "posSum": 1630,
+    "pos": 47.94117647058823
+   },
+   {
+    "from": "/gurgaon/best-ib-home-tuition/",
+    "slug": "best-ib-home-tuition",
+    "clicks": 0,
+    "impressions": 41,
+    "posSum": 771,
+    "pos": 18.804878048780488
+   },
+   {
+    "from": "/gurgaon/experienced-ib-home-tutor/",
+    "slug": "experienced-ib-home-tutor",
+    "clicks": 2,
+    "impressions": 82,
+    "posSum": 1384,
+    "pos": 16.878048780487806
+   }
+  ]
+ },
+ {
+  "key": "ib-online-T",
+  "keep": "/ib-online-tutor-in-gurgaon/",
+  "keepSlug": "ib-online-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 10,
+   "posSum": 536,
+   "pos": 53.6
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-online-tutor-gurgaon/",
+    "slug": "ib-online-tutor-gurgaon",
+    "clicks": 0,
+    "impressions": 26,
+    "posSum": 722,
+    "pos": 27.76923076923077
+   },
+   {
+    "from": "/gurgaon/ib-online-tutors-gurgaon/",
+    "slug": "ib-online-tutors-gurgaon",
+    "clicks": 0,
+    "impressions": 6,
+    "posSum": 387.99999999999994,
+    "pos": 64.66666666666666
+   },
+   {
+    "from": "/gurgaon/ib-online-tuition-gurgaon/",
+    "slug": "ib-online-tuition-gurgaon",
+    "clicks": 0,
+    "impressions": 13,
+    "posSum": 315,
+    "pos": 24.23076923076923
+   },
+   {
+    "from": "/gurgaon/ib-online-tutor/",
+    "slug": "ib-online-tutor",
+    "clicks": 0,
+    "impressions": 54,
+    "posSum": 2456,
+    "pos": 45.48148148148148
+   },
+   {
+    "from": "/gurgaon/ib-online-tutors/",
+    "slug": "ib-online-tutors",
+    "clicks": 0,
+    "impressions": 8,
+    "posSum": 255,
+    "pos": 31.875
+   },
+   {
+    "from": "/gurgaon/ib-online-tuition/",
+    "slug": "ib-online-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/ib-online-tuitions/",
+    "slug": "ib-online-tuitions",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/best-ib-online-tutor/",
+    "slug": "best-ib-online-tutor",
+    "clicks": 0,
+    "impressions": 31,
+    "posSum": 1226,
+    "pos": 39.54838709677419
+   }
+  ]
+ },
+ {
+  "key": "igcse-online-T",
+  "keep": "/igcse-online-tutor-in-gurgaon/",
+  "keepSlug": "igcse-online-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-online-tutor-gurgaon/",
+    "slug": "igcse-online-tutor-gurgaon",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-online-tutors-gurgaon/",
+    "slug": "igcse-online-tutors-gurgaon",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 24,
+    "pos": 8
+   },
+   {
+    "from": "/gurgaon/igcse-online-tuition-gurgaon/",
+    "slug": "igcse-online-tuition-gurgaon",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 13,
+    "pos": 13
+   },
+   {
+    "from": "/gurgaon/igcse-online-tutor/",
+    "slug": "igcse-online-tutor",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 13.000000000000002,
+    "pos": 4.333333333333334
+   },
+   {
+    "from": "/gurgaon/igcse-online-tutors/",
+    "slug": "igcse-online-tutors",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-online-tuition/",
+    "slug": "igcse-online-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-online-tuitions/",
+    "slug": "igcse-online-tuitions",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 106,
+    "pos": 35.333333333333336
+   },
+   {
+    "from": "/gurgaon/best-igcse-online-tutor/",
+    "slug": "best-igcse-online-tutor",
+    "clicks": 0,
+    "impressions": 35,
+    "posSum": 888,
+    "pos": 25.37142857142857
+   }
+  ]
+ },
+ {
+  "key": "ib-private-T",
+  "keep": "/gurgaon/ib-private-tutor-gurgaon/",
+  "keepSlug": "ib-private-tutor-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 6,
+   "posSum": 474,
+   "pos": 79
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-private-tutors-gurgaon/",
+    "slug": "ib-private-tutors-gurgaon",
+    "clicks": 0,
+    "impressions": 9,
+    "posSum": 845,
+    "pos": 93.88888888888889
+   },
+   {
+    "from": "/gurgaon/ib-private-tuition-gurgaon/",
+    "slug": "ib-private-tuition-gurgaon",
+    "clicks": 0,
+    "impressions": 7,
+    "posSum": 531,
+    "pos": 75.85714285714286
+   },
+   {
+    "from": "/gurgaon/ib-private-tutor/",
+    "slug": "ib-private-tutor",
+    "clicks": 1,
+    "impressions": 44,
+    "posSum": 1681,
+    "pos": 38.20454545454545
+   },
+   {
+    "from": "/gurgaon/ib-private-tutors/",
+    "slug": "ib-private-tutors",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 280,
+    "pos": 93.33333333333333
+   },
+   {
+    "from": "/gurgaon/ib-private-tuition/",
+    "slug": "ib-private-tuition",
+    "clicks": 0,
+    "impressions": 12,
+    "posSum": 432,
+    "pos": 36
+   },
+   {
+    "from": "/gurgaon/ib-private-tuitions/",
+    "slug": "ib-private-tuitions",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 16,
+    "pos": 8
+   },
+   {
+    "from": "/gurgaon/best-ib-private-tutor/",
+    "slug": "best-ib-private-tutor",
+    "clicks": 2,
+    "impressions": 60,
+    "posSum": 3104,
+    "pos": 51.733333333333334
+   }
+  ]
+ },
+ {
+  "key": "igcse-private-T",
+  "keep": "/gurgaon/igcse-private-tutor-gurgaon/",
+  "keepSlug": "igcse-private-tutor-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 8,
+   "pos": 8
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-private-tutors-gurgaon/",
+    "slug": "igcse-private-tutors-gurgaon",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 11,
+    "pos": 11
+   },
+   {
+    "from": "/gurgaon/igcse-private-tuition-gurgaon/",
+    "slug": "igcse-private-tuition-gurgaon",
+    "clicks": 1,
+    "impressions": 3,
+    "posSum": 24,
+    "pos": 8
+   },
+   {
+    "from": "/gurgaon/igcse-private-tutor/",
+    "slug": "igcse-private-tutor",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 14,
+    "pos": 7
+   },
+   {
+    "from": "/gurgaon/igcse-private-tutors/",
+    "slug": "igcse-private-tutors",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-private-tuition/",
+    "slug": "igcse-private-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-private-tuitions/",
+    "slug": "igcse-private-tuitions",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/best-igcse-private-tutor/",
+    "slug": "best-igcse-private-tutor",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "ib-igcse-home-T",
+  "keep": "/gurgaon/ib-igcse-home-tutor-gurgaon/",
+  "keepSlug": "ib-igcse-home-tutor-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 7,
+   "pos": 7
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-igcse-home-tuition-gurgaon/",
+    "slug": "ib-igcse-home-tuition-gurgaon",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/ib-igcse-home-tutor/",
+    "slug": "ib-igcse-home-tutor",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 19,
+    "pos": 9.5
+   },
+   {
+    "from": "/gurgaon/ib-igcse-home-tutors/",
+    "slug": "ib-igcse-home-tutors",
+    "clicks": 0,
+    "impressions": 38,
+    "posSum": 330,
+    "pos": 8.68421052631579
+   },
+   {
+    "from": "/gurgaon/ib-igcse-home-tuition/",
+    "slug": "ib-igcse-home-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/ib-igcse-home-tuitions/",
+    "slug": "ib-igcse-home-tuitions",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/best-ib-igcse-home-tutor/",
+    "slug": "best-ib-igcse-home-tutor",
+    "clicks": 0,
+    "impressions": 41,
+    "posSum": 341,
+    "pos": 8.317073170731707
+   },
+   {
+    "from": "/gurgaon/best-ib-igcse-home-tuition/",
+    "slug": "best-ib-igcse-home-tuition",
+    "clicks": 0,
+    "impressions": 23,
+    "posSum": 224,
+    "pos": 9.73913043478261
+   }
+  ]
+ },
+ {
+  "key": "ib-igcse-private-T",
+  "keep": "/gurgaon/ib-igcse-private-tutor-gurgaon/",
+  "keepSlug": "ib-igcse-private-tutor-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-igcse-private-tuition-gurgaon/",
+    "slug": "ib-igcse-private-tuition-gurgaon",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 18,
+    "pos": 9
+   },
+   {
+    "from": "/gurgaon/ib-igcse-private-tutor/",
+    "slug": "ib-igcse-private-tutor",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 10,
+    "pos": 10
+   },
+   {
+    "from": "/gurgaon/ib-igcse-private-tutors/",
+    "slug": "ib-igcse-private-tutors",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/ib-igcse-private-tuition/",
+    "slug": "ib-igcse-private-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/ib-igcse-private-tuitions/",
+    "slug": "ib-igcse-private-tuitions",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "ib-igcse-online-T",
+  "keep": "/gurgaon/ib-igcse-online-tutor-gurgaon/",
+  "keepSlug": "ib-igcse-online-tutor-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 6,
+   "pos": 6
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-igcse-online-tuition-gurgaon/",
+    "slug": "ib-igcse-online-tuition-gurgaon",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/ib-igcse-online-tutor/",
+    "slug": "ib-igcse-online-tutor",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/ib-igcse-online-tutors/",
+    "slug": "ib-igcse-online-tutors",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/ib-igcse-online-tuition/",
+    "slug": "ib-igcse-online-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/ib-igcse-online-tuitions/",
+    "slug": "ib-igcse-online-tuitions",
+    "clicks": 0,
+    "impressions": 12,
+    "posSum": 46,
+    "pos": 3.8333333333333335
+   }
+  ]
+ },
+ {
+  "key": "ib-T-near-me",
+  "keep": "/ib-tutor-near-me-gurgaon/",
+  "keepSlug": "ib-tutor-near-me-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 18,
+   "posSum": 772,
+   "pos": 42.888888888888886
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-tutor-near-me/",
+    "slug": "ib-tutor-near-me",
+    "clicks": 0,
+    "impressions": 4,
+    "posSum": 272,
+    "pos": 68
+   },
+   {
+    "from": "/gurgaon/ib-tutors-near-me/",
+    "slug": "ib-tutors-near-me",
+    "clicks": 1,
+    "impressions": 36,
+    "posSum": 2278,
+    "pos": 63.27777777777778
+   },
+   {
+    "from": "/gurgaon/ib-tuition-near-me/",
+    "slug": "ib-tuition-near-me",
+    "clicks": 0,
+    "impressions": 5,
+    "posSum": 188,
+    "pos": 37.6
+   }
+  ]
+ },
+ {
+  "key": "igcse-T-near-me",
+  "keep": "/igcse-tutor-near-me-gurgaon/",
+  "keepSlug": "igcse-tutor-near-me-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 4,
+   "posSum": 126,
+   "pos": 31.5
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-tutor-near-me/",
+    "slug": "igcse-tutor-near-me",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 13,
+    "pos": 6.5
+   },
+   {
+    "from": "/gurgaon/igcse-tutors-near-me/",
+    "slug": "igcse-tutors-near-me",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 20,
+    "pos": 6.666666666666667
+   },
+   {
+    "from": "/gurgaon/igcse-tuition-near-me/",
+    "slug": "igcse-tuition-near-me",
+    "clicks": 0,
+    "impressions": 11,
+    "posSum": 77,
+    "pos": 7
+   }
+  ]
+ },
+ {
+  "key": "cambridge-igcse-T",
+  "keep": "/gurgaon/cambridge-igcse-tutors-gurgaon/",
+  "keepSlug": "cambridge-igcse-tutors-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 3,
+   "posSum": 21,
+   "pos": 7
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/cambridge-igcse-tutor/",
+    "slug": "cambridge-igcse-tutor",
+    "clicks": 0,
+    "impressions": 6,
+    "posSum": 40,
+    "pos": 6.666666666666667
+   },
+   {
+    "from": "/gurgaon/cambridge-igcse-tutors/",
+    "slug": "cambridge-igcse-tutors",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/cambridge-igcse-tuition/",
+    "slug": "cambridge-igcse-tuition",
+    "clicks": 0,
+    "impressions": 4,
+    "posSum": 67,
+    "pos": 16.75
+   }
+  ]
+ },
+ {
+  "key": "ib-T-fees",
+  "keep": "/ib-tutor-fees-in-gurgaon/",
+  "keepSlug": "ib-tutor-fees-in-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 7,
+   "posSum": 37,
+   "pos": 5.285714285714286
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-tutor-fees/",
+    "slug": "ib-tutor-fees",
+    "clicks": 0,
+    "impressions": 54,
+    "posSum": 1281,
+    "pos": 23.72222222222222
+   },
+   {
+    "from": "/gurgaon/ib-tuition-fees/",
+    "slug": "ib-tuition-fees",
+    "clicks": 0,
+    "impressions": 22,
+    "posSum": 220,
+    "pos": 10
+   }
+  ]
+ },
+ {
+  "key": "ib-dp-T",
+  "keep": "/ib-dp-tutor-in-gurgaon/",
+  "keepSlug": "ib-dp-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 2,
+   "impressions": 20,
+   "posSum": 143,
+   "pos": 7.15
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-dp-tutor/",
+    "slug": "ib-dp-tutor",
+    "clicks": 0,
+    "impressions": 4,
+    "posSum": 87,
+    "pos": 21.75
+   },
+   {
+    "from": "/gurgaon/ib-dp-tuition/",
+    "slug": "ib-dp-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "ib-myp-T",
+  "keep": "/ib-myp-tutor-in-gurgaon/",
+  "keepSlug": "ib-myp-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 3,
+   "impressions": 75,
+   "posSum": 793.0000000000001,
+   "pos": 10.573333333333334
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-myp-tutor/",
+    "slug": "ib-myp-tutor",
+    "clicks": 0,
+    "impressions": 27,
+    "posSum": 1304,
+    "pos": 48.2962962962963
+   },
+   {
+    "from": "/gurgaon/ib-myp-tuition/",
+    "slug": "ib-myp-tuition",
+    "clicks": 0,
+    "impressions": 16,
+    "posSum": 472,
+    "pos": 29.5
+   }
+  ]
+ },
+ {
+  "key": "ib-pyp-T",
+  "keep": "/ib-pyp-tutor-in-gurgaon/",
+  "keepSlug": "ib-pyp-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 3,
+   "posSum": 19,
+   "pos": 6.333333333333333
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-pyp-tutor/",
+    "slug": "ib-pyp-tutor",
+    "clicks": 0,
+    "impressions": 8,
+    "posSum": 212,
+    "pos": 26.5
+   },
+   {
+    "from": "/gurgaon/ib-pyp-tuition/",
+    "slug": "ib-pyp-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 6,
+    "pos": 6
+   }
+  ]
+ },
+ {
+  "key": "ib-english-home-T",
+  "keep": "/ib-english-home-tutor-in-gurgaon/",
+  "keepSlug": "ib-english-home-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 2,
+   "impressions": 33,
+   "posSum": 250,
+   "pos": 7.575757575757576
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-english-home-tutor/",
+    "slug": "ib-english-home-tutor",
+    "clicks": 0,
+    "impressions": 4,
+    "posSum": 159,
+    "pos": 39.75
+   },
+   {
+    "from": "/gurgaon/ib-english-home-tuition/",
+    "slug": "ib-english-home-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 11,
+    "pos": 11
+   }
+  ]
+ },
+ {
+  "key": "ib-biology-home-T",
+  "keep": "/ib-biology-home-tutor-in-gurgaon/",
+  "keepSlug": "ib-biology-home-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 1,
+   "impressions": 43,
+   "posSum": 639,
+   "pos": 14.86046511627907
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-biology-home-tutor/",
+    "slug": "ib-biology-home-tutor",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 48,
+    "pos": 24
+   },
+   {
+    "from": "/gurgaon/ib-biology-home-tuition/",
+    "slug": "ib-biology-home-tuition",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 45,
+    "pos": 22.5
+   }
+  ]
+ },
+ {
+  "key": "igcse-maths-home-T",
+  "keep": "/igcse-maths-home-tutor-in-gurgaon/",
+  "keepSlug": "igcse-maths-home-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 1,
+   "impressions": 17,
+   "posSum": 121,
+   "pos": 7.117647058823529
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-maths-home-tutor/",
+    "slug": "igcse-maths-home-tutor",
+    "clicks": 1,
+    "impressions": 5,
+    "posSum": 33,
+    "pos": 6.6
+   },
+   {
+    "from": "/gurgaon/igcse-maths-home-tuition/",
+    "slug": "igcse-maths-home-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "igcse-physics-home-T",
+  "keep": "/igcse-physics-home-tutor-in-gurgaon/",
+  "keepSlug": "igcse-physics-home-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 2,
+   "pos": 2
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-physics-home-tutor/",
+    "slug": "igcse-physics-home-tutor",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-physics-home-tuition/",
+    "slug": "igcse-physics-home-tuition",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 23,
+    "pos": 11.5
+   }
+  ]
+ },
+ {
+  "key": "igcse-chemistry-home-T",
+  "keep": "/igcse-chemistry-home-tutor-in-gurgaon/",
+  "keepSlug": "igcse-chemistry-home-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-chemistry-home-tutor/",
+    "slug": "igcse-chemistry-home-tutor",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   },
+   {
+    "from": "/gurgaon/igcse-chemistry-home-tuition/",
+    "slug": "igcse-chemistry-home-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 4,
+    "pos": 4
+   }
+  ]
+ },
+ {
+  "key": "edexcel-igcse-T",
+  "keep": "/gurgaon/edexcel-igcse-tutor/",
+  "keepSlug": "edexcel-igcse-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 6,
+   "pos": 6
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/edexcel-igcse-tutors/",
+    "slug": "edexcel-igcse-tutors",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 116,
+    "pos": 38.666666666666664
+   },
+   {
+    "from": "/gurgaon/edexcel-igcse-tuition/",
+    "slug": "edexcel-igcse-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "igcse-biology-T",
+  "keep": "/igcse-biology-tutor-in-gurgaon/",
+  "keepSlug": "igcse-biology-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-biology-tuition/",
+    "slug": "igcse-biology-tuition",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 53,
+    "pos": 26.5
+   }
+  ]
+ },
+ {
+  "key": "igcse-english-T",
+  "keep": "/igcse-english-tutor-in-gurgaon/",
+  "keepSlug": "igcse-english-tutor-in-gurgaon",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 4,
+   "pos": 4
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-english-tuition/",
+    "slug": "igcse-english-tuition",
+    "clicks": 0,
+    "impressions": 5,
+    "posSum": 54,
+    "pos": 10.8
+   }
+  ]
+ },
+ {
+  "key": "ib-one-to-one-T",
+  "keep": "/gurgaon/ib-one-to-one-tutor/",
+  "keepSlug": "ib-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 93,
+   "pos": 93
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-one-to-one-tuition/",
+    "slug": "ib-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 6,
+    "posSum": 37,
+    "pos": 6.166666666666667
+   }
+  ]
+ },
+ {
+  "key": "ib-T-at-home",
+  "keep": "/gurgaon/ib-tutor-at-home/",
+  "keepSlug": "ib-tutor-at-home",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 19,
+   "posSum": 968,
+   "pos": 50.94736842105263
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-tuition-at-home/",
+    "slug": "ib-tuition-at-home",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 7,
+    "pos": 7
+   }
+  ]
+ },
+ {
+  "key": "ib-personal-T",
+  "keep": "/gurgaon/ib-personal-tutor/",
+  "keepSlug": "ib-personal-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 9,
+   "posSum": 711,
+   "pos": 79
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-personal-tuition/",
+    "slug": "ib-personal-tuition",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 89,
+    "pos": 44.5
+   }
+  ]
+ },
+ {
+  "key": "ib-subject-T",
+  "keep": "/gurgaon/ib-subject-tutor/",
+  "keepSlug": "ib-subject-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-subject-tuition/",
+    "slug": "ib-subject-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "ib-maths-home-T",
+  "keep": "/gurgaon/ib-maths-home-tutor/",
+  "keepSlug": "ib-maths-home-tutor",
+  "keepStats": {
+   "clicks": 1,
+   "impressions": 36,
+   "posSum": 794,
+   "pos": 22.055555555555557
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-maths-home-tuition/",
+    "slug": "ib-maths-home-tuition",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 6,
+    "pos": 3
+   }
+  ]
+ },
+ {
+  "key": "ib-maths-private-T",
+  "keep": "/gurgaon/ib-maths-private-tutor/",
+  "keepSlug": "ib-maths-private-tutor",
+  "keepStats": {
+   "clicks": 1,
+   "impressions": 42,
+   "posSum": 1546,
+   "pos": 36.80952380952381
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-maths-private-tuition/",
+    "slug": "ib-maths-private-tuition",
+    "clicks": 0,
+    "impressions": 24,
+    "posSum": 1355,
+    "pos": 56.458333333333336
+   }
+  ]
+ },
+ {
+  "key": "ib-maths-one-to-one-T",
+  "keep": "/gurgaon/ib-maths-one-to-one-tutor/",
+  "keepSlug": "ib-maths-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 2,
+   "posSum": 125,
+   "pos": 62.5
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-maths-one-to-one-tuition/",
+    "slug": "ib-maths-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 22,
+    "pos": 7.333333333333333
+   }
+  ]
+ },
+ {
+  "key": "ib-maths-T-at-home",
+  "keep": "/gurgaon/ib-maths-tutor-at-home/",
+  "keepSlug": "ib-maths-tutor-at-home",
+  "keepStats": {
+   "clicks": 3,
+   "impressions": 68,
+   "posSum": 1248,
+   "pos": 18.352941176470587
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-maths-tuition-at-home/",
+    "slug": "ib-maths-tuition-at-home",
+    "clicks": 0,
+    "impressions": 12,
+    "posSum": 302,
+    "pos": 25.166666666666668
+   }
+  ]
+ },
+ {
+  "key": "ib-physics-home-T",
+  "keep": "/gurgaon/ib-physics-home-tutor/",
+  "keepSlug": "ib-physics-home-tutor",
+  "keepStats": {
+   "clicks": 1,
+   "impressions": 14,
+   "posSum": 420,
+   "pos": 30
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-physics-home-tuition/",
+    "slug": "ib-physics-home-tuition",
+    "clicks": 0,
+    "impressions": 7,
+    "posSum": 258,
+    "pos": 36.857142857142854
+   }
+  ]
+ },
+ {
+  "key": "ib-physics-private-T",
+  "keep": "/gurgaon/ib-physics-private-tutor/",
+  "keepSlug": "ib-physics-private-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 7,
+   "posSum": 445,
+   "pos": 63.57142857142857
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-physics-private-tuition/",
+    "slug": "ib-physics-private-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 1,
+    "pos": 1
+   }
+  ]
+ },
+ {
+  "key": "ib-physics-one-to-one-T",
+  "keep": "/gurgaon/ib-physics-one-to-one-tutor/",
+  "keepSlug": "ib-physics-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 8,
+   "posSum": 302,
+   "pos": 37.75
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-physics-one-to-one-tuition/",
+    "slug": "ib-physics-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 4,
+    "posSum": 66,
+    "pos": 16.5
+   }
+  ]
+ },
+ {
+  "key": "ib-physics-T-at-home",
+  "keep": "/gurgaon/ib-physics-tutor-at-home/",
+  "keepSlug": "ib-physics-tutor-at-home",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 23,
+   "posSum": 230,
+   "pos": 10
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-physics-tuition-at-home/",
+    "slug": "ib-physics-tuition-at-home",
+    "clicks": 0,
+    "impressions": 7,
+    "posSum": 85,
+    "pos": 12.142857142857142
+   }
+  ]
+ },
+ {
+  "key": "ib-chemistry-home-T",
+  "keep": "/gurgaon/ib-chemistry-home-tutor/",
+  "keepSlug": "ib-chemistry-home-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 11,
+   "posSum": 250.99999999999997,
+   "pos": 22.818181818181817
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-chemistry-home-tuition/",
+    "slug": "ib-chemistry-home-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "ib-chemistry-private-T",
+  "keep": "/gurgaon/ib-chemistry-private-tutor/",
+  "keepSlug": "ib-chemistry-private-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 4,
+   "posSum": 194,
+   "pos": 48.5
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-chemistry-private-tuition/",
+    "slug": "ib-chemistry-private-tuition",
+    "clicks": 0,
+    "impressions": 9,
+    "posSum": 207,
+    "pos": 23
+   }
+  ]
+ },
+ {
+  "key": "ib-chemistry-one-to-one-T",
+  "keep": "/gurgaon/ib-chemistry-one-to-one-tutor/",
+  "keepSlug": "ib-chemistry-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 2,
+   "posSum": 114,
+   "pos": 57
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-chemistry-one-to-one-tuition/",
+    "slug": "ib-chemistry-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 6,
+    "posSum": 60,
+    "pos": 10
+   }
+  ]
+ },
+ {
+  "key": "ib-chemistry-T-at-home",
+  "keep": "/gurgaon/ib-chemistry-tutor-at-home/",
+  "keepSlug": "ib-chemistry-tutor-at-home",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 4,
+   "posSum": 206,
+   "pos": 51.5
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-chemistry-tuition-at-home/",
+    "slug": "ib-chemistry-tuition-at-home",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 29,
+    "pos": 9.666666666666666
+   }
+  ]
+ },
+ {
+  "key": "ib-biology-private-T",
+  "keep": "/gurgaon/ib-biology-private-tutor/",
+  "keepSlug": "ib-biology-private-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 31,
+   "posSum": 1545,
+   "pos": 49.83870967741935
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-biology-private-tuition/",
+    "slug": "ib-biology-private-tuition",
+    "clicks": 0,
+    "impressions": 13,
+    "posSum": 203,
+    "pos": 15.615384615384615
+   }
+  ]
+ },
+ {
+  "key": "ib-biology-one-to-one-T",
+  "keep": "/gurgaon/ib-biology-one-to-one-tutor/",
+  "keepSlug": "ib-biology-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 12,
+   "posSum": 525,
+   "pos": 43.75
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-biology-one-to-one-tuition/",
+    "slug": "ib-biology-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 23,
+    "pos": 11.5
+   }
+  ]
+ },
+ {
+  "key": "ib-biology-T-at-home",
+  "keep": "/gurgaon/ib-biology-tutor-at-home/",
+  "keepSlug": "ib-biology-tutor-at-home",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 8,
+   "posSum": 373,
+   "pos": 46.625
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-biology-tuition-at-home/",
+    "slug": "ib-biology-tuition-at-home",
+    "clicks": 0,
+    "impressions": 7,
+    "posSum": 219,
+    "pos": 31.285714285714285
+   }
+  ]
+ },
+ {
+  "key": "ib-english-private-T",
+  "keep": "/gurgaon/ib-english-private-tutor/",
+  "keepSlug": "ib-english-private-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 11,
+   "posSum": 214,
+   "pos": 19.454545454545453
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-english-private-tuition/",
+    "slug": "ib-english-private-tuition",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 161,
+    "pos": 53.666666666666664
+   }
+  ]
+ },
+ {
+  "key": "ib-english-one-to-one-T",
+  "keep": "/gurgaon/ib-english-one-to-one-tutor/",
+  "keepSlug": "ib-english-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 6,
+   "posSum": 47,
+   "pos": 7.833333333333333
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-english-one-to-one-tuition/",
+    "slug": "ib-english-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 7,
+    "posSum": 83,
+    "pos": 11.857142857142858
+   }
+  ]
+ },
+ {
+  "key": "ib-english-T-at-home",
+  "keep": "/gurgaon/ib-english-tutor-at-home/",
+  "keepSlug": "ib-english-tutor-at-home",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-english-tuition-at-home/",
+    "slug": "ib-english-tuition-at-home",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 62,
+    "pos": 31
+   }
+  ]
+ },
+ {
+  "key": "igcse-one-to-one-T",
+  "keep": "/gurgaon/igcse-one-to-one-tutor/",
+  "keepSlug": "igcse-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-one-to-one-tuition/",
+    "slug": "igcse-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 6,
+    "pos": 6
+   }
+  ]
+ },
+ {
+  "key": "igcse-T-at-home",
+  "keep": "/gurgaon/igcse-tutor-at-home/",
+  "keepSlug": "igcse-tutor-at-home",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 18,
+   "pos": 18
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-tuition-at-home/",
+    "slug": "igcse-tuition-at-home",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 9,
+    "pos": 9
+   }
+  ]
+ },
+ {
+  "key": "igcse-personal-T",
+  "keep": "/gurgaon/igcse-personal-tutor/",
+  "keepSlug": "igcse-personal-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-personal-tuition/",
+    "slug": "igcse-personal-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 30,
+    "pos": 30
+   }
+  ]
+ },
+ {
+  "key": "igcse-subject-T",
+  "keep": "/gurgaon/igcse-subject-tutor/",
+  "keepSlug": "igcse-subject-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-subject-tuition/",
+    "slug": "igcse-subject-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 1,
+    "pos": 1
+   }
+  ]
+ },
+ {
+  "key": "igcse-maths-private-T",
+  "keep": "/gurgaon/igcse-maths-private-tutor/",
+  "keepSlug": "igcse-maths-private-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 6,
+   "posSum": 120,
+   "pos": 20
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-maths-private-tuition/",
+    "slug": "igcse-maths-private-tuition",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 19,
+    "pos": 9.5
+   }
+  ]
+ },
+ {
+  "key": "igcse-maths-one-to-one-T",
+  "keep": "/gurgaon/igcse-maths-one-to-one-tutor/",
+  "keepSlug": "igcse-maths-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 9,
+   "pos": 9
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-maths-one-to-one-tuition/",
+    "slug": "igcse-maths-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "igcse-maths-T-at-home",
+  "keep": "/gurgaon/igcse-maths-tutor-at-home/",
+  "keepSlug": "igcse-maths-tutor-at-home",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 10,
+   "posSum": 174,
+   "pos": 17.4
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-maths-tuition-at-home/",
+    "slug": "igcse-maths-tuition-at-home",
+    "clicks": 0,
+    "impressions": 6,
+    "posSum": 212,
+    "pos": 35.333333333333336
+   }
+  ]
+ },
+ {
+  "key": "igcse-physics-private-T",
+  "keep": "/gurgaon/igcse-physics-private-tutor/",
+  "keepSlug": "igcse-physics-private-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 6,
+   "posSum": 309,
+   "pos": 51.5
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-physics-private-tuition/",
+    "slug": "igcse-physics-private-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "igcse-physics-one-to-one-T",
+  "keep": "/gurgaon/igcse-physics-one-to-one-tutor/",
+  "keepSlug": "igcse-physics-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 2,
+   "pos": 2
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-physics-one-to-one-tuition/",
+    "slug": "igcse-physics-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "igcse-physics-T-at-home",
+  "keep": "/gurgaon/igcse-physics-tutor-at-home/",
+  "keepSlug": "igcse-physics-tutor-at-home",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-physics-tuition-at-home/",
+    "slug": "igcse-physics-tuition-at-home",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 39,
+    "pos": 13
+   }
+  ]
+ },
+ {
+  "key": "igcse-chemistry-private-T",
+  "keep": "/gurgaon/igcse-chemistry-private-tutor/",
+  "keepSlug": "igcse-chemistry-private-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-chemistry-private-tuition/",
+    "slug": "igcse-chemistry-private-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 49,
+    "pos": 49
+   }
+  ]
+ },
+ {
+  "key": "igcse-chemistry-one-to-one-T",
+  "keep": "/gurgaon/igcse-chemistry-one-to-one-tutor/",
+  "keepSlug": "igcse-chemistry-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-chemistry-one-to-one-tuition/",
+    "slug": "igcse-chemistry-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 24,
+    "pos": 12
+   }
+  ]
+ },
+ {
+  "key": "igcse-chemistry-T-at-home",
+  "keep": "/gurgaon/igcse-chemistry-tutor-at-home/",
+  "keepSlug": "igcse-chemistry-tutor-at-home",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 5,
+   "pos": 5
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-chemistry-tuition-at-home/",
+    "slug": "igcse-chemistry-tuition-at-home",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 9,
+    "pos": 9
+   }
+  ]
+ },
+ {
+  "key": "igcse-biology-home-T",
+  "keep": "/gurgaon/igcse-biology-home-tutor/",
+  "keepSlug": "igcse-biology-home-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-biology-home-tuition/",
+    "slug": "igcse-biology-home-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 10,
+    "pos": 10
+   }
+  ]
+ },
+ {
+  "key": "igcse-biology-private-T",
+  "keep": "/gurgaon/igcse-biology-private-tutor/",
+  "keepSlug": "igcse-biology-private-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-biology-private-tuition/",
+    "slug": "igcse-biology-private-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "igcse-biology-one-to-one-T",
+  "keep": "/gurgaon/igcse-biology-one-to-one-tutor/",
+  "keepSlug": "igcse-biology-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 6,
+   "pos": 6
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-biology-one-to-one-tuition/",
+    "slug": "igcse-biology-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 11,
+    "pos": 11
+   }
+  ]
+ },
+ {
+  "key": "igcse-biology-T-at-home",
+  "keep": "/gurgaon/igcse-biology-tutor-at-home/",
+  "keepSlug": "igcse-biology-tutor-at-home",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-biology-tuition-at-home/",
+    "slug": "igcse-biology-tuition-at-home",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "igcse-english-home-T",
+  "keep": "/gurgaon/igcse-english-home-tutor/",
+  "keepSlug": "igcse-english-home-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 2,
+   "posSum": 11,
+   "pos": 5.5
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-english-home-tuition/",
+    "slug": "igcse-english-home-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "igcse-english-private-T",
+  "keep": "/gurgaon/igcse-english-private-tutor/",
+  "keepSlug": "igcse-english-private-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 3,
+   "posSum": 29,
+   "pos": 9.666666666666666
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-english-private-tuition/",
+    "slug": "igcse-english-private-tuition",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 23,
+    "pos": 7.666666666666667
+   }
+  ]
+ },
+ {
+  "key": "igcse-english-one-to-one-T",
+  "keep": "/gurgaon/igcse-english-one-to-one-tutor/",
+  "keepSlug": "igcse-english-one-to-one-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-english-one-to-one-tuition/",
+    "slug": "igcse-english-one-to-one-tuition",
+    "clicks": 0,
+    "impressions": 6,
+    "posSum": 51,
+    "pos": 8.5
+   }
+  ]
+ },
+ {
+  "key": "igcse-english-T-at-home",
+  "keep": "/gurgaon/igcse-english-tutor-at-home/",
+  "keepSlug": "igcse-english-tutor-at-home",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 9,
+   "pos": 9
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-english-tuition-at-home/",
+    "slug": "igcse-english-tuition-at-home",
+    "clicks": 0,
+    "impressions": 3,
+    "posSum": 12,
+    "pos": 4
+   }
+  ]
+ },
+ {
+  "key": "ib-igcse-T-near-me",
+  "keep": "/gurgaon/ib-igcse-tutor-near-me/",
+  "keepSlug": "ib-igcse-tutor-near-me",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-igcse-tuition-near-me/",
+    "slug": "ib-igcse-tuition-near-me",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 10,
+    "pos": 5
+   }
+  ]
+ },
+ {
+  "key": "ib-diploma-T",
+  "keep": "/gurgaon/ib-diploma-tutor/",
+  "keepSlug": "ib-diploma-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 9,
+   "posSum": 124,
+   "pos": 13.777777777777779
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-diploma-tuition/",
+    "slug": "ib-diploma-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 5,
+    "pos": 5
+   }
+  ]
+ },
+ {
+  "key": "igcse-cambridge-T",
+  "keep": "/gurgaon/igcse-cambridge-tutor/",
+  "keepSlug": "igcse-cambridge-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-cambridge-tuition/",
+    "slug": "igcse-cambridge-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 22,
+    "pos": 22
+   }
+  ]
+ },
+ {
+  "key": "igcse-edexcel-T",
+  "keep": "/gurgaon/igcse-edexcel-tutor/",
+  "keepSlug": "igcse-edexcel-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-edexcel-tuition/",
+    "slug": "igcse-edexcel-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "international-school-T",
+  "keep": "/gurgaon/international-school-tutor/",
+  "keepSlug": "international-school-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 11,
+   "pos": 11
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/international-school-tuition/",
+    "slug": "international-school-tuition",
+    "clicks": 0,
+    "impressions": 4,
+    "posSum": 20,
+    "pos": 5
+   }
+  ]
+ },
+ {
+  "key": "international-curriculum-T",
+  "keep": "/gurgaon/international-curriculum-tutor/",
+  "keepSlug": "international-curriculum-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/international-curriculum-tuition/",
+    "slug": "international-curriculum-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 10,
+    "pos": 10
+   }
+  ]
+ },
+ {
+  "key": "international-board-T",
+  "keep": "/gurgaon/international-board-tutor/",
+  "keepSlug": "international-board-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 1,
+   "pos": 1
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/international-board-tuition/",
+    "slug": "international-board-tuition",
+    "clicks": 0,
+    "impressions": 1,
+    "posSum": 11,
+    "pos": 11
+   }
+  ]
+ },
+ {
+  "key": "ib-T-for-students",
+  "keep": "/gurgaon/ib-tutor-for-students/",
+  "keepSlug": "ib-tutor-for-students",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 21,
+   "posSum": 379,
+   "pos": 18.047619047619047
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-tuition-for-students/",
+    "slug": "ib-tuition-for-students",
+    "clicks": 0,
+    "impressions": 37,
+    "posSum": 1577,
+    "pos": 42.62162162162162
+   }
+  ]
+ },
+ {
+  "key": "igcse-T-for-students",
+  "keep": "/gurgaon/igcse-tutor-for-students/",
+  "keepSlug": "igcse-tutor-for-students",
+  "keepStats": {
+   "clicks": 1,
+   "impressions": 1,
+   "posSum": 1,
+   "pos": 1
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-tuition-for-students/",
+    "slug": "igcse-tuition-for-students",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "ib-academic-T",
+  "keep": "/gurgaon/ib-academic-tutor/",
+  "keepSlug": "ib-academic-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 16,
+   "posSum": 1073,
+   "pos": 67.0625
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-academic-tuition/",
+    "slug": "ib-academic-tuition",
+    "clicks": 0,
+    "impressions": 5,
+    "posSum": 93,
+    "pos": 18.6
+   }
+  ]
+ },
+ {
+  "key": "igcse-academic-T",
+  "keep": "/gurgaon/igcse-academic-tutor/",
+  "keepSlug": "igcse-academic-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 2,
+   "posSum": 11,
+   "pos": 5.5
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-academic-tuition/",
+    "slug": "igcse-academic-tuition",
+    "clicks": 0,
+    "impressions": 5,
+    "posSum": 22,
+    "pos": 4.4
+   }
+  ]
+ },
+ {
+  "key": "ib-exam-T",
+  "keep": "/gurgaon/ib-exam-tutor/",
+  "keepSlug": "ib-exam-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-exam-tuition/",
+    "slug": "ib-exam-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "igcse-exam-T",
+  "keep": "/gurgaon/igcse-exam-tutor/",
+  "keepSlug": "igcse-exam-tutor",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-exam-tuition/",
+    "slug": "igcse-exam-tuition",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "igcse-T-fees",
+  "keep": "/gurgaon/igcse-tutor-fees/",
+  "keepSlug": "igcse-tutor-fees",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 1,
+   "posSum": 5,
+   "pos": 5
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-tuition-fees/",
+    "slug": "igcse-tuition-fees",
+    "clicks": 0,
+    "impressions": 8,
+    "posSum": 36,
+    "pos": 4.5
+   }
+  ]
+ },
+ {
+  "key": "ib-T-cost",
+  "keep": "/gurgaon/ib-tutor-cost/",
+  "keepSlug": "ib-tutor-cost",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 3,
+   "posSum": 68,
+   "pos": 22.666666666666668
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-tuition-cost/",
+    "slug": "ib-tuition-cost",
+    "clicks": 0,
+    "impressions": 7,
+    "posSum": 55,
+    "pos": 7.857142857142857
+   }
+  ]
+ },
+ {
+  "key": "igcse-T-cost",
+  "keep": "/gurgaon/igcse-tutor-cost/",
+  "keepSlug": "igcse-tutor-cost",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-tuition-cost/",
+    "slug": "igcse-tuition-cost",
+    "clicks": 0,
+    "impressions": 2,
+    "posSum": 23,
+    "pos": 11.5
+   }
+  ]
+ },
+ {
+  "key": "ib-T-agency",
+  "keep": "/gurgaon/ib-tutor-agency/",
+  "keepSlug": "ib-tutor-agency",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/ib-tuition-agency/",
+    "slug": "ib-tuition-agency",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ },
+ {
+  "key": "igcse-T-agency",
+  "keep": "/gurgaon/igcse-tutor-agency/",
+  "keepSlug": "igcse-tutor-agency",
+  "keepStats": {
+   "clicks": 0,
+   "impressions": 0,
+   "pos": 999
+  },
+  "drop": [
+   {
+    "from": "/gurgaon/igcse-tuition-agency/",
+    "slug": "igcse-tuition-agency",
+    "clicks": 0,
+    "impressions": 0,
+    "pos": 999
+   }
+  ]
+ }
+]

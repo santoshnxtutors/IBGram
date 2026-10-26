@@ -10,6 +10,15 @@
   "citySlug": "india",
   "primaryKeyword": "IB Career-related Programme tutors",
   "secondaryKeywords": [
+   "IB CP tutor",
+   "IB Career-related Programme tutor",
+   "IB CP Reflective Project help",
+   "IB CP online tutoring",
+   "IB CP coursework help",
+   "IB CP language development",
+   "IB CP subject tutor",
+   "IB CP home tuition",
+   "IB CP exam preparation",
    "an IB Career-related Programme tutor online",
    "IB Career-related Programme home tutoring",
    "IB Career-related Programme tuition delivered online",
@@ -54,18 +63,18 @@
    "Greater Noida"
   ],
   "schoolsMentioned": [],
-  "metaTitle": "IB CP Tutors | Online & Home Tuition | IB Gram",
-  "metaDescription": "Find IB Career-related Programme tutors for IA support, reflective projects and coursework, online worldwide in your time zone or home tutoring where available.",
-  "ogTitle": "IB CP Tutors | Online & Home Tuition | IB Gram",
-  "ogDescription": "IB Gram matches CP students with tutors for DP subjects, the Reflective Project and other core components, online worldwide in your own time zone.",
+  "metaTitle": "IB CP Tutor: Online & Home Career-related Support",
+  "metaDescription": "Find an IB CP tutor for the Career-related Programme: DP subject help, the Reflective Project, language development and coursework, online or at home.",
+  "ogTitle": "IB CP Tutor: Online & Home Career-related Support",
+  "ogDescription": "Find an IB CP tutor for the Career-related Programme: DP subject help, the Reflective Project, language development and coursework, online or at home.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IB CP Tutors | Online & Home Tuition | IB Gram",
-  "twitterDescription": "IB Gram matches CP students with tutors for DP subjects, the Reflective Project and other core components, online worldwide in your own time zone.",
+  "twitterTitle": "IB CP Tutor: Online & Home Career-related Support",
+  "twitterDescription": "Find an IB CP tutor for the Career-related Programme: DP subject help, the Reflective Project, language development and coursework, online or at home.",
   "breadcrumbTitle": "CP Tutors",
   "h1": "IB Career-related Programme Tutors for Every Subject Combination",
   "heroTitle": "IB Career-related Programme Tutoring, Matched to How the CP Actually Works",
   "heroSubtitle": "The CP pairs IB courses with a career-related study and a reflective project, plus core components most schools mark on their own internal timeline. A tutor who has actually taught the CP knows the difference between DP rigor and CP's applied focus, and plans around it.",
-  "introSummary": "Searching for IB Career-related Programme tutors usually means one of two things: a family new to the CP trying to understand how it differs from the Diploma, or a family already enrolled and stuck on the reflective project, a career-related study, or one of the core components. IB Gram matches students with tutors who have taught the CP specifically, not DP tutors filling a gap. Lessons run online worldwide in the family's own time zone, with home tutoring reviewed where a tutor is local, and hybrid plans for households that want both.",
+  "introSummary": "An IB CP tutor supports students on the Career-related Programme with their chosen DP courses, the Reflective Project, language development and personal and professional skills coursework. Tutors teach online in your time zone, with home sessions in some cities, and work around your school's deadlines and your career-related study.",
   "contentBlocks": [
    {
     "type": "intro",
@@ -190,44 +199,28 @@
   ],
   "faqs": [
    {
-    "question": "Is online tutoring actually effective for the CP's Reflective Project?",
-    "answer": "Yes, for the writing and research-process side of it — screen-sharing a live document lets a tutor comment on structure and evidence in real time, which works as well online as in person for this kind of task. What online tutoring cannot do is replace the ethical-dilemma thinking itself; that has to come from the student's own experience with the career-related study. A tutor's role is to help structure and evidence a reflection the student has actually had, not to supply the reflection. Most families see this work well once the student is used to talking through drafts on a call rather than only in writing."
+    "question": "Is online tutoring effective for the CP Reflective Project?",
+    "answer": "Yes. The project is a planning and writing task, which suits screen-shared drafting. A tutor helps with question focus, source evaluation and structure while the student writes. Regular short check-ins also keep a long project from stalling before the school deadline. Ask the school for the project's word limit and checkpoints, and plan sessions around them."
    },
    {
     "question": "How much does IB Career-related Programme tutoring cost?",
-    "answer": "Fees depend on the tutor's experience, the subject, and session length, and IB Gram does not publish one flat rate because CP requests vary too much to price generically — a specialist DP subject at Higher Level costs differently from general Reflective Project coaching. Ask for a clear per-session or per-month breakdown before committing to a term-length plan, and treat any platform quoting a single fixed price for every subject with some caution, since that usually means the price is not actually matched to what your child needs. A short diagnostic session is the right point to ask this question directly."
+    "answer": "Cost depends on the tutor's experience, the DP subject involved and whether you choose online or home sessions. CP students often need fewer weekly hours than full DP students because they study fewer DP courses. We share a fee range before you start. Fees are quoted per session, so you can pause or add hours as the project and exams demand."
    },
    {
-    "question": "What if the first tutor isn't the right fit?",
-    "answer": "It happens, and it isn't treated as a failure on the family's part. Raise it directly rather than waiting out a term hoping it improves — a mismatch in teaching style or pace rarely resolves on its own. IB Gram reviews the original request against subject background and availability again and proposes an alternative tutor. There's no penalty for asking for a switch after one or two sessions if something feels off; catching it early costs far less than persisting through a whole term with a tutor whose approach doesn't suit the student."
+    "question": "What if the first tutor is not the right fit?",
+    "answer": "Say so after one or two sessions. We will find another tutor for the same subject and pass on the notes and marked work already completed, so your child keeps momentum and does not repeat what has been covered. A tutor change usually takes only a few days to arrange once you tell us what felt wrong."
    },
    {
-    "question": "Can a tutor help if the school hasn't set a Reflective Project topic yet?",
-    "answer": "Yes — this is actually one of the more useful times to start. A tutor can talk a student through how to choose a dilemma connected to the career-related study that's specific enough to investigate properly, rather than so broad it can't be argued with evidence. Waiting until a topic is assigned and then rushing the research afterward tends to produce weaker reflective writing. Starting the thinking process a few weeks before the topic is finalised, even informally, generally leads to a stronger first draft when the actual deadline arrives."
+    "question": "Can a tutor help if the school has not set a Reflective Project topic?",
+    "answer": "Yes. A tutor can help your child narrow interests into a focused ethical question linked to their career-related study, test whether enough sources exist, and prepare points for the supervisor meeting. The final choice stays with the student and school. Bring any school guidance sheet to the first session so the tutor works within your school's expectations."
    },
    {
-    "question": "Does IB Gram offer home tutors for the Career-related Programme in every city?",
-    "answer": "No, and it would be dishonest to claim otherwise. Home tutoring depends on a tutor being realistically available to travel to the student, which works in some cities and not in others, and CP-specific home tutors are less common than DP or IGCSE ones simply because fewer students take the CP. A request for home tutoring is reviewed rather than automatically fulfilled. Where no suitable home tutor is available, online tutoring is offered as the practical alternative, and most families find it works just as well for subject and core-component support."
-   },
-   {
-    "question": "What happens if a student shows no progress after a few weeks?",
-    "answer": "First, that gets checked against something concrete — the written plan from the diagnostic session and whatever worked examples exist — rather than a general feeling. Sometimes the issue is pace, sometimes it's a mismatch between how the tutor teaches and how the student learns, and sometimes the plan itself needs adjusting once real classroom work is seen. Raise it with IB Gram directly rather than assuming nothing can be done; a plan review or a tutor change are both realistic next steps, and neither is treated as unusual."
+    "question": "Does IB Gram offer CP home tutors in every city?",
+    "answer": "No. Online tutoring is available worldwide, but home tutoring depends on tutor availability in your city. Tell us your location and we will say honestly whether a home tutor is realistic or whether online will be quicker. Many CP families in smaller cities choose online from the start because it widens the choice of specialists."
    },
    {
     "question": "Which DP subjects can be tutored alongside the career-related study?",
-    "answer": "Any Standard Level DP subject a school allows within its CP structure, since the pairing is set by the school and the student's chosen pathway, not by IB Gram. Business Management, Mathematics, Biology, Chemistry, Economics and languages are common pairings with career studies like business, health sciences or hospitality, though the exact combination depends entirely on what the school offers. Tell IB Gram the specific subjects and level when making a request — the more precise this is, the faster and more accurate the tutor shortlist will be."
-   },
-   {
-    "question": "Are the exam sessions and deadlines the same everywhere?",
-    "answer": "The IB's own May and November examination sessions are fixed globally, but the CP's core components are mostly assessed through school-set internal deadlines rather than a single external exam date, and those internal deadlines vary from school to school. That's one reason a generic revision calendar doesn't work well for CP tutoring — a tutor needs to know your school's actual dates for the Reflective Project and portfolio submissions, not just the IB's exam-session calendar, to plan sessions that arrive at the right point rather than too late or too early."
-   },
-   {
-    "question": "Is IB Gram affiliated with the IB Organization or with my child's school?",
-    "answer": "No to both. IB Gram is an independent tutoring platform, not officially affiliated with the IB Organization, Cambridge International or Pearson Edexcel, and it has no relationship with any specific school beyond matching that school's students to tutors. The school's CP coordinator remains the authority on curriculum, internal deadlines and how components are marked and moderated. A tutor found through this page works alongside that structure, using the school's own guidance as the reference point, never replacing or contradicting it."
-   },
-   {
-    "question": "How does tutoring work for families far from their tutor's time zone?",
-    "answer": "Sessions are scheduled in the family's own time zone, and a tutor's availability is checked against that before a match is confirmed, not assumed from a general profile. Families based far from most available tutors — a student in one region matched with a subject specialist several time zones away — usually settle into a regular weekly slot that suits both sides, often early evening for the student. It takes a short conversation to find a slot that holds up over a full term rather than working for one week and then falling apart."
+    "answer": "CP students take at least two DP courses, so tutors are available for subjects such as Maths, English, Business Management, Economics, sciences and languages. The tutor works from the specific course and level your school has registered your child for. Tell the tutor your school's exact subject codes in the first message so preparation starts on the right syllabus."
    }
   ],
   "internalLinks": [
@@ -494,7 +487,7 @@
   },
   "finalCta": "If your child needs support with a DP subject, the Reflective Project, or keeping core-component deadlines on track, share the subject combination and current stage and IB Gram will review tutor availability for the time zone you need. No commitment is required before the first diagnostic session is scheduled.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with the IB Organization, Cambridge International or Pearson Edexcel.",
-  "lastUpdated": "2026-09-16",
+  "lastUpdated": "2026-10-26",
   "canonicalTarget": "https://www.ibgram.com/programmes/cp/"
  },
  {
@@ -508,6 +501,16 @@
   "citySlug": "india",
   "primaryKeyword": "IB Diploma Programme tutors",
   "secondaryKeywords": [
+   "online IB DP classes",
+   "IB diploma online tutoring",
+   "IB HL tutor online",
+   "IB SL tutor online",
+   "IB DP one-to-one classes",
+   "IB internal assessment help",
+   "IB Extended Essay support",
+   "IB TOK tutor",
+   "IB DP past paper practice",
+   "online IB tuition worldwide",
    "an online IB Diploma Programme tutor",
    "a home tutor for the IB Diploma Programme",
    "online tuition for the IB Diploma Programme",
@@ -552,18 +555,18 @@
    "Greater Noida"
   ],
   "schoolsMentioned": [],
-  "metaTitle": "IB DP Tutors Online Worldwide | IB Gram",
-  "metaDescription": "Find vetted IB Diploma Programme tutors for HL/SL subjects, IA and EE support, online worldwide in your own time zone, with home tutoring where available India.",
-  "ogTitle": "IB DP Tutors Online Worldwide | IB Gram",
-  "ogDescription": "Find vetted IB Diploma Programme tutors for HL/SL subjects, IA and EE support, online worldwide in your own time zone, with home tutoring where available India.",
+  "metaTitle": "Online IB Classes for DP: HL and SL Tutors",
+  "metaDescription": "Join online IB classes for DP with vetted HL and SL tutors. One-to-one lessons in your time zone, plus IA, Extended Essay and TOK support. Book a trial.",
+  "ogTitle": "Online IB Classes for DP: HL and SL Tutors",
+  "ogDescription": "Join online IB classes for DP with vetted HL and SL tutors. One-to-one lessons in your time zone, plus IA, Extended Essay and TOK support. Book a trial.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IB DP Tutors Online Worldwide | IB Gram",
-  "twitterDescription": "Find vetted IB Diploma Programme tutors for HL/SL subjects, IA and EE support, online worldwide in your own time zone, with home tutoring where available India.",
+  "twitterTitle": "Online IB Classes for DP: HL and SL Tutors",
+  "twitterDescription": "Join online IB classes for DP with vetted HL and SL tutors. One-to-one lessons in your time zone, plus IA, Extended Essay and TOK support. Book a trial.",
   "breadcrumbTitle": "IB Diploma Programme",
-  "h1": "IB Diploma Programme Tutors for HL, SL, IA and EE Support",
-  "heroTitle": "Tutoring Built Around the IB Diploma, Not Just Exam Week",
+  "h1": "Online IB Classes for the Diploma Programme (DP)",
+  "heroTitle": "Online IB Classes for the Diploma Programme (DP)",
   "heroSubtitle": "A tutor who understands HL and SL demands, internal assessment deadlines and the extended essay is different from one who only revises past papers in April. IB Gram matches families with subject tutors who can support the full two years, online worldwide or in person where a tutor is local.",
-  "introSummary": "Looking for IB Diploma Programme tutors usually means one of two things: a subject is slipping mid-year, or May or November exams are close and past-paper practice has to start now. Either way, the right tutor understands HL and SL demands, internal assessment criteria and command terms, not just the syllabus content. IB Gram matches families with subject tutors for online lessons worldwide, in the family's own time zone, with home and hybrid options where a tutor happens to be local. Matching depends on subject, level and tutor availability — never guaranteed on the same day.",
+  "introSummary": "Online IB classes for the Diploma Programme are live, one-to-one lessons with a tutor who teaches your exact subject and level. Choose HL or SL, fix a weekly slot in your own time zone, and get help with the IA, Extended Essay, TOK and past-paper practice.",
   "contentBlocks": [
    {
     "type": "intro",
@@ -679,44 +682,28 @@
   ],
   "faqs": [
    {
-    "question": "Can one tutor cover both HL and SL versions of the same subject?",
-    "answer": "Usually yes, though it depends on the tutor. HL and SL share a core syllabus in most Group 3–5 subjects but diverge in depth, option topics and paper structure — HL Mathematics AA, for instance, adds calculus depth that SL never touches. A tutor confident across both levels can usually adjust, but if a student is genuinely borderline between HL and SL, or considering switching mid-year, say so early. That decision affects pacing, IA expectations and which past papers are actually useful, so it changes what the first month of tutoring should focus on."
+    "question": "What are online IB classes for DP and how do they run?",
+    "answer": "They are live video lessons between one student and one tutor, held on a shared whiteboard with the school syllabus open. Each class targets a subject at HL or SL. The tutor sets work between sessions, marks it, and adjusts the plan as school tests and mocks approach."
    },
    {
-    "question": "Is online tutoring really enough for something like Higher Level Mathematics?",
-    "answer": "For most students, yes — annotation tools and shared working let a tutor walk through calculus or statistics exactly as they would at a table, and HL Maths tutoring is mostly about worked method and technique rather than physical materials. It suits a student comfortable working from a screen. It suits it less well if a student needs someone physically present to stay focused, in which case a home or hybrid arrangement, where a tutor is locally available, tends to work better than forcing online sessions that aren't landing."
+    "question": "Are these group classes or one-to-one?",
+    "answer": "One-to-one. Group batches move at the pace of the average student, which rarely suits a Diploma candidate who is strong in one paper and weak in another. A single tutor can spend the whole hour on the topics that are costing your child marks, such as data-based questions or essay structure."
    },
    {
-    "question": "My child's Internal Assessment is already behind schedule — can a tutor help before the May session?",
-    "answer": "Often, yes, though what's realistic depends on how far behind and in which subject. A tutor can help restructure the remaining IA timeline, clarify what the criteria actually reward, and triage which sections need the most attention with the time left. What a tutor cannot do is submit work on a student's behalf or guarantee the school will accept a late resubmission — that decision sits with the school, not with IB Gram. Starting the conversation with the school early, alongside tutoring, matters more the further behind the IA already is."
+    "question": "Can I take classes in my own time zone?",
+    "answer": "Yes. Lessons are scheduled around your school day and your country, so students in Asia, the Gulf, Europe and North America can all hold a regular weekly slot. Exam-season weeks can be made denser, and a missed slot can be moved with notice rather than lost."
    },
    {
-    "question": "Does tutoring cover the Extended Essay separately from regular subject lessons?",
-    "answer": "Yes, EE support is usually arranged as its own thread even when the same tutor also teaches the subject, because EE supervision runs on a different timeline — research question refinement, source evaluation and the reflections process happen alongside, not inside, regular syllabus lessons. A tutor experienced in supervising EEs in that subject area understands the assessment criteria and the academic-honesty documentation the IB requires, which is different knowledge from teaching subject content itself, so it's worth confirming a tutor has done both before assuming one covers the other."
+    "question": "Do the classes cover the IA, Extended Essay and TOK as well as subjects?",
+    "answer": "Yes, within the IB's academic honesty rules. A tutor can explain the assessment criteria, help you plan an investigation, and give feedback on structure and argument. The work itself, including the research question and the writing, must remain the student's own."
    },
    {
-    "question": "How is the fee structured for IB Diploma Programme tutoring?",
-    "answer": "There's no single platform-wide rate — fees depend on the subject, whether it's HL or SL, the tutor's own experience level, and how many sessions a week the plan involves. A family should get a clear figure confirmed in writing before the first paid session, not an estimate that shifts afterward. It's reasonable to ask directly what a specific tutor charges and how that compares before committing, and IB Gram expects that question rather than treating it as awkward."
+    "question": "How is a class different from the school lesson?",
+    "answer": "School teaches the whole cohort once. An online class revisits what your child did not secure, using their own marked papers. It is built around command terms, mark schemes and timing, which is often where Diploma marks are lost even when the content is understood."
    },
    {
-    "question": "What happens if the tutor isn't the right fit after we've started?",
-    "answer": "Switching is normal, and the week-four review exists partly to surface exactly that question honestly rather than let a mismatch drag on for months. If pacing feels wrong, explanations aren't landing, or the working relationship simply isn't clicking, saying so leads to a new match rather than a refund argument or an awkward continuation. A mismatch caught in week four costs a few sessions; one carried silently for a full term costs far more, in both time and a student's confidence."
-   },
-   {
-    "question": "Does IB Gram support both the May and November examination sessions?",
-    "answer": "Yes — matching and past-paper preparation run for both sessions, since school cohorts sit in May or November depending on their calendar and hemisphere. What differs is the preparation timeline relative to when a family starts: a student in a November-session school starting tutoring in September has a shorter runway than one starting the previous January, and that timeline should shape the plan from the first session rather than being treated as a minor detail."
-   },
-   {
-    "question": "We don't live near a major city — is home tutoring even an option?",
-    "answer": "It depends entirely on whether a suitable tutor's travel range reaches that specific location, which isn't guaranteed outside cities with a larger tutor base. Online tutoring is the reliable fallback in that situation, and for most DP subjects it works just as well as an in-person session would. It's worth asking directly during matching rather than assuming either way — sometimes a tutor's travel route covers an area that wouldn't seem obvious from the city name alone."
-   },
-   {
-    "question": "How does a tutor follow my child's specific school's syllabus rather than a generic IB outline?",
-    "answer": "By asking for it directly in the first session — the school's own scheme of work, past assessment papers if the school shares them, and the specific IA and mock deadlines that school has set. The IB publishes a common subject guide, but how a school sequences topics, when it runs mocks, and which past papers it favours varies enough that a tutor working from a generic outline alone will drift out of step with actual classroom pacing within a few weeks."
-   },
-   {
-    "question": "What actually happens in the first session before we commit to ongoing lessons?",
-    "answer": "The first session is a diagnostic, not a full lesson: the tutor reviews where the syllabus currently stands, checks IA or EE progress if applicable, and identifies the two or three weakest areas from recent past-paper attempts or school assessments. Out of that comes a short written plan with a rough timeline, which the family reviews before deciding whether to continue. There's no long-term contract signed at that point — the plan itself is what's being agreed to, not a fixed term."
+    "question": "How do I start, and can I try a lesson first?",
+    "answer": "Tell us the subjects, levels and exam session. We shortlist vetted tutors for your syllabus and set up a trial lesson. If the fit is wrong after that session, we propose another tutor, so you commit to the weekly classes only once you are satisfied."
    }
   ],
   "internalLinks": [
@@ -983,7 +970,7 @@
   },
   "finalCta": "Ready to start? Tell IB Gram the subject, the level and how much time remains before the next deadline that matters — an IA, a mock, or the exam session itself. A short-list of tutors follows, matched to that specific subject and school calendar, subject to availability in your time zone.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with the IB Organization, Cambridge International or Pearson Edexcel.",
-  "lastUpdated": "2026-09-16",
+  "lastUpdated": "2026-10-26",
   "canonicalTarget": "https://www.ibgram.com/programmes/dp/"
  },
  {
@@ -997,6 +984,16 @@
   "citySlug": "india",
   "primaryKeyword": "IB Middle Years Programme tutors",
   "secondaryKeywords": [
+   "IB MYP tutor",
+   "IB MYP tutor online",
+   "MYP maths tutor",
+   "MYP science tutor",
+   "MYP language tutor",
+   "MYP Personal Project tutor",
+   "MYP criteria support",
+   "MYP home tutor",
+   "IB Middle Years Programme tutoring",
+   "MYP eAssessment tutor",
    "IB Middle Years Programme tutor online",
    "home tutor for IB MYP",
    "online IB MYP tuition",
@@ -1041,18 +1038,18 @@
    "Greater Noida"
   ],
   "schoolsMentioned": [],
-  "metaTitle": "IB MYP Tutors | Online & Home Tuition | IB Gram",
-  "metaDescription": "Match your child with an IB Middle Years Programme tutor for any subject group and grade, online worldwide, with home tutoring where a tutor is local India.",
-  "ogTitle": "IB MYP Tutors | Online & Home Tuition | IB Gram",
-  "ogDescription": "Match your child with an IB Middle Years Programme tutor for any subject group and grade, online worldwide, with home tutoring where a tutor is local India.",
+  "metaTitle": "IB MYP Tutor | Online & Home Tuition, Years 1-5",
+  "metaDescription": "Find an IB MYP tutor for Years 1 to 5: maths, sciences, languages and humanities, criteria-based support, Personal Project help, online or at home.",
+  "ogTitle": "IB MYP Tutor | Online & Home Tuition, Years 1-5",
+  "ogDescription": "Find an IB MYP tutor for Years 1 to 5: maths, sciences, languages and humanities, criteria-based support, Personal Project help, online or at home.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IB MYP Tutors | Online & Home Tuition | IB Gram",
-  "twitterDescription": "Match your child with an IB Middle Years Programme tutor for any subject group and grade, online worldwide, with home tutoring where a tutor is local India.",
+  "twitterTitle": "IB MYP Tutor | Online & Home Tuition, Years 1-5",
+  "twitterDescription": "Find an IB MYP tutor for Years 1 to 5: maths, sciences, languages and humanities, criteria-based support, Personal Project help, online or at home.",
   "breadcrumbTitle": "IB MYP Tutors",
-  "h1": "IB Middle Years Programme Tutors for Every Subject Group",
-  "heroTitle": "Find the Right MYP Tutor, Wherever You Are",
+  "h1": "IB MYP Tutor for Every Subject Group",
+  "heroTitle": "IB MYP Tutor for Every Subject Group",
   "heroSubtitle": "A tutor for one subject group or several, matched to your child's grade band and school's assessment criteria, available online in your own time zone, with home and hybrid sessions where a tutor happens to be nearby.",
-  "introSummary": "IB Middle Years Programme tutors help students aged roughly eleven to sixteen keep pace with concept-based units, command-term language and criterion-related assessment across whichever subject groups need attention — Sciences, Mathematics, Language and Literature, Individuals and Societies, Arts, Design, PE and Health, or Language Acquisition. IB Gram matches your child with a tutor who already teaches to MYP criteria, not a generalist adapting on the fly. Sessions run online in your family's own time zone, with home tutoring available where a tutor is genuinely local, and hybrid arrangements for families who want both. Matching depends on subject, grade and tutor availability.",
+  "introSummary": "An IB MYP tutor supports Years 1 to 5 across every subject group, working from your child's school units and assessment criteria. Help includes maths, sciences, languages, humanities and the Personal Project, delivered online worldwide or at home where a local tutor is available.",
   "contentBlocks": [
    {
     "type": "intro",
@@ -1177,44 +1174,28 @@
   ],
   "faqs": [
    {
-    "question": "Is online tutoring actually effective for the IB Middle Years Programme, or does a subject like Sciences need someone in the room?",
-    "answer": "For most MYP subject groups, online works well because the tutor can share a screen, annotate mark schemes and work through command terms just as directly as in person — Language and Literature, Individuals and Societies and Mathematics translate especially well. Sciences and Design sometimes benefit from hands-on elements a screen can't replicate, such as lab technique or physical prototyping, which is where a hybrid plan with occasional in-person sessions makes more sense than pure online. The honest limitation: if a subject genuinely needs physical materials every week, online alone will underserve it, and that's worth naming before committing rather than discovering it a month in."
+    "question": "What does an IB MYP tutor do?",
+    "answer": "They reinforce what the school is teaching and show your child how to meet the criteria. In practice that means unpacking task instructions, checking understanding of a unit's key concept, and giving feedback on drafts before the teacher sees them."
    },
    {
-    "question": "What happens if the tutor and my child just don't click?",
-    "answer": "That's treated as normal, not a failure on either side. If the first session shows a mismatch in pace, tone or explanation style, say so and ask for a different tutor rather than continuing out of politeness — a mismatch rarely improves with time and mostly costs weeks that matter against school deadlines. A second match is arranged based on what specifically didn't work the first time, which usually narrows the fit considerably. There's no penalty or awkward process for asking; it happens often enough in MYP matching that treating it as exceptional would be dishonest."
+    "question": "Can one tutor cover several MYP subjects?",
+    "answer": "Often for the lower years, and for related subjects such as maths and sciences. By Years 4 and 5, specialised tutors for each subject work better, because the criteria and content become more demanding. Prefer a tutor who has taught the specific subject group so criteria language is already familiar."
    },
    {
-    "question": "How much does IB Middle Years Programme tutoring cost?",
-    "answer": "Fees vary by subject group, MYP year, tutor experience and whether sessions are online, home or hybrid, so there isn't one flat number that means anything without those specifics. IB Gram confirms fees once a match is made and the mode of tutoring is agreed, rather than quoting a price before knowing what a family actually needs. As a general pattern, home tutoring tends to cost more than online because of travel time, and specialist subjects with fewer available tutors can sit at a different rate than more commonly taught ones. Ask for specifics against your child's exact subject and year."
+    "question": "My child is joining MYP from a non-IB school. How hard is the shift?",
+    "answer": "The biggest change is how learning is assessed, not how much is taught. Expect a few weeks of learning to explain reasoning, write reflections and work to criteria. A tutor can speed that up with focused practice on real tasks."
    },
    {
-    "question": "My child is starting MYP1 having come from a non-IB school. How much catching up is realistic?",
-    "answer": "It depends heavily on which subject groups the previous school covered and how differently they assessed work, more than on how 'behind' the student seems on day one. The biggest early adjustment is usually not content but format — command terms, criterion-related assessment and the expectation of structured, cited responses are often new regardless of prior school quality. A tutor familiar with that transition focuses the first few weeks on format and expectations rather than racing through content, which tends to close the gap faster than drilling subject material the student may already understand well enough."
+    "question": "How does the tutor help with the Personal Project?",
+    "answer": "By coaching the process: choosing a realistic goal, keeping a clear process journal and planning timelines against the criteria. The student does the research, creation and writing. The tutor does not supply ideas or content. A tutor helps most when the school has already set the task and the student wants a clearer sense of what to produce."
    },
    {
-    "question": "Is IB Gram affiliated with the IB Organization or with my child's school?",
-    "answer": "No. IB Gram is an independent tutoring platform and is not affiliated with the IB Organization, Cambridge International or Pearson Edexcel, and it has no access to any school's internal systems, gradebooks or assessment records. Tutors are matched based on subject, MYP year and experience with the relevant criteria, but the school remains the only authoritative source for grades, deadlines and official communication. Tutoring is meant to support what the school is already doing, not to stand in for it or to claim any official status it doesn't have."
+    "question": "Is online tutoring effective for MYP sciences and maths?",
+    "answer": "Yes. Shared whiteboards handle equations and diagrams well, and virtual simulations can stand in for demonstrations. Practicals still happen at school, so the tutor focuses on analysis, lab write-ups and exam-style questions. A trial session on a real worksheet or lab write-up shows whether online teaching suits your child."
    },
    {
-    "question": "Can one tutor cover multiple MYP subjects, or does my child need a different tutor for each?",
-    "answer": "A tutor can reasonably cover more than one subject group if their background genuinely supports both — Mathematics and Sciences overlap often enough for this to work, for instance — but stretching a single tutor across unrelated groups like Design and Language Acquisition usually means one subject gets weaker coverage than the other. It's more honest to match by strength than to bundle for convenience. Families needing help across several subject groups sometimes end up with two or three tutors on a shared weekly schedule rather than one generalist, which tends to produce better results per subject."
-   },
-   {
-    "question": "What does the MYP Personal Project involve, and can a tutor actually help with it?",
-    "answer": "The Personal Project, typically completed in the final year of MYP, is an independent piece of work a student plans, develops and reflects on against its own assessment criteria, separate from any single subject group. A tutor's role here is coaching, not content delivery — helping the student structure a realistic timeline, understand what the reflection criteria actually expect and avoid the common trap of an overly ambitious goal set too late to finish well. Because it's assessed on process as much as outcome, a tutor who tries to shape the product too heavily can undermine the academic honesty the project depends on."
-   },
-   {
-    "question": "Does IB Gram offer home tutoring in my area?",
-    "answer": "That depends on whether a tutor for your child's specific subject group happens to have a travel route that reasonably includes your address — it isn't guaranteed everywhere IB Gram operates. Ask directly when you enquire, giving your area and subject, and you'll get a straight answer about whether home tutoring is realistic or whether online is the more dependable option for that combination. Many families who start by asking for home tutoring end up choosing online anyway once they see it removes the travel-time constraint entirely and widens the subject-matched shortlist considerably."
-   },
-   {
-    "question": "How do IB exam sessions affect when we should start tutoring?",
-    "answer": "IB examinations run in May and November, but most of what affects MYP scheduling is internal — unit tests, mock weeks and coursework deadlines each school sets on its own calendar within that broader cycle. Starting tutoring reactively, right before a deadline, limits what's realistically achievable to exam technique and last-minute clarification. Starting several weeks ahead of the school's own internal assessment dates allows time to actually address a misunderstood criterion or command term rather than just rehearsing answers. Ask your child's school for their internal calendar before agreeing on a tutoring start date."
-   },
-   {
-    "question": "What if there's no real progress after a couple of months?",
-    "answer": "Raise it directly and specifically — which criterion or command term still isn't landing, and what the tutor has tried so far — rather than assuming tutoring in general doesn't work. Sometimes the fix is a different tutor with a different teaching style; sometimes it's a change in frequency or mode, such as adding a short home session before a school test. MYP progress is genuinely slower to see than in exam-only curricula because criterion-related assessment rewards depth over a term, but two months with no visible change in understanding is a fair point to reassess rather than wait out further."
+    "question": "Do you offer home tuition for MYP?",
+    "answer": "Where a tutor lives near you, yes, and we confirm availability by locality at the matching stage. Where none does, online sessions start immediately, and you can switch to home visits when a tutor becomes available. We confirm the tutor's neighbourhood and travel time first so the lesson slot is realistic and reliable."
    }
   ],
   "internalLinks": [
@@ -1481,7 +1462,7 @@
   },
   "finalCta": "If your child needs help with a specific MYP subject group — Sciences, Mathematics, Individuals and Societies, Language and Literature, Language Acquisition, Arts, Design or PE and Health — tell IB Gram the subject, the MYP year and the current gap. A shortlist of matched tutors follows, for a single diagnostic session first, online or at home, subject to tutor availability.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with the IB Organization, Cambridge International or Pearson Edexcel.",
-  "lastUpdated": "2026-09-16",
+  "lastUpdated": "2026-10-26",
   "canonicalTarget": "https://www.ibgram.com/programmes/myp/"
  },
  {
@@ -3452,6 +3433,17 @@
   "citySlug": "india",
   "primaryKeyword": "IGCSE Primary Years Programme tutors",
   "secondaryKeywords": [
+   "IB PYP tutor",
+   "PYP tutor online",
+   "IB primary years tutor",
+   "PYP home tuition",
+   "IB PYP maths tutor",
+   "IB PYP English tutor",
+   "PYP unit of inquiry help",
+   "IB PYP exhibition help",
+   "IB primary school tutor",
+   "online tutor for PYP students",
+   "IB PYP tutor India",
    "an online tutor for the IGCSE Primary Years Programme",
    "home tutoring for the IGCSE Primary Years Programme",
    "IGCSE Primary Years Programme tuition delivered online",
@@ -3492,18 +3484,18 @@
    "Greater Noida"
   ],
   "schoolsMentioned": [],
-  "metaTitle": "IGCSE PYP Tutors | Online & Home Tuition | IB Gram",
-  "metaDescription": "Find IGCSE Primary Years Programme tutors for online, home or hybrid sessions worldwide, matched to your child's age band, syllabus and time zone by IB Gram India.",
-  "ogTitle": "IGCSE PYP Tutors | Online & Home Tuition | IB Gram",
-  "ogDescription": "Find IGCSE Primary Years Programme tutors for online, home or hybrid sessions worldwide, matched to your child's age band, syllabus and time zone by IB Gram India.",
+  "metaTitle": "IB PYP Tutor: Online & Home Tuition for Ages 3 to 12",
+  "metaDescription": "IB PYP tutor for primary students: online, home or hybrid sessions for units of inquiry, literacy and numeracy, matched to your child's age and time zone.",
+  "ogTitle": "IB PYP Tutor: Online & Home Tuition for Ages 3 to 12",
+  "ogDescription": "IB PYP tutor for primary students: online, home or hybrid sessions for units of inquiry, literacy and numeracy, matched to your child's age and time zone.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IGCSE PYP Tutors | Online & Home Tuition | IB Gram",
-  "twitterDescription": "Find IGCSE Primary Years Programme tutors for online, home or hybrid sessions worldwide, matched to your child's age band, syllabus and time zone by IB Gram India.",
+  "twitterTitle": "IB PYP Tutor: Online & Home Tuition for Ages 3 to 12",
+  "twitterDescription": "IB PYP tutor for primary students: online, home or hybrid sessions for units of inquiry, literacy and numeracy, matched to your child's age and time zone.",
   "breadcrumbTitle": "IGCSE PYP Tutors",
   "h1": "IGCSE Primary Years Programme Tutors, Wherever Your Family Is",
   "heroTitle": "IGCSE Primary Years Programme Tutors, Wherever You Are",
   "heroSubtitle": "Matching for the IGCSE Primary Years Programme runs online worldwide, in your own time zone, with home and hybrid sessions available wherever a tutor happens to be local to your family. Every tutor is checked for subject background and syllabus familiarity before a first session is booked.",
-  "introSummary": "IGCSE Primary Years Programme tutors help younger learners build the reading, writing, number and inquiry skills that later IGCSE subjects assume are already solid. IB Gram matches families to a tutor for online sessions worldwide, in the family's own time zone, with home and hybrid options where a tutor happens to be local. There is no single market this serves — the same matching process runs wherever a child is following a Cambridge or Pearson Edexcel-aligned pathway toward IGCSE. Sessions are built around age band, current level and school timetable, not a fixed script.",
+  "introSummary": "An IB PYP tutor supports children aged 3 to 12 through the Primary Years Programme with literacy, numeracy and help understanding units of inquiry. IB Gram matches families worldwide with vetted primary tutors for online, home or hybrid sessions, fitted to your child's age band and time zone.",
   "contentBlocks": [
    {
     "type": "intro",
@@ -3618,48 +3610,28 @@
   ],
   "faqs": [
    {
-    "question": "Is the Primary Years Programme actually part of IGCSE?",
-    "answer": "Not in the way the two names are sometimes used together in search. The Primary Years Programme describes the earlier, inquiry-based years; formal IGCSE syllabuses, papers and mark schemes under Cambridge and Pearson Edexcel begin later, usually from around Year 9 or 10. What connects them is continuity: reading fluency, number sense and written expression built at this stage are exactly what an IGCSE paper later assumes a student already has. A tutor searched under this heading is building that base, not teaching to an IGCSE paper yet. Ask any tutor directly which stage they are actually qualified to teach."
+    "question": "What does an IB PYP tutor actually help with?",
+    "answer": "Mostly foundations: reading and writing fluency, number sense, and the habit of asking questions that inquiry-based classrooms expect. A tutor can also help a child prepare for exhibitions or unit presentations, but the aim is confidence and skills rather than extra homework."
    },
    {
-    "question": "How much does a tutor at this stage cost?",
-    "answer": "Fees depend on the tutor's experience, the mode chosen and how many sessions a week a family books — an experienced tutor running weekly home sessions in a city with high tutor demand generally costs more than a newer online tutor running twice-weekly sessions. IB Gram does not fix or publish a single rate because the range genuinely varies this much. The practical approach is to say a rough budget during the first conversation and let matching work within it, rather than guessing a number and hoping tutors fit it. A short trial session before any longer commitment helps a family judge value, not just price."
+    "question": "Is the Primary Years Programme part of IGCSE?",
+    "answer": "No. The PYP is the IB's primary programme for ages 3 to 12, followed by the MYP and then the Diploma Programme. IGCSE is a separate Cambridge or Edexcel qualification usually taken at age 14 to 16. A good tutor will explain which pathway your child is on."
    },
    {
-    "question": "Does online tutoring really work for a child this young?",
-    "answer": "For most children, yes, though it depends more on the individual child than the format. A confident, verbal seven- or eight-year-old often does well online because sessions are short, conversational, and use a shared screen the child already finds familiar from schoolwork. A child who is easily distracted or needs physical presence to stay focused may do better with home tutoring, at least at first. This is a genuine trade-off, not a marketing claim either way — a family should say honestly during matching how their child concentrates, and let that shape the recommendation rather than assuming online is automatically fine or automatically unsuitable."
+    "question": "Does online tutoring work for such young children?",
+    "answer": "It can, with short sessions, a tutor who uses visuals and games, and a parent nearby for the youngest learners. Children under seven often respond better in person. We usually suggest shorter sessions online, then lengthen them as attention improves."
    },
    {
-    "question": "My family is in Bhubaneswar — is home tutoring realistic here?",
-    "answer": "It depends on tutor availability in that specific area at the time of enquiry, which can be narrower than in a larger metro with more tutors covering more routes. Online tutoring removes that constraint entirely and is available regardless of city, which is why it tends to be the default recommendation for smaller cities and less central pockets of larger ones. A hybrid arrangement — occasional home sessions when a suitable tutor is free, online the rest of the time — is sometimes possible and worth asking about directly rather than assuming it is off the table before checking."
-   },
-   {
-    "question": "We're near Greater Noida — does traffic affect scheduling?",
-    "answer": "For home tutoring, yes — a tutor's travel time within the wider National Capital Region can be considerable depending on which pocket a family is in and what time of day a session is set for, and that realistically limits how many home students one tutor can take on nearby. Online tutoring sidesteps this completely, which is why families in commuter-heavy areas around Delhi, Ghaziabad, Faridabad and Greater Noida often end up choosing it even when a home tutor would otherwise be their first preference. Asking about a tutor's actual travel radius before assuming home tutoring is workable saves a scheduling headache later."
-   },
-   {
-    "question": "What if the first tutor isn't a good fit?",
-    "answer": "This is common enough that it should not feel awkward to raise. If a specific, nameable improvement has not shown up by around week four — nothing in reading, confidence or homework habits has actually moved — that is a reasonable point to ask for a different tutor rather than waiting longer out of politeness. IB Gram treats a swap as a normal part of matching, not a failure on either side, because personality fit and teaching style matter as much as subject knowledge at this age. Saying plainly what did not work helps the next match be better, rather than repeating the same mismatch."
+    "question": "How much does a PYP tutor cost?",
+    "answer": "Rates depend on the tutor's experience, session length and whether the lessons are at home or online. Primary tutoring is typically priced below senior secondary levels. We share the rate before any trial class, so you can compare it with your budget with no commitment to continue."
    },
    {
     "question": "Can one tutor cover more than one subject at this stage?",
-    "answer": "Often, yes. At this age literacy, numeracy and early science or enquiry work are frequently taught together in one session rather than split across separate tutors and separate bookings, because the subjects reinforce each other and a single tutor can track progress across all of them. Whether a specific tutor covers the combination a family needs depends on that tutor's own background, so it is worth stating clearly during the first conversation which subjects matter most rather than assuming any tutor covers everything. Coverage is set during matching, not guaranteed in advance of that conversation."
+    "answer": "Yes, primary tutors often cover English, Maths and support for the units of inquiry in a single session plan. Specialist subjects such as a second language or music are usually separate. Tell us which areas your child finds hardest and we will match a tutor to those."
    },
    {
-    "question": "How is a tutor's background actually checked?",
-    "answer": "A tutor's subject qualifications and relevant teaching or tutoring experience are reviewed before their profile is shown to a family, rather than accepted purely on a self-written bio. For this age band that review looks specifically for genuine early-years teaching comfort, not just a general degree. This checking narrows who gets suggested, but it does not replace a parent's own judgement on the introductory call — asking direct questions about how a tutor handles a distracted or anxious child tells a parent something the paperwork cannot."
-   },
-   {
-    "question": "Is IB Gram affiliated with Cambridge, Pearson Edexcel or the IB Organization?",
-    "answer": "No. IB Gram is an independent tutoring platform with no official affiliation with the IB Organization, Cambridge International or Pearson Edexcel. It does not set their syllabuses, run their exams or speak on their behalf — it matches families with tutors who teach to those published syllabuses and assessment objectives. Any claim of official endorsement from one of these bodies should be treated with suspicion, because none exists here or, realistically, anywhere in the independent tutoring market."
-   },
-   {
-    "question": "What does a typical first session actually cover?",
-    "answer": "Less teaching than parents often expect, and more finding out where a child genuinely is. A tutor usually spends part of the first session on informal questions and a short piece of reading or number work to see the actual level, not the level a year group label suggests, because those two things diverge more often than not. The rest covers how the child responds to being corrected, how long they focus unprompted, and what the family hopes changes within a month. That groundwork shapes every session afterward, so a rushed first session is a bad sign worth mentioning if it happens."
-   },
-   {
-    "question": "Do sessions need to follow the May/June or October/November exam calendar?",
-    "answer": "Not at this stage. Those exam series matter once a student reaches formal IGCSE papers under Cambridge or Pearson Edexcel; at the Primary Years Programme stage there is no paper to sit, so scheduling follows the school term and the family's own routine instead. It still helps to mention which exam series a family expects to sit later, because a tutor with an eye on that timeline paces early skill-building differently than one working with no end point in mind at all."
+    "question": "How is a primary tutor's background checked?",
+    "answer": "IB Gram reviews qualifications, teaching experience with young children and familiarity with the PYP framework, then observes a sample lesson. We also encourage a parent to attend the trial class. If the fit is wrong, we replace the tutor quickly, because rapport counts for a lot at this age."
    }
   ],
   "internalLinks": [
@@ -3934,7 +3906,7 @@
   },
   "finalCta": "Tell IB Gram your child's age, current syllabus and what prompted the search, and matching will suggest tutors checked for background and stage experience — online worldwide, home where a tutor is free to travel, or a hybrid mix. A first trial session comes before any longer commitment, and availability depends on tutor schedule.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with the IB Organization, Cambridge International or Pearson Edexcel.",
-  "lastUpdated": "2026-09-16"
+  "lastUpdated": "2026-10-26"
  },
  {
   "pageId": "IBG_IB_TUTORS_AHMEDABAD_DP",
@@ -35870,6 +35842,17 @@
   "citySlug": "kolkata",
   "primaryKeyword": "IB Diploma Programme (DP) tutor in Kolkata",
   "secondaryKeywords": [
+   "IB Diploma Kolkata",
+   "IB DP tutor Kolkata",
+   "IB Diploma tutor Kolkata",
+   "IB DP tuition Kolkata",
+   "IB HL tutor Kolkata",
+   "IB SL tutor Kolkata",
+   "IB Maths AA tutor Kolkata",
+   "IB Physics tutor Kolkata",
+   "IB Extended Essay help Kolkata",
+   "IB Internal Assessment help Kolkata",
+   "IB home tutor Salt Lake",
    "IB DP tutor in Kolkata",
    "IB Diploma tutor Kolkata for HL and SL subjects",
    "IB DP home tuition in South Kolkata",
@@ -35927,18 +35910,18 @@
    "Salt Lake and New Town learner cluster",
    "Central Kolkata IB support corridor"
   ],
-  "metaTitle": "IB DP Tutor in Kolkata | Online & Home Tuition | IB Gram",
-  "metaDescription": "Find an IB Diploma Programme (DP) tutor in Kolkata matched by subject level, HL/SL depth and IA experience, with home tutoring in South Kolkata and Salt Lake or.",
-  "ogTitle": "IB DP Tutor in Kolkata | Online & Home Tuition | IB Gram",
-  "ogDescription": "IB Gram matches Kolkata DP students with tutors who understand IA structure, command terms and criterion marking, for home tutoring in South Kolkata and Salt Lake.",
+  "metaTitle": "IB Diploma Tutor in Kolkata | HL, SL and IA Help",
+  "metaDescription": "IB Diploma tutor in Kolkata for Grade 11 and 12: HL and SL subject specialists, IA and Extended Essay guidance, home lessons in Salt Lake and online.",
+  "ogTitle": "IB Diploma Tutor in Kolkata | HL, SL and IA Help",
+  "ogDescription": "IB Diploma tutor in Kolkata for Grade 11 and 12: HL and SL subject specialists, IA and Extended Essay guidance, home lessons in Salt Lake and online.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IB DP Tutor in Kolkata | Online & Home Tuition | IB Gram",
-  "twitterDescription": "IB Gram matches Kolkata DP students with tutors who understand IA structure, command terms and criterion marking, for home tutoring in South Kolkata and Salt Lake.",
+  "twitterTitle": "IB Diploma Tutor in Kolkata | HL, SL and IA Help",
+  "twitterDescription": "IB Diploma tutor in Kolkata for Grade 11 and 12: HL and SL subject specialists, IA and Extended Essay guidance, home lessons in Salt Lake and online.",
   "breadcrumbTitle": "DP Tutors",
-  "h1": "IB Diploma Programme (DP) Tutor in Kolkata for Grade 11 and Grade 12",
-  "heroTitle": "IB Diploma Programme (DP) Tutoring in Kolkata",
+  "h1": "IB Diploma Tutor in Kolkata for Grade 11 and Grade 12",
+  "heroTitle": "IB Diploma Tutor in Kolkata for Grade 11 and Grade 12",
   "heroSubtitle": "For students working through HL and SL subjects, IA drafts, TOK essays and mock exams, matched with a tutor who has taught DP command terms and criterion marking, not a school-board tutor reading the same syllabus differently.",
-  "introSummary": "Most requests for an IB Diploma Programme (DP) tutor in Kolkata arrive in October or February, right after a mock exam has gone badly and a parent wants someone fast. That is the wrong moment to start looking, though it is when most families do it anyway. IB Gram matches Kolkata students with tutors who understand DP subject levels, internal assessment structure and command-term language, whether the need is a single urgent Economics IA rewrite or a full Grade 11 plan built to carry a student calmly into the May 2026 or November 2026 exam session.",
+  "introSummary": "An IB Diploma tutor in Kolkata supports Grade 11 and 12 students in HL and SL subjects, the Internal Assessments and the Extended Essay. IB Gram matches subject specialists for home lessons in South Kolkata, Salt Lake and New Town, or online, with lessons planned around the May exam session.",
   "contentBlocks": [
    {
     "type": "intro",
@@ -36069,44 +36052,28 @@
   ],
   "faqs": [
    {
-    "question": "How much does IB Diploma Programme (DP) tuition cost in Kolkata?",
-    "answer": "Fees depend on the subject, the level (HL usually costs more than SL because it demands deeper specialisation), the tutor's experience with IB assessment specifically, and whether sessions are home-based or online. A single specialist subject costs differently from a full multi-subject plan, and exam-season intensive support is priced differently again from steady year-long sessions. IB Gram does not fix a single citywide rate because these variables genuinely change the number. The practical approach is to submit your subject, level and preferred mode, and get a specific figure attached to the tutors actually suggested for your child, rather than relying on a generic range that may not reflect real Kolkata availability."
+    "question": "How much does IB Diploma tuition cost in Kolkata?",
+    "answer": "Fees depend on the subject, level and the tutor's experience, with HL sciences and Maths AA usually at the higher end. Home lessons cost a little more than online because of travel. We share the exact rate before the free trial class so you can compare without any surprise."
    },
    {
-    "question": "Can a tutor actually come home in Salt Lake or New Town, or is it online only?",
-    "answer": "Home tutoring is reviewed for Salt Lake and New Town requests, but it depends on which tutors are already travelling that route and which subject is needed. Sector V and Karunamoyee in Salt Lake, and Rajarhat and Action Area I in New Town, have growing demand that sometimes outpaces available travelling tutors for rarer subjects like Math AA HL or a specific science at HL. When a home match is not immediately available, online tutoring for the same specialist is usually offered instead, and many families in these areas end up on a hybrid plan rather than waiting weeks for a home-visit slot to open up."
+    "question": "Can a tutor come home in Salt Lake or New Town, or is it online only?",
+    "answer": "Home lessons are available in Salt Lake, New Town and South Kolkata areas such as Ballygunge and Jadavpur, depending on the subject and the tutor's travel time. If no specialist lives close by, online lessons provide the same teaching without the commute."
    },
    {
-    "question": "What happens if my child is already behind before the May exam session?",
-    "answer": "Being behind close to an exam session changes the plan but does not make tutoring pointless. The first step is an honest diagnostic: which specific papers, command terms or content areas are causing the most marks to be lost, rather than trying to reteach an entire syllabus in a few weeks. A tutor working in this mode focuses on triage, closing the highest-value gaps first and drilling exam technique under real time pressure. What should not happen is a vague promise of a dramatic turnaround; a competent tutor will describe realistically what improvement is achievable in the time left and prioritise accordingly."
+    "question": "What if my child is already behind before the May exam session?",
+    "answer": "Start with a diagnostic on recent papers to find which topics lose the most marks. The tutor then builds a catch-up plan that fixes high-weight gaps first and adds timed paper practice. Starting early helps, but a focused plan over 8 to 12 weeks can still move grades."
    },
    {
     "question": "Do you help with Internal Assessments, or is that against academic honesty rules?",
-    "answer": "IB Gram tutors can support IA work, but the support has a clear boundary. That means helping a student choose a workable research question, structure a methodology properly, interpret feedback from their school, and understand what a given assessment criterion is actually asking for. It does not mean writing content, analysis or conclusions that the student then submits as their own. Academic honesty is treated as non-negotiable in every match. If a family is looking for someone to produce the IA rather than mentor the student through producing it themselves, that request will not be matched, because it puts the student's academic standing at direct risk."
+    "answer": "We guide, we do not write. The tutor helps your child choose a workable topic, plan the method, understand the criteria and review drafts for gaps. The ideas, data and writing are your child's own, which keeps the IA within IB academic honesty requirements."
    },
    {
     "question": "How is a DP subject tutor different from a normal board tutor?",
-    "answer": "A DP tutor needs fluency in things a typical board tutor rarely deals with: command-term language such as 'evaluate' versus 'discuss' versus 'to what extent', criterion-related marking rather than a fixed answer key, the internal assessment process, and the difference between HL and SL depth within the same subject name. A Math AA HL tutor and a Math AI HL tutor, for instance, are teaching genuinely different content despite the shared subject label. A tutor who has only taught a different board's syllabus, even a strong one, often needs real time to adjust to how IB actually assesses understanding, and that adjustment period is exactly what IB Gram's matching tries to skip by checking exam-board familiarity upfront."
+    "answer": "A DP tutor teaches to IB criteria, command terms and paper formats, and knows how HL and SL differ in depth. Board tutors often teach content only. DP also includes IAs, the Extended Essay and TOK, which need coaching that general tutors rarely provide."
    },
    {
-    "question": "What if the tutor and my child don't get along?",
-    "answer": "This is checked for directly, not brushed aside. The first session is treated as diagnostic for fit as much as for academics, and a written note after it gives a parent a real basis to judge whether the match feels right. If it clearly does not, whether due to teaching style, pace or simple personality mismatch, a different tutor can be suggested without treating the first attempt as a failure that has to be lived with. Continuing with a tutor a student is uncomfortable with rarely produces good results in a subject that already demands sustained written and verbal engagement, so raising the concern early is the better path for everyone involved."
-   },
-   {
-    "question": "Is online tutoring really enough for a subject like HL Physics or Math AA?",
-    "answer": "For many students, yes, provided the connection is stable, the student has a quiet space, and the tutor uses a shared digital workspace for working through problems step by step rather than just talking at a screen. Online tutoring in Kolkata is often the only realistic way to access a genuine HL specialist, since the pool of tutors comfortable at that depth is smaller than for standard board subjects and not evenly spread across every area. It tends to suit confident, self-directed older DP students better than a student who needs someone physically present to stay focused, which is a fair thing to consider honestly before choosing mode."
-   },
-   {
-    "question": "Which DP subjects are hardest to find a good tutor for in Kolkata?",
-    "answer": "Math AA HL and Math AI HL both draw strong demand relative to the number of tutors genuinely comfortable teaching at that specific level, since HL Math requires depth well beyond a general math background. Economics tutors who can teach structured, evaluative Paper 1 and Paper 2 responses, rather than just explaining concepts, are also in shorter supply than the general demand for the subject. For rarer combinations like these, online tutoring widens the realistic pool considerably compared to insisting on a home-visit tutor limited to whoever already travels a family's specific pocket of the city."
-   },
-   {
-    "question": "How do you actually check whether a tutor is qualified to teach DP?",
-    "answer": "Subject qualifications are checked against the specific subject and level requested, since teaching HL competently is a different bar from teaching SL. Exam-board familiarity is verified separately, looking for real experience with IB command terms, criterion-related marking and the structure of the relevant papers rather than assuming a strong tutor in another board automatically transfers. Approach to concept-based, application-focused teaching is also part of the conversation, since IB rewards applying understanding to unfamiliar contexts rather than pattern-matching past papers. None of this guarantees a particular grade outcome, and no tutor or platform honestly can, but it is the process behind every suggested match."
-   },
-   {
-    "question": "What does the first tutoring session actually cover?",
-    "answer": "The first session works through a piece of the student's own recent work, a graded assignment, a mock paper, or a school assessment, rather than a generic sample question chosen by the tutor. From that, the tutor identifies whether the real gap is content knowledge, exam technique under time pressure, confidence in a specific paper format, or misreading of command terms. A short written note goes to the parent afterward summarising what was found and outlining a plan for the next four weeks. This diagnostic approach means the first month has a clear direction from day one, rather than a series of generic revision sessions with no stated target."
+    "question": "Is online tutoring enough for a subject like HL Physics or Maths AA?",
+    "answer": "Yes, when the tutor uses a shared whiteboard and marks written working live. Derivations, graphs and problem solving work well on screen. Practicals and data analysis for the IA are reviewed through shared files, and some families still prefer home lessons for the hardest topics."
    }
   ],
   "internalLinks": [
@@ -36504,7 +36471,7 @@
   },
   "finalCta": "If your child needs an IB Diploma Programme (DP) tutor in Kolkata, whether for a single HL subject, IA support, or full exam-season revision, submit the subject, level and preferred mode, home, online or hybrid, and IB Gram will review matched tutors for a first diagnostic session, subject to tutor availability across South Kolkata, Salt Lake, New Town and nearby areas.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.",
-  "lastUpdated": "2026-09-16"
+  "lastUpdated": "2026-10-26"
  },
  {
   "pageId": "IBG_IB_TUTORS_KOLKATA_MYP",
@@ -60213,6 +60180,17 @@
   "citySlug": "india",
   "primaryKeyword": "IB programmes tutors",
   "secondaryKeywords": [
+   "IB tutor",
+   "IB tutoring online",
+   "IB DP tutor",
+   "IB MYP tutor",
+   "IB PYP tutor",
+   "IB CP tutor",
+   "online IB classes for DP",
+   "IB Diploma Programme tutor",
+   "IB tutors worldwide",
+   "IB home tutor",
+   "IB programme tutoring",
    "online tutor for IB programmes",
    "home tutoring for IB programme subjects",
    "IB programme tuition delivered online",
@@ -60257,18 +60235,18 @@
    "Greater Noida"
   ],
   "schoolsMentioned": [],
-  "metaTitle": "IB Programmes Tutors | IB Gram",
-  "metaDescription": "Find vetted IB programmes tutors for PYP, MYP, DP and CP, online worldwide in your time zone, with home and hybrid options depending on tutor availability India.",
-  "ogTitle": "IB Programmes Tutors | IB Gram",
-  "ogDescription": "Find vetted IB programmes tutors for PYP, MYP, DP and CP, online worldwide in your time zone, with home and hybrid options depending on tutor availability India.",
+  "metaTitle": "IB Tutor Programmes: PYP, MYP, DP and CP Tutors",
+  "metaDescription": "Find an IB tutor for any programme: PYP, MYP, DP or CP. Vetted tutors teach online worldwide in your time zone, with home tuition in selected cities.",
+  "ogTitle": "IB Tutor Programmes: PYP, MYP, DP and CP Tutors",
+  "ogDescription": "Find an IB tutor for any programme: PYP, MYP, DP or CP. Vetted tutors teach online worldwide in your time zone, with home tuition in selected cities.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IB Programmes Tutors | IB Gram",
-  "twitterDescription": "Find vetted IB programmes tutors for PYP, MYP, DP and CP, online worldwide in your time zone, with home and hybrid options depending on tutor availability India.",
+  "twitterTitle": "IB Tutor Programmes: PYP, MYP, DP and CP Tutors",
+  "twitterDescription": "Find an IB tutor for any programme: PYP, MYP, DP or CP. Vetted tutors teach online worldwide in your time zone, with home tuition in selected cities.",
   "breadcrumbTitle": "IB Programmes",
   "h1": "IB Programmes Tutors for PYP, MYP, DP and CP Families",
   "heroTitle": "Find the Right Tutor for Every IB Programme",
   "heroSubtitle": "This page explains what actually changes between the Primary Years, Middle Years, Diploma and Career-related Programmes, how IB Gram matches families with subject tutors online, at home or through a hybrid plan, and what real progress should look like within the first month, wherever your school is based.",
-  "introSummary": "IB programmes tutors help students across the Primary Years, Middle Years, Diploma and Career-related Programmes with subject teaching, internal assessment guidance and exam preparation for the May and November sessions. Families search for this because IB's concept-based approach, command terms and criterion-related marking differ from a typical school syllabus, and a class teacher managing thirty students cannot always give one child the individual pacing a tricky IA or a weak Paper 2 technique needs. IB Gram matches families with a tutor who knows the specific programme and subject, online worldwide or at home where a tutor is local.",
+  "introSummary": "IB Gram matches students with an IB tutor for each programme: PYP, MYP, DP and the Career-related Programme. Tutors are vetted subject specialists who teach online in your time zone, with home sessions in selected cities. Pick the programme below to see subjects, assessment support and how matching works.",
   "contentBlocks": [
    {
     "type": "intro",
@@ -60394,47 +60372,27 @@
   "faqs": [
    {
     "question": "Is a tutor for the Primary Years Programme the same as one for the Diploma Programme?",
-    "answer": "No. A PYP tutor typically works around units of inquiry, reinforcing literacy, numeracy and inquiry skills rather than teaching a fixed subject timetable, and often needs to manage a young child's attention as much as content. A DP tutor works within a specific subject group at standard or higher level, alongside internal assessment, the Extended Essay or CAS depending on what the family needs. The two roles need different skills entirely, so IB Gram matches on the actual programme and stage a student is in rather than treating 'IB tutor' as one interchangeable category."
+    "answer": "No. PYP tutors work on inquiry, literacy and numeracy foundations with younger children, usually in shorter, activity-based sessions. DP tutors are subject specialists who coach exam technique, internal assessments and the Extended Essay. We match tutors to the programme, not just the subject."
    },
    {
-    "question": "Can a tutor help with the Extended Essay, or is that only the school's responsibility?",
-    "answer": "A tutor can help with structure, argument, research question refinement and how a draft measures against the assessment criteria, and many families use one specifically for this because school supervisors often manage many students at once with limited time per meeting. What a tutor should not do is write or substantially rewrite content, since the Extended Essay carries an academic honesty declaration the student signs personally. A properly matched tutor explains that boundary in the first session, focusing on the student's own thinking and drafting rather than producing pages of text on their behalf."
+    "question": "Can a tutor help with the Extended Essay?",
+    "answer": "Yes, within IB rules. A tutor can help you choose a researchable question, plan structure, discuss sources and give feedback on drafts, but the writing and argument must stay the student's own. The school supervisor remains the formal guide throughout the process."
    },
    {
-    "question": "My child is moving from a different curriculum into the Diploma Programme mid-year. Can a tutor help catch up?",
-    "answer": "Yes, though how much depends on the subject and how far into the two-year programme the student already is. A tutor's first session usually maps what the new school has already covered against what the student actually knows, then builds a plan around the specific gap rather than restarting the whole syllabus. Starting six months into Year 1 leaves reasonable room to close gaps before internal assessments begin. Starting close to Year 2 mock examinations limits what is realistically achievable, and an honest tutor will say so rather than promise a full recovery in a few weeks."
+    "question": "My child is moving into the Diploma Programme mid-year. Can a tutor help catch up?",
+    "answer": "Yes. The tutor first compares what your child has covered with the DP syllabus, then builds a gap-closing plan in the order the school will teach it. Starting with the subjects that have internal assessment deadlines usually relieves the most pressure."
    },
    {
     "question": "Are fees the same across PYP, MYP, DP and CP tutoring?",
-    "answer": "No, fees vary by programme, subject, tutor experience and whether sessions are online, at home or hybrid, and can be reviewed once a shortlist is put together for the specific situation. Diploma and Career-related tutoring, particularly for higher-level subjects or IA and Extended Essay support, generally commands a different rate than early PYP support, reflecting the depth of subject and assessment knowledge required. Home tutoring also tends to cost more than online, given travel time. It is worth asking for a clear per-session rate before committing rather than an estimate that changes once sessions begin."
+    "answer": "No. Fees vary with the tutor's experience, the level and whether sessions are online or at home. DP and exam-focused tutoring generally costs more than primary support. We share a fee range before you commit, so you can compare it with your budget."
    },
    {
-    "question": "Does online tutoring really work for a young child in the Primary Years Programme?",
-    "answer": "It can, but it is genuinely harder than for an older student, and this is worth saying plainly rather than glossing over. A five- or six-year-old's attention on a screen is shorter, and a tutor has less ability to physically redirect focus or handle materials together. It tends to work better for slightly older PYP students, or for short, focused sessions rather than long ones. Where it matters most to a family, home tutoring, subject to a tutor's availability in that city, is usually the stronger option for the very youngest learners."
+    "question": "Does online tutoring work for a young child in the PYP?",
+    "answer": "It can, when sessions are short, visual and interactive, and a parent is nearby for the first few weeks. Tutors use shared whiteboards, games and reading together. If your child struggles to stay focused online, we can look at home tutoring where it is offered."
    },
    {
     "question": "What happens if the first tutor is not the right fit?",
-    "answer": "The match can be reviewed and changed. A first tutor is a starting point based on the information given at enquiry, not a commitment for the rest of the programme, and mismatches on pace, personality or subject depth happen and are handled rather than treated as a fixed outcome. It helps to be specific about what is not working, since 'too fast' and 'does not explain IA criteria clearly' point to different replacements. Four weeks is usually enough to tell whether a change is genuinely needed rather than simply an adjustment period."
-   },
-   {
-    "question": "Can a tutor help with mock exam technique specifically, rather than just content?",
-    "answer": "Yes, and for Diploma and Career-related students this is often where a tutor adds the most value close to a mock or the real examination session. That means reviewing how marks were actually lost section by section against the mark scheme, timing practice under real conditions, and command-term precision, since the difference between 'describe' and 'evaluate' costs marks constantly at this level. It is different from general content revision, and a family closer to an exam date should say so explicitly, since the two need different session structures entirely."
-   },
-   {
-    "question": "Is home tutoring available for IB programmes outside the cities listed on this page?",
-    "answer": "It depends entirely on whether a tutor happens to be available to travel to that specific address, which is not guaranteed everywhere. Coverage is currently strongest in cities including Ahmedabad, Bangalore, Chennai, Delhi and the others listed above, and thinner elsewhere. Where no local tutor covers an address, online tutoring remains fully available, runs in the family's own time zone, and for Diploma subjects with fewer specialists in any one city, it is often the more practical route regardless of location."
-   },
-   {
-    "question": "How is a student's progress actually tracked over a term?",
-    "answer": "Through specifics rather than a general sense of improvement: which assessment criteria a piece of work now meets, how a mock exam breaks down by section, which command terms are still being misread, whether an IA has moved from a first draft toward something markable. A parent should expect this kind of detail after the first month, not a vague 'doing well.' For DP and CP students in particular, tracking is tied to the actual internal assessment and examination calendar the school has set, not a generic timeline."
-   },
-   {
-    "question": "What if the family is not sure which programme applies, for example after moving country mid-year?",
-    "answer": "That is common enough that it is worth raising directly at enquiry rather than guessing. Programme structures and terminology differ between schools even within the same IB framework, and a tutor experienced across multiple programmes can help identify what a school's own documents actually mean in practice, since what a school calls an assessment task does not always map cleanly onto standard IB terminology. Sharing the school's actual assessment outline or IA brief at the first session resolves this faster than trying to describe it secondhand over email."
-   },
-   {
-    "question": "Is IB Gram affiliated with the IB Organization or with individual schools?",
-    "answer": "No. IB Gram is an independent tutoring platform and is not officially affiliated with the IB Organization, Cambridge International or Pearson Edexcel, and it does not represent any particular school. Tutors are matched to work alongside whatever curriculum and internal assessment calendar the student's own school has set, using the school's actual materials and deadlines rather than a generic version of the syllabus. Families should treat any platform claiming an official IB partnership with caution, since the IB Organization itself does not endorse individual tutoring providers."
+    "answer": "Tell us after the first or second session and we will arrange a replacement tutor for the same programme and subject, usually within a few days. Your child's session notes and marked work carry over, so the new tutor does not begin from zero and no lessons are repeated."
    }
   ],
   "internalLinks": [
@@ -60690,7 +60648,7 @@
   },
   "finalCta": "Tell IB Gram the programme, the subject and what is actually going wrong — a stuck IA, a Paper 2 that will not move, a child who has fallen behind after a school move — and a shortlist of tutors matched to that specific situation follows, online worldwide or at home where a tutor is available nearby.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with the IB Organization, Cambridge International or Pearson Edexcel.",
-  "lastUpdated": "2026-09-16"
+  "lastUpdated": "2026-10-26"
  },
  {
   "pageId": "IBG_PROGRAMMES_CP",
@@ -61206,6 +61164,16 @@
   "citySlug": "india",
   "primaryKeyword": "IB DP tutor",
   "secondaryKeywords": [
+   "IB Diploma tutor",
+   "IBDP tutor",
+   "IB Diploma Programme tutoring",
+   "IB DP online tutor",
+   "IB HL tutor",
+   "IB SL tutor",
+   "IB Extended Essay help",
+   "IB TOK tutor",
+   "IB Internal Assessment help",
+   "IB DP home tutor",
    "DP tutor",
    "IB Diploma Programme tutor",
    "IB DP HL tutor",
@@ -61214,8 +61182,7 @@
    "IB Physics HL tutor",
    "IB IA tutor",
    "IB Extended Essay supervisor",
-   "IB TOK essay help",
-   "IB DP online tutor"
+   "IB TOK essay help"
   ],
   "serviceFocus": "IB Diploma Programme",
   "programmes": [
@@ -61248,18 +61215,18 @@
    "Greater Noida"
   ],
   "schoolsMentioned": [],
-  "metaTitle": "IBDP Tutor for HL and SL Subjects, IA and the DP Core | IB Gram",
-  "metaDescription": "IBDP tutoring matched by subject and level, plus the DP core: Theory of Knowledge, the Extended Essay and CAS. Online worldwide, home where a tutor is local.",
-  "ogTitle": "IB DP Tutor — HL & SL Subjects, IA, EE and TOK | IB Gram",
-  "ogDescription": "IB DP tutoring for HL and SL subjects, Internal Assessment, Extended Essay, TOK and final exam revision. Verified specialists, online, home or hybrid India.",
+  "metaTitle": "IB DP Tutor for HL and SL Subjects and the Core",
+  "metaDescription": "Match your child with an IB DP tutor for any HL or SL subject, plus TOK, the Extended Essay and CAS guidance. Online worldwide, home in some cities.",
+  "ogTitle": "IB DP Tutor for HL and SL Subjects and the Core",
+  "ogDescription": "Match your child with an IB DP tutor for any HL or SL subject, plus TOK, the Extended Essay and CAS guidance. Online worldwide, home in some cities.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IB DP Tutor — HL & SL Subjects, IA, EE and TOK | IB Gram",
-  "twitterDescription": "IB DP tutoring for HL and SL subjects, Internal Assessment, Extended Essay, TOK and final exam revision. Verified specialists, online, home or hybrid India.",
+  "twitterTitle": "IB DP Tutor for HL and SL Subjects and the Core",
+  "twitterDescription": "Match your child with an IB DP tutor for any HL or SL subject, plus TOK, the Extended Essay and CAS guidance. Online worldwide, home in some cities.",
   "breadcrumbTitle": "IBDP Tutors for HL and SL Subjects and the DP Core: TOK, EE and CAS",
   "h1": "IBDP Tutors for HL and SL Subjects and the DP Core: TOK, EE and CAS",
   "heroTitle": "Specialist IBDP support for HL and SL subjects, IA and the DP core",
   "heroSubtitle": "A DP timetable rarely leaves room for a fixed evening slot. IB Gram matches your family with a subject-specific tutor for HL and SL courses and for the DP core — Theory of Knowledge, the Extended Essay and CAS — working in your own time zone, whether you need one subject shored up or a full six-subject support plan.",
-  "introSummary": "The DP core is the part families ask about last and worry about most: Theory of Knowledge, the Extended Essay and CAS sit alongside six subjects at Higher or Standard Level, and none of the three behaves like a normal exam paper. IBDP tutors on IB Gram are matched by subject and level — HL Physics is not the same search as SL Physics — and they work on the core the same way: TOK essay and exhibition structure, an Extended Essay research question that is actually answerable in 4,000 words, CAS reflections that a coordinator will accept. Lessons run online worldwide in the family's own time zone, with home and hybrid tutoring where a tutor happens to be local. Matching depends on subject, level and the tutor's current availability, not a guarantee of instant access.",
+  "introSummary": "An IB DP tutor teaches the Diploma Programme subject by subject, at Higher or Standard Level, and also supports the core: Theory of Knowledge, the Extended Essay and CAS. Tutors are matched by subject and level, sessions run online worldwide or at home in selected cities, and a trial lesson comes first.",
   "contentBlocks": [
    {
     "type": "intro",
@@ -61398,47 +61365,27 @@
   "faqs": [
    {
     "question": "What is the DP core, and can a tutor help with it?",
-    "answer": "The DP core is the three compulsory components every Diploma Programme student completes alongside six subjects: Theory of Knowledge, the Extended Essay and CAS. TOK and the Extended Essay are graded together on a matrix worth up to three of the 45 diploma points, and CAS is ungraded but required for the award. A tutor can coach TOK essay structure, narrow an EE research question and talk through CAS reflections — not write any of them."
+    "answer": "The core has three parts: Theory of Knowledge, the Extended Essay and CAS. A tutor can help your child plan a TOK essay or exhibition, narrow an Extended Essay question and structure arguments, and reflect properly on CAS. Tutors guide and give feedback; the student writes everything."
    },
    {
-    "question": "How is DP tutoring different from IGCSE or MYP tutoring?",
-    "answer": "DP tutoring is built around criterion-related assessment, command terms and the IA/EE/TOK/CAS structure unique to the Diploma Programme, so it differs from IGCSE tutoring, which is exam-board content revision, and from MYP tutoring, which is broader and less exam-specific. A DP tutor should be comfortable with HL versus SL syllabus depth and with mark-scheme language for the exact subject, not just general IB familiarity. If your child is moving from MYP into DP, mention that during matching — the transition itself, particularly the jump in independent workload, is often the actual issue rather than any single subject."
+    "question": "How is DP tutoring different from MYP or IGCSE tutoring?",
+    "answer": "DP tutoring is more exam- and criteria-driven. Students sit external papers at HL and SL, complete internal assessments in most subjects, and balance six subjects plus the core. Tutors therefore teach content, mark scheme language and time management together, and often coordinate IA deadlines across subjects."
    },
    {
-    "question": "Can a tutor actually help with the Extended Essay without writing it?",
-    "answer": "No tutor should write or substantially redraft an Extended Essay — that breaches academic honesty rules and risks the essay being disqualified at moderation. What a tutor can do is act like a supervisor: reviewing the research question for focus, checking argument structure and sourcing, and flagging where analysis has slipped into description. Useful EE support looks like short, regular check-ins rather than long sessions, because the actual writing has to remain the student's own work throughout. If a tutor offers to 'help write' sections directly, that is a warning sign worth acting on immediately."
+    "question": "Can a tutor guide the Extended Essay without writing it?",
+    "answer": "Yes. A good tutor helps with research question refinement, source evaluation, outlining and feedback against the assessment criteria. They read drafts and point out weak argument or missing evidence. The words, analysis and conclusions must remain the student's, since supervisors and the IB check authenticity."
    },
    {
-    "question": "Does online tutoring really work for a subject like HL Maths?",
-    "answer": "It depends on the subject more than on online tutoring generally. HL Maths, sciences and economics work well online because a shared whiteboard and screen-annotated past papers cover most of what a lesson needs. Subjects with heavy discussion, like some Language A or Individuals and Societies courses, still work online but benefit from a tutor deliberately building in more back-and-forth rather than lecturing at a screen. Where online genuinely struggles is with a student who needs physical presence to stay focused — that is a real limitation, and home or hybrid tutoring usually serves that student better."
+    "question": "Does online tutoring work for a subject like HL Maths?",
+    "answer": "It does, with the right setup. A shared digital whiteboard lets the tutor see each step of working and correct errors immediately, and sessions can be recorded for revision. Many HL Maths and Sciences students prefer online because it widens the choice of specialist tutors beyond their city."
    },
    {
-    "question": "What happens if my child's predicted grade doesn't move?",
-    "answer": "First, a specific look at why — is it exam technique, gaps in one topic, or something with the IA and mocks pulling the average down. A predicted grade that has not moved after a reasonable stretch, usually six to eight weeks, is worth raising directly with the tutor rather than waiting through the term. Sometimes the fix is more session frequency; sometimes it is the wrong tutor for that specific subject and level. IB Gram treats a tutor change at that point as normal problem-solving, not as a failure of the plan or the student."
-   },
-   {
-    "question": "How much does an IB Diploma Programme tutor cost?",
-    "answer": "Fees are set between the family and the individual tutor, and they vary by subject, level, tutor experience and session frequency, so there is no single number that applies across HL Physics, EE supervision and a Group 6 arts subject alike. It is reasonable to ask a shortlisted tutor for a written plan with a per-session rate and an estimate of total sessions before an exam session, rather than agreeing verbally. Comparing that plan against what a specific problem actually needs — one weak topic versus a full six-subject overhaul — usually matters more than comparing headline rates alone."
+    "question": "What if my child's predicted grade does not move?",
+    "answer": "We review after a few weeks. The tutor shares session notes and timed-paper results, and we check whether the plan targets the real weakness, which is often exam technique rather than content. If it still is not working, we change the approach or the tutor without extra cost."
    },
    {
     "question": "Can we change tutors partway through the year?",
-    "answer": "Yes, and it is more common than families expect — a subject mismatch or a personality mismatch usually surfaces a few sessions in, not on day one. IB Gram supports moving to a different tutor without treating it as starting over; the school feedback, mock results and diagnostic notes from the first attempt carry over and usually make the second match faster. Waiting through a poor fit to avoid an awkward conversation is the more expensive choice, since exam-session timelines do not pause while a mismatch gets tolerated."
-   },
-   {
-    "question": "Is home tutoring available everywhere, or only in certain cities?",
-    "answer": "Home tutoring depends entirely on a tutor already being local to the family, so it is available in some cities and not others, and coverage tends to cluster where several IB schools sit close together. Online tutoring is available worldwide regardless of city, run in the family's own time zone, which is why most DP families end up using it for at least one subject even if they also arrange home tutoring for another. If home tutoring is not available locally, a hybrid plan — online for the subject, occasional in-person catch-ups if a tutor is ever nearby — is usually the realistic middle option."
-   },
-   {
-    "question": "How soon before May or November exams should we start?",
-    "answer": "Earlier is easier, but a late start is not wasted if the goal is scoped honestly. Beginning in year one, well before IA deadlines and mocks land in year two, gives a tutor time to build subject depth rather than just patch gaps. Starting six to ten weeks before a May or November session still works for closing a specific, identified weakness — a shaky topic, exam technique under time pressure — but it is not realistic for rebuilding an entire subject from a low base in that window, and a straightforward tutor will say so rather than overpromise."
-   },
-   {
-    "question": "Will the tutor coordinate with my child's school or IB coordinator?",
-    "answer": "Tutors are encouraged to work from whatever the school's IB coordinator has already provided — IA rubric comments, mock exam papers, the current predicted grade — rather than starting from a blank syllabus outline. IB Gram itself has no relationship with any school or its coordinator and does not contact schools directly; that channel stays between the family and the school. What a tutor can do is ask the family to bring that feedback into sessions, since it is usually more precise than a general 'weak in this subject' description and saves time that would otherwise go into re-diagnosing something already known."
-   },
-   {
-    "question": "Is IB Gram affiliated with the IB Organization?",
-    "answer": "No. IB Gram is an independent tutoring platform and has no official affiliation with the IB Organization, Cambridge International or Pearson Edexcel. It does not set the DP syllabus, mark any assessment, or speak on behalf of any exam board — it matches families with tutors who are familiar with how those bodies structure and assess the Diploma Programme. Any claim of official partnership from a tutoring platform is worth double-checking directly with the exam board in question, since IB Gram makes no such claim and structures its service accordingly."
+    "answer": "Yes. Tell us what is not working, whether it is pace, teaching style or scheduling, and we match a new tutor with a handover of the previous notes so your child does not repeat work. Changes mid-year are common, particularly after a mock exam result."
    }
   ],
   "internalLinks": [
@@ -61752,7 +61699,7 @@
   },
   "finalCta": "If you know the subject, the level and the specific problem — a shaky IA, a stuck predicted grade, exam technique that is not holding under time pressure — that is enough to start. Describe it, and IB Gram matches you with tutors who have taught that exact subject and level, online worldwide or locally where a tutor is available.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with the IB Organization, Cambridge International or Pearson Edexcel.",
-  "lastUpdated": "2026-09-16"
+  "lastUpdated": "2026-10-26"
  },
  {
   "pageId": "IBG_PROGRAMMES_MYP",
@@ -62307,14 +62254,19 @@
   "citySlug": "india",
   "primaryKeyword": "PYP tutor",
   "secondaryKeywords": [
-   "IB PYP tutor",
-   "PYP maths tutor",
-   "PYP English tutor",
-   "PYP online tutor",
    "PYP tutoring",
+   "IB PYP tutor",
+   "PYP online tutor",
+   "Primary Years Programme tutor",
+   "PYP Exhibition help",
+   "PYP maths tutor",
+   "PYP reading tutor",
+   "unit of inquiry support",
+   "IB primary tutor",
+   "PYP home tutor",
+   "PYP English tutor",
    "PYP exhibition tutor",
-   "IB primary years tutor",
-   "PYP home tutor"
+   "IB primary years tutor"
   ],
   "serviceFocus": "IB Primary Years Programme",
   "programmes": [
@@ -62347,18 +62299,18 @@
    "Greater Noida"
   ],
   "schoolsMentioned": [],
-  "metaTitle": "PYP Tutor for Reading, Maths and the PYP Exhibition | IB Gram",
-  "metaDescription": "PYP tutors for ages 3 to 12, working inside your child's current unit of inquiry: reading, number sense and PYP Exhibition research. Online or at home.",
-  "ogTitle": "IB PYP Tutor — PYP Tuition | Home & Online Tutors | IB Gram",
-  "ogDescription": "IB PYP tutoring for reading, numeracy, units of inquiry and the PYP Exhibition. Age-matched tutors for ages 3 to 12, online, home or hybrid India.",
+  "metaTitle": "PYP Tutor for Ages 3-12 | Reading, Maths, Exhibition",
+  "metaDescription": "Find a PYP tutor for ages 3 to 12 who works inside your child's unit of inquiry: reading, number sense and Exhibition support, online or at home.",
+  "ogTitle": "PYP Tutor for Ages 3-12 | Reading, Maths, Exhibition",
+  "ogDescription": "Find a PYP tutor for ages 3 to 12 who works inside your child's unit of inquiry: reading, number sense and Exhibition support, online or at home.",
   "ogImage": "https://www.ibgram.com/images/ib-gram-city-og.svg",
-  "twitterTitle": "IB PYP Tutor — PYP Tuition | Home & Online Tutors | IB Gram",
-  "twitterDescription": "IB PYP tutoring for reading, numeracy, units of inquiry and the PYP Exhibition. Age-matched tutors for ages 3 to 12, online, home or hybrid India.",
+  "twitterTitle": "PYP Tutor for Ages 3-12 | Reading, Maths, Exhibition",
+  "twitterDescription": "Find a PYP tutor for ages 3 to 12 who works inside your child's unit of inquiry: reading, number sense and Exhibition support, online or at home.",
   "breadcrumbTitle": "IB PYP Tutors for Reading, Maths and the PYP Exhibition",
   "h1": "IB PYP Tutors for Reading, Maths and the PYP Exhibition",
   "heroTitle": "Calm, enquiry-friendly PYP support for young learners",
   "heroSubtitle": "A tutor who knows there's no May or November exam in PYP, working on reading, number sense and Exhibition research inside whatever unit of inquiry your child's class is currently covering, whether that's early literacy at age six or Exhibition planning at eleven.",
-  "introSummary": "IB Primary Years Programme tutors help with the actual shape of PYP learning: reading and number-sense development, writing structure, and support for the units of inquiry a child's class is currently working through, plus the PYP Exhibition in the final year. Unlike the Diploma Programme, PYP has no May or November exam sitting and no past papers to practise — assessment happens through classroom observation and end-of-unit summative tasks instead. IB Gram matches families with tutors experienced specifically in this age band and framework, for online sessions worldwide, or home tutoring depending on tutor availability nearby.",
+  "introSummary": "A PYP tutor supports children aged 3 to 12 in the IB Primary Years Programme by working inside the current unit of inquiry. Sessions build reading fluency, number sense and the research habits needed for the PYP Exhibition, in short, playful blocks. Lessons run online or at home, and a trial comes first.",
   "contentBlocks": [
    {
     "type": "intro",
@@ -62483,48 +62435,28 @@
   ],
   "faqs": [
    {
-    "question": "What does PYP stand for, and what does the programme cover?",
-    "answer": "PYP stands for the Primary Years Programme, the International Baccalaureate's framework for children aged 3 to 12. It covers six subject areas — language, mathematics, science, social studies, arts, and personal, social and physical education — taught through six transdisciplinary themes such as 'Who we are' and 'Sharing the planet'. The final year ends in the PYP Exhibition, a student-led inquiry project. There is no external examination at any stage of PYP."
+    "question": "What does a PYP tutor actually do?",
+    "answer": "A PYP tutor reinforces what your child is already learning, rather than teaching a separate syllabus. That means reading and writing practice, number sense and problem solving, and help turning curiosity into questions during a unit of inquiry. Sessions are short and activity-based, and the tutor keeps the school's learner profile language in mind."
    },
    {
-    "question": "Does the Primary Years Programme have exams like the Diploma Programme?",
-    "answer": "No. PYP has no external exam sitting, no May or November session, and no Paper 1 or Paper 2 the way the Diploma Programme does. Assessment happens continuously, through classroom observation, portfolios and a summative task at the end of each unit of inquiry. The closest thing to a single big moment is the PYP Exhibition in the final year, a collaborative research project, not a written exam. Parents searching with DP terms like 'past papers' or 'mock exams' for PYP won't find an equivalent, because the programme is genuinely built differently."
+    "question": "Are there exams in the Primary Years Programme?",
+    "answer": "No. PYP assessment is continuous and based on classroom work, teacher observation and portfolios, with no external IB exams. Tutoring therefore focuses on confidence, skills and understanding instead of past papers. The main milestone is the PYP Exhibition in the final year, where students investigate an issue of their own choosing."
    },
    {
-    "question": "How late is too late to start tutoring before the Exhibition?",
-    "answer": "There's no fixed cutoff, but the useful window narrows fast in the final weeks. The Exhibition is a term-long collaborative research project, and support that works best starts while the research question is still being shaped, not once slides are already being built. A tutor joining in the last week or two can still help with structure, presentation and confidence, but can't meaningfully influence research depth at that point. If the Exhibition is the main concern, starting even a few weeks earlier than feels necessary is genuinely worth it."
-   },
-   {
-    "question": "How much does PYP tutoring cost?",
-    "answer": "Fees depend on the tutor's experience and the session length, and are confirmed before booking rather than fixed platform-wide. A tutor with specific early-literacy or numeracy-intervention experience is typically priced differently from a general primary tutor, and that difference is real, not arbitrary. Home tutoring may cost differently from online tutoring with the same person, since travel time is a genuine cost. Ask for a clear number before committing, and expect it to be reviewed if the child's needs change, for example moving from general support into focused Exhibition help."
+    "question": "When should we start tutoring for the PYP Exhibition?",
+    "answer": "Ideally at the start of the Exhibition unit, when the student picks a topic and drafts central questions. A tutor can then help with planning, source reading, note taking and presenting. Starting later still helps, but the tutor can only support organisation and communication, not rescue weak research."
    },
    {
     "question": "Is my child too young for online tutoring?",
-    "answer": "It depends on the child more than the age, but roughly under seven or eight, home tutoring is usually more practical, since young children often need physical materials, frequent redirection, and someone in the room to notice when attention has genuinely gone. Older PYP students, especially in the last year or two of the programme, generally manage online sessions well. If home tutoring isn't available in your area, online can still work for a younger child, but expect shorter, more structured sessions rather than a full hour of screen-based work."
+    "answer": "Not if the lessons are designed for their age. Children from about five can manage twenty to thirty minutes online with games, drawing and a shared screen, and a parent nearby for the first sessions. For the youngest learners or children who struggle to sit still, home tutoring is often the better choice."
    },
    {
-    "question": "Can we switch tutors if the match with our child isn't working?",
-    "answer": "Yes, and with young children this matters more than it might for an older student, because rapport affects how much a child actually engages. If a tutor's pace, tone or manner isn't landing after the first few sessions, ask for a different match rather than persisting out of politeness. The new match considers what specifically didn't work the first time, whether that was pace, personality or teaching style, so the second attempt is better informed than the first, not just a random reassignment."
+    "question": "Can the tutor follow my child's specific school?",
+    "answer": "Yes. Share the unit planner, the current transdisciplinary theme and any teacher feedback, and the tutor builds sessions around them. IB schools vary a lot in sequencing, so we ask for this before the first lesson. If the school sends little homework, the tutor creates short practice tasks instead."
    },
    {
-    "question": "What if my child's school doesn't set homework in PYP?",
-    "answer": "Some schools genuinely don't, especially in the early years, trusting the unit of inquiry process itself to build skills without formal take-home work. That doesn't mean there's nothing to work on with a tutor; it means the tutor's first job is finding out, directly from you and your child, what's currently being covered in class, since there's no worksheet to check against. Tutoring in this situation tends to focus on core skills like reading and number sense alongside whatever the current unit's themes are, rather than following a homework sheet that doesn't exist."
-   },
-   {
-    "question": "Will a PYP tutor follow what my child's exact school is doing?",
-    "answer": "As closely as the tutor can, though IB Gram has no access to any school's internal planning and PYP looks different from one school to the next even within the same framework. The first session or two usually involves the tutor asking what the current unit of inquiry is, what the teacher has emphasised, and what a typical week of homework and assessment looks like at this specific school. From there, tutoring is shaped around that reality rather than a generic version of PYP that may not match what's actually happening in your child's classroom."
-   },
-   {
-    "question": "What should we see after a month of tutoring?",
-    "answer": "Something concrete and specific: a book read with less resistance, number facts recalled faster, a piece of writing with clearer structure, or simply calmer evenings around homework. If nothing like that is visible, ask the tutor directly what's been worked on. Progress at this age is genuinely uneven, sometimes invisible for weeks before it shows up all at once, so one quiet month isn't proof of a bad match on its own — but a tutor who can't explain the plan clearly when asked is a real warning sign worth acting on."
-   },
-   {
-    "question": "Are tutors checked for working safely with young children?",
-    "answer": "Yes. Alongside subject and IB PYP familiarity — units of inquiry, key concepts, the Learner Profile — tutors working with this age group are checked for conduct appropriate to working with minors, and for the patience and manner that this specific age band needs, which is a different requirement than for a teenager preparing for exams. Parents can ask specific questions about a proposed tutor's experience with this exact age range before agreeing to a first session, and should feel free to do so."
-   },
-   {
-    "question": "Does PYP tutoring guarantee my child moves up a reading level?",
-    "answer": "No, and any platform promising that isn't being honest about how young children actually develop. Reading and number-sense growth happens unevenly, in bursts, shaped by the individual child, the school's own teaching and consistency at home as much as by any single tutor. What IB Gram can offer is a tutor with a genuine, checkable background in early literacy or numeracy and in the PYP framework itself, working to a clear plan reviewed regularly with the parent — not a guaranteed outcome, but a properly informed effort toward one."
+    "question": "What if the tutor is not a good match for my child?",
+    "answer": "Tell us and we will arrange a different tutor at no extra cost. Young children respond strongly to personality and pace, so a poor fit is common and nothing to worry about. We usually ask for one or two sessions before judging, then adjust the style, age experience or timing."
    }
   ],
   "internalLinks": [
@@ -62799,6 +62731,6 @@
   },
   "finalCta": "If your child needs help with reading, number sense, or the Exhibition project, or you're simply unsure how PYP tutoring differs from exam-focused support, request a match with a tutor experienced in this exact age band. Share the current unit of inquiry and the actual concern, and start from there.",
   "schoolDisclaimer": "IB Gram is an independent tutoring platform and is not officially affiliated with the IB Organization, Cambridge International or Pearson Edexcel.",
-  "lastUpdated": "2026-09-16"
+  "lastUpdated": "2026-10-26"
  }
 ]

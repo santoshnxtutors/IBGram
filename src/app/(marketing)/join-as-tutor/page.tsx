@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { JoinOptions } from "@/components/tutors/JoinOptions";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
+import { getTutorJobDirectoryLinks } from "@/lib/tutor-jobs-seo";
 
 export const metadata: Metadata = {
   title: "Join as a Tutor — Teach IB and IGCSE Students",
@@ -73,6 +74,34 @@ export default function JoinAsTutorPage() {
             <div className="lg:order-1 lg:col-span-7">
               <JoinOptions />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The tutor-recruitment pages' only entry point from the rest of the site. Without it
+          they are orphans with zero internal links, which is what kept earlier page sets out
+          of the index even with clean sitemaps. */}
+      <section className="py-12 md:py-16">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-2xl font-extrabold tracking-tight text-foreground md:text-3xl">
+            Tutoring work by board, subject and location
+          </h2>
+          <p className="mt-3 max-w-2xl text-base font-medium leading-relaxed text-muted-foreground">
+            Longer guides to what each kind of tutoring involves — the curriculum detail, what you earn and the
+            terms you are agreeing to.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {getTutorJobDirectoryLinks().map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="group rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-primary/5"
+              >
+                <span className="text-sm font-bold text-foreground transition-colors group-hover:text-primary">
+                  {link.label}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
