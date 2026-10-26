@@ -38,9 +38,14 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
   const [visibleTutorCount, setVisibleTutorCount] = useState(INITIAL_VISIBLE_TUTORS);
 
   /**
-   * One lowercase haystack per tutor for the free-text box: name, the places they
-   * actually teach, and the countries they cover. Countries are stored as ISO codes,
-   * so they are resolved to names here - nobody searches for "ae".
+   * One lowercase haystack per tutor for the free-text box: name, subject, the places
+   * they actually teach, and the countries they cover. Countries are stored as ISO
+   * codes, so they are resolved to names here - nobody searches for "ae".
+   *
+   * Deliberately NOT indexed: `countryName`, which the DB mapper hardcodes to "India"
+   * for every tutor (so searching India would return the London and Lagos ones too),
+   * and `stateName`, which it hardcodes to "". Indexing either returns results that
+   * are wrong rather than merely incomplete.
    */
   const searchIndex = useMemo(() => {
     const index = new Map<string, string>();
@@ -56,8 +61,6 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
           tutor.subject,
           tutor.grade,
           tutor.primaryCity,
-          tutor.stateName,
-          tutor.countryName,
           ...(tutor.availableCities ?? []),
           ...(tutor.availableAreas ?? []),
           ...countryNames,
@@ -137,7 +140,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
             Search the tutor directory
           </h2>
           <p className="mt-1.5 text-base leading-relaxed text-muted-foreground">
-            Search by country, state, city or the tutor&apos;s name.
+            Search by tutor name, city, country or subject.
           </p>
         </div>
 
@@ -148,7 +151,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
         >
           <div className="relative flex h-12 min-w-0 flex-1 items-center lg:h-14">
             <label className="flex h-full w-full items-center">
-              <span className="sr-only">Search by country, state, city or tutor name</span>
+              <span className="sr-only">Search by tutor name, city, country or subject</span>
               <input
                 type="search"
                 value={queryText}
@@ -156,7 +159,7 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
                   setQueryText(event.target.value);
                   handleSearch(event.target.value);
                 }}
-                placeholder="Search by country, state, city or tutor name"
+                placeholder="Search by tutor name, city, country or subject"
                 className="h-full w-full rounded-full border-none bg-transparent px-5 text-sm font-bold text-foreground outline-none placeholder:font-semibold placeholder:text-muted-foreground focus:ring-0 md:px-6 md:text-base"
               />
             </label>
@@ -233,28 +236,6 @@ export default function TutorsClient({ tutors }: { tutors?: Tutor[] } = {}) {
             >
               View More Tutors <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
             </button>
-          </div>
-        )}
-
-        {displayTutors.length === 0 && (
-          <div className="glassmorphism-heavy rounded-[3rem] border-2 border-dashed border-border/50 py-24 text-center">
-            <h3 className="mb-4 text-3xl font-black text-muted-foreground">No tutors represent this search.</h3>
-            <p className="mx-auto mb-8 max-w-md font-medium text-muted-foreground">
-              Try broadening your subject choice or curriculum grade to find more suitable tutor options.
-            </p>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => {
-                setSubjectFilter("Subject");
-                setGradeFilter("Grade");
-                setFilteredTutors(sourceTutors);
-                setVisibleTutorCount(INITIAL_VISIBLE_TUTORS);
-              }}
-              className="h-14 rounded-2xl border-2 px-8 font-bold"
-            >
-              Reset Filters
-            </Button>
           </div>
         )}
       </section>
