@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Payment } from "@prisma/client";
 import { CONTACT } from "@/lib/contact";
-import { formatDateTime, formatMoney } from "@/lib/payment-options";
+import { formatDateTime, formatMoney, formatPaymentMethod } from "@/lib/payment-options";
 
 // Print only the invoice: hide everything that is not the invoice or one of its ancestors.
 const PRINT_CSS = `@media print {
@@ -16,10 +16,7 @@ export function Invoice({ payment, copy = "user" }: { payment: Payment; copy?: "
   const amount = formatMoney(Number(payment.amount), payment.currency);
   const date = formatDateTime(payment.paidAt ?? payment.createdAt);
   const label = "text-[11px] font-bold uppercase tracking-widest text-[#e8780c]";
-  const method = payment.paymentMethod
-    ?.replace(/_/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase())
-    .replace(/\bUpi\b/g, "UPI");
+  const method = formatPaymentMethod(payment.paymentMethod);
   const details = [
     ["Invoice number", payment.orderId],
     ["Payment date", date],

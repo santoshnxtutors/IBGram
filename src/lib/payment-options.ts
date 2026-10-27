@@ -34,3 +34,30 @@ export function formatMoney(amount: number, currency: string) {
 export function formatDateTime(date: Date) {
   return new Intl.DateTimeFormat("en-IN", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kolkata" }).format(date);
 }
+
+/**
+ * UPI, netbanking, wallets and EMI settle only through Indian bank accounts. Offered to a customer
+ * abroad they produce a collect request nobody can approve, and Razorpay kills it with
+ * payment_timed_out - the silent failure that lost +966 and +971 customers. Outside India the
+ * checkout therefore shows cards and international methods only; inside India nothing changes.
+ * Shape: Razorpay Standard Checkout `config.display`.
+ */
+export function checkoutDisplayConfig(country: string) {
+  if (country === "IN") return undefined;
+  return {
+    display: {
+      hide: ["upi", "netbanking", "wallet", "paylater", "emi", "cardless_emi"].map((method) => ({ method })),
+      preferences: { show_default_blocks: true },
+    },
+  };
+}
+
+/** "upi" -> "UPI", "wallet" -> "Wallet": Razorpay's method code as a human reads it. */
+export function formatPaymentMethod(method: string | null | undefined) {
+  return (
+    method
+      ?.replace(/_/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase())
+      .replace(/\bUpi\b/g, "UPI") ?? null
+  );
+}

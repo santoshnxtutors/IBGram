@@ -1,7 +1,8 @@
 import { createHmac } from "node:crypto";
 import { describe, expect, it, vi } from "vitest";
 import { isValidWebhookSignature, paymentStatus } from "@/lib/razorpay";
-import { minorUnitFactor } from "@/lib/payment-options";
+import { paymentReceiptEmail } from "@/lib/emails";
+import { checkoutDisplayConfig, minorUnitFactor } from "@/lib/payment-options";
 
 vi.mock("@/lib/db", () => ({ prisma: {} }));
 
@@ -48,5 +49,58 @@ describe("isValidWebhookSignature", () => {
     expect(isValidWebhookSignature(body.replace("ABC123", "XYZ789"), signature, secret)).toBe(false);
     expect(isValidWebhookSignature(body, "short", secret)).toBe(false);
     expect(isValidWebhookSignature(body, signature, undefined)).toBe(false);
+  });
+});
+
+describe("checkoutDisplayConfig", () => {
+  const hidden = (country: string) => checkoutDisplayConfig(country)?.display.hide.map((h) => h.method) ?? [];
+
+  it("leaves the Indian checkout untouched so UPI keeps working", () => {
+    expect(checkoutDisplayConfig("IN")).toBeUndefined();
+  });
+
+  it("hides the India-only rails everywhere else", () => {
+    // The two +966 payments that timed out picked UPI from a Saudi phone - it can never complete.
+    for (const country of ["SA", "AE", "US", "GB", "JO"]) {
+      expect(hidden(country)).toContain("upi");
+      expect(hidden(country)).toContain("netbanking");
+    }
+    expect(checkoutDisplayConfig("SA")?.display.preferences.show_default_blocks).toBe(true);
+  });
+});
+
+describe("paymentReceiptEmail", () => {
+  const receipt = (over: Partial<Parameters<typeof paymentReceiptEmail>[0]> = {}) =>
+    paymentReceiptEmail({
+      customerName: "Leen Moayed Barry",
+      orderId: "order_TsdsMqRFonkUTu",
+      amount: "SAR 569.00",
+      paidOn: "26 Oct 2026, 2:03 pm",
+      tutorName: "Preeti Malhotra",
+      method: "Card",
+      transactionId: "pay_TsVNdJW4VcZyXn",
+      ...over,
+    });
+
+  it("carries the amount, invoice number and a download link", () => {
+    const { subject, html, text } = receipt();
+    expect(subject).toContain("order_TsdsMqRFonkUTu");
+    for (const body of [html, text]) {
+      expect(body).toContain("SAR 569.00");
+      expect(body).toContain("Preeti Malhotra");
+      expect(body).toContain("/payment/?order_id=order_TsdsMqRFonkUTu");
+    }
+  });
+
+  it("falls back to a generic description and drops the rows it has no data for", () => {
+    const { html } = receipt({ tutorName: null, description: null, method: null, transactionId: null });
+    expect(html).toContain("IB / IGCSE tutoring services");
+    expect(html).not.toContain("Transaction ID");
+  });
+
+  it("escapes customer-supplied text instead of injecting it as HTML", () => {
+    const { html } = receipt({ customerName: "<script>x</script>", description: 'Maths "HL" & SL' });
+    expect(html).not.toContain("<script>");
+    expect(html).toContain("Maths &quot;HL&quot; &amp; SL");
   });
 });

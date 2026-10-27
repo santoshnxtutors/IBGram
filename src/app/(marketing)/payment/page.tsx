@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CheckCircle2, Clock, XCircle, type LucideIcon } from "lucide-react";
 import { Invoice } from "@/components/payment/Invoice";
 import { InvoiceDownloadButton } from "@/components/payment/InvoiceDownloadButton";
-import { ORDER_ID_RE, syncPayment } from "@/lib/razorpay";
+import { ORDER_ID_RE, lastFailureReason, syncPayment } from "@/lib/razorpay";
 import { CONTACT } from "@/lib/contact";
 import { prisma } from "@/lib/db";
 import { PaymentForm } from "./PaymentForm";
@@ -92,9 +92,10 @@ async function PaymentResult({ orderId }: { orderId: string }) {
         actionHref={`/payment/?order_id=${orderId}`} actionLabel="Refresh status" />
     );
   }
+  const reason = await lastFailureReason(orderId);
   return (
     <Status icon={XCircle} tone="text-rose-600" title="Payment not completed" orderId={orderId}
-      text="The payment failed or was cancelled. Please try again." />
+      text={reason ? `${reason} Please try again.` : "The payment failed or was cancelled. Please try again."} />
   );
 }
 

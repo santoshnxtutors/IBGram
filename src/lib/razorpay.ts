@@ -3,7 +3,8 @@ import { prisma } from "@/lib/db";
 import { openConversation, displayName } from "@/lib/chat/service";
 import { ensureStudentAccount } from "@/lib/students";
 import { sendMail } from "@/lib/mail";
-import { chatUnlockedEmail } from "@/lib/emails";
+import { chatUnlockedEmail, paymentReceiptEmail } from "@/lib/emails";
+import { formatDateTime, formatMoney, formatPaymentMethod } from "@/lib/payment-options";
 
 // Server-only Razorpay PG client. Env names match .env and .github/workflows/deploy.yml.
 // Payment.orderId is Razorpay's own order id (order_XXXXXXXXXXXXXX), so status can always be re-read from Razorpay.
@@ -57,6 +58,16 @@ export function isValidWebhookSignature(rawBody: string, signature: string, secr
   return received.length === expected.length && timingSafeEqual(received, expected);
 }
 
+/**
+ * Razorpay's own words for why the last attempt on an order did not go through, so a failed payment
+ * page tells the customer something they can act on instead of a generic "please try again".
+ * Best-effort: never let this break the page.
+ */
+export async function lastFailureReason(orderId: string) {
+  const list = await razorpay<{ items?: { error_description?: string | null }[] }>(`/orders/${orderId}/payments`).catch(() => null);
+  return list?.items?.at(-1)?.error_description || null;
+}
+
 /** Copies an order's real status from Razorpay into the Payment table. Completed paid rows are final. */
 export async function syncPayment(orderId: string) {
   const existing = await prisma.payment.findUnique({ where: { orderId } });
@@ -72,7 +83,7 @@ export async function syncPayment(orderId: string) {
   const acquirer = success?.acquirer_data;
 
   // Guarded write: a slower, older sync can never turn a paid row back into pending/failed.
-  await prisma.payment.updateMany({
+  const { count } = await prisma.payment.updateMany({
     where:
       status === "paid"
         ? { orderId, OR: [{ status: { not: "paid" } }, { gatewayPaymentId: null }] }
@@ -89,10 +100,53 @@ export async function syncPayment(orderId: string) {
   });
   const payment = await prisma.payment.findUnique({ where: { orderId } });
 
-  // Paying for a tutor permanently opens that student <-> tutor thread.
-  if (payment?.status === "paid") await unlockTutorChat(payment);
+  // The receipt and the chat unlock fire exactly once: `count` is 1 only on the sync that actually
+  // wrote the row (so the webhook and the result page landing together cannot both send), and
+  // requiring `success` means gatewayPaymentId is now stored, which makes every later sync of this
+  // order return early at the top. Past paid rows already carry that id, so none of them re-send.
+  if (payment?.status === "paid" && count > 0 && success) {
+    await sendPaymentReceipt(payment);
+    // Paying for a tutor permanently opens that student <-> tutor thread.
+    await unlockTutorChat(payment);
+  }
 
   return payment;
+}
+
+/**
+ * Emails the customer their invoice the moment the payment is captured. Best-effort: a mail
+ * failure must never make Razorpay retry a payment that already went through.
+ */
+async function sendPaymentReceipt(payment: {
+  orderId: string;
+  amount: unknown;
+  currency: string;
+  customerName: string;
+  customerEmail: string;
+  tutorName: string | null;
+  note: string | null;
+  paymentMethod: string | null;
+  gatewayPaymentId: string | null;
+  paidAt: Date | null;
+  createdAt: Date;
+}) {
+  try {
+    await sendMail({
+      to: payment.customerEmail,
+      ...paymentReceiptEmail({
+        customerName: payment.customerName,
+        orderId: payment.orderId,
+        amount: formatMoney(Number(payment.amount), payment.currency),
+        paidOn: formatDateTime(payment.paidAt ?? payment.createdAt),
+        tutorName: payment.tutorName,
+        description: payment.note,
+        method: formatPaymentMethod(payment.paymentMethod),
+        transactionId: payment.gatewayPaymentId,
+      }),
+    });
+  } catch (error) {
+    console.error("[payment] could not email the invoice:", error);
+  }
 }
 
 /**

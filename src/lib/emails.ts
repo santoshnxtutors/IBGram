@@ -306,3 +306,71 @@ export function tutorProfileReminderEmail(input: { name: string; reminderNumber:
     text,
   };
 }
+
+/** HTML-escapes customer-supplied text (name, note) before it goes into an email body. */
+const esc = (value: string) =>
+  value.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c] ?? c);
+
+/** Sent to the customer the moment Razorpay captures their payment: receipt plus the invoice. */
+export function paymentReceiptEmail(input: {
+  customerName: string;
+  orderId: string;
+  amount: string;
+  paidOn: string;
+  tutorName?: string | null;
+  description?: string | null;
+  method?: string | null;
+  transactionId?: string | null;
+}) {
+  const firstName = input.customerName.split(" ")[0] || "there";
+  const invoiceUrl = `${SITE_URL}/payment/?order_id=${encodeURIComponent(input.orderId)}`;
+  const rows = [
+    ["Invoice number", input.orderId],
+    ["Payment date", input.paidOn],
+    ["Paid for", input.description || "IB / IGCSE tutoring services"],
+    ["Tutor", input.tutorName],
+    ["Payment method", input.method],
+    ["Transaction ID", input.transactionId],
+  ].filter((row): row is [string, string] => Boolean(row[1]));
+
+  const html = emailLayout(
+    "Payment received - thank you!",
+    p(`Hi ${esc(firstName)},`) +
+      p(
+        `We've received your payment of <strong>${esc(input.amount)}</strong>${
+          input.tutorName ? ` for sessions with <strong>${esc(input.tutorName)}</strong>` : ""
+        }. Your invoice is below, and you can download it as a PDF any time from the link.`,
+      ) +
+      `<table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin:18px 0;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;">
+         <tr><td style="padding:16px 18px;">
+           <p style="margin:0 0 8px;font-size:13px;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;">Invoice</p>
+           ${rows
+             .map(
+               ([term, value]) =>
+                 `<p style="margin:0 0 6px;font-size:15px;color:#111827;"><strong>${term}:</strong> ${esc(value)}</p>`,
+             )
+             .join("")}
+           <p style="margin:12px 0 0;padding-top:12px;border-top:1px solid #e5e7eb;font-size:17px;color:#111827;"><strong>Amount paid: ${esc(input.amount)}</strong></p>
+         </td></tr>
+       </table>` +
+      button(invoiceUrl, "View & download invoice (PDF)") +
+      p("Keep this email for your records. If anything looks wrong, just reply and we'll sort it out."),
+  );
+
+  const text = [
+    `Hi ${firstName},`,
+    "",
+    `We've received your payment of ${input.amount}${input.tutorName ? ` for sessions with ${input.tutorName}` : ""}.`,
+    "",
+    ...rows.map(([term, value]) => `${term}: ${value}`),
+    `Amount paid: ${input.amount}`,
+    "",
+    `Download your invoice: ${invoiceUrl}`,
+    "",
+    "Keep this email for your records. If anything looks wrong, just reply to this email.",
+    "",
+    "IB Gram",
+  ].join("\n");
+
+  return { subject: `Payment received - invoice ${input.orderId}`, html, text };
+}

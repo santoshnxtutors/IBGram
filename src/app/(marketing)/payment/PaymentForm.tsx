@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Lock, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SearchSelect, type Option } from "@/components/ui/search-select";
-import { CURRENCIES, DIAL_CODES, minorUnitFactor } from "@/lib/payment-options";
+import { CURRENCIES, DIAL_CODES, checkoutDisplayConfig, minorUnitFactor } from "@/lib/payment-options";
 
 const currencyName = new Intl.DisplayNames(["en"], { type: "currency" });
 const regionName = new Intl.DisplayNames(["en"], { type: "region" });
@@ -29,6 +29,7 @@ type RazorpayOptions = {
   prefill?: { name?: string; email?: string; contact?: string };
   notes?: Record<string, string>;
   theme?: { color: string };
+  config?: ReturnType<typeof checkoutDisplayConfig>;
   handler: () => void;
   modal?: { ondismiss?: () => void };
 };
@@ -91,6 +92,8 @@ export function PaymentForm({ tutors, defaultTutorId }: { tutors: { id: string; 
           contact: `+${DIAL_CODES[payload.country] ?? ""}${payload.phone.replace(/\D/g, "").replace(/^0+/, "")}`,
         },
         theme: { color: "#f7941d" },
+        // Outside India UPI and the other domestic rails can never complete - don't offer them.
+        config: checkoutDisplayConfig(payload.country),
         handler: () => {
           window.location.href = result;
         },
@@ -188,7 +191,7 @@ export function PaymentForm({ tutors, defaultTutorId }: { tutors: { id: string; 
               inputMode="decimal"
               min={1}
               step={1 / minorUnitFactor(currency)}
-              placeholder="Enter amount"
+              placeholder={`Amount in ${currency}`}
               className={field}
             />
           </label>
