@@ -2,8 +2,8 @@
 {
  "slug": "the-gdc-advantage-in-ib-dp-mathematics-aa-hl",
  "title": "GDC in IB Math AA HL: The Techniques That Win Paper 2 and Paper 3 Marks, and the Traps That Cost Them",
- "metaTitle": "GDC in IB Math AA HL: Techniques for Papers 2 and 3",
- "metaDescription": "GDC in IB Math AA HL explained: solver, graph analysis, numerical calculus, statistics and exam mode, with worked examples and the cases where the calculator hurts.",
+ "metaTitle": "What Is a GDC in Maths? IB Calculator Guide",
+ "metaDescription": "GDC stands for Graphic Display Calculator. What the GDC in IB Math AA HL actually does, which model to choose, and the Paper 2 marks it wins or loses.",
  "excerpt": "A practical guide to the graphic display calculator in Analysis and Approaches HL: the five menus worth mastering, how to show GDC working so marks are awarded, a practice calendar, and the questions where reaching for the calculator is a mistake.",
  "metaKeywords": ["GDC in IB Math AA HL", "GDC IB maths AA HL", "graphic display calculator IB maths", "IB Math AA HL Paper 2 calculator", "IB Math AA HL Paper 3 GDC", "IB maths calculator techniques", "GDC exam mode IB", "IB maths GDC tutor"],
  "tags": ["IB DP", "Maths AA", "Exam strategy", "Past papers", "Study plan", "Gurgaon"]

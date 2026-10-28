@@ -2,8 +2,8 @@
 {
  "slug": "stem-subject-choice-ib-dp",
  "title": "IB DP STEM Subject Choice: Which Maths and Science Combination Fits Your Degree Goal",
- "metaTitle": "IB DP STEM Subject Choice: HL and SL Combinations | IB Gram",
- "metaDescription": "IB DP STEM subject choice explained: which HL and SL maths and science combinations suit engineering, medicine, computer science and pure science.",
+ "metaTitle": "IB DP STEM Subjects: Maths AA or AI, Physics, Chemistry",
+ "metaDescription": "IB DP STEM subject choice by university pathway: engineering, medicine, computer science or research. Maths AA vs AI, HL picks and combinations to avoid.",
  "excerpt": "How to pick Mathematics AA or AI and the right sciences at HL and SL for engineering, medicine, computer science or pure science, with a way to check requirements and the regret scenarios to avoid.",
  "metaKeywords": ["IB DP STEM subject choice", "IB subject choice for engineering", "IB subjects for medicine", "IB subjects for computer science", "Maths AA HL or AI HL", "Physics HL or Chemistry HL", "IB HL SL combinations STEM", "which IB subjects for engineering"],
  "tags": ["IB DP", "Subject choice", "Maths AA", "Maths AI", "Physics", "Chemistry", "Biology", "University"]

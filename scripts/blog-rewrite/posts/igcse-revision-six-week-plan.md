@@ -2,8 +2,8 @@
 {
  "slug": "igcse-revision-six-week-plan",
  "title": "A Six-Week IGCSE Revision Plan for Maths, Science and English, Week by Week",
- "metaTitle": "Six-Week IGCSE Revision Plan, Week by Week | IB Gram",
- "metaDescription": "A six-week IGCSE revision plan covering triage, spaced retrieval, past-paper weeks and the final week, built for several subjects at once. Includes timetables.",
+ "metaTitle": "IGCSE Study Plan: A 6-Week Revision Schedule",
+ "metaDescription": "A six-week IGCSE revision plan and study schedule: triage your weakest subjects in week 1, rebuild topics, then move to timed past papers and technique.",
  "excerpt": "Six weeks is enough to change an IGCSE result if the time is used on triage, retrieval and timed papers instead of rereading. Here is the plan, week by week, for students juggling maths, sciences, English and more.",
  "metaKeywords": ["six-week IGCSE revision plan", "IGCSE revision timetable", "IGCSE revision plan 6 weeks", "how to revise for IGCSE", "IGCSE revision schedule multiple subjects", "IGCSE last six weeks", "IGCSE past paper revision", "IGCSE study plan before exams", "Cambridge IGCSE revision", "Edexcel International GCSE revision"],
  "tags": ["IGCSE", "Study plan", "Exam strategy", "Past papers", "Cambridge", "Edexcel"]

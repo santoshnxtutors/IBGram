@@ -155,3 +155,6 @@ Iamuseragent.json
 .claude/
 .agents/
 .playwright-mcp/
+
+# GSC analytics dumps: business performance data, public repo
+scripts/gsc/ctr-targets.json
