@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- plain CommonJS maintenance script, run with bare node */
 // Compares every rewritten post on disk against the row the site actually serves.
 // The rewrite is only live to the extent write-db.ts has been run; this reports
 // the gap rather than assuming it was deployed.

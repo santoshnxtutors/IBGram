@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- plain CommonJS maintenance script, run with bare node */
 // Retitles blog posts whose ranking queries ask for something their title did not
 // promise, and keeps the md frontmatter and the live DB row in step. Each patch cites
 // the GSC queries that justify it. Descriptions must keep the post's PLAN primary

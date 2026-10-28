@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- plain CommonJS maintenance script, run with bare node */
 // Inbound internal-link counts per destination across every JSON page store.
 // A page Google ranks on page 2 with no inbound links has a link problem, not a
 // content problem, so this is the number that decides which fix applies.
