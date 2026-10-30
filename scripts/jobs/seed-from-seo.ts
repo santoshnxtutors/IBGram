@@ -13,6 +13,7 @@
  */
 import { PrismaClient } from "@prisma/client";
 import { tutorJobSeoPages } from "../../src/lib/tutor-jobs-seo/pages";
+import type { TutorJobSeoPage } from "../../src/lib/tutor-jobs-seo/types";
 
 const WRITE = process.argv.includes("--write");
 const db = new PrismaClient();
@@ -24,7 +25,7 @@ const LOCATION: Record<string, string> = {
 };
 
 /** Duties, composed only from claims the page itself already makes. */
-function responsibilitiesFor(page: any): string[] {
+function responsibilitiesFor(page: TutorJobSeoPage): string[] {
   const base = [
     `Teach ${page.scopeLabel} students one to one, matched to you by programme, subject and level before you accept.`,
     "Plan each session around the student's current school unit rather than a fixed syllabus of your own.",
@@ -38,7 +39,7 @@ function responsibilitiesFor(page: any): string[] {
   return base;
 }
 
-const rows = (Array.isArray(tutorJobSeoPages) ? tutorJobSeoPages : Object.values(tutorJobSeoPages as any)) as any[];
+const rows: TutorJobSeoPage[] = tutorJobSeoPages;
 
 async function main() {
   const planned = rows.map((page, i) => {
@@ -61,9 +62,9 @@ async function main() {
       roleOverview: page.heroSubtitle,
       jobDescription: paragraphs.join("\n\n"),
       responsibilities: responsibilitiesFor(page),
-      requirements: (page.requirements ?? []).filter((r: any) => r.required !== false).map((r: any) => `${r.label}. ${r.detail}`),
-      niceToHave: (page.requirements ?? []).filter((r: any) => r.required === false).map((r: any) => `${r.label}. ${r.detail}`),
-      benefits: [...(page.heroTrustPoints ?? []), ...(page.policies ?? []).slice(0, 4).map((p: any) => p.heading)],
+      requirements: (page.requirements ?? []).filter((r) => r.required !== false).map((r) => `${r.label}. ${r.detail}`),
+      niceToHave: (page.requirements ?? []).filter((r) => r.required === false).map((r) => `${r.label}. ${r.detail}`),
+      benefits: [...(page.heroTrustPoints ?? []), ...(page.policies ?? []).slice(0, 4).map((p) => p.heading)],
       applicationPrompt: page.closingBody?.slice(0, 500) ?? null,
       status: "published" as const,
       sortOrder: i,
