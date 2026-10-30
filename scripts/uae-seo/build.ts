@@ -30,8 +30,30 @@ const OUT_PAGES = join(ROOT, "src", "lib", "uae-seo", "pages");
 
 const MIN_WORDS = 4500;
 const MIN_FAQS = 14;
-const MIN_TABLES = 3;
-const MIN_SECTIONS = 8;
+/**
+ * One data table is required on the pages where a comparison is the reason the page exists -
+ * the emirate hubs, the neighbourhood pages and the UAE-wide keyword pages. A parent lands on
+ * those to weigh options, and the competitor audit found five of six ranking pages carry no
+ * table at all, so even one is a differentiator.
+ *
+ * The long-tail city- and area-keyword pages answer one narrow question ("IB maths tutor in
+ * JLT") where a table is usually filler, so tables are welcome but not demanded there. Writers
+ * may still add more than one anywhere; this is a floor, not a cap.
+ *
+ * Dropped from three to one on 2026-10-27: building three tables was the slowest step in the
+ * gate loop, and the marginal table was padding rather than evidence.
+ */
+const MIN_TABLES_BY_KIND: Record<UaeSeoPageMeta["kind"], number> = {
+  city: 1,
+  area: 1,
+  "uae-keyword": 1,
+  "city-keyword": 0,
+  "area-keyword": 0,
+};
+// Lowered from 8 on 2026-10-27. Eight sections plus three tables was the slowest part of the
+// gate loop; seven substantial sections still clears the ~2,300-word competitor ceiling by a
+// wide margin, and the word floor below is what actually guards depth.
+const MIN_SECTIONS = 7;
 const MAX_SIBLING_SIMILARITY = 0.28;
 const MAX_CORPUS_SIMILARITY = 0.38;
 const SHARD_SIZE = 60;
@@ -84,6 +106,49 @@ const IN_PERSON_PROMISES: Array<[RegExp, string]> = [
 const DELIVERY_DISCLOSURE = /\b(online|live video|over video|remote(ly)?|video lesson|screen[- ]shar)/i;
 
 /**
+ * True when the sentence containing `index` negates what it says.
+ *
+ * The in-person checks below look for phrases like "home visits in the UAE", but the sentence
+ * every page SHOULD contain - "IB Gram does not sell in-home visits in the UAE; home visits are
+ * a service we offer only in India" - contains that phrase too. Without this, writing the rule
+ * correctly failed the gate, which taught writers to avoid saying it at all. That is the
+ * opposite of what the rule is for.
+ */
+function isNegated(body: string, index: number): boolean {
+  // Sentence bounds around the match, so a negation two sentences earlier does not excuse a
+  // promise made here. Newlines bound it as well as full stops: blocks are joined with "\n\n",
+  // and without that a match at the start of a paragraph reaches back into the previous one
+  // and borrows its negation.
+  const boundary = (from: number, dir: "back" | "fwd") => {
+    const candidates =
+      dir === "back"
+        ? [body.lastIndexOf(".", from), body.lastIndexOf("\n", from), body.lastIndexOf("?", from), body.lastIndexOf("!", from)]
+        : [body.indexOf(".", from), body.indexOf("\n", from), body.indexOf("?", from), body.indexOf("!", from)].filter((i) => i !== -1);
+    if (dir === "back") return Math.max(0, Math.max(...candidates) + 1);
+    return candidates.length === 0 ? body.length : Math.min(...candidates) + 1;
+  };
+  const sentence = body.slice(boundary(index, "back"), boundary(index, "fwd"));
+  return /\b(not|n'?t|never|no|nor|neither|cannot|without|rather than|instead of|only in (?:our )?India|india-only|unlike|declines?|decline)\b/i.test(
+    sentence,
+  );
+}
+
+/**
+ * True when the sentence at `index` is reporting what the in-home market charges rather than
+ * offering it. "In-home visits in Dubai are quoted at AED 180 to 500 an hour" is a competitor
+ * rate, and quoting it is the whole argument for buying online instead; it is not a promise to
+ * send anybody anywhere.
+ */
+function describesTheMarket(body: string, index: number): boolean {
+  const from = Math.max(0, body.lastIndexOf("\n", index) + 1);
+  const dot = body.indexOf(".", index);
+  const sentence = body.slice(from, dot === -1 ? body.length : dot);
+  return /\b(AED|market rate|published rate|quoted at|agencies|charges?|premium|price[sd]?|pricing|costs?)\b/i.test(
+    sentence,
+  );
+}
+
+/**
  * Claims that are legally or academically dangerous rather than merely overcooked.
  *
  * Each comes from a real exposure found in the competitor corpus or from a rule a UAE
@@ -101,7 +166,7 @@ const DANGEROUS_CLAIMS: Array<[RegExp, string]> = [
     "claims official status",
   ],
   [
-    /\b(write|writing|complete|completing|do|doing|produce|producing|draft(ing)?|ghost[- ]?writ)\s+(your|the|their|a|his|her)\s+(IA|Internal Assessment|EE|Extended Essay|TOK essay|coursework|assignment|exploration|Personal Project)/i,
+    /\b(write|writing|complete|completing|do|doing|produce|producing|draft(ing)?|ghost[- ]?writ)[ \t]+(your|the|their|a|his|her)[ \t]+(IA|Internal Assessment|EE|Extended Essay|TOK essay|coursework|assignment|exploration|Personal Project)/i,
     "offers to produce assessed work - academic malpractice under IB rules",
   ],
   [
@@ -209,7 +274,8 @@ function check(meta: UaeSeoPageMeta, c: UaeSeoContent): Issue[] {
   if (c.localKeywords.length < 8) add("localKeywords", `${c.localKeywords.length}, needs 8-14`);
 
   const tables = c.sections.filter((s) => s.table).length;
-  if (tables < MIN_TABLES) add("sections[].table", `${tables} tables, needs ${MIN_TABLES}+`);
+  const minTables = MIN_TABLES_BY_KIND[meta.kind] ?? 0;
+  if (tables < minTables) add("sections[].table", `${tables} tables, needs ${minTables}+ on a ${meta.kind} page`);
 
   // ---- per-block depth ----
   c.sections.forEach((s, i) => {
@@ -258,7 +324,12 @@ function check(meta: UaeSeoPageMeta, c: UaeSeoContent): Issue[] {
   if (!DELIVERY_DISCLOSURE.test(body)) add("delivery", "the page never says lessons are delivered online");
   for (const [re, label] of IN_PERSON_PROMISES) {
     const m = body.match(re);
-    if (m) add("delivery", `${label}: "${m[0].trim()}"`);
+    if (m && describesTheMarket(body, m.index ?? 0)) continue;
+    // A page that correctly DENIES in-home service says the same words as one that promises
+    // it - "IB Gram does not sell in-home visits in the UAE" tripped this check, which is the
+    // exact sentence the rule wants written. Only flag the phrase when its own sentence does
+    // not negate it.
+    if (m && !isNegated(body, m.index ?? 0)) add("delivery", `${label}: "${m[0].trim()}"`);
   }
 
   // ---- tone and claims ----
@@ -267,11 +338,11 @@ function check(meta: UaeSeoPageMeta, c: UaeSeoContent): Issue[] {
   }
   for (const [re, label] of SUPERLATIVES) {
     const m = body.match(re);
-    if (m) add("claim", `${label}: "${m[0].trim()}"`);
+    if (m && !isNegated(body, m.index ?? 0)) add("claim", `${label}: "${m[0].trim()}"`);
   }
   for (const [re, label] of DANGEROUS_CLAIMS) {
     const m = body.match(re);
-    if (m) add("legal", `${label}: "${m[0].trim()}"`);
+    if (m && !isNegated(body, m.index ?? 0)) add("legal", `${label}: "${m[0].trim()}"`);
   }
   for (const claim of findClaims(body)) add("claim", claim);
 

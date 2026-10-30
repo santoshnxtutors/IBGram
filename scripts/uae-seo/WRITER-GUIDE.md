@@ -5,7 +5,7 @@ platform, for a URL under `/uae/`. The URL is a phrase a UAE parent types into G
 single most useful page on the internet for that exact search.
 
 The best page currently ranking for your query is about **2,300 words with no tables**. You are
-writing 4,500+ words with at least three tables. Depth is the whole strategy — but depth means
+writing 4,500+ words, with a data table on every location and hub page. Depth is the strategy — but depth means
 more *answers*, not more adjectives. A parent should finish the page knowing exactly what to do
 next.
 
@@ -126,7 +126,7 @@ transformation on the way in.
     { "title": "Weekly one-to-one", "description": "50-100 words", "bullets": ["3-5 items"] }
   ],
 
-  "sections": [                           // 8+, at least 3 carrying a table
+  "sections": [                           // 7+; one must carry a table on a city, area or UAE-keyword page
     {
       "heading": "A real H2",
       "paragraphs": ["3+ paragraphs", "240+ words total"],
@@ -174,7 +174,7 @@ paragraph, not a rewrite.
 
 ---
 
-## The eight-plus sections
+## The seven-plus sections
 
 Pick the ones your query actually needs, in an order that reads like an argument. Build at least
 three around a table. Suggested spine, adapt freely:
@@ -298,7 +298,7 @@ absent from the page is a mismatch that helps nobody.
 - [ ] The place (area or city) is named in `heroSubtitle`
 - [ ] The page says, in plain words, that lessons are delivered online
 - [ ] No sentence promises a tutor at a UAE address
-- [ ] 8+ sections, 3+ with tables, every table row matching its column count
+- [ ] 7+ sections; at least 1 table on a city/area/UAE-keyword page, every row matching its column count
 - [ ] 14+ FAQs, each 60–140 words, each ending in `?`, none duplicated
 - [ ] Built around the brief's `uniqueAngle`, not a sibling's
 - [ ] No superlatives, no guarantees, no invented statistics

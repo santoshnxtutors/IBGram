@@ -35,6 +35,17 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "randomuser.me",
       },
+      // Tutors who sign up with Google get an lh3.googleusercontent.com avatar. The CSP
+      // already allows these hosts for img-src; remotePatterns did not, so next/image threw
+      // and every page rendering such a tutor returned a 500 rather than a missing picture.
+      {
+        protocol: "https",
+        hostname: "*.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
     ],
   },
 

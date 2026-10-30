@@ -5,8 +5,42 @@
 import type { UaeSeoContent } from "../types";
 import shard0 from "./shard-000.json";
 import shard1 from "./shard-001.json";
+import shard2 from "./shard-002.json";
+import shard3 from "./shard-003.json";
+import shard4 from "./shard-004.json";
+import shard5 from "./shard-005.json";
+import shard6 from "./shard-006.json";
+import shard7 from "./shard-007.json";
+import shard8 from "./shard-008.json";
+import shard9 from "./shard-009.json";
+import shard10 from "./shard-010.json";
+import shard11 from "./shard-011.json";
+import shard12 from "./shard-012.json";
+import shard13 from "./shard-013.json";
+import shard14 from "./shard-014.json";
+import shard15 from "./shard-015.json";
+import shard16 from "./shard-016.json";
+import shard17 from "./shard-017.json";
+import shard18 from "./shard-018.json";
 
 export const uaeSeoContentBySlug: Record<string, UaeSeoContent> = {
   ...(shard0 as unknown as Record<string, UaeSeoContent>),
   ...(shard1 as unknown as Record<string, UaeSeoContent>),
+  ...(shard2 as unknown as Record<string, UaeSeoContent>),
+  ...(shard3 as unknown as Record<string, UaeSeoContent>),
+  ...(shard4 as unknown as Record<string, UaeSeoContent>),
+  ...(shard5 as unknown as Record<string, UaeSeoContent>),
+  ...(shard6 as unknown as Record<string, UaeSeoContent>),
+  ...(shard7 as unknown as Record<string, UaeSeoContent>),
+  ...(shard8 as unknown as Record<string, UaeSeoContent>),
+  ...(shard9 as unknown as Record<string, UaeSeoContent>),
+  ...(shard10 as unknown as Record<string, UaeSeoContent>),
+  ...(shard11 as unknown as Record<string, UaeSeoContent>),
+  ...(shard12 as unknown as Record<string, UaeSeoContent>),
+  ...(shard13 as unknown as Record<string, UaeSeoContent>),
+  ...(shard14 as unknown as Record<string, UaeSeoContent>),
+  ...(shard15 as unknown as Record<string, UaeSeoContent>),
+  ...(shard16 as unknown as Record<string, UaeSeoContent>),
+  ...(shard17 as unknown as Record<string, UaeSeoContent>),
+  ...(shard18 as unknown as Record<string, UaeSeoContent>),
 };

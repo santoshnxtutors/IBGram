@@ -287,23 +287,61 @@ export interface UaeLink {
  * Related pages for the footer rail. Written pages only - an internal link to a 404 is worse
  * than no link. Order: same area, then same city, then the same keyword in another place.
  */
+/**
+ * Deterministic rotation offset for a slug, so every page starts its tier at a different point.
+ *
+ * Without this, each tier was read from the top and hundreds of pages linked to the SAME first
+ * few results - one page collected 397 inbound links while 306 of 423 had none at all, and a
+ * page nothing links to is the "Discovered - currently not indexed" bucket. Offsetting by a
+ * hash of the slug spreads the links evenly, and because the hash is stable the link set does
+ * not reshuffle on every build.
+ */
+function rotation(slug: string, length: number): number {
+  if (length === 0) return 0;
+  let h = 2166136261;
+  for (let i = 0; i < slug.length; i += 1) {
+    h ^= slug.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return Math.abs(h) % length;
+}
+
+/** Reads `items` starting at a slug-derived offset and wrapping, instead of always from index 0. */
+function rotated<T>(items: T[], slug: string): T[] {
+  const start = rotation(slug, items.length);
+  return [...items.slice(start), ...items.slice(0, start)];
+}
+
 export function getUaeSeoRelated(slug: string, limit = 8): UaeLink[] {
   const meta = metaBySlug.get(slug);
   if (!meta) return [];
   const written = uaeSeoPagesMeta.filter((p) => p.slug !== slug && uaeSeoContentBySlug[p.slug]);
   const keywordHead = meta.primaryKeyword.split(" in ")[0];
 
+  // Neighbourhoods in the same corridor. Area pages were orphaning because the "same city"
+  // tier below excludes them (`!p.areaSlug`) and a city hub only lists its first 18 areas -
+  // Dubai has 101 - so the rest had nothing pointing at them at all. Corridor neighbours are
+  // genuinely related (same schools, same commute), which makes these links useful, not filler.
+  const corridorAreas = meta.areaSlug ? new Set(clusterFor(meta.areaSlug).siblings) : null;
+
   const tiers = [
     written.filter((p) => meta.areaSlug && p.areaSlug === meta.areaSlug),
+    written.filter((p) => corridorAreas !== null && p.areaSlug !== undefined && p.areaSlug !== meta.areaSlug && corridorAreas.has(p.areaSlug)),
     written.filter((p) => p.citySlug === meta.citySlug && !p.areaSlug),
     written.filter((p) => p.primaryKeyword.split(" in ")[0] === keywordHead),
+    // Same kind of page: the tier that actually reciprocates. A UAE-wide keyword page has no
+    // city or area, so before this it fell straight through to the hubs and linked nowhere
+    // useful - and nothing linked back to it.
+    written.filter((p) => p.kind === meta.kind),
+    written.filter((p) => p.board === meta.board),
     written.filter((p) => p.kind === "city" || p.kind === "uae-keyword"),
   ];
 
   const out: UaeLink[] = [];
   const seen = new Set<string>();
   for (const tier of tiers) {
-    for (const p of tier) {
+    // Rotate each tier so two pages sharing a tier do not emit identical link lists.
+    for (const p of rotated(tier, slug)) {
       if (out.length >= limit) break;
       if (seen.has(p.slug)) continue;
       seen.add(p.slug);
