@@ -15,6 +15,8 @@ import { PrismaClient } from "@prisma/client";
 
 const AGENT_OUT = join(import.meta.dirname, "..", "..", "tmp", "uae-blogs", "agent-out");
 const WRITE = process.argv.includes("--write");
+/** Without this, posts land as drafts and a human publishes them from admin. */
+const PUBLISH = process.argv.includes("--publish");
 const db = new PrismaClient();
 
 type BlogDraft = {
@@ -64,8 +66,10 @@ async function main(): Promise<void> {
       tags: d.tags ?? [],
       authorName: "IB Gram",
       readingTimeMinutes: Math.max(1, Math.round(words / 200)),
-      // draft: nothing is public until a human publishes it from admin
-      status: "draft" as const,
+      status: (PUBLISH ? "published" : "draft") as "published" | "draft",
+      // publishedAt drives both the public visibility filter and the sitemap's
+      // lastmod, so a published post needs one or it stays invisible.
+      ...(PUBLISH ? { publishedAt: new Date() } : {}),
     };
     if (existing) {
       await db.blogPost.update({ where: { id: existing.id }, data });

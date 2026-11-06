@@ -318,7 +318,10 @@ export const getBlogPostsByCountry = unstable_cache(
         take,
         include: { category: true, featuredImage: true },
       });
-      return rows.map(toPublic);
+      // Body dropped: landing pages list these, they never render one, and a
+      // 20,000-word body per row is what pushed a cached blog query over Next's
+      // 2MB unstable_cache ceiling once already.
+      return rows.map((r) => ({ ...toPublic(r), body: "" }));
     } catch {
       return [];
     }

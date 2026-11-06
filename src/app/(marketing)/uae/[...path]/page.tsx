@@ -103,6 +103,9 @@ export default async function UaeHubChildPage({ params }: PageProps) {
         href: blogPath(p),
         excerpt: p.excerpt,
         readingTimeMinutes: p.readingTimeMinutes,
+        imageUrl: p.featuredImageUrl,
+        categoryName: p.categoryName,
+        publishedAt: p.publishedAt,
       }))}
     />
   );

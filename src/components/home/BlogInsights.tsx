@@ -1,15 +1,8 @@
-import { ArrowRight, Clock, Tag } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { BlogCardGrid } from "@/components/blog/BlogCardGrid";
 import { getHomeBlogPosts } from "@/lib/cms/blog";
 import { blogPath } from "@/lib/cms/blog-path";
-
-function formatDate(iso: string | null): string {
-  if (!iso) return "";
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return "";
-  return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
-}
 
 export async function BlogInsights() {
   const posts = await getHomeBlogPosts("ib", 3);
@@ -36,58 +29,17 @@ export async function BlogInsights() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
-          {posts.map((blog) => (
-            <Link key={blog.id} href={blogPath(blog)} className="group flex flex-col">
-              <div className="relative mb-6 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border/50 bg-card">
-                {blog.featuredImageUrl ? (
-                  <Image
-                    src={blog.featuredImageUrl}
-                    alt={blog.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    loading="lazy"
-                    unoptimized={blog.featuredImageUrl.startsWith("http")}
-                    className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center bg-muted/10">
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
-                      IB Gram
-                    </span>
-                  </div>
-                )}
-                {blog.categoryName && (
-                  <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-border bg-background/90 px-3 py-1.5 text-xs font-bold text-foreground backdrop-blur-sm">
-                    <Tag className="size-3 text-primary" /> {blog.categoryName}
-                  </div>
-                )}
-              </div>
-
-              <div className="mb-4 flex items-center gap-4 text-xs font-semibold text-muted-foreground">
-                <span className="flex items-center gap-1.5">
-                  <Clock className="size-3.5" /> {blog.readingTimeMinutes} min read
-                </span>
-                {blog.publishedAt && (
-                  <>
-                    <span className="size-1 rounded-full bg-border" />
-                    <span>{formatDate(blog.publishedAt)}</span>
-                  </>
-                )}
-              </div>
-
-              <h3 className="mb-3 line-clamp-2 text-xl font-black leading-snug transition-colors group-hover:text-primary md:text-2xl">
-                {blog.title}
-              </h3>
-
-              <p className="mb-6 line-clamp-3 font-medium leading-relaxed text-muted-foreground">{blog.excerpt}</p>
-
-              <div className="mt-auto flex items-center gap-2 text-sm font-bold text-foreground transition-colors group-hover:text-primary">
-                Read Article <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-              </div>
-            </Link>
-          ))}
-        </div>
+        <BlogCardGrid
+          posts={posts.map((blog) => ({
+            href: blogPath(blog),
+            title: blog.title,
+            excerpt: blog.excerpt,
+            readingTimeMinutes: blog.readingTimeMinutes,
+            imageUrl: blog.featuredImageUrl,
+            categoryName: blog.categoryName,
+            publishedAt: blog.publishedAt,
+          }))}
+        />
       </div>
     </section>
   );

@@ -136,13 +136,13 @@ function Compare({ rows }: { rows: Rows }) {
         <div key={`${label}-${i}`} className="ibg-rise motion-reduce:!animate-none" style={stagger(i)}>
           <span className="mb-1.5 block text-center text-xs font-bold text-foreground">{label}</span>
           <div className="flex items-center gap-2">
-            <span className="flex flex-1 justify-end">
+            <span className="flex min-w-0 flex-1 justify-end">
               <span className="rounded-lg bg-primary/15 px-3 py-2 text-right text-xs font-bold leading-snug text-foreground">{a}</span>
             </span>
             <span aria-hidden className="ibg-pulse text-sm font-black text-primary motion-reduce:!animate-none">
               vs
             </span>
-            <span className="flex flex-1">
+            <span className="flex min-w-0 flex-1">
               <span className="rounded-lg bg-muted/40 px-3 py-2 text-xs font-bold leading-snug text-muted-foreground">{b}</span>
             </span>
           </div>

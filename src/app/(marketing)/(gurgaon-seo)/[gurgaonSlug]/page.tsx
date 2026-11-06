@@ -20,6 +20,8 @@ import { getPublishedJobs } from "@/lib/jobs";
 import { getPublicTutorsFromDb } from "@/lib/cms/public-tutors";
 import { getVisibleTutorsForPage } from "@/lib/cms/tutor-visibility";
 import { getPublicHomepageReviews } from "@/lib/cms/public-reviews";
+import { getBlogPostsByCountry } from "@/lib/cms/blog";
+import { blogPath } from "@/lib/cms/blog-path";
 
 // This is the site's only root-level dynamic segment, so it serves every
 // top-level SEO slug: country landing pages (/usa/), Indian city pages (/mumbai/), the Gurgaon keyword pages
@@ -76,11 +78,29 @@ export default async function RootSeoLandingPage({ params }: PageProps) {
 
   const countryPage = getCountrySeoPage(gurgaonSlug);
   if (countryPage) {
-    const [tutors, reviews] = await Promise.all([
+    // The country hub itself is served HERE, not by /uae/[...path] — so the blog
+    // strip has to be wired in both places or the hub is the one page missing it.
+    const [tutors, reviews, posts] = await Promise.all([
       getVisibleTutorsForPage(`/${countryPage.slug}/`),
       getPublicHomepageReviews(),
+      getBlogPostsByCountry(countryPage.slug, 6),
     ]);
-    return <CountryLanding page={countryPage} tutors={tutors ?? undefined} reviews={reviews ?? undefined} />;
+    return (
+      <CountryLanding
+        page={countryPage}
+        tutors={tutors ?? undefined}
+        reviews={reviews ?? undefined}
+        articles={posts.map((p) => ({
+          title: p.title,
+          href: blogPath(p),
+          excerpt: p.excerpt,
+          readingTimeMinutes: p.readingTimeMinutes,
+          imageUrl: p.featuredImageUrl,
+          categoryName: p.categoryName,
+          publishedAt: p.publishedAt,
+        }))}
+      />
+    );
   }
 
   // Indian city pages (/mumbai/): the /gurgaon/ layout, with tutors based in that city when there

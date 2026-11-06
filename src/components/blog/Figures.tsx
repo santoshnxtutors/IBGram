@@ -225,11 +225,21 @@ export function DataFigure({
         </div>
       )}
       {kind === "steps" && (
-        <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center">
+        // Five or more steps cannot share one row: flex items default to
+        // min-width:auto, so the row overflowed the frame and the last card was
+        // clipped. Past four, the cards wrap into a grid and the numbers carry
+        // the order instead of the arrows.
+        <div
+          className={
+            rows.length > 4
+              ? "grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
+              : "flex flex-col items-stretch gap-3 md:flex-row md:items-center"
+          }
+        >
           {rows.map(([name, detail], i) => (
             <React.Fragment key={name + i}>
               <div
-                className="ibg-rise flex-1 rounded-2xl border border-primary/25 bg-primary/5 p-4 text-center motion-reduce:!animate-none"
+                className="ibg-rise min-w-0 flex-1 rounded-2xl border border-primary/25 bg-primary/5 p-4 text-center motion-reduce:!animate-none"
                 style={stagger(i)}
               >
                 <span className="mx-auto mb-2 flex size-9 items-center justify-center rounded-full bg-primary text-sm font-black text-primary-foreground">
@@ -238,7 +248,7 @@ export function DataFigure({
                 <span className="block text-sm font-black text-foreground">{name}</span>
                 {detail && <span className="mt-1 block text-xs font-medium leading-snug text-muted-foreground">{detail}</span>}
               </div>
-              {i < rows.length - 1 && (
+              {rows.length <= 4 && i < rows.length - 1 && (
                 <span aria-hidden className="ibg-pulse self-center text-xl font-black text-primary motion-reduce:!animate-none">
                   <span className="hidden md:inline">→</span>
                   <span className="md:hidden">↓</span>

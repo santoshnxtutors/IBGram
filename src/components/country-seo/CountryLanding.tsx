@@ -1,7 +1,7 @@
 import Link from "next/link";
 import nextDynamic from "next/dynamic";
+import { BlogCardGrid } from "@/components/blog/BlogCardGrid";
 import {
-  ArrowRight,
   BadgeCheck,
   BookOpen,
   Building2,
@@ -35,6 +35,9 @@ export type LandingArticle = {
   href: string;
   excerpt?: string | null;
   readingTimeMinutes?: number | null;
+  imageUrl?: string | null;
+  categoryName?: string | null;
+  publishedAt?: string | null;
 };
 
 /** Grouped internal-link directory rendered before the closing CTA (city hubs). */
@@ -751,27 +754,17 @@ export function CountryLanding({
             title={`Guides for ${page.countryName} families`}
             lead={`Longer reads on fees, exam calendars, school choice and the rules that apply in ${page.countryName}.`}
           />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {articles.map((article) => (
-              <Link
-                key={article.href}
-                href={article.href}
-                className="group flex flex-col rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/30"
-              >
-                <h3 className="text-base font-black leading-snug text-foreground group-hover:text-primary">
-                  {article.title}
-                </h3>
-                {article.excerpt ? (
-                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{article.excerpt}</p>
-                ) : null}
-                {article.readingTimeMinutes ? (
-                  <span className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    {article.readingTimeMinutes} min read
-                  </span>
-                ) : null}
-              </Link>
-            ))}
-          </div>
+          <BlogCardGrid
+            posts={articles.map((a) => ({
+              href: a.href,
+              title: a.title,
+              excerpt: a.excerpt,
+              readingTimeMinutes: a.readingTimeMinutes,
+              imageUrl: a.imageUrl,
+              categoryName: a.categoryName,
+              publishedAt: a.publishedAt,
+            }))}
+          />
         </Band>
       ) : null}
 
