@@ -1,5 +1,6 @@
 import type { Metadata, MetadataRoute } from "next";
 import { absoluteUrl, SITE_URL } from "@/lib/seo/slug-utils";
+import writtenDatesJson from "./pages/written-dates.json";
 import { resolvePageTitle } from "@/lib/seo/page-title";
 import { resolveMetaDescription } from "@/lib/seo/meta-description";
 import type { JsonLdObject } from "@/lib/seo/schema";
@@ -9,7 +10,18 @@ import { uaeSeoContentBySlug } from "./pages";
 import { AREAS_BY_CITY, EMIRATES, clusterFor, displayName } from "./facts";
 import type { UaeSeoPage, UaeSeoPageMeta } from "./types";
 
-const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
+const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.png");
+
+/** The one IB Gram entity, shared with src/lib/seo/schema.ts so every page reinforces it. */
+const ORG_ID = `${SITE_URL}/#organization`;
+
+/**
+ * When each page was actually written, stamped at compile time from the source file.
+ * pages-data.json carries one constant for all 2,654 rows, which made every <lastmod> and every
+ * dateModified identical - a recrawl signal Google correctly ignores.
+ */
+const writtenDates = writtenDatesJson as Record<string, string>;
+const dateFor = (slug: string, fallback: string) => writtenDates[slug] ?? fallback;
 
 export const UAE_HUB_PATH = "/uae/";
 
@@ -186,26 +198,29 @@ export function buildUaeSeoSchema(page: UaeSeoPage): JsonLdObject {
   return {
     "@context": "https://schema.org",
     "@graph": [
+      // ONE organization entity for the whole site, not one per page. Every page used to mint
+      // `${canonical}#org` - 1,377 separate "IB Gram" organizations at 1,377 different URLs, none
+      // of which consolidates. AI engines resolve a brand by @id and sameAs, so a thousand
+      // one-page orgs resolve to nothing. This is the same @id the rest of the site uses
+      // (src/lib/seo/schema.ts), so the UAE pages now reinforce the real entity.
+      // areaServed belongs on the Service below, which is what is actually offered per place.
       {
         "@type": "EducationalOrganization",
-        "@id": `${canonical}#org`,
+        "@id": ORG_ID,
         name: "IB Gram",
-        url: canonical,
-        description: page.content.metaDescription ?? page.metaDescription,
-        areaServed: [
-          { "@type": "Country", name: "United Arab Emirates" },
-          ...(emirate ? [{ "@type": "Place", name: emirate.name, geo: { "@type": "GeoCoordinates", latitude: emirate.geo.latitude, longitude: emirate.geo.longitude } }] : []),
-          ...(page.area ? [{ "@type": "Place", name: `${page.area}, ${page.city}` }] : []),
-        ],
-        knowsAbout: uaeKeywordsFor(page),
+        url: SITE_URL,
       },
       {
         "@type": "Service",
         "@id": `${canonical}#service`,
         name: page.content.h1 ?? page.h1,
         serviceType: page.subject ? `${page.subject} tutoring` : "IB and IGCSE tutoring",
-        provider: { "@id": `${canonical}#org` },
-        areaServed: { "@type": "Place", name: `${placeName}, United Arab Emirates` },
+        provider: { "@id": ORG_ID },
+        areaServed: [
+          { "@type": "Country", name: "United Arab Emirates" },
+          { "@type": "Place", name: `${placeName}, United Arab Emirates` },
+          ...(emirate ? [{ "@type": "Place", name: emirate.name, geo: { "@type": "GeoCoordinates", latitude: emirate.geo.latitude, longitude: emirate.geo.longitude } }] : []),
+        ],
         // UAE delivery is online; saying so in the graph keeps the markup honest.
         availableChannel: {
           "@type": "ServiceChannel",
@@ -222,7 +237,7 @@ export function buildUaeSeoSchema(page: UaeSeoPage): JsonLdObject {
         description: page.content.metaDescription ?? page.metaDescription,
         inLanguage: "en-AE",
         isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}#website`, name: "IB Gram", url: SITE_URL },
-        dateModified: page.lastUpdated,
+        dateModified: dateFor(page.slug, page.lastUpdated),
         primaryImageOfPage: { "@type": "ImageObject", url: OG_IMAGE },
         keywords: uaeKeywordsFor(page).join(", "),
         // Marks the lead paragraph and the FAQ block as the parts worth reading aloud or
@@ -242,7 +257,7 @@ export function buildUaeSeoSchema(page: UaeSeoPage): JsonLdObject {
               "@id": `${canonical}#course`,
               name: `${page.subject} tutoring for ${placeName} students`,
               description: page.content.metaDescription ?? page.metaDescription,
-              provider: { "@id": `${canonical}#org` },
+              provider: { "@id": ORG_ID },
               inLanguage: "en-AE",
               educationalLevel: page.level || page.board,
               ...(page.syllabusCode ? { courseCode: page.syllabusCode } : {}),
@@ -339,26 +354,69 @@ export function getUaeSeoRelated(slug: string, limit = 8): UaeLink[] {
 
   const out: UaeLink[] = [];
   const seen = new Set<string>();
-  for (const tier of tiers) {
+  const take = (tier: UaeSeoPageMeta[], upTo: number) => {
     // Rotate each tier so two pages sharing a tier do not emit identical link lists.
     for (const p of rotated(tier, slug)) {
-      if (out.length >= limit) break;
+      if (out.length >= upTo) break;
       if (seen.has(p.slug)) continue;
       seen.add(p.slug);
       out.push({ label: p.h1, href: p.path, description: p.primaryKeyword });
     }
+  };
+
+  // The hub tier is last in `tiers`, so with 12 slots and six earlier tiers it was never
+  // reached: 355 of 1,106 pages ended up unreachable from any emirate hub, in nine
+  // disconnected islands, and 129 of the 137 UAE-wide keyword pages had no inbound path at
+  // all. Reserve the first slots for it so every page keeps a route back up to a hub.
+  const HUB_SLOTS = 3;
+  take(tiers[tiers.length - 1], Math.min(HUB_SLOTS, limit));
+
+  // A guaranteed ring over every written page, in registry order. Rotation alone spreads links
+  // but cannot promise that each page is some other page's TARGET, so 601 pages stayed
+  // unreachable from /uae/ even with the hub fixed. Linking each page to its immediate successor
+  // makes the whole set one cycle, so reachability is structural rather than probabilistic.
+  const order = uaeSeoPagesMeta.filter((p) => uaeSeoContentBySlug[p.slug]);
+  const here = order.findIndex((p) => p.slug === slug);
+  if (here !== -1 && order.length > 1) {
+    const next = order[(here + 1) % order.length];
+    if (!seen.has(next.slug) && out.length < limit) {
+      seen.add(next.slug);
+      out.push({ label: next.h1, href: next.path, description: next.primaryKeyword });
+    }
   }
+  for (const tier of tiers.slice(0, -1)) take(tier, limit);
+  take(tiers[tiers.length - 1], limit);
   return out;
 }
 
 /** Written children of this page (city -> its areas and keywords; area -> its keywords). */
 export function getUaeChildLinks(slug: string, limit = 24): UaeLink[] {
-  const meta = metaBySlug.get(slug);
-  if (!meta) return [];
-  return uaeSeoPagesMeta
-    .filter((p) => p.parentPath === meta.path && uaeSeoContentBySlug[p.slug])
-    .slice(0, limit)
-    .map((p) => ({ label: p.h1, href: p.path, description: p.primaryKeyword }));
+  // The /uae/ hub is the hand-written country page and is not in this registry, so a lookup for
+  // it returned undefined and the hub linked to NONE of its 1,106 children - the whole set had
+  // no crawl entry point. Treat the empty slug as the hub and serve its top-level children.
+  const parentPath = slug === "" ? UAE_HUB_PATH : metaBySlug.get(slug)?.path;
+  if (!parentPath) return [];
+  const children = uaeSeoPagesMeta.filter((p) => p.parentPath === parentPath && uaeSeoContentBySlug[p.slug]);
+
+  // Round-robin by kind rather than slicing registry order. Dubai has 101 neighbourhoods and
+  // several hundred keyword pages; taking the first 18 in registry order gave 18 keyword pages
+  // and not one neighbourhood, so the area pages had no inbound link from their own city hub.
+  const byKind = new Map<string, UaeSeoPageMeta[]>();
+  for (const p of children) {
+    if (!byKind.has(p.kind)) byKind.set(p.kind, []);
+    byKind.get(p.kind)!.push(p);
+  }
+  const queues = [...byKind.values()].map((q) => rotated(q, slug));
+  const out: UaeSeoPageMeta[] = [];
+  for (let i = 0; out.length < limit; i += 1) {
+    const before = out.length;
+    for (const q of queues) {
+      if (out.length >= limit) break;
+      if (q[i]) out.push(q[i]);
+    }
+    if (out.length === before) break; // every queue exhausted
+  }
+  return out.map((p) => ({ label: p.h1, href: p.path, description: p.primaryKeyword }));
 }
 
 /** The parent page, when it has content. Gives every page an "up" link for crawl depth. */
@@ -395,7 +453,7 @@ export function toCountrySeoPage(page: UaeSeoPage): CountrySeoPage {
     region: emirate ? emirate.name : "United Arab Emirates",
     timezoneLabel: "Gulf Standard Time (UTC+4)",
     schedulingNote: "Weekday evenings and weekend mornings in Gulf Standard Time",
-    lastUpdated: page.lastUpdated,
+    lastUpdated: dateFor(page.slug, page.lastUpdated),
 
     title: c.title ?? page.title,
     metaDescription: c.metaDescription ?? page.metaDescription,
@@ -458,7 +516,7 @@ export function getUaeSeoSitemapEntries(): MetadataRoute.Sitemap {
     .filter((p) => uaeSeoContentBySlug[p.slug])
     .map((p) => ({
       url: absoluteUrl(p.path),
-      lastModified: p.lastUpdated,
+      lastModified: dateFor(p.slug, p.lastUpdated),
       changeFrequency: "weekly" as const,
       priority: PRIORITY[p.kind],
     }));

@@ -29,7 +29,7 @@ import {
 } from "./content";
 
 const pageUrl = absoluteUrl("/contact-us/");
-const ogImage = absoluteUrl("/images/ib-gram-city-og.svg");
+const ogImage = absoluteUrl("/images/ib-gram-city-og.png");
 
 export const metadata: Metadata = {
   title: { absolute: "Contact IB Gram — A Real Advisor Replies in One Working Day" },

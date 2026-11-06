@@ -6,7 +6,7 @@ import { additionalIndianIbCityPages } from "./city-pages-data/ib";
 const SCHOOL_DISCLAIMER =
   "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.";
 
-const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
+const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.png");
 
 export const citySeoPageBaseData = [
   {

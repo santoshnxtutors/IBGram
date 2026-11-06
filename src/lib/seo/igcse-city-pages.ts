@@ -77,7 +77,7 @@ export type IgcseCitySeoPage = {
 const SCHOOL_DISCLAIMER =
   "IB Gram is an independent tutoring platform and is not officially affiliated with these schools, Cambridge or Pearson Edexcel unless specifically stated.";
 
-const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
+const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.png");
 
 export function buildIgcseCityPath(citySlug: string): string {
   return `/igcse-pages/${normalizeSlug(citySlug)}/`;

@@ -154,8 +154,25 @@ leave it out. An unsourced number on 2,654 pages is 2,654 liabilities.
   <https://web.khda.gov.ae/en/About-Us/News/2026/Dubai%E2%80%99s-private-education-sector-expands-with-new>
 - Cambridge International runs IGCSE, O Level and International A Level exams in a June series and a November series, with Primary and Lower Secondary Checkpoint tests in March, May and October. Every centre 'is allocated to one of six administrative zones' and 'it is essential that you use the correct version of the timetable for your zone' — Cambridge 'cannot accept responsibility for candidates who miss an exam' after using the wrong zone timetable.
   <https://www.cambridgeinternational.org/exam-administration/cambridge-exams-officers-guide/phase-1-preparation/timetabling-exams/exam-timetables/>
-- Cambridge March 2027 series: exam period 3 February to 4 March 2027, final entries due 27 November 2026, forecast grades due 27 February 2027, results on Direct 13 May, certificates late June. Use as the worked example of why entry deadlines sit months before the exam.
-  <https://www.cambridgeinternational.org/Images/183437-key-dates-for-march-series.pdf>
+- **DO NOT USE THE CAMBRIDGE MARCH SERIES ON ANY UAE PAGE.** The February/March series is offered to
+  **India only**. UAE candidates sit the **June and November** series, as the bullet above states. An
+  earlier version of this file offered the March key dates as the worked example and 454 pages were
+  written quoting a February-March exam window and a 27 November entry deadline to UAE parents. That is
+  a date a parent acts on, and it is wrong for their country. The gate now rejects it
+  (`scripts/uae-seo/build.ts`, rule "calendar").
+- **Name an exam series by its month, never month + year.** "The June series", "the November
+  series", "the May/June window" stay true every year; "the June 2027 series" is true for one and
+  then the page is wrong with nobody having touched it. The gate rejects any future-dated month.
+  The exception is a **backward-looking citation**, which must keep its date because the date is
+  what makes it checkable: "read in October 2026", "June 2026 results reached centres on 19 August
+  2026", "the November 2026 final timetable ran to 19 November 2026". Past date = keep. Future date
+  = name the month only.
+- Worked example of why entry deadlines sit months before the exam, **UAE-correct**: Pearson Edexcel
+  International GCSE November 2026 — timetable runs late October to 19 November 2026, and results reach
+  students in January (November 2025 results landed 22 January 2026). For Cambridge, use the June series
+  with the November series as the resit route. Always link the live official timetable rather than
+  restating dates that can be revised.
+  <https://qualifications.pearson.com/en/support/support-topics/exams/exam-timetables.html>
 - Pearson Edexcel International GCSE exams are available in May/June and November each year; the November 2026 final timetable runs from late October to 19 November 2026. June 2026 results went to centres 19 August 2026 and to students 20 August 2026; November 2025 results reached students 22 January 2026.
   <https://qualifications.pearson.com/en/support/support-topics/exams/exam-timetables.html>
 - Pearson publishes provisional timetables ahead of each series (including International GCSE November 2027), so every session table on our pages must link the live official timetable PDF rather than restating dates that can be revised.

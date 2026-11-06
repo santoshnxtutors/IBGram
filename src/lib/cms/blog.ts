@@ -9,11 +9,18 @@ function publicSlug(slug: string): string {
   return isStaticSafeSlug(slug) ? slug : normalizeSlug(slug);
 }
 
+
+export { blogPath, parseBlogPath } from "./blog-path";
+import { blogPath } from "./blog-path";
+
 export const BLOG_CACHE_TAG = "blog";
 
 export type PublicBlogPost = {
   id: string;
   slug: string;
+  /** URL country segment, or null for the posts that predate country support. */
+  country: string | null;
+  city: string | null;
   title: string;
   excerpt: string | null;
   body: string;
@@ -57,6 +64,8 @@ function normaliseImageUrl(value: string | null | undefined): string | null {
 function toPublic(row: {
   id: string;
   slug: string;
+  country?: string | null;
+  city?: string | null;
   title: string;
   excerpt: string | null;
   body: string;
@@ -86,6 +95,8 @@ function toPublic(row: {
     // Normalising here fixes every link, the sitemap and prerendering at once;
     // getBlogPostBySlug resolves the clean slug back to the row below.
     slug: publicSlug(row.slug),
+    country: row.country?.trim()?.toLowerCase() || null,
+    city: row.city?.trim()?.toLowerCase() || null,
     title: row.title,
     excerpt: row.excerpt,
     body: row.body,
@@ -233,35 +244,69 @@ export const getBlogCategories = unstable_cache(
 );
 
 /** Slugs of all published posts — for generateStaticParams. */
-export async function getPublishedBlogSlugs(): Promise<string[]> {
+
+/**
+ * Published posts for one country segment, newest first. Used by the country
+ * landing pages to surface their own guides; a country with no posts yet simply
+ * renders no section rather than an empty one.
+ */
+export const getBlogPostsByCountry = unstable_cache(
+  async (country: string, take = 6): Promise<PublicBlogPost[]> => {
+    const key = country.trim().toLowerCase();
+    if (!key) return [];
+    try {
+      const rows = await prisma.blogPost.findMany({
+        where: { status: "published", country: key },
+        orderBy: [{ publishedAt: "desc" }, { createdAt: "desc" }],
+        take,
+        include: { category: true, featuredImage: true },
+      });
+      return rows.map(toPublic);
+    } catch {
+      return [];
+    }
+  },
+  ["blog-by-country"],
+  { tags: [BLOG_CACHE_TAG], revalidate: 600 },
+);
+
+export async function getPublishedBlogSlugs(): Promise<string[][]> {
   try {
     const rows = await prisma.blogPost.findMany({
       where: { status: "published" },
-      select: { slug: true },
+      select: { slug: true, country: true },
       take: 500,
     });
     // A slug accidentally set to a title containing ":" or spaces would
     // prerender to an illegal filename and crash `actions/upload-artifact`
     // during deploy. Normalise rather than drop, so the post still gets a
     // prerendered, crawlable URL (getBlogPostBySlug resolves it back).
-    return rows.map((r) => publicSlug(r.slug)).filter(isStaticSafeSlug);
+    // Returned as catch-all segment arrays: ["my-post"] or ["uae", "my-post"].
+    return rows
+      .map((r) => ({ slug: publicSlug(r.slug), country: r.country?.trim().toLowerCase() || null }))
+      .filter((r) => isStaticSafeSlug(r.slug))
+      .map((r) => (r.country ? [r.country, r.slug] : [r.slug]));
   } catch {
     return [];
   }
 }
 
 /** Published, indexable posts as sitemap rows ({ slug, lastModified }). */
-export async function getBlogSitemapEntries(): Promise<Array<{ slug: string; lastModified: string }>> {
+export async function getBlogSitemapEntries(): Promise<Array<{ slug: string; path: string; lastModified: string }>> {
   try {
     const rows = await prisma.blogPost.findMany({
       where: { status: "published", indexFlag: { not: "noindex" } },
-      select: { slug: true, updatedAt: true, publishedAt: true },
+      select: { slug: true, country: true, updatedAt: true, publishedAt: true },
       take: 500,
     });
     const now = Date.now();
     return rows
       .filter((r) => !r.publishedAt || new Date(r.publishedAt).getTime() <= now)
-      .map((r) => ({ slug: publicSlug(r.slug), lastModified: r.updatedAt.toISOString() }))
+      .map((r) => {
+        const slug = publicSlug(r.slug);
+        const country = r.country?.trim().toLowerCase() || null;
+        return { slug, path: blogPath({ slug, country }), lastModified: r.updatedAt.toISOString() };
+      })
       .filter((r) => isStaticSafeSlug(r.slug));
   } catch {
     return [];

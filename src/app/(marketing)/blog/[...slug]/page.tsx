@@ -7,16 +7,20 @@ import { ArrowLeft, ArrowRight, CalendarDays, Clock, Tag, User } from "lucide-re
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { headingId, Markdown } from "@/components/blog/Markdown";
 import { absoluteUrl, normalizeSlug, SITE_URL } from "@/lib/seo/slug-utils";
-import { getBlogPostBySlug, getPublishedBlogSlugs, getPublishedBlogPosts } from "@/lib/cms/blog";
+import { blogPath, getBlogPostBySlug, getPublishedBlogSlugs, getPublishedBlogPosts, parseBlogPath } from "@/lib/cms/blog";
 
 export const revalidate = 600;
 export const dynamicParams = true;
 
-type Props = { params: Promise<{ slug: string }> };
+// Catch-all so one route serves both shapes: /blog/<slug>/ for the posts that
+// predate country support, and /blog/<country>/<slug>/ for the rest. Next.js
+// rejects [slug] and [country]/[slug] side by side - different dynamic names at
+// the same position - so the catch-all is the only way to keep the old URLs.
+type Props = { params: Promise<{ slug: string[] }> };
 
 export async function generateStaticParams() {
-  const slugs = await getPublishedBlogSlugs();
-  return slugs.map((slug) => ({ slug }));
+  const paths = await getPublishedBlogSlugs();
+  return paths.map((slug) => ({ slug }));
 }
 
 function formatDate(iso: string | null): string {
@@ -50,11 +54,12 @@ function extractFaqs(body: string): Array<{ question: string; answer: string }> 
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const post = await getBlogPostBySlug(slug);
+  const { slug: segments } = await params;
+  const parsed = parseBlogPath(segments ?? []);
+  const post = parsed ? await getBlogPostBySlug(parsed.slug) : null;
   if (!post) return { title: "Article not found", robots: { index: false, follow: false } };
 
-  const url = absoluteUrl(`/blog/${post.slug}/`);
+  const url = absoluteUrl(blogPath(post));
   const title = post.metaTitle ?? post.title;
   const description = resolveMetaDescription(post.metaDescription ?? post.excerpt ?? `${post.title} — IB Gram Insights.`);
   const shouldIndex = post.indexFlag !== "noindex";
@@ -88,17 +93,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params;
+  const { slug: segments } = await params;
+  const parsed = parseBlogPath(segments ?? []);
+  if (!parsed) notFound();
+  const { slug } = parsed;
   const post = await getBlogPostBySlug(slug);
   if (!post) {
     // Old posts were saved with the title as the slug ("IB Tutor Fees in Gurgaon: What Affects the Cost?");
     // those were renamed to kebab-case, so send the old URL to its new home.
     const clean = normalizeSlug(slug);
-    if (clean && clean !== slug && (await getBlogPostBySlug(clean))) permanentRedirect(`/blog/${clean}/`);
+    if (clean && clean !== slug) {
+      const target = await getBlogPostBySlug(clean);
+      if (target) permanentRedirect(blogPath(target));
+    }
     notFound();
   }
 
-  const url = absoluteUrl(`/blog/${post.slug}/`);
+  const url = absoluteUrl(blogPath(post));
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -297,7 +308,7 @@ export default async function BlogPostPage({ params }: Props) {
           <h2 className="mb-8 text-2xl font-black tracking-tight text-foreground md:text-3xl">Keep reading</h2>
           <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((p) => (
-              <Link key={p.id} href={`/blog/${p.slug}/`} className="group flex flex-col">
+              <Link key={p.id} href={blogPath(p)} className="group flex flex-col">
                 <div className="relative mb-5 aspect-[16/10] w-full overflow-hidden rounded-3xl border border-border/50 bg-card transition-all group-hover:border-primary/20">
                   {p.featuredImageUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element

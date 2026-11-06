@@ -5,7 +5,7 @@ import type { AdditionalCityConfig, SubjectInventoryMap } from "./types";
 const SCHOOL_DISCLAIMER =
   "IB Gram is an independent tutoring platform and is not officially affiliated with these schools unless specifically stated.";
 
-const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
+const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.png");
 const CONTACT_PHONE = "+917439368115";
 const CONTACT_EMAIL = "support@ibgram.com";
 

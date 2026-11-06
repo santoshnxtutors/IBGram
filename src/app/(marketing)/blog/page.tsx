@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
 import { getBlogCategories, getPublishedBlogPosts } from "@/lib/cms/blog";
+import { blogPath } from "@/lib/cms/blog-path";
 import { BlogListClient } from "./BlogListClient";
 
 export const revalidate = 600;
@@ -62,7 +63,7 @@ export default async function BlogListingPage() {
     blogPost: posts.slice(0, 20).map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
-      url: absoluteUrl(`/blog/${p.slug}/`),
+      url: absoluteUrl(blogPath(p)),
       datePublished: p.publishedAt ?? undefined,
       dateModified: p.updatedAt,
       author: { "@type": "Organization", name: p.authorName ?? "IB Gram Editorial" },
@@ -98,7 +99,7 @@ export default async function BlogListingPage() {
             <ul className="grid gap-x-8 gap-y-2 text-sm sm:grid-cols-2 lg:grid-cols-3">
               {posts.map((p) => (
                 <li key={p.slug}>
-                  <a href={`/blog/${p.slug}/`} className="text-muted-foreground transition-colors hover:text-primary">
+                  <a href={blogPath(p)} className="text-muted-foreground transition-colors hover:text-primary">
                     {p.title}
                   </a>
                 </li>

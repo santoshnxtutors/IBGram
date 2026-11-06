@@ -1,6 +1,7 @@
 import { ArrowRight, Clock, Tag } from "lucide-react";
 import Link from "next/link";
 import { getHomeBlogPosts } from "@/lib/cms/blog";
+import { blogPath } from "@/lib/cms/blog-path";
 
 function formatDate(iso: string | null): string {
   if (!iso) return "";
@@ -35,7 +36,7 @@ export async function IGCSEBlogs() {
 
         <div className="grid gap-8 md:grid-cols-3">
           {posts.map((blog) => (
-            <Link key={blog.id} href={`/blog/${blog.slug}/`} className="group flex h-full flex-col">
+            <Link key={blog.id} href={blogPath(blog)} className="group flex h-full flex-col">
               <div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-2xl border border-border/50 bg-card">
                 {blog.featuredImageUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element

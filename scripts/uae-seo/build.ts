@@ -16,7 +16,7 @@
  * drifting ones.
  */
 
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { BANNED, findClaims, similarity, sketch } from "../gurgaon-500/compile";
 import { uaeSeoPagesMeta } from "../../src/lib/uae-seo/pages-data";
@@ -139,6 +139,14 @@ function isNegated(body: string, index: number): boolean {
  * rate, and quoting it is the whole argument for buying online instead; it is not a promise to
  * send anybody anywhere.
  */
+/** The sentence containing `index`, bounded by full stops and paragraph breaks. */
+function sentenceAround(body: string, index: number): string {
+  const starts = [body.lastIndexOf(".", index), body.lastIndexOf("\n", index)];
+  const from = Math.max(0, Math.max(...starts) + 1);
+  const ends = [body.indexOf(".", index), body.indexOf("\n", index)].filter((i) => i !== -1);
+  return body.slice(from, ends.length ? Math.min(...ends) : body.length);
+}
+
 function describesTheMarket(body: string, index: number): boolean {
   const from = Math.max(0, body.lastIndexOf("\n", index) + 1);
   const dot = body.indexOf(".", index);
@@ -319,6 +327,45 @@ function check(meta: UaeSeoPageMeta, c: UaeSeoContent): Issue[] {
   // Over-stuffing reads as spam and is the one on-page signal that can actively hurt.
   const density = (body.match(keywordRe(head)) ?? []).length / Math.max(1, wordCount / 1000);
   if (density > 9) add("keyword density", `"${head}" appears ${Math.round(density)}x per 1,000 words; keep under 9`);
+
+  // ---- exam calendar honesty ----
+  // Cambridge offers the February/March series to INDIA ONLY. UAE candidates sit June and November.
+  // An earlier RESEARCH.md handed writers the March key dates as the worked example and 454 pages
+  // went out telling UAE parents their entry deadline was 27 November for a February exam. A wrong
+  // date a parent acts on is worse than a thin page, and 231 of those sat inside FAQ answers, which
+  // is exactly the text an AI Overview quotes back.
+  // Match only an exam SERIES, never a bare month. The first version of this rule fired on
+  // "Ramadan 1448 is expected to begin in mid-February 2027" because "IGCSE" appeared earlier in
+  // the paragraph, and sent correct pages back for rework. A gate that invents work is worse
+  // than no gate.
+  const marchSeries =
+    body.match(/\b(?:february|feb|march)(?:\s*[/–-]\s*march)?\s+20\d\d\s+(?:series|session|sitting)/i) ??
+    body.match(/\b(?:february|march)\s+series\b/i) ??
+    body.match(
+      /\b(?:cambridge|igcse)[^.]{0,80}\b(?:february|march)\s+20\d\d[^.]{0,60}\b(?:series|final entries|entry deadline|exam(?:ination)? period|exam window)/i,
+    ) ??
+    body.match(
+      /\b(?:series|final entries|entry deadline|exam(?:ination)? period)[^.]{0,60}\b(?:3 february|4 march|february)\s+(?:to\s+\d+\s+march\s+)?20\d\d/i,
+    );
+  if (marchSeries && !/\bindia\b/i.test(sentenceAround(body, marchSeries.index ?? 0))) {
+    add("calendar", `Cambridge runs June and November in the UAE; the Feb/March series is India-only: "${marchSeries[0].trim()}"`);
+  }
+
+  // Forward-looking dates go stale and then the page is wrong without anyone touching it.
+  // "the June series" is true every year; "the June 2027 series" is true for one. Dates that
+  // look BACKWARD are different - "read in October 2026", "June 2026 results reached centres on
+  // 19 August 2026" - those are citations, and stripping their year would destroy the
+  // verifiability that makes the page worth trusting. So only a future year fails.
+  const thisYear = new Date().getFullYear();
+  const futureDate = body.match(
+    /\b(?:january|february|march|april|may|june|july|august|september|october|november|december)\s+(20\d\d)\b/gi,
+  )?.find((m) => Number(m.match(/20\d\d/)![0]) > thisYear);
+  if (futureDate) {
+    add(
+      "calendar",
+      `"${futureDate}" dates the page to one year and goes stale; name the series by month ("the June series") instead`,
+    );
+  }
 
   // ---- delivery honesty ----
   if (!DELIVERY_DISCLOSURE.test(body)) add("delivery", "the page never says lessons are delivered online");
@@ -535,6 +582,24 @@ function compile(): void {
       "utf8",
     );
   });
+
+  // Real per-page dates, taken from when the page was actually written. plan.ts stamped one
+  // constant onto all 2,654 rows, so every sitemap <lastmod> and every schema dateModified was
+  // identical - a signal Google learns to ignore, and useless for telling it what changed.
+  writeFileSync(
+    join(OUT_PAGES, "written-dates.json"),
+    `${JSON.stringify(
+      Object.fromEntries(
+        passing.map(([slug]) => [
+          slug,
+          statSync(join(AGENT_OUT, `${fileKey(slug)}.json`)).mtime.toISOString().slice(0, 10),
+        ]),
+      ),
+      null,
+      1,
+    )}\n`,
+    "utf8",
+  );
 
   const imports = shards.map((_, i) => `import shard${i} from "./shard-${String(i).padStart(3, "0")}.json";`).join("\n");
   const spreads = shards.map((_, i) => `  ...(shard${i} as unknown as Record<string, UaeSeoContent>),`).join("\n");

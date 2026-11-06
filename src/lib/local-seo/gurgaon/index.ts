@@ -77,7 +77,7 @@ function buildGeneratedPage(place: GurgaonLocalPlace): GeneratedSeoPage {
     nearbyCities: ["Delhi", "Noida", "Faridabad"],
     schoolsMentioned: place.schoolEcosystem,
     ...metadata,
-    ogImage: absoluteUrl("/images/ib-gram-city-og.svg"),
+    ogImage: absoluteUrl("/images/ib-gram-city-og.png"),
     twitterTitle: metadata.ogTitle,
     twitterDescription: metadata.ogDescription,
     heroTitle: heroTitle(place),

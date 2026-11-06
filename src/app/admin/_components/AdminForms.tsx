@@ -534,7 +534,7 @@ export function AdminSettingsForm() {
     <FormShell title="Site settings">
       <Field label="Site name" defaultValue="IB Gram" />
       <Field label="Production domain" defaultValue="https://ibgram.com" />
-      <Field label="Default OG image" defaultValue="/images/ib-gram-city-og.svg" />
+      <Field label="Default OG image" defaultValue="/images/ib-gram-city-og.png" />
       <Field label="Organization name" defaultValue="IB Gram" />
       <Field label="Contact email" defaultValue="support@ibgram.com" />
       <Field label="Default robots behavior" defaultValue="index" />

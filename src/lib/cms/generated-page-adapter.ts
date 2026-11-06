@@ -242,7 +242,7 @@ export function dbBundleToGeneratedSeoPage(row: DbPageWithChildren): GeneratedSe
     metaDescription,
     ogTitle,
     ogDescription,
-    ogImage: absoluteUrl("/images/ib-gram-city-og.svg"),
+    ogImage: absoluteUrl("/images/ib-gram-city-og.png"),
     twitterTitle,
     twitterDescription,
     breadcrumbTitle: row.h1 ?? row.title ?? row.heroTitle ?? cityName,

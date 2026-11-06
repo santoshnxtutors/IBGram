@@ -20,6 +20,8 @@ export default async function AdminBlogPage() {
   const serialised = items.map((item) => ({
     id: item.id,
     slug: item.slug,
+    country: item.country,
+    city: item.city,
     title: item.title,
     excerpt: item.excerpt,
     body: item.body,

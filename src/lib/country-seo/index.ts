@@ -7,7 +7,7 @@ import { CONTACT } from "@/lib/contact";
 import { countrySeoPages } from "./countries";
 import type { CountrySeoPage } from "./types";
 
-const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
+const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.png");
 
 const pagesBySlug = new Map(countrySeoPages.map((page) => [page.slug, page]));
 

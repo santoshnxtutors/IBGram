@@ -12,7 +12,7 @@ import { gurgaonSeoExpansionContentBySlug } from "./content/expansion";
 import type { GurgaonSeoPage, GurgaonSeoPageMeta } from "./types";
 
 export const GURGAON_SEO_LAST_UPDATED = "2026-06-18";
-const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
+const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.png");
 
 /**
  * The original 400 workbook pages plus the IB/IGCSE subject x area expansion. Two sources

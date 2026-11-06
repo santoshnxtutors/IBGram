@@ -29,6 +29,14 @@ import type { PublicReview } from "@/lib/cms/public-reviews";
 import type { JsonLdObject } from "@/lib/seo/schema";
 import { SchoolStrip } from "@/components/shared/SchoolStrip";
 
+/** One blog post as this page links it. */
+export type LandingArticle = {
+  title: string;
+  href: string;
+  excerpt?: string | null;
+  readingTimeMinutes?: number | null;
+};
+
 /** Grouped internal-link directory rendered before the closing CTA (city hubs). */
 export type LandingDirectory = {
   eyebrow: string;
@@ -206,6 +214,7 @@ export function CountryLanding({
   reviews,
   schema,
   directory,
+  articles,
   schoolStrip,
 }: {
   page: CountrySeoPage;
@@ -214,6 +223,8 @@ export function CountryLanding({
   /** Replaces the country JSON-LD graph (city hubs supply their own). */
   schema?: JsonLdObject;
   directory?: LandingDirectory;
+  /** Country blog posts (/blog/<country>/<slug>/), shown between the FAQs and the directory. */
+  articles?: LandingArticle[];
   /** Sliding school-name strip under the stats, the same one the Gurgaon locality pages use. */
   schoolStrip?: { schools: readonly string[]; place: string };
 }) {
@@ -319,7 +330,19 @@ export function CountryLanding({
                     {
                       icon: Layers,
                       title: "Every IB stage, plus IGCSE",
-                      desc: `${page.programmes.map((programme) => programme.code).join(", ")} and Cambridge or Edexcel IGCSE, matched to your child's current year.`,
+                      // The clause already names IGCSE, so a code that also says IGCSE stutters:
+                      // 658 pages read "DP, MYP, IGCSE and Cambridge or Edexcel IGCSE" above the
+                      // fold. Drop those codes, dedupe, and tidy the shouted "EDEXCEL".
+                      desc: `${[
+                        ...new Set(
+                          page.programmes
+                            .map((programme) => programme.code)
+                            .filter((code) => !/igcse|edexcel|cambridge/i.test(code)),
+                        ),
+                      ].join(", ")} and Cambridge or Edexcel IGCSE, matched to your child's current year.`.replace(
+                        /^ and /,
+                        "Cambridge or Edexcel IGCSE and every IB stage, ",
+                      ),
                     },
                     {
                       icon: Compass,
@@ -645,7 +668,10 @@ export function CountryLanding({
         <SectionHead
           eyebrow="Student and parent reviews"
           title="What students and parents say about working with IB Gram"
-          lead={`Practical feedback on tutor fit, revision structure and communication from IB and IGCSE families, including those studying in ${page.countryName}.`}
+          // Was "...including those studying in {country}". The review records carry no country,
+          // so that clause asserted something we cannot show is true - on every country page, not
+          // just the UAE ones. Say what the reviews actually are instead.
+          lead="Practical feedback on tutor fit, revision structure and communication from IB and IGCSE families we have taught."
           icon={MessageSquare}
         />
       </Band>
@@ -706,7 +732,9 @@ export function CountryLanding({
                   +
                 </span>
               </summary>
-              <p className="border-t border-border px-5 py-5 text-sm leading-relaxed text-foreground/75">
+              {/* faq-answer is the selector the speakable spec names; without it the markup
+                  pointed at nothing and voice assistants had no passage to read. */}
+              <p className="faq-answer border-t border-border px-5 py-5 text-sm leading-relaxed text-foreground/75">
                 {faq.answer}
               </p>
             </details>
@@ -715,6 +743,38 @@ export function CountryLanding({
       </Band>
 
       {/* ---------------- Final CTA ---------------- */}
+      {articles && articles.length > 0 ? (
+        <Band>
+          <SectionHead
+            eyebrow="Reading"
+            icon={BookOpen}
+            title={`Guides for ${page.countryName} families`}
+            lead={`Longer reads on fees, exam calendars, school choice and the rules that apply in ${page.countryName}.`}
+          />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {articles.map((article) => (
+              <Link
+                key={article.href}
+                href={article.href}
+                className="group flex flex-col rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/30"
+              >
+                <h3 className="text-base font-black leading-snug text-foreground group-hover:text-primary">
+                  {article.title}
+                </h3>
+                {article.excerpt ? (
+                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{article.excerpt}</p>
+                ) : null}
+                {article.readingTimeMinutes ? (
+                  <span className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    {article.readingTimeMinutes} min read
+                  </span>
+                ) : null}
+              </Link>
+            ))}
+          </div>
+        </Band>
+      ) : null}
+
       {directory ? (
         <Band tone="raised">
           <SectionHead eyebrow={directory.eyebrow} icon={MapPin} title={directory.title} lead={directory.lead} />

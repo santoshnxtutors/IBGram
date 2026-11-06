@@ -116,7 +116,7 @@ export function validateGeneratedSeoPage(value: unknown): GeneratedSeoPage {
     metaDescription: requiredString(page.metaDescription, "metaDescription"),
     ogTitle: optionalString(page.ogTitle) || requiredString(page.metaTitle, "metaTitle"),
     ogDescription: optionalString(page.ogDescription) || requiredString(page.metaDescription, "metaDescription"),
-    ogImage: absoluteUrl(optionalString(page.ogImage) || "/images/ib-gram-city-og.svg"),
+    ogImage: absoluteUrl(optionalString(page.ogImage) || "/images/ib-gram-city-og.png"),
     twitterTitle: optionalString(page.twitterTitle) || requiredString(page.metaTitle, "metaTitle"),
     twitterDescription: optionalString(page.twitterDescription) || requiredString(page.metaDescription, "metaDescription"),
     breadcrumbTitle: optionalString(page.breadcrumbTitle) || requiredString(page.h1, "h1"),

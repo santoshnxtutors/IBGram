@@ -1,4 +1,5 @@
 import { CACHE_TAGS } from "./cache-tags";
+import { blogPath } from "@/lib/cms/blog-path";
 
 export type RoutePatternTarget = {
   path: string;
@@ -26,6 +27,8 @@ type PageMutationInput = {
 type BlogMutationInput = {
   slug?: string | null;
   status?: string | null;
+  /** Needed so revalidation targets /blog/<country>/<slug>/, not the bare slug. */
+  country?: string | null;
 };
 
 type TutorMutationInput = {
@@ -179,7 +182,9 @@ export function getAffectedPathsForHomepage(): RevalidationTargets {
 }
 
 export function getAffectedPathsForBlog(...posts: Array<BlogMutationInput | null | undefined>): RevalidationTargets {
-  const postPaths = posts.flatMap((post) => (post?.slug ? [`/blog/${post.slug}/`] : []));
+  const postPaths = posts.flatMap((post) =>
+    post?.slug ? [blogPath({ slug: post.slug, country: post.country })] : [],
+  );
   return {
     paths: unique(["/blog/", "/", "/igcse/", SITEMAP_PATH, ...postPaths]),
     tags: [CACHE_TAGS.blog, CACHE_TAGS.sitemap],

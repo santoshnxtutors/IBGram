@@ -33,7 +33,7 @@ import {
   ibTutorsTrustSignals,
 } from "./content";
 
-const ogImage = absoluteUrl("/images/ib-gram-city-og.svg");
+const ogImage = absoluteUrl("/images/ib-gram-city-og.png");
 const pageUrl = absoluteUrl("/ib-tutors/");
 
 export const metadata: Metadata = {

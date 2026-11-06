@@ -21,6 +21,8 @@ type Item = {
   slug: string;
   title: string;
   excerpt: string | null;
+  country: string | null;
+  city: string | null;
   body: string;
   authorName: string | null;
   status: string;
@@ -121,6 +123,10 @@ export function BlogClient({ items }: { items: Item[] }) {
                 return {
                   ...rest,
                   excerpt: typeof rest.excerpt === "string" ? rest.excerpt : null,
+                  // Blank country keeps the post at /blog/<slug>/, which is where
+                  // every pre-existing post lives. Only a value moves it.
+                  country: typeof rest.country === "string" && rest.country.trim() ? rest.country.trim() : null,
+                  city: typeof rest.city === "string" && rest.city.trim() ? rest.city.trim() : null,
                   authorName: typeof rest.authorName === "string" ? rest.authorName : null,
                   metaTitle: typeof rest.metaTitle === "string" ? rest.metaTitle : null,
                   metaDescription: typeof rest.metaDescription === "string" ? rest.metaDescription : null,
@@ -177,6 +183,26 @@ export function BlogClient({ items }: { items: Item[] }) {
                 defaultValue={placementFromTags(editing?.tags)}
                 options={HOME_PLACEMENT_OPTIONS}
               />
+            </label>
+            <label>
+              <FieldLabel>Country</FieldLabel>
+              <TextInput
+                name="country"
+                defaultValue={editing?.country ?? ""}
+                placeholder="uae"
+              />
+              <p className="mt-1 text-xs text-slate-400">
+                Lowercase, no spaces. &ldquo;uae&rdquo; publishes at /blog/uae/&lt;slug&gt;/. Leave blank for /blog/&lt;slug&gt;/.
+              </p>
+            </label>
+            <label>
+              <FieldLabel>City</FieldLabel>
+              <TextInput
+                name="city"
+                defaultValue={editing?.city ?? ""}
+                placeholder="dubai"
+              />
+              <p className="mt-1 text-xs text-slate-400">Optional. Groups posts by city in admin; does not change the URL.</p>
             </label>
             <label className="sm:col-span-2">
               <FieldLabel>Excerpt</FieldLabel>

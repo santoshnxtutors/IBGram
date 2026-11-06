@@ -127,7 +127,7 @@ function makePage(): GeneratedSeoPage {
     metaDescription: "Find IB tutors in Sector 56 Gurugram for PYP, MYP and DP students with home, online and hybrid support.",
     ogTitle: "IB Tutors in Sector 56 Gurugram | IB Gram",
     ogDescription: "IB tutors in Sector 56 Gurugram with verified tutor matching.",
-    ogImage: "https://www.ibgram.com/images/ib-gram-city-og.svg",
+    ogImage: "https://www.ibgram.com/images/ib-gram-city-og.png",
     twitterTitle: "IB Tutors in Sector 56 Gurugram | IB Gram",
     twitterDescription: "IB tutors in Sector 56 Gurugram with verified tutor matching.",
     breadcrumbTitle: "IB Tutors in Sector 56",

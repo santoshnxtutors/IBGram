@@ -8,7 +8,7 @@ import { citySeoPages } from "./cities";
 import type { CitySeoPage } from "./types";
 import { ALL_INDIA_CITIES } from "./all-cities";
 
-const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
+const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.png");
 const pagesBySlug = new Map(citySeoPages.map((page) => [page.slug, page]));
 
 export const citySeoSlugs: string[] = citySeoPages.map((page) => page.slug);

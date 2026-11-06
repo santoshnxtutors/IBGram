@@ -1,4 +1,5 @@
 "use client";
+import { blogPath } from "@/lib/cms/blog-path";
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
@@ -122,7 +123,7 @@ export function BlogListClient({
               className="mb-16 overflow-hidden rounded-[2.5rem] border border-border/50 bg-card/40"
             >
               <Link
-                href={`/blog/${featured.slug}/`}
+                href={blogPath(featured)}
                 className="group flex cursor-pointer flex-col gap-8 transition-all hover:border-primary/20 lg:flex-row lg:gap-12"
               >
                 <div className="relative aspect-[16/9] w-full overflow-hidden bg-muted/20 transition-colors group-hover:bg-muted/10 lg:aspect-auto lg:w-3/5">
@@ -177,7 +178,7 @@ export function BlogListClient({
                 viewport={{ once: true }}
                 transition={{ delay: (idx % 3) * 0.1, duration: 0.5 }}
               >
-                <Link href={`/blog/${blog.slug}/`} className="group flex cursor-pointer flex-col">
+                <Link href={blogPath(blog)} className="group flex cursor-pointer flex-col">
                   <div className="relative mb-6 aspect-[16/10] w-full overflow-hidden rounded-3xl border border-border/50 bg-card transition-all group-hover:border-primary/20">
                     {blog.featuredImageUrl ? (
                       // eslint-disable-next-line @next/next/no-img-element

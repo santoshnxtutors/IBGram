@@ -7,7 +7,7 @@ import { absoluteUrl } from "@/lib/seo/slug-utils";
 import { CONTACT } from "@/lib/contact";
 
 const pageUrl = absoluteUrl("/tutor-policy/");
-const ogImage = absoluteUrl("/images/ib-gram-city-og.svg");
+const ogImage = absoluteUrl("/images/ib-gram-city-og.png");
 
 const EFFECTIVE_DATE = "3 October 2026";
 const LAST_UPDATED = "3 October 2026";

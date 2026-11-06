@@ -83,7 +83,7 @@ export function igcseSubjectToGeneratedPage(
   const pageId = pageIdFor(entry.slug);
   const focus = `IGCSE ${entry.label}`;
   const blocks = content.blocks.filter((block) => block.body || block.items.length > 0);
-  const ogImage = absoluteUrl("/images/ib-gram-city-og.svg");
+  const ogImage = absoluteUrl("/images/ib-gram-city-og.png");
 
   const wordCount = countWords([
     content.heroSubtitle,

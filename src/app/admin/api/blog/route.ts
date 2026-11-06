@@ -20,6 +20,22 @@ const createSchema = z.object({
   metaDescription: z.string().max(600).optional().nullable(),
   metaKeywords: z.array(z.string()).optional(),
   tags: z.array(z.string()).optional(),
+  /** URL country segment: "uae" -> /blog/uae/<slug>/. Empty means the flat /blog/<slug>/. */
+  country: z
+    .string()
+    .regex(/^[a-z0-9-]*$/, "Country must be lowercase letters, numbers and hyphens only")
+    .max(40, "Country must be 40 characters or fewer")
+    .optional()
+    .nullable()
+    .transform((v) => (v?.trim() ? v.trim().toLowerCase() : null)),
+  /** Optional city inside that country, for city-level blog taxonomy. */
+  city: z
+    .string()
+    .regex(/^[a-z0-9-]*$/, "City must be lowercase letters, numbers and hyphens only")
+    .max(60, "City must be 60 characters or fewer")
+    .optional()
+    .nullable()
+    .transform((v) => (v?.trim() ? v.trim().toLowerCase() : null)),
   status: z.enum(["draft", "review", "published", "archived"]).optional(),
   indexFlag: z.enum(["index", "noindex", "auto"]).optional(),
   readingTimeMinutes: z.number().int().min(1).max(120).optional().nullable(),

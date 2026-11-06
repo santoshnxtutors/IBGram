@@ -6,7 +6,7 @@ import type { JsonLdObject } from "@/lib/seo/schema";
 import { tutorJobSeoPages } from "./pages";
 import type { TutorJobSeoPage } from "./types";
 
-const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
+const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.png");
 const pagesBySlug = new Map(tutorJobSeoPages.map((page) => [page.slug, page]));
 
 export const tutorJobSeoSlugs: string[] = tutorJobSeoPages.map((page) => page.slug);

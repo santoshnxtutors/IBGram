@@ -23,11 +23,12 @@ const SHEDS: Array<[RegExp, string]> = [
   [/\bBoard Exam Preparation\b/i, "Board Exam"],
   [/\bResult Improvement\b/i, "Result Boost"],
   [/\bPast Paper Practice\b/i, "Past Papers"],
-  // Qualifiers that carry no query volume of their own.
-  [/^Experienced\s+/i, ""],
-  [/\bHome Tutor\b/i, "Tutor"],
-  [/\bOnline Tutor\b/i, "Tutor"],
-  [/\bCambridge IGCSE\b/, "IGCSE"],
+  // Deliberately NOT shed: "Experienced", "Home Tutor", "Online Tutor", "Cambridge IGCSE".
+  // Those read like filler but they are the exact query a page targets - /…-home-tutor/ and
+  // /…-online-tutor/ are separate URLs chasing separate searches. Shedding them collapsed 20
+  // URLs onto 9 identical titles and stripped the primary keyword from 16, which is the one
+  // outcome the contract above forbids. A title Google truncates still carries its keyword in
+  // the part that renders; a shed one carries it nowhere.
 ];
 
 const tidy = (s: string) =>

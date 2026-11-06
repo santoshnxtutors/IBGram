@@ -5,7 +5,7 @@ import { absoluteUrl } from "@/lib/seo/slug-utils";
 import { CONTACT } from "@/lib/contact";
 
 const pageUrl = absoluteUrl("/terms-and-conditions/");
-const ogImage = absoluteUrl("/images/ib-gram-city-og.svg");
+const ogImage = absoluteUrl("/images/ib-gram-city-og.png");
 
 const EFFECTIVE_DATE = "1 January 2026";
 const LAST_UPDATED = "1 January 2026";

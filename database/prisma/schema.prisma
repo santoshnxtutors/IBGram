@@ -1256,6 +1256,11 @@ model BlogCategory {
 model BlogPost {
   id                String        @id @default(cuid())
   slug              String        @unique
+  /// Country segment for the public URL: null -> /blog/<slug>, "uae" -> /blog/uae/<slug>.
+  /// Nullable on purpose so the 119 posts that predate this keep their existing URLs.
+  country           String?
+  /// Optional city within that country, for city-level blog taxonomy in admin.
+  city              String?
   title             String
   excerpt           String?
   body              String
@@ -1282,6 +1287,7 @@ model BlogPost {
   @@index([status])
   @@index([publishedAt])
   @@index([categoryId])
+  @@index([country])
 }
 
 model Job {

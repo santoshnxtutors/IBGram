@@ -60,7 +60,7 @@ export const IGCSE_PAGES_HUB: IgcsePagesHubData = {
   ogTitle: "IGCSE Tutor Pages by City | IB Gram",
   ogDescription:
     "Browse city-wise IGCSE tutor pages for Cambridge and Pearson Edexcel subject support, tutoring modes, local areas and exam planning.",
-  ogImage: absoluteUrl("/images/ib-gram-city-og.svg"),
+  ogImage: absoluteUrl("/images/ib-gram-city-og.png"),
   h1: "IGCSE Tutor Pages by City",
   heroSummary:
     "Explore city-wise IGCSE tutoring pages for families comparing Cambridge IGCSE and Pearson Edexcel support. Each city page covers local areas, home and online tutoring practicality, subjects, school ecosystem context, FAQs and safe parent-facing guidance.",

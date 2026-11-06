@@ -775,7 +775,7 @@ function staticPage(
     robotsTag: overrides.robotsTag ?? (indexFlag === "index" ? "index, follow" : "noindex, follow"),
     ogTitle: overrides.ogTitle ?? metaTitle,
     ogDescription: overrides.ogDescription ?? `IB Gram ${title}`,
-    ogImage: overrides.ogImage ?? `${DOMAIN}/images/ib-gram-city-og.svg`,
+    ogImage: overrides.ogImage ?? `${DOMAIN}/images/ib-gram-city-og.png`,
     twitterTitle: overrides.twitterTitle ?? metaTitle,
     twitterDescription: overrides.twitterDescription ?? `IB Gram ${title}`,
     heroTitle: overrides.heroTitle ?? title,

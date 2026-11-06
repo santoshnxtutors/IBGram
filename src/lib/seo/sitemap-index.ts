@@ -114,7 +114,7 @@ export async function getSitemapSections(): Promise<Record<SitemapFile, Metadata
   }));
 
   const blogs: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: absoluteUrl(`/blog/${post.slug}/`),
+    url: absoluteUrl(post.path),
     lastModified: post.lastModified,
     changeFrequency: "weekly" as const,
     priority: 0.7,

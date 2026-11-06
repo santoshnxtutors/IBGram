@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CountryLanding, type LandingDirectory } from "@/components/country-seo/CountryLanding";
 import { getPublicHomepageReviews } from "@/lib/cms/public-reviews";
+import { getBlogPostsByCountry } from "@/lib/cms/blog";
+import { blogPath } from "@/lib/cms/blog-path";
 import {
   buildUaeSeoMetadata,
   buildUaeSeoSchema,
@@ -54,7 +56,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 function directoryFor(page: UaeSeoPage): LandingDirectory | undefined {
   const place = page.area ?? page.city;
   const parent = getUaeParentLink(page.slug);
-  const children = getUaeChildLinks(page.slug, 18);
+  // An emirate hub is the discovery route into its whole subtree, so it lists far more than a
+  // leaf does. At 18, Dubai linked 18 of its ~700 children and 560 pages stayed unreachable from
+  // /uae/ no matter how the sideways links rotated. A hub listing its directory is ordinary for
+  // this page type and is what makes the set crawlable.
+  const children = getUaeChildLinks(page.slug, page.kind === "city" ? 240 : 18);
   const related = getUaeSeoRelated(page.slug, 12);
 
   const groups = [
@@ -78,9 +84,10 @@ export default async function UaeHubChildPage({ params }: PageProps) {
   const page = getUaeSeoPage(slug);
   if (!page) notFound();
 
-  const [reviews, { tutors }] = await Promise.all([
+  const [reviews, { tutors }, posts] = await Promise.all([
     getPublicHomepageReviews(),
     getUaePageTutors(showsIgcseTutors(slug)),
+    getBlogPostsByCountry("uae", 6),
   ]);
 
   return (
@@ -91,6 +98,12 @@ export default async function UaeHubChildPage({ params }: PageProps) {
       schema={buildUaeSeoSchema(page)}
       schoolStrip={schoolStripFor(page)}
       directory={directoryFor(page)}
+      articles={posts.map((p) => ({
+        title: p.title,
+        href: blogPath(p),
+        excerpt: p.excerpt,
+        readingTimeMinutes: p.readingTimeMinutes,
+      }))}
     />
   );
 }

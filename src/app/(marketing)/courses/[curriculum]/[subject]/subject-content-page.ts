@@ -112,7 +112,7 @@ export function courseContentToGeneratedPage(
     metaDescription: content.metaDescription,
     ogTitle: content.metaTitle,
     ogDescription: content.metaDescription,
-    ogImage: absoluteUrl("/images/ib-gram-city-og.svg"),
+    ogImage: absoluteUrl("/images/ib-gram-city-og.png"),
     twitterTitle: content.metaTitle,
     twitterDescription: content.metaDescription,
     breadcrumbTitle: focus,

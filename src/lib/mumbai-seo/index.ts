@@ -9,7 +9,7 @@ import { SCHOOLS_BY_ZONE } from "./schools";
 import type { MumbaiSeoPage, MumbaiSeoPageMeta, MumbaiZoneSlug } from "./types";
 
 export const MUMBAI_SEO_LAST_UPDATED = "2026-10-12";
-const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.svg");
+const OG_IMAGE = absoluteUrl("/images/ib-gram-city-og.png");
 
 /** Mumbai city centre, public coordinates. Describes the city, not an office. */
 const MUMBAI_GEO = { latitude: 19.076, longitude: 72.8777 };

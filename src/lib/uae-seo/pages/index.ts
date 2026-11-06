@@ -22,6 +22,32 @@ import shard15 from "./shard-015.json";
 import shard16 from "./shard-016.json";
 import shard17 from "./shard-017.json";
 import shard18 from "./shard-018.json";
+import shard19 from "./shard-019.json";
+import shard20 from "./shard-020.json";
+import shard21 from "./shard-021.json";
+import shard22 from "./shard-022.json";
+import shard23 from "./shard-023.json";
+import shard24 from "./shard-024.json";
+import shard25 from "./shard-025.json";
+import shard26 from "./shard-026.json";
+import shard27 from "./shard-027.json";
+import shard28 from "./shard-028.json";
+import shard29 from "./shard-029.json";
+import shard30 from "./shard-030.json";
+import shard31 from "./shard-031.json";
+import shard32 from "./shard-032.json";
+import shard33 from "./shard-033.json";
+import shard34 from "./shard-034.json";
+import shard35 from "./shard-035.json";
+import shard36 from "./shard-036.json";
+import shard37 from "./shard-037.json";
+import shard38 from "./shard-038.json";
+import shard39 from "./shard-039.json";
+import shard40 from "./shard-040.json";
+import shard41 from "./shard-041.json";
+import shard42 from "./shard-042.json";
+import shard43 from "./shard-043.json";
+import shard44 from "./shard-044.json";
 
 export const uaeSeoContentBySlug: Record<string, UaeSeoContent> = {
   ...(shard0 as unknown as Record<string, UaeSeoContent>),
@@ -43,4 +69,30 @@ export const uaeSeoContentBySlug: Record<string, UaeSeoContent> = {
   ...(shard16 as unknown as Record<string, UaeSeoContent>),
   ...(shard17 as unknown as Record<string, UaeSeoContent>),
   ...(shard18 as unknown as Record<string, UaeSeoContent>),
+  ...(shard19 as unknown as Record<string, UaeSeoContent>),
+  ...(shard20 as unknown as Record<string, UaeSeoContent>),
+  ...(shard21 as unknown as Record<string, UaeSeoContent>),
+  ...(shard22 as unknown as Record<string, UaeSeoContent>),
+  ...(shard23 as unknown as Record<string, UaeSeoContent>),
+  ...(shard24 as unknown as Record<string, UaeSeoContent>),
+  ...(shard25 as unknown as Record<string, UaeSeoContent>),
+  ...(shard26 as unknown as Record<string, UaeSeoContent>),
+  ...(shard27 as unknown as Record<string, UaeSeoContent>),
+  ...(shard28 as unknown as Record<string, UaeSeoContent>),
+  ...(shard29 as unknown as Record<string, UaeSeoContent>),
+  ...(shard30 as unknown as Record<string, UaeSeoContent>),
+  ...(shard31 as unknown as Record<string, UaeSeoContent>),
+  ...(shard32 as unknown as Record<string, UaeSeoContent>),
+  ...(shard33 as unknown as Record<string, UaeSeoContent>),
+  ...(shard34 as unknown as Record<string, UaeSeoContent>),
+  ...(shard35 as unknown as Record<string, UaeSeoContent>),
+  ...(shard36 as unknown as Record<string, UaeSeoContent>),
+  ...(shard37 as unknown as Record<string, UaeSeoContent>),
+  ...(shard38 as unknown as Record<string, UaeSeoContent>),
+  ...(shard39 as unknown as Record<string, UaeSeoContent>),
+  ...(shard40 as unknown as Record<string, UaeSeoContent>),
+  ...(shard41 as unknown as Record<string, UaeSeoContent>),
+  ...(shard42 as unknown as Record<string, UaeSeoContent>),
+  ...(shard43 as unknown as Record<string, UaeSeoContent>),
+  ...(shard44 as unknown as Record<string, UaeSeoContent>),
 };

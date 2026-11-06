@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     siteName: "IB Gram",
     images: [
       {
-        url: absoluteUrl("/images/ib-gram-city-og.svg"),
+        url: absoluteUrl("/images/ib-gram-city-og.png"),
         alt: "IB Gram IGCSE programme and subject support",
       },
     ],
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     title: "IGCSE Tutors in India — Cambridge & Edexcel Support | IB Gram",
     description:
       "Cambridge IGCSE and Pearson Edexcel International GCSE tutor matching by subject, board, level and lesson mode.",
-    images: [absoluteUrl("/images/ib-gram-city-og.svg")],
+    images: [absoluteUrl("/images/ib-gram-city-og.png")],
   },
 };
 

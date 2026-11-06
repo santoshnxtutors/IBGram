@@ -31,7 +31,7 @@ import {
 } from "./content";
 
 const pageUrl = absoluteUrl("/about-us/");
-const ogImage = absoluteUrl("/images/ib-gram-city-og.svg");
+const ogImage = absoluteUrl("/images/ib-gram-city-og.png");
 
 export const metadata: Metadata = {
   title: { absolute: "IB Gram — About Us, Our Founder and How Tutors Are Verified" },
