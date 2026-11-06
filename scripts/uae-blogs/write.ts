@@ -49,7 +49,8 @@ async function main(): Promise<void> {
     const existing = await db.blogPost.findUnique({ where: { slug: d.slug }, select: { id: true } });
     console.log(`${existing ? "update" : "create"}  ${String(words).padStart(5)}w  ${d.slug}`);
     if (!WRITE) {
-      existing ? updated++ : created++;
+      if (existing) updated += 1;
+      else created += 1;
       continue;
     }
     const data = {

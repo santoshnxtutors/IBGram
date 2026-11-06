@@ -1,4 +1,5 @@
 import React from "react";
+import { isRichFigureKind, RichFigure, RICH_FIGURE_KINDS } from "./RichFigures";
 
 /**
  * Inline animated SVG figures for blog bodies, referenced from markdown as
@@ -173,7 +174,7 @@ export function isKnownFigure(name: string): boolean {
 
 /* Data figures: written in the post body as `:::bars <title>` + `label | value` rows + `:::`. */
 
-const DATA_FIGURE_KINDS = ["bars", "steps", "stats", "timeline"] as const;
+const DATA_FIGURE_KINDS = ["bars", "steps", "stats", "timeline", ...RICH_FIGURE_KINDS] as const;
 export type DataFigureKind = (typeof DATA_FIGURE_KINDS)[number];
 
 export function isDataFigureKind(kind: string): kind is DataFigureKind {
@@ -194,6 +195,14 @@ export function DataFigure({
   note?: string;
 }) {
   if (!rows.length) return null;
+  if (isRichFigureKind(kind)) {
+    return (
+      <Frame title={title}>
+        <RichFigure kind={kind} title={title} rows={rows} />
+        {note && <p className="mt-4 text-center text-sm font-medium text-muted-foreground">{note}</p>}
+      </Frame>
+    );
+  }
   return (
     <Frame title={title}>
       {kind === "bars" && (

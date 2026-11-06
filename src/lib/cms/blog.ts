@@ -121,6 +121,63 @@ function toPublic(row: {
  * All published blog posts (status = published, and publishedAt in the past or
  * null), newest first. Used by the public /blog list.
  */
+/**
+ * A post as a card: everything the listings need, WITHOUT the body.
+ *
+ * The body is 93% of the payload. Caching it for a listing pushed
+ * getPublishedBlogPosts to 3.7MB, over Next's 2MB unstable_cache ceiling, so the
+ * cache write failed on every call and the full query re-ran for each of the
+ * 9,240 pages a build generates. The build log carried one
+ * "items over 2MB can not be cached" line per page. Without the body the same
+ * set is 0.27MB and caches normally.
+ */
+export type PublicBlogCard = Omit<PublicBlogPost, "body">;
+
+const CARD_SELECT = {
+  id: true,
+  slug: true,
+  country: true,
+  city: true,
+  title: true,
+  excerpt: true,
+  authorName: true,
+  tags: true,
+  metaTitle: true,
+  metaDescription: true,
+  metaKeywords: true,
+  readingTimeMinutes: true,
+  indexFlag: true,
+  publishedAt: true,
+  updatedAt: true,
+  category: { select: { name: true, slug: true } },
+  featuredImage: { select: { url: true, altText: true } },
+} as const;
+
+/** Published posts as cards, newest first. Used by every listing and carousel. */
+export const getBlogCardPosts = unstable_cache(
+  async (): Promise<PublicBlogCard[]> => {
+    try {
+      const rows = await prisma.blogPost.findMany({
+        where: { status: "published" },
+        orderBy: [{ publishedAt: "desc" }, { createdAt: "desc" }],
+        take: 200,
+        select: CARD_SELECT,
+      });
+      const now = Date.now();
+      return rows
+        .filter((r) => !r.publishedAt || new Date(r.publishedAt).getTime() <= now)
+        .map((r) => {
+          const { body: _body, ...card } = toPublic({ ...r, body: "" });
+          return card;
+        });
+    } catch {
+      return [];
+    }
+  },
+  ["public-blog-cards"],
+  { tags: [BLOG_CACHE_TAG], revalidate: 60 },
+);
+
 export const getPublishedBlogPosts = unstable_cache(
   async (): Promise<PublicBlogPost[]> => {
     try {

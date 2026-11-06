@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
-import { getBlogCategories, getPublishedBlogPosts } from "@/lib/cms/blog";
+import { getBlogCardPosts, getBlogCategories } from "@/lib/cms/blog";
 import { blogPath } from "@/lib/cms/blog-path";
 import { BlogListClient } from "./BlogListClient";
 
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogListingPage() {
-  const [posts, categories] = await Promise.all([getPublishedBlogPosts(), getBlogCategories()]);
+  const [posts, categories] = await Promise.all([getBlogCardPosts(), getBlogCategories()]);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",

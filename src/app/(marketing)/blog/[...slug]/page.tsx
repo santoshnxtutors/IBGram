@@ -7,7 +7,7 @@ import { ArrowLeft, ArrowRight, CalendarDays, Clock, Tag, User } from "lucide-re
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { headingId, Markdown } from "@/components/blog/Markdown";
 import { absoluteUrl, normalizeSlug, SITE_URL } from "@/lib/seo/slug-utils";
-import { blogPath, getBlogPostBySlug, getPublishedBlogSlugs, getPublishedBlogPosts, parseBlogPath } from "@/lib/cms/blog";
+import { blogPath, getBlogPostBySlug, getPublishedBlogSlugs, getBlogCardPosts, parseBlogPath } from "@/lib/cms/blog";
 
 export const revalidate = 600;
 export const dynamicParams = true;
@@ -169,7 +169,7 @@ export default async function BlogPostPage({ params }: Props) {
   const toc = [...post.body.matchAll(/^##\s+(.+)$/gm)].map((m) => m[1].trim());
 
   // "Keep reading": posts sharing the most topic tags (or the category) first, newest first among ties.
-  const all = await getPublishedBlogPosts();
+  const all = await getBlogCardPosts();
   const topicTags = post.tags.filter((t) => !t.startsWith("home-"));
   const relevance = (p: (typeof all)[number]) =>
     p.tags.filter((t) => topicTags.includes(t)).length + (p.categorySlug && p.categorySlug === post.categorySlug ? 1 : 0);

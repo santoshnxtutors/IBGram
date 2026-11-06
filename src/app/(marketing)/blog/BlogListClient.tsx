@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, Search, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { PublicBlogCategory, PublicBlogPost } from "@/lib/cms/blog";
+import type { PublicBlogCard, PublicBlogCategory } from "@/lib/cms/blog";
 
 function formatDate(iso: string | null): string {
   if (!iso) return "";
@@ -21,7 +21,7 @@ export function BlogListClient({
   posts,
   categories,
 }: {
-  posts: PublicBlogPost[];
+  posts: PublicBlogCard[];
   categories: PublicBlogCategory[];
 }) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
