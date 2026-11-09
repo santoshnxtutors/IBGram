@@ -19,8 +19,8 @@ export const indonesia: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings, wherever your household sits between WIB and WIT",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Indonesia | Online IB DP, MYP & IGCSE Help",
-  metaDescription: "Online IB and IGCSE tutors for students in Indonesia. One-to-one lessons for SPK schools in Jakarta, Bali and Surabaya, scheduled across WIB, WITA and WIT.",
+  title: "Online IB & IGCSE Tutors in Indonesia, Free Trial",
+  metaDescription: "Online IB and IGCSE tutors for students in Jakarta, Bali and Surabaya, timed to WIB, WITA or WIT. Start with a free trial lesson, then book weekly.",
   h1: "Online IB and IGCSE tutors for students studying in Indonesia",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN INDONESIA",
   heroSubtitle: "Your child is enrolled in an SPK school teaching the IB, or a school running Cambridge IGCSE, somewhere between Jakarta and Bali. We pair them with a tutor who already teaches that syllabus, over video, at an hour that fits your part of the archipelago. Give us the programme, the subject and the exam series, and a shortlist follows.",

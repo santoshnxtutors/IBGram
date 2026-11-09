@@ -97,7 +97,12 @@ export function buildAdditionalIndianIbCityPage(config: AdditionalCityConfig): C
     ],
     searchIntent:
       "Find city-wise IB tutors for PYP, MYP and DP support, with help comparing home, online and hybrid tutoring options.",
-    metaTitle: `IB Tutors in ${config.cityName} for PYP, MYP & DP | IB Gram`,
+    // No "| IB Gram" suffix: the root layout's title template appends the brand, and
+    // resolvePageTitle strips a trailing one to avoid "… | IB Gram | IB Gram". Carrying
+    // it here changed nothing on the page and only made the stored title disagree with
+    // the rendered one. ogTitle below keeps the brand on purpose - social cards are not
+    // passed through the template.
+    metaTitle: `IB Tutors in ${config.cityName} for PYP, MYP & DP`,
     metaDescription: buildMetaDescription(config),
     h1: `IB Tutors in ${config.cityName} for PYP, MYP and DP Students`,
     introSummary: `${config.cityName} parents often need IB tutoring that is both academically specialist and practical around local school routines. ${config.parentContext}`,
@@ -244,12 +249,23 @@ export function buildAdditionalIndianIbCityPage(config: AdditionalCityConfig): C
   };
 }
 
+/**
+ * Must land inside resolveMetaDescription's 165-char render budget for EVERY city, or
+ * the tail is clipped and the page loses its only call to action in the result snippet.
+ * The old template reached 166 chars for the longest city names ("Greater Noida",
+ * "Visakhapatnam"), so Google was shown a description ending at "… and English." with
+ * the delivery modes cut off. The subject list is trimmed to five rather than seven
+ * (a seven-subject list is keyword stuffing in a snippet) and "with IB Gram" is dropped,
+ * since the brand already renders in the title.
+ *
+ * Budget: 34 + cityName + 5 + lead(<=49) + 2 + tail(48) = 138 + cityName.
+ */
 function buildMetaDescription(config: AdditionalCityConfig): string {
   const lead = config.subjectDemand.math.includes("Math AA")
-    ? "Math AA, Math AI, Physics, Chemistry, Biology, Economics and English"
-    : "IB Math, sciences, economics, English and assessment support";
+    ? "Math AA, Math AI, Physics, Chemistry and Economics"
+    : "IB Math, sciences, economics and English";
 
-  return `Find IB PYP, MYP and DP tutors in ${config.cityName} for ${lead}. Home, online and hybrid support with IB Gram.`;
+  return `Find IB PYP, MYP and DP tutors in ${config.cityName} for ${lead}. Home, online or hybrid, with a free trial lesson.`;
 }
 
 function buildProgrammes(config: AdditionalCityConfig): ProgramSupport[] {

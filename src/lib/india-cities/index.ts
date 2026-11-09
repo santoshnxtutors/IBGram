@@ -3,6 +3,7 @@ import { absoluteUrl, SITE_URL } from "@/lib/seo/slug-utils";
 import { resolvePageTitle } from "@/lib/seo/page-title";
 import { resolveMetaDescription } from "@/lib/seo/meta-description";
 import type { JsonLdObject } from "@/lib/seo/schema";
+import { ringNeighbours } from "@/lib/seo/related-links";
 import { CONTACT } from "@/lib/contact";
 import { citySeoPages } from "./cities";
 import type { CitySeoPage } from "./types";
@@ -20,6 +21,25 @@ export function getCitySeoPage(slug: string): CitySeoPage | undefined {
 /** Plain links for directories (the /india/ strip, neighbouring cities); never ships page bodies. */
 export function getCityDirectoryLinks(): Array<{ label: string; href: string }> {
   return citySeoPages.map((page) => ({ label: `IB & IGCSE Tutors in ${page.countryName}`, href: `/${page.slug}/` }));
+}
+
+/**
+ * Cities in the same state, for the on-page "nearby cities" block.
+ *
+ * The authored `internalLinks` on each city page all point UP (/india/, /gurgaon/, /ib-tutors/),
+ * so once they render every city has outbound links and 652 of the 1,207 still have no INBOUND
+ * link from anywhere - Search Console's "Crawled - currently not indexed". A wrap-around slice of
+ * the state's cities fixes that structurally: ordered by state then slug, each city links the next
+ * twelve, so every city is a target. Adding a city to cities/ keeps the guarantee with no edit here.
+ */
+const citiesInLinkOrder = [...citySeoPages].sort((a, b) => a.state.localeCompare(b.state) || a.slug.localeCompare(b.slug));
+
+export function getCitySeoRelated(slug: string, limit = 12): Array<{ label: string; href: string }> {
+  const index = citiesInLinkOrder.findIndex((page) => page.slug === slug);
+  return ringNeighbours(citiesInLinkOrder, index, limit).map((page) => ({
+    label: `IB & IGCSE tutors in ${page.countryName}${page.state ? `, ${page.state}` : ""}`,
+    href: `/${page.slug}/`,
+  }));
 }
 
 /**

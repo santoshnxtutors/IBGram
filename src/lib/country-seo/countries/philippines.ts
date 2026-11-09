@@ -19,8 +19,8 @@ export const philippines: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings in Philippine Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in the Philippines | Online DP, MYP & IGCSE",
-  metaDescription: "Online IB and IGCSE tutors for families across the Philippines. One-to-one DP, MYP and IGCSE tuition in Philippine Time, from Metro Manila to Cebu.",
+  title: "IB Tutors in the Philippines: Manila, Free Trial",
+  metaDescription: "One-to-one IB DP, MYP and IGCSE tutors for families from Metro Manila to Cebu, booked in Philippine Time. Start with a free trial lesson, then weekly.",
   h1: "Online IB and IGCSE tutors for students studying in the Philippines",
   heroEyebrow: "ONLINE TUTORING FOR FILIPINO FAMILIES",
   heroSubtitle: "A BGC or Alabang school running the full IB continuum, a Cebu campus teaching Cambridge IGCSE before A Level, or a DepEd senior high student also weighing UPCAT preparation — describe the actual situation and get matched to a tutor who has taught precisely that combination before. Every lesson happens on screen, timed to Philippine Time so it lands naturally once school lets out for the day.",

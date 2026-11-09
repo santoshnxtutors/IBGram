@@ -19,8 +19,8 @@ export const bangladesh: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings in Bangladesh Standard Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB & O/A Level Tutors in Bangladesh | Online Tutoring",
-  metaDescription: "Online tutors for O Level, A Level, IGCSE and IB students in Bangladesh. One-to-one coaching booked in Bangladesh Standard Time for Dhaka families.",
+  title: "IB and O/A Level Tutors in Bangladesh: Free Trial",
+  metaDescription: "One-to-one online tutors for O Level, A Level, IGCSE and IB students in Dhaka and Chattogram, on Bangladesh Standard Time. The first lesson is free.",
   h1: "Online IB, IGCSE and O/A Level tutors for students studying in Bangladesh",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN BANGLADESH",
   heroSubtitle: "English-medium education in Bangladesh runs mostly on Cambridge and Edexcel O Level and A Level rather than the IB, with a small number of schools also authorised for the Diploma Programme. We match your child to a tutor who already teaches that exact board, subject and paper, on a video call booked for a Bangladesh evening rather than fitted around a tutor's convenience elsewhere.",

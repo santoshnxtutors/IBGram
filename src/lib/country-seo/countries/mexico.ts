@@ -19,8 +19,8 @@ export const mexico: CountrySeoPage = {
   schedulingNote: "Weekday evenings after the school day and Saturday mornings in Mexico City time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Mexico | Online IB DP, MYP & IGCSE Tutoring",
-  metaDescription: "Online IB and IGCSE tutors for bilingual colegios across Mexico. DP, MYP and PYP support in English or Spanish, scheduled to Mexico City time, plus SEP context.",
+  title: "IBDP Tutors in Mexico City & Nationwide: Free Trial",
+  metaDescription: "IBDP tutors for Mexico City, Monterrey and Guadalajara colegios. DP, MYP and PYP support in English or Spanish on CDMX time, starting with a free trial.",
   h1: "Online IB and IGCSE tutors for students studying in Mexico",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN MEXICO",
   heroSubtitle: "A bilingual colegio in Polanco, San Pedro Garza García or Zapopan has your child working through the IB Diploma or Cambridge IGCSE, sometimes in English and sometimes in Spanish depending on the subject. We find the tutor who has actually taught that exact course in that language, then run the lesson on a screen at an hour that fits a Mexican evening. Tell us the programme, the subject and which language it's taught in, and a named tutor comes back — not a list to sort through yourself.",

@@ -1,7 +1,7 @@
 ﻿import type { CitySeoPage } from "./city-page-types";
 import type { IgcseCitySeoPage } from "./igcse-city-pages";
 import type { IgcsePagesHubData } from "./igcse-pages";
-import { absoluteUrl, buildCityPath, SITE_URL } from "./slug-utils";
+import { absoluteUrl, buildCityPath, normalizeSlug, SITE_URL } from "./slug-utils";
 
 export type JsonLdObject = Record<string, unknown>;
 
@@ -54,6 +54,150 @@ function shouldNormalizeJsonLdUrl(key: string, value: unknown): boolean {
   if (typeof value !== "string") return false;
   if (!["url", "item", "image", "logo", "@id"].includes(key)) return false;
   return /^(https?:\/\/(www\.)?ibgram\.com|https?:\/\/localhost|https?:\/\/127\.0\.0\.1|\/)/i.test(value);
+}
+
+/** Properties a promoted Course keeps from its nested source, when the source has them. */
+const CARRIED_COURSE_PROPERTIES = [
+  "educationalLevel",
+  "educationalCredentialAwarded",
+  "about",
+  "teaches",
+  "audience",
+  "coursePrerequisites",
+  "hasCourseInstance",
+  "offers",
+  "numberOfCredits",
+  "timeRequired",
+] as const;
+
+/** Collects Course nodes from anywhere under `node`, without descending into a Course. */
+function collectNestedCourses(node: unknown, out: JsonLdObject[]): void {
+  if (Array.isArray(node)) {
+    for (const entry of node) collectNestedCourses(entry, out);
+    return;
+  }
+
+  if (!node || typeof node !== "object") return;
+
+  const obj = node as JsonLdObject;
+  if (obj["@type"] === "Course") {
+    out.push(obj);
+    return;
+  }
+
+  for (const value of Object.values(obj)) collectNestedCourses(value, out);
+}
+
+/**
+ * Lifts Courses that are buried inside `Service > hasOfferCatalog > Offer > itemOffered`
+ * into one top-level Course-List `ItemList`.
+ *
+ * Every page set here already describes its subjects as Courses, but only in that nested
+ * position, where Google's Course rich result does not see them -- which is why GSC
+ * Enhancements reports Breadcrumbs and Job Postings only. Nothing new is asserted: name,
+ * description and every carried property come from the nested Course that is already
+ * emitted, the provider from the graph's own organization node, and the URL from the page.
+ *
+ * Runs at render time (via `prepareJsonLd`) rather than in each builder, because the
+ * generated-page set serves a pre-baked `schema` object out of pages/*.json -- the same
+ * reason `speakable` is injected in GeneratedPageRenderer.
+ */
+export function promoteCoursesToGraph(value: unknown): unknown {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return value;
+
+  const root = value as JsonLdObject;
+  const graph = root["@graph"];
+  if (!Array.isArray(graph)) return value;
+
+  const nodes = graph.filter((node): node is JsonLdObject => !!node && typeof node === "object" && !Array.isArray(node));
+
+  // Already Course-eligible, or already promoted: leave it alone so this stays idempotent.
+  if (nodes.some((node) => node["@type"] === "Course")) return value;
+  if (nodes.some((node) => node["@type"] === "ItemList" && String(node["@id"] ?? "").endsWith("#courses"))) return value;
+
+  const nested: JsonLdObject[] = [];
+  for (const node of nodes) collectNestedCourses(node["hasOfferCatalog"], nested);
+  if (nested.length === 0) return value;
+
+  const page = nodes.find(
+    (node) =>
+      typeof node["url"] === "string" &&
+      /^(WebPage|CollectionPage|ItemPage|ProfilePage|AboutPage)$/.test(String(node["@type"])),
+  );
+  const pageUrl = typeof page?.["url"] === "string" ? (page["url"] as string) : undefined;
+  if (!pageUrl) return value;
+
+  const organization = nodes.find((node) => /Organization$/.test(String(node["@type"])) && typeof node["@id"] === "string");
+  const provider = organization
+    ? { "@id": organization["@id"] as string }
+    : { "@type": "Organization", name: "IB Gram", url: SITE_URL };
+  const pageDescription = typeof page?.["description"] === "string" ? (page["description"] as string) : undefined;
+
+  const seen = new Set<string>();
+  const courses: JsonLdObject[] = [];
+
+  for (const source of nested) {
+    const name = typeof source["name"] === "string" ? source["name"].trim() : "";
+    if (!name) continue;
+
+    const slug = normalizeSlug(name);
+    if (!slug || seen.has(slug)) continue;
+    seen.add(slug);
+
+    const course: JsonLdObject = {
+      "@type": "Course",
+      "@id": `${pageUrl}#course-${slug}`,
+      name,
+      // Google wants a description per Course; the page's own description of this
+      // offering is the honest fallback when the nested Course carries none.
+      description: typeof source["description"] === "string" ? source["description"] : pageDescription,
+      url: pageUrl,
+      inLanguage: "en",
+      provider,
+    };
+
+    for (const property of CARRIED_COURSE_PROPERTIES) {
+      if (source[property] !== undefined) course[property] = source[property];
+    }
+
+    courses.push(course);
+    // ponytail: 25 is Google's practical carousel ceiling and keeps the duplicated
+    // Course block off the page weight; raise it if a page genuinely lists more.
+    if (courses.length >= 25) break;
+  }
+
+  if (courses.length === 0) return value;
+
+  const catalogName = nodes
+    .map((node) => node["hasOfferCatalog"])
+    .find((catalog): catalog is JsonLdObject => !!catalog && typeof catalog === "object" && !Array.isArray(catalog));
+
+  return {
+    ...root,
+    "@graph": [
+      ...graph,
+      {
+        "@type": "ItemList",
+        "@id": `${pageUrl}#courses`,
+        name: typeof catalogName?.["name"] === "string" ? (catalogName["name"] as string) : "Tutoring courses",
+        numberOfItems: courses.length,
+        itemListElement: courses.map((course, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: course,
+        })),
+      },
+    ],
+  };
+}
+
+/**
+ * The one pipeline every `<script type="application/ld+json">` on the site goes through.
+ * Promote first, then clean, so promoted nodes get the same undefined-stripping and
+ * absolute-URL normalisation as hand-built ones.
+ */
+export function prepareJsonLd(value: unknown): unknown {
+  return normalizeJsonLdUrls(stripUndefinedFromJsonLd(promoteCoursesToGraph(value)));
 }
 
 export function buildCitySchema(page: CitySeoPage): JsonLdObject {

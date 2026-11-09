@@ -19,8 +19,8 @@ export const norway: CountrySeoPage = {
   schedulingNote: "Weekday afternoons and evenings on CET or CEST, whichever is currently in effect",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Norway | Online IB Diploma & IGCSE Help",
-  metaDescription: "Norwegian families get online IB and IGCSE tutors for DP, MYP and PYP subjects, timed to CET or CEST, with clear guidance on Samordna Opptak points.",
+  title: "IB Diploma Tutors in Norway: Fees, Online, Free Trial",
+  metaDescription: "What IB Diploma tutoring costs in Norway, and what you get: one-to-one DP, MYP and IGCSE lessons on CET, Samordna Opptak guidance, free trial first.",
   h1: "Online tutors for IB Diploma and IGCSE students at school in Norway",
   heroEyebrow: "NORWAY · IB, IGCSE AND VIDEREGÅENDE SUPPORT OVER VIDEO",
   heroSubtitle: "Norway is unusual among IB countries: a number of ordinary public videregående schools teach the Diploma tuition-free, alongside private international schools running the same programme. Wherever your child studies it, tell us the subject, the level and the school, and we put forward a tutor who has actually taught that course, delivered over video and timed to CET or CEST.",

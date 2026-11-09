@@ -19,8 +19,8 @@ export const denmark: CountrySeoPage = {
   schedulingNote: "Weekday afternoons and evenings in Danish local time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Denmark | Online IB DP, MYP & IGCSE Tutoring",
-  metaDescription: "Online IB tutors for students in Denmark. One-to-one DP, MYP and PYP tuition in Danish time, matched to gymnasium IB streams and international schools.",
+  title: "IB Tutors in Denmark: Online DP & MYP, Free Trial",
+  metaDescription: "One-to-one IB DP, MYP and PYP tutors for Denmark, on Danish time, matched to gymnasium IB streams and international schools. Free trial lesson first.",
   h1: "Online IB and IGCSE tutors for students studying in Denmark",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN DENMARK",
   heroSubtitle: "Your child is working through the IB Diploma or an earlier IB stage at a Danish gymnasium or international school, and we pair them with a tutor who has actually taught that subject and level. Every lesson happens online, one to one, at a time that fits after a Danish school day — no travel, no waiting room, just a specialist who knows the syllabus your child is graded against.",

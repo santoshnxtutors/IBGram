@@ -17,6 +17,14 @@ const SIBLING_LINKS: { slug: string; label: string }[] = [
   { slug: "arts", label: "Arts" },
 ];
 
+/** The IB programme pages that also live under /courses/ib/. IB only - IGCSE has no programmes. */
+const IB_PROGRAMME_LINKS: { slug: string; label: string }[] = [
+  { slug: "pyp", label: "Primary Years Programme" },
+  { slug: "myp", label: "Middle Years Programme" },
+  { slug: "dp", label: "Diploma Programme" },
+  { slug: "cp", label: "Career-related Programme" },
+];
+
 function countWords(parts: string[]): number {
   return parts.join(" ").split(/\s+/).filter(Boolean).length;
 }
@@ -73,7 +81,14 @@ export function courseContentToGeneratedPage(
     (block) => block.body || block.items.length > 0,
   );
 
-  const internalLinks: GeneratedSeoPage["internalLinks"] = SIBLING_LINKS.filter(
+  // The four /courses/ib/<programme>/ pages are reachable from nowhere else on the site: the
+  // /programmes/ hub links its own /programmes/<slug>/ copies, so these sat in Search Console's
+  // "Crawled - currently not indexed" with zero inbound links. IB only - there is no
+  // /courses/igcse/dp/, and a link to a 404 is worse than no link.
+  const siblings =
+    curriculumSlug === "ib" ? [...SIBLING_LINKS, ...IB_PROGRAMME_LINKS] : SIBLING_LINKS;
+
+  const internalLinks: GeneratedSeoPage["internalLinks"] = siblings.filter(
     (item) => item.slug !== subjectSlug,
   ).map((item, index) => ({
     linkId: `${pageId}_L${index + 1}`,

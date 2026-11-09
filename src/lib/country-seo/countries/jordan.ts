@@ -19,8 +19,8 @@ export const jordan: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings on Jordan Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB, IGCSE and Tawjihi Tutors in Jordan, Online",
-  metaDescription: "Online tutors in Amman for the IB Diploma, Cambridge IGCSE, A Level and Tawjihi subjects, plus how Tawjihi results read against UK and US entry routes.",
+  title: "Amman Tutors Online: IB, IGCSE and Tawjihi, Free Trial",
+  metaDescription: "Online tutors in Amman for the IB Diploma, Cambridge IGCSE, A Level and Tawjihi. A free trial lesson with your subject tutor before any fee is paid.",
   h1: "Online IB, Cambridge IGCSE and Tawjihi tutors for students in Jordan",
   heroEyebrow: "ONLINE TUTORING FOR JORDANIAN FAMILIES",
   heroSubtitle: "Whether your child is at one of Amman's IB continuum schools, following Cambridge IGCSE and A Level, or working toward Tawjihi, a tutor is matched to that exact syllabus. Lessons run online, one-to-one, on Jordan Time — no odd-hour scheduling, no guessing at overlap. Tell us the school, the subject and the exam board, and we shortlist someone who already teaches it.",

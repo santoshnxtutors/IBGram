@@ -21,6 +21,7 @@ import { HeroFlagSlider } from "@/components/home/HeroFlagSlider";
 import { IGCSETutors } from "./tutor";
 import { IGCSESubjectExplorer } from "./subject-explorer";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
+import { JsonLd } from "@/components/seo-city/JsonLd";
 import { IGCSEBlogs } from "./blogs/IGCSEBlogs";
 import { IGCSEFaqs } from "./faqs/IGCSEFaqs";
 import { IGCSELearningPlan } from "./planning/IGCSELearningPlan";
@@ -177,10 +178,9 @@ export default async function IGCSEPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(graphSchema) }}
-      />
+      {/* Routed through JsonLd so this hub gets the same undefined-stripping and
+          absolute-URL normalisation as every other page, instead of a raw script tag. */}
+      <JsonLd data={graphSchema} />
 
       {/* ───── Hero ───── */}
       <section className="relative overflow-hidden pt-4 pb-12 md:pt-6 md:pb-14 noise-overlay">

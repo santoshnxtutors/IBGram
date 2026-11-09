@@ -2,9 +2,8 @@ import type { IgcseSubjectContent } from "../types";
 
 export const globalPerspectives: IgcseSubjectContent = {
   slug: "global-perspectives",
-  metaTitle: "Global Perspectives Tutors for IGCSE 0457",
-  metaDescription:
-    "Cambridge IGCSE Global Perspectives is syllabus 0457. Online tutors coach the source paper, the 1,500-2,000 word Individual Report and the Team Project.",
+  metaTitle: "IGCSE Global Perspectives Tutors, 0457: Free Trial",
+  metaDescription: "Cambridge IGCSE Global Perspectives is syllabus 0457. Tutors coach the source paper, the Individual Report and the Team Project. Free trial lesson.",
   primaryKeyword: "IGCSE Global Perspectives tutors",
   secondaryKeywords: [
     "IGCSE Global Perspectives tutor",

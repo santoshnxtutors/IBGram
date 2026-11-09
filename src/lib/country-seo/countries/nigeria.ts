@@ -19,8 +19,8 @@ export const nigeria: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings on West Africa Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Nigeria | Online IB, IGCSE & A Level Tutoring",
-  metaDescription: "Online IB, Cambridge IGCSE and A Level tutors for Nigerian students. One-to-one lessons on West Africa Time, built around WAEC, NECO and JAMB.",
+  title: "IB & IGCSE Tutors in Nigeria: Online, Free Trial Lesson",
+  metaDescription: "Online IB, Cambridge IGCSE and A Level tutors for Nigerian students, on West Africa Time, with WAEC, NECO and JAMB context. Free trial lesson first.",
   h1: "Online IB and Cambridge IGCSE tutors for students studying in Nigeria",
   heroEyebrow: "ONLINE TUTORING FOR NIGERIAN FAMILIES",
   heroSubtitle: "Whether your child sits WAEC and NECO, follows Cambridge IGCSE and A Level, or attends one of the handful of Nigerian schools running the IB, a tutor is matched to that exact syllabus. Lessons run online, one-to-one, on West Africa Time — no jet lag, no odd-hour scheduling. Tell us the school, the subject and the exam board, and a specialist who already teaches it is shortlisted.",

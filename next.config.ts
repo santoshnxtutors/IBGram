@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import { gurgaonSeoExpansionMeta } from "./src/lib/gurgaon-seo/pages-data-expansion";
+import { legacyRedirects } from "./src/lib/seo/legacy-redirects";
 
 // Only the 500-page Gurgaon expansion moved from /<slug>/ to /gurgaon/<slug>/ (2026-09-13). One
 
@@ -56,6 +57,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       ...gurgaonLocalityRedirects,
+      ...legacyRedirects,
       { source: "/blog/choose-right-ib-tutor/", destination: "/blog/how-to-choose-ib-tutor-gurgaon/", permanent: true },
       { source: "/blog/how-to-score-a-7-ib-math-aa-hl/", destination: "/blog/how-to-score-7-ib-math-aa-hl/", permanent: true },
       { source: "/blog/igcse-science-study-tips-physics-chemistry-biology/", destination: "/blog/igcse-science-tutoring-guide/", permanent: true },

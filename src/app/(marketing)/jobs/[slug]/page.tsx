@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Briefcase, Building2, CalendarDays, CheckCircle2, MapPin } from "lucide-react";
-import { getPublishedJobBySlug } from "@/lib/jobs";
+import { getPublishedJobBySlug, JOB_SEO } from "@/lib/jobs";
+import { resolvePageTitle } from "@/lib/seo/page-title";
+import { resolveMetaDescription } from "@/lib/seo/meta-description";
 import { APPLY_HREF, LOGIN_HREF } from "@/lib/jobs/apply-link";
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { absoluteUrl, SITE_URL } from "@/lib/seo/slug-utils";
@@ -15,9 +17,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const job = await getPublishedJobBySlug(slug).catch(() => null);
   if (!job) return { title: "Role not found | IB Gram" };
+  // `| Careers at IB Gram` plus the root layout's `| IB Gram` template shipped a doubled
+  // brand on every role ("... | Careers at IB Gram | IB Gram", 64 chars), and job.summary
+  // is a body paragraph that reached 400 chars raw. Both helpers already solve this for
+  // the rest of the site; the route just never used them.
+  const seo = JOB_SEO[slug];
   return {
-    title: `${job.title} | Careers at IB Gram`,
-    description: job.summary ?? `Apply for ${job.title} at IB Gram.`,
+    title: resolvePageTitle(seo?.title ?? `${job.title} | Careers at IB Gram`),
+    description: resolveMetaDescription(seo?.description ?? job.summary ?? `Apply for ${job.title} at IB Gram.`),
     alternates: { canonical: absoluteUrl(`/jobs/${slug}/`) },
   };
 }

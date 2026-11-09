@@ -87,11 +87,16 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 
   const dbRules: RobotsRule[] = [];
   for (const [userAgent, bucket] of grouped.entries()) {
-    const baseDisallow = userAgent === "*" ? PRIVATE_DISALLOWS : [];
+    // PUBLIC_ALLOWS and PRIVATE_DISALLOWS are the floor for every group, not a
+    // fallback. A DB row saying `Allow: /` used to REPLACE the allow list, which
+    // dropped `/_next/static/` while a DB `Disallow: /_next/` stayed — so the
+    // `*` group told every renderer outside NAMED_BOTS that the CSS and JS were
+    // off limits. Union instead, and give named bots the private disallows too,
+    // since a crawler obeys only its own group and ignores `*` entirely.
     dbRules.push({
       userAgent,
-      allow: bucket.allow.length ? bucket.allow : userAgent === "*" ? PUBLIC_ALLOWS : undefined,
-      disallow: [...new Set([...baseDisallow, ...bucket.disallow])],
+      allow: [...new Set([...PUBLIC_ALLOWS, ...bucket.allow])],
+      disallow: [...new Set([...PRIVATE_DISALLOWS, ...bucket.disallow])],
       ...(bucket.crawlDelay ? { crawlDelay: bucket.crawlDelay } : {}),
     });
   }

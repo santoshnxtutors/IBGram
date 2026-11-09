@@ -19,8 +19,8 @@ export const finland: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings in Finnish time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Finland | Online IB DP, MYP & IGCSE Tutoring",
-  metaDescription: "Online IB tutors for Finland's lukio students. One-to-one IB DP, MYP and IGCSE lessons in EET/EEST, for families in Helsinki, Espoo, Tampere and Turku.",
+  title: "IB Tutors in Finland: Helsinki, Online, Free Trial",
+  metaDescription: "One-to-one IB DP, MYP and IGCSE tutors for lukio and international-school students in Helsinki, Espoo and Tampere, on EET. Free trial lesson first.",
   h1: "Online IB and IGCSE tutors for students studying in Finland",
   heroEyebrow: "ONLINE TUTORING FOR FINNISH FAMILIES",
   heroSubtitle: "A number of Finnish municipal lukio schools teach the IB Diploma tuition-free, in English, running alongside the ylioppilastutkinto track most students follow. Wherever your child studies - an IB stream, a mainstream lukio taking one or two IB-style subjects, or a Cambridge school - we find a tutor who has taught that exact course, with lessons timed to Finland's own clock and its unusual block-based school calendar.",

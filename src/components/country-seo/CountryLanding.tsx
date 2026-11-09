@@ -48,6 +48,25 @@ export type LandingDirectory = {
   groups: Array<{ name: string; links: Array<{ label: string; href: string }> }>;
 };
 
+/**
+ * Appends the page's own authored `internalLinks` to the route's directory (or makes a directory
+ * out of them when the route passed none), dropping any href the directory already carries.
+ */
+function mergeAuthoredLinks(directory: LandingDirectory | undefined, page: CountrySeoPage): LandingDirectory | undefined {
+  const seen = new Set((directory?.groups ?? []).flatMap((g) => g.links.map((l) => l.href.replace(/\/?$/, "/"))));
+  const authored = (page.internalLinks ?? []).filter((l) => l.href && !seen.has(l.href.replace(/\/?$/, "/")));
+  if (authored.length === 0) return directory;
+
+  const group = { name: `More for ${page.countryName} families`, links: authored.map((l) => ({ label: l.label, href: l.href })) };
+  if (directory) return { ...directory, groups: [...directory.groups, group] };
+  return {
+    eyebrow: "Keep exploring",
+    title: `More IB and IGCSE tutoring pages for ${page.countryName}`,
+    lead: `Each page below answers a different question ${page.countryName} families ask about IB and IGCSE support, with its own syllabus detail, fees and tutor availability.`,
+    groups: [group],
+  };
+}
+
 const TutorDiscovery = nextDynamic(() =>
   import("@/components/home/TutorDiscovery").then((mod) => mod.TutorDiscovery),
 );
@@ -234,6 +253,12 @@ export function CountryLanding({
   const flagSrc = `/images/Countryflag/${page.flagCode}.svg`;
   // CMS reviews when available, otherwise the same seed the homepage falls back to.
   const reviewItems = Array.isArray(reviews) && reviews.length > 0 ? reviews : fallbackReviews;
+  // `page.internalLinks` is authored on every country, city and UAE page and was never rendered
+  // anywhere - thousands of hand-written links existed in the data and in no HTML. That is why
+  // 652 of the 1,207 Indian city pages had zero inbound internal links and sat in Search
+  // Console's "Crawled - currently not indexed". Fold them into the directory block that already
+  // exists, deduped against whatever the route passed, so no page shows the same href twice.
+  const resolvedDirectory = mergeAuthoredLinks(directory, page);
 
   return (
     <div className="relative isolate overflow-hidden bg-background">
@@ -768,11 +793,11 @@ export function CountryLanding({
         </Band>
       ) : null}
 
-      {directory ? (
+      {resolvedDirectory ? (
         <Band tone="raised">
-          <SectionHead eyebrow={directory.eyebrow} icon={MapPin} title={directory.title} lead={directory.lead} />
+          <SectionHead eyebrow={resolvedDirectory.eyebrow} icon={MapPin} title={resolvedDirectory.title} lead={resolvedDirectory.lead} />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {directory.groups.map((group) => (
+            {resolvedDirectory.groups.map((group) => (
               <div key={group.name} className="rounded-2xl border border-border bg-background/40 p-5">
                 <h3 className="mb-3 text-base font-black text-foreground">{group.name}</h3>
                 <ul className="space-y-2">

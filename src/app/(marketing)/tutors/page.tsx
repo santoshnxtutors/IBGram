@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
 import { Breadcrumb, breadcrumbJsonLd } from "@/components/seo-city/Breadcrumb";
+import { JsonLd } from "@/components/seo-city/JsonLd";
+import type { JsonLdObject } from "@/lib/seo/schema";
 import { SchoolDisclaimer } from "@/components/seo-city/SchoolDisclaimer";
 import type { Tutor } from "@/lib/tutor-data";
 import { absoluteUrl } from "@/lib/seo/slug-utils";
 import { getPublicTutorsFromDb } from "@/lib/cms/public-tutors";
+import { getTutorReachDirectory } from "@/lib/cms/tutor-reach";
 import TutorsClient from "./TutorsClient";
 
 const CANONICAL = absoluteUrl("/tutors/");
@@ -134,20 +136,17 @@ function jsonLdFaq() {
 }
 
 export default async function TutorsPage() {
-  const dbTutors = await getPublicTutorsFromDb();
+  const [dbTutors, reachPages] = await Promise.all([getPublicTutorsFromDb(), getTutorReachDirectory()]);
   const tutorsForClient = dbTutors ?? [];
 
   return (
     <div className="min-h-screen bg-background">
-      <Script id="ld-tutors-breadcrumb" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(breadcrumbJsonLd(BREADCRUMB))}
-      </Script>
-      <Script id="ld-tutors-itemlist" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(jsonLdItemList(tutorsForClient))}
-      </Script>
-      <Script id="ld-tutors-faq" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(jsonLdFaq())}
-      </Script>
+      {/* next/script with strategy="afterInteractive" injected these three blocks only
+          after hydration, so none of them were in the server HTML and the page shipped
+          with zero structured data. JsonLd renders them server-side like every other page. */}
+      <JsonLd data={breadcrumbJsonLd(BREADCRUMB) as JsonLdObject} />
+      <JsonLd data={jsonLdItemList(tutorsForClient)} />
+      <JsonLd data={jsonLdFaq()} />
 
       <section className="container mx-auto px-4 pt-6 md:pt-10 md:px-6">
         <Breadcrumb items={BREADCRUMB} className="mb-6" />
@@ -254,6 +253,33 @@ export default async function TutorsPage() {
             ))}
           </div>
         </article>
+
+        {/* TutorsClient reaches a profile with router.push, which is a click handler and not an
+            <a href>, so every /tutor-profile/ and /tutor/ URL was in the sitemap with zero
+            inbound links - Search Console's "Crawled - currently not indexed". Same crawlable
+            archive the /blog/ index uses, for the same reason. */}
+        {(tutorsForClient.length > 0 || reachPages.length > 0) && (
+          <nav aria-label="All tutor pages" className="border-t border-border/60 pt-8">
+            <h2 className="mb-4 text-lg font-bold tracking-tight text-foreground">Every tutor profile and subject page</h2>
+            <ul className="grid gap-x-8 gap-y-2 text-sm sm:grid-cols-2 lg:grid-cols-3">
+              {tutorsForClient.map((tutor) => (
+                <li key={tutor.slug ?? tutor.id}>
+                  <Link href={`/tutor-profile/${tutor.slug ?? tutor.id}/`} className="text-muted-foreground transition-colors hover:text-primary">
+                    {tutor.name}
+                    {tutor.subject ? ` — ${tutor.subject}` : ""}
+                  </Link>
+                </li>
+              ))}
+              {reachPages.map((reach) => (
+                <li key={reach.slug}>
+                  <Link href={`/tutor/${reach.slug}/`} className="text-muted-foreground transition-colors hover:text-primary">
+                    {reach.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
 
         <SchoolDisclaimer />
       </section>

@@ -19,8 +19,8 @@ export const belgium: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings on Central European Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Belgium | Online IB DP, MYP & IGCSE Tutoring",
-  metaDescription: "Online IB and IGCSE tutors for students in Belgium. One-to-one IB DP, MYP, PYP and IGCSE tuition on CET/CEST, for Brussels, Antwerp, Waterloo and Mons families.",
+  title: "IB Tutors in Belgium: IB vs A Levels, Brussels, Online",
+  metaDescription: "IB or A Levels in Belgium? One-to-one DP, MYP and IGCSE tutors for Brussels, Antwerp and Waterloo families on CET, with a free trial lesson first.",
   h1: "Online tutors for IB, European Baccalaureate and IGCSE students in Belgium",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN BELGIUM",
   heroSubtitle: "Belgium's international school sector runs on a mix few countries have: IB Diploma schools, Cambridge IGCSE programmes, and the European Baccalaureate sat at the European Schools serving EU and NATO families. Whichever your child is enrolled in, sessions run online, one-to-one, on Central European Time. Name the subject, the level and the school, and the tutor suggested back already teaches that exact course.",

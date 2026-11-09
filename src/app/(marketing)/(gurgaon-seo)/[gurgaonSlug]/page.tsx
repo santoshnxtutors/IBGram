@@ -13,7 +13,7 @@ import { TutorDiscovery } from "@/components/home/TutorDiscovery";
 import { getGurgaonKeywordPage, gurgaonKeywordSlugs } from "@/lib/gurgaon-keywords";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { buildCountrySeoMetadata, countrySeoSlugs, getCountrySeoPage } from "@/lib/country-seo";
-import { buildCitySeoMetadata, buildCitySeoSchema, citySeoSlugs, getCitySeoPage } from "@/lib/india-cities";
+import { buildCitySeoMetadata, buildCitySeoSchema, citySeoSlugs, getCitySeoPage, getCitySeoRelated } from "@/lib/india-cities";
 import { buildTutorJobSeoMetadata, getTutorJobSeoPage, tutorJobSeoSlugs } from "@/lib/tutor-jobs-seo";
 import { TutorJobsLanding } from "@/components/tutor-jobs-seo/TutorJobsLanding";
 import { getPublishedJobs } from "@/lib/jobs";
@@ -116,6 +116,16 @@ export default async function RootSeoLandingPage({ params }: PageProps) {
         reviews={reviews ?? undefined}
         schema={buildCitySeoSchema(cityPage)}
         schoolStrip={cityPage.stripSchools.length > 0 ? { schools: cityPage.stripSchools, place: cityPage.countryName } : undefined}
+        // Without this every city page linked only upward, so 652 of 1,207 had no inbound link
+        // from anywhere on the site and Search Console filed them as crawled-but-not-indexed.
+        directory={{
+          eyebrow: "Nearby cities",
+          title: `IB and IGCSE tutors near ${cityPage.countryName}`,
+          lead: `Online one-to-one IB and IGCSE tuition runs the same way across ${cityPage.state}. These are the nearest cities we have written up.`,
+          // The ring is ordered by state, so neighbours are usually in the same one - but a state
+          // with a single written city wraps into the next, so the label stays state-agnostic.
+          groups: [{ name: "Other cities we cover", links: getCitySeoRelated(cityPage.slug, 12) }],
+        }}
       />
     );
   }

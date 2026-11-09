@@ -2,9 +2,8 @@ import type { IgcseSubjectContent } from "../types";
 
 export const arabic: IgcseSubjectContent = {
   slug: "arabic",
-  metaTitle: "IGCSE Arabic Tutors | 0508 First Language, 0544 Foreign",
-  metaDescription:
-    "IGCSE Arabic tutors for Cambridge 0508 First Language, 0544 Foreign Language, 0527, 7180 and 7184. Modern Standard Arabic against dialect, online worldwide.",
+  metaTitle: "IGCSE Arabic Tutors, 0508 and 0544: Free Trial Lesson",
+  metaDescription: "IGCSE Arabic tutors for Cambridge 0508 First Language and 0544 Foreign Language, plus 0527, 7180 and 7184. Modern Standard against dialect. Free trial lesson.",
   primaryKeyword: "IGCSE Arabic tutors",
   secondaryKeywords: [
     "IGCSE Arabic tutor online",

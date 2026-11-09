@@ -2,9 +2,8 @@ import type { IgcseSubjectContent } from "../types";
 
 export const foodAndNutrition: IgcseSubjectContent = {
   slug: "food-and-nutrition",
-  metaTitle: "IGCSE Food and Nutrition Tutors | Food Science for 0648",
-  metaDescription:
-    "One-to-one IGCSE Food and Nutrition tutors for Cambridge 0648: food science theory, nutrient functions, meal planning and practical evaluations. Online worldwide.",
+  metaTitle: "IGCSE Food and Nutrition Tutors, 0648: Free Trial",
+  metaDescription: "IGCSE Food and Nutrition tutors for Cambridge 0648: food science, nutrient functions, meal planning and practical evaluations. Free trial lesson first.",
   primaryKeyword: "IGCSE Food and Nutrition tutors",
   secondaryKeywords: [
     "Cambridge IGCSE Food and Nutrition 0648 tutor",

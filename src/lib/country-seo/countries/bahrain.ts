@@ -19,8 +19,8 @@ export const bahrain: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings on Bahrain's clock",
   lastUpdated: "2026-09-14",
 
-  title: "IB and IGCSE Tutors in Bahrain, Online One to One",
-  metaDescription: "One-to-one online classes for Cambridge, Edexcel and IB students in Manama, Riffa and Saar, timed to a Bahrain school evening. A named tutor comes first.",
+  title: "IB & IGCSE Tutors in Bahrain: Manama, Free Trial",
+  metaDescription: "One-to-one online classes for Cambridge, Edexcel and IB students in Manama, Riffa and Saar, timed to a Bahrain school evening. Free trial lesson first.",
   h1: "Online IB and IGCSE tutors for students studying in Bahrain",
   heroEyebrow: "ONLINE TUTORING FOR FAMILIES IN BAHRAIN",
   heroSubtitle: "A private school in Manama, Riffa or Saar has your child on the IB or Cambridge/Edexcel IGCSE syllabus, and finding someone outside class who has actually taught that same syllabus is harder than it should be. That is the gap we close: an online, one-to-one tutor matched to the exact subject and level, working around a Bahraini school evening. Tell us the programme and subject, and we'll put forward a name before any commitment is made.",

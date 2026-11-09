@@ -177,6 +177,34 @@ export async function getPublishedTutorReachSlugs(): Promise<string[]> {
 }
 
 /**
+ * Slug + title for the crawlable directory on /tutors/.
+ *
+ * Same filter as the sitemap below, so the directory lists exactly the pages the sitemap offers.
+ * Without it these pages were in the sitemap and linked from nowhere: the tutor cards reach a
+ * profile through `router.push`, which is a click handler, not an <a href>, so Googlebot never
+ * followed one and Search Console filed the whole set as "Crawled - currently not indexed".
+ */
+export async function getTutorReachDirectory(): Promise<Array<{ slug: string; title: string }>> {
+  try {
+    const rows = await prisma.tutorReachPage.findMany({
+      where: {
+        status: "published",
+        OR: [{ indexFlag: "index" }, { indexFlag: "auto", wordCount: { gte: REACH_MIN_WORDS } }],
+      },
+      select: { slug: true, title: true, h1: true, publishedAt: true },
+      take: 2000,
+    });
+    const now = Date.now();
+    return rows
+      .filter((r) => !r.publishedAt || new Date(r.publishedAt).getTime() <= now)
+      .filter((r) => isStaticSafeSlug(r.slug))
+      .map((r) => ({ slug: r.slug, title: r.title || r.h1 || r.slug }));
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Sitemap entries — only published, indexable pages that clear the quality
  * gate (enough unique words). This is the safeguard against thin/duplicate
  * tutor pages being indexed.

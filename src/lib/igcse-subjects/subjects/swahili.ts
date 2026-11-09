@@ -2,9 +2,8 @@ import type { IgcseSubjectContent } from "../types";
 
 export const swahili: IgcseSubjectContent = {
   slug: "swahili",
-  metaTitle: "IGCSE Swahili Tutors for Cambridge 0262 | Online Kiswahili",
-  metaDescription:
-    "IGCSE Swahili tutors for Cambridge 0262: noun-class concord, verb prefixes, the listening paper and oral rehearsal. Online worldwide in your own time zone.",
+  metaTitle: "IGCSE Swahili Tutors, Cambridge 0262: Free Trial",
+  metaDescription: "IGCSE Swahili tutors for Cambridge 0262: noun-class concord, verb prefixes, the listening paper and oral rehearsal. Online in your time zone, free trial first.",
   primaryKeyword: "IGCSE Swahili tutors",
   secondaryKeywords: [
     "IGCSE Swahili tutor",

@@ -1,6 +1,7 @@
 import { absoluteUrl } from "@/lib/seo/slug-utils";
 import type { GeneratedInternalLink, GeneratedSeoPage } from "@/lib/page-generator/types";
-import { getIgcseSubjectCatalogEntry } from "./catalog";
+import { ringNeighbours } from "@/lib/seo/related-links";
+import { getIgcseSubjectCatalogEntry, igcseSubjectCatalog } from "./catalog";
 import type { IgcseSubjectCatalogEntry, IgcseSubjectContent } from "./types";
 
 export function igcseSubjectPath(slug: string): string {
@@ -17,7 +18,15 @@ function countWords(parts: Array<string | undefined>): number {
 
 /** Sibling subjects first, then the fixed hub links every subject page carries. */
 function buildInternalLinks(entry: IgcseSubjectCatalogEntry, pageId: string): GeneratedInternalLink[] {
-  const siblings = entry.siblings
+  // `entry.siblings` is curated per subject, and 21 of the 53 subjects appeared in nobody's list,
+  // so they had zero inbound links - Search Console's "Crawled - currently not indexed". The
+  // catalog ring below guarantees each subject is some other subject's target; ordering by group
+  // keeps those neighbours ones a student would plausibly also take.
+  const order = [...igcseSubjectCatalog].sort((a, b) => a.group.localeCompare(b.group) || a.slug.localeCompare(b.slug));
+  const ringSlugs = ringNeighbours(order, order.findIndex((item) => item.slug === entry.slug), 4).map((item) => item.slug);
+
+  const siblings = [...new Set([...entry.siblings, ...ringSlugs])]
+    .filter((slug) => slug !== entry.slug)
     .map((slug) => getIgcseSubjectCatalogEntry(slug))
     .filter((item): item is IgcseSubjectCatalogEntry => Boolean(item))
     .map((item) => ({

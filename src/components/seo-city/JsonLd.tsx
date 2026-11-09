@@ -1,7 +1,7 @@
-import { normalizeJsonLdUrls, stripUndefinedFromJsonLd, type JsonLdObject } from "@/lib/seo/schema";
+import { prepareJsonLd, type JsonLdObject } from "@/lib/seo/schema";
 
 export function JsonLd({ data }: { data: JsonLdObject }) {
-  const safeData = normalizeJsonLdUrls(stripUndefinedFromJsonLd(data));
+  const safeData = prepareJsonLd(data);
 
   return (
     <script

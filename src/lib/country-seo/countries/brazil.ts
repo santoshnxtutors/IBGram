@@ -19,8 +19,8 @@ export const brazil: CountrySeoPage = {
   schedulingNote: "Weekday evenings and weekend mornings in Brasília Time",
   lastUpdated: "2026-09-14",
 
-  title: "IB Tutors in Brazil | Online DP, MYP & IGCSE Lessons",
-  metaDescription: "IB or IGCSE at a school in São Paulo, Rio or Brasília? We match your child with a tutor who has taught that syllabus, online and on Brasília Time.",
+  title: "IB Tutors in Brazil: Online DP & IGCSE, Free Trial",
+  metaDescription: "IB and IGCSE tutors for schools in São Paulo, Rio and Brasília, one-to-one on Brasília Time. Try a free lesson first, then pick your weekly slot.",
   h1: "Online IB and IGCSE tutors for students studying in Brazil",
   heroEyebrow: "ONLINE TUTORING FOR BRAZILIAN FAMILIES",
   heroSubtitle: "Your child studies at a bilingual or international school running the IB or Cambridge/Edexcel IGCSE alongside the Brazilian curriculum; we match them with a tutor who has taught that exact syllabus. Lessons run online, one-to-one, timed to Brasília Time — after school in São Paulo, Rio de Janeiro, Brasília or Curitiba. Tell us the programme, the subject and the exam session, and we shortlist tutors accordingly.",
