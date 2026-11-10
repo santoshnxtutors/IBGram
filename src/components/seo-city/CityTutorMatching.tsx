@@ -1,4 +1,4 @@
-import { ClipboardCheck, Sparkles } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { CitySeoPage } from "@/lib/seo/city-page-types";
 import { TutorAvailabilitySection } from "@/components/tutors/TutorAvailabilitySection";
 import { buildTutorAvailabilityIntro, getTutorsForCity } from "@/lib/tutors/tutor-location-matching";
@@ -13,7 +13,7 @@ export function CityTutorMatching({ page }: { page: CitySeoPage }) {
         <div className="container mx-auto grid gap-10 px-4 md:px-6 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
-              <ClipboardCheck className="size-3.5" />
+              <Icon name="clipboard-check" className="size-3.5" />
               Matching process
             </div>
             <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
@@ -36,7 +36,7 @@ export function CityTutorMatching({ page }: { page: CitySeoPage }) {
             ))}
 
             <div className="flex items-start gap-3 rounded-2xl border border-secondary/20 bg-secondary/10 p-5">
-              <Sparkles className="mt-0.5 size-5 shrink-0 text-secondary" />
+              <Icon name="sparkles" className="mt-0.5 size-5 shrink-0 text-secondary" />
               <p className="text-sm font-semibold leading-relaxed text-foreground/90">
                 {page.averageMatchingTime} Demo classes are available where the tutor schedule and subject requirement
                 permit.

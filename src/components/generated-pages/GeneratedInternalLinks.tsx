@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Link2 } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
 
 export function GeneratedInternalLinks({ page }: { page: GeneratedSeoPage }) {
@@ -11,7 +11,7 @@ export function GeneratedInternalLinks({ page }: { page: GeneratedSeoPage }) {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 max-w-3xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
-            <Link2 className="size-3.5" />
+            <Icon name="link-2" className="size-3.5" />
             Explore more
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">Related IB Gram pages</h2>
@@ -20,7 +20,7 @@ export function GeneratedInternalLinks({ page }: { page: GeneratedSeoPage }) {
           {links.map((link) => (
             <Link key={link.linkId} href={link.targetUrl} className="group flex items-center justify-between gap-4 rounded-2xl border border-border/50 bg-background/50 p-5 transition-all hover:border-primary/40 hover:bg-primary/5">
               <span className="text-sm font-black leading-relaxed text-foreground group-hover:text-primary">{link.anchorText}</span>
-              <ArrowRight className="size-4 shrink-0 text-primary transition-transform group-hover:translate-x-1" />
+              <Icon name="arrow-right" className="size-4 shrink-0 text-primary transition-transform group-hover:translate-x-1" />
             </Link>
           ))}
         </div>

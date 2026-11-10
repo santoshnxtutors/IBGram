@@ -2,8 +2,8 @@
 {
  "slug": "complete-guide-to-ib-internal-assessment-ia-with-examples",
  "title": "IB IA Examples: Strong vs Weak Research Questions and Structures, Subject by Subject",
- "metaTitle": "IB IA Examples by Subject: Weak vs Strong | IB Gram",
- "metaDescription": "IB IA examples for Maths, Sciences and Economics: weak and strong research questions, structures, and what actually lifts a criterion mark. Written for DP students.",
+ "metaTitle": "IB IA Examples: Weak vs Strong RQs by Subject",
+ "metaDescription": "IB IA examples across Maths, Sciences and Economics: weak and strong research questions side by side, the structure examiners reward, and the IA format.",
  "excerpt": "Worked IB IA examples across Maths, the sciences and Economics: the same topic written weakly and strongly, how a good structure reads, and which small changes lift a criterion. Examples, not rules.",
  "metaKeywords": ["IB IA examples", "IB internal assessment examples", "IB IA research question examples", "good IB IA topics", "IB Maths IA examples", "IB Biology IA examples", "IB Chemistry IA examples", "IB Physics IA examples", "IB Economics IA examples", "IB IA structure example"],
  "tags": ["IB DP", "Internal Assessment", "Maths AA", "Maths AI", "Physics", "Chemistry", "Biology", "Economics"]

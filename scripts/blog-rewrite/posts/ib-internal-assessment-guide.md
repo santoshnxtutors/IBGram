@@ -2,8 +2,8 @@
 {
  "slug": "ib-internal-assessment-guide",
  "title": "IB Internal Assessment Guide: Criteria, Timeline, Integrity and What a Tutor May Do",
- "metaTitle": "IB Internal Assessment Guide for DP Students | IB Gram",
- "metaDescription": "An IB Internal Assessment guide covering how criteria work, a realistic timeline, academic integrity rules and what a tutor may and may not do on your IA.",
+ "metaTitle": "IB Internal Assessment: Criteria, Dates, Integrity",
+ "metaDescription": "An IB Internal Assessment guide: how the criteria work, a realistic timeline, academic integrity rules, and what a tutor may and may not do on your IA.",
  "excerpt": "The Internal Assessment is the part of the Diploma Programme you control most, and the part where families misunderstand the rules most. This guide explains how IA criteria work, how to plan the calendar, and where help stops and malpractice begins.",
  "metaKeywords": ["IB Internal Assessment guide", "IB IA guide", "what is an IB internal assessment", "IB IA criteria", "IB IA timeline", "IB IA academic integrity", "can a tutor help with IB IA", "IB IA deadlines", "IB IA teacher feedback", "IB IA word limit"],
  "tags": ["IB DP", "Internal Assessment", "Study plan", "Exam strategy", "Choosing a tutor"]

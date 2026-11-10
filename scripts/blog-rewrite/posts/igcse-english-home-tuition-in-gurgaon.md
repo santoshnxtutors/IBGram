@@ -2,8 +2,8 @@
 {
  "slug": "igcse-english-home-tuition-in-gurgaon",
  "title": "IGCSE English Home Tuition in Gurgaon: First Language, Second Language or Literature, and What Each Needs",
- "metaTitle": "IGCSE English Home Tuition in Gurgaon: Which Syllabus",
- "metaDescription": "IGCSE English home tuition in Gurgaon starts with knowing which English your child sits: First Language, Second Language or Literature, plus skills and tutor method.",
+ "metaTitle": "IGCSE English Tuition in Gurgaon: Which Paper?",
+ "metaDescription": "IGCSE English home tuition in Gurgaon starts with which English your child sits: First Language, Second Language or Literature, and the skills each needs.",
  "excerpt": "IGCSE English is several different syllabuses with different skills. This guide explains First Language, English as a Second Language and Literature, what each paper rewards, and how a home tutor in Gurgaon should plan lessons.",
  "metaKeywords": ["IGCSE English home tuition in Gurgaon", "IGCSE English tutor Gurgaon", "IGCSE First Language English tutor", "IGCSE English as a Second Language tutor", "IGCSE Literature in English tutor", "Cambridge 0500 tutor", "Edexcel 4EA1 tutor", "IGCSE English directed writing"],
  "tags": ["IGCSE", "English", "Gurgaon", "Home tuition", "Cambridge", "Edexcel"]

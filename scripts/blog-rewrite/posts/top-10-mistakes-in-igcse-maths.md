@@ -2,8 +2,8 @@
 {
  "slug": "top-10-mistakes-in-igcse-maths",
  "title": "Top 10 IGCSE Maths Mistakes: Worked Examples and How to Fix Each One",
- "metaTitle": "Top 10 IGCSE Maths Mistakes and How to Fix Them",
- "metaDescription": "The ten IGCSE maths mistakes that cost the most marks, each with a worked example, the wrong version, the right version and a habit that stops it coming back.",
+ "metaTitle": "10 IGCSE Maths Mistakes That Cost the Most Marks",
+ "metaDescription": "The ten IGCSE maths mistakes that cost the most marks, each with a worked example, the wrong and the right version, and the habit that stops it returning.",
  "excerpt": "Ten specific IGCSE maths mistakes seen on real student scripts, from sign errors to early rounding, each with the wrong working, the correct working and a one-line habit that prevents it.",
  "metaKeywords": ["IGCSE maths mistakes", "common IGCSE maths mistakes", "IGCSE maths 0580 mistakes", "how to avoid mistakes in IGCSE maths", "IGCSE maths exam errors", "IGCSE maths lost marks", "IGCSE maths calculator mistakes", "IGCSE maths exam technique"],
  "tags": ["IGCSE", "IGCSE Maths", "Exam strategy", "Past papers", "Cambridge", "Edexcel", "Study plan"]

@@ -2,8 +2,8 @@
 {
  "slug": "ib-home-tutor-vs-online-tutor-gurgaon",
  "title": "IB Home Tutor vs Online Tutor in Gurgaon: A Scoring Guide by Subject and Student",
- "metaTitle": "IB Home Tutor vs Online Tutor in Gurgaon | IB Gram",
- "metaDescription": "IB home tutor vs online tutor in Gurgaon: a scoring table by subject, age and student profile so you can pick the mode that fits, not the one that sounds better.",
+ "metaTitle": "IB Home Tutor vs Online Tutor in Gurgaon: Score It",
+ "metaDescription": "IB home tutor vs online tutor in Gurgaon: a scoring table by subject, age and student profile, so you pick the mode that fits your child.",
  "excerpt": "Home or online is not a question about quality. It is a question about subject, age, attention and logistics. Score your own situation in ten minutes and see which mode the evidence points to.",
  "metaKeywords": ["IB home tutor vs online tutor in Gurgaon", "IB home tutor Gurgaon", "online IB tutor Gurgaon", "home vs online IB tutoring", "IB tutoring mode comparison", "IB home tuition or online", "IB tutor at home or online", "IB tutoring Gurugram", "which is better home tutor or online tutor IB"],
  "tags": ["IB DP", "IB MYP", "Home tuition", "Online tutoring", "Choosing a tutor", "Gurgaon", "Study plan"]

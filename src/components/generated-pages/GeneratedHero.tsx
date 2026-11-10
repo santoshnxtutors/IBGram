@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import { HeroHighlights } from "@/components/shared/HeroHighlights";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
 import { BookDemoCta } from "@/components/booking/BookDemoCta";
@@ -30,7 +29,7 @@ export function GeneratedHero({ page }: { page: GeneratedSeoPage }) {
             <div>
               {locationLabel && (
                 <p className="flex items-center gap-2 text-sm font-bold text-muted-foreground">
-                  <MapPin className="size-4 text-secondary" />
+                  <Icon name="map-pin" className="size-4 text-secondary" />
                   {locationLabel}
                 </p>
               )}
@@ -50,7 +49,7 @@ export function GeneratedHero({ page }: { page: GeneratedSeoPage }) {
                 label={
                   <>
                     Send a Query
-                    <ArrowRight className="size-5" />
+                    <Icon name="arrow-right" className="size-5" />
                   </>
                 }
               />

@@ -2,8 +2,8 @@
 {
  "slug": "ib-exam-preparation-guide",
  "title": "IB Exam Preparation Guide: A Two-Year System for the May DP Session",
- "metaTitle": "IB Exam Prep: A Two-Year Plan for the May Session",
- "metaDescription": "A practical IB exam preparation guide for the May session: a two-year revision calendar, mock strategy, past-paper practice and wellbeing, subject by subject.",
+ "metaTitle": "IB Exam Preparation: A Two-Year Plan to May",
+ "metaDescription": "An IB exam preparation plan for the May session: a two-year revision calendar, mock recovery, past-paper cadence and wellbeing, for all six subjects.",
  "excerpt": "How to prepare for IB Diploma exams without burning out: what the May session actually tests, a term-by-term revision calendar, how to use mocks and past papers, and where each subject loses marks.",
  "metaKeywords": ["IB exam preparation", "IB exam preparation guide", "how to prepare for IB exams", "IB DP revision plan", "IB May session preparation", "IB mock exams", "IB past papers", "IB revision timetable", "IB exam stress", "IB study plan DP2"],
  "tags": ["IB DP", "Exam strategy", "Study plan", "Past papers", "Internal Assessment", "TOK", "Extended Essay", "Gurgaon"]

@@ -15,6 +15,7 @@ import { CityTutorMatching } from "@/components/seo-city/CityTutorMatching";
 import { CityTutoringModes } from "@/components/seo-city/CityTutoringModes";
 import { CityVerification } from "@/components/seo-city/CityVerification";
 import { JsonLd } from "@/components/seo-city/JsonLd";
+import { IconSprite } from "@/components/ui/Icon";
 import { GeneratedPageRenderer } from "@/components/generated-pages/GeneratedPageRenderer";
 import { getGeneratedPageForRoute, getGeneratedStaticParamsForTypes } from "@/lib/generated-pages/routes";
 import { getDbGeneratedSeoPageByPath } from "@/lib/cms/generated-pages-db";
@@ -80,6 +81,10 @@ export default async function CitySeoPage({ params }: CityPageProps) {
   return (
     <div className="min-h-screen bg-background">
       <JsonLd data={schema} />
+      {/* The seo-city sections draw their icons from this sprite via `<use href="#i-*">`,
+          which only resolves against a symbol in the same document. Exactly one per page:
+          the generated-page branches above return before reaching here. */}
+      <IconSprite />
       <CityHero page={page} />
       <CityTrustBar page={page} />
       <CityAcademicIntro page={page} />

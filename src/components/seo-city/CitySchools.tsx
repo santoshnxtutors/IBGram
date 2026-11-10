@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Building2, ShieldAlert } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { CitySeoPage } from "@/lib/seo/city-page-types";
 import { buildCitySchoolPath } from "@/lib/seo/slug-utils";
 
@@ -9,7 +9,7 @@ export function CitySchools({ page }: { page: CitySeoPage }) {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 max-w-3xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
-            <Building2 className="size-3.5" />
+            <Icon name="building-2" className="size-3.5" />
             School ecosystem
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">{page.schoolSectionTitle}</h2>
@@ -28,7 +28,7 @@ export function CitySchools({ page }: { page: CitySeoPage }) {
                     <h3 className="text-lg font-black text-foreground">{school.name}</h3>
                     <p className="mt-1 text-xs font-black uppercase tracking-[0.14em] text-muted-foreground">{school.area}</p>
                   </div>
-                  {school.pageEnabled ? <ArrowRight className="size-4 shrink-0 text-primary" /> : null}
+                  {school.pageEnabled ? <Icon name="arrow-right" className="size-4 shrink-0 text-primary" /> : null}
                 </div>
                 <p className="mb-4 text-sm font-medium leading-relaxed text-muted-foreground">{school.description}</p>
                 <div className="flex flex-wrap gap-2">
@@ -62,7 +62,7 @@ export function CitySchools({ page }: { page: CitySeoPage }) {
         </div>
 
         <div className="mt-8 flex items-start gap-3 rounded-2xl border border-secondary/20 bg-secondary/10 p-5">
-          <ShieldAlert className="mt-0.5 size-5 shrink-0 text-secondary" />
+          <Icon name="shield-alert" className="mt-0.5 size-5 shrink-0 text-secondary" />
           <p className="text-sm font-semibold leading-relaxed text-foreground/90">{page.schoolDisclaimer}</p>
         </div>
       </div>

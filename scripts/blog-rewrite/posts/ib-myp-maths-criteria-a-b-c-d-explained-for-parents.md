@@ -2,8 +2,8 @@
 {
  "slug": "ib-myp-maths-criteria-a-b-c-d-explained-for-parents",
  "title": "MYP Maths Criteria Explained for Parents: Reading the Report, Asking the Teacher, Helping at Home",
- "metaTitle": "IB MYP Maths Criteria A, B, C and D Explained",
- "metaDescription": "MYP maths criteria explained for parents: what each criterion measures, how levels become a 1-7 grade, and why strong students still score middling.",
+ "metaTitle": "IB MYP Maths Criteria A, B, C, D to 1-7 Grades",
+ "metaDescription": "MYP maths criteria explained for parents: what each of A, B, C and D measures, the 8-point levels, and how those levels convert into the final 1-7 grade.",
  "excerpt": "Your child understands the maths but the MYP grade does not match. This guide explains the four criteria, how scores become a final grade, how to read a report and what to ask the teacher.",
  "metaKeywords": ["MYP maths criteria explained for parents", "MYP mathematics criteria A B C D", "MYP maths grade boundaries", "how MYP maths is graded", "MYP maths report card explained", "MYP criterion levels to grade", "help child with MYP maths at home", "questions to ask MYP maths teacher"],
  "tags": ["IB MYP", "MYP Maths", "Choosing a tutor", "Exam strategy", "Gurgaon", "Study plan"]

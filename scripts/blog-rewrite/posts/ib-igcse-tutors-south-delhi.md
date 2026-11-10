@@ -2,8 +2,8 @@
 {
  "slug": "ib-igcse-tutors-south-delhi",
  "title": "IB and IGCSE Tutors in South Delhi: Home, Online or Hybrid, Colony by Colony",
- "metaTitle": "IB and IGCSE Tutors in South Delhi | Home or Online",
- "metaDescription": "IB and IGCSE tutors in South Delhi: when home tuition works in Greater Kailash, Defence Colony, Saket, Hauz Khas, Vasant Vihar and Panchsheel, and when online wins.",
+ "metaTitle": "IB and IGCSE Tutors in South Delhi, by Colony",
+ "metaDescription": "IB and IGCSE tutors in South Delhi: where home tuition works in Greater Kailash, Defence Colony, Saket, Hauz Khas and Vasant Vihar, and when online wins.",
  "excerpt": "A practical guide for South Delhi families on IB and IGCSE tutoring: which colonies suit home lessons on weekday evenings, when online is the better choice, and how to match a tutor to the board.",
  "metaKeywords": ["IB and IGCSE tutors in South Delhi", "IB tutor South Delhi", "IGCSE tutor South Delhi", "IB home tuition Greater Kailash", "IGCSE tutor Defence Colony", "IB tutor Saket", "IB tutor Vasant Vihar", "IB tutor Hauz Khas", "online IB tutor Delhi"],
  "tags": ["IB DP", "IB MYP", "IGCSE", "Delhi NCR", "South Delhi", "Home tuition", "Online tutoring", "Choosing a tutor"]

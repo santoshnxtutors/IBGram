@@ -2,8 +2,8 @@
 {
  "slug": "ib-myp-mathematics-success-more-than-marks-pathways-heritage-gurgaon",
  "title": "MYP Mathematics Success Beyond Marks: The Skills That Carry Into the IB Diploma and University",
- "metaTitle": "MYP Mathematics Success Beyond Marks | IB Gram",
- "metaDescription": "MYP mathematics success beyond marks: approaches to learning, communication, reflection and global contexts, and how these show up in the DP and at university.",
+ "metaTitle": "MYP Maths Success: The Skills That Carry Into DP",
+ "metaDescription": "MYP mathematics success beyond marks: approaches to learning, communication, reflection and global contexts, and how each shows up later in the DP.",
  "excerpt": "A final MYP grade tells you what a student scored, not what they can do alone. This guide explains the skills behind MYP mathematics success beyond marks, and how to build them from MYP 1 to MYP 5 and into the Diploma Programme.",
  "metaKeywords": ["MYP mathematics success beyond marks", "MYP maths approaches to learning", "MYP mathematics communication skills", "MYP maths global contexts", "MYP maths reflection", "IB MYP maths Gurgaon", "MYP to DP maths skills", "Pathways Heritage MYP maths", "MYP maths long-term skills"],
  "tags": ["IB MYP", "MYP Maths", "Gurgaon", "Choosing a tutor", "Study plan", "IB DP"]

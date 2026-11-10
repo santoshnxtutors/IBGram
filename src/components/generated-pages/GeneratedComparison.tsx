@@ -1,4 +1,4 @@
-import { Scale } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
 
 /**
@@ -15,7 +15,7 @@ export function GeneratedComparison({ page }: { page: GeneratedSeoPage }) {
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
-            <Scale className="size-3.5" />
+            <Icon name="scale" className="size-3.5" />
             Compare
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground md:text-4xl">{comparison.heading}</h2>

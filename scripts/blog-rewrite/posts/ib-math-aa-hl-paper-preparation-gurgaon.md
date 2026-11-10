@@ -2,7 +2,7 @@
 {
  "slug": "ib-math-aa-hl-paper-preparation-gurgaon",
  "title": "IB Math AA HL Paper Preparation: A Plan for Paper 1, Paper 2 and Paper 3",
- "metaTitle": "IB Math AA HL Paper Preparation Guide | IB Gram",
+ "metaTitle": "IB Math AA HL: Paper 1, 2 and 3 Preparation",
  "metaDescription": "IB Math AA HL paper preparation, paper by paper: question styles, timing, drills and a weekly block for Paper 1, Paper 2 and Paper 3, for Gurgaon students.",
  "excerpt": "Paper 1, Paper 2 and Paper 3 reward different habits. This guide gives each paper its own question styles, timing plan, drills and weekly practice block, with the errors that cost marks.",
  "metaKeywords": ["IB Math AA HL paper preparation", "IB Math AA HL Paper 1 tips", "IB Math AA HL Paper 2 strategy", "IB Math AA HL Paper 3 preparation", "AA HL exam timing", "IB maths past paper practice", "IB Math AA HL revision plan", "IB maths Paper 3 investigation", "IB maths non-calculator paper"],

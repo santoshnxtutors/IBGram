@@ -1,26 +1,11 @@
 import Link from "next/link";
 import nextDynamic from "next/dynamic";
 import { BlogCardGrid } from "@/components/blog/BlogCardGrid";
-import {
-  BadgeCheck,
-  BookOpen,
-  Building2,
-  CalendarClock,
-  Clock3,
-  Compass,
-  GraduationCap,
-  Layers,
-  ListChecks,
-  MapPin,
-  MessageSquare,
-  Quote,
-  Star,
-  ShieldCheck,
-} from "lucide-react";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
 import { BookDemoCta } from "@/components/booking/BookDemoCta";
 import { fallbackReviews } from "@/components/home/review-data";
 import { buttonVariants } from "@/components/ui/button";
+import { Icon, IconSprite, type IconName } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { buildCountrySeoSchema } from "@/lib/country-seo";
 import type { CountrySeoPage, CountrySection } from "@/lib/country-seo/types";
@@ -107,13 +92,13 @@ function SectionHead({
   eyebrow,
   title,
   lead,
-  icon: Icon,
+  icon,
   align = "left",
 }: {
   eyebrow: string;
   title: string;
   lead?: string;
-  icon?: React.ComponentType<{ className?: string }>;
+  icon?: IconName;
   align?: "left" | "center";
 }) {
   const centered = align === "center";
@@ -121,9 +106,9 @@ function SectionHead({
   return (
     <header className={`mb-8 ${centered ? "mx-auto max-w-3xl text-center" : ""}`}>
       <div className={`mb-4 flex items-center gap-2.5 ${centered ? "justify-center" : ""}`}>
-        {Icon ? (
+        {icon ? (
           <span className="flex size-8 items-center justify-center rounded-lg border border-primary/25 bg-primary/10 text-primary">
-            <Icon className="size-4" />
+            <Icon name={icon} className="size-4" />
           </span>
         ) : null}
         <span className="text-[11px] font-black uppercase tracking-[0.28em] text-primary">{eyebrow}</span>
@@ -172,7 +157,7 @@ function ProseSection({ section, index }: { section: CountrySection; index: numb
             <ul className="mt-6 space-y-3 border-l border-border pl-5">
               {section.bullets.map((bullet) => (
                 <li key={bullet} className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-foreground/75">
-                  <BadgeCheck className="mt-0.5 size-4 shrink-0 text-primary" />
+                  <Icon name="badge-check" className="mt-0.5 size-4 shrink-0 text-primary" />
                   <span>{bullet}</span>
                 </li>
               ))}
@@ -263,6 +248,7 @@ export function CountryLanding({
   return (
     <div className="relative isolate overflow-hidden bg-background">
       <JsonLd data={schema ?? buildCountrySeoSchema(page)} />
+      <IconSprite />
 
       {/* Continuous ambient wash behind every band — keeps the page one dark surface. */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -328,7 +314,7 @@ export function CountryLanding({
               <ul className="grid gap-3 border-t border-border pt-6 sm:grid-cols-2">
                 {page.heroTrustPoints.map((point) => (
                   <li key={point} className="flex items-start gap-2.5 text-sm font-semibold leading-relaxed text-foreground/85">
-                    <ShieldCheck className="mt-0.5 size-4 shrink-0 text-primary" />
+                    <Icon name="shield-check" className="mt-0.5 size-4 shrink-0 text-primary" />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -351,12 +337,12 @@ export function CountryLanding({
                 <div className="grid gap-4">
                   {[
                     {
-                      icon: Clock3,
+                      icon: "clock-3" as const,
                       title: "Lessons in your time zone",
                       desc: `${page.timezoneLabel}. ${page.schedulingNote}.`,
                     },
                     {
-                      icon: Layers,
+                      icon: "layers" as const,
                       title: "Every IB stage, plus IGCSE",
                       // The clause already names IGCSE, so a code that also says IGCSE stutters:
                       // 658 pages read "DP, MYP, IGCSE and Cambridge or Edexcel IGCSE" above the
@@ -373,22 +359,22 @@ export function CountryLanding({
                       ),
                     },
                     {
-                      icon: Compass,
+                      icon: "compass" as const,
                       title: "Subject-level tutor matching",
                       desc: "Matched by programme, subject, HL or SL level, weak areas and your school's assessment calendar.",
                     },
                     {
-                      icon: CalendarClock,
+                      icon: "calendar-clock" as const,
                       title: "Deadline-aware planning",
                       desc: "Internal assessments, Extended Essay drafts and past-paper revision planned around the exam session your school sits.",
                     },
-                  ].map(({ icon: Icon, title, desc }) => (
+                  ].map(({ icon, title, desc }) => (
                     <div
                       key={title}
                       className="group flex gap-4 rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/30 hover:bg-primary/5"
                     >
                       <div className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-primary/10 bg-primary/5 text-primary transition-colors group-hover:bg-primary/10">
-                        <Icon className="size-5" />
+                        <Icon name={icon} className="size-5" />
                       </div>
                       <div>
                         <h3 className="mb-1 text-sm font-bold text-foreground transition-colors group-hover:text-primary">
@@ -426,7 +412,7 @@ export function CountryLanding({
         <SectionHead
           eyebrow={`IB & IGCSE in ${page.countryName}`}
           title={page.intro.heading}
-          icon={BookOpen}
+          icon="book-open"
         />
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-14">
           <div className="min-w-0 space-y-5 lg:col-span-8">
@@ -445,7 +431,7 @@ export function CountryLanding({
                 <ul className="space-y-4">
                   {page.intro.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-foreground/80">
-                      <BadgeCheck className="mt-0.5 size-4 shrink-0 text-primary" />
+                      <Icon name="badge-check" className="mt-0.5 size-4 shrink-0 text-primary" />
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -462,7 +448,7 @@ export function CountryLanding({
           eyebrow="IB programmes"
           title={`Every IB programme stage, mapped to ${page.demonym} school years`}
           lead={page.programmesIntro}
-          icon={GraduationCap}
+          icon="graduation-cap"
         />
         <div className="grid gap-5 md:grid-cols-2">
           {page.programmes.map((programme) => (
@@ -494,7 +480,7 @@ export function CountryLanding({
           eyebrow="Subject coverage"
           title={page.igcseSubjects ? "IB subjects we tutor" : "IB and IGCSE subjects we tutor"}
           lead={page.subjectsIntro}
-          icon={ListChecks}
+          icon="list-checks"
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {page.subjects.map((subject) => (
@@ -513,7 +499,7 @@ export function CountryLanding({
       {/* ---------------- IGCSE subjects (hubs that split IB and IGCSE) ---------------- */}
       {page.igcseSubjects ? (
         <Band tone="sunken">
-          <SectionHead eyebrow="IGCSE coverage" title="IGCSE subjects we tutor" lead={page.igcseSubjectsIntro} icon={BookOpen} />
+          <SectionHead eyebrow="IGCSE coverage" title="IGCSE subjects we tutor" lead={page.igcseSubjectsIntro} icon="book-open" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {page.igcseSubjects.map((subject) => (
               <article
@@ -535,7 +521,7 @@ export function CountryLanding({
           eyebrow="How sessions run"
           title={`Tutoring formats built around ${page.demonym} school timetables`}
           lead={page.modesIntro}
-          icon={Clock3}
+          icon="clock-3"
         />
         <div className="grid gap-5 lg:grid-cols-3">
           {page.modes.map((mode) => (
@@ -548,7 +534,7 @@ export function CountryLanding({
               <ul className="mt-auto space-y-2.5 border-t border-border pt-5">
                 {mode.bullets.map((bullet) => (
                   <li key={bullet} className="flex items-start gap-2.5 text-sm font-medium text-foreground/75">
-                    <BadgeCheck className="mt-0.5 size-4 shrink-0 text-primary" />
+                    <Icon name="badge-check" className="mt-0.5 size-4 shrink-0 text-primary" />
                     <span>{bullet}</span>
                   </li>
                 ))}
@@ -564,7 +550,7 @@ export function CountryLanding({
           <div className="container mx-auto px-4 pt-16 md:px-6 md:pt-24">
             <div className="mb-2 flex items-center gap-2.5">
               <span className="flex size-8 items-center justify-center rounded-lg border border-primary/25 bg-primary/10 text-primary">
-                <GraduationCap className="size-4" />
+                <Icon name="graduation-cap" className="size-4" />
               </span>
               <span className="text-[11px] font-black uppercase tracking-[0.28em] text-primary">
                 Verified tutors
@@ -585,7 +571,7 @@ export function CountryLanding({
         <SectionHead
           eyebrow="The full picture"
           title={`What IB and IGCSE study actually looks like in ${page.countryName}`}
-          icon={BookOpen}
+          icon="book-open"
         />
         <div className="space-y-12 md:space-y-16">
           {page.sections.map((section, index) => (
@@ -600,7 +586,7 @@ export function CountryLanding({
           eyebrow="Where we tutor"
           title={page.regionsTitle ?? `States, metros and time zones across ${page.countryName}`}
           lead={page.regionsIntro}
-          icon={MapPin}
+          icon="map-pin"
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {page.regions.map((region) => (
@@ -609,7 +595,7 @@ export function CountryLanding({
               className="rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-primary/30 hover:bg-primary/5"
             >
               <h3 className="mb-2 flex items-center gap-2 text-base font-black tracking-tight text-foreground">
-                <MapPin className="size-4 shrink-0 text-primary" />
+                <Icon name="map-pin" className="size-4 shrink-0 text-primary" />
                 {region.name}
               </h3>
               <p className="text-sm leading-relaxed text-foreground/70">{region.note}</p>
@@ -623,7 +609,7 @@ export function CountryLanding({
         <SectionHead
           eyebrow="School ecosystem"
           title={`IB and Cambridge school communities we support in ${page.countryName}`}
-          icon={Building2}
+          icon="building-2"
         />
         <div className="grid gap-5 md:grid-cols-2">
           {page.schoolClusters.map((cluster) => (
@@ -653,7 +639,7 @@ export function CountryLanding({
         <SectionHead
           eyebrow="How matching works"
           title="From first enquiry to a tutor who fits"
-          icon={ListChecks}
+          icon="list-checks"
         />
         <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {page.process.map((step, index) => (
@@ -676,12 +662,12 @@ export function CountryLanding({
         <SectionHead
           eyebrow="Why families choose us"
           title={`What ${page.demonym} parents tell us matters most`}
-          icon={ShieldCheck}
+          icon="shield-check"
         />
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {page.whyPoints.map((point) => (
             <article key={point.title} className="rounded-2xl border border-border bg-card p-6">
-              <ShieldCheck className="mb-4 size-6 text-primary" />
+              <Icon name="shield-check" className="mb-4 size-6 text-primary" />
               <h3 className="mb-2.5 text-base font-black tracking-tight text-foreground">{point.title}</h3>
               <p className="text-sm leading-relaxed text-foreground/70">{point.description}</p>
             </article>
@@ -700,7 +686,7 @@ export function CountryLanding({
           // so that clause asserted something we cannot show is true - on every country page, not
           // just the UAE ones. Say what the reviews actually are instead.
           lead="Practical feedback on tutor fit, revision structure and communication from IB and IGCSE families we have taught."
-          icon={MessageSquare}
+          icon="message-square"
         />
       </Band>
       <div className="relative -mt-4 overflow-hidden pb-12 md:pb-16">
@@ -716,11 +702,11 @@ export function CountryLanding({
             >
               <div className="mb-5 flex items-start justify-between gap-4">
                 <span className="flex size-10 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                  <Quote className="size-4" />
+                  <Icon name="quote" className="size-4" />
                 </span>
                 <span className="flex gap-1" role="img" aria-label={`${review.rating} out of 5 stars`}>
                   {Array.from({ length: Math.round(review.rating) }).map((_, i) => (
-                    <Star key={i} className="size-3.5 fill-current text-secondary" aria-hidden />
+                    <Icon key={i} name="star" className="size-3.5 fill-current text-secondary" />
                   ))}
                 </span>
               </div>
@@ -731,7 +717,7 @@ export function CountryLanding({
                 <p className="text-sm font-black text-foreground">{review.name}</p>
                 {review.location ? (
                   <p className="mt-0.5 flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
-                    <MapPin className="size-3" />
+                    <Icon name="map-pin" className="size-3" />
                     {review.location}
                   </p>
                 ) : null}
@@ -746,7 +732,7 @@ export function CountryLanding({
         <SectionHead
           eyebrow="Questions parents ask"
           title={`IB and IGCSE tutoring in ${page.countryName}: your questions answered`}
-          icon={MessageSquare}
+          icon="message-square"
         />
         <div className="grid gap-3 lg:grid-cols-2">
           {page.faqs.map((faq) => (
@@ -775,7 +761,7 @@ export function CountryLanding({
         <Band>
           <SectionHead
             eyebrow="Reading"
-            icon={BookOpen}
+            icon="book-open"
             title={`Guides for ${page.countryName} families`}
             lead={`Longer reads on fees, exam calendars, school choice and the rules that apply in ${page.countryName}.`}
           />
@@ -795,7 +781,7 @@ export function CountryLanding({
 
       {resolvedDirectory ? (
         <Band tone="raised">
-          <SectionHead eyebrow={resolvedDirectory.eyebrow} icon={MapPin} title={resolvedDirectory.title} lead={resolvedDirectory.lead} />
+          <SectionHead eyebrow={resolvedDirectory.eyebrow} icon="map-pin" title={resolvedDirectory.title} lead={resolvedDirectory.lead} />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {resolvedDirectory.groups.map((group) => (
               <div key={group.name} className="rounded-2xl border border-border bg-background/40 p-5">

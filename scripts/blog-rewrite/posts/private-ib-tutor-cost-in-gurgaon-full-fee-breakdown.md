@@ -2,8 +2,8 @@
 {
  "slug": "private-ib-tutor-cost-in-gurgaon-full-fee-breakdown",
  "title": "Private IB Tutor Cost in Gurgaon: Budget the Full Two Years, Not Just a Monthly Fee",
- "metaTitle": "Private IB Tutor Cost in Gurgaon: Full Budget Guide",
- "metaDescription": "Private IB tutor cost in Gurgaon explained as a two-year budget: hours per subject, term by term, when spending peaks, and how to plan it without surprises.",
+ "metaTitle": "Private IB Tutor Cost in Gurgaon: Two-Year Budget",
+ "metaDescription": "Private IB tutor cost in Gurgaon as a two-year budget, not a monthly fee: hours per subject term by term, and when the spending actually peaks.",
  "excerpt": "A monthly fee tells you very little. This guide shows how Gurgaon families build the real private IB tutor budget: hours per subject, per term, across DP1 and DP2, and where the spending actually peaks.",
  "metaKeywords": ["private IB tutor cost in Gurgaon", "IB tutor budget Gurgaon", "how many hours of IB tutoring", "IB DP tutoring budget", "IB tutor hours per week", "IB tutoring cost planning", "total cost of IB tutoring", "IB tutor Gurugram fees"],
  "tags": ["IB DP", "Gurgaon", "Fees", "Home tuition", "Choosing a tutor", "Study plan"]

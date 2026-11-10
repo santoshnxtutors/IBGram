@@ -2,8 +2,8 @@
 {
  "slug": "how-to-prepare-for-jee-advanced-mathematics-ajay-vatsyayan",
  "title": "JEE Advanced Mathematics Preparation: A Practical Strategy, and What IB Students Must Add",
- "metaTitle": "JEE Advanced Mathematics Preparation Strategy",
- "metaDescription": "JEE Advanced mathematics preparation explained: topic areas, multi-concept problem training, mock analysis, time strategy, and the overlap and gaps for IB students.",
+ "metaTitle": "JEE Advanced Maths: The Preparation Strategy",
+ "metaDescription": "JEE Advanced mathematics preparation: the topic areas that repeat, multi-concept problem training, mock analysis, and the gaps IB students must close.",
  "excerpt": "How to prepare for JEE Advanced mathematics: build concepts first, train on problems that mix chapters, analyse every mock by error type, manage time inside the paper, and see what an IB student must add.",
  "metaKeywords": ["JEE Advanced mathematics preparation", "how to prepare for JEE Advanced maths", "JEE Advanced maths strategy", "JEE Advanced mock test analysis", "JEE Advanced previous year questions maths", "JEE maths for IB students", "IB to JEE preparation", "JEE Advanced maths tutor Gurgaon", "JEE Advanced error notebook", "JEE Main and Advanced maths difference"],
  "tags": ["JEE", "Exam strategy", "Study plan", "Past papers", "Gurgaon", "Home tuition", "IB DP"]

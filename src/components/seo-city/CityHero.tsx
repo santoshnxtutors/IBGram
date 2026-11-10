@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowRight, MapPin, SearchCheck, ShieldCheck, Sparkles } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
 import { BookDemoCta } from "@/components/booking/BookDemoCta";
 import type { CitySeoPage } from "@/lib/seo/city-page-types";
@@ -20,7 +19,7 @@ export function CityHero({ page }: { page: CitySeoPage }) {
 
             <div className="space-y-5">
               <p className="flex items-center gap-2 text-sm font-bold text-muted-foreground">
-                <MapPin className="size-4 text-secondary" />
+                <Icon name="map-pin" className="size-4 text-secondary" />
                 {page.cityName}, {page.stateName}
               </p>
               <h1 className="max-w-5xl text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
@@ -37,7 +36,7 @@ export function CityHero({ page }: { page: CitySeoPage }) {
                 label={
                   <>
                     Send a Query
-                    <ArrowRight className="size-5" />
+                    <Icon name="arrow-right" className="size-5" />
                   </>
                 }
               />
@@ -47,7 +46,7 @@ export function CityHero({ page }: { page: CitySeoPage }) {
             <div className="grid gap-3 border-t border-border/50 pt-7 sm:grid-cols-2">
               {page.trustPoints.map((point) => (
                 <div key={point} className="flex items-start gap-2.5 text-sm font-semibold text-foreground/90">
-                  <ShieldCheck className="mt-0.5 size-4 shrink-0 text-primary" />
+                  <Icon name="shield-check" className="mt-0.5 size-4 shrink-0 text-primary" />
                   <span>{point}</span>
                 </div>
               ))}
@@ -58,7 +57,7 @@ export function CityHero({ page }: { page: CitySeoPage }) {
             <div className="rounded-[2rem] border border-border bg-card p-6 shadow-2xl backdrop-blur-xl">
               <div className="mb-6 flex items-center gap-3">
                 <div className="flex size-11 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
-                  <SearchCheck className="size-5" />
+                  <Icon name="search-check" className="size-5" />
                 </div>
                 <div>
                   <h2 className="text-xl font-black tracking-tight text-foreground">Match Brief</h2>
@@ -81,7 +80,7 @@ export function CityHero({ page }: { page: CitySeoPage }) {
               </dl>
 
               <div className="mt-6 flex items-start gap-3 rounded-2xl border border-secondary/20 bg-secondary/10 p-4">
-                <Sparkles className="mt-0.5 size-4 shrink-0 text-secondary" />
+                <Icon name="sparkles" className="mt-0.5 size-4 shrink-0 text-secondary" />
                 <p className="text-sm font-semibold leading-relaxed text-foreground/90">{page.localCtaText}</p>
               </div>
             </div>

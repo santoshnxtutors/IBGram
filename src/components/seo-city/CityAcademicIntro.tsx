@@ -1,4 +1,4 @@
-import { BrainCircuit, CheckCircle2 } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { CitySeoPage } from "@/lib/seo/city-page-types";
 
 export function CityAcademicIntro({ page }: { page: CitySeoPage }) {
@@ -7,7 +7,7 @@ export function CityAcademicIntro({ page }: { page: CitySeoPage }) {
       <div className="container mx-auto grid gap-10 px-4 md:px-6 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
-            <BrainCircuit className="size-3.5" />
+            <Icon name="brain-circuit" className="size-3.5" />
             Academic context
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
@@ -30,7 +30,7 @@ export function CityAcademicIntro({ page }: { page: CitySeoPage }) {
               page.teachingModeNotes,
             ].map((point) => (
               <div key={point} className="flex items-start gap-3 rounded-2xl border border-border/50 bg-muted/10 p-4">
-                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-secondary" />
+                <Icon name="circle-check" className="mt-0.5 size-4 shrink-0 text-secondary" />
                 <p className="text-sm font-semibold leading-relaxed text-foreground/90">{point}</p>
               </div>
             ))}

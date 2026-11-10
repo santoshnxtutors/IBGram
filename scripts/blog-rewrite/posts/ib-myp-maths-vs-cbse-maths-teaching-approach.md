@@ -2,8 +2,8 @@
 {
  "slug": "ib-myp-maths-vs-cbse-maths-teaching-approach",
  "title": "IB MYP Maths vs CBSE Maths: How Teaching, Assessment and Depth Really Differ",
- "metaTitle": "IB MYP Maths vs CBSE Maths: Teaching Approach Compared",
- "metaDescription": "IB MYP maths vs CBSE maths compared on teaching, assessment, depth and marking, with a worked example and a plan for students switching in either direction.",
+ "metaTitle": "IB MYP Maths vs CBSE Maths: What Changes",
+ "metaDescription": "IB MYP maths vs CBSE maths compared on teaching, assessment, depth and marking, with a worked example and a plan for switching either way.",
  "excerpt": "A student who scored well in CBSE maths and is suddenly struggling in the Middle Years Programme is rarely weaker. The two systems teach and mark differently. Here is how, and what to do about it.",
  "metaKeywords": ["IB MYP maths vs CBSE maths", "MYP maths vs CBSE maths", "CBSE to IB maths switch", "IB MYP mathematics criteria", "why IB maths feels harder than CBSE", "moving from CBSE to IB MYP", "IB MYP to CBSE maths", "MYP maths teaching approach", "CBSE vs IB maths difference"],
  "tags": ["IB MYP", "MYP Maths", "Subject choice", "Choosing a tutor", "Gurgaon", "Study plan"]

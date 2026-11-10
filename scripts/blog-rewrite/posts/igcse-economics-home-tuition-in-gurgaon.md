@@ -2,8 +2,8 @@
 {
  "slug": "igcse-economics-home-tuition-in-gurgaon",
  "title": "IGCSE Economics Home Tuition in Gurgaon: Papers, Diagrams, Data Response and Essay Technique",
- "metaTitle": "IGCSE Economics Home Tuition in Gurgaon: 0455 Guide",
- "metaDescription": "IGCSE Economics home tuition in Gurgaon for Cambridge 0455 and Edexcel 4EC1: how the papers work, diagram habits, data response and structured-answer technique.",
+ "metaTitle": "IGCSE Economics Tuition in Gurgaon: 0455 Diagrams",
+ "metaDescription": "IGCSE Economics home tuition in Gurgaon for Cambridge 0455 and Edexcel 4EC1: how the papers work, diagram habits and data response technique.",
  "excerpt": "Economics marks come from chains of reasoning, clean diagrams and answers that use the data. This guide shows how a home tutor in Gurgaon should train each of those for Cambridge 0455 and Edexcel 4EC1.",
  "metaKeywords": ["IGCSE Economics home tuition in Gurgaon", "IGCSE Economics tutor Gurgaon", "IGCSE Economics 0455 tutor", "Edexcel International GCSE Economics 4EC1", "IGCSE Economics data response", "IGCSE Economics diagrams", "IGCSE Economics exam technique", "IGCSE Economics tuition Gurugram"],
  "tags": ["IGCSE", "Economics", "Gurgaon", "Home tuition", "Cambridge", "Edexcel", "Exam strategy"]

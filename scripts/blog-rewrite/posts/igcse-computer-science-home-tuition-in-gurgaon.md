@@ -2,8 +2,8 @@
 {
  "slug": "igcse-computer-science-home-tuition-in-gurgaon",
  "title": "IGCSE Computer Science Home Tuition in Gurgaon: Papers, Pseudocode and Programming Practice",
- "metaTitle": "IGCSE Computer Science Home Tuition in Gurgaon",
- "metaDescription": "IGCSE Computer Science home tuition in Gurgaon for 0478 and 4CP0: how the papers work, how a tutor teaches pseudocode and programming, and what a session looks like.",
+ "metaTitle": "IGCSE Computer Science Tuition in Gurgaon: 0478",
+ "metaDescription": "IGCSE Computer Science home tuition in Gurgaon for 0478 and 4CP0: how the two papers work and how pseudocode and programming get taught.",
  "excerpt": "Computer Science marks come from two different skills: knowing the theory and writing correct algorithms. This guide shows how home tuition handles both for Cambridge 0478 and Edexcel 4CP0 students in Gurgaon.",
  "metaKeywords": ["IGCSE Computer Science home tuition in Gurgaon", "IGCSE Computer Science tutor Gurgaon", "Cambridge 0478 tutor", "IGCSE pseudocode help", "IGCSE Computer Science Paper 2 tutor", "Edexcel 4CP0 tutor", "IGCSE programming tutor Gurgaon", "IGCSE Computer Science past papers"],
  "tags": ["IGCSE", "Computer Science", "Cambridge", "Edexcel", "Gurgaon", "Home tuition", "Past papers"]

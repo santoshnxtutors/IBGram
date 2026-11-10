@@ -2,8 +2,8 @@
 {
  "slug": "ib-maths-aa-vs-ai-which-one-should-you-choose",
  "title": "IB Maths AA vs AI: How to Choose the Right Course at HL or SL",
- "metaTitle": "IB Maths AA vs AI: The Difference, and How to Pick",
- "metaDescription": "The difference between IB Maths AA vs AI: what each course tests, how HL and SL differ, which degrees expect which, and a profile test to decide before DP1.",
+ "metaTitle": "IB Maths AA vs AI: Difference and Which Is Harder",
+ "metaDescription": "IB Maths AA vs AI: the real difference between Analysis and Approaches and Applications and Interpretation, which is harder, and which degrees need AA HL.",
  "excerpt": "A plain comparison of Analysis and Approaches and Applications and Interpretation: syllabus, papers, difficulty, university expectations and the kind of student each course suits, with a decision test you can finish in one evening.",
  "metaKeywords": ["IB Maths AA vs AI", "IB maths AA or AI", "AA vs AI IB maths", "analysis and approaches vs applications and interpretation", "which IB maths should I take", "IB maths AI HL vs AA SL", "IB maths for engineering", "IB maths for economics", "is IB maths AI easier than AA"],
  "tags": ["Maths AA", "Maths AI", "Subject choice", "IB DP", "University", "Choosing a tutor"]

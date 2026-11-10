@@ -2,8 +2,8 @@
 {
  "slug": "how-to-score-a-star-in-igcse-maths-0580",
  "title": "How to Score an A* in IGCSE Maths 0580: Papers, High-Mark Topics and the Final-Term Plan",
- "metaTitle": "A* in IGCSE Maths 0580: Extended Strategy Guide",
- "metaDescription": "A* in IGCSE Maths 0580 Extended: how the two papers work, where top-grade marks are won and lost, accuracy habits and a final-term plan for Grade 10.",
+ "metaTitle": "A* in IGCSE Maths 0580: Paper 2 and 4 Strategy",
+ "metaDescription": "A* in IGCSE Maths 0580 Extended: how Papers 2 and 4 are marked, where top-grade marks are won and lost, accuracy habits and a final-term plan for Grade 10.",
  "excerpt": "A working strategy for an A* in IGCSE Maths 0580 Extended: how Paper 2 and Paper 4 differ, which topics carry the marks, the accuracy habits that separate an A from an A*, and what to do in the last term.",
  "metaKeywords": ["A* in IGCSE Maths 0580", "IGCSE Maths 0580 Extended tips", "how to get A* in IGCSE maths", "Cambridge IGCSE Mathematics 0580 revision", "IGCSE maths Paper 2 and Paper 4", "IGCSE maths A* strategy", "IGCSE Extended maths accuracy", "IGCSE maths final term plan"],
  "tags": ["IGCSE", "IGCSE Maths", "Cambridge", "Exam strategy", "Past papers", "Study plan", "Gurgaon"]

@@ -2,8 +2,8 @@
 {
  "slug": "ib-math-aa-hl-tutor-gurgaon-guide",
  "title": "IB Math AA HL Tutor in Gurgaon: How to Judge Depth, Paper 3 Skill and IA Guidance",
- "metaTitle": "IB Math AA HL Tutor in Gurgaon: What to Check",
- "metaDescription": "How to choose an IB Math AA HL tutor in Gurgaon: the proof, complex numbers and calculus depth to test, Paper 3 experience, IA limits and interview questions.",
+ "metaTitle": "IB Math AA HL Tutor in Gurgaon: Test Paper 3",
+ "metaDescription": "How to choose an IB Math AA HL tutor in Gurgaon: the proof, complex numbers and calculus depth to test, Paper 3 experience and the IA limits.",
  "excerpt": "An IB Math AA HL tutor in Gurgaon should be judged on mathematical depth, Paper 3 experience and honest IA boundaries, not on a CV line. Here are the tests, the interview questions and the red flags.",
  "metaKeywords": ["IB Math AA HL tutor in Gurgaon", "IB Math AA HL tutor Gurgaon", "IB AA HL tutor", "IB maths HL tutor Gurgaon", "Math AA HL private tutor", "IB Paper 3 tutor", "IB maths IA guidance", "AA HL home tutor Gurugram", "IB mathematics tutor interview questions"],
  "tags": ["IB DP", "Maths AA", "Gurgaon", "Choosing a tutor", "Home tuition", "Online tutoring", "Internal Assessment"]

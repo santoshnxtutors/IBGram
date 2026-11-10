@@ -2,8 +2,8 @@
 {
  "slug": "ib-chemistry-why-students-struggle-how-to-fix-it",
  "title": "Why Students Struggle in IB Chemistry, and a Practical Fix for Each Cause",
- "metaTitle": "Why Students Struggle in IB Chemistry | IB Gram",
- "metaDescription": "Why students struggle in IB Chemistry: the moles, energetics, equilibrium, organic and command-term traps that cost marks, with worked examples and a fix for each.",
+ "metaTitle": "IB Chemistry: Why Students Struggle, and the Fixes",
+ "metaDescription": "Why students struggle in IB Chemistry: the moles, energetics, equilibrium and lab report traps that cost marks, each with a worked example and a fix.",
  "excerpt": "IB Chemistry rarely defeats students because it is impossible. It defeats them through a handful of repeating faults in the mole concept, energetics, mechanisms and answer-writing. Each is named here with a worked fix.",
  "metaKeywords": ["why students struggle in IB Chemistry", "IB Chemistry difficulty", "IB Chemistry mole calculations", "IB Chemistry stoichiometry help", "how to improve IB Chemistry grade", "IB Chemistry organic mechanisms", "IB Chemistry command terms", "IB Chemistry HL SL study tips"],
  "tags": ["IB DP", "Chemistry", "Exam strategy", "Study plan", "Past papers"]

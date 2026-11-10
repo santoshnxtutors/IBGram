@@ -2,8 +2,8 @@
 {
  "slug": "igcse-maths-parent-guide-0580-0606",
  "title": "IGCSE Maths 0580 and 0606 Explained: A Parent's Guide to Tiers, Papers and Support",
- "metaTitle": "IGCSE Maths 0580 and 0606: A Parent's Guide | IB Gram",
- "metaDescription": "IGCSE Maths 0580 and 0606 explained for parents: Core vs Extended tiers, the Additional Maths decision, papers, exam series and how to help at home week by week.",
+ "metaTitle": "IGCSE Maths 0580 and 0606: Core or Extended?",
+ "metaDescription": "IGCSE Maths 0580 and 0606 for parents: Core vs Extended tiers, whether to add Additional Maths, the papers, exam series and how to help at home each week.",
  "excerpt": "What 0580 and 0606 actually are, which tier your child should sit, whether Additional Maths is worth the extra load, and a practical weekly routine parents can run without being maths experts.",
  "metaKeywords": ["IGCSE Maths 0580 and 0606", "IGCSE Maths parent guide", "Cambridge IGCSE Mathematics 0580", "IGCSE Additional Mathematics 0606", "IGCSE Core vs Extended maths", "should my child take IGCSE Additional Maths", "IGCSE maths papers explained", "IGCSE maths Gurgaon parents", "how to help my child with IGCSE maths"],
  "tags": ["IGCSE", "IGCSE Maths", "Cambridge", "Edexcel", "Choosing a tutor", "Study plan", "Gurgaon"]

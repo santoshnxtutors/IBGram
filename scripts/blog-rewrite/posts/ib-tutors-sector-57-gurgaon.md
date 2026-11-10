@@ -2,8 +2,8 @@
 {
  "slug": "ib-tutors-sector-57-gurgaon",
  "title": "IB Tutors in Sector 57 Gurgaon: Getting Through IA and Extended Essay Season Without Crossing the Line",
- "metaTitle": "IB Tutors in Sector 57 Gurgaon: IA and EE Support",
- "metaDescription": "IB tutors in Sector 57 Gurgaon for coursework season: how IA drafts and Extended Essay milestones are supported within IB integrity rules, and how to plan the term.",
+ "metaTitle": "IB Tutors in Sector 57 Gurgaon: IA and EE Season",
+ "metaDescription": "IB tutors in Sector 57 Gurgaon for coursework season: how IA drafts and Extended Essay milestones get support inside IB academic integrity rules.",
  "excerpt": "A guide for Diploma Programme families in Sector 57 and the Sushant Lok belt: what coursework season involves, what a tutor may and may not do on an IA or Extended Essay, and how to schedule help around school deadlines.",
  "metaKeywords": ["IB tutors in Sector 57 Gurgaon", "IB tutor Sector 57 Gurugram", "IB IA help Gurgaon", "IB Extended Essay support Gurgaon", "IB home tutor Sushant Lok", "IB DP tutor Gurgaon", "IB coursework tutor Gurgaon", "IB internal assessment tutor Gurugram"],
  "tags": ["IB DP", "Gurgaon", "Internal Assessment", "Extended Essay", "Home tuition", "Online tutoring", "Choosing a tutor"]

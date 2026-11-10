@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Layers3 } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { CitySeoPage } from "@/lib/seo/city-page-types";
 import { buildCitySubpagePath } from "@/lib/seo/slug-utils";
 
@@ -9,7 +9,7 @@ export function CityPrograms({ page }: { page: CitySeoPage }) {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 max-w-3xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
-            <Layers3 className="size-3.5" />
+            <Icon name="layers" className="size-3.5" />
             PYP, MYP, DP
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">{page.programSectionTitle}</h2>
@@ -31,7 +31,7 @@ export function CityPrograms({ page }: { page: CitySeoPage }) {
                   <h3 className="text-xl font-black text-foreground group-hover:text-primary">{program.name}</h3>
                   <p className="mt-1 text-xs font-black uppercase tracking-[0.16em] text-muted-foreground">{program.ageRange}</p>
                 </div>
-                <ArrowRight className="size-5 shrink-0 text-primary transition-transform group-hover:translate-x-1" />
+                <Icon name="arrow-right" className="size-5 shrink-0 text-primary transition-transform group-hover:translate-x-1" />
               </div>
               <p className="mb-4 text-sm font-medium leading-relaxed text-muted-foreground">{program.description}</p>
               <p className="text-sm font-semibold leading-relaxed text-foreground/90">{program.cityNote}</p>

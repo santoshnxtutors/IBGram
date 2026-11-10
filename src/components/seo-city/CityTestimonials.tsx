@@ -1,4 +1,4 @@
-import { Quote, SignalHigh } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { CitySeoPage } from "@/lib/seo/city-page-types";
 
 export function CityTestimonials({ page }: { page: CitySeoPage }) {
@@ -7,7 +7,7 @@ export function CityTestimonials({ page }: { page: CitySeoPage }) {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 max-w-3xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
-            <SignalHigh className="size-3.5" />
+            <Icon name="signal-high" className="size-3.5" />
             Local proof
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
@@ -23,7 +23,7 @@ export function CityTestimonials({ page }: { page: CitySeoPage }) {
           {page.localTestimonials.map((item) => (
             <div key={item.title} className="rounded-2xl border border-border/50 bg-muted/10 p-6">
               <div className="mb-4 flex size-11 items-center justify-center rounded-2xl border border-secondary/20 bg-secondary/10 text-amber-800">
-                <Quote className="size-5" />
+                <Icon name="quote" className="size-5" />
               </div>
               <h3 className="mb-3 text-lg font-black text-foreground">{item.title}</h3>
               <p className="mb-5 text-sm font-medium leading-relaxed text-muted-foreground">{item.detail}</p>

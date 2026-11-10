@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, FlaskConical, Sigma } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { CitySeoPage, InventoryStrength } from "@/lib/seo/city-page-types";
 import { buildCitySubpagePath } from "@/lib/seo/slug-utils";
 
@@ -10,7 +10,7 @@ export function CitySubjects({ page }: { page: CitySeoPage }) {
         <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
-              <Sigma className="size-3.5" />
+              <Icon name="sigma" className="size-3.5" />
               Subject support
             </div>
             <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">{page.subjectSectionTitle}</h2>
@@ -31,14 +31,14 @@ export function CitySubjects({ page }: { page: CitySeoPage }) {
               <div className="mb-3 flex items-start justify-between gap-3">
                 <div className="flex gap-3">
                   <div className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                    <FlaskConical className="size-4" />
+                    <Icon name="flask-conical" className="size-4" />
                   </div>
                   <div>
                     <h3 className="text-lg font-black text-foreground group-hover:text-primary">{subject.name}</h3>
                     <p className="text-xs font-black uppercase tracking-[0.14em] text-muted-foreground">{subject.level}</p>
                   </div>
                 </div>
-                <ArrowRight className="size-4 shrink-0 text-primary transition-transform group-hover:translate-x-1" />
+                <Icon name="arrow-right" className="size-4 shrink-0 text-primary transition-transform group-hover:translate-x-1" />
               </div>
               <p className="mb-3 text-sm font-medium leading-relaxed text-muted-foreground">{subject.description}</p>
               <p className="mb-4 text-sm font-semibold leading-relaxed text-foreground/90">{subject.cityNote}</p>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Network } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { CitySeoPage } from "@/lib/seo/city-page-types";
 import { groupInternalLinksByContext } from "@/lib/seo/internal-links";
 
@@ -23,7 +23,7 @@ export function CityInternalLinks({ page }: { page: CitySeoPage }) {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 max-w-3xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-primary">
-            <Network className="size-3.5" />
+            <Icon name="network" className="size-3.5" />
             Explore next
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
@@ -48,7 +48,7 @@ export function CityInternalLinks({ page }: { page: CitySeoPage }) {
                         href={link.targetUrl}
                         className="group inline-flex items-start gap-2 text-sm font-semibold leading-relaxed text-muted-foreground transition-colors hover:text-primary"
                       >
-                        <ArrowUpRight className="mt-0.5 size-4 shrink-0 text-secondary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                        <Icon name="arrow-up-right" className="mt-0.5 size-4 shrink-0 text-secondary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                         <span>{link.anchorText}</span>
                       </Link>
                     </li>

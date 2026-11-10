@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { CitySeoPage } from "@/lib/seo/city-page-types";
 
 export function CityFinalCTA({ page }: { page: CitySeoPage }) {
@@ -9,7 +9,7 @@ export function CityFinalCTA({ page }: { page: CitySeoPage }) {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-3xl">
             <div className="mb-4 flex items-center gap-2 text-primary">
-              <MessageSquare className="size-5" />
+              <Icon name="message-square" className="size-5" />
               <span className="text-[11px] font-black uppercase tracking-[0.22em]">Next step</span>
             </div>
             <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
@@ -24,7 +24,7 @@ export function CityFinalCTA({ page }: { page: CitySeoPage }) {
               className="inline-flex h-14 max-w-xs items-center justify-center whitespace-nowrap rounded-xl bg-primary px-7 text-sm font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
             >
               {page.primaryCtaText || "Book a Free Consultation"}
-              <ArrowRight className="ml-2 size-5" />
+              <Icon name="arrow-right" className="ml-2 size-5" />
             </Link>
             <Link
               href="/tutors/"

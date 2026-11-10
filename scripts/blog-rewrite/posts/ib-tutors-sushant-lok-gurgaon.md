@@ -2,8 +2,8 @@
 {
  "slug": "ib-tutors-sushant-lok-gurgaon",
  "title": "IB Tutors in Sushant Lok, Gurgaon: Phases 1, 2 and 3, Floors vs Societies and Sibling Planning",
- "metaTitle": "IB Tutors in Sushant Lok, Gurgaon | IB Gram",
- "metaDescription": "IB tutors in Sushant Lok Phases 1, 2 and 3: how home tuition works in independent floors and societies, study space, siblings and several DP subjects.",
+ "metaTitle": "IB Tutors in Sushant Lok Gurgaon: Phases 1, 2, 3",
+ "metaDescription": "IB tutors in Sushant Lok Phases 1, 2 and 3: how home tuition works in independent floors versus societies, study space, siblings and several DP subjects.",
  "excerpt": "How to arrange IB tutoring when you live in Sushant Lok 1, 2 or 3: independent floors versus societies, setting up a study space, scheduling siblings, and planning several DP subjects in one household.",
  "metaKeywords": ["IB tutors in Sushant Lok", "IB home tutor Sushant Lok Gurgaon", "IB tuition Sushant Lok 1", "IB tutor Sushant Lok 2", "IB tutor Sushant Lok 3", "IB DP tutor Gurgaon home tuition", "IB MYP tutor Sushant Lok", "IB sibling tutoring Gurgaon"],
  "tags": ["IB DP", "IB MYP", "Gurgaon", "Home tuition", "Online tutoring", "Choosing a tutor", "Study plan"]

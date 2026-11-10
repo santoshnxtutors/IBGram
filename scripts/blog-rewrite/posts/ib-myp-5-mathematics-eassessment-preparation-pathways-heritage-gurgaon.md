@@ -2,8 +2,8 @@
 {
  "slug": "ib-myp-5-mathematics-eassessment-preparation-pathways-heritage-gurgaon",
  "title": "MYP 5 Mathematics eAssessment Preparation: Format, Screen Skills and a 12-Week Plan for Gurgaon Students",
- "metaTitle": "MYP 5 Mathematics eAssessment Preparation Plan",
- "metaDescription": "MYP 5 mathematics eAssessment preparation for Gurgaon students: what the on-screen format means, the screen skills to practise, criteria and a 12-week plan.",
+ "metaTitle": "MYP 5 Maths eAssessment: Format and 12-Week Plan",
+ "metaDescription": "MYP 5 mathematics eAssessment preparation: what the on-screen format changes, the screen skills to drill, how criteria are applied, and a 12-week plan.",
  "excerpt": "MYP eAssessment is optional and each school decides whether to offer it. If your child's school does, the challenge is as much working mathematics on a screen as knowing it. Here is what to check, what to practise and how to time it.",
  "metaKeywords": ["MYP 5 mathematics eAssessment preparation", "MYP eAssessment maths", "MYP 5 maths on-screen exam", "MYP 5 maths preparation Gurgaon", "IB MYP 5 mathematics revision plan", "MYP eAssessment tips", "MYP 5 maths tutor Gurgaon", "MYP maths ePortfolio", "Pathways Heritage MYP 5 maths"],
  "tags": ["IB MYP", "MYP Maths", "Gurgaon", "Exam strategy", "Study plan", "Home tuition", "Online tutoring"]

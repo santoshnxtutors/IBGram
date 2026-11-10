@@ -3,7 +3,7 @@
  "slug": "best-igcse-maths-tutor-near-me-in-gurgaon-sector-wise-guide",
  "title": "IGCSE Maths Tutor Near Me in Gurgaon: A Sector-Wise Guide to Home Tuition Logistics",
  "metaTitle": "IGCSE Maths Tutor Near Me in Gurgaon, By Sector",
- "metaDescription": "IGCSE maths tutor near me in Gurgaon? A sector-wise guide to Golf Course Road, the DLF phases, Sohna Road, New Gurgaon and Old Gurgaon, with home tuition logistics.",
+ "metaDescription": "Looking for an IGCSE maths tutor near me in Gurgaon? Travel times sector by sector, from Golf Course Road to New Gurgaon, and when online wins.",
  "excerpt": "Searching for an IGCSE maths tutor near you in Gurgaon starts with location but should not end there. This guide walks through the main sector clusters and what home maths tuition looks like in each, and when online is the better call.",
  "metaKeywords": ["IGCSE maths tutor near me in Gurgaon", "IGCSE maths tutor Gurgaon sector wise", "IGCSE maths home tutor Gurgaon", "Cambridge IGCSE maths tutor near me", "IGCSE maths tuition Golf Course Road", "IGCSE maths tutor Sohna Road", "IGCSE maths tutor New Gurgaon", "IGCSE maths tutor DLF Phase 4", "IGCSE Extended maths tutor Gurugram"],
  "tags": ["IGCSE", "IGCSE Maths", "Cambridge", "Edexcel", "Gurgaon", "Home tuition", "Online tutoring", "Choosing a tutor"]

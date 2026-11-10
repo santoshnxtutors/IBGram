@@ -2,8 +2,8 @@
 {
  "slug": "ib-maths-private-tutor-fees-india-what-parents-should-expect",
  "title": "IB Maths Private Tutor Fees in India: What Moves the Price and What You Should Get for It",
- "metaTitle": "IB Maths Private Tutor Fees in India | IB Gram",
- "metaDescription": "IB maths private tutor fees in India explained: why rates differ by city, mode and level, what an hour includes, and the questions to ask before you pay.",
+ "metaTitle": "IB Maths Private Tutor Fees in India, Explained",
+ "metaDescription": "IB maths private tutor fees in India: why rates differ by city, mode and level, what an hour should include, and the five questions to ask before you pay.",
  "excerpt": "Why IB maths private tutor fees in India vary so widely, what a paid hour should include for MYP and DP students, and the questions that separate real value from branding. No price list, just how to judge.",
  "metaKeywords": ["IB maths private tutor fees in India", "IB maths tutor fees India", "how much does an IB maths tutor cost", "IB maths tutor hourly rate India", "MYP maths tutor fees", "IB DP maths tutor cost", "is an IB maths tutor worth it", "private tutor fees for IB students"],
  "tags": ["Fees", "Choosing a tutor", "IB MYP", "IB DP", "Maths AA", "MYP Maths", "Home tuition", "Online tutoring"]

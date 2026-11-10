@@ -2,8 +2,8 @@
 {
  "slug": "best-ib-maths-tutor-in-gurgaon",
  "title": "Best IB Maths Tutor in Gurgaon: How to Judge Which One Is Best for Your Child",
- "metaTitle": "Best IB Maths Tutor in Gurgaon: How to Judge",
- "metaDescription": "How to find the best IB maths tutor in Gurgaon for MYP extended, AA HL, AA SL or AI: the evidence that separates strong tutors, plus Ajay Vatsyayan's approach.",
+ "metaTitle": "IB Maths Tutor in Gurgaon: How to Judge the Best",
+ "metaDescription": "How to pick the best IB maths tutor in Gurgaon for MYP extended, AA HL or AI: the evidence that separates strong tutors, plus a free demo lesson first.",
  "excerpt": "There is no single best IB maths tutor, only the best fit for a profile. This guide sets out what that means for MYP extended, AA HL, AA SL and AI students in Gurgaon, and the evidence worth asking for.",
  "metaKeywords": ["best IB maths tutor in Gurgaon", "IB maths tutor Gurgaon", "IB maths home tutor Gurugram", "IB MYP maths tutor Gurgaon", "IB AA HL tutor Gurgaon", "IB AI tutor Gurgaon", "IB maths one-to-one tuition", "Ajay Vatsyayan IB maths", "IB maths tutor for DLF Phase 5"],
  "tags": ["IB DP", "IB MYP", "Maths AA", "Maths AI", "MYP Maths", "Gurgaon", "Home tuition", "Choosing a tutor"]

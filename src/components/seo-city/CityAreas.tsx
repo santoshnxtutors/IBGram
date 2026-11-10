@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, MapPinned } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { CitySeoPage } from "@/lib/seo/city-page-types";
 import { buildCityAreaPath } from "@/lib/seo/slug-utils";
 
@@ -9,7 +9,7 @@ export function CityAreas({ page }: { page: CitySeoPage }) {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-10 max-w-3xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
-            <MapPinned className="size-3.5" />
+            <Icon name="map-pinned" className="size-3.5" />
             Areas covered
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">{page.areaSectionTitle}</h2>
@@ -22,7 +22,7 @@ export function CityAreas({ page }: { page: CitySeoPage }) {
               <div className="h-full rounded-2xl border border-border/50 bg-muted/10 p-5 transition-all hover:border-primary/40 hover:bg-muted/20">
                 <div className="mb-3 flex items-start justify-between gap-3">
                   <h3 className="text-xl font-black text-foreground">{area.name}</h3>
-                  {area.pageEnabled ? <ArrowRight className="size-4 shrink-0 text-primary" /> : null}
+                  {area.pageEnabled ? <Icon name="arrow-right" className="size-4 shrink-0 text-primary" /> : null}
                 </div>
                 <p className="text-sm font-medium leading-relaxed text-muted-foreground">{area.description}</p>
                 {area.nearbyLandmarks?.length ? (

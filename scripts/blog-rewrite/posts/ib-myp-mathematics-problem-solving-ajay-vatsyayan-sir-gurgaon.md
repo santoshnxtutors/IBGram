@@ -2,8 +2,8 @@
 {
  "slug": "ib-myp-mathematics-problem-solving-ajay-vatsyayan-sir-gurgaon",
  "title": "MYP Maths Problem Solving: Real-Life Tasks, Modelling Routines and How a Tutor Withdraws Support",
- "metaTitle": "MYP Maths Problem Solving: Criterion D and Routines",
- "metaDescription": "MYP maths problem solving explained: how Criterion D real-life tasks work, a routine for unfamiliar problems, worked modelling examples and how a tutor fades help.",
+ "metaTitle": "MYP Maths Problem Solving: Criterion D Routines",
+ "metaDescription": "MYP maths problem solving for Criterion D: how real-life tasks are marked, a routine for unfamiliar problems, and worked modelling examples.",
  "excerpt": "How MYP students learn to handle unfamiliar maths problems: what Criterion D real-life tasks ask, a step-by-step routine for modelling, worked examples with checks, and how a good tutor gradually removes scaffolding so the student works alone.",
  "metaKeywords": ["MYP maths problem solving", "MYP Criterion D real-life", "MYP maths modelling", "MYP maths unfamiliar problems", "IB MYP maths tutor Gurgaon", "MYP maths independent thinking", "applying mathematics real-life contexts", "MYP 4 MYP 5 maths"],
  "tags": ["IB MYP", "MYP Maths", "Gurgaon", "Exam strategy", "Home tuition", "Choosing a tutor"]

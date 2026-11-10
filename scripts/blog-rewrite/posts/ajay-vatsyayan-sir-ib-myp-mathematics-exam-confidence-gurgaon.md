@@ -2,8 +2,8 @@
 {
  "slug": "ajay-vatsyayan-sir-ib-myp-mathematics-exam-confidence-gurgaon",
  "title": "MYP Maths Exam Confidence: How to Stop Freezing on Unfamiliar Questions",
- "metaTitle": "MYP Maths Exam Confidence: A Practical Guide",
- "metaDescription": "Build MYP maths exam confidence with error logs, graded timed practice, retrieval, a start-anywhere routine and a clear role for parents, with Ajay Vatsyayan.",
+ "metaTitle": "MYP Maths Exam Confidence: Stop Freezing Up",
+ "metaDescription": "Build MYP maths exam confidence with an error log, graded timed practice, retrieval and a start-anywhere routine, plus the role parents should play.",
  "excerpt": "Why capable MYP students freeze when a question looks new, and a practical system for building exam confidence: diagnosis, an error log, retrieval, graded timed practice, an exam-day routine and what parents should and should not do.",
  "metaKeywords": ["MYP maths exam confidence", "MYP maths exam anxiety", "IB MYP maths exam tips", "how to stop freezing in maths exam", "MYP maths timed practice", "MYP maths error log", "MYP maths revision retrieval practice", "help child maths exam confidence", "Ajay Vatsyayan MYP maths", "MYP 5 maths exam preparation"],
  "tags": ["IB MYP", "MYP Maths", "Exam strategy", "Study plan", "Gurgaon", "Home tuition"]

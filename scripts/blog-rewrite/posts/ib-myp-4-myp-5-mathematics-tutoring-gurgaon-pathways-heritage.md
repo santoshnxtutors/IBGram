@@ -2,8 +2,8 @@
 {
  "slug": "ib-myp-4-myp-5-mathematics-tutoring-gurgaon-pathways-heritage",
  "title": "MYP 4 and MYP 5 Mathematics Tutoring in Gurgaon: Standard vs Extended and the Road to DP AA or AI",
- "metaTitle": "MYP 4 and MYP 5 Mathematics Tutoring in Gurgaon",
- "metaDescription": "MYP 4 and MYP 5 mathematics tutoring in Gurgaon: standard vs extended maths, a topic map for both years, and how to prepare for the DP AA or AI choice.",
+ "metaTitle": "MYP 4 and 5 Maths Tutor in Gurgaon: Extended",
+ "metaDescription": "MYP 4 and MYP 5 mathematics tutoring in Gurgaon for Pathways and Heritage students: standard vs extended, a topic map, and the DP AA or AI decision.",
  "excerpt": "What MYP 4 and MYP 5 mathematics tutoring should actually cover in Gurgaon: how standard and extended maths differ, a topic map for the two years, and the signals that point towards DP Analysis and Approaches or Applications and Interpretation.",
  "metaKeywords": ["MYP 4 and MYP 5 mathematics tutoring", "IB MYP maths tutor Gurgaon", "MYP extended mathematics", "MYP standard vs extended maths", "MYP to DP maths transition", "IB MYP 5 maths tutor", "MYP maths AA or AI preparation", "MYP maths home tutor Gurgaon"],
  "tags": ["IB MYP", "MYP Maths", "Maths AA", "Maths AI", "Gurgaon", "Home tuition", "Subject choice", "Study plan"]

@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, MapPin, MessageCircleQuestion, ShieldCheck } from "lucide-react";
 import { HeroHighlights } from "@/components/shared/HeroHighlights";
 import { BookDemoButton } from "@/components/booking/BookDemoButton";
 import { BookDemoCta } from "@/components/booking/BookDemoCta";
+import { Icon, IconSprite } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/seo-city/JsonLd";
 import { SchoolStrip } from "@/components/shared/SchoolStrip";
 import { getMumbaiNearbySchools } from "@/lib/mumbai-seo/schools";
@@ -61,6 +61,7 @@ export function MumbaiSeoLanding({
   return (
     <div className="min-h-screen bg-background">
       <JsonLd data={buildMumbaiSeoSchema(page)} />
+      <IconSprite />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-background pt-6 pb-10 md:pt-8 md:pb-12">
@@ -75,7 +76,7 @@ export function MumbaiSeoLanding({
               </div>
               <div className="space-y-5">
                 <p className="flex items-center gap-2 text-sm font-bold text-muted-foreground">
-                  <MapPin className="size-4 text-secondary" />
+                  <Icon name="map-pin" className="size-4 text-secondary" />
                   {placeLine}
                 </p>
                 <h1 className="max-w-5xl text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl">
@@ -91,7 +92,7 @@ export function MumbaiSeoLanding({
                   label={
                     <>
                       Send a Query
-                      <ArrowRight className="size-5" />
+                      <Icon name="arrow-right" className="size-5" />
                     </>
                   }
                 />
@@ -100,7 +101,7 @@ export function MumbaiSeoLanding({
               <div className="grid gap-3 border-t border-border/50 pt-6 sm:grid-cols-2">
                 {content.trustPoints.map((point) => (
                   <div key={point} className="flex items-start gap-2.5 text-sm font-semibold text-foreground/90">
-                    <ShieldCheck className="mt-0.5 size-4 shrink-0 text-primary" />
+                    <Icon name="shield-check" className="mt-0.5 size-4 shrink-0 text-primary" />
                     <span>{point}</span>
                   </div>
                 ))}
@@ -172,7 +173,7 @@ export function MumbaiSeoLanding({
                       key={bullet}
                       className="flex items-start gap-2.5 rounded-xl border border-border/50 bg-muted/10 p-3 text-sm font-semibold text-foreground/90"
                     >
-                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+                      <Icon name="circle-check" className="mt-0.5 size-4 shrink-0 text-primary" />
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -189,7 +190,7 @@ export function MumbaiSeoLanding({
           <div className="container mx-auto px-4 md:px-6">
             <div className="mb-8">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
-                <MessageCircleQuestion className="size-3.5" />
+                <Icon name="message-circle-question-mark" className="size-3.5" />
                 FAQs
               </div>
               <h2 className="text-2xl font-black tracking-tight text-foreground md:text-4xl">
@@ -262,7 +263,7 @@ export function MumbaiSeoLanding({
                 className="flex items-center justify-between gap-3 rounded-xl border border-border/50 bg-muted/10 px-4 py-3 text-sm font-bold text-foreground/90 transition-all hover:border-primary/40 hover:text-primary"
               >
                 <span>{link.label}</span>
-                <ArrowRight className="size-4 shrink-0 text-primary" />
+                <Icon name="arrow-right" className="size-4 shrink-0 text-primary" />
               </Link>
             ))}
           </div>
@@ -282,7 +283,7 @@ export function MumbaiSeoLanding({
               className="shimmer-btn inline-flex h-14 items-center justify-center rounded-xl border border-primary/30 bg-primary px-8 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
             >
               Book a free academic consultation
-              <ArrowRight className="ml-2 size-5" />
+              <Icon name="arrow-right" className="ml-2 size-5" />
             </Link>
           </div>
         </div>

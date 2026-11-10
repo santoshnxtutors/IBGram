@@ -2,8 +2,8 @@
 {
  "slug": "ib-dp-core-planning-timeline",
  "title": "IB DP Core Timeline: A Two-Year Plan for CAS, the Extended Essay and TOK",
- "metaTitle": "What Is the IB DP Core? TOK, EE and CAS Explained",
- "metaDescription": "An IB DP core timeline for TOK, the Extended Essay and CAS: what each one demands, where they collide, and how to plan from DP1 to the final mocks.",
+ "metaTitle": "IB DP Core: TOK, EE and CAS Deadlines Explained",
+ "metaDescription": "An IB DP core timeline for TOK, EE and CAS: every deadline from DP1 term 1 to the final mocks, where the three collide, and how to clear them early.",
  "excerpt": "A practical two-year calendar for the three parts of the Diploma core. See where CAS, the Extended Essay and Theory of Knowledge collide with subject IAs and mocks, and how to space the work so DP2 stays calm.",
  "metaKeywords": ["IB DP core timeline", "IB core planning", "CAS EE TOK timeline", "IB DP1 core plan", "Extended Essay deadline planning", "TOK essay deadline", "IB DP2 workload", "IB core and IA clash", "how to manage CAS EE and TOK"],
  "tags": ["IB DP", "Study plan", "Extended Essay", "TOK", "CAS", "Internal Assessment", "Gurgaon"]

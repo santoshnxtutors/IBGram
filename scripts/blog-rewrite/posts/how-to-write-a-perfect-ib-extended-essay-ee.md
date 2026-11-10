@@ -2,8 +2,8 @@
 {
  "slug": "how-to-write-a-perfect-ib-extended-essay-ee",
  "title": "How to Write an IB Extended Essay: Research Question to Final Draft, Step by Step",
- "metaTitle": "How to Write an IB Extended Essay | IB Gram",
- "metaDescription": "How to write an IB Extended Essay: choose a subject, shape a researchable question, run supervisor sessions, structure 4,000 words and finish on time.",
+ "metaTitle": "How to Write an IB Extended Essay: 4,000 Words",
+ "metaDescription": "How to write an IB Extended Essay step by step: pick a subject, shape a researchable question, run the three reflection sessions and finish on time.",
  "excerpt": "A working method for the 4,000-word Extended Essay: how to pick a subject, test a research question, use your supervisor, build the argument and keep the reflection record honest.",
  "metaKeywords": ["how to write an IB Extended Essay", "IB Extended Essay research question", "IB EE structure", "IB EE timeline", "IB EE supervisor meetings", "IB EE reflection sessions", "IB EE topic ideas", "IB Extended Essay word count", "IB Extended Essay help", "IB EE mistakes"],
  "tags": ["IB DP", "Extended Essay", "Study plan", "Exam strategy", "Gurgaon", "Choosing a tutor"]

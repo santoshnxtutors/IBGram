@@ -2,8 +2,8 @@
 {
  "slug": "3-month-study-plan-for-igcse-maths-0580",
  "title": "IGCSE Maths 0580 Study Plan: A 12-Week Programme From Topic Blocks to the Final Fortnight",
- "metaTitle": "IGCSE Maths 0580 Study Plan: 12 Weeks to the Exam",
- "metaDescription": "A week-by-week IGCSE Maths 0580 study plan: topic blocks, past-paper weeks, an error log and the final fortnight, for Core and Extended students.",
+ "metaTitle": "IGCSE Maths 0580 Study Plan: 12 Weeks to Exam",
+ "metaDescription": "A week-by-week IGCSE Maths 0580 study plan over 12 weeks: topic blocks, past-paper weeks, an error log and the final fortnight, for Core and Extended.",
  "excerpt": "Twelve weeks is enough to turn a patchy 0580 student into a prepared one if the weeks are used in the right order. Here is the plan, week by week, with the reasoning behind each block.",
  "metaKeywords": ["IGCSE Maths 0580 study plan", "IGCSE maths 12 week plan", "3 month IGCSE maths revision", "Cambridge IGCSE Maths 0580 revision timetable", "IGCSE maths 0580 past paper plan", "IGCSE maths final fortnight", "0580 Extended revision plan", "IGCSE maths error log"],
  "tags": ["IGCSE", "IGCSE Maths", "Study plan", "Past papers", "Exam strategy", "Cambridge", "Gurgaon"]

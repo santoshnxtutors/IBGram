@@ -1,4 +1,3 @@
-import { GitBranch } from "lucide-react";
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
 import { GeneratedBlockSection } from "./GeneratedSection";
 import { TutorAvailabilitySection } from "@/components/tutors/TutorAvailabilitySection";
@@ -10,7 +9,7 @@ export function GeneratedTutorMatching({ page }: { page: GeneratedSeoPage }) {
 
   return (
     <>
-      <GeneratedBlockSection page={page} type="matching_process" icon={GitBranch} eyebrow="Matching" fallbackTitle="Tutor Matching Process" tinted />
+      <GeneratedBlockSection page={page} type="matching_process" icon="git-branch" eyebrow="Matching" fallbackTitle="Tutor Matching Process" tinted />
       <TutorAvailabilitySection
         title={`IB tutors mapped to ${page.microLocationName ?? page.cityName}`}
         description={buildTutorAvailabilityIntro({

@@ -2,8 +2,8 @@
 {
  "slug": "why-ib-myp-maths-tutor-charges-5000-per-hour",
  "title": "Why an IB MYP Maths Tutor Charges ₹5,000 Per Hour, and When It Is Worth It",
- "metaTitle": "Why IB MYP Maths Tutors Ask ₹5,000 Per Hour | IB Gram",
- "metaDescription": "What sits behind a ₹5,000 per hour IB MYP maths tutor fee: unseen preparation, criterion feedback, when it pays off, and when a cheaper tutor is the better buy.",
+ "metaTitle": "Why an IB MYP Maths Tutor Asks ₹5,000 Per Hour",
+ "metaDescription": "What sits behind a ₹5,000 per hour IB MYP maths tutor fee: unseen prep, criterion feedback, when it pays off, and when a cheaper tutor is the better buy.",
  "excerpt": "A plain look at the economics behind a premium MYP maths rate: the preparation and feedback hours parents never see, what the fee should buy, and the cases where it is money wasted.",
  "metaKeywords": ["₹5,000 per hour", "why IB MYP maths tutor charges so much", "premium IB maths tutor fees", "IB MYP maths tutor Gurgaon", "is a premium IB tutor worth it", "MYP maths tutor cost", "IB tutor hourly rate India", "what does an IB tutor fee include"],
  "tags": ["IB MYP", "MYP Maths", "Fees", "Choosing a tutor", "Gurgaon", "Home tuition"]

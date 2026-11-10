@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import type { GeneratedSeoPage } from "@/lib/page-generator/types";
 import { localCityLabel } from "./city-label";
 
@@ -21,7 +21,7 @@ export function GeneratedFinalCTA({ page }: { page: GeneratedSeoPage }) {
             className="mt-7 inline-flex h-14 max-w-xs items-center justify-center whitespace-nowrap rounded-xl bg-primary px-7 text-base font-black text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
           >
             Book a Free Consultation
-            <ArrowRight className="ml-2 size-5" />
+            <Icon name="arrow-right" className="ml-2 size-5" />
           </Link>
         </div>
       </div>

@@ -2,8 +2,8 @@
 {
  "slug": "how-to-choose-right-ib-myp-maths-tutor-parents-guide",
  "title": "How to Choose the Right IB MYP Maths Tutor: Interview, Trial Lesson and Six-Week Review",
- "metaTitle": "How to Choose the Right IB MYP Maths Tutor",
- "metaDescription": "How to choose the right IB MYP maths tutor in any city or online: a parent's step-by-step interview, a trial lesson that reveals the fit, and a six-week review.",
+ "metaTitle": "How to Choose an IB MYP Maths Tutor: Trial First",
+ "metaDescription": "How to choose the right IB MYP maths tutor, in any city or online: a parent's interview script, a trial lesson that reveals fit, and a six-week review.",
  "excerpt": "A step-by-step guide for parents anywhere: diagnose your child's problem, interview against MYP criteria A to D, run a trial that shows real teaching, and review the match after six weeks.",
  "metaKeywords": ["how to choose the right IB MYP maths tutor", "IB MYP maths tutor", "MYP maths tutor questions to ask", "MYP maths trial lesson", "MYP criteria tutor", "IB MYP maths tuition parents guide", "online IB MYP maths tutor", "MYP 4 MYP 5 maths tutor"],
  "tags": ["IB MYP", "MYP Maths", "Choosing a tutor", "Home tuition", "Online tutoring", "Study plan"]

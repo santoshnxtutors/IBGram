@@ -2,8 +2,8 @@
 {
  "slug": "ib-exam-strategy-how-toppers-study-in-the-last-30-days",
  "title": "Last 30 Days Before IB Exams: A Day-by-Day Plan, Triage Rules and Paper Rotation",
- "metaTitle": "Last 30 Days Before IB Exams: Day-by-Day Plan",
- "metaDescription": "A practical plan for the last 30 days before IB exams: triage rules, paper rotation, sleep and logistics, built for Diploma students sitting the May session.",
+ "metaTitle": "Last 30 Days Before IB Exams: What to Drop",
+ "metaDescription": "A plan for the last 30 days before IB exams: what to drop, triage rules, paper rotation, sleep and logistics, for Diploma students sitting the May session.",
  "excerpt": "How strong IB Diploma students actually spend the final month: what to triage, how to rotate papers, how much to sleep and what to sort out before the first exam. Built around the May session, not around hours of study.",
  "metaKeywords": ["last 30 days before IB exams", "IB final month revision plan", "IB revision timetable May session", "how to revise for IB exams in one month", "IB last minute revision", "IB exam triage", "IB past paper rotation", "IB exam week checklist", "how to study the month before IB exams"],
  "tags": ["IB DP", "Exam strategy", "Study plan", "Past papers", "Gurgaon", "Choosing a tutor"]

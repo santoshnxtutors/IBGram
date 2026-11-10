@@ -13,9 +13,9 @@ import { GeneratedSubjects } from "./GeneratedSubjects";
 import { GeneratedTrustBar } from "./GeneratedTrustBar";
 import { GeneratedTutorMatching } from "./GeneratedTutorMatching";
 import { GeneratedVerification } from "./GeneratedVerification";
+import { IconSprite } from "@/components/ui/Icon";
 import { JsonLd } from "./JsonLd";
 import { GeneratedBlockSection, GeneratedRemainingBlocks } from "./GeneratedSection";
-import { GitBranch, Laptop } from "lucide-react";
 
 export function GeneratedPageRenderer({
   page,
@@ -49,6 +49,9 @@ export function GeneratedPageRenderer({
 
   return (
     <div className="min-h-screen bg-background">
+      {/* One sprite per document: every route that renders a generated page returns
+          this component alone, so the <use href="#i-*"> references below resolve. */}
+      <IconSprite />
       <JsonLd data={schema} />
       <GeneratedHero page={page} />
       <GeneratedTrustBar page={page} />
@@ -60,7 +63,7 @@ export function GeneratedPageRenderer({
           prose, which no other section renders. */}
       {tutorSection ? (
         <>
-          <GeneratedBlockSection page={page} type="matching_process" icon={GitBranch} eyebrow="Matching" fallbackTitle="Tutor Matching Process" tinted />
+          <GeneratedBlockSection page={page} type="matching_process" icon="git-branch" eyebrow="Matching" fallbackTitle="Tutor Matching Process" tinted />
           {tutorSection}
         </>
       ) : (
@@ -70,7 +73,7 @@ export function GeneratedPageRenderer({
       <GeneratedSubjects page={page} />
       <GeneratedLocalAreas page={page} />
       <GeneratedSchools page={page} />
-      <GeneratedBlockSection page={page} type="tutoring_modes" icon={Laptop} eyebrow="Modes" fallbackTitle="Home and Online Tutoring Options" tinted />
+      <GeneratedBlockSection page={page} type="tutoring_modes" icon="laptop" eyebrow="Modes" fallbackTitle="Home and Online Tutoring Options" tinted />
       <GeneratedComparison page={page} />
       <GeneratedVerification page={page} />
       <GeneratedRemainingBlocks page={page} />

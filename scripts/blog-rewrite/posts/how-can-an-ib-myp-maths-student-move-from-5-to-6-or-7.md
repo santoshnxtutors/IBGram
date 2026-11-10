@@ -2,8 +2,8 @@
 {
  "slug": "how-can-an-ib-myp-maths-student-move-from-5-to-6-or-7",
  "title": "Move From a 5 to a 7 in MYP Maths: The Criterion Totals Behind Each Grade",
- "metaTitle": "Move From a 5 to a 7 in MYP Maths: Criterion Guide",
- "metaDescription": "How to move from a 5 to a 7 in MYP maths: the criterion totals behind each final grade, which of A, B, C and D moves fastest, and an upgrade plan for each one.",
+ "metaTitle": "MYP Maths: How to Move From a 5 to a 6 or 7",
+ "metaDescription": "How to move from a 5 to a 7 in MYP maths: the criterion totals behind each grade boundary, which of A, B, C and D moves fastest, and a plan for each one.",
  "excerpt": "The final MYP maths grade is built from four criteria scored 0 to 8. This guide shows the arithmetic behind a 5, 6 and 7, which criterion usually moves fastest, and what a one-level upgrade in each looks like.",
  "metaKeywords": ["move from a 5 to a 7 in MYP maths", "MYP maths 5 to 6", "MYP maths grade boundaries", "how to get a 7 in MYP maths", "MYP maths criteria levels", "improve MYP maths grade", "MYP criterion A B C D upgrade", "MYP maths 28 out of 32"],
  "tags": ["IB MYP", "MYP Maths", "Exam strategy", "Study plan", "Choosing a tutor", "Gurgaon"]

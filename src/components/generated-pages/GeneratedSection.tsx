@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import type { GeneratedContentBlock, GeneratedSeoPage } from "@/lib/page-generator/types";
 
 /** Block types claimed by a dedicated section in GeneratedPageRenderer. */
@@ -50,14 +50,14 @@ export function GeneratedRemainingBlocks({ page }: { page: GeneratedSeoPage }) {
 export function GeneratedBlockSection({
   page,
   type,
-  icon: Icon,
+  icon,
   eyebrow,
   fallbackTitle,
   tinted = false,
 }: {
   page: GeneratedSeoPage;
   type: GeneratedContentBlock["type"];
-  icon: LucideIcon;
+  icon: IconName;
   eyebrow: string;
   fallbackTitle: string;
   tinted?: boolean;
@@ -73,7 +73,7 @@ export function GeneratedBlockSection({
       <div className="container mx-auto grid gap-8 px-4 md:px-6 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-800">
-            <Icon className="size-3.5" />
+            <Icon name={icon} className="size-3.5" />
             {eyebrow}
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground md:text-4xl">{block.heading || fallbackTitle}</h2>

@@ -2,8 +2,8 @@
 {
  "slug": "ib-maths-coaching-vs-private-tutor-myp-student",
  "title": "IB Maths Coaching vs Private Tutor for an MYP Student: A Fair Comparison by Criterion",
- "metaTitle": "IB Maths Private Tutor vs Coaching: Which Is Better?",
- "metaDescription": "IB maths coaching vs private tutor, compared fairly: where a group class works, where private one-to-one tutoring wins, and how to decide using criteria A to D.",
+ "metaTitle": "MYP Maths Tutor or Coaching Class? How to Choose",
+ "metaDescription": "IB maths coaching vs private tutor for an MYP student: what a group class does well, where one-to-one MYP tutoring wins, and a free demo to test the fit.",
  "excerpt": "Neither a coaching class nor a private tutor is better in general. This guide compares them for MYP maths on criteria A to D, pace, feedback, cost drivers and student type, then gives a way to decide.",
  "metaKeywords": ["IB maths coaching vs private tutor", "MYP maths coaching or tutor", "IB MYP maths private tutor", "group coaching vs one-to-one MYP maths", "MYP maths coaching Gurgaon", "IB MYP mathematics support", "MYP criteria A B C D tutor", "MYP maths tutor or coaching class"],
  "tags": ["IB MYP", "MYP Maths", "Gurgaon", "Choosing a tutor", "Fees"]

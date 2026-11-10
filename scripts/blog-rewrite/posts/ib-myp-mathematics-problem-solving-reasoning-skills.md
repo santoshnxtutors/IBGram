@@ -2,8 +2,8 @@
 {
  "slug": "ib-myp-mathematics-problem-solving-reasoning-skills",
  "title": "IB MYP Mathematics Reasoning Skills: How to Find, Generalise and Justify Patterns in Criterion B",
- "metaTitle": "IB MYP Mathematics Reasoning Skills (Criterion B)",
- "metaDescription": "IB MYP Mathematics reasoning skills explained: how to investigate patterns, write a general rule and justify it, with worked examples and practice for each MYP year.",
+ "metaTitle": "MYP Criterion B: Patterns, Rules and Justifying",
+ "metaDescription": "IB MYP Mathematics reasoning skills for Criterion B: how to spot a pattern, write the general rule and justify it, with worked examples for each MYP year.",
  "excerpt": "How to build IB MYP Mathematics reasoning skills for Criterion B: investigating patterns, stating a general rule, and justifying it, with worked examples, common mistakes and a practice route for MYP 1 to 5.",
  "metaKeywords": ["IB MYP Mathematics reasoning skills", "MYP maths criterion B", "investigating patterns MYP", "MYP maths generalising and justifying", "MYP maths proof", "MYP maths investigation help", "how to improve MYP maths reasoning", "MYP maths problem solving"],
  "tags": ["IB MYP", "MYP Maths", "Exam strategy", "Study plan", "Choosing a tutor"]
