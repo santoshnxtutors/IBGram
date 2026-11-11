@@ -43,6 +43,7 @@ export const SITEMAP_FILES = [
   "mumbai",
   "country",
   "uae",
+  "saudi",
   "blogs",
   "teacher",
 ] as const;
@@ -61,6 +62,10 @@ const DEDUPE_ORDER: SitemapFile[] = [
   "pages",
   "blogs",
   "teacher",
+  // Saudi before "country": /saudi-arabia/ is both the country landing page and the Saudi
+  // set's hub, and every Saudi URL belongs in one submitted file so its indexed count means
+  // something in Search Console.
+  "saudi",
   "uae",
   "mumbai",
   "gurgaon",
@@ -78,6 +83,7 @@ export const SITEMAP_FILE_LABELS: Record<SitemapFile, string> = {
   mumbai: "Mumbai hub and long-tail pages",
   country: "Country landing pages",
   uae: "UAE emirate, area and keyword pages",
+  saudi: "Saudi Arabia hub, city, district and keyword pages",
   blogs: "Blog posts",
   teacher: "Tutor profiles and tutor reach pages",
 };
@@ -152,6 +158,7 @@ export async function getSitemapSections(): Promise<Record<SitemapFile, Metadata
     mumbai: code.mumbai,
     country: code.countries,
     uae: code.uae,
+    saudi: code.saudi,
     blogs,
     teacher: [...code["tutor-profiles"], ...teacher],
   };

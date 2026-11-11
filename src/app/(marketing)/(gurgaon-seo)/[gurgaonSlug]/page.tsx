@@ -13,6 +13,7 @@ import { TutorDiscovery } from "@/components/home/TutorDiscovery";
 import { getGurgaonKeywordPage, gurgaonKeywordSlugs } from "@/lib/gurgaon-keywords";
 import { buildGeneratedMetadata } from "@/lib/page-generator/metadata-generator";
 import { buildCountrySeoMetadata, countrySeoSlugs, getCountrySeoPage } from "@/lib/country-seo";
+import { getSaudiHubDirectory } from "@/lib/saudi-seo";
 import { buildCitySeoMetadata, buildCitySeoSchema, citySeoSlugs, getCitySeoPage, getCitySeoRelated } from "@/lib/india-cities";
 import { buildTutorJobSeoMetadata, getTutorJobSeoPage, tutorJobSeoSlugs } from "@/lib/tutor-jobs-seo";
 import { TutorJobsLanding } from "@/components/tutor-jobs-seo/TutorJobsLanding";
@@ -90,6 +91,11 @@ export default async function RootSeoLandingPage({ params }: PageProps) {
         page={countryPage}
         tutors={tutors ?? undefined}
         reviews={reviews ?? undefined}
+        // /saudi-arabia/ is the only inbound path to the 500-page Saudi set other than the
+        // sitemap, and a URL that is in a sitemap but linked from nowhere is the textbook
+        // "Discovered - currently not indexed" case. Undefined until pages are written, so
+        // every other country page renders unchanged.
+        directory={countryPage.slug === "saudi-arabia" ? getSaudiHubDirectory() : undefined}
         articles={posts.map((p) => ({
           title: p.title,
           href: blogPath(p),

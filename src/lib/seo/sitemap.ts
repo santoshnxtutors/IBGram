@@ -25,6 +25,7 @@ import { getTutorJobSitemapEntries } from "@/lib/tutor-jobs-seo";
 import { getCitySeoSitemapEntries } from "@/lib/india-cities";
 import { getMumbaiSeoSitemapEntries } from "@/lib/mumbai-seo";
 import { getUaeSeoSitemapEntries } from "@/lib/uae-seo";
+import { getSaudiSeoSitemapEntries } from "@/lib/saudi-seo";
 
 const LAST_MODIFIED = "2026-09-04";
 const COURSE_SUBJECT_SLUGS = ["pyp", "myp", "dp", "cp", "mathematics", "sciences", "individuals", "individuals-and-societies", "english", "language", "arts"];
@@ -69,6 +70,9 @@ export function getSeoSitemapEntries(): MetadataRoute.Sitemap {
  */
 export const SITEMAP_SECTIONS = [
   "core",
+  // Saudi first: its hub URL /saudi-arabia/ is also a country-landing URL, and first-wins
+  // dedupe is what keeps every Saudi URL in the Saudi file rather than split across two.
+  "saudi",
   "uae",
   "mumbai",
   "gurgaon",
@@ -94,6 +98,7 @@ export function getSectionedSitemapEntries(): Record<SitemapSection, MetadataRou
       // other static pages rather than in a section of their own.
       ...getTutorJobSitemapEntries(),
     ],
+    saudi: [...getSaudiSeoSitemapEntries()],
     uae: [...getUaeSeoSitemapEntries()],
     mumbai: [...getMumbaiSeoSitemapEntries()],
     gurgaon: [...getGurgaonSeoSitemapEntries(), ...getGurgaonKeywordSitemapEntries()],
